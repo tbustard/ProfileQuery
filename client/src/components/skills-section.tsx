@@ -15,33 +15,33 @@ interface SkillCategory {
 export default function SkillsSection() {
   const skillCategories: SkillCategory[] = [
     {
-      title: "Frontend",
+      title: "Financial Analysis",
       icon: Monitor,
       skills: [
-        { name: "React", level: 5 },
-        { name: "TypeScript", level: 4 },
-        { name: "Next.js", level: 4 },
-        { name: "Tailwind CSS", level: 5 },
+        { name: "Financial Modeling", level: 5 },
+        { name: "Equity Research", level: 5 },
+        { name: "Portfolio Management", level: 4 },
+        { name: "Risk Assessment", level: 4 },
       ],
     },
     {
-      title: "Backend",
+      title: "Data & Technology",
       icon: Server,
       skills: [
-        { name: "Node.js", level: 5 },
-        { name: "Python", level: 5 },
-        { name: "PostgreSQL", level: 4 },
-        { name: "MongoDB", level: 4 },
+        { name: "Python", level: 4 },
+        { name: "SQL", level: 5 },
+        { name: "Power BI", level: 4 },
+        { name: "Tableau", level: 4 },
       ],
     },
     {
-      title: "Tools & Others",
+      title: "Certifications",
       icon: Wrench,
       skills: [
-        { name: "Git", level: 5 },
-        { name: "Docker", level: 4 },
-        { name: "AWS", level: 3 },
-        { name: "OpenAI API", level: 4 },
+        { name: "CFA Level I", level: 4 },
+        { name: "Wall Street Prep", level: 5 },
+        { name: "Google Analytics", level: 4 },
+        { name: "Machine Learning", level: 3 },
       ],
     },
   ];

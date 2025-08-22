@@ -56,9 +56,9 @@ export default function ContactSection() {
   };
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: "john.developer@email.com" },
-    { icon: Phone, label: "Phone", value: "+1 (555) 123-4567" },
-    { icon: MapPin, label: "Location", value: "San Francisco, CA" },
+    { icon: Mail, label: "Email", value: "tbustard@unb.ca" },
+    { icon: Phone, label: "Phone", value: "(613) 985-1223" },
+    { icon: MapPin, label: "Location", value: "Toronto, Ontario, Canada" },
   ];
 
   const socialLinks = [

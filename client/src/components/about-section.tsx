@@ -2,13 +2,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, GraduationCap, Briefcase, Heart } from "lucide-react";
 
 export default function AboutSection() {
-  const interests = ["Web Development", "Data Science", "Machine Learning", "Open Source"];
+  const interests = ["Financial Analysis", "AI & Machine Learning", "Data Visualization", "Portfolio Management"];
   
   const quickFacts = [
-    { icon: MapPin, label: "San Francisco, CA" },
-    { icon: GraduationCap, label: "BS Computer Science, Stanford University" },
-    { icon: Briefcase, label: "5+ Years Experience" },
-    { icon: Heart, label: "Coffee Enthusiast & Rock Climber" },
+    { icon: MapPin, label: "Toronto, Ontario, Canada" },
+    { icon: GraduationCap, label: "BBA, University of New Brunswick" },
+    { icon: Briefcase, label: "4+ Years Finance Experience" },
+    { icon: Heart, label: "Fitness Enthusiast & United Way Volunteer" },
   ];
 
   return (
@@ -24,10 +24,10 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <p className="text-lg text-secondary leading-relaxed">
-              With over 5 years of experience in full-stack development, I've built everything from responsive web applications to complex data processing systems. My journey began with a Computer Science degree and has evolved through hands-on experience with cutting-edge technologies.
+              Currently working as an Equity Analyst at Fiscal.ai, I specialize in AI-driven financial analytics and investment research. My journey from a Bachelor of Business Administration to advanced financial certifications has equipped me with both traditional finance expertise and modern technological skills.
             </p>
             <p className="text-lg text-secondary leading-relaxed">
-              I'm particularly passionate about the intersection of web development and data science. My SQL translator tool demonstrates this passion - combining natural language processing with database expertise to make SQL more accessible to everyone.
+              I'm passionate about combining quantitative analysis with innovative technology solutions. My SQL translator tool demonstrates this fusion - leveraging AI to make complex database queries more accessible for financial analysis and decision-making.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
               {interests.map((interest, index) => (

@@ -24,8 +24,8 @@ export default function Home() {
       <footer className="bg-foreground text-background py-12 px-6">
         <div className="container-width">
           <div className="text-center">
-            <h3 className="text-2xl font-semibold mb-4">John Developer</h3>
-            <p className="text-gray-400 mb-6">Building the future, one line of code at a time.</p>
+            <h3 className="text-2xl font-semibold mb-4">Tyler Bustard</h3>
+            <p className="text-gray-400 mb-6">Driving investment excellence through advanced analytics and financial expertise.</p>
             
             <div className="flex justify-center space-x-6 mb-8">
               <a href="#" className="text-gray-400 hover:text-white transition-colors" data-testid="link-linkedin">
@@ -44,7 +44,7 @@ export default function Home() {
             
             <div className="border-t border-gray-700 pt-8">
               <p className="text-gray-400 text-sm">
-                © {new Date().getFullYear()} John Developer. All rights reserved.
+                © {new Date().getFullYear()} Tyler Bustard. All rights reserved.
               </p>
             </div>
           </div>

@@ -27,7 +27,7 @@ export default function Navigation() {
       <div className="container-width">
         <div className="flex justify-between items-center py-4">
           <div className="font-semibold text-xl text-foreground">
-            John Developer
+            Tyler Bustard
           </div>
           
           {/* Desktop Navigation */}

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Database, Mail } from "lucide-react";
+import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 
 export default function HeroSection() {
   const scrollToSection = (href: string) => {
@@ -14,20 +15,20 @@ export default function HeroSection() {
       <div className="container-width">
         <div className="text-center">
           <img 
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&h=200" 
-            alt="Professional headshot" 
+            src={profileImage} 
+            alt="Tyler Bustard professional headshot" 
             className="w-32 h-32 rounded-full mx-auto mb-8 object-cover shadow-lg"
             data-testid="img-profile"
           />
           
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
-            John Developer
+            Tyler Bustard
           </h1>
           <p className="text-xl md:text-2xl text-secondary mb-8 max-w-3xl mx-auto">
-            Full Stack Engineer & Data Specialist
+            Equity Analyst & Financial Technology Specialist
           </p>
           <p className="text-lg text-secondary mb-12 max-w-2xl mx-auto leading-relaxed">
-            Passionate about building scalable web applications and transforming complex data into actionable insights. Specializing in modern web technologies and intelligent data processing solutions.
+            CFA Level I candidate with expertise in equity research, financial modeling, and AI-driven analytics. Combining traditional finance expertise with modern data science to drive investment decision-making and portfolio optimization.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
