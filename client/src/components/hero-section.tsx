@@ -28,7 +28,7 @@ export default function HeroSection() {
             Equity Analyst & Financial Technology Specialist
           </p>
           <p className="text-lg text-secondary mb-12 max-w-2xl mx-auto leading-relaxed">
-            CFA Level I candidate with expertise in equity research, financial modeling, and AI-driven analytics. Combining traditional finance expertise with modern data science to drive investment decision-making and portfolio optimization.
+            MBA Candidate (2026) and CFA Level I candidate with expertise in equity research, financial modeling, and AI-driven analytics. Combining traditional finance expertise with modern data science to drive investment decision-making and portfolio optimization.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 

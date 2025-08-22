@@ -6,11 +6,10 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navigationItems = [
-    { href: "#about", label: "About" },
-    { href: "#skills", label: "Skills" },
+    { href: "#education", label: "Education" },
     { href: "#experience", label: "Experience" },
+    { href: "#certifications", label: "Certifications" },
     { href: "#sql-translator", label: "Analytics Tool" },
-    { href: "#portfolio", label: "Portfolio" },
     { href: "#contact", label: "Contact" },
   ];
 

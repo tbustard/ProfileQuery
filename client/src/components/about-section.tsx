@@ -1,60 +1,65 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, GraduationCap, Briefcase, Heart } from "lucide-react";
+import { GraduationCap, Trophy, Users, Award } from "lucide-react";
 
-export default function AboutSection() {
-  const interests = ["Financial Analysis", "AI & Machine Learning", "Data Visualization", "Portfolio Management"];
-  
-  const quickFacts = [
-    { icon: MapPin, label: "Toronto, Ontario, Canada" },
-    { icon: GraduationCap, label: "BBA, University of New Brunswick" },
-    { icon: Briefcase, label: "4+ Years Finance Experience" },
-    { icon: Heart, label: "Fitness Enthusiast & United Way Volunteer" },
+export default function EducationSection() {
+  const educationData = [
+    {
+      institution: "UBC Sauder School of Business, University of British Columbia",
+      location: "Vancouver, British Columbia",
+      degree: "MBA Candidate, Starting 2026",
+      achievements: [
+        "Intended participation in Finance Association, Investment Management Club, and Business Technology Association",
+        "Planned involvement in Management Consulting Association activities and case competitions"
+      ]
+    },
+    {
+      institution: "University of New Brunswick (UNB)",
+      location: "Saint John, New Brunswick", 
+      degree: "Bachelor of Business Administration, 2020",
+      achievements: [
+        "Case Competitions: 1st Place (CIBC), 3rd Place (TD), RBC and SLC participant",
+        "Analyst and Portfolio Manager – University of New Brunswick Student Investment Fund",
+        "UNB Finance Club, RBC Student Ambassador, Accredited Co-op Program",
+        "Recipient of 5 Scholarship and Alumni Awards for academic merit and leadership skills, Total $47,500"
+      ]
+    }
   ];
 
   return (
-    <section id="about" className="section-padding bg-muted/20">
+    <section id="education" className="section-padding bg-muted/20">
       <div className="container-width">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">About Me</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Education</h2>
           <p className="text-lg text-secondary max-w-2xl mx-auto">
-            Learn more about my background, passion for technology, and what drives me as a developer.
+            Academic foundation and achievements that drive my professional success.
           </p>
         </div>
-        
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <p className="text-lg text-secondary leading-relaxed">
-              Currently working as an Equity Analyst at Fiscal.ai, I specialize in AI-driven financial analytics and investment research. My journey from a Bachelor of Business Administration to advanced financial certifications has equipped me with both traditional finance expertise and modern technological skills.
-            </p>
-            <p className="text-lg text-secondary leading-relaxed">
-              I'm passionate about combining quantitative analysis with innovative technology solutions. My SQL translator tool demonstrates this fusion - leveraging AI to make complex database queries more accessible for financial analysis and decision-making.
-            </p>
-            <div className="flex flex-wrap gap-4 pt-4">
-              {interests.map((interest, index) => (
-                <span 
-                  key={index}
-                  className="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium"
-                  data-testid={`tag-interest-${index}`}
-                >
-                  {interest}
-                </span>
-              ))}
-            </div>
-          </div>
-          
-          <Card className="shadow-lg">
-            <CardContent className="p-8">
-              <h3 className="text-xl font-semibold text-foreground mb-6">Quick Facts</h3>
-              <div className="space-y-4">
-                {quickFacts.map((fact, index) => (
-                  <div key={index} className="flex items-center" data-testid={`fact-${index}`}>
-                    <fact.icon className="text-primary w-6 h-6 mr-4" />
-                    <span className="text-secondary">{fact.label}</span>
+
+        <div className="space-y-8">
+          {educationData.map((education, index) => (
+            <Card key={index} className="shadow-lg" data-testid={`education-${index}`}>
+              <CardContent className="p-8">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">{education.institution}</h3>
+                    <p className="text-primary font-medium mb-2">{education.location}</p>
+                    <p className="text-lg font-medium text-secondary">{education.degree}</p>
                   </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+                  <GraduationCap className="text-primary w-8 h-8 mt-4 md:mt-0" />
+                </div>
+                <div className="space-y-2">
+                  <ul className="space-y-2 text-secondary">
+                    {education.achievements.map((achievement, achievementIndex) => (
+                      <li key={achievementIndex} className="flex items-start">
+                        <span className="text-primary mr-2">•</span>
+                        {achievement}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
