@@ -14,12 +14,15 @@ export default function HeroSection() {
     <section className="pt-24 pb-16 px-6">
       <div className="container-width">
         <div className="text-center">
-          <img 
-            src={profileImage} 
-            alt="Tyler Bustard professional headshot" 
-            className="w-32 h-32 rounded-full mx-auto mb-8 object-cover shadow-lg"
-            data-testid="img-profile"
-          />
+          <div className="relative w-32 h-32 mx-auto mb-8">
+            <img 
+              src={profileImage} 
+              alt="Tyler Bustard professional headshot" 
+              className="w-full h-full rounded-full object-cover shadow-2xl"
+              data-testid="img-profile"
+            />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/30 to-transparent backdrop-blur-sm border border-white/40"></div>
+          </div>
           
           <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
             Tyler Bustard
@@ -33,15 +36,15 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               onClick={() => scrollToSection("#sql-translator")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              className="liquid-glass-button text-primary font-semibold specular-highlight"
               data-testid="button-try-translator"
             >
               <Database className="mr-2 h-4 w-4" />
               Try Analytics Tool
             </Button>
             <Button 
-              variant="outline"
               onClick={() => scrollToSection("#contact")}
+              className="liquid-glass-button text-secondary font-semibold"
               data-testid="button-contact"
             >
               <Mail className="mr-2 h-4 w-4" />

@@ -23,10 +23,10 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-gray-200 z-50">
+    <nav className="fixed top-0 w-full liquid-glass-nav z-50">
       <div className="container-width">
         <div className="flex justify-between items-center py-4">
-          <div className="font-semibold text-xl text-foreground">
+          <div className="font-semibold text-xl text-foreground specular-highlight">
             Tyler Bustard
           </div>
           
@@ -36,7 +36,7 @@ export default function Navigation() {
               <button
                 key={item.href}
                 onClick={() => scrollToSection(item.href)}
-                className="text-secondary hover:text-primary transition-colors"
+                className="text-secondary hover:text-primary transition-all duration-300 px-4 py-2 rounded-xl hover:bg-white/20 dark:hover:bg-white/10 backdrop-blur-sm"
                 data-testid={`nav-${item.label.toLowerCase().replace(' ', '-')}`}
               >
                 {item.label}

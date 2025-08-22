@@ -143,7 +143,7 @@ export default function SQLTranslator() {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Sample Database Schema */}
-          <Card className="shadow-lg">
+          <Card className="liquid-glass-card shadow-2xl specular-highlight">
             <CardContent className="p-8">
               <h3 className="text-xl font-semibold text-foreground mb-6">
                 <Database className="inline-block text-primary mr-2" />
@@ -169,7 +169,7 @@ export default function SQLTranslator() {
           </Card>
 
           {/* SQL Translator Interface */}
-          <Card className="shadow-lg">
+          <Card className="liquid-glass-card shadow-2xl specular-highlight">
             <CardContent className="p-8">
               <h3 className="text-xl font-semibold text-foreground mb-6">
                 <ArrowRight className="inline-block text-primary mr-2" />
@@ -185,7 +185,7 @@ export default function SQLTranslator() {
                     value={naturalLanguageInput}
                     onChange={(e) => setNaturalLanguageInput(e.target.value)}
                     placeholder="Example: Show me all technology stocks with market cap over $1B and P/E ratio below 20"
-                    className="h-32 resize-none"
+                    className="h-32 resize-none liquid-glass-input"
                     data-testid="input-natural-language"
                   />
                 </div>
@@ -197,6 +197,7 @@ export default function SQLTranslator() {
                   <Button 
                     onClick={handleTranslate}
                     disabled={translateMutation.isPending}
+                    className="liquid-glass-button text-primary font-semibold specular-highlight"
                     data-testid="button-translate"
                   >
                     {translateMutation.isPending ? (
@@ -228,19 +229,17 @@ export default function SQLTranslator() {
 
                 <div className="flex gap-4">
                   <Button
-                    variant="secondary"
                     onClick={handleCopySQL}
                     disabled={!sqlOutput}
-                    className="flex-1"
+                    className="flex-1 liquid-glass-button text-secondary font-medium"
                     data-testid="button-copy"
                   >
                     <Copy className="mr-2 h-4 w-4" />
                     Copy Query
                   </Button>
                   <Button
-                    variant="outline"
                     disabled={!sqlOutput}
-                    className="flex-1"
+                    className="flex-1 liquid-glass-button text-secondary font-medium"
                     data-testid="button-explain"
                   >
                     <HelpCircle className="mr-2 h-4 w-4" />
@@ -256,9 +255,8 @@ export default function SQLTranslator() {
                   {sampleQueries.map((query, index) => (
                     <Button
                       key={index}
-                      variant="ghost"
                       onClick={() => handleSampleQuery(query)}
-                      className="w-full text-left justify-start h-auto p-3 text-sm text-secondary hover:bg-muted"
+                      className="w-full text-left justify-start h-auto p-3 text-sm text-secondary liquid-glass-button"
                       data-testid={`button-sample-${index}`}
                     >
                       "{query}"

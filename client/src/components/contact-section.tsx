@@ -94,7 +94,7 @@ export default function ContactSection() {
           </div>
 
           {/* Contact Form */}
-          <Card className="shadow-lg">
+          <Card className="liquid-glass-card shadow-2xl specular-highlight">
             <CardContent className="p-8">
               <h3 className="text-xl font-semibold text-foreground mb-6">Send a Message</h3>
               
@@ -110,6 +110,7 @@ export default function ContactSection() {
                       value={formData.name}
                       onChange={(e) => handleInputChange("name", e.target.value)}
                       placeholder="Your full name"
+                      className="liquid-glass-input"
                       required
                       data-testid="input-name"
                     />
@@ -124,6 +125,7 @@ export default function ContactSection() {
                       value={formData.email}
                       onChange={(e) => handleInputChange("email", e.target.value)}
                       placeholder="your.email@example.com"
+                      className="liquid-glass-input"
                       required
                       data-testid="input-email"
                     />
@@ -140,6 +142,7 @@ export default function ContactSection() {
                     value={formData.subject}
                     onChange={(e) => handleInputChange("subject", e.target.value)}
                     placeholder="What's this about?"
+                    className="liquid-glass-input"
                     required
                     data-testid="input-subject"
                   />
@@ -154,7 +157,7 @@ export default function ContactSection() {
                     value={formData.message}
                     onChange={(e) => handleInputChange("message", e.target.value)}
                     placeholder="Tell me about your project or opportunity..."
-                    className="h-32 resize-none"
+                    className="h-32 resize-none liquid-glass-input"
                     required
                     data-testid="input-message"
                   />
@@ -163,7 +166,7 @@ export default function ContactSection() {
                 <Button
                   type="submit"
                   disabled={contactMutation.isPending}
-                  className="w-full"
+                  className="w-full liquid-glass-button text-primary font-semibold specular-highlight"
                   data-testid="button-send"
                 >
                   {contactMutation.isPending ? (

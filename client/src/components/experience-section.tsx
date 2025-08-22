@@ -78,7 +78,7 @@ export default function ExperienceSection() {
 
         <div className="space-y-8">
           {experiences.map((exp, index) => (
-            <Card key={index} className="shadow-lg" data-testid={`experience-${index}`}>
+            <Card key={index} className="liquid-glass-card shadow-2xl specular-highlight" data-testid={`experience-${index}`}>
               <CardContent className="p-8">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
                   <div>

@@ -50,7 +50,7 @@ export default function PortfolioSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="shadow-lg overflow-hidden hover:shadow-xl transition-shadow" data-testid={`project-${index}`}>
+            <Card key={index} className="liquid-glass-card shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 specular-highlight" data-testid={`project-${index}`}>
               <img 
                 src={project.image} 
                 alt={project.title}
