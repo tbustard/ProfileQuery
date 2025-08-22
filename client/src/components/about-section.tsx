@@ -42,7 +42,7 @@ export default function AboutSection() {
             </div>
           </div>
           
-          <Card className="liquid-glass-card shadow-2xl specular-highlight">
+          <Card className="shadow-lg">
             <CardContent className="p-8">
               <h3 className="text-xl font-semibold text-foreground mb-6">Quick Facts</h3>
               <div className="space-y-4">

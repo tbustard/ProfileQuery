@@ -73,7 +73,7 @@ export default function SkillsSection() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (
-            <Card key={categoryIndex} className="liquid-glass-card shadow-2xl specular-highlight">
+            <Card key={categoryIndex} className="shadow-lg">
               <CardContent className="p-8">
                 <div className="text-center mb-6">
                   <category.icon className="text-4xl text-primary mb-4 w-12 h-12 mx-auto" />

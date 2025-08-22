@@ -9,7 +9,7 @@ import ContactSection from "@/components/contact-section";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
+    <div className="min-h-screen bg-background">
       <Navigation />
       <HeroSection />
       <AboutSection />
@@ -20,7 +20,7 @@ export default function Home() {
       <ContactSection />
       
       {/* Footer */}
-      <footer className="liquid-glass-card bg-foreground/10 text-foreground py-12 px-6 specular-highlight">
+      <footer className="bg-foreground text-background py-12 px-6">
         <div className="container-width">
           <div className="text-center">
             <h3 className="text-2xl font-semibold mb-4">Tyler Bustard</h3>
