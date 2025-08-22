@@ -16,15 +16,14 @@ export default function Home() {
       <ContactSection />
       
       {/* Footer */}
-      <footer className="bg-foreground text-background py-12 px-6">
+      <footer className="glass py-16 px-6 border-t border-white/10">
         <div className="container-width">
           <div className="text-center">
-            <h3 className="text-2xl font-semibold mb-4">Tyler Bustard</h3>
-            <p className="text-gray-400 mb-6">Driving investment excellence through advanced analytics and financial expertise.</p>
+            <h3 className="text-2xl font-semibold mb-4 gradient-text">Tyler Bustard</h3>
+            <p className="text-white/70 mb-6">Driving investment excellence through advanced analytics and financial expertise.</p>
             
-            
-            <div className="border-t border-gray-700 pt-8">
-              <p className="text-gray-400 text-sm">
+            <div className="border-t border-white/20 pt-8">
+              <p className="text-white/50 text-sm">
                 © {new Date().getFullYear()} Tyler Bustard. All rights reserved.
               </p>
             </div>

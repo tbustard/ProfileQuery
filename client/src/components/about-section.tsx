@@ -17,32 +17,34 @@ export default function EducationSection() {
   ];
 
   return (
-    <section id="education" className="section-padding bg-muted/20">
+    <section id="education" className="section-padding relative">
       <div className="container-width">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Education</h2>
-          <p className="text-lg text-secondary max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="gradient-text">Education</span>
+          </h2>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">
             Academic foundation and achievements that drive my professional success.
           </p>
         </div>
 
         <div className="space-y-8">
           {educationData.map((education, index) => (
-            <Card key={index} className="shadow-lg" data-testid={`education-${index}`}>
+            <Card key={index} className="glass-card shadow-2xl hover:shadow-emerald-500/10 transition-all duration-500 border-white/10" data-testid={`education-${index}`}>
               <CardContent className="p-8">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
                   <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">{education.institution}</h3>
-                    <p className="text-primary font-medium mb-2">{education.location}</p>
-                    <p className="text-lg font-medium text-secondary">{education.degree}</p>
+                    <h3 className="text-xl font-semibold text-white mb-2">{education.institution}</h3>
+                    <p className="text-emerald-400 font-medium mb-2">{education.location}</p>
+                    <p className="text-lg font-medium text-white/90">{education.degree}</p>
                   </div>
-                  <GraduationCap className="text-primary w-8 h-8 mt-4 md:mt-0" />
+                  <GraduationCap className="text-emerald-400 w-8 h-8 mt-4 md:mt-0" />
                 </div>
                 <div className="space-y-2">
-                  <ul className="space-y-2 text-secondary">
+                  <ul className="space-y-2 text-white/80">
                     {education.achievements.map((achievement, achievementIndex) => (
                       <li key={achievementIndex} className="flex items-start">
-                        <span className="text-primary mr-2">•</span>
+                        <span className="text-emerald-400 mr-2">•</span>
                         {achievement}
                       </li>
                     ))}

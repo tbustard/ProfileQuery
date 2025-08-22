@@ -63,11 +63,13 @@ export default function ContactSection() {
 
 
   return (
-    <section id="contact" className="section-padding">
+    <section id="contact" className="section-padding relative">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Get In Touch</h2>
-          <p className="text-lg text-secondary max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="gradient-text">Get In Touch</span>
+          </h2>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">
             Ready to discuss your next project or opportunity? I'd love to hear from you.
           </p>
         </div>
@@ -75,17 +77,17 @@ export default function ContactSection() {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
-            <h3 className="text-2xl font-semibold text-foreground mb-6">Let's Connect</h3>
+            <h3 className="text-2xl font-semibold text-white mb-6">Let's Connect</h3>
             
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
                 <div key={index} className="flex items-center" data-testid={`contact-info-${index}`}>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                    <info.icon className="text-primary text-xl w-6 h-6" />
+                  <div className="w-12 h-12 glass rounded-lg flex items-center justify-center mr-4">
+                    <info.icon className="text-emerald-400 text-xl w-6 h-6" />
                   </div>
                   <div>
-                    <p className="font-medium text-foreground">{info.label}</p>
-                    <p className="text-secondary">{info.value}</p>
+                    <p className="font-medium text-white">{info.label}</p>
+                    <p className="text-white/80">{info.value}</p>
                   </div>
                 </div>
               ))}
@@ -94,9 +96,9 @@ export default function ContactSection() {
           </div>
 
           {/* Contact Form */}
-          <Card className="shadow-lg">
+          <Card className="glass-card shadow-2xl border-white/10">
             <CardContent className="p-8">
-              <h3 className="text-xl font-semibold text-foreground mb-6">Send a Message</h3>
+              <h3 className="text-xl font-semibold text-white mb-6">Send a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
@@ -131,7 +133,7 @@ export default function ContactSection() {
                 </div>
 
                 <div>
-                  <Label htmlFor="subject" className="text-sm font-medium text-foreground mb-2">
+                  <Label htmlFor="subject" className="text-sm font-medium text-white mb-2">
                     Subject
                   </Label>
                   <Input
@@ -146,7 +148,7 @@ export default function ContactSection() {
                 </div>
 
                 <div>
-                  <Label htmlFor="message" className="text-sm font-medium text-foreground mb-2">
+                  <Label htmlFor="message" className="text-sm font-medium text-white mb-2">
                     Message
                   </Label>
                   <Textarea
@@ -163,7 +165,7 @@ export default function ContactSection() {
                 <Button
                   type="submit"
                   disabled={contactMutation.isPending}
-                  className="w-full"
+                  className="w-full glass-card hover:glow transition-all duration-300 bg-gradient-to-r from-emerald-500/20 to-blue-500/20 border-white/20 hover:border-white/40 text-white"
                   data-testid="button-send"
                 >
                   {contactMutation.isPending ? (

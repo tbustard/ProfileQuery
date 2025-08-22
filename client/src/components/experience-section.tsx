@@ -54,35 +54,37 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="section-padding bg-muted/20">
+    <section id="experience" className="section-padding relative">
       <div className="container-width">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Professional Experience</h2>
-          <p className="text-lg text-secondary max-w-2xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="gradient-text">Professional Experience</span>
+          </h2>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">
             My professional journey and key accomplishments in financial services.
           </p>
         </div>
 
         <div className="space-y-8">
           {experiences.map((exp, index) => (
-            <Card key={index} className="shadow-lg" data-testid={`experience-${index}`}>
+            <Card key={index} className="glass-card shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 border-white/10" data-testid={`experience-${index}`}>
               <CardContent className="p-8">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
                   <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">{exp.title}</h3>
-                    <p className="text-primary font-medium mb-2">{exp.company}</p>
-                    <p className="text-secondary">{exp.location}</p>
+                    <h3 className="text-xl font-semibold text-white mb-2">{exp.title}</h3>
+                    <p className="text-blue-400 font-medium mb-2">{exp.company}</p>
+                    <p className="text-white/70">{exp.location}</p>
                   </div>
-                  <div className="text-secondary md:text-right mt-4 md:mt-0">
+                  <div className="text-white/70 md:text-right mt-4 md:mt-0">
                     <p className="font-medium">{exp.period}</p>
                     <p>{exp.duration}</p>
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <ul className="space-y-2 text-secondary">
+                  <ul className="space-y-2 text-white/80">
                     {exp.achievements.map((achievement, achievementIndex) => (
                       <li key={achievementIndex} className="flex items-start">
-                        <span className="text-primary mr-2">•</span>
+                        <span className="text-blue-400 mr-2">•</span>
                         {achievement}
                       </li>
                     ))}
@@ -91,7 +93,7 @@ export default function ExperienceSection() {
                     {exp.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm"
+                        className="glass px-3 py-1 rounded-full text-sm text-white/90 border border-white/20"
                         data-testid={`tech-${index}-${techIndex}`}
                       >
                         {tech}
