@@ -37,7 +37,7 @@ export default function HeroSection() {
               data-testid="button-try-translator"
             >
               <Database className="mr-2 h-4 w-4" />
-              Try SQL Translator
+              Try Analytics Tool
             </Button>
             <Button 
               variant="outline"

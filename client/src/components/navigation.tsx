@@ -9,7 +9,7 @@ export default function Navigation() {
     { href: "#about", label: "About" },
     { href: "#skills", label: "Skills" },
     { href: "#experience", label: "Experience" },
-    { href: "#sql-translator", label: "SQL Translator" },
+    { href: "#sql-translator", label: "Analytics Tool" },
     { href: "#portfolio", label: "Portfolio" },
     { href: "#contact", label: "Contact" },
   ];

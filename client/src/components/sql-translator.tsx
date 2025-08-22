@@ -134,7 +134,7 @@ export default function SQLTranslator() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             <Database className="inline-block text-primary mr-4" />
-            SQL Query Translator
+            Financial Data Analytics Tool
           </h2>
           <p className="text-lg text-secondary max-w-2xl mx-auto">
             Transform financial questions into SQL queries using AI. Perfect for portfolio analysis, stock research, and investment reporting.
@@ -173,13 +173,13 @@ export default function SQLTranslator() {
             <CardContent className="p-8">
               <h3 className="text-xl font-semibold text-foreground mb-6">
                 <ArrowRight className="inline-block text-primary mr-2" />
-                Try the Translator
+                Investment Query Builder
               </h3>
               
               <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Natural Language Query
+                    Investment Research Question
                   </label>
                   <Textarea
                     value={naturalLanguageInput}
@@ -204,17 +204,17 @@ export default function SQLTranslator() {
                     ) : (
                       <ArrowRight className="mr-2 h-4 w-4" />
                     )}
-                    Translate to SQL
+                    Generate Query
                   </Button>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Generated SQL Query
+                    Financial Analysis Query
                   </label>
                   <div className="bg-gray-900 rounded-lg p-4 h-32 overflow-auto">
                     <pre className="text-green-400 text-sm font-mono" data-testid="output-sql">
-                      {sqlOutput || "// SQL query will appear here"}
+                      {sqlOutput || "// Financial analysis query will appear here"}
                     </pre>
                   </div>
                 </div>
@@ -235,7 +235,7 @@ export default function SQLTranslator() {
                     data-testid="button-copy"
                   >
                     <Copy className="mr-2 h-4 w-4" />
-                    Copy SQL
+                    Copy Query
                   </Button>
                   <Button
                     variant="outline"
