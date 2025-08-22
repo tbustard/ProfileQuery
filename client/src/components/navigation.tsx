@@ -9,7 +9,6 @@ export default function Navigation() {
     { href: "#education", label: "Education" },
     { href: "#experience", label: "Experience" },
     { href: "#certifications", label: "Certifications" },
-    { href: "#sql-translator", label: "Analytics Tool" },
     { href: "#contact", label: "Contact" },
   ];
 

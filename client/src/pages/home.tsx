@@ -3,7 +3,6 @@ import HeroSection from "@/components/hero-section";
 import EducationSection from "@/components/about-section";
 import ExperienceSection from "@/components/experience-section";
 import CertificationsSection from "@/components/skills-section";
-import SQLTranslator from "@/components/sql-translator";
 import ContactSection from "@/components/contact-section";
 
 export default function Home() {
@@ -14,7 +13,6 @@ export default function Home() {
       <EducationSection />
       <ExperienceSection />
       <CertificationsSection />
-      <SQLTranslator />
       <ContactSection />
       
       {/* Footer */}
