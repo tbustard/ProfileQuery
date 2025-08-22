@@ -54,7 +54,7 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="section-padding bg-muted/20">
+    <section id="experience" className="section-padding">
       <div className="container-width">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Professional Experience</h2>
@@ -63,19 +63,19 @@ export default function ExperienceSection() {
           </p>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-10">
           {experiences.map((exp, index) => (
-            <Card key={index} className="shadow-lg" data-testid={`experience-${index}`}>
-              <CardContent className="p-8">
+            <Card key={index} className="shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-white/90 backdrop-blur-sm" data-testid={`experience-${index}`}>
+              <CardContent className="p-10">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
                   <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">{exp.title}</h3>
-                    <p className="text-primary font-medium mb-2">{exp.company}</p>
-                    <p className="text-secondary">{exp.location}</p>
+                    <h3 className="text-2xl font-bold text-foreground mb-3">{exp.title}</h3>
+                    <p className="text-primary font-semibold mb-3 text-lg">{exp.company}</p>
+                    <p className="text-muted-foreground font-medium">{exp.location}</p>
                   </div>
                   <div className="text-secondary md:text-right mt-4 md:mt-0">
-                    <p className="font-medium">{exp.period}</p>
-                    <p>{exp.duration}</p>
+                    <p className="font-semibold text-lg">{exp.period}</p>
+                    <p className="text-muted-foreground">{exp.duration}</p>
                   </div>
                 </div>
                 <div className="space-y-4">

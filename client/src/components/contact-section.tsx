@@ -63,7 +63,7 @@ export default function ContactSection() {
 
 
   return (
-    <section id="contact" className="section-padding">
+    <section id="contact" className="section-padding bg-gradient-to-b from-muted/30 to-background">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Get In Touch</h2>
@@ -75,17 +75,17 @@ export default function ContactSection() {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
-            <h3 className="text-2xl font-semibold text-foreground mb-6">Let's Connect</h3>
+            <h3 className="text-3xl font-bold text-foreground mb-8">Let's Connect</h3>
             
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-center" data-testid={`contact-info-${index}`}>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                    <info.icon className="text-primary text-xl w-6 h-6" />
+                <div key={index} className="flex items-center group transition-all duration-300 hover:scale-105" data-testid={`contact-info-${index}`}>
+                  <div className="w-14 h-14 bg-primary/10 group-hover:bg-primary/20 rounded-xl flex items-center justify-center mr-5 transition-all duration-300">
+                    <info.icon className="text-primary w-7 h-7" />
                   </div>
                   <div>
-                    <p className="font-medium text-foreground">{info.label}</p>
-                    <p className="text-secondary">{info.value}</p>
+                    <p className="font-semibold text-foreground text-lg">{info.label}</p>
+                    <p className="text-muted-foreground">{info.value}</p>
                   </div>
                 </div>
               ))}
@@ -94,9 +94,9 @@ export default function ContactSection() {
           </div>
 
           {/* Contact Form */}
-          <Card className="shadow-lg">
-            <CardContent className="p-8">
-              <h3 className="text-xl font-semibold text-foreground mb-6">Send a Message</h3>
+          <Card className="shadow-xl hover:shadow-2xl transition-all duration-300 border-0 bg-white/90 backdrop-blur-sm">
+            <CardContent className="p-10">
+              <h3 className="text-2xl font-bold text-foreground mb-8">Send a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">

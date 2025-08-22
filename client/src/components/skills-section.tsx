@@ -54,7 +54,7 @@ export default function CertificationsSection() {
   ];
 
   return (
-    <section id="certifications" className="section-padding">
+    <section id="certifications" className="section-padding bg-gradient-to-b from-background to-muted/30">
       <div className="container-width">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Professional Certifications</h2>
@@ -63,15 +63,17 @@ export default function CertificationsSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-10">
           {certificationCategories.map((category, categoryIndex) => (
-            <Card key={categoryIndex} className="shadow-lg">
-              <CardContent className="p-8">
-                <div className="flex items-center mb-6">
-                  <category.icon className="text-primary w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-semibold text-foreground">{category.title}</h3>
+            <Card key={categoryIndex} className="shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-white/90 backdrop-blur-sm">
+              <CardContent className="p-10">
+                <div className="flex items-center mb-8">
+                  <div className="bg-primary/10 p-3 rounded-full mr-4">
+                    <category.icon className="text-primary w-6 h-6" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">{category.title}</h3>
                 </div>
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {category.certifications.map((certification, certIndex) => (
                     <div 
                       key={certIndex} 
@@ -79,7 +81,7 @@ export default function CertificationsSection() {
                       data-testid={`cert-${categoryIndex}-${certIndex}`}
                     >
                       <span className="text-primary mr-2">•</span>
-                      <span className="text-sm leading-relaxed">{certification}</span>
+                      <span className="leading-relaxed">{certification}</span>
                     </div>
                   ))}
                 </div>

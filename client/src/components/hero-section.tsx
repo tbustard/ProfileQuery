@@ -11,32 +11,35 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="pt-24 pb-16 px-6">
+    <section className="pt-32 pb-24 px-6 relative overflow-hidden">
       <div className="container-width">
-        <div className="text-center">
-          <img 
-            src={profileImage} 
-            alt="Tyler Bustard professional headshot" 
-            className="w-32 h-32 rounded-full mx-auto mb-8 object-cover shadow-lg"
-            data-testid="img-profile"
-          />
+        <div className="text-center relative z-10">
+          <div className="relative inline-block mb-12">
+            <img 
+              src={profileImage} 
+              alt="Tyler Bustard professional headshot" 
+              className="w-40 h-40 rounded-full mx-auto object-cover shadow-2xl border-4 border-white ring-4 ring-primary/10 transition-all duration-300 hover:scale-105"
+              data-testid="img-profile"
+            />
+          </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+          <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-8 tracking-tight">
             Tyler Bustard
           </h1>
-          <p className="text-xl md:text-2xl text-secondary mb-8 max-w-3xl mx-auto">
+          <p className="text-2xl md:text-3xl text-primary mb-10 max-w-4xl mx-auto font-medium">
             Equity Analyst & Financial Technology Specialist
           </p>
-          <p className="text-lg text-secondary mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground mb-16 max-w-3xl mx-auto leading-relaxed font-light">
             CFA Level I candidate with expertise in equity research, financial modeling, and AI-driven analytics. Combining traditional finance expertise with modern data science to drive investment decision-making and portfolio optimization.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
-              variant="outline"
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               onClick={() => scrollToSection("#contact")}
               data-testid="button-contact"
             >
-              <Mail className="mr-2 h-4 w-4" />
+              <Mail className="mr-3 h-5 w-5" />
               Get In Touch
             </Button>
           </div>
