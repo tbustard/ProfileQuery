@@ -24,15 +24,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
         messages: [
           {
             role: "system",
-            content: `You are an expert SQL translator. Convert natural language queries to SQL using this schema:
+            content: `You are an expert financial SQL analyst. Convert natural language queries to SQL using this financial database schema:
 
 Tables:
-- users (id INTEGER PRIMARY KEY, name VARCHAR(100), email VARCHAR(255), created_at TIMESTAMP)
-- orders (id INTEGER PRIMARY KEY, user_id INTEGER FK, total_amount DECIMAL(10,2), status VARCHAR(50), created_at TIMESTAMP)
-- products (id INTEGER PRIMARY KEY, name VARCHAR(200), price DECIMAL(10,2), category VARCHAR(100))
-- order_items (id INTEGER PRIMARY KEY, order_id INTEGER FK, product_id INTEGER FK, quantity INTEGER, price DECIMAL(10,2))
+- stocks (symbol VARCHAR(10) PRIMARY KEY, company_name VARCHAR(200), sector VARCHAR(100), market_cap BIGINT, pe_ratio DECIMAL(8,2), dividend_yield DECIMAL(5,2), last_updated TIMESTAMP)
+- portfolios (id INTEGER PRIMARY KEY, portfolio_name VARCHAR(100), client_id INTEGER, total_value DECIMAL(15,2), risk_level VARCHAR(20), created_date DATE)
+- portfolio_holdings (id INTEGER PRIMARY KEY, portfolio_id INTEGER FK, stock_symbol VARCHAR(10) FK, shares INTEGER, purchase_price DECIMAL(10,2), purchase_date DATE)
+- stock_prices (id INTEGER PRIMARY KEY, stock_symbol VARCHAR(10) FK, price DECIMAL(10,2), volume BIGINT, price_date DATE)
 
-Respond with JSON in this format: { "sql": "SELECT ...", "explanation": "This query does..." }`
+Focus on investment analysis, portfolio management, and financial reporting queries. Respond with JSON in this format: { "sql": "SELECT ...", "explanation": "This query analyzes..." }`
           },
           {
             role: "user",

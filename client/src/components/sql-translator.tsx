@@ -76,38 +76,54 @@ export default function SQLTranslator() {
   };
 
   const sampleQueries = [
-    "Get all users with more than 5 orders",
-    "Find the average order value by month",
-    "Show products that have never been ordered",
+    "Find all stocks with P/E ratio below 15 and dividend yield above 3%",
+    "Calculate the average portfolio return for the last 12 months",
+    "Show top 10 performing stocks in the technology sector this quarter",
   ];
 
   const schemaInfo = [
     {
-      table: "users",
+      table: "stocks",
       columns: [
-        "id - INTEGER PRIMARY KEY",
-        "name - VARCHAR(100)",
-        "email - VARCHAR(255)",
-        "created_at - TIMESTAMP",
+        "symbol - VARCHAR(10) PRIMARY KEY",
+        "company_name - VARCHAR(200)",
+        "sector - VARCHAR(100)",
+        "market_cap - BIGINT",
+        "pe_ratio - DECIMAL(8,2)",
+        "dividend_yield - DECIMAL(5,2)",
+        "last_updated - TIMESTAMP",
       ],
     },
     {
-      table: "orders",
+      table: "portfolios",
       columns: [
         "id - INTEGER PRIMARY KEY",
-        "user_id - INTEGER (FK to users.id)",
-        "total_amount - DECIMAL(10,2)",
-        "status - VARCHAR(50)",
-        "created_at - TIMESTAMP",
+        "portfolio_name - VARCHAR(100)",
+        "client_id - INTEGER",
+        "total_value - DECIMAL(15,2)",
+        "risk_level - VARCHAR(20)",
+        "created_date - DATE",
       ],
     },
     {
-      table: "products",
+      table: "portfolio_holdings",
       columns: [
         "id - INTEGER PRIMARY KEY",
-        "name - VARCHAR(200)",
+        "portfolio_id - INTEGER (FK to portfolios.id)",
+        "stock_symbol - VARCHAR(10) (FK to stocks.symbol)",
+        "shares - INTEGER",
+        "purchase_price - DECIMAL(10,2)",
+        "purchase_date - DATE",
+      ],
+    },
+    {
+      table: "stock_prices",
+      columns: [
+        "id - INTEGER PRIMARY KEY",
+        "stock_symbol - VARCHAR(10) (FK to stocks.symbol)",
         "price - DECIMAL(10,2)",
-        "category - VARCHAR(100)",
+        "volume - BIGINT",
+        "price_date - DATE",
       ],
     },
   ];
@@ -121,7 +137,7 @@ export default function SQLTranslator() {
             SQL Query Translator
           </h2>
           <p className="text-lg text-secondary max-w-2xl mx-auto">
-            Transform natural language into SQL queries using AI. Try it out with the sample database schema below.
+            Transform financial questions into SQL queries using AI. Perfect for portfolio analysis, stock research, and investment reporting.
           </p>
         </div>
 
@@ -131,7 +147,7 @@ export default function SQLTranslator() {
             <CardContent className="p-8">
               <h3 className="text-xl font-semibold text-foreground mb-6">
                 <Database className="inline-block text-primary mr-2" />
-                Sample Database Schema
+                Financial Database Schema
               </h3>
               <div className="space-y-6">
                 {schemaInfo.map((schema, index) => (
@@ -168,7 +184,7 @@ export default function SQLTranslator() {
                   <Textarea
                     value={naturalLanguageInput}
                     onChange={(e) => setNaturalLanguageInput(e.target.value)}
-                    placeholder="Example: Show me all users who placed orders over $100 in the last month"
+                    placeholder="Example: Show me all technology stocks with market cap over $1B and P/E ratio below 20"
                     className="h-32 resize-none"
                     data-testid="input-natural-language"
                   />
