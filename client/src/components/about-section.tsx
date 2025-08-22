@@ -4,15 +4,6 @@ import { GraduationCap, Trophy, Users, Award } from "lucide-react";
 export default function EducationSection() {
   const educationData = [
     {
-      institution: "UBC Sauder School of Business, University of British Columbia",
-      location: "Vancouver, British Columbia",
-      degree: "MBA Candidate, Starting 2026",
-      achievements: [
-        "Intended participation in Finance Association, Investment Management Club, and Business Technology Association",
-        "Planned involvement in Management Consulting Association activities and case competitions"
-      ]
-    },
-    {
       institution: "University of New Brunswick (UNB)",
       location: "Saint John, New Brunswick", 
       degree: "Bachelor of Business Administration, 2020",

@@ -13,19 +13,6 @@ interface Experience {
 export default function ExperienceSection() {
   const experiences: Experience[] = [
     {
-      title: "Equity Analyst",
-      company: "Fiscal.ai",
-      location: "Toronto, Ontario",
-      period: "2023 - Present",
-      duration: "1+ years",
-      achievements: [
-        "Spearheaded comprehensive equity research and financial modeling initiatives using advanced AI-driven analytics",
-        "Engineered data-driven investment recommendations contributing to portfolio optimization strategies",
-        "Enhanced investment decision-making processes through advanced analytics and risk management protocols",
-      ],
-      technologies: ["Python", "AI Analytics", "Financial Modeling", "Risk Management"],
-    },
-    {
       title: "Portfolio Assistant",
       company: "BMO Private Wealth",
       location: "Kingston, Ontario",
@@ -72,7 +59,7 @@ export default function ExperienceSection() {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Professional Experience</h2>
           <p className="text-lg text-secondary max-w-2xl mx-auto">
-            My professional journey and key accomplishments in software development.
+            My professional journey and key accomplishments in financial services.
           </p>
         </div>
 
