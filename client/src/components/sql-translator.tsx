@@ -1,0 +1,259 @@
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
+import { Database, ArrowRight, Copy, HelpCircle, Loader2 } from "lucide-react";
+import { useMutation } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+import { useToast } from "@/hooks/use-toast";
+
+interface SQLTranslationResponse {
+  sql: string;
+  explanation: string;
+}
+
+export default function SQLTranslator() {
+  const [naturalLanguageInput, setNaturalLanguageInput] = useState("");
+  const [sqlOutput, setSqlOutput] = useState("");
+  const [explanation, setExplanation] = useState("");
+  const { toast } = useToast();
+
+  const translateMutation = useMutation({
+    mutationFn: async (naturalLanguage: string): Promise<SQLTranslationResponse> => {
+      const response = await apiRequest("POST", "/api/translate-sql", { naturalLanguage });
+      return response.json();
+    },
+    onSuccess: (data) => {
+      setSqlOutput(data.sql);
+      setExplanation(data.explanation);
+      toast({
+        title: "Translation successful",
+        description: "Your natural language query has been converted to SQL.",
+      });
+    },
+    onError: (error) => {
+      toast({
+        title: "Translation failed",
+        description: error.message || "Failed to translate query. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleTranslate = () => {
+    if (!naturalLanguageInput.trim()) {
+      toast({
+        title: "Input required",
+        description: "Please enter a natural language query first.",
+        variant: "destructive",
+      });
+      return;
+    }
+    translateMutation.mutate(naturalLanguageInput.trim());
+  };
+
+  const handleCopySQL = async () => {
+    if (!sqlOutput) return;
+    
+    try {
+      await navigator.clipboard.writeText(sqlOutput);
+      toast({
+        title: "Copied!",
+        description: "SQL query copied to clipboard.",
+      });
+    } catch (error) {
+      toast({
+        title: "Copy failed",
+        description: "Failed to copy to clipboard.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleSampleQuery = (query: string) => {
+    setNaturalLanguageInput(query);
+  };
+
+  const sampleQueries = [
+    "Get all users with more than 5 orders",
+    "Find the average order value by month",
+    "Show products that have never been ordered",
+  ];
+
+  const schemaInfo = [
+    {
+      table: "users",
+      columns: [
+        "id - INTEGER PRIMARY KEY",
+        "name - VARCHAR(100)",
+        "email - VARCHAR(255)",
+        "created_at - TIMESTAMP",
+      ],
+    },
+    {
+      table: "orders",
+      columns: [
+        "id - INTEGER PRIMARY KEY",
+        "user_id - INTEGER (FK to users.id)",
+        "total_amount - DECIMAL(10,2)",
+        "status - VARCHAR(50)",
+        "created_at - TIMESTAMP",
+      ],
+    },
+    {
+      table: "products",
+      columns: [
+        "id - INTEGER PRIMARY KEY",
+        "name - VARCHAR(200)",
+        "price - DECIMAL(10,2)",
+        "category - VARCHAR(100)",
+      ],
+    },
+  ];
+
+  return (
+    <section id="sql-translator" className="section-padding">
+      <div className="container-width">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <Database className="inline-block text-primary mr-4" />
+            SQL Query Translator
+          </h2>
+          <p className="text-lg text-secondary max-w-2xl mx-auto">
+            Transform natural language into SQL queries using AI. Try it out with the sample database schema below.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Sample Database Schema */}
+          <Card className="shadow-lg">
+            <CardContent className="p-8">
+              <h3 className="text-xl font-semibold text-foreground mb-6">
+                <Database className="inline-block text-primary mr-2" />
+                Sample Database Schema
+              </h3>
+              <div className="space-y-6">
+                {schemaInfo.map((schema, index) => (
+                  <div key={index} className="bg-muted rounded-lg p-4" data-testid={`schema-${index}`}>
+                    <h4 className="font-semibold text-foreground mb-3">{schema.table}</h4>
+                    <div className="text-sm text-secondary space-y-1">
+                      {schema.columns.map((column, columnIndex) => (
+                        <div key={columnIndex}>
+                          <code className="bg-background px-1 rounded">{column.split(' - ')[0]}</code>
+                          {' - '}
+                          {column.split(' - ')[1]}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* SQL Translator Interface */}
+          <Card className="shadow-lg">
+            <CardContent className="p-8">
+              <h3 className="text-xl font-semibold text-foreground mb-6">
+                <ArrowRight className="inline-block text-primary mr-2" />
+                Try the Translator
+              </h3>
+              
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Natural Language Query
+                  </label>
+                  <Textarea
+                    value={naturalLanguageInput}
+                    onChange={(e) => setNaturalLanguageInput(e.target.value)}
+                    placeholder="Example: Show me all users who placed orders over $100 in the last month"
+                    className="h-32 resize-none"
+                    data-testid="input-natural-language"
+                  />
+                </div>
+
+                <div className="flex justify-between items-center">
+                  <Badge variant="secondary" className="text-xs">
+                    Powered by OpenAI GPT-4
+                  </Badge>
+                  <Button 
+                    onClick={handleTranslate}
+                    disabled={translateMutation.isPending}
+                    data-testid="button-translate"
+                  >
+                    {translateMutation.isPending ? (
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    ) : (
+                      <ArrowRight className="mr-2 h-4 w-4" />
+                    )}
+                    Translate to SQL
+                  </Button>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Generated SQL Query
+                  </label>
+                  <div className="bg-gray-900 rounded-lg p-4 h-32 overflow-auto">
+                    <pre className="text-green-400 text-sm font-mono" data-testid="output-sql">
+                      {sqlOutput || "// SQL query will appear here"}
+                    </pre>
+                  </div>
+                </div>
+
+                {explanation && (
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <h4 className="font-medium text-blue-900 mb-2">Query Explanation:</h4>
+                    <p className="text-blue-800 text-sm" data-testid="text-explanation">{explanation}</p>
+                  </div>
+                )}
+
+                <div className="flex gap-4">
+                  <Button
+                    variant="secondary"
+                    onClick={handleCopySQL}
+                    disabled={!sqlOutput}
+                    className="flex-1"
+                    data-testid="button-copy"
+                  >
+                    <Copy className="mr-2 h-4 w-4" />
+                    Copy SQL
+                  </Button>
+                  <Button
+                    variant="outline"
+                    disabled={!sqlOutput}
+                    className="flex-1"
+                    data-testid="button-explain"
+                  >
+                    <HelpCircle className="mr-2 h-4 w-4" />
+                    Explain Query
+                  </Button>
+                </div>
+              </div>
+
+              {/* Sample Queries */}
+              <div className="mt-8 pt-6 border-t border-border">
+                <h4 className="font-medium text-foreground mb-4">Try these examples:</h4>
+                <div className="space-y-2">
+                  {sampleQueries.map((query, index) => (
+                    <Button
+                      key={index}
+                      variant="ghost"
+                      onClick={() => handleSampleQuery(query)}
+                      className="w-full text-left justify-start h-auto p-3 text-sm text-secondary hover:bg-muted"
+                      data-testid={`button-sample-${index}`}
+                    >
+                      "{query}"
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+}
