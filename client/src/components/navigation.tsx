@@ -333,25 +333,28 @@ export default function Navigation() {
                 {/* Apple-style Dropdown */}
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="p-2 max-h-80 overflow-y-auto">
-                    {/* Volunteer Leadership */}
-                    <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30">Volunteer Leadership</div>
-                    <button onClick={() => scrollToSection('#community')} className="w-full text-left block p-3 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700 font-medium">United Way - Next Gen Ambassador</div>
-                      <div className="text-xs text-gray-500">Kingston, ON (2020-2023)</div>
+                    <button 
+                      onClick={() => scrollToSection('#community')}
+                      className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
+                    >
+                      <div className="font-semibold text-gray-900 text-base mb-1">United Way</div>
+                      <div className="text-sm text-gray-600">Next Gen Ambassador • Kingston, ON (2020-2023)</div>
                     </button>
                     
-                    {/* Campus Engagement */}
-                    <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 mt-3">Campus Engagement</div>
-                    <button onClick={() => scrollToSection('#community')} className="w-full text-left block p-3 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700 font-medium">RBC Student Ambassador</div>
-                      <div className="text-xs text-gray-500">Fredericton, NB (2019-2020)</div>
+                    <button 
+                      onClick={() => scrollToSection('#community')}
+                      className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
+                    >
+                      <div className="font-semibold text-gray-900 text-base mb-1">Royal Bank of Canada</div>
+                      <div className="text-sm text-gray-600">Student Ambassador • Fredericton, NB (2019-2020)</div>
                     </button>
                     
-                    {/* Community Events */}
-                    <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 mt-3">Community Events</div>
-                    <button onClick={() => scrollToSection('#community')} className="w-full text-left block p-3 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700 font-medium">Irving Oil Volunteer Staff</div>
-                      <div className="text-xs text-gray-500">Saint John, NB (2018)</div>
+                    <button 
+                      onClick={() => scrollToSection('#community')}
+                      className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
+                    >
+                      <div className="font-semibold text-gray-900 text-base mb-1">Irving Oil Limited</div>
+                      <div className="text-sm text-gray-600">Volunteer Staff • Saint John, NB (2018)</div>
                     </button>
                   </div>
                 </div>
