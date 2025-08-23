@@ -10,6 +10,7 @@ import csiLogo from "@assets/canadian securities institute_1755923720191.png";
 import wallStreetPrepLogo from "@assets/wall street prep_1755923720193.png";
 import mcgillLogo from "@assets/mcgill_1755937693386.png";
 import trainingTheStreetLogo from "@assets/trainning the street_1755938972014.png";
+import bloombergLogo from "@assets/bloomberg_1755939196335.png";
 
 interface Certification {
   name: string;
@@ -42,6 +43,7 @@ export default function CertificationsSection() {
         { name: "Canadian Securities Course", year: "2021", institution: "CSI", logoSrc: csiLogo },
         { name: "Financial & Valuation Modeling", year: "2020", institution: "Wall Street Prep", logoSrc: wallStreetPrepLogo },
         { name: "Investment Funds in Canada", year: "2020", institution: "Canadian Securities Institute", logoSrc: csiLogo },
+        { name: "Bloomberg Market Concepts Certificate", year: "2020", institution: "Bloomberg", logoSrc: bloombergLogo },
         { name: "Personal Finance Essentials", year: "2020", institution: "McGill University", logoSrc: mcgillLogo }
       ]
     },
