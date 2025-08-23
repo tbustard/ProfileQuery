@@ -371,6 +371,40 @@
   .scroll-down-slow .scroll-fade-in {
     transition-duration: 0.8s;
   }
+
+  /* Apple Liquid Glass Button Effect */
+  .liquid-glass-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    z-index: 2;
+  }
+  
+  .liquid-glass-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    border-radius: 0 0 9999px 9999px;
+    pointer-events: none;
+    z-index: 1;
+  }
 }
 
 @keyframes appleSlideUp {

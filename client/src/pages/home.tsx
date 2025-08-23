@@ -57,11 +57,13 @@ export default function Home() {
         }`}
       >
         <div 
-          className="bg-white/10 backdrop-blur-[25px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+          className="liquid-glass-button rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 relative overflow-hidden"
           style={{
-            backdropFilter: 'blur(25px) saturate(200%) brightness(110%)',
-            WebkitBackdropFilter: 'blur(25px) saturate(200%) brightness(110%)',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+            background: 'rgba(255, 255, 255, 0.08)',
+            backdropFilter: 'blur(20px) saturate(180%) brightness(110%)',
+            WebkitBackdropFilter: 'blur(20px) saturate(180%) brightness(110%)',
+            border: '1px solid rgba(255, 255, 255, 0.16)',
+            boxShadow: '0 8px 32px rgba(31, 38, 135, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(255, 255, 255, 0.1)'
           }}
         >
           <div className="flex items-center px-6 py-3">
@@ -78,6 +80,26 @@ export default function Home() {
               <ChevronUp size={20} className="transition-transform duration-300 hover:scale-110" />
             </button>
           </div>
+          
+          {/* Liquid glass highlight pseudo-element */}
+          <div 
+            className="absolute top-0 left-0 w-full h-full rounded-full pointer-events-none"
+            style={{
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(255, 255, 255, 0.05) 100%)',
+              opacity: 0.6,
+              zIndex: 1
+            }}
+          />
+          
+          {/* Inner glow for liquid effect */}
+          <div 
+            className="absolute top-0 left-0 w-full h-full rounded-full pointer-events-none"
+            style={{
+              background: 'radial-gradient(ellipse at top, rgba(255, 255, 255, 0.15) 0%, transparent 70%)',
+              opacity: 0.4,
+              zIndex: 1
+            }}
+          />
         </div>
       </div>
       
