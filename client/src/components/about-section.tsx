@@ -98,7 +98,7 @@ export default function EducationSection() {
 
         {/* Hero Education Card - Modern Apple Layout */}
         <div className="mb-24">
-          <div className="relative bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 p-12 lg:p-16 max-w-5xl mx-auto min-h-[200px]">
+          <div className="relative bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 p-12 lg:p-16 min-h-[200px]">
             <div className="flex items-center gap-8 h-full">
               {/* Logo on left */}
               <div className="w-24 h-24 bg-primary/10 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 flex-shrink-0">
