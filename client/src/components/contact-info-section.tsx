@@ -35,8 +35,8 @@ export default function ContactInfoSection() {
                   <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                     <info.icon className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">{info.label}</h3>
-                  <p className="text-lg font-medium text-primary">{info.value}</p>
+                  <h3 className="text-xl font-bold text-foreground mb-2">{info.label}</h3>
+                  <p className="text-base font-semibold text-primary">{info.value}</p>
                 </div>
               </div>
             </div>

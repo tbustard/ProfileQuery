@@ -83,8 +83,8 @@ export default function ContactSection() {
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                   <info.icon className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">{info.label}</h3>
-                <p className="font-medium text-muted-foreground">{info.value}</p>
+                <h3 className="text-lg font-semibold text-foreground mb-2">{info.label}</h3>
+                <p className="text-base font-medium text-muted-foreground">{info.value}</p>
               </CardContent>
             </Card>
           ))}
@@ -101,7 +101,7 @@ export default function ContactSection() {
                 {/* Form Info Section */}
                 <div className="space-y-8">
                   <div>
-                    <h3 className="text-2xl font-semibold text-foreground mb-4">Send a Message</h3>
+                    <h3 className="text-2xl font-bold text-foreground mb-4">Send a Message</h3>
                     <p className="text-sm text-muted-foreground">
                       Whether you're looking to discuss investment opportunities, portfolio management, or potential collaboration, I'm here to help.
                     </p>

@@ -42,8 +42,8 @@ export default function PortfolioSection() {
     <section id="portfolio" className="section-padding bg-muted/20">
       <div className="container-width">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Featured Projects</h2>
-          <p className="text-lg text-secondary max-w-2xl mx-auto">
+          <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">Featured Projects</h2>
+          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             A showcase of my recent work and technical achievements.
           </p>
         </div>
@@ -58,8 +58,8 @@ export default function PortfolioSection() {
               />
               
               <CardContent className="p-10">
-                <h3 className="text-xl font-semibold text-foreground mb-3">{project.title}</h3>
-                <p className="text-secondary mb-4">
+                <h3 className="text-xl font-bold text-foreground mb-3">{project.title}</h3>
+                <p className="text-base text-muted-foreground mb-4 leading-relaxed">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">

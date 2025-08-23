@@ -132,11 +132,11 @@ export default function SQLTranslator() {
     <section id="sql-translator" className="section-padding">
       <div className="container-width">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
             <Database className="inline-block text-primary mr-4" />
             Financial Data Analytics Tool
           </h2>
-          <p className="text-lg text-secondary max-w-2xl mx-auto">
+          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Transform financial questions into SQL queries using AI. Perfect for portfolio analysis, stock research, and investment reporting.
           </p>
         </div>
@@ -145,14 +145,14 @@ export default function SQLTranslator() {
           {/* Sample Database Schema */}
           <Card className="shadow-2xl">
             <CardContent className="p-10">
-              <h3 className="text-xl font-semibold text-foreground mb-6">
+              <h3 className="text-xl font-bold text-foreground mb-6">
                 <Database className="inline-block text-primary mr-2" />
                 Financial Database Schema
               </h3>
               <div className="space-y-6">
                 {schemaInfo.map((schema, index) => (
                   <div key={index} className="bg-muted rounded-2xl p-6" data-testid={`schema-${index}`}>
-                    <h4 className="font-semibold text-foreground mb-3">{schema.table}</h4>
+                    <h4 className="text-lg font-bold text-foreground mb-3">{schema.table}</h4>
                     <div className="text-sm text-secondary space-y-1">
                       {schema.columns.map((column, columnIndex) => (
                         <div key={columnIndex}>
@@ -171,7 +171,7 @@ export default function SQLTranslator() {
           {/* SQL Translator Interface */}
           <Card className="shadow-2xl">
             <CardContent className="p-10">
-              <h3 className="text-xl font-semibold text-foreground mb-6">
+              <h3 className="text-xl font-bold text-foreground mb-6">
                 <ArrowRight className="inline-block text-primary mr-2" />
                 Investment Query Builder
               </h3>
@@ -213,7 +213,7 @@ export default function SQLTranslator() {
                     Financial Analysis Query
                   </label>
                   <div className="bg-gray-900 rounded-2xl p-6 h-32 overflow-auto">
-                    <pre className="text-green-400 text-sm font-mono" data-testid="output-sql">
+                    <pre className="text-green-400 text-sm" style={{fontFamily: 'ui-monospace, SFMono-Regular, SF Mono, Consolas, Liberation Mono, Menlo, monospace'}} data-testid="output-sql">
                       {sqlOutput || "// Financial analysis query will appear here"}
                     </pre>
                   </div>
@@ -251,7 +251,7 @@ export default function SQLTranslator() {
 
               {/* Sample Queries */}
               <div className="mt-8 pt-6 border-t border-border">
-                <h4 className="font-medium text-foreground mb-4">Try these examples:</h4>
+                <h4 className="text-lg font-semibold text-foreground mb-4">Try these examples:</h4>
                 <div className="space-y-2">
                   {sampleQueries.map((query, index) => (
                     <Button
