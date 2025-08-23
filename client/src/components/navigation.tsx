@@ -30,7 +30,6 @@ export default function Navigation() {
       return;
     }
 
-    // Set initial section to hero when on homepage
     setCurrentSection('hero');
 
     const observerOptions = {
@@ -49,8 +48,6 @@ export default function Navigation() {
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    // Observe all sections
     const sections = document.querySelectorAll('section[id]');
     sections.forEach((section) => observer.observe(section));
 
@@ -62,7 +59,7 @@ export default function Navigation() {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      const navHeight = 120; // Navigation bar height + extra spacing
+      const navHeight = 120;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navHeight;
       
@@ -97,59 +94,34 @@ export default function Navigation() {
 
   return (
     <>
-      {/* Apple-style Liquid Glass Navigation Bar */}
+      {/* Navigation Bar */}
       <nav 
-        className={`liquid-glass-nav fixed top-0 left-0 right-0 w-full z-50 transition-all duration-700 ease-out ${
+        className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-700 ease-out ${
           isScrolled 
-            ? 'border-b shadow-2xl' 
+            ? 'nav-glass border-b border-white/10 shadow-2xl' 
             : 'bg-transparent'
         }`}
         style={{
           background: isScrolled ? 'rgba(255, 255, 255, 0.02)' : 'transparent',
           backdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
           WebkitBackdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
-          borderColor: isScrolled ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
-          boxShadow: isScrolled ? '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)' : 'none',
+          boxShadow: isScrolled ? '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05)' : 'none',
         }}
       >
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center py-5">
-            {/* Logo/Home - Conditional based on page */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            
+            {/* Left side - Logo/Name */}
             <div className="flex items-center">
-              {/* Homepage: Show Tyler Bustard + image when scrolled */}
-              {isHomePage && (
-                <div 
-                  className={`flex items-center transition-all duration-700 ease-out ${
-                    isScrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
-                  }`}
-                >
-                  {/* Profile Image - slides in from right when scrolled */}
-                  <div 
-                    className="relative transition-all duration-700 ease-out mr-4"
-                    style={{
-                      transform: `translateX(${isScrolled ? 0 : 30}px) scale(${isScrolled ? 1 : 0.8})`,
-                      opacity: isScrolled ? 1 : 0,
-                    }}
-                  >
-                    <img 
-                      src={profileImage} 
-                      alt="Tyler Bustard" 
-                      className="w-9 h-9 rounded-xl object-cover ring-1 ring-white/20 shadow-sm transition-all duration-300 hover:ring-white/40 hover:scale-110"
-                    />
-                  </div>
-                  
-                  {/* Name - slides in from center when scrolled */}
-                  <div 
-                    className="transition-all duration-700 ease-out"
-                    style={{
-                      transform: `translateX(${isScrolled ? 0 : -20}px) translateY(${isScrolled ? 0 : 10}px)`,
-                      opacity: isScrolled ? 1 : 0,
-                    }}
-                  >
-                    <span className="text-lg font-bold text-foreground transition-all duration-700 ease-out">
-                      Tyler Bustard
-                    </span>
-                    {/* Section indicator - positioned under the name */}
+              {isHomePage && isScrolled && (
+                <div className="flex items-center space-x-4 transition-all duration-700 ease-out">
+                  <img 
+                    src={profileImage} 
+                    alt="Tyler Bustard" 
+                    className="w-9 h-9 rounded-xl object-cover ring-1 ring-white/20 shadow-sm"
+                  />
+                  <div>
+                    <span className="text-lg font-bold text-foreground">Tyler Bustard</span>
                     {currentSection && (
                       <div className="-mt-1">
                         <span className="text-xs font-medium text-primary">
@@ -160,39 +132,30 @@ export default function Navigation() {
                   </div>
                 </div>
               )}
-              
             </div>
-            
-            {/* Desktop Navigation with Apple.com-style Dropdowns */}
-            <div className="hidden md:flex items-center space-x-2">
-              {/* Education Dropdown */}
+
+            {/* Center - Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-1">
+              
+              {/* Education */}
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#education') : undefined}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1 ${
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                     currentSection === 'education' 
-                      ? 'text-primary font-semibold bg-primary/5' 
-                      : 'text-foreground/90 hover:text-foreground'
+                      ? 'text-primary font-semibold bg-primary/10' 
+                      : 'text-foreground/90 hover:text-foreground hover:bg-white/5'
                   }`}
-                  data-testid="nav-education"
                 >
                   Education
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                {/* True Glass Dropdown */}
-                <div className="liquid-glass-dropdown absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-80 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 relative overflow-hidden"
-                     style={{
-                       background: 'rgba(255, 255, 255, 0.02)',
-                       backdropFilter: 'blur(20px) saturate(180%)',
-                       WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                       border: '1px solid rgba(255, 255, 255, 0.1)',
-                       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
-                     }}>
+                <div className="dropdown-glass absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="p-2">
                     <button 
                       onClick={() => scrollToSection('#education')}
-                      className="w-full text-left block p-4 rounded-lg hover: transition-colors"
+                      className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors"
                     >
                       <div className="font-semibold text-gray-900 text-base mb-1">University of New Brunswick</div>
                       <div className="text-sm text-gray-600">Bachelor of Business Administration • Fredericton, NB (2016-2020)</div>
@@ -201,311 +164,115 @@ export default function Navigation() {
                 </div>
               </div>
 
-              {/* Experience Dropdown */}
+              {/* Experience */}
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#experience') : undefined}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1 ${
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                     currentSection === 'experience' 
-                      ? 'text-primary font-semibold bg-primary/5' 
-                      : 'text-foreground/90 hover:text-foreground'
+                      ? 'text-primary font-semibold bg-primary/10' 
+                      : 'text-foreground/90 hover:text-foreground hover:bg-white/5'
                   }`}
-                  data-testid="nav-experience"
                 >
                   Experience
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                {/* True Glass Dropdown */}
-                <div className="liquid-glass-dropdown absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-96 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 relative overflow-hidden"
-                     style={{
-                       background: 'rgba(255, 255, 255, 0.02)',
-                       backdropFilter: 'blur(20px) saturate(180%)',
-                       WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                       border: '1px solid rgba(255, 255, 255, 0.1)',
-                       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
-                     }}>
-                  <div className="p-2 max-h-80 overflow-y-auto">
-                    {/* Individual Experience Items */}
-                    <button 
-                      onClick={() => scrollToSection('#experience-bmo-private-wealth-portfolio-assistant')}
-                      className="w-full text-left block p-4 rounded-lg hover: transition-colors border-b border-gray-200"
-                    >
+                <div className="dropdown-glass absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-96 max-h-80 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="p-2">
+                    <button onClick={() => scrollToSection('#experience-bmo-private-wealth-portfolio-assistant')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/20">
                       <div className="font-semibold text-gray-900 text-base mb-1">BMO Private Wealth</div>
                       <div className="text-sm text-gray-600">Portfolio Assistant • Toronto, ON (2022-2023)</div>
                     </button>
-                    
-                    <button 
-                      onClick={() => scrollToSection('#experience-td-canada-trust-financial-advisor')}
-                      className="w-full text-left block p-4 rounded-lg hover: transition-colors border-b border-gray-200"
-                    >
+                    <button onClick={() => scrollToSection('#experience-td-canada-trust-financial-advisor')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/20">
                       <div className="font-semibold text-gray-900 text-base mb-1">TD Canada Trust</div>
                       <div className="text-sm text-gray-600">Financial Advisor • Kingston, ON (2021-2022)</div>
                     </button>
-                    
-                    <button 
-                      onClick={() => scrollToSection('#experience-royal-bank-of-canada-banking-advisor')}
-                      className="w-full text-left block p-4 rounded-lg hover: transition-colors border-b border-gray-200"
-                    >
+                    <button onClick={() => scrollToSection('#experience-royal-bank-of-canada-banking-advisor')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/20">
                       <div className="font-semibold text-gray-900 text-base mb-1">Royal Bank of Canada</div>
                       <div className="text-sm text-gray-600">Banking Advisor • Kingston, ON (2020-2021)</div>
                     </button>
-                    
-                    <button 
-                      onClick={() => scrollToSection('#experience-royal-bank-of-canada-client-advisor-intern')}
-                      className="w-full text-left block p-4 rounded-lg hover: transition-colors border-b border-gray-200"
-                    >
-                      <div className="font-semibold text-gray-900 text-base mb-1">Royal Bank of Canada</div>
-                      <div className="text-sm text-gray-600">Client Advisor Intern • Fredericton, NB (2019-2020)</div>
-                    </button>
-                    
-                    <button 
-                      onClick={() => scrollToSection('#experience-irving-oil-limited-marketing-intern')}
-                      className="w-full text-left block p-4 rounded-lg hover: transition-colors border-b border-gray-200"
-                    >
-                      <div className="font-semibold text-gray-900 text-base mb-1">Irving Oil Limited</div>
-                      <div className="text-sm text-gray-600">Marketing Intern • Saint John, NB (2018)</div>
-                    </button>
-                    
-                    <button 
-                      onClick={() => scrollToSection('#experience-grant-thornton-llp-tax-return-intern')}
-                      className="w-full text-left block p-4 rounded-lg hover: transition-colors"
-                    >
-                      <div className="font-semibold text-gray-900 text-base mb-1">Grant Thornton LLP</div>
-                      <div className="text-sm text-gray-600">Tax Return Intern • Saint John, NB (2018)</div>
+                    <button onClick={() => scrollToSection('#experience-royal-bank-of-canada-client-advisor-intern')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors">
+                      <div className="font-semibold text-gray-900 text-base mb-1">RBC Client Advisor Intern</div>
+                      <div className="text-sm text-gray-600">Fredericton, NB (2019-2020)</div>
                     </button>
                   </div>
                 </div>
               </div>
 
-              {/* Certifications Dropdown */}
+              {/* Certifications */}
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#certifications') : undefined}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1 ${
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                     currentSection === 'certifications' 
-                      ? 'text-primary font-semibold bg-primary/5' 
-                      : 'text-foreground/90 hover:text-foreground'
+                      ? 'text-primary font-semibold bg-primary/10' 
+                      : 'text-foreground/90 hover:text-foreground hover:bg-white/5'
                   }`}
-                  data-testid="nav-certifications"
                 >
                   Certifications
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                {/* True Glass Dropdown */}
-                <div className="liquid-glass-dropdown absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 relative overflow-hidden"
-                     style={{
-                       background: 'rgba(255, 255, 255, 0.02)',
-                       backdropFilter: 'blur(20px) saturate(180%)',
-                       WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                       border: '1px solid rgba(255, 255, 255, 0.1)',
-                       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
-                     }}>
-                  <div className="p-2 max-h-80 overflow-y-auto">
-                    {/* Financial Excellence Certifications */}
-                    <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 hover: transition-colors w-full text-left rounded-lg mb-2">Financial Excellence</div>
-                    <button onClick={() => scrollToSection('#cert-cfa-level-i-candidate')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">CFA Level I Candidate</div>
+                <div className="dropdown-glass absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-72 max-h-80 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="p-2">
+                    <div className="font-semibold text-gray-900 text-base p-3 bg-gray-50/30 rounded-lg mb-2">Financial Excellence</div>
+                    <button onClick={() => scrollToSection('#cert-cfa-level-i-candidate')} className="w-full text-left block p-3 pl-4 rounded-lg hover:bg-white/5 transition-colors">
+                      <div className="font-medium text-gray-900 text-sm">CFA Level I Candidate</div>
                       <div className="text-xs text-gray-600">CFA Institute • 2025</div>
                     </button>
-                    <button onClick={() => scrollToSection('#cert-discounted-cash-flow-analysis')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Discounted Cash Flow Analysis</div>
+                    <button onClick={() => scrollToSection('#cert-discounted-cash-flow-analysis')} className="w-full text-left block p-3 pl-4 rounded-lg hover:bg-white/5 transition-colors">
+                      <div className="font-medium text-gray-900 text-sm">DCF Analysis</div>
                       <div className="text-xs text-gray-600">Training the Street • 2024</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-financial-planning-1')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Financial Planning 1</div>
-                      <div className="text-xs text-gray-600">Canadian Securities Institute • 2023</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-certificate-in-financial-services-advice')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Certificate in Financial Services Advice</div>
-                      <div className="text-xs text-gray-600">Canadian Securities Institute • 2022</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-personal-financial-service-advice')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Personal Financial Service Advice</div>
-                      <div className="text-xs text-gray-600">Canadian Securities Institute • 2021</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-canadian-securities-course')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Canadian Securities Course</div>
-                      <div className="text-xs text-gray-600">Canadian Securities Institute • 2021</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-financial---valuation-modeling')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Financial & Valuation Modeling</div>
-                      <div className="text-xs text-gray-600">Wall Street Prep • 2020</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-investment-funds-in-canada')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Investment Funds in Canada</div>
-                      <div className="text-xs text-gray-600">Canadian Securities Institute • 2020</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-bloomberg-market-concepts-certificate')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Bloomberg Market Concepts Certificate</div>
-                      <div className="text-xs text-gray-600">Bloomberg • 2020</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-personal-finance-essentials')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Personal Finance Essentials</div>
-                      <div className="text-xs text-gray-600">McGill University • 2020</div>
-                    </button>
-                    
-                    {/* Data & Technology Certifications */}
-                    <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 hover: transition-colors w-full text-left rounded-lg mb-2 mt-3">Data & Technology</div>
-                    <button onClick={() => scrollToSection('#cert-data-analytics-professional')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Data Analytics Professional</div>
-                      <div className="text-xs text-gray-600">Google • 2023</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-data-visualization-with-tableau')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Data Visualization with Tableau</div>
-                      <div className="text-xs text-gray-600">UC Davis • 2023</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-python-for-everybody')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Python for Everybody</div>
-                      <div className="text-xs text-gray-600">University of Michigan • 2023</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-machine-learning')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Machine Learning</div>
-                      <div className="text-xs text-gray-600">Stanford University • 2020</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-sql-for-data-science')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">SQL for Data Science</div>
-                      <div className="text-xs text-gray-600">UC Davis • 2020</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-power-bi-data-visualization')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Power BI Data Visualization</div>
-                      <div className="text-xs text-gray-600">Microsoft • 2020</div>
-                    </button>
-                    
-                    {/* Advanced Analytics Certifications */}
-                    <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 hover: transition-colors w-full text-left rounded-lg mb-2 mt-3">Advanced Analytics</div>
-                    <button onClick={() => scrollToSection('#cert-econometrics--methods---applications')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Econometrics: Methods & Applications</div>
-                      <div className="text-xs text-gray-600">Erasmus University • 2024</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-matrix-algebra-for-engineers')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Matrix Algebra for Engineers</div>
-                      <div className="text-xs text-gray-600">HKUST • 2024</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-introduction-to-calculus')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Introduction to Calculus</div>
-                      <div className="text-xs text-gray-600">University of Sydney • 2023</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-inferential-statistics')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Inferential Statistics</div>
-                      <div className="text-xs text-gray-600">Duke University • 2020</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#cert-excel-skills-for-business')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors border-b border-gray-200">
-                      <div className="font-medium text-gray-900 text-sm mb-1">Excel Skills for Business</div>
-                      <div className="text-xs text-gray-600">Macquarie University • 2020</div>
-                    </button>
-                    
-                    {/* Academic Achievement Certifications */}
-                    <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 hover: transition-colors w-full text-left rounded-lg mb-2 mt-3">Academic Achievement</div>
-                    <button onClick={() => scrollToSection('#cert-gre-general-test')} className="w-full text-left block p-3 pl-4 rounded-lg hover: transition-colors">
-                      <div className="font-medium text-gray-900 text-sm mb-1">GRE General Test</div>
-                      <div className="text-xs text-gray-600">ETS • 2024</div>
                     </button>
                   </div>
                 </div>
               </div>
 
-              {/* Community Dropdown */}
+              {/* Community */}
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#community') : undefined}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1 ${
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                     currentSection === 'community' 
-                      ? 'text-primary font-semibold bg-primary/5' 
-                      : 'text-foreground/90 hover:text-foreground'
+                      ? 'text-primary font-semibold bg-primary/10' 
+                      : 'text-foreground/90 hover:text-foreground hover:bg-white/5'
                   }`}
-                  data-testid="nav-community"
                 >
                   Community
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                {/* True Glass Dropdown */}
-                <div className="liquid-glass-dropdown absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 relative overflow-hidden"
-                     style={{
-                       background: 'rgba(255, 255, 255, 0.02)',
-                       backdropFilter: 'blur(20px) saturate(180%)',
-                       WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                       border: '1px solid rgba(255, 255, 255, 0.1)',
-                       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
-                     }}>
-                  <div className="p-2 max-h-80 overflow-y-auto">
-                    <button 
-                      onClick={() => scrollToSection('#community-united-way')}
-                      className="w-full text-left block p-4 rounded-lg hover: transition-colors border-b border-gray-200"
-                    >
-                      <div className="font-semibold text-gray-900 text-base mb-1">United Way</div>
-                      <div className="text-sm text-gray-600">Next Gen Ambassador • Kingston, ON (2020-2023)</div>
-                    </button>
-                    
-                    <button 
-                      onClick={() => scrollToSection('#community-royal-bank-of-canada')}
-                      className="w-full text-left block p-4 rounded-lg hover: transition-colors border-b border-gray-200"
-                    >
-                      <div className="font-semibold text-gray-900 text-base mb-1">Royal Bank of Canada</div>
-                      <div className="text-sm text-gray-600">Student Ambassador • Fredericton, NB (2019-2020)</div>
-                    </button>
-                    
-                    <button 
-                      onClick={() => scrollToSection('#community-irving-oil-limited')}
-                      className="w-full text-left block p-4 rounded-lg hover: transition-colors"
-                    >
-                      <div className="font-semibold text-gray-900 text-base mb-1">Irving Oil Limited</div>
-                      <div className="text-sm text-gray-600">Volunteer Staff • Saint John, NB (2018)</div>
+                <div className="dropdown-glass absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-72 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="p-2">
+                    <button onClick={() => scrollToSection('#community-united-way')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors">
+                      <div className="font-semibold text-gray-900 text-base">United Way</div>
+                      <div className="text-sm text-gray-600">Leadership & Financial Literacy</div>
                     </button>
                   </div>
                 </div>
               </div>
 
-              {/* Contact Dropdown - Only on home page */}
+              {/* Contact */}
               {isHomePage && (
                 <div className="relative group">
                   <button
                     onClick={() => scrollToSection('#contact')}
-                    className={`px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1 ${
+                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                       currentSection === 'contact' 
-                        ? 'text-primary font-semibold bg-primary/5' 
-                        : 'text-foreground/90 hover:text-foreground'
+                        ? 'text-primary font-semibold bg-primary/10' 
+                        : 'text-foreground/90 hover:text-foreground hover:bg-white/5'
                     }`}
-                    data-testid="nav-contact"
                   >
                     Contact
                     <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                   </button>
                   
-                  {/* True Glass Dropdown */}
-                  <div className="liquid-glass-dropdown absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 relative overflow-hidden"
-                       style={{
-                         background: 'rgba(255, 255, 255, 0.02)',
-                         backdropFilter: 'blur(20px) saturate(180%)',
-                         WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                         border: '1px solid rgba(255, 255, 255, 0.1)',
-                         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
-                       }}>
+                  <div className="dropdown-glass absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-72 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     <div className="p-2">
-                      <button 
-                        onClick={() => scrollToSection('#contact')}
-                        className="w-full text-left block p-4 rounded-lg hover: transition-colors border-b border-gray-200"
-                      >
-                        <div className="font-semibold text-gray-900 text-base mb-1">Email</div>
+                      <button onClick={() => scrollToSection('#contact')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors">
+                        <div className="font-semibold text-gray-900 text-base">Email</div>
                         <div className="text-sm text-gray-600">tbustard@unb.ca</div>
-                      </button>
-                      
-                      <button 
-                        onClick={() => scrollToSection('#contact')}
-                        className="w-full text-left block p-4 rounded-lg hover: transition-colors border-b border-gray-200"
-                      >
-                        <div className="font-semibold text-gray-900 text-base mb-1">Phone</div>
-                        <div className="text-sm text-gray-600">(613) 985-1223</div>
-                      </button>
-                      
-                      <button 
-                        onClick={() => scrollToSection('#contact')}
-                        className="w-full text-left block p-4 rounded-lg hover: transition-colors"
-                      >
-                        <div className="font-semibold text-gray-900 text-base mb-1">Location</div>
-                        <div className="text-sm text-gray-600">Toronto, Ontario, Canada</div>
                       </button>
                     </div>
                   </div>
@@ -516,94 +283,69 @@ export default function Navigation() {
               {isHomePage && (
                 <button
                   onClick={() => scrollToSection('#download')}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg bg-primary/10 hover:bg-primary/20 border border-primary/20 hover:border-primary/30 transition-all duration-200 ${
-                    currentSection === 'download' 
-                      ? 'text-primary font-semibold bg-primary/20 border-primary/30' 
-                      : 'text-primary hover:text-primary'
-                  }`}
-                  data-testid="nav-download"
+                  className="px-4 py-2 text-sm font-medium rounded-lg bg-primary/10 hover:bg-primary/20 border border-primary/20 hover:border-primary/30 text-primary transition-all duration-200 ml-2"
                 >
                   Download
                 </button>
               )}
-              
             </div>
-            
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              className={`md:hidden transition-all duration-300 hover:scale-110 ${
-                isScrolled 
-                  ? 'hover:bg-white/15 text-foreground' 
-                  : 'hover:bg-white/10 text-foreground'
-              }`}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              data-testid="button-mobile-menu"
-            >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          </div>
-          
-          {/* Mobile Navigation - True Glass */}
-          {isMobileMenuOpen && (
-            <div 
-              className="liquid-glass-mobile md:hidden transition-all duration-500 border-t relative overflow-hidden"
-              style={{
-                background: 'rgba(255, 255, 255, 0.02)',
-                backdropFilter: 'blur(20px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                borderColor: 'rgba(255, 255, 255, 0.1)',
-                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
-              }}
-            >
-              <div className="px-4 py-6 space-y-3">
-                {isHomePage ? (
-                  <>
-                    <button
-                      onClick={() => scrollToSection('#education')}
-                      className="text-foreground hover:text-primary hover:bg-white/15 block px-4 py-3 rounded-xl text-base font-medium w-full text-left transition-all duration-300 hover:scale-105 hover:translate-x-2"
-                      data-testid="nav-mobile-education"
-                    >
-                      Education
-                    </button>
-                    <button
-                      onClick={() => scrollToSection('#experience')}
-                      className="text-foreground hover:text-primary hover:bg-white/15 block px-4 py-3 rounded-xl text-base font-medium w-full text-left transition-all duration-300 hover:scale-105 hover:translate-x-2"
-                      data-testid="nav-mobile-experience"
-                    >
-                      Experience
-                    </button>
-                    <button
-                      onClick={() => scrollToSection('#certifications')}
-                      className="text-foreground hover:text-primary hover:bg-white/15 block px-4 py-3 rounded-xl text-base font-medium w-full text-left transition-all duration-300 hover:scale-105 hover:translate-x-2"
-                      data-testid="nav-mobile-certifications"
-                    >
-                      Certifications
-                    </button>
-                    <button
-                      onClick={() => scrollToSection('#community')}
-                      className="text-foreground hover:text-primary hover:bg-white/15 block px-4 py-3 rounded-xl text-base font-medium w-full text-left transition-all duration-300 hover:scale-105 hover:translate-x-2"
-                      data-testid="nav-mobile-community"
-                    >
-                      Community
-                    </button>
-                    <button
-                      onClick={() => scrollToSection('#contact')}
-                      className="text-foreground hover:text-primary hover:bg-white/15 block px-4 py-3 rounded-xl text-base font-medium w-full text-left transition-all duration-300 hover:scale-105 hover:translate-x-2"
-                      data-testid="nav-mobile-contact"
-                    >
-                      Contact
-                    </button>
-                  </>
-                ) : null}
-              </div>
-            </div>
-          )}
-        </div>
-      </nav>
 
-      {/* Spacer to prevent content overlap */}
-      <div className="h-20" />
+            {/* Right side - Mobile Menu Button */}
+            <div className="md:hidden">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-foreground hover:bg-white/10"
+              >
+                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden mobile-glass border-t border-white/10">
+            <div className="px-6 py-4 space-y-2">
+              {isHomePage && (
+                <>
+                  <button
+                    onClick={() => scrollToSection('#education')}
+                    className="block w-full text-left px-4 py-3 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200"
+                  >
+                    Education
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('#experience')}
+                    className="block w-full text-left px-4 py-3 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200"
+                  >
+                    Experience
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('#certifications')}
+                    className="block w-full text-left px-4 py-3 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200"
+                  >
+                    Certifications
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('#community')}
+                    className="block w-full text-left px-4 py-3 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200"
+                  >
+                    Community
+                  </button>
+                  <button
+                    onClick={() => scrollToSection('#contact')}
+                    className="block w-full text-left px-4 py-3 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200"
+                  >
+                    Contact
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
+        )}
+      </nav>
     </>
   );
 }
