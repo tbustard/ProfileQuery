@@ -121,9 +121,9 @@ export default function CertificationsSection() {
                 {/* Modern Category Container */}
                 <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500">
                   {/* Category Header with gradient */}
-                  <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-8 lg:p-10">
+                  <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-8 lg:p-10">
                     <div className="flex items-center gap-6">
-                      <div className="w-20 h-20 bg-white/30 backdrop-blur-sm rounded-3xl flex items-center justify-center shadow-xl">
+                      <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
                         <category.icon className="w-10 h-10 text-primary" />
                       </div>
                       <div>
@@ -139,7 +139,7 @@ export default function CertificationsSection() {
                       {category.certifications.map((cert, certIndex) => (
                         <div 
                           key={certIndex}
-                          className="group relative bg-white/40 backdrop-blur-sm rounded-2xl border border-white/40 p-6 hover:bg-white/50 transition-all duration-500 hover:scale-[1.01] hover:shadow-lg"
+                          className="group relative bg-white/90 backdrop-blur-xl rounded-[20px] border border-white/20 p-6 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.01]"
                           data-testid={`cert-${categoryIndex}-${certIndex}`}
                         >
                           <div className="flex items-center justify-between">
@@ -185,7 +185,7 @@ export default function CertificationsSection() {
 
         {/* Achievement Metrics - Apple-style clean stats */}
         <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500">
-          <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-8 lg:p-12">
+          <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-8 lg:p-12">
             <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
               Professional Development Highlights
             </h3>
@@ -373,7 +373,7 @@ export function CommunitySection() {
         {/* Community Impact Summary */}
         <div className="mt-24">
           <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500">
-            <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-8 lg:p-12">
+            <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-8 lg:p-12">
               <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
                 Community Impact Highlights
               </h3>
