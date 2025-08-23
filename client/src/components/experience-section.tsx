@@ -23,7 +23,7 @@ export default function ExperienceSection() {
       title: "Portfolio Assistant",
       company: "BMO Private Wealth",
       location: "Toronto, Ontario",
-      period: "2022 - 2023",
+      period: "2022-2023",
       duration: "1 year",
       achievements: [
         "Advised two Investment Counsellors managing portfolios over $100M and cut preparation time by 12%",
@@ -37,7 +37,7 @@ export default function ExperienceSection() {
       title: "Financial Advisor",
       company: "TD Canada Trust",
       location: "Kingston, Ontario",
-      period: "2021 - 2022",
+      period: "2021-2022",
       duration: "1 year",
       achievements: [
         "Cultivated strong client relationships by assessing individual financial needs, resulting in an 11% increase in sales",
@@ -51,7 +51,7 @@ export default function ExperienceSection() {
       title: "Banking Advisor",
       company: "Royal Bank of Canada",
       location: "Kingston, Ontario",
-      period: "2020 - 2021",
+      period: "2020-2021",
       duration: "1 year",
       achievements: [
         "Strengthened client relationships by advising on personalized solutions, increased repeat transactions by 13%",
@@ -65,7 +65,7 @@ export default function ExperienceSection() {
       title: "Client Advisor Intern",
       company: "Royal Bank of Canada",
       location: "Fredericton, New Brunswick",
-      period: "2019 - 2020",
+      period: "2019-2020",
       duration: "1 year",
       achievements: [
         "Resolved complex client issues, achieving a 15% boost in positive feedback scores for the branch",
@@ -79,7 +79,7 @@ export default function ExperienceSection() {
       title: "Marketing Intern",
       company: "Irving Oil Limited",
       location: "Saint John, New Brunswick",
-      period: "Sep - Dec 2018",
+      period: "2018",
       duration: "4 months",
       achievements: [
         "Conducted competitor analysis driving insights that improved targeted marketing by 11%",
@@ -93,7 +93,7 @@ export default function ExperienceSection() {
       title: "Tax Return Intern",
       company: "Grant Thornton LLP",
       location: "Saint John, New Brunswick",
-      period: "Jan - May 2018",
+      period: "2018",
       duration: "5 months",
       achievements: [
         "Streamlined client financial data, boosting accuracy by 10% ensuring timely submission of 100+ tax returns",
