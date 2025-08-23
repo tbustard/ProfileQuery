@@ -213,7 +213,7 @@ export default function Navigation() {
                       opacity: isScrolled ? 1 : 0,
                     }}
                   >
-                    <span className="text-lg font-bold text-foreground transition-all duration-700 ease-out">
+                    <span className="text-lg font-bold text-foreground transition-all duration-700 ease-out" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}>
                       Tyler Bustard
                     </span>
                     {/* Section indicator - positioned under the name */}
@@ -242,6 +242,7 @@ export default function Navigation() {
                       : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
                   }`}
                   data-testid="nav-experience"
+                  style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}
                 >
                   Experience
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
@@ -312,6 +313,7 @@ export default function Navigation() {
                       : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
                   }`}
                   data-testid="nav-education"
+                  style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}
                 >
                   Education
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
@@ -341,13 +343,14 @@ export default function Navigation() {
                       : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
                   }`}
                   data-testid="nav-certifications"
+                  style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}
                 >
                   Certifications
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                {/* Apple-style Dropdown */}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                {/* Liquid Glass Dropdown */}
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 liquid-glass-dropdown">
                   <div className="p-2 max-h-80 overflow-y-auto">
                     {/* Financial Excellence Certifications */}
                     <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 hover: transition-colors w-full text-left rounded-lg mb-2">Financial Excellence</div>
@@ -462,13 +465,14 @@ export default function Navigation() {
                       : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
                   }`}
                   data-testid="nav-community"
+                  style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}
                 >
                   Community
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                {/* Apple-style Dropdown */}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                {/* Liquid Glass Dropdown */}
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 liquid-glass-dropdown">
                   <div className="p-2 max-h-80 overflow-y-auto">
                     <button 
                       onClick={() => scrollToSection('#community-united-way')}
@@ -508,13 +512,14 @@ export default function Navigation() {
                         : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
                     }`}
                     data-testid="nav-contact"
+                    style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}
                   >
                     Contact
                     <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                   </button>
                   
-                  {/* Apple-style Dropdown */}
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  {/* Liquid Glass Dropdown */}
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 liquid-glass-dropdown">
                     <div className="p-2">
                       <button 
                         onClick={() => scrollToSection('#contact-email')}
