@@ -192,15 +192,15 @@ export default function CertificationsSection() {
             </h3>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">22</div>
+                <div className="text-4xl lg:text-5xl font-bold text-black mb-3">22</div>
                 <div className="text-muted-foreground font-medium">Total Certifications</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">4</div>
+                <div className="text-4xl lg:text-5xl font-bold text-black mb-3">4</div>
                 <div className="text-muted-foreground font-medium">Expertise Areas</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">17</div>
+                <div className="text-4xl lg:text-5xl font-bold text-black mb-3">17</div>
                 <div className="text-muted-foreground font-medium">Different Organizations</div>
               </div>
             </div>
@@ -383,15 +383,15 @@ export function CommunitySection() {
               </h3>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">4+</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-black mb-3">4+</div>
                   <div className="text-muted-foreground font-medium">Years of Service</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">3</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-black mb-3">3</div>
                   <div className="text-muted-foreground font-medium">Organizations Served</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">500+</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-black mb-3">500+</div>
                   <div className="text-muted-foreground font-medium">People Helped</div>
                 </div>
               </div>
