@@ -122,8 +122,8 @@ export default function Navigation() {
                   />
                   <div className="relative">
                     <span className="text-lg font-bold text-foreground">Tyler Bustard</span>
-                    {/* Blue underline like main page */}
-                    <div className="absolute -bottom-1 left-0 w-16 h-1 bg-primary rounded-full" />
+                    {/* Blue underline identical to main page */}
+                    <div className="absolute -bottom-1 left-0 h-1 w-20 bg-gradient-to-r from-primary to-primary/60 rounded-full" />
                   </div>
                 </div>
               )}
