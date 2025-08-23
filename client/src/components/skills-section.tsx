@@ -88,17 +88,17 @@ export default function CertificationsSection() {
       <div className="container-width">
         {/* Header */}
         <div className="text-center mb-20">
-          <h2 className="large-title text-foreground mb-4">
+          <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
             Professional Certifications
           </h2>
-          <p className="callout text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Comprehensive expertise across finance, technology, and analytics through continuous learning and professional development
           </p>
         </div>
 
         {/* Featured Certifications - Apple-style hero showcase */}
         <div className="mb-20">
-          <h3 className="text-xl font-semibold text-foreground mb-8 text-center">Featured Achievements</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Featured Achievements</h3>
           <div className="grid md:grid-cols-3 gap-6">
             {featuredCerts.map((cert, index) => (
               <Card key={index} className="apple-card apple-hover border-0 text-center" data-testid={`featured-cert-${index}`}>
@@ -107,7 +107,7 @@ export default function CertificationsSection() {
                     <cert.icon className="w-8 h-8 text-primary" />
                   </div>
                   <h4 className="text-lg font-semibold text-foreground mb-2">{cert.name}</h4>
-                  <p className="body-text text-muted-foreground mb-2">{cert.institution}</p>
+                  <p className="text-muted-foreground font-medium mb-2">{cert.institution}</p>
                   <Badge variant="secondary" className="text-xs">{cert.year}</Badge>
                   {cert.percentile && (
                     <p className="text-sm text-primary font-medium mt-3">{cert.percentile}</p>
@@ -120,7 +120,7 @@ export default function CertificationsSection() {
 
         {/* All Certifications - Apple-style list layout */}
         <div className="mb-16">
-          <h3 className="text-xl font-semibold text-foreground mb-8 text-center">Complete Certification Portfolio</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Complete Certification Portfolio</h3>
           <div className="grid md:grid-cols-2 gap-8">
             {certificationCategories.map((category, categoryIndex) => (
               <div key={categoryIndex} className="space-y-4">
@@ -131,7 +131,7 @@ export default function CertificationsSection() {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-foreground">{category.title}</h4>
-                    <p className="body-text text-muted-foreground">{category.certifications.length} certifications</p>
+                    <p className="text-muted-foreground font-medium">{category.certifications.length} certifications</p>
                   </div>
                 </div>
 
@@ -151,12 +151,12 @@ export default function CertificationsSection() {
                               <div className="w-2 h-2 bg-primary rounded-full"></div>
                             )}
                           </div>
-                          <p className="body-text text-muted-foreground text-sm">{cert.institution}</p>
+                          <p className="text-muted-foreground text-sm font-medium">{cert.institution}</p>
                           {cert.percentile && (
                             <p className="text-xs text-primary font-medium mt-1">{cert.percentile}</p>
                           )}
                         </div>
-                        <span className="body-text text-muted-foreground text-sm font-medium">{cert.year}</span>
+                        <span className="text-muted-foreground text-sm font-medium">{cert.year}</span>
                       </div>
                     </div>
                   ))}

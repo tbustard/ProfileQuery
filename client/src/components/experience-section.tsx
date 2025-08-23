@@ -151,12 +151,12 @@ export default function ExperienceSection() {
                           <div>
                             <h3 className="text-xl font-semibold text-foreground mb-1">{exp.title}</h3>
                             <p className="text-lg font-medium mb-1" style={{ color: exp.color }}>{exp.company}</p>
-                            <p className="body-text text-muted-foreground">{exp.location}</p>
+                            <p className="text-muted-foreground font-medium">{exp.location}</p>
                           </div>
                         </div>
                         <div className="mt-4 lg:mt-0 lg:text-right">
                           <span className="text-lg font-medium text-gray-500">{exp.period}</span>
-                          <p className="body-text text-muted-foreground mt-1 lg:text-right">{exp.duration}</p>
+                          <p className="text-muted-foreground text-sm font-medium mt-1 lg:text-right">{exp.duration}</p>
                         </div>
                       </div>
 
@@ -167,7 +167,7 @@ export default function ExperienceSection() {
                           {exp.achievements.map((achievement, achievementIndex) => (
                             <div key={achievementIndex} className="flex items-start gap-3">
                               <div className="w-1.5 h-1.5 rounded-full mt-2.5 flex-shrink-0" style={{ backgroundColor: exp.color }}></div>
-                              <p className="body-text text-muted-foreground leading-relaxed">{achievement}</p>
+                              <p className="text-muted-foreground font-medium leading-relaxed">{achievement}</p>
                             </div>
                           ))}
                         </div>

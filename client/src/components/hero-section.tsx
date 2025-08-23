@@ -128,8 +128,8 @@ export default function HeroSection() {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold text-foreground mb-2">Career</h3>
-                        <div className="space-y-2 text-sm text-muted-foreground">
+                        <h3 className="text-lg font-semibold text-foreground mb-2">Career</h3>
+                        <div className="space-y-2 text-sm text-muted-foreground font-medium">
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
                             <span>BMO Private Wealth Portfolio Assistant</span>
@@ -160,8 +160,8 @@ export default function HeroSection() {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold text-foreground mb-2">Education</h3>
-                        <div className="space-y-2 text-sm text-muted-foreground">
+                        <h3 className="text-lg font-semibold text-foreground mb-2">Education</h3>
+                        <div className="space-y-2 text-sm text-muted-foreground font-medium">
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
                             <span>University of New Brunswick BBA</span>
@@ -213,8 +213,8 @@ export default function HeroSection() {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold text-foreground mb-2">Certifications</h3>
-                        <div className="space-y-2 text-sm text-muted-foreground">
+                        <h3 className="text-lg font-semibold text-foreground mb-2">Certifications</h3>
+                        <div className="space-y-2 text-sm text-muted-foreground font-medium">
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
                             <span>CFA Level I Candidate</span>
@@ -248,8 +248,8 @@ export default function HeroSection() {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold text-foreground mb-2">Community</h3>
-                        <div className="space-y-2 text-sm text-muted-foreground">
+                        <h3 className="text-lg font-semibold text-foreground mb-2">Community</h3>
+                        <div className="space-y-2 text-sm text-muted-foreground font-medium">
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
                             <span>United Way campaign leadership</span>

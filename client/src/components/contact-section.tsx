@@ -69,8 +69,8 @@ export default function ContactSection() {
       <div className="container-width">
         {/* Header Section - Apple's content-first approach */}
         <div className="text-center mb-20">
-          <h2 className="large-title text-foreground mb-4">Get In Touch</h2>
-          <p className="callout text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">Get In Touch</h2>
+          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Ready to discuss your next project or opportunity? I'd love to hear from you.
           </p>
         </div>
@@ -84,7 +84,7 @@ export default function ContactSection() {
                   <info.icon className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">{info.label}</h3>
-                <p className="body-text text-muted-foreground">{info.value}</p>
+                <p className="font-medium text-muted-foreground">{info.value}</p>
               </CardContent>
             </Card>
           ))}
@@ -102,7 +102,7 @@ export default function ContactSection() {
                 <div className="space-y-8">
                   <div>
                     <h3 className="text-2xl font-semibold text-foreground mb-4">Send a Message</h3>
-                    <p className="callout text-muted-foreground">
+                    <p className="text-sm text-muted-foreground">
                       Whether you're looking to discuss investment opportunities, portfolio management, or potential collaboration, I'm here to help.
                     </p>
                   </div>
@@ -111,15 +111,15 @@ export default function ContactSection() {
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="body-text text-muted-foreground">Typically responds within 24 hours</span>
+                      <span className="font-medium text-muted-foreground">Typically responds within 24 hours</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="body-text text-muted-foreground">Available for consulting opportunities</span>
+                      <span className="font-medium text-muted-foreground">Available for consulting opportunities</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 bg-primary rounded-full"></div>
-                      <span className="body-text text-muted-foreground">Open to investment discussions</span>
+                      <span className="font-medium text-muted-foreground">Open to investment discussions</span>
                     </div>
                   </div>
                 </div>
@@ -215,13 +215,13 @@ export default function ContactSection() {
 
         {/* Alternative Contact Methods - Apple style */}
         <div className="mt-16 text-center">
-          <p className="body-text text-muted-foreground mb-6">
+          <p className="font-medium text-muted-foreground mb-6">
             Prefer a different approach? You can also reach out directly:
           </p>
           <div className="flex justify-center gap-8">
             <a 
               href="mailto:tbustard@unb.ca"
-              className="inline-flex items-center gap-2 body-text text-primary hover:text-primary/80 transition-colors"
+              className="inline-flex items-center gap-2 font-medium text-primary hover:text-primary/80 transition-colors"
               data-testid="link-email-direct"
             >
               <HiOutlineMail className="w-4 h-4" />
@@ -229,7 +229,7 @@ export default function ContactSection() {
             </a>
             <a 
               href="tel:+16139851223"
-              className="inline-flex items-center gap-2 body-text text-primary hover:text-primary/80 transition-colors"
+              className="inline-flex items-center gap-2 font-medium text-primary hover:text-primary/80 transition-colors"
               data-testid="link-phone-direct"
             >
               <HiOutlinePhone className="w-4 h-4" />
