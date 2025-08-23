@@ -138,13 +138,13 @@ export default function ExperienceSection() {
                 
                 {/* Content */}
                 <div className="md:ml-24">
-                  <div className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group">
+                  <div className="relative bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="relative p-8">
                       {/* Header Section */}
                       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
                         <div className="flex items-start gap-4">
-                          <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
+                          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                             <img 
                               src={exp.logoSrc} 
                               alt={`${exp.company} Logo`} 
@@ -200,8 +200,8 @@ export default function ExperienceSection() {
 
         {/* Career Summary */}
         <div className="mt-24">
-          <div className="bg-white/30 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
-            <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-8 lg:p-12">
+          <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
+            <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-8 lg:p-12">
               <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
                 Career Highlights
               </h3>
