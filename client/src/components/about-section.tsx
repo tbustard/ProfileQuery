@@ -200,7 +200,7 @@ export default function EducationSection() {
               <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
                 Academic Excellence at a Glance
               </h3>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="text-center">
                   <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">BBA</div>
                   <div className="text-muted-foreground font-medium">Business Administration</div>
@@ -208,10 +208,6 @@ export default function EducationSection() {
                 <div className="text-center">
                   <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">5</div>
                   <div className="text-muted-foreground font-medium">Academic Awards</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">BBA</div>
-                  <div className="text-muted-foreground font-medium">Business Administration</div>
                 </div>
                 <div className="text-center">
                   <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">2020</div>
