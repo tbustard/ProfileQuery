@@ -148,8 +148,8 @@ export default function HeroSection() {
 
           {/* Profile & Achievements Section */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Profile Image */}
-            <div className="relative">
+            {/* Profile Image - Desktop Only */}
+            <div className="relative hidden lg:block">
               <div className="w-full max-w-sm mx-auto relative">
                 <div className="aspect-square rounded-3xl overflow-hidden apple-card border-0 shadow-2xl">
                   <img 
