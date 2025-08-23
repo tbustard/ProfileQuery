@@ -87,8 +87,8 @@ export default function EducationSection() {
           <div className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg p-8 max-w-4xl mx-auto">
             {/* Date badge in top right corner */}
             <div className="absolute top-6 right-6">
-              <div className="bg-primary/10 backdrop-blur-sm rounded-xl px-4 py-2">
-                <span className="text-sm font-semibold text-primary">2016-2020</span>
+              <div className="bg-primary/10 backdrop-blur-sm rounded-xl px-5 py-3">
+                <span className="text-lg font-bold text-primary">2016-2020</span>
               </div>
             </div>
             
