@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { useScrollAnimation, useStaggeredScrollAnimation } from "@/hooks/useScrollAnimation";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
 import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
@@ -18,6 +19,10 @@ interface Experience {
 }
 
 export default function ExperienceSection() {
+  const sectionAnimation = useScrollAnimation({ threshold: 0.1, triggerOnce: true });
+  const headerAnimation = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
+  const { ref: experiencesRef, visibleItems } = useStaggeredScrollAnimation(6, { threshold: 0.1, triggerOnce: true });
+
   const experiences: Experience[] = [
     {
       title: "Portfolio Assistant",
@@ -106,13 +111,20 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="py-24 lg:py-32 relative overflow-hidden">
+    <section 
+      ref={sectionAnimation.ref}
+      id="experience" 
+      className={`py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
+    >
       {/* Background - inherits Apple grey from parent */}
       
       <div className="container-width">
         <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header */}
-          <div className="text-center mb-20">
+          <div 
+            ref={headerAnimation.ref}
+            className={`text-center mb-20 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+          >
             <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
               Experience
             </h2>
@@ -122,13 +134,18 @@ export default function ExperienceSection() {
           </div>
 
         {/* Experience Timeline */}
-        <div className="relative">
+        <div ref={experiencesRef} className="relative">
           {/* Clean Timeline Line */}
           <div className="absolute left-8 top-0 bottom-0 w-px bg-gray-200 hidden md:block"></div>
           
           <div className="space-y-16">
             {experiences.map((exp, index) => (
-              <div key={index} id={`experience-${exp.company.toLowerCase().replace(/[^a-z0-9]/g, '-')}-${exp.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} className="relative" data-testid={`experience-${index}`}>
+              <div 
+                key={index} 
+                id={`experience-${exp.company.toLowerCase().replace(/[^a-z0-9]/g, '-')}-${exp.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} 
+                className={`relative scroll-scale-in scroll-stagger-${index + 1} ${visibleItems.has(index) ? 'visible' : ''}`}
+                data-testid={`experience-${index}`}
+              >
                 {/* Beautiful Timeline Marker */}
                 <div className="absolute left-5 w-6 h-6 rounded-full bg-gradient-to-br from-white to-gray-50 border border-gray-200/60 shadow-[0_2px_8px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.12)] hidden md:block backdrop-blur-sm">
                   <div className="absolute inset-1 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 shadow-inner"></div>

@@ -1,11 +1,17 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { FaTrophy, FaStar, FaGraduationCap } from "react-icons/fa";
+import { useScrollAnimation, useStaggeredScrollAnimation } from "@/hooks/useScrollAnimation";
 import universityLogo from "@assets/University_of_New_Brunswick_Logo.svg_1755912478863.png";
 import cibcLogo from "@assets/cibc_1755931822053.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
 import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
 
 export default function EducationSection() {
+  const sectionAnimation = useScrollAnimation({ threshold: 0.1, triggerOnce: true });
+  const headerAnimation = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
+  const heroCardAnimation = useScrollAnimation({ threshold: 0.1, triggerOnce: true });
+  const { ref: achievementsRef, visibleItems } = useStaggeredScrollAnimation(3, { threshold: 0.1, triggerOnce: true });
+
   const education = {
     institution: "University of New Brunswick",
     location: "Saint John, New Brunswick", 
@@ -80,13 +86,20 @@ export default function EducationSection() {
   ];
 
   return (
-    <section id="education" className="py-24 lg:py-32 relative overflow-hidden">
+    <section 
+      ref={sectionAnimation.ref}
+      id="education" 
+      className={`py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
+    >
       {/* Background - inherits Apple grey from parent */}
       
       <div className="container-width">
         <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header */}
-          <div className="text-center mb-20">
+          <div 
+            ref={headerAnimation.ref}
+            className={`text-center mb-20 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+          >
             <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
               Education
             </h2>
@@ -96,7 +109,10 @@ export default function EducationSection() {
           </div>
 
         {/* Hero Education Card - Modern Apple Layout */}
-        <div className="mb-24">
+        <div 
+          ref={heroCardAnimation.ref}
+          className={`mb-24 scroll-scale-in scroll-stagger-1 ${heroCardAnimation.isVisible ? 'visible' : ''}`}
+        >
           <div className="relative bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 p-12 lg:p-16 min-h-[200px]">
             <div className="flex items-center gap-8 h-full">
               {/* Logo on left */}
@@ -127,11 +143,11 @@ export default function EducationSection() {
         </div>
 
         {/* Achievement Categories - Modern Flowing Layout */}
-        <div className="space-y-8">
+        <div ref={achievementsRef} className="space-y-8">
           {achievements.map((category, index) => (
             <div 
               key={index} 
-              className={`relative overflow-hidden rounded-[28px] bg-gradient-to-r ${category.gradient} backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500`}
+              className={`relative overflow-hidden rounded-[28px] bg-gradient-to-r ${category.gradient} backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 scroll-scale-in scroll-stagger-${index + 2} ${visibleItems.has(index) ? 'visible' : ''}`}
             >
               <div className="absolute inset-0 bg-white/80 backdrop-blur-xl" />
               <div className="relative p-8 lg:p-12">
