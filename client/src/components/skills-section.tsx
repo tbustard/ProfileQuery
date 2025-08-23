@@ -96,22 +96,31 @@ export default function CertificationsSection() {
           </p>
         </div>
 
-        {/* Featured Certifications - Apple-style hero showcase */}
-        <div className="mb-20">
-          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Featured Achievements</h3>
-          <div className="grid md:grid-cols-3 gap-6">
+        {/* Featured Certifications - Premium showcase */}
+        <div className="mb-24">
+          <h3 className="text-3xl font-bold text-foreground mb-16 text-center">Featured Achievements</h3>
+          <div className="grid lg:grid-cols-3 gap-8">
             {featuredCerts.map((cert, index) => (
-              <div key={index} className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group text-center" data-testid={`featured-cert-${index}`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative p-8">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <cert.icon className="w-8 h-8 text-primary" />
+              <div key={index} className="group relative overflow-hidden bg-white/20 backdrop-blur-2xl rounded-3xl border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-700 hover:scale-[1.02]" data-testid={`featured-cert-${index}`}>
+                {/* Ambient gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                
+                <div className="relative p-10 lg:p-12 text-center">
+                  {/* Enhanced icon with glow effect */}
+                  <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-blue-500/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:shadow-3xl transition-all duration-700 group-hover:scale-110">
+                    <cert.icon className="w-12 h-12 text-primary" />
                   </div>
-                  <h4 className="text-lg font-semibold text-foreground mb-2">{cert.name}</h4>
-                  <p className="text-muted-foreground font-medium mb-2">{cert.institution}</p>
-                  <Badge variant="secondary" className="text-xs">{cert.year}</Badge>
+                  
+                  {/* Enhanced typography */}
+                  <h4 className="text-xl lg:text-2xl font-bold text-foreground mb-4 leading-tight">{cert.name}</h4>
+                  <p className="text-lg text-muted-foreground font-medium mb-4">{cert.institution}</p>
+                  <div className="inline-block px-4 py-2 bg-primary/10 text-primary font-bold rounded-full border border-primary/20 text-sm">
+                    {cert.year}
+                  </div>
                   {cert.percentile && (
-                    <p className="text-sm text-primary font-medium mt-3">{cert.percentile}</p>
+                    <div className="mt-6 p-4 bg-white/30 backdrop-blur-sm rounded-2xl border border-white/40">
+                      <p className="text-sm font-semibold text-primary">{cert.percentile}</p>
+                    </div>
                   )}
                 </div>
               </div>
@@ -119,48 +128,59 @@ export default function CertificationsSection() {
           </div>
         </div>
 
-        {/* All Certifications - Apple-style list layout */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Complete Certification Portfolio</h3>
-          <div className="grid md:grid-cols-2 gap-8">
+        {/* All Certifications - Modern Apple-style showcase */}
+        <div className="mb-24">
+          <h3 className="text-3xl font-bold text-foreground mb-16 text-center">Complete Certification Portfolio</h3>
+          <div className="space-y-12">
             {certificationCategories.map((category, categoryIndex) => (
-              <div key={categoryIndex} className="space-y-4">
-                {/* Category Header */}
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mr-4">
-                    <category.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-foreground">{category.title}</h4>
-                    <p className="text-muted-foreground font-medium">{category.certifications.length} certifications</p>
-                  </div>
-                </div>
-
-                {/* Certifications List */}
-                <div className="space-y-3">
-                  {category.certifications.map((cert, certIndex) => (
-                    <div 
-                      key={certIndex}
-                      className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group p-5"
-                      data-testid={`cert-${categoryIndex}-${certIndex}`}
-                    >
-                      <div className="flex justify-between items-start">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-1">
-                            <h5 className="font-medium text-foreground">{cert.name}</h5>
-                            {cert.highlight && (
-                              <div className="w-2 h-2 bg-primary rounded-full"></div>
-                            )}
-                          </div>
-                          <p className="text-muted-foreground text-sm font-medium">{cert.institution}</p>
-                          {cert.percentile && (
-                            <p className="text-xs text-primary font-medium mt-1">{cert.percentile}</p>
-                          )}
-                        </div>
-                        <span className="text-muted-foreground text-sm font-medium">{cert.year}</span>
+              <div key={categoryIndex} className="relative overflow-hidden">
+                {/* Modern Category Container */}
+                <div className="bg-white/20 backdrop-blur-2xl rounded-3xl border border-white/30 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-700">
+                  {/* Category Header with gradient */}
+                  <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-8 lg:p-10">
+                    <div className="flex items-center gap-6">
+                      <div className="w-20 h-20 bg-white/30 backdrop-blur-sm rounded-3xl flex items-center justify-center shadow-xl">
+                        <category.icon className="w-10 h-10 text-primary" />
+                      </div>
+                      <div>
+                        <h4 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">{category.title}</h4>
+                        <p className="text-lg text-muted-foreground font-medium">{category.certifications.length} professional certifications</p>
                       </div>
                     </div>
-                  ))}
+                  </div>
+
+                  {/* Certifications Grid */}
+                  <div className="p-8 lg:p-10">
+                    <div className="grid gap-4">
+                      {category.certifications.map((cert, certIndex) => (
+                        <div 
+                          key={certIndex}
+                          className="group relative bg-white/40 backdrop-blur-sm rounded-2xl border border-white/40 p-6 hover:bg-white/50 transition-all duration-500 hover:scale-[1.01] hover:shadow-lg"
+                          data-testid={`cert-${categoryIndex}-${certIndex}`}
+                        >
+                          <div className="flex items-center justify-between">
+                            <div className="flex-1">
+                              <div className="flex items-center gap-3 mb-2">
+                                <h5 className="text-lg font-semibold text-foreground">{cert.name}</h5>
+                                {cert.highlight && (
+                                  <div className="px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full border border-primary/30">
+                                    FEATURED
+                                  </div>
+                                )}
+                              </div>
+                              <p className="text-muted-foreground font-medium mb-1">{cert.institution}</p>
+                              {cert.percentile && (
+                                <p className="text-sm text-primary font-semibold bg-primary/10 px-3 py-1 rounded-full inline-block">{cert.percentile}</p>
+                              )}
+                            </div>
+                            <div className="text-right">
+                              <span className="text-lg font-bold text-foreground">{cert.year}</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
