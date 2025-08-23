@@ -57,22 +57,32 @@ export default function Home() {
         }`}
       >
         <div 
-          className="bg-white/10 backdrop-blur-[25px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+          className={`backdrop-blur-[25px] backdrop-saturate-[200%] backdrop-brightness-[110%] rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 ${
+            isOverDarkSection 
+              ? 'bg-white/10 border border-white/20' 
+              : 'bg-black/80 border border-black/30'
+          }`}
           style={{
             backdropFilter: 'blur(25px) saturate(200%) brightness(110%)',
             WebkitBackdropFilter: 'blur(25px) saturate(200%) brightness(110%)',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+            boxShadow: isOverDarkSection 
+              ? '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+              : '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
           }}
         >
           <div className="flex items-center px-6 py-3">
             <span className={`text-sm font-medium mr-4 whitespace-nowrap transition-colors duration-300 ${
-              isOverDarkSection ? 'text-white' : 'text-foreground'
+              isOverDarkSection ? 'text-white' : 'text-white'
             }`}>
               Back to top
             </span>
             <button
               onClick={scrollToTop}
-              className="w-10 h-10 bg-primary hover:bg-primary/90 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+              className={`w-10 h-10 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg ${
+                isOverDarkSection 
+                  ? 'bg-primary hover:bg-primary/90' 
+                  : 'bg-white/20 hover:bg-white/30'
+              }`}
               data-testid="scroll-to-top-button"
             >
               <ChevronUp size={20} className="transition-transform duration-300 hover:scale-110" />
