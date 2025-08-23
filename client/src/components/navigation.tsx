@@ -111,7 +111,7 @@ export default function Navigation() {
                 <img 
                   src={profileImage} 
                   alt="Tyler Bustard" 
-                  className="w-11 h-11 rounded-full object-cover ring-2 ring-white/30 shadow-lg transition-all duration-300 hover:ring-white/50 hover:scale-110"
+                  className="w-11 h-11 rounded-2xl object-cover ring-2 ring-white/30 shadow-lg transition-all duration-300 hover:ring-white/50 hover:scale-110"
                 />
               </div>
               
@@ -126,10 +126,10 @@ export default function Navigation() {
                 <span className="text-lg font-bold text-foreground transition-all duration-700 ease-out">
                   Tyler Bustard
                 </span>
-                <div className={`text-xs text-muted-foreground font-medium transition-all duration-500 delay-300 ${
-                  isScrolled ? 'opacity-100 max-h-4' : 'opacity-0 max-h-0'
+                <div className={`text-sm text-primary font-semibold transition-all duration-500 delay-300 ${
+                  isScrolled ? 'opacity-100 max-h-6' : 'opacity-0 max-h-0'
                 }`}>
-                  {getSectionDisplayName(currentSection)}
+                  {currentSection ? getSectionDisplayName(currentSection) : 'Portfolio'}
                 </div>
               </div>
             </div>
