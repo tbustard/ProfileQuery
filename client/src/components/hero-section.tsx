@@ -92,45 +92,40 @@ export default function HeroSection() {
                   {/* Career Quadrant */}
                   <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
                     <div className="space-y-6">
-                      <div className="flex items-center">
-                        {/* BMO 2022-2023 - Most Recent */}
-                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-20 hover:z-30 transition-all duration-300 hover:scale-110">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
                           <img 
                             src={bmoLogo} 
                             alt="BMO Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300"
+                            className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
-                        {/* TD 2021-2022 */}
-                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-19 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
                           <img 
                             src={tdLogo} 
                             alt="TD Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300"
+                            className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
-                        {/* RBC 2020-2021 */}
-                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-18 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
                           <img 
                             src={rbcLogo} 
                             alt="RBC Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300"
+                            className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
-                        {/* Irving 2018 */}
-                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-17 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
                           <img 
                             src={irvingLogo} 
                             alt="Irving Oil Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300"
+                            className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
-                        {/* Grant Thornton 2018 */}
-                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-16 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
                           <img 
                             src={grantThorntonLogo} 
                             alt="Grant Thornton Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300"
+                            className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
                       </div>
@@ -189,69 +184,61 @@ export default function HeroSection() {
                   {/* Certifications Quadrant */}
                   <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
                     <div className="space-y-6">
-                      <div className="flex items-center">
-                        {/* CFA 2025 - First/Newest */}
-                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-20 hover:z-30 transition-all duration-300 hover:scale-110">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
                           <img 
                             src={cfaLogo} 
                             alt="CFA Institute Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300"
+                            className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
-                        {/* Training the Street 2024 */}
-                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-19 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
                           <img 
                             src={trainingTheStreetLogo} 
                             alt="Training the Street Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300"
+                            className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
-                        {/* ETS 2024 */}
-                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-18 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
                           <img 
                             src={etsLogo} 
                             alt="ETS Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300"
+                            className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
-                        {/* CSI 2023 */}
-                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-17 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
                           <img 
                             src={csiLogo} 
                             alt="Canadian Securities Institute Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300"
+                            className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
-                        {/* Coursera 2023 */}
-                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-16 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
                           <img 
                             src={courseraLogo} 
                             alt="Coursera Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300"
+                            className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
-                        {/* Bloomberg 2020 */}
-                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-15 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
                           <img 
                             src={bloombergLogo} 
                             alt="Bloomberg Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300"
+                            className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
-                        {/* Wall Street Prep 2020 */}
-                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-14 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
                           <img 
                             src={wallStreetPrepLogo} 
                             alt="Wall Street Prep Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300"
+                            className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
-                        {/* McGill 2020 */}
-                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-13 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
                           <img 
                             src={mcgillLogo} 
                             alt="McGill University Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300"
+                            className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
                       </div>
@@ -278,25 +265,22 @@ export default function HeroSection() {
                   {/* Community Quadrant */}
                   <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
                     <div className="space-y-6">
-                      <div className="flex items-center">
-                        {/* United Way - Most Prominent */}
-                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-20 hover:z-30 transition-all duration-300 hover:scale-110">
-                          <img src={unitedWayLogo} alt="United Way Logo" className="w-12 h-12 object-contain transition-all duration-300" />
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
+                          <img src={unitedWayLogo} alt="United Way Logo" className="w-8 h-8 object-contain transition-all duration-300" />
                         </div>
-                        {/* RBC Community */}
-                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-19 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
                           <img
                             src={rbcLogo}
                             alt="RBC Community Logo"
-                            className="w-12 h-12 object-contain transition-all duration-300"
+                            className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
-                        {/* Irving Community */}
-                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-18 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
                           <img
                             src={irvingLogo}
                             alt="Irving Oil Community Logo"
-                            className="w-12 h-12 object-contain transition-all duration-300"
+                            className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
                       </div>
