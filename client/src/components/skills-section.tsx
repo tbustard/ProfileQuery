@@ -161,7 +161,7 @@ export default function CertificationsSection() {
         <div className="bg-white/30 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
           <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-8 lg:p-12">
             <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
-              Professional Development Summary
+              Professional Development Highlights
             </h3>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="text-center">
