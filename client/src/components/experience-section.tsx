@@ -123,19 +123,15 @@ export default function ExperienceSection() {
 
         {/* Experience Timeline */}
         <div className="relative">
-          {/* Apple-style Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-300 to-transparent hidden md:block"></div>
-          <div className="absolute left-7 top-0 bottom-0 w-1 bg-gradient-to-b from-white/60 via-white/30 to-white/60 backdrop-blur-xl rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] border border-white/20 hidden md:block"></div>
-          <div className="absolute left-7.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-gray-200/40 via-gray-400/60 to-gray-200/40 rounded-full hidden md:block"></div>
+          {/* Clean Timeline Line */}
+          <div className="absolute left-8 top-0 bottom-0 w-px bg-gray-200 hidden md:block"></div>
           
           <div className="space-y-16">
             {experiences.map((exp, index) => (
               <div key={index} className="relative" data-testid={`experience-${index}`}>
-                {/* Apple Timeline Marker */}
-                <div className="absolute left-4.5 w-7 h-7 rounded-full border border-white/40 bg-gradient-to-br from-white/90 via-white/70 to-white/50 shadow-[0_4px_20px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.8)] hidden md:block backdrop-blur-xl">
-                  <div className="absolute inset-0.5 rounded-full bg-gradient-to-br from-blue-500/80 to-blue-600 shadow-inner"></div>
-                  <div className="absolute inset-1.5 rounded-full bg-gradient-to-br from-white/40 to-transparent"></div>
-                  <div className="absolute top-1.5 left-1.5 w-1.5 h-1.5 rounded-full bg-white/70"></div>
+                {/* Clean Timeline Marker */}
+                <div className="absolute left-6 w-4 h-4 rounded-full bg-white border-2 border-gray-200 shadow-sm hidden md:block">
+                  <div className="absolute inset-1 rounded-full bg-primary"></div>
                 </div>
                 
                 {/* Content */}
