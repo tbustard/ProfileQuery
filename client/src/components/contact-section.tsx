@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,7 +25,45 @@ export default function ContactSection() {
     subject: "",
     message: "",
   });
+  const [visibleElements, setVisibleElements] = useState<Set<string>>(new Set());
+  const sectionRef = useRef<HTMLElement>(null);
   const { toast } = useToast();
+
+  useEffect(() => {
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const elementId = entry.target.getAttribute('data-animate-id');
+          if (elementId) {
+            setVisibleElements(prev => {
+              const newSet = new Set(prev);
+              if (entry.isIntersecting) {
+                newSet.add(elementId);
+              }
+              return newSet;
+            });
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -10% 0px' }
+    );
+
+    // Observe all animatable elements
+    const elementsToObserve = sectionRef.current?.querySelectorAll('[data-animate-id]');
+    elementsToObserve?.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  const getAnimationClass = (elementId: string, delay: number = 0) => {
+    const isVisible = visibleElements.has(elementId);
+    return `transition-all duration-1000 ease-out ${delay > 0 ? `delay-${delay}` : ''} ${
+      isVisible 
+        ? 'opacity-100 translate-y-0 scale-100' 
+        : 'opacity-0 translate-y-8 scale-95'
+    }`;
+  };
 
   const contactMutation = useMutation({
     mutationFn: async (data: ContactForm) => {
@@ -65,34 +103,48 @@ export default function ContactSection() {
 
 
   return (
-    <section id="contact" className="apple-section-alt">
+    <section id="contact" ref={sectionRef} className="apple-section-alt">
       <div className="container-width">
         {/* Header Section - Apple's content-first approach */}
-        <div className="text-center mb-20">
-          <h2 className="large-title text-foreground mb-4">Get In Touch</h2>
-          <p className="callout text-muted-foreground max-w-2xl mx-auto">
+        <div 
+          className={`text-center mb-20 ${getAnimationClass('contact-header')}`}
+          data-animate-id="contact-header"
+        >
+          <h2 className="large-title text-foreground mb-4 hover:text-primary transition-colors duration-500 ease-out cursor-default">Get In Touch</h2>
+          <p className="callout text-muted-foreground max-w-2xl mx-auto hover:text-foreground transition-colors duration-500 ease-out cursor-default">
             Ready to discuss your next project or opportunity? I'd love to hear from you.
           </p>
         </div>
 
         {/* Contact Cards Grid - Apple-style asymmetrical layout */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div 
+          className={`grid lg:grid-cols-3 gap-8 mb-16 ${getAnimationClass('contact-cards')}`}
+          data-animate-id="contact-cards"
+        >
           {contactInfo.map((info, index) => (
-            <Card key={index} className="apple-card apple-hover border-0 text-center" data-testid={`contact-card-${index}`}>
+            <Card 
+              key={index} 
+              className={`apple-card border-0 text-center hover:shadow-2xl hover:scale-105 hover:bg-white/90 transition-all duration-500 ease-out group cursor-pointer ${getAnimationClass(`contact-card-${index}`, index * 100)}`} 
+              data-testid={`contact-card-${index}`}
+              data-animate-id={`contact-card-${index}`}
+            >
               <CardContent className="p-8">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-primary/20 group-hover:scale-110">
                   <info.icon className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">{info.label}</h3>
-                <p className="body-text text-muted-foreground">{info.value}</p>
+                <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">{info.label}</h3>
+                <p className="body-text text-muted-foreground group-hover:text-foreground transition-colors duration-300">{info.value}</p>
               </CardContent>
             </Card>
           ))}
         </div>
 
         {/* Featured Contact Form - Apple's hero card design */}
-        <div className="max-w-4xl mx-auto">
-          <Card className="apple-card border-0 relative overflow-hidden">
+        <div 
+          className={`max-w-4xl mx-auto ${getAnimationClass('contact-form')}`}
+          data-animate-id="contact-form"
+        >
+          <Card className="apple-card border-0 relative overflow-hidden hover:shadow-2xl hover:scale-105 transition-all duration-700 ease-out group">
             {/* Background accent */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary/2 rounded-full blur-3xl"></div>
             
