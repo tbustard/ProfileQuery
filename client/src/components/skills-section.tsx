@@ -122,11 +122,11 @@ export default function CertificationsSection() {
             {certificationCategories.map((category, categoryIndex) => (
               <div key={categoryIndex} className="relative overflow-hidden">
                 {/* Modern Category Container */}
-                <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500">
+                <div className="bg-white/90 backdrop-blur-xl rounded-[32px] border border-white/20 shadow-[0_10px_25px_-3px_rgba(0,0,0,0.1),0_20px_40px_-10px_rgba(0,0,0,0.2)] hover:shadow-[0_15px_35px_-3px_rgba(0,0,0,0.15),0_25px_50px_-10px_rgba(0,0,0,0.25)] overflow-hidden transition-all duration-500 hover:scale-[1.005]">
                   {/* Category Header with gradient */}
                   <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-8 lg:p-10">
                     <div className="flex items-center gap-6">
-                      <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
+                      <div className="w-20 h-20 bg-white/30 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.12)] transition-all duration-300 hover:scale-110">
                         <category.icon className="w-10 h-10 text-primary" />
                       </div>
                       <div>
@@ -142,7 +142,7 @@ export default function CertificationsSection() {
                       {category.certifications.map((cert, certIndex) => (
                         <div 
                           key={certIndex}
-                          className="group relative bg-white/90 backdrop-blur-xl rounded-[20px] border border-white/20 p-6 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.01]"
+                          className="group relative bg-white/95 backdrop-blur-xl rounded-[24px] border border-white/20 p-6 shadow-[0_6px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.1)] hover:bg-white/98 transition-all duration-500 hover:scale-[1.01]"
                           data-testid={`cert-${categoryIndex}-${certIndex}`}
                         >
                           <div className="flex items-center justify-between">
@@ -280,7 +280,10 @@ export function CommunitySection() {
   ];
 
   return (
-    <section id="community" className="apple-section">
+    <section id="community" className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+      
       <div className="container-width">
         <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header */}
