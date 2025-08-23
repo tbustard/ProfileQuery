@@ -66,60 +66,111 @@ export default function ExperienceSection() {
   return (
     <section id="experience" className="apple-section">
       <div className="container-width">
-        <div className="text-center mb-16">
+        {/* Header */}
+        <div className="text-center mb-20">
           <h2 className="large-title text-foreground mb-4">Professional Experience</h2>
-          <p className="callout text-secondary max-w-2xl mx-auto">
+          <p className="callout text-muted-foreground max-w-2xl mx-auto">
             My professional journey and key accomplishments in financial services.
           </p>
         </div>
 
-        <div className="space-y-10">
-          {experiences.map((exp, index) => (
-            <Card key={index} className="apple-card apple-hover border-0" data-testid={`experience-${index}`}>
-              <CardContent className="p-12">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-8">
-                  <div className="flex items-start space-x-4">
-                    <div 
-                      className="p-3 rounded-2xl flex-shrink-0 mt-1"
-                      style={{ backgroundColor: `${exp.color}15` }}
-                    >
-                      <exp.logo className="w-8 h-8" style={{ color: exp.color }} />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-foreground mb-2">{exp.title}</h3>
-                      <p className="body-text font-semibold mb-2" style={{ color: exp.color }}>{exp.company}</p>
-                      <p className="body-text text-muted-foreground">{exp.location}</p>
-                    </div>
-                  </div>
-                  <div className="text-secondary md:text-right mt-4 md:mt-0">
-                    <p className="font-semibold text-lg">{exp.period}</p>
-                    <p className="text-muted-foreground">{exp.duration}</p>
-                  </div>
+        {/* Experience Timeline */}
+        <div className="relative">
+          {/* Timeline Line */}
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border hidden md:block"></div>
+          
+          <div className="space-y-16">
+            {experiences.map((exp, index) => (
+              <div key={index} className="relative" data-testid={`experience-${index}`}>
+                {/* Timeline Marker */}
+                <div className="absolute left-6 w-4 h-4 rounded-full border-4 border-background shadow-sm hidden md:block" 
+                     style={{ backgroundColor: exp.color }}></div>
+                
+                {/* Content */}
+                <div className="md:ml-20">
+                  <Card className="apple-card apple-hover border-0">
+                    <CardContent className="p-8">
+                      {/* Header Section */}
+                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
+                        <div className="flex items-start gap-4">
+                          <div 
+                            className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
+                            style={{ backgroundColor: `${exp.color}15` }}
+                          >
+                            <exp.logo className="w-7 h-7" style={{ color: exp.color }} />
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-semibold text-foreground mb-1">{exp.title}</h3>
+                            <p className="text-lg font-medium mb-1" style={{ color: exp.color }}>{exp.company}</p>
+                            <p className="body-text text-muted-foreground">{exp.location}</p>
+                          </div>
+                        </div>
+                        <div className="mt-4 lg:mt-0 lg:text-right">
+                          <div className="inline-flex items-center gap-2 bg-muted rounded-full px-4 py-2">
+                            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: exp.color }}></div>
+                            <span className="font-medium text-foreground">{exp.period}</span>
+                          </div>
+                          <p className="body-text text-muted-foreground mt-1 lg:text-right">{exp.duration}</p>
+                        </div>
+                      </div>
+
+                      {/* Key Achievements */}
+                      <div className="mb-6">
+                        <h4 className="font-semibold text-foreground mb-4">Key Achievements</h4>
+                        <div className="space-y-3">
+                          {exp.achievements.map((achievement, achievementIndex) => (
+                            <div key={achievementIndex} className="flex items-start gap-3">
+                              <div className="w-1.5 h-1.5 rounded-full mt-2.5 flex-shrink-0" style={{ backgroundColor: exp.color }}></div>
+                              <p className="body-text text-muted-foreground leading-relaxed">{achievement}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Skills & Technologies */}
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-3">Core Competencies</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {exp.technologies.map((tech, techIndex) => (
+                            <span
+                              key={techIndex}
+                              className="bg-muted text-foreground px-3 py-1.5 rounded-full text-sm font-medium apple-hover"
+                              data-testid={`tech-${index}-${techIndex}`}
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
-                <div className="space-y-4">
-                  <ul className="space-y-2 text-secondary">
-                    {exp.achievements.map((achievement, achievementIndex) => (
-                      <li key={achievementIndex} className="flex items-start">
-                        <span className="text-primary mr-2">•</span>
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex flex-wrap gap-2 pt-4">
-                    {exp.technologies.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm"
-                        data-testid={`tech-${index}-${techIndex}`}
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Career Summary */}
+        <div className="mt-20">
+          <Card className="apple-card border-0 text-center">
+            <CardContent className="p-12">
+              <h3 className="text-lg font-semibold text-foreground mb-8">Career Highlights</h3>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div>
+                  <div className="text-3xl font-bold text-foreground mb-2">3+</div>
+                  <div className="body-text text-muted-foreground">Years Experience</div>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+                <div>
+                  <div className="text-3xl font-bold text-foreground mb-2">$100M+</div>
+                  <div className="body-text text-muted-foreground">Portfolio Value Managed</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-foreground mb-2">12%</div>
+                  <div className="body-text text-muted-foreground">Average Improvement</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
