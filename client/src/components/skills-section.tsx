@@ -102,10 +102,10 @@ export default function CertificationsSection() {
   return (
     <section id="certifications" className="py-24 lg:py-32 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-white" />
+      <div className="absolute inset-0" />
       
       <div className="container-width">
-        <div className="bg-white rounded-[32px] p-10 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500">
+        <div className="rounded-[32px] p-10 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500">
           {/* Header */}
           <div className="text-center mb-20">
             <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
@@ -122,11 +122,11 @@ export default function CertificationsSection() {
             {certificationCategories.map((category, categoryIndex) => (
               <div key={categoryIndex} id={`certifications-${category.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} className="relative overflow-hidden">
                 {/* Modern Category Container */}
-                <div className="bg-white rounded-[32px] border border-gray-200 shadow-lg hover:shadow-xl overflow-hidden transition-all duration-500">
+                <div className="rounded-[32px] border border-gray-200 shadow-lg hover:shadow-xl overflow-hidden transition-all duration-500">
                   {/* Category Header with gradient */}
                   <div className="p-8 lg:p-10">
                     <div className="flex items-center gap-6">
-                      <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
+                      <div className="w-20 h-20 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
                         <category.icon className="w-10 h-10 text-foreground" />
                       </div>
                       <div>
@@ -143,7 +143,7 @@ export default function CertificationsSection() {
                         <div 
                           key={certIndex}
                           id={`cert-${cert.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                          className="group relative bg-white rounded-[24px] border border-gray-200 p-6 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500"
+                          className="group relative rounded-[24px] border border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all duration-500"
                           data-testid={`cert-${categoryIndex}-${certIndex}`}
                         >
                           <div className="flex items-center justify-between">
@@ -151,7 +151,7 @@ export default function CertificationsSection() {
                               <div className="flex items-center gap-3 mb-2">
                                 <h5 className="text-lg font-semibold text-foreground">{cert.name}</h5>
                                 {cert.highlight && (
-                                  <div className="px-3 py-1 bg-gray-100 text-foreground text-xs font-bold rounded-full border border-gray-200">
+                                  <div className="px-3 py-1 text-foreground text-xs font-bold rounded-full border border-gray-200">
                                     FEATURED
                                   </div>
                                 )}
@@ -169,7 +169,7 @@ export default function CertificationsSection() {
                               <p className="text-sm text-muted-foreground/80 leading-relaxed mb-2">{cert.description}</p>
                               {cert.percentile && (
                                 <div className="mt-1">
-                                  <p className="text-sm text-foreground font-semibold bg-gray-100 px-4 py-2 rounded-full inline-block whitespace-nowrap">{cert.percentile}</p>
+                                  <p className="text-sm text-foreground font-semibold px-4 py-2 rounded-full inline-block whitespace-nowrap border border-gray-200">{cert.percentile}</p>
                                 </div>
                               )}
                             </div>
@@ -188,7 +188,7 @@ export default function CertificationsSection() {
         </div>
 
         {/* Achievement Metrics - Clean stats */}
-        <div className="bg-white rounded-[32px] border border-gray-200 shadow-lg hover:shadow-xl overflow-hidden transition-all duration-500">
+        <div className="rounded-[32px] border border-gray-200 shadow-lg hover:shadow-xl overflow-hidden transition-all duration-500">
           <div className="p-8 lg:p-12">
             <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
               Professional Development Highlights
@@ -286,7 +286,7 @@ export function CommunitySection() {
       <div className="absolute inset-0 bg-white" />
       
       <div className="container-width">
-        <div className="bg-white rounded-[28px] p-10 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500">
+        <div className="rounded-[28px] p-10 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500">
           {/* Header */}
           <div className="text-center mb-20">
             <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
@@ -300,24 +300,24 @@ export function CommunitySection() {
         {/* Community Activities Timeline */}
         <div className="relative">
           {/* Clean Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-gray-200 hidden md:block"></div>
+          <div className="absolute left-8 top-0 bottom-0 w-px hidden md:block"></div>
           
           <div className="space-y-16">
             {communityActivities.map((activity, index) => (
               <div key={index} id={`community-${activity.organization.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} className="relative" data-testid={`community-activity-${index}`}>
                 {/* Beautiful Timeline Marker */}
-                <div className="absolute left-5 w-6 h-6 rounded-full bg-white border border-gray-200 shadow-lg hidden md:block">
-                  <div className="absolute inset-1 rounded-full bg-blue-500"></div>
+                <div className="absolute left-5 w-6 h-6 rounded-full border border-gray-200 shadow-lg hidden md:block">
+                  <div className="absolute inset-1 rounded-full"></div>
                 </div>
                 
                 {/* Content */}
                 <div className="md:ml-24">
-                  <div className="relative bg-white rounded-[28px] border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500 group">
+                  <div className="relative rounded-[28px] border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500 group">
                     <div className="relative p-8">
                       {/* Header Section */}
                       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
                         <div className="flex items-start gap-4">
-                          <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
+                          <div className="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                             {activity.logoSrc ? (
                               <img 
                                 src={activity.logoSrc} 
@@ -345,7 +345,7 @@ export function CommunitySection() {
                         <div className="space-y-3">
                           {activity.achievements.map((achievement, achievementIndex) => (
                             <div key={achievementIndex} className="flex items-start gap-3">
-                              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
+                              <div className="w-1.5 h-1.5 rounded-full mt-2.5 flex-shrink-0 border border-gray-300"></div>
                               <p className="text-muted-foreground font-medium leading-relaxed">{achievement}</p>
                             </div>
                           ))}
@@ -359,7 +359,7 @@ export function CommunitySection() {
                           {activity.skills.map((skill, skillIndex) => (
                             <span
                               key={skillIndex}
-                              className="bg-gray-100 text-foreground px-3 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition-all duration-500"
+                              className="text-foreground px-3 py-1.5 rounded-full text-sm font-medium border border-gray-200 transition-all duration-500"
                               data-testid={`skill-${index}-${skillIndex}`}
                             >
                               {skill}
@@ -377,7 +377,7 @@ export function CommunitySection() {
 
         {/* Community Impact Summary */}
         <div className="mt-24">
-          <div className="bg-white rounded-[32px] border border-gray-200 shadow-lg hover:shadow-xl overflow-hidden transition-all duration-500">
+          <div className="rounded-[32px] border border-gray-200 shadow-lg hover:shadow-xl overflow-hidden transition-all duration-500">
             <div className="p-8 lg:p-12">
               <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
                 Community Highlights
