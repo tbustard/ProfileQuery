@@ -211,8 +211,7 @@ export function CommunitySection() {
       description: "Led workplace fundraising and engagement initiatives for United Way's Next Generation programs",
       achievements: [
         "Led implementation of fundraising strategies achieving 20% increase in funds raised over three years",
-        "Spearheaded engagement initiatives resulting in 15% rise in participation and awareness within workplace community",
-        "Organized events and networking opportunities to strengthen community connections"
+        "Spearheaded engagement initiatives resulting in 15% rise in participation and awareness within workplace community"
       ],
       skills: ["Fundraising Strategy", "Leadership", "Event Planning", "Community Engagement", "Stakeholder Management"],
       logoSrc: unitedWayLogo,
@@ -227,8 +226,7 @@ export function CommunitySection() {
       description: "Campus representative focused on student engagement and brand awareness initiatives",
       achievements: [
         "Organized and executed campus-wide events resulting in 25% increase in student engagement and awareness",
-        "Developed targeted outreach strategy achieving 30% increase in student participation in RBC-sponsored events",
-        "Successfully managed information sessions and promotional activities across university campus"
+        "Developed targeted outreach strategy achieving 30% increase in student participation in RBC-sponsored events"
       ],
       skills: ["Event Management", "Strategic Outreach", "Campus Relations", "Brand Promotion", "Student Engagement"],
       logoSrc: rbcLogo,
@@ -243,8 +241,7 @@ export function CommunitySection() {
       description: "Community event volunteer supporting local youth engagement and corporate social responsibility initiatives",
       achievements: [
         "Successfully organized and executed engaging activities for over 100 children ensuring safe and enjoyable experience",
-        "Demonstrated leadership through collaboration with fellow volunteers for well-coordinated event execution",
-        "Contributed to positive community image for Irving Oil through dedicated volunteer service"
+        "Demonstrated leadership through collaboration with fellow volunteers for well-coordinated event execution"
       ],
       skills: ["Youth Engagement", "Event Coordination", "Team Collaboration", "Community Relations", "Safety Management"],
       logoSrc: irvingLogo,
