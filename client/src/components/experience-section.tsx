@@ -143,17 +143,19 @@ export default function ExperienceSection() {
                     <div className="relative p-8">
                       {/* Header Section */}
                       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
-                        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-                          <h3 className="text-xl font-semibold text-foreground mb-3">{exp.title}</h3>
-                          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 mb-3">
+                        <div className="flex items-start gap-4">
+                          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                             <img 
                               src={exp.logoSrc} 
                               alt={`${exp.company} Logo`} 
                               className="w-8 h-8 object-contain"
                             />
                           </div>
-                          <p className="text-lg font-medium text-primary mb-1">{exp.company}</p>
-                          <p className="text-muted-foreground font-medium">{exp.location}</p>
+                          <div>
+                            <h3 className="text-xl font-semibold text-foreground mb-1">{exp.title}</h3>
+                            <p className="text-lg font-medium text-primary mb-1">{exp.company}</p>
+                            <p className="text-muted-foreground font-medium">{exp.location}</p>
+                          </div>
                         </div>
                         <div className="mt-4 lg:mt-0 lg:text-right">
                           <span className="text-lg font-medium text-gray-500">{exp.period}</span>
