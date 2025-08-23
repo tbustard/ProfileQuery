@@ -65,22 +65,26 @@ export default function ContactSection() {
 
 
   return (
-    <section id="contact" className="apple-section-alt">
+    <section id="contact" className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+      
       <div className="container-width">
-        {/* Header Section - Apple's content-first approach */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">Get In Touch</h2>
-          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Ready to discuss your next project or opportunity? I'd love to hear from you.
-          </p>
-        </div>
+        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
+          {/* Header Section - Apple's content-first approach */}
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">Get In Touch</h2>
+            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Ready to discuss your next project or opportunity? I'd love to hear from you.
+            </p>
+          </div>
 
         {/* Contact Cards Grid - Apple-style asymmetrical layout */}
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {contactInfo.map((info, index) => (
-            <Card key={index} className="apple-card apple-hover border-0 text-center" data-testid={`contact-card-${index}`}>
+            <Card key={index} className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] text-center" data-testid={`contact-card-${index}`}>
               <CardContent className="p-10">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
+                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                   <info.icon className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">{info.label}</h3>
@@ -92,7 +96,7 @@ export default function ContactSection() {
 
         {/* Featured Contact Form - Apple's hero card design */}
         <div className="max-w-4xl mx-auto">
-          <Card className="apple-card border-0 relative overflow-hidden">
+          <Card className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 relative overflow-hidden">
             {/* Background accent */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary/2 rounded-full blur-3xl"></div>
             
@@ -236,6 +240,7 @@ export default function ContactSection() {
               Call Direct
             </a>
           </div>
+        </div>
         </div>
       </div>
     </section>
