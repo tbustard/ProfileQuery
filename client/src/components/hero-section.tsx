@@ -27,10 +27,8 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="relative overflow-hidden min-h-screen">
-      {/* Background Layers */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50/50 to-gray-100/30" />
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/4 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-primary/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+      {/* Clean Background */}
+      <div className="absolute inset-0 bg-white" />
       
       <div className="relative z-10 pt-32 pb-24 px-6">
         <div className="container-width">

@@ -16,12 +16,12 @@ export default function Home() {
       <CommunitySection />
       <ContactInfoSection />
       
-      {/* Translucent Black Footer */}
-      <footer className="relative bg-black/10 backdrop-blur-[25px] backdrop-saturate-[200%] backdrop-brightness-[50%] border-t border-black/20 py-8">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/50" />
+      {/* Clean Footer */}
+      <footer className="relative bg-white border-t border-gray-200 py-8">
+        <div className="absolute inset-0 bg-white" />
         <div className="container mx-auto px-6 lg:px-8 relative">
           <div className="text-center">
-            <p className="text-white/90 font-medium">
+            <p className="text-foreground font-medium">
               © {new Date().getFullYear()} Tyler Bustard. All rights reserved.
             </p>
           </div>

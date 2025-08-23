@@ -67,7 +67,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-24 lg:py-32 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+      <div className="absolute inset-0 bg-white" />
       
       <div className="container-width">
         <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
@@ -97,8 +97,8 @@ export default function ContactSection() {
         {/* Featured Contact Form - Apple's hero card design */}
         <div className="max-w-4xl mx-auto">
           <Card className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 relative overflow-hidden">
-            {/* Background accent */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/2 rounded-full blur-3xl"></div>
+            {/* Clean Background */}
+            <div className="absolute inset-0 bg-white"></div>
             
             <CardContent className="p-10 relative z-10">
               <div className="grid lg:grid-cols-2 gap-12 items-start">

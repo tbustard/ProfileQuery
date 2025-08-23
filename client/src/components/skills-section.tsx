@@ -102,7 +102,7 @@ export default function CertificationsSection() {
   return (
     <section id="certifications" className="py-24 lg:py-32 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+      <div className="absolute inset-0 bg-white" />
       
       <div className="container-width">
         <div className="bg-white/95 backdrop-blur-xl rounded-[32px] p-10 border border-white/20 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.05)] hover:shadow-[0_35px_60px_-12px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.05)] transition-all duration-500 hover:scale-[1.01]">
@@ -283,7 +283,7 @@ export function CommunitySection() {
   return (
     <section id="community" className="py-24 lg:py-32 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+      <div className="absolute inset-0 bg-white" />
       
       <div className="container-width">
         <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
