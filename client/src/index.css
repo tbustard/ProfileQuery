@@ -78,7 +78,7 @@
   }
   
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply text-foreground antialiased;
     font-family: var(--font-text);
     letter-spacing: -0.022em;
     line-height: 1.47059;
