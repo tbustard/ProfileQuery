@@ -82,30 +82,36 @@ export default function EducationSection() {
           </p>
         </div>
 
-        {/* Hero Education Card - Clean Main Layout */}
+        {/* Hero Education Card - Modern Apple Layout */}
         <div className="mb-16">
-          <div className="bg-white/40 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl p-12 lg:p-16">
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-4 mb-8">
-                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg">
-                  <img 
-                    src={universityLogo} 
-                    alt="University Logo" 
-                    className="w-14 h-14 object-contain"
-                  />
-                </div>
-                <div className="bg-primary/10 backdrop-blur-sm rounded-2xl px-4 py-2">
-                  <span className="text-sm font-semibold text-primary">Class of {education.year}</span>
-                </div>
+          <div className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg p-8 max-w-4xl mx-auto">
+            {/* Class badge in top right corner */}
+            <div className="absolute top-6 right-6">
+              <div className="bg-primary/10 backdrop-blur-sm rounded-xl px-3 py-1">
+                <span className="text-xs font-medium text-primary">Class of {education.year}</span>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-6">
+              {/* Logo on left */}
+              <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-sm flex-shrink-0">
+                <img 
+                  src={universityLogo} 
+                  alt="University Logo" 
+                  className="w-12 h-12 object-contain"
+                />
               </div>
               
-              <h3 className="text-3xl lg:text-4xl font-bold text-foreground mb-3">
-                {education.institution}
-              </h3>
-              <div className="space-y-2 mb-6">
-                <p className="text-xl font-semibold text-primary">{education.degree}</p>
-                <p className="text-lg font-medium text-blue-600">{education.major}</p>
-                <p className="text-muted-foreground">{education.location}</p>
+              {/* Content on right */}
+              <div className="flex-1">
+                <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">
+                  {education.institution}
+                </h3>
+                <div className="space-y-1">
+                  <p className="text-lg font-semibold text-primary">{education.degree}</p>
+                  <p className="text-base font-medium text-blue-600">{education.major}</p>
+                  <p className="text-sm text-muted-foreground">{education.location}</p>
+                </div>
               </div>
             </div>
           </div>
