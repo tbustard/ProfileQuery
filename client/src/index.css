@@ -31,10 +31,16 @@
   --chart-5: hsl(341.4894 75.2000% 50.9804%);
   --radius: 1rem;
   
-  /* Apple Glass Effects */
-  --glass-bg: hsla(0 0% 100% / 0.8);
+  /* Apple Liquid Glass Effects */
+  --glass-bg: hsla(0 0% 100% / 0.3);
+  --glass-bg-hover: hsla(0 0% 100% / 0.4);
   --glass-border: hsla(0 0% 100% / 0.2);
+  --glass-border-hover: hsla(0 0% 100% / 0.3);
   --glass-shadow: hsla(0 0% 0% / 0.1);
+  --glass-shadow-hover: hsla(0 0% 0% / 0.15);
+  --glass-refraction: linear-gradient(135deg, hsla(0 0% 100% / 0.4) 0%, hsla(0 0% 100% / 0.1) 25%, hsla(0 0% 100% / 0.05) 50%, hsla(0 0% 100% / 0.1) 75%, hsla(0 0% 100% / 0.3) 100%);
+  --glass-blur: blur(10px);
+  --glass-blur-strong: blur(20px);
   
   /* Apple Typography */
   --font-display: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -233,19 +239,93 @@
     font-weight: 500;
   }
   
-  /* Apple Glass Components */
+  /* Advanced Apple Liquid Glass Components */
   .apple-glass {
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
-    box-shadow: 0 8px 32px var(--glass-shadow);
+    box-shadow: 
+      0 8px 32px var(--glass-shadow),
+      0 1px 2px hsla(0 0% 0% / 0.1),
+      inset 0 1px 0 hsla(0 0% 100% / 0.4);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .apple-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--glass-refraction);
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .apple-glass > * {
+    position: relative;
+    z-index: 2;
   }
   
   .apple-card {
-    @apply apple-glass rounded-3xl transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl;
-    border: 1px solid hsl(0 0% 94%);
-    background: hsla(0 0% 100% / 0.9);
+    @apply rounded-[20px];
+    background: hsla(0 0% 100% / 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid hsla(0 0% 100% / 0.2);
+    box-shadow: 
+      0 8px 32px hsla(0 0% 0% / 0.1),
+      0 1px 2px hsla(0 0% 0% / 0.1),
+      inset 0 1px 0 hsla(0 0% 100% / 0.4),
+      inset 0 -1px 0 hsla(0 0% 0% / 0.05);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  
+  .apple-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg, 
+      hsla(0 0% 100% / 0.4) 0%, 
+      hsla(0 0% 100% / 0.1) 25%, 
+      hsla(0 0% 100% / 0.05) 50%, 
+      hsla(0 0% 100% / 0.1) 75%, 
+      hsla(0 0% 100% / 0.3) 100%
+    );
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  
+  .apple-card > * {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .apple-card:hover {
+    transform: scale(1.05);
+    background: hsla(0 0% 100% / 0.4);
+    border-color: hsla(0 0% 100% / 0.3);
+    box-shadow: 
+      0 16px 48px hsla(0 0% 0% / 0.15),
+      0 4px 12px hsla(0 0% 0% / 0.1),
+      inset 0 1px 0 hsla(0 0% 100% / 0.5),
+      inset 0 -1px 0 hsla(0 0% 0% / 0.1);
+  }
+  
+  .apple-card:hover::before {
+    opacity: 1;
   }
   
   .apple-button {
@@ -256,26 +336,52 @@
   }
   
   .apple-button-primary {
-    @apply apple-button bg-primary text-primary-foreground active:scale-95;
-    box-shadow: 0 4px 14px 0 rgba(0, 118, 255, 0.39);
-    transition: all 0.2s ease;
+    @apply apple-button bg-primary text-primary-foreground;
+    box-shadow: 
+      0 4px 14px 0 rgba(0, 118, 255, 0.39),
+      inset 0 1px 0 hsla(0 0% 100% / 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    border-radius: 20px;
   }
   
   .apple-button-primary:hover {
     background: hsl(212 100% 45%);
-    box-shadow: 0 6px 20px 0 rgba(0, 118, 255, 0.5);
+    transform: scale(1.05);
+    box-shadow: 
+      0 8px 24px 0 rgba(0, 118, 255, 0.5),
+      inset 0 1px 0 hsla(0 0% 100% / 0.3);
+  }
+  
+  .apple-button-primary:active {
+    transform: scale(0.98);
+    transition: all 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
   }
   
   .apple-button-secondary {
-    @apply apple-button bg-accent text-accent-foreground active:scale-95;
-    border: 1px solid var(--border);
-    background: hsla(0 0% 100% / 0.8);
-    backdrop-filter: blur(20px);
-    transition: all 0.2s ease;
+    @apply apple-button text-accent-foreground;
+    background: hsla(0 0% 100% / 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid hsla(0 0% 100% / 0.2);
+    border-radius: 20px;
+    box-shadow: 
+      0 4px 14px hsla(0 0% 0% / 0.1),
+      inset 0 1px 0 hsla(0 0% 100% / 0.4);
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
   }
   
   .apple-button-secondary:hover {
-    background: hsla(0 0% 94% / 0.9);
+    background: hsla(0 0% 100% / 0.4);
+    transform: scale(1.05);
+    border-color: hsla(0 0% 100% / 0.3);
+    box-shadow: 
+      0 8px 24px hsla(0 0% 0% / 0.15),
+      inset 0 1px 0 hsla(0 0% 100% / 0.5);
+  }
+  
+  .apple-button-secondary:active {
+    transform: scale(0.98);
+    transition: all 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
   }
   
   /* Apple Navigation */
@@ -308,7 +414,63 @@
   .apple-stagger-4 { animation-delay: 0.4s; }
   
   .apple-hover {
-    @apply transition-all duration-300 ease-out hover:scale-[1.02] hover:shadow-2xl;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  
+  .apple-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 
+      0 16px 48px hsla(0 0% 0% / 0.15),
+      0 4px 12px hsla(0 0% 0% / 0.1);
+  }
+  
+  /* Enhanced Liquid Glass Card Variants */
+  .apple-card-premium {
+    @apply apple-card;
+    background: hsla(0 0% 100% / 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid hsla(0 0% 100% / 0.3);
+  }
+  
+  .apple-card-subtle {
+    @apply apple-card;
+    background: hsla(0 0% 100% / 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  /* Spring-like animations for mobile responsiveness */
+  @media (max-width: 768px) {
+    .apple-card:hover {
+      transform: scale(1.02);
+    }
+    
+    .apple-hover:hover {
+      transform: scale(1.02);
+    }
+    
+    .apple-button-primary:hover,
+    .apple-button-secondary:hover {
+      transform: scale(1.02);
+    }
+  }
+  
+  /* Reduced motion accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .apple-card,
+    .apple-hover,
+    .apple-button-primary,
+    .apple-button-secondary {
+      transition: none;
+    }
+    
+    .apple-card:hover,
+    .apple-hover:hover,
+    .apple-button-primary:hover,
+    .apple-button-secondary:hover {
+      transform: none;
+    }
   }
 }
 
