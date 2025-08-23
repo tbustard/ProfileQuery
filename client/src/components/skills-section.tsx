@@ -109,7 +109,7 @@ export default function CertificationsSection() {
           {/* Header */}
           <div className="text-center mb-20">
             <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
-              Professional Certifications
+              Certifications
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Comprehensive expertise across finance, technology, and analytics through continuous learning and professional development
@@ -289,7 +289,7 @@ export function CommunitySection() {
           {/* Header */}
           <div className="text-center mb-20">
             <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
-              Community Impact
+              Community
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Demonstrating leadership and commitment through meaningful community engagement and volunteer service
@@ -381,7 +381,7 @@ export function CommunitySection() {
           <div className="bg-white/95 backdrop-blur-xl rounded-[32px] border border-white/20 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.05)] overflow-hidden hover:shadow-[0_30px_50px_-12px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.05)] transition-all duration-500 hover:scale-[1.01]">
             <div className="p-8 lg:p-12">
               <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
-                Community Impact Highlights
+                Community Highlights
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="text-center">

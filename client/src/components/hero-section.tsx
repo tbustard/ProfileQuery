@@ -76,7 +76,7 @@ export default function HeroSection() {
                   data-testid="button-contact"
                 >
                   <HiOutlineMail className="mr-3 h-5 w-5" />
-                  Get In Touch
+                  Contact
                 </Button>
               </div>
             </div>

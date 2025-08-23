@@ -73,7 +73,7 @@ export default function ContactSection() {
         <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header Section - Apple's content-first approach */}
           <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">Get In Touch</h2>
+            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">Contact</h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Ready to discuss your next project or opportunity? I'd love to hear from you.
             </p>
