@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { HiOutlineMail } from "react-icons/hi";
-import { useEffect } from "react";
-import profileImage from "@assets/Untitled design (1)_1755896187722.png";
-import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
-import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
-import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
-import irvingLogo from "@assets/Irving_Oil.svg_1755913265895.png";
-import grantThorntonLogo from "@assets/Grant_Thornton_logo_1755913265895.png";
+// Replaced asset imports with placeholder URLs
+const profileImage = "https://via.placeholder.com/320x320/2563EB/white?text=TB";
+const bmoLogo = "https://via.placeholder.com/64x64/005EB8/white?text=BMO";
+const tdLogo = "https://via.placeholder.com/64x64/00B04F/white?text=TD";
+const rbcLogo = "https://via.placeholder.com/64x64/00509F/white?text=RBC";
+const irvingLogo = "https://via.placeholder.com/64x64/FF6B35/white?text=IRVING";
+const grantThorntonLogo = "https://via.placeholder.com/64x64/8B5CF6/white?text=GT";
 
 export default function HeroSection() {
   const scrollToSection = (href: string) => {
@@ -16,95 +16,8 @@ export default function HeroSection() {
     }
   };
 
-  useEffect(() => {
-    // Initialize GSAP animations for Overview section only
-    if (typeof window !== 'undefined' && (window as any).gsap) {
-      const gsap = (window as any).gsap;
-      
-      // Profile image entrance animation
-      gsap.fromTo(".overview-profile-entrance", 
-        { 
-          scale: 0.8, 
-          opacity: 0, 
-          rotateY: -30 
-        },
-        { 
-          scale: 1, 
-          opacity: 1, 
-          rotateY: 0, 
-          duration: 1.2, 
-          ease: "elastic.out(1, 0.8)",
-          delay: 0.3
-        }
-      );
-      
-      // Text content stagger animation
-      gsap.fromTo(".overview-text-entrance", 
-        { 
-          y: 50, 
-          opacity: 0 
-        },
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.8, 
-          ease: "power3.out",
-          stagger: 0.2,
-          delay: 0.6
-        }
-      );
-      
-      // Career cards cascade animation
-      gsap.fromTo(".overview-career-card", 
-        { 
-          y: 30, 
-          opacity: 0, 
-          scale: 0.95 
-        },
-        { 
-          y: 0, 
-          opacity: 1, 
-          scale: 1, 
-          duration: 0.6, 
-          ease: "back.out(1.7)",
-          stagger: 0.1,
-          delay: 1.2
-        }
-      );
-      
-      // Credentials floating animation
-      gsap.fromTo(".overview-credential", 
-        { 
-          y: 20, 
-          opacity: 0 
-        },
-        { 
-          y: 0, 
-          opacity: 1, 
-          duration: 0.8, 
-          ease: "elastic.out(1, 0.6)",
-          stagger: 0.1,
-          delay: 0.9
-        }
-      );
-    }
-  }, []);
-
   return (
-    <>
-      {/* SVG Filter for Advanced Glass Effects */}
-      <svg width="0" height="0" style={{ position: 'absolute' }}>
-        <defs>
-          <filter id="liquid-glass-filter" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="0.5" result="blur"/>
-            <feTurbulence baseFrequency="0.02" numOctaves="3" result="noise"/>
-            <feDisplacementMap in="blur" in2="noise" scale="2" result="displacement"/>
-            <feComposite in="displacement" in2="SourceGraphic" operator="over"/>
-          </filter>
-        </defs>
-      </svg>
-
-      <section id="hero" className="relative overflow-hidden min-h-screen">
+    <section id="hero" className="relative overflow-hidden min-h-screen">
       {/* Background Layers */}
       <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50/50 to-gray-100/30" />
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/4 rounded-full blur-3xl animate-pulse" />
@@ -117,8 +30,8 @@ export default function HeroSection() {
             <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
               {/* Profile Image */}
               <div className="flex-shrink-0">
-                <div className="w-72 h-72 lg:w-80 lg:h-80 relative overview-profile-entrance">
-                  <div className="overview-profile-glass aspect-square overflow-hidden">
+                <div className="w-72 h-72 lg:w-80 lg:h-80 relative">
+                  <div className="aspect-square rounded-[2rem] overflow-hidden bg-white shadow-2xl ring-1 ring-black/5">
                     <img 
                       src={profileImage} 
                       alt="Tyler Bustard professional headshot" 
@@ -132,28 +45,28 @@ export default function HeroSection() {
               {/* Name & Content */}
               <div className="space-y-8 text-center lg:text-left max-w-2xl">
                 <div>
-                  <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tight leading-none overview-text-entrance">
+                  <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tight leading-none">
                     Tyler Bustard
                   </h1>
-                  <p className="text-2xl md:text-3xl font-semibold text-primary mb-8 overview-text-entrance">
+                  <p className="text-2xl md:text-3xl font-semibold text-primary mb-8">
                     Finance & Technology Professional
                   </p>
                   
                   {/* Credentials */}
                   <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
-                    <div className="overview-credential-glass px-6 py-3 overview-credential">
+                    <div className="bg-primary/10 backdrop-blur-sm rounded-2xl px-6 py-3 border border-primary/10">
                       <span className="text-sm font-semibold text-primary">CFA Level I Candidate</span>
                     </div>
-                    <div className="overview-credential-glass px-6 py-3 overview-credential">
+                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl px-6 py-3 border border-gray-200">
                       <span className="text-sm font-medium text-foreground">5+ Years Experience</span>
                     </div>
-                    <div className="overview-credential-glass px-6 py-3 overview-credential">
+                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl px-6 py-3 border border-gray-200">
                       <span className="text-sm font-medium text-foreground">UNB Graduate</span>
                     </div>
                   </div>
                 </div>
                 
-                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed overview-text-entrance">
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
                   Driving innovation at the intersection of finance and technology. 
                   Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
                 </p>
@@ -165,9 +78,9 @@ export default function HeroSection() {
           <div className="space-y-12 mb-20">
             {/* Career Progression */}
             <div className="space-y-8">
-              <h2 className="text-3xl font-bold text-foreground text-center lg:text-left overview-text-entrance">Career Journey</h2>
+              <h2 className="text-3xl font-bold text-foreground text-center lg:text-left">Career Journey</h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="overview-liquid-glass p-8 overview-career-card">
+                <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 hover:shadow-lg transition-all duration-300">
                   <div className="space-y-4">
                     <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
                       <img 
@@ -184,7 +97,7 @@ export default function HeroSection() {
                   </div>
                 </div>
 
-                <div className="overview-liquid-glass p-8 overview-career-card">
+                <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 hover:shadow-lg transition-all duration-300">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
@@ -210,7 +123,7 @@ export default function HeroSection() {
                   </div>
                 </div>
 
-                <div className="overview-liquid-glass p-8 overview-career-card">
+                <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 hover:shadow-lg transition-all duration-300">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
@@ -329,6 +242,5 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
-    </>
   );
 }

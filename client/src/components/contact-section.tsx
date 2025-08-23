@@ -65,7 +65,7 @@ export default function ContactSection() {
 
 
   return (
-    <section id="contact" className="apple-section-alt">
+    <section id="contact" className="section-padding">
       <div className="container-width">
         {/* Header Section - Apple's content-first approach */}
         <div className="text-center mb-20">

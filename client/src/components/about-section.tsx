@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Trophy, Award, GraduationCap } from "lucide-react";
-import universityLogo from "@assets/University_of_New_Brunswick_Logo.svg_1755912478863.png";
+// import universityLogo from "@assets/University_of_New_Brunswick_Logo.svg_1755912478863.png";
+const universityLogo = "https://upload.wikimedia.org/wikipedia/en/thumb/0/06/University_of_New_Brunswick_Logo.svg/200px-University_of_New_Brunswick_Logo.svg.png";
 
 export default function EducationSection() {
   const education = {
@@ -66,7 +67,7 @@ export default function EducationSection() {
   ];
 
   return (
-    <section id="education" className="apple-section-alt">
+    <section id="education" className="section-padding">
       <div className="container-width">
         {/* Header */}
         <div className="text-center mb-20">
@@ -78,7 +79,7 @@ export default function EducationSection() {
 
         {/* Hero Education Card */}
         <div className="mb-16">
-          <Card className="apple-card border-0 text-center">
+          <Card className="apple-glass-premium border-0 text-center gsap-scale-in">
             <CardContent className="p-12">
               {/* University Logo/Badge */}
               <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-3xl flex items-center justify-center shadow-lg mx-auto mb-8 apple-hover">
