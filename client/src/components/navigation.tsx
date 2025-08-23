@@ -252,13 +252,37 @@ export default function Navigation() {
                 
                 {/* Apple-style Dropdown */}
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <div className="p-2">
+                  <div className="p-2 max-h-80 overflow-y-auto">
+                    <button 
+                      onClick={() => scrollToSection('#certifications')}
+                      className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
+                    >
+                      <div className="font-semibold text-gray-900 text-base mb-1">Finance & Investment</div>
+                      <div className="text-sm text-gray-600">CFA, CSC, FRM, Wall Street Prep & more</div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => scrollToSection('#certifications')}
+                      className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
+                    >
+                      <div className="font-semibold text-gray-900 text-base mb-1">Data & Technology</div>
+                      <div className="text-sm text-gray-600">Google Analytics, Python, SQL, Tableau & more</div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => scrollToSection('#certifications')}
+                      className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
+                    >
+                      <div className="font-semibold text-gray-900 text-base mb-1">Professional Development</div>
+                      <div className="text-sm text-gray-600">Bloomberg, Training the Street, McGill courses</div>
+                    </button>
+                    
                     <button 
                       onClick={() => scrollToSection('#certifications')}
                       className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
                     >
-                      <div className="font-semibold text-gray-900 text-base mb-1">Professional Certifications</div>
-                      <div className="text-sm text-gray-600">22+ certifications across finance & technology</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">Academic Assessment</div>
+                      <div className="text-sm text-gray-600">GRE General Test • 90th percentile performance</div>
                     </button>
                   </div>
                 </div>
