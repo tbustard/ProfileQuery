@@ -105,7 +105,7 @@ export default function CertificationsSection() {
       <div className="absolute inset-0 bg-white" />
       
       <div className="container-width">
-        <div className="bg-white/95 backdrop-blur-xl rounded-[32px] p-10 border border-white/20 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.05)] hover:shadow-[0_35px_60px_-12px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.05)] transition-all duration-500 hover:scale-[1.01]">
+        <div className="bg-white rounded-[32px] p-10 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500">
           {/* Header */}
           <div className="text-center mb-20">
             <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
@@ -122,11 +122,11 @@ export default function CertificationsSection() {
             {certificationCategories.map((category, categoryIndex) => (
               <div key={categoryIndex} id={`certifications-${category.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} className="relative overflow-hidden">
                 {/* Modern Category Container */}
-                <div className="bg-white/95 backdrop-blur-xl rounded-[32px] border border-white/20 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.05)] hover:shadow-[0_30px_50px_-12px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.05)] overflow-hidden transition-all duration-500 hover:scale-[1.01]">
+                <div className="bg-white rounded-[32px] border border-gray-200 shadow-lg hover:shadow-xl overflow-hidden transition-all duration-500">
                   {/* Category Header with gradient */}
                   <div className="p-8 lg:p-10">
                     <div className="flex items-center gap-6">
-                      <div className="w-20 h-20 bg-white/40 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-[0_8px_25px_rgba(0,0,0,0.15)] hover:shadow-[0_12px_35px_rgba(0,0,0,0.25)] transition-all duration-300 hover:scale-110">
+                      <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
                         <category.icon className="w-10 h-10 text-foreground" />
                       </div>
                       <div>
@@ -143,7 +143,7 @@ export default function CertificationsSection() {
                         <div 
                           key={certIndex}
                           id={`cert-${cert.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                          className="group relative bg-white/95 backdrop-blur-xl rounded-[24px] border border-white/20 p-6 shadow-[0_12px_25px_rgba(0,0,0,0.12)] hover:shadow-[0_16px_35px_rgba(0,0,0,0.18)] hover:bg-white/98 transition-all duration-500 hover:scale-[1.02]"
+                          className="group relative bg-white rounded-[24px] border border-gray-200 p-6 shadow-lg hover:shadow-xl hover:bg-white transition-all duration-500"
                           data-testid={`cert-${categoryIndex}-${certIndex}`}
                         >
                           <div className="flex items-center justify-between">
@@ -151,7 +151,7 @@ export default function CertificationsSection() {
                               <div className="flex items-center gap-3 mb-2">
                                 <h5 className="text-lg font-semibold text-foreground">{cert.name}</h5>
                                 {cert.highlight && (
-                                  <div className="px-3 py-1 bg-white text-foreground text-xs font-bold rounded-full border border-white/20">
+                                  <div className="px-3 py-1 bg-gray-100 text-foreground text-xs font-bold rounded-full border border-gray-200">
                                     FEATURED
                                   </div>
                                 )}
@@ -169,7 +169,7 @@ export default function CertificationsSection() {
                               <p className="text-sm text-muted-foreground/80 leading-relaxed mb-2">{cert.description}</p>
                               {cert.percentile && (
                                 <div className="mt-1">
-                                  <p className="text-sm text-foreground font-semibold bg-white px-4 py-2 rounded-full inline-block whitespace-nowrap">{cert.percentile}</p>
+                                  <p className="text-sm text-foreground font-semibold bg-gray-100 px-4 py-2 rounded-full inline-block whitespace-nowrap">{cert.percentile}</p>
                                 </div>
                               )}
                             </div>
@@ -187,8 +187,8 @@ export default function CertificationsSection() {
           </div>
         </div>
 
-        {/* Achievement Metrics - Apple-style clean stats */}
-        <div className="bg-white/95 backdrop-blur-xl rounded-[32px] border border-white/20 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.05)] overflow-hidden hover:shadow-[0_30px_50px_-12px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.05)] transition-all duration-500 hover:scale-[1.01]">
+        {/* Achievement Metrics - Clean stats */}
+        <div className="bg-white rounded-[32px] border border-gray-200 shadow-lg hover:shadow-xl overflow-hidden transition-all duration-500">
           <div className="p-8 lg:p-12">
             <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
               Professional Development Highlights
