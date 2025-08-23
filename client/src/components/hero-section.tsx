@@ -88,7 +88,7 @@ export default function HeroSection() {
                 <div className="flex justify-center lg:justify-start pt-4">
                   <Button
                     onClick={() => setIsVideoOpen(true)}
-                    className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-lg"
+                    className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-lg"
                     data-testid="button-introduction"
                   >
                     <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
