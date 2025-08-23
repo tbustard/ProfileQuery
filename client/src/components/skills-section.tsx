@@ -100,15 +100,15 @@ export default function CertificationsSection() {
   );
 
   return (
-    <section id="certifications" className="py-24 lg:py-32 relative overflow-hidden">
+    <section id="certifications">
       {/* Background */}
       <div className="absolute inset-0" />
       
       <div className="container-width">
-        <div className="rounded-[32px] p-10 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500">
+        <div>
           {/* Header */}
-          <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+          <div className="text-center ">
+            <h2 className="text-5xl lg:text-6xl font-bold text-foreground  tracking-tight">
               Certifications
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -116,47 +116,47 @@ export default function CertificationsSection() {
             </p>
           </div>
 
-        {/* All Certifications - Modern Apple-style showcase */}
-        <div className="mb-24">
-          <div className="space-y-12">
+        {/* All Certifications */}
+        <div>
+          <div>
             {certificationCategories.map((category, categoryIndex) => (
-              <div key={categoryIndex} id={`certifications-${category.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} className="relative overflow-hidden">
+              <div key={categoryIndex} id={`certifications-${category.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}>
                 {/* Modern Category Container */}
-                <div className="rounded-[32px] border border-gray-200 shadow-lg hover:shadow-xl overflow-hidden transition-all duration-500">
-                  {/* Category Header with gradient */}
-                  <div className="p-8 lg:p-10">
-                    <div className="flex items-center gap-6">
-                      <div className="w-20 h-20 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110">
+                <div>
+                  {/* Category Header */}
+                  <div>
+                    <div className="flex items-center ">
+                      <div className="w-20 h-20 flex items-center justify-center">
                         <category.icon className="w-10 h-10 text-foreground" />
                       </div>
                       <div>
-                        <h4 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">{category.title}</h4>
+                        <h4 className="text-2xl lg:text-3xl font-bold text-foreground ">{category.title}</h4>
                         <p className="text-lg text-muted-foreground font-medium">{category.certifications.length} professional certifications</p>
                       </div>
                     </div>
                   </div>
 
                   {/* Certifications Grid */}
-                  <div className="p-8 lg:p-10">
-                    <div className="grid gap-4">
+                  <div>
+                    <div className="grid ">
                       {category.certifications.map((cert, certIndex) => (
                         <div 
                           key={certIndex}
                           id={`cert-${cert.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                          className="group relative rounded-[24px] border border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all duration-500"
+                          className="group relative"
                           data-testid={`cert-${categoryIndex}-${certIndex}`}
                         >
                           <div className="flex items-center justify-between">
                             <div className="flex-1">
-                              <div className="flex items-center gap-3 mb-2">
+                              <div className="flex items-center  ">
                                 <h5 className="text-lg font-semibold text-foreground">{cert.name}</h5>
                                 {cert.highlight && (
-                                  <div className="px-3 py-1 text-foreground text-xs font-bold rounded-full border border-gray-200">
+                                  <div className=" text-foreground text-xs font-bold">
                                     FEATURED
                                   </div>
                                 )}
                               </div>
-                              <div className="flex items-center gap-2 mb-2">
+                              <div className="flex items-center  ">
                                 {cert.logoSrc && (
                                   <img 
                                     src={cert.logoSrc} 
@@ -166,10 +166,10 @@ export default function CertificationsSection() {
                                 )}
                                 <p className="text-muted-foreground font-medium">{cert.institution}</p>
                               </div>
-                              <p className="text-sm text-muted-foreground/80 leading-relaxed mb-2">{cert.description}</p>
+                              <p className="text-sm text-muted-foreground/80 leading-relaxed ">{cert.description}</p>
                               {cert.percentile && (
-                                <div className="mt-1">
-                                  <p className="text-sm text-foreground font-semibold px-4 py-2 rounded-full inline-block whitespace-nowrap border border-gray-200">{cert.percentile}</p>
+                                <div className="">
+                                  <p className="text-sm text-foreground font-semibold  inline-block whitespace-nowrap">{cert.percentile}</p>
                                 </div>
                               )}
                             </div>
@@ -188,22 +188,22 @@ export default function CertificationsSection() {
         </div>
 
         {/* Achievement Metrics - Clean stats */}
-        <div className="rounded-[32px] border border-gray-200 shadow-lg hover:shadow-xl overflow-hidden transition-all duration-500">
-          <div className="p-8 lg:p-12">
-            <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
+        <div>
+          <div>
+            <h3 className="text-2xl font-bold text-foreground  text-center">
               Professional Development Highlights
             </h3>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 ">
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">22</div>
+                <div className="text-4xl lg:text-5xl font-bold text-foreground ">22</div>
                 <div className="text-muted-foreground font-medium">Total Certifications</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">4</div>
+                <div className="text-4xl lg:text-5xl font-bold text-green-600 ">4</div>
                 <div className="text-muted-foreground font-medium">Expertise Areas</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">17</div>
+                <div className="text-4xl lg:text-5xl font-bold text-foreground ">17</div>
                 <div className="text-muted-foreground font-medium">Different Organizations</div>
               </div>
             </div>
@@ -288,8 +288,8 @@ export function CommunitySection() {
       <div className="container-width">
         <div className="rounded-[28px] p-10 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500">
           {/* Header */}
-          <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+          <div className="text-center ">
+            <h2 className="text-5xl lg:text-6xl font-bold text-foreground  tracking-tight">
               Community
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -315,8 +315,8 @@ export function CommunitySection() {
                   <div className="relative rounded-[28px] border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500 group">
                     <div className="relative p-8">
                       {/* Header Section */}
-                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
-                        <div className="flex items-start gap-4">
+                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start ">
+                        <div className="flex items-start ">
                           <div className="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                             {activity.logoSrc ? (
                               <img 
@@ -340,11 +340,11 @@ export function CommunitySection() {
                       </div>
 
                       {/* Key Achievements */}
-                      <div className="mb-6">
+                      <div className="">
                         <h4 className="font-semibold text-foreground mb-4">Key Achievements</h4>
                         <div className="space-y-3">
                           {activity.achievements.map((achievement, achievementIndex) => (
-                            <div key={achievementIndex} className="flex items-start gap-3">
+                            <div key={achievementIndex} className="flex items-start ">
                               <div className="w-1.5 h-1.5 rounded-full mt-2.5 flex-shrink-0 border border-gray-300"></div>
                               <p className="text-muted-foreground font-medium leading-relaxed">{achievement}</p>
                             </div>
@@ -354,12 +354,12 @@ export function CommunitySection() {
 
                       {/* Skills Developed */}
                       <div>
-                        <h4 className="font-semibold text-foreground mb-3">Core Competencies</h4>
-                        <div className="flex flex-wrap gap-2">
+                        <h4 className="font-semibold text-foreground ">Core Competencies</h4>
+                        <div className="flex flex-wrap ">
                           {activity.skills.map((skill, skillIndex) => (
                             <span
                               key={skillIndex}
-                              className="text-foreground px-3 py-1.5 rounded-full text-sm font-medium border border-gray-200 transition-all duration-500"
+                              className="text-foreground .5 rounded-full text-sm font-medium border border-gray-200 transition-all duration-500"
                               data-testid={`skill-${index}-${skillIndex}`}
                             >
                               {skill}
@@ -379,20 +379,20 @@ export function CommunitySection() {
         <div className="mt-24">
           <div className="rounded-[32px] border border-gray-200 shadow-lg hover:shadow-xl overflow-hidden transition-all duration-500">
             <div className="p-8 lg:p-12">
-              <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
+              <h3 className="text-2xl font-bold text-foreground  text-center">
                 Community Highlights
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 ">
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">4+</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-foreground ">4+</div>
                   <div className="text-muted-foreground font-medium">Years of Service</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">3</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-green-600 ">3</div>
                   <div className="text-muted-foreground font-medium">Organizations Served</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">500+</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-foreground ">500+</div>
                   <div className="text-muted-foreground font-medium">People Helped</div>
                 </div>
               </div>
