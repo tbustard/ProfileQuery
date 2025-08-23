@@ -35,8 +35,8 @@ export default function Navigation() {
 
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -70% 0px',
-      threshold: 0
+      rootMargin: '-40% 0px -50% 0px',
+      threshold: 0.1
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
