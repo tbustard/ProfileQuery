@@ -203,21 +203,6 @@ interface CommunityActivity {
 export function CommunitySection() {
   const communityActivities: CommunityActivity[] = [
     {
-      title: "Limestone Race Weekend 10K Completion",
-      organization: "Community Charitable Event",
-      period: "2023",
-      duration: "Annual Event",
-      location: "Kingston, Ontario",
-      description: "Annual charitable fitness event supporting local community causes",
-      achievements: [
-        "Successfully completed 10K run",
-        "Contributed to fundraising for local charities"
-      ],
-      skills: ["Physical Fitness", "Community Engagement", "Goal Achievement", "Charitable Support"],
-      icon: FaRunning,
-      color: "#FF6B35"
-    },
-    {
       title: "Next Gen Ambassador",
       organization: "United Way",
       period: "2020-2023",
