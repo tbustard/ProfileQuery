@@ -120,15 +120,10 @@ export default function Navigation() {
                     alt="Tyler Bustard" 
                     className="w-9 h-9 rounded-xl object-cover ring-1 ring-white/20 shadow-sm"
                   />
-                  <div>
+                  <div className="relative">
                     <span className="text-lg font-bold text-foreground">Tyler Bustard</span>
-                    {currentSection && (
-                      <div className="-mt-1">
-                        <span className="text-xs font-medium text-primary">
-                          {getSectionDisplayName(currentSection)}
-                        </span>
-                      </div>
-                    )}
+                    {/* Blue underline like main page */}
+                    <div className="absolute -bottom-1 left-0 w-16 h-1 bg-primary rounded-full" />
                   </div>
                 </div>
               )}
