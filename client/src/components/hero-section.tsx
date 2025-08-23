@@ -11,7 +11,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="pt-32 pb-24 px-6 relative overflow-hidden">
+    <section className="pt-20 pb-24 px-6 relative overflow-hidden">
       <div className="container-width">
         <div className="text-center relative z-10">
           <div className="relative inline-block mb-12">
