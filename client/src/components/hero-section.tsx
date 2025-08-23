@@ -81,15 +81,16 @@ export default function HeroSection() {
 
           {/* Main Content */}
           <div className="space-y-12 mb-20">
-            {/* Professional Overview */}
-            <div className="space-y-12">
-              <h2 className="text-4xl font-bold text-foreground text-center">Professional Overview</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {/* Professional Overview Quadrants */}
+            <div className="space-y-8">
+              <h2 className="text-3xl font-bold text-foreground text-center lg:text-left">Professional Overview</h2>
+              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 shadow-xl">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   
                   {/* Career Quadrant */}
-                  <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 border border-gray-200/30 hover:shadow-lg transition-all duration-300 hover:scale-105 h-full">
-                    <div className="space-y-6">
-                      <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 hover:shadow-lg transition-all duration-300">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3 flex-wrap">
                         <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
                           <img 
                             src={bmoLogo} 
@@ -126,8 +127,8 @@ export default function HeroSection() {
                           />
                         </div>
                       </div>
-                      <div className="pt-4 border-t border-gray-200/30">
-                        <h3 className="text-xl font-semibold text-foreground mb-3">Career</h3>
+                      <div>
+                        <h3 className="text-xl font-semibold text-foreground mb-2">Career</h3>
                         <div className="space-y-2 text-sm text-muted-foreground">
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
@@ -147,9 +148,9 @@ export default function HeroSection() {
                   </div>
 
                   {/* Education Quadrant */}
-                  <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 border border-gray-200/30 hover:shadow-lg transition-all duration-300 hover:scale-105 h-full">
-                    <div className="space-y-6">
-                      <div className="flex justify-center">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 hover:shadow-lg transition-all duration-300">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3">
                         <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
                           <img 
                             src={unbLogo} 
@@ -158,8 +159,8 @@ export default function HeroSection() {
                           />
                         </div>
                       </div>
-                      <div className="pt-4 border-t border-gray-200/30">
-                        <h3 className="text-xl font-semibold text-foreground mb-3">Education</h3>
+                      <div>
+                        <h3 className="text-xl font-semibold text-foreground mb-2">Education</h3>
                         <div className="space-y-2 text-sm text-muted-foreground">
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
@@ -179,9 +180,9 @@ export default function HeroSection() {
                   </div>
 
                   {/* Certifications Quadrant */}
-                  <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 border border-gray-200/30 hover:shadow-lg transition-all duration-300 hover:scale-105 h-full">
-                    <div className="space-y-6">
-                      <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 hover:shadow-lg transition-all duration-300">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3 flex-wrap">
                         <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
                           <img 
                             src={cfaLogo} 
@@ -211,8 +212,8 @@ export default function HeroSection() {
                           />
                         </div>
                       </div>
-                      <div className="pt-4 border-t border-gray-200/30">
-                        <h3 className="text-xl font-semibold text-foreground mb-3">Certifications</h3>
+                      <div>
+                        <h3 className="text-xl font-semibold text-foreground mb-2">Certifications</h3>
                         <div className="space-y-2 text-sm text-muted-foreground">
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
@@ -232,9 +233,9 @@ export default function HeroSection() {
                   </div>
 
                   {/* Community Quadrant */}
-                  <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-6 border border-gray-200/30 hover:shadow-lg transition-all duration-300 hover:scale-105 h-full">
-                    <div className="space-y-6">
-                      <div className="flex justify-center gap-3">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 hover:shadow-lg transition-all duration-300">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3">
                         <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
                           <img src={unitedWayLogo} alt="United Way Logo" className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110" />
                         </div>
@@ -246,8 +247,8 @@ export default function HeroSection() {
                           />
                         </div>
                       </div>
-                      <div className="pt-4 border-t border-gray-200/30">
-                        <h3 className="text-xl font-semibold text-foreground mb-3">Community</h3>
+                      <div>
+                        <h3 className="text-xl font-semibold text-foreground mb-2">Community</h3>
                         <div className="space-y-2 text-sm text-muted-foreground">
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
@@ -267,6 +268,7 @@ export default function HeroSection() {
                   </div>
 
                 </div>
+              </div>
             </div>
 
           </div>
