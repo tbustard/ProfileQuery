@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SiGoogle } from "react-icons/si";
-import { FaCertificate, FaGraduationCap, FaTrophy, FaStar, FaChartLine, FaCalculator, FaHeart, FaRunning, FaUsers, FaHandshake } from "react-icons/fa";
+import { FaCertificate, FaGraduationCap, FaTrophy, FaStar, FaChartLine, FaCalculator, FaHeart, FaRunning, FaUsers, FaHandshake, FaCode } from "react-icons/fa";
 import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
 
@@ -96,78 +96,90 @@ export default function CertificationsSection() {
           </p>
         </div>
 
-        {/* Featured Certifications - Apple-style hero showcase */}
-        <div className="mb-20">
-          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Featured Achievements</h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {featuredCerts.map((cert, index) => (
-              <div key={index} className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group text-center" data-testid={`featured-cert-${index}`}>
-                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative p-8">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <cert.icon className="w-8 h-8 text-primary" />
+        {/* Key Certifications - Modern Showcase */}
+        <div className="mb-24">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
+            {/* GRE Achievement */}
+            <div className="relative">
+              <div className="bg-white/30 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden group hover:shadow-3xl transition-all duration-700">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative p-12">
+                  <div className="w-20 h-20 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl flex items-center justify-center mb-8 mx-auto shadow-xl">
+                    <FaGraduationCap className="w-10 h-10 text-primary" />
                   </div>
-                  <h4 className="text-lg font-semibold text-foreground mb-2">{cert.name}</h4>
-                  <p className="text-muted-foreground font-medium mb-2">{cert.institution}</p>
-                  <Badge variant="secondary" className="text-xs">{cert.year}</Badge>
-                  {cert.percentile && (
-                    <p className="text-sm text-primary font-medium mt-3">{cert.percentile}</p>
-                  )}
+                  <div className="text-center space-y-4">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-foreground">GRE General Test</h3>
+                    <p className="text-lg text-muted-foreground font-medium">Educational Testing Service</p>
+                    <div className="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full">
+                      <span className="text-sm font-semibold text-primary">2024</span>
+                    </div>
+                    <div className="pt-4 space-y-2">
+                      <div className="text-sm text-muted-foreground font-medium">Performance Scores</div>
+                      <div className="text-lg font-semibold text-foreground">Verbal: 77th | Quant: 94th | Writing: 56th</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
 
-        {/* All Certifications - Apple-style list layout */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Complete Certification Portfolio</h3>
-          <div className="grid md:grid-cols-2 gap-8">
-            {certificationCategories.map((category, categoryIndex) => (
-              <div key={categoryIndex} className="space-y-4">
-                {/* Category Header */}
-                <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mr-4">
-                    <category.icon className="w-8 h-8 text-primary" />
+            {/* Professional Certifications Grid */}
+            <div className="space-y-6">
+              <div className="bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg p-8 hover:shadow-xl transition-all duration-500">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-green-500/10 rounded-xl flex items-center justify-center">
+                    <FaChartLine className="w-6 h-6 text-green-600" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold text-foreground">{category.title}</h4>
-                    <p className="text-muted-foreground font-medium">{category.certifications.length} certifications</p>
+                    <h4 className="text-lg font-bold text-foreground">Financial Analysis</h4>
+                    <p className="text-sm text-muted-foreground">Corporate Finance & Investment</p>
                   </div>
                 </div>
-
-                {/* Certifications List */}
-                <div className="space-y-3">
-                  {category.certifications.map((cert, certIndex) => (
-                    <div 
-                      key={certIndex}
-                      className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group p-5"
-                      data-testid={`cert-${categoryIndex}-${certIndex}`}
-                    >
-                      <div className="flex justify-between items-start">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-1">
-                            <h5 className="font-medium text-foreground">{cert.name}</h5>
-                            {cert.highlight && (
-                              <div className="w-2 h-2 bg-primary rounded-full"></div>
-                            )}
-                          </div>
-                          <p className="text-muted-foreground text-sm font-medium">{cert.institution}</p>
-                          {cert.percentile && (
-                            <p className="text-xs text-primary font-medium mt-1">{cert.percentile}</p>
-                          )}
-                        </div>
-                        <span className="text-muted-foreground text-sm font-medium">{cert.year}</span>
-                      </div>
-                    </div>
-                  ))}
+                <div className="space-y-3 text-sm">
+                  <div className="flex justify-between items-center">
+                    <span className="text-muted-foreground">Corporate Finance Fundamentals</span>
+                    <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">2021</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-muted-foreground">Investment Management</span>
+                    <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">2022</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-muted-foreground">Financial Markets</span>
+                    <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">2021</span>
+                  </div>
                 </div>
               </div>
-            ))}
+
+              <div className="bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg p-8 hover:shadow-xl transition-all duration-500">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center">
+                    <FaCode className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-foreground">Technology & Analytics</h4>
+                    <p className="text-sm text-muted-foreground">Data Science & Programming</p>
+                  </div>
+                </div>
+                <div className="space-y-3 text-sm">
+                  <div className="flex justify-between items-center">
+                    <span className="text-muted-foreground">Python for Data Science</span>
+                    <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">2023</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-muted-foreground">Machine Learning</span>
+                    <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">2023</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-muted-foreground">Excel Skills for Business</span>
+                    <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">2020</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Achievement Metrics - Apple-style clean stats */}
+        {/* Professional Development Summary */}
         <div className="bg-white/30 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
           <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-8 lg:p-12">
             <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
