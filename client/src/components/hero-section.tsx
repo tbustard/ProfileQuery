@@ -14,6 +14,7 @@ import mcgillLogo from "@assets/mcgill_1755937693386.png";
 import unbLogo from "@assets/University_of_New_Brunswick_Logo.svg_1755912478863.png";
 import wallStreetPrepLogo from "@assets/wall street prep_1755923720193.png";
 import trainingTheStreetLogo from "@assets/trainning the street_1755938972014.png";
+import etsLogo from "@assets/ETS_1755939510188.png";
 import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 
 export default function HeroSection() {
@@ -231,6 +232,13 @@ export default function HeroSection() {
                           <img 
                             src={trainingTheStreetLogo} 
                             alt="Training the Street Logo" 
+                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                          />
+                        </div>
+                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                          <img 
+                            src={etsLogo} 
+                            alt="ETS Logo" 
                             className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
                           />
                         </div>

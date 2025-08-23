@@ -12,6 +12,7 @@ import mcgillLogo from "@assets/mcgill_1755937693386.png";
 import trainingTheStreetLogo from "@assets/trainning the street_1755938972014.png";
 import bloombergLogo from "@assets/bloomberg_1755939196335.png";
 import courseraLogo from "@assets/Coursera_1755939373919.png";
+import etsLogo from "@assets/ETS_1755939510188.png";
 
 interface Certification {
   name: string;
@@ -83,7 +84,8 @@ export default function CertificationsSection() {
           year: "2024", 
           institution: "ETS", 
           highlight: true,
-          percentile: "Verbal: 77th | Quant: 94th | Writing: 56th"
+          percentile: "Verbal: 77th | Quant: 94th | Writing: 56th",
+          logoSrc: etsLogo
         }
       ]
     }
