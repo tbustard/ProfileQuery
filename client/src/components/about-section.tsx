@@ -211,16 +211,16 @@ export default function EducationSection() {
               </h3>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">Co-op</div>
-                  <div className="text-muted-foreground font-medium">Accredited Co-op Program<br />Professional work experience integrated with academic curriculum</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">$47,500</div>
+                  <div className="text-muted-foreground font-medium">Total Scholarships & Awards</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">SIF</div>
-                  <div className="text-muted-foreground font-medium">Student Investment Fund<br />Analyst and Portfolio Manager - Energy sector focus and analysis</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">1st Place</div>
+                  <div className="text-muted-foreground font-medium">RBC Student Ambassador of the Month - February 2020</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">3rd Place</div>
-                  <div className="text-muted-foreground font-medium">TD Case Competition Finalist</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">1st Place</div>
+                  <div className="text-muted-foreground font-medium">CIBC Case Competition Winner</div>
                 </div>
               </div>
             </div>
