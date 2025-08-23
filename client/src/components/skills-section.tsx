@@ -173,19 +173,19 @@ export default function CertificationsSection() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div>
                 <div className="text-3xl font-bold text-foreground mb-2">20+</div>
-                <div className="body-text text-muted-foreground">Total Certifications</div>
+                <div className="text-muted-foreground font-medium">Total Certifications</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-foreground mb-2">4</div>
-                <div className="body-text text-muted-foreground">Expertise Areas</div>
+                <div className="text-muted-foreground font-medium">Expertise Areas</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-foreground mb-2">2024</div>
-                <div className="body-text text-muted-foreground">Latest Achievement</div>
+                <div className="text-muted-foreground font-medium">Latest Achievement</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-foreground mb-2">94th</div>
-                <div className="body-text text-muted-foreground">GRE Percentile</div>
+                <div className="text-muted-foreground font-medium">GRE Percentile</div>
               </div>
             </div>
           </CardContent>
@@ -262,10 +262,10 @@ export function CommunitySection() {
       <div className="container-width">
         {/* Header */}
         <div className="text-center mb-20">
-          <h2 className="large-title text-foreground mb-4">
+          <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
             Community Impact
           </h2>
-          <p className="callout text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Demonstrating leadership and commitment through meaningful community engagement and volunteer service
           </p>
         </div>
@@ -302,26 +302,23 @@ export function CommunitySection() {
                           <div>
                             <h3 className="text-xl font-semibold text-foreground mb-1">{activity.title}</h3>
                             <p className="text-lg font-medium text-primary mb-1">{activity.organization}</p>
-                            <p className="body-text text-muted-foreground">{activity.description}</p>
+                            <p className="text-muted-foreground font-medium">{activity.description}</p>
                           </div>
                         </div>
                         <div className="mt-4 lg:mt-0 lg:text-right">
-                          <div className="inline-flex items-center gap-2 bg-muted rounded-full px-4 py-2">
-                            <div className="w-2 h-2 bg-primary rounded-full"></div>
-                            <span className="font-medium text-foreground">{activity.period}</span>
-                          </div>
-                          <p className="body-text text-muted-foreground mt-1 lg:text-right">{activity.type}</p>
+                          <span className="text-lg font-medium text-gray-500">{activity.period}</span>
+                          <p className="text-muted-foreground text-sm font-medium mt-1 lg:text-right">{activity.type}</p>
                         </div>
                       </div>
 
                       {/* Key Achievements */}
                       <div className="mb-6">
-                        <h4 className="font-semibold text-foreground mb-4">Impact & Achievements</h4>
+                        <h4 className="font-semibold text-foreground mb-4">Key Achievements</h4>
                         <div className="space-y-3">
                           {activity.achievements.map((achievement, achievementIndex) => (
                             <div key={achievementIndex} className="flex items-start gap-3">
                               <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                              <p className="body-text text-muted-foreground leading-relaxed">{achievement}</p>
+                              <p className="text-muted-foreground font-medium leading-relaxed">{achievement}</p>
                             </div>
                           ))}
                         </div>
@@ -329,12 +326,12 @@ export function CommunitySection() {
 
                       {/* Skills Developed */}
                       <div>
-                        <h4 className="font-semibold text-foreground mb-3">Skills Developed</h4>
+                        <h4 className="font-semibold text-foreground mb-3">Core Competencies</h4>
                         <div className="flex flex-wrap gap-2">
                           {activity.skills.map((skill, skillIndex) => (
                             <span
                               key={skillIndex}
-                              className="bg-muted text-foreground px-3 py-1.5 rounded-full text-sm font-medium apple-hover"
+                              className="bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium hover:bg-primary/20 transition-colors duration-300"
                               data-testid={`skill-${index}-${skillIndex}`}
                             >
                               {skill}
@@ -358,15 +355,15 @@ export function CommunitySection() {
               <div className="grid md:grid-cols-3 gap-8">
                 <div>
                   <div className="text-3xl font-bold text-foreground mb-2">4+</div>
-                  <div className="body-text text-muted-foreground">Years of Service</div>
+                  <div className="text-muted-foreground font-medium">Years of Service</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-foreground mb-2">3</div>
-                  <div className="body-text text-muted-foreground">Organizations Served</div>
+                  <div className="text-muted-foreground font-medium">Organizations Served</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-foreground mb-2">10K</div>
-                  <div className="body-text text-muted-foreground">Community Challenge</div>
+                  <div className="text-muted-foreground font-medium">Community Challenge</div>
                 </div>
               </div>
             </CardContent>
