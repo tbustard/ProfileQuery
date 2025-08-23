@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { HiOfficeBuilding } from "react-icons/hi";
-import { FaUniversity, FaBuilding } from "react-icons/fa";
+import { FaUniversity, FaBuilding, FaOilCan, FaCalculator } from "react-icons/fa";
+import { MdLocalGasStation } from "react-icons/md";
 
 interface Experience {
   title: string;
@@ -19,13 +20,12 @@ export default function ExperienceSection() {
     {
       title: "Portfolio Assistant",
       company: "BMO Private Wealth",
-      location: "Kingston, Ontario",
+      location: "Toronto, Ontario",
       period: "2022 - 2023",
       duration: "1 year",
       achievements: [
-        "Orchestrated strategic support for two Investment Counsellors managing portfolios exceeding $100M",
-        "Streamlined preparation processes reducing time requirements by 12%",
-        "Enhanced client communication strategies achieving 9% improvement in response rates",
+        "Advised two Investment Counsellors managing portfolios over $100M and cut preparation time by 12%",
+        "Bolstered client communications, boosting response rates by 9% heightening client satisfaction and retention",
       ],
       technologies: ["Portfolio Management", "Client Relations", "Financial Analysis", "Excel"],
       logo: HiOfficeBuilding,
@@ -38,9 +38,8 @@ export default function ExperienceSection() {
       period: "2021 - 2022",
       duration: "1 year",
       achievements: [
-        "Cultivated exceptional client relationships generating 11% increase in sales performance",
-        "Consistently surpassed sales targets achieving top 15% ranking within the district",
-        "Provided comprehensive financial needs assessment and personalized solution development",
+        "Cultivated strong client relationships by assessing individual financial needs, resulting in an 11% increase in sales",
+        "Exceeded sales targets, achieving a top 15% performance ranking within the district",
       ],
       technologies: ["Financial Planning", "Sales", "Client Advisory", "Product Knowledge"],
       logo: FaUniversity,
@@ -53,13 +52,54 @@ export default function ExperienceSection() {
       period: "2020 - 2021",
       duration: "1 year",
       achievements: [
-        "Strengthened client relationships increasing repeat transaction rates by 12%",
-        "Boosted adoption rates of core products including GICs, mutual funds, and TFSAs by 9%",
-        "Demonstrated expertise in needs-based financial advising and solution-oriented approach",
+        "Strengthened client relationships by advising on personalized solutions, increased repeat transactions by 13%",
+        "Excelled in needs-based advising, boosting adoption of core products like GICs, mutual funds, and TFSAs by 8%",
       ],
       technologies: ["Banking Products", "Financial Advisory", "Client Relationship Management", "Digital Banking"],
       logo: FaBuilding,
       color: "#005DAA"
+    },
+    {
+      title: "Client Advisor Intern",
+      company: "Royal Bank of Canada",
+      location: "Fredericton, New Brunswick",
+      period: "2019 - 2020",
+      duration: "1 year",
+      achievements: [
+        "Resolved complex client issues, achieving a 15% boost in positive feedback scores for the branch",
+        "Promoted RBC's digital banking tools, leading to a 10% increase in online and mobile banking adoption",
+      ],
+      technologies: ["Client Service", "Digital Banking", "Problem Resolution", "Customer Support"],
+      logo: FaBuilding,
+      color: "#005DAA"
+    },
+    {
+      title: "Marketing Intern",
+      company: "Irving Oil Limited",
+      location: "Saint John, New Brunswick",
+      period: "Sep - Dec 2018",
+      duration: "4 months",
+      achievements: [
+        "Conducted competitor analysis driving insights that improved targeted marketing by 11%",
+        "Developed a Customer Lifecycle model that increased targeted promotions, boosting customer engagement by 8%",
+      ],
+      technologies: ["Market Research", "Customer Analytics", "Competitive Analysis", "Marketing Strategy"],
+      logo: MdLocalGasStation,
+      color: "#FF6B35"
+    },
+    {
+      title: "Tax Return Intern",
+      company: "Grant Thornton LLP",
+      location: "Saint John, New Brunswick",
+      period: "Jan - May 2018",
+      duration: "5 months",
+      achievements: [
+        "Streamlined client financial data, boosting accuracy by 10% ensuring timely submission of 100+ tax returns",
+        "Improved tax return preparation processes, cutting filing errors by 15%",
+      ],
+      technologies: ["Tax Preparation", "Financial Analysis", "Data Management", "Client Service"],
+      logo: FaCalculator,
+      color: "#8B5CF6"
     },
   ];
 
@@ -152,9 +192,9 @@ export default function ExperienceSection() {
           <Card className="apple-card border-0 text-center">
             <CardContent className="p-12">
               <h3 className="text-lg font-semibold text-foreground mb-8">Career Highlights</h3>
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-4 gap-8">
                 <div>
-                  <div className="text-3xl font-bold text-foreground mb-2">3+</div>
+                  <div className="text-3xl font-bold text-foreground mb-2">5+</div>
                   <div className="body-text text-muted-foreground">Years Experience</div>
                 </div>
                 <div>
@@ -162,8 +202,12 @@ export default function ExperienceSection() {
                   <div className="body-text text-muted-foreground">Portfolio Value Managed</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-foreground mb-2">12%</div>
-                  <div className="body-text text-muted-foreground">Average Improvement</div>
+                  <div className="text-3xl font-bold text-foreground mb-2">6</div>
+                  <div className="body-text text-muted-foreground">Companies</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-foreground mb-2">100+</div>
+                  <div className="body-text text-muted-foreground">Tax Returns Processed</div>
                 </div>
               </div>
             </CardContent>
