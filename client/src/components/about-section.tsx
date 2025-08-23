@@ -1,6 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { FaTrophy, FaStar, FaGraduationCap } from "react-icons/fa";
 import universityLogo from "@assets/University_of_New_Brunswick_Logo.svg_1755912478863.png";
+import cibcLogo from "@assets/cibc_1755931822053.png";
+import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
 
 export default function EducationSection() {
   const education = {
@@ -18,13 +20,23 @@ export default function EducationSection() {
   };
 
   const highlights = [
-    { title: "1st Place", subtitle: "CIBC Case Competition Winner", iconType: "trophy" },
+    { title: "1st Place", subtitle: "CIBC Case Competition Winner", iconType: "image", logoSrc: cibcLogo },
     { title: "$47,500", subtitle: "Total Scholarships & Awards", iconType: "award" },
-    { title: "3rd Place", subtitle: "TD Case Competition Finalist", iconType: "graduation" }
+    { title: "3rd Place", subtitle: "TD Case Competition Finalist", iconType: "image", logoSrc: tdLogo }
   ];
 
-  const renderIcon = (iconType: string) => {
-    switch (iconType) {
+  const renderIcon = (highlight: any) => {
+    if (highlight.iconType === "image" && highlight.logoSrc) {
+      return (
+        <img 
+          src={highlight.logoSrc} 
+          alt="Logo" 
+          className="w-10 h-10 object-contain"
+        />
+      );
+    }
+    
+    switch (highlight.iconType) {
       case "trophy":
         return <FaTrophy className="w-8 h-8 text-primary" />;
       case "award":
@@ -128,7 +140,7 @@ export default function EducationSection() {
                 <div className="relative p-8 lg:p-10 text-center">
                   {/* Icon with enhanced styling */}
                   <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:scale-110">
-                    {renderIcon(highlight.iconType)}
+                    {renderIcon(highlight)}
                   </div>
                   
                   {/* Title with enhanced typography */}
