@@ -11,6 +11,7 @@ import wallStreetPrepLogo from "@assets/wall street prep_1755923720193.png";
 import mcgillLogo from "@assets/mcgill_1755937693386.png";
 import trainingTheStreetLogo from "@assets/trainning the street_1755938972014.png";
 import bloombergLogo from "@assets/bloomberg_1755939196335.png";
+import courseraLogo from "@assets/Coursera_1755939373919.png";
 
 interface Certification {
   name: string;
@@ -52,12 +53,12 @@ export default function CertificationsSection() {
       icon: SiGoogle,
       color: "bg-emerald-500",
       certifications: [
-        { name: "Data Analytics Professional", year: "2023", institution: "Google", highlight: true },
-        { name: "Data Visualization with Tableau", year: "2023", institution: "UC Davis" },
-        { name: "Python for Everybody", year: "2023", institution: "University of Michigan" },
-        { name: "Machine Learning", year: "2020", institution: "Stanford University" },
-        { name: "SQL for Data Science", year: "2020", institution: "UC Davis" },
-        { name: "Power BI Data Visualization", year: "2020", institution: "Microsoft" }
+        { name: "Data Analytics Professional", year: "2023", institution: "Google", highlight: true, logoSrc: courseraLogo },
+        { name: "Data Visualization with Tableau", year: "2023", institution: "UC Davis", logoSrc: courseraLogo },
+        { name: "Python for Everybody", year: "2023", institution: "University of Michigan", logoSrc: courseraLogo },
+        { name: "Machine Learning", year: "2020", institution: "Stanford University", logoSrc: courseraLogo },
+        { name: "SQL for Data Science", year: "2020", institution: "UC Davis", logoSrc: courseraLogo },
+        { name: "Power BI Data Visualization", year: "2020", institution: "Microsoft", logoSrc: courseraLogo }
       ]
     },
     {
@@ -65,11 +66,11 @@ export default function CertificationsSection() {
       icon: FaCalculator,
       color: "bg-purple-500",
       certifications: [
-        { name: "Econometrics: Methods & Applications", year: "2024", institution: "Erasmus University" },
-        { name: "Matrix Algebra for Engineers", year: "2024", institution: "HKUST" },
-        { name: "Introduction to Calculus", year: "2023", institution: "University of Sydney" },
-        { name: "Inferential Statistics", year: "2020", institution: "Duke University" },
-        { name: "Excel Skills for Business", year: "2020", institution: "Macquarie University" }
+        { name: "Econometrics: Methods & Applications", year: "2024", institution: "Erasmus University", logoSrc: courseraLogo },
+        { name: "Matrix Algebra for Engineers", year: "2024", institution: "HKUST", logoSrc: courseraLogo },
+        { name: "Introduction to Calculus", year: "2023", institution: "University of Sydney", logoSrc: courseraLogo },
+        { name: "Inferential Statistics", year: "2020", institution: "Duke University", logoSrc: courseraLogo },
+        { name: "Excel Skills for Business", year: "2020", institution: "Macquarie University", logoSrc: courseraLogo }
       ]
     },
     {
