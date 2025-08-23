@@ -84,6 +84,8 @@ export default function Navigation() {
         return 'Experience';
       case 'certifications':
         return 'Certifications';
+      case 'download':
+        return 'Download';
       case 'community':
         return 'Community';
       case 'contact':
@@ -471,6 +473,21 @@ export default function Navigation() {
                     </div>
                   </div>
                 </div>
+              )}
+
+              {/* Download Button */}
+              {isHomePage && (
+                <button
+                  onClick={() => scrollToSection('#download')}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg bg-primary/10 hover:bg-primary/20 border border-primary/20 hover:border-primary/30 transition-all duration-200 ${
+                    currentSection === 'download' 
+                      ? 'text-primary font-semibold bg-primary/20 border-primary/30' 
+                      : 'text-primary hover:text-primary'
+                  }`}
+                  data-testid="nav-download"
+                >
+                  Download
+                </button>
               )}
             </div>
             
