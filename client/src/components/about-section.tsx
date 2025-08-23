@@ -3,6 +3,7 @@ import { FaTrophy, FaStar, FaGraduationCap } from "react-icons/fa";
 import universityLogo from "@assets/University_of_New_Brunswick_Logo.svg_1755912478863.png";
 import cibcLogo from "@assets/cibc_1755931822053.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
+import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
 
 export default function EducationSection() {
   const education = {
@@ -20,9 +21,9 @@ export default function EducationSection() {
   };
 
   const highlights = [
-    { title: "1st Place", subtitle: "CIBC Case Competition Winner", iconType: "image", logoSrc: cibcLogo },
     { title: "$47,500", subtitle: "Total Scholarships & Awards", iconType: "award" },
-    { title: "3rd Place", subtitle: "TD Case Competition Finalist", iconType: "image", logoSrc: tdLogo }
+    { title: "Student Ambassador", subtitle: "RBC Student Ambassador of the Month - February 2020", iconType: "image", logoSrc: rbcLogo },
+    { title: "1st Place", subtitle: "CIBC Case Competition Winner", iconType: "image", logoSrc: cibcLogo }
   ];
 
   const renderIcon = (highlight: any) => {
