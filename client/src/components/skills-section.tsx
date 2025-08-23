@@ -2,6 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SiGoogle } from "react-icons/si";
 import { FaCertificate, FaGraduationCap, FaTrophy, FaStar, FaChartLine, FaCalculator, FaHeart, FaRunning, FaUsers, FaHandshake } from "react-icons/fa";
+import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
+import rbcLogo from "@assets/RBC-Logo_1755913265896.png";
 
 interface Certification {
   name: string;
@@ -202,7 +204,8 @@ interface CommunityActivity {
   description: string;
   achievements: string[];
   skills: string[];
-  icon: React.ComponentType<{ className?: string }>;
+  icon?: React.ComponentType<{ className?: string }>;
+  logoSrc?: string;
 }
 
 export function CommunitySection() {
@@ -235,7 +238,7 @@ export function CommunitySection() {
         "Contributed to fundraising efforts and community awareness programs"
       ],
       skills: ["Leadership", "Public Speaking", "Community Organizing", "Stakeholder Engagement"],
-      icon: FaHeart
+      logoSrc: unitedWayLogo
     },
     {
       title: "Student Ambassador",
@@ -250,7 +253,7 @@ export function CommunitySection() {
         "Successfully increased student engagement with RBC products and services"
       ],
       skills: ["Marketing", "Event Coordination", "Peer Education", "Professional Networking"],
-      icon: FaUsers
+      logoSrc: rbcLogo
     }
   ];
 
@@ -285,8 +288,16 @@ export function CommunitySection() {
                       {/* Header Section */}
                       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
                         <div className="flex items-start gap-4">
-                          <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <activity.icon className="w-8 h-8 text-primary" />
+                          <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 apple-hover">
+                            {activity.logoSrc ? (
+                              <img 
+                                src={activity.logoSrc} 
+                                alt={`${activity.organization} Logo`} 
+                                className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                              />
+                            ) : activity.icon ? (
+                              <activity.icon className="w-8 h-8 text-primary" />
+                            ) : null}
                           </div>
                           <div>
                             <h3 className="text-xl font-semibold text-foreground mb-1">{activity.title}</h3>

@@ -1,7 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { HiOfficeBuilding } from "react-icons/hi";
-import { FaUniversity, FaBuilding, FaOilCan, FaCalculator } from "react-icons/fa";
-import { MdLocalGasStation } from "react-icons/md";
+import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
+import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
+import rbcLogo from "@assets/RBC-Logo_1755913265896.png";
+import irvingLogo from "@assets/Irving_Oil.svg_1755913265895.png";
+import grantThorntonLogo from "@assets/Grant_Thornton_logo_1755913265895.png";
 
 interface Experience {
   title: string;
@@ -11,7 +13,7 @@ interface Experience {
   duration: string;
   achievements: string[];
   technologies: string[];
-  logo: React.ComponentType<{ className?: string }>;
+  logoSrc: string;
   color: string;
 }
 
@@ -28,7 +30,7 @@ export default function ExperienceSection() {
         "Bolstered client communications, boosting response rates by 9% heightening client satisfaction and retention",
       ],
       technologies: ["Portfolio Management", "Client Relations", "Financial Analysis", "Excel"],
-      logo: HiOfficeBuilding,
+      logoSrc: bmoLogo,
       color: "#005EB8"
     },
     {
@@ -42,7 +44,7 @@ export default function ExperienceSection() {
         "Exceeded sales targets, achieving a top 15% performance ranking within the district",
       ],
       technologies: ["Financial Planning", "Sales", "Client Advisory", "Product Knowledge"],
-      logo: FaUniversity,
+      logoSrc: tdLogo,
       color: "#00AC46"
     },
     {
@@ -56,7 +58,7 @@ export default function ExperienceSection() {
         "Excelled in needs-based advising, boosting adoption of core products like GICs, mutual funds, and TFSAs by 8%",
       ],
       technologies: ["Banking Products", "Financial Advisory", "Client Relationship Management", "Digital Banking"],
-      logo: FaBuilding,
+      logoSrc: rbcLogo,
       color: "#005DAA"
     },
     {
@@ -70,7 +72,7 @@ export default function ExperienceSection() {
         "Promoted RBC's digital banking tools, leading to a 10% increase in online and mobile banking adoption",
       ],
       technologies: ["Client Service", "Digital Banking", "Problem Resolution", "Customer Support"],
-      logo: FaBuilding,
+      logoSrc: rbcLogo,
       color: "#005DAA"
     },
     {
@@ -84,7 +86,7 @@ export default function ExperienceSection() {
         "Developed a Customer Lifecycle model that increased targeted promotions, boosting customer engagement by 8%",
       ],
       technologies: ["Market Research", "Customer Analytics", "Competitive Analysis", "Marketing Strategy"],
-      logo: MdLocalGasStation,
+      logoSrc: irvingLogo,
       color: "#FF6B35"
     },
     {
@@ -98,7 +100,7 @@ export default function ExperienceSection() {
         "Improved tax return preparation processes, cutting filing errors by 15%",
       ],
       technologies: ["Tax Preparation", "Financial Analysis", "Data Management", "Client Service"],
-      logo: FaCalculator,
+      logoSrc: grantThorntonLogo,
       color: "#8B5CF6"
     },
   ];
@@ -133,8 +135,12 @@ export default function ExperienceSection() {
                       {/* Header Section */}
                       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
                         <div className="flex items-start gap-4">
-                          <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                            <exp.logo className="w-8 h-8 text-primary" />
+                          <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 apple-hover">
+                            <img 
+                              src={exp.logoSrc} 
+                              alt={`${exp.company} Logo`} 
+                              className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            />
                           </div>
                           <div>
                             <h3 className="text-xl font-semibold text-foreground mb-1">{exp.title}</h3>
