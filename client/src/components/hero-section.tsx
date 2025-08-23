@@ -115,7 +115,7 @@ export default function HeroSection() {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-foreground mb-3">Career</h3>
+                        <h3 className="text-xl font-bold text-foreground mb-3">Experience</h3>
                         <div className="space-y-2.5 text-sm text-muted-foreground font-medium">
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
