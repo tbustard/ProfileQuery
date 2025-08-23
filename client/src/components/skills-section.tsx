@@ -315,8 +315,9 @@ export function CommunitySection() {
                     <div className="relative p-8">
                       {/* Header Section */}
                       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
-                        <div className="flex items-start gap-4">
-                          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
+                        <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+                          <h3 className="text-xl font-semibold text-foreground mb-3">{activity.title}</h3>
+                          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 mb-3">
                             {activity.logoSrc ? (
                               <img 
                                 src={activity.logoSrc} 
@@ -327,11 +328,8 @@ export function CommunitySection() {
                               <activity.icon className="w-8 h-8 text-foreground" />
                             ) : null}
                           </div>
-                          <div>
-                            <h3 className="text-xl font-semibold text-foreground mb-1">{activity.title}</h3>
-                            <p className="text-lg font-medium text-primary mb-1">{activity.organization}</p>
-                            <p className="text-muted-foreground font-medium">{activity.location}</p>
-                          </div>
+                          <p className="text-lg font-medium text-primary mb-1">{activity.organization}</p>
+                          <p className="text-muted-foreground font-medium">{activity.location}</p>
                         </div>
                         <div className="mt-4 lg:mt-0 lg:text-right">
                           <span className="text-lg font-medium text-gray-500">{activity.period}</span>
