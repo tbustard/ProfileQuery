@@ -64,7 +64,7 @@ export default function Navigation() {
   const getSectionDisplayName = (sectionId: string) => {
     switch (sectionId) {
       case 'hero':
-        return 'Tyler Bustard';
+        return 'Overview';
       case 'education':
         return 'Education';
       case 'experience':
