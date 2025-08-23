@@ -5,7 +5,7 @@
 
 :root {
   /* Apple's 2024 Color System */
-  --background: hsl(0 0% 100%);
+  --background: hsl(0 0% 97%);
   --foreground: hsl(0 0% 6%);
   --card: hsla(0 0% 100% / 0.8);
   --card-foreground: hsl(0 0% 6%);
@@ -393,12 +393,12 @@
   /* Apple Sections */
   .apple-section {
     @apply section-padding relative overflow-hidden;
-    background: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 99%) 100%);
+    background: linear-gradient(180deg, hsl(0 0% 97%) 0%, hsl(0 0% 95%) 100%);
   }
   
   .apple-section-alt {
     @apply section-padding relative overflow-hidden;
-    background: linear-gradient(180deg, hsl(0 0% 99%) 0%, hsl(0 0% 97%) 100%);
+    background: linear-gradient(180deg, hsl(0 0% 95%) 0%, hsl(0 0% 93%) 100%);
   }
   
   /* Apple-style animations */
