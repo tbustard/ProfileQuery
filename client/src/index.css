@@ -329,6 +329,22 @@
   -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
 
+/* Navigation Layout Fix */
+nav {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+}
+
+.container-width {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
 /* Liquid Glass Dropdown */
 .liquid-glass-dropdown {
   position: relative;
