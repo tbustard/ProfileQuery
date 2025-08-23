@@ -2,18 +2,41 @@ import { Download, Printer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function DownloadSection() {
-  const downloadResume = () => {
-    const link = document.createElement('a');
-    link.href = '/Tyler_Bustard_Resume.html';
-    link.download = 'Tyler_Bustard_Resume.html';
-    link.target = '_blank';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const downloadResume = async () => {
+    try {
+      // Fetch the resume file
+      const response = await fetch('/Tyler_Bustard_Resume.html');
+      if (!response.ok) {
+        throw new Error('Failed to fetch resume');
+      }
+      
+      // Create blob and download
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'Tyler_Bustard_Resume.html';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Clean up
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Download failed:', error);
+      // Fallback to opening in new tab
+      window.open('/Tyler_Bustard_Resume.html', '_blank');
+    }
   };
 
   const printPage = () => {
-    window.print();
+    // Open resume in new window and print
+    const printWindow = window.open('/Tyler_Bustard_Resume.html', '_blank');
+    if (printWindow) {
+      printWindow.onload = () => {
+        printWindow.print();
+      };
+    }
   };
 
   return (
@@ -61,7 +84,7 @@ export default function DownloadSection() {
                     data-testid="download-resume-button"
                   >
                     <Download size={20} />
-                    Download PDF
+                    Download Resume
                   </Button>
                   
                   <Button
@@ -71,7 +94,7 @@ export default function DownloadSection() {
                     data-testid="print-page-button"
                   >
                     <Printer size={20} />
-                    Print Page
+                    Print Resume
                   </Button>
                 </div>
               </div>
