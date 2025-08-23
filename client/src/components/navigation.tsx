@@ -189,7 +189,7 @@ export default function Navigation() {
                   <div className="p-2 max-h-80 overflow-y-auto">
                     {/* Individual Experience Items */}
                     <button 
-                      onClick={() => scrollToSection('#experience-bmo-private-wealth')}
+                      onClick={() => scrollToSection('#experience-bmo-private-wealth-portfolio-assistant')}
                       className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
                     >
                       <div className="font-semibold text-gray-900 text-base mb-1">BMO Private Wealth</div>
@@ -197,7 +197,7 @@ export default function Navigation() {
                     </button>
                     
                     <button 
-                      onClick={() => scrollToSection('#experience-td-canada-trust')}
+                      onClick={() => scrollToSection('#experience-td-canada-trust-financial-advisor')}
                       className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
                     >
                       <div className="font-semibold text-gray-900 text-base mb-1">TD Canada Trust</div>
@@ -205,23 +205,23 @@ export default function Navigation() {
                     </button>
                     
                     <button 
-                      onClick={() => scrollToSection('#experience-royal-bank-of-canada')}
+                      onClick={() => scrollToSection('#experience-royal-bank-of-canada-banking-advisor')}
                       className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
                     >
-                      <div className="font-semibold text-gray-900 text-base mb-1">RBC Banking Advisor</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">Royal Bank of Canada</div>
                       <div className="text-sm text-gray-600">Banking Advisor • Kingston, ON (2020-2021)</div>
                     </button>
                     
                     <button 
-                      onClick={() => scrollToSection('#experience-royal-bank-of-canada')}
+                      onClick={() => scrollToSection('#experience-royal-bank-of-canada-client-advisor-intern')}
                       className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
                     >
-                      <div className="font-semibold text-gray-900 text-base mb-1">RBC Client Advisor</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">Royal Bank of Canada</div>
                       <div className="text-sm text-gray-600">Client Advisor Intern • Fredericton, NB (2019-2020)</div>
                     </button>
                     
                     <button 
-                      onClick={() => scrollToSection('#experience-irving-oil-limited')}
+                      onClick={() => scrollToSection('#experience-irving-oil-limited-marketing-intern')}
                       className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
                     >
                       <div className="font-semibold text-gray-900 text-base mb-1">Irving Oil Limited</div>
@@ -229,7 +229,7 @@ export default function Navigation() {
                     </button>
                     
                     <button 
-                      onClick={() => scrollToSection('#experience-grant-thornton-llp')}
+                      onClick={() => scrollToSection('#experience-grant-thornton-llp-tax-return-intern')}
                       className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
                     >
                       <div className="font-semibold text-gray-900 text-base mb-1">Grant Thornton LLP</div>
