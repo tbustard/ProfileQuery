@@ -73,18 +73,78 @@ export default function HeroSection() {
                   Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
                 </p>
 
-                {/* Meet Tyler Button */}
+                {/* Watch Introduction Button */}
                 <div className="flex justify-center lg:justify-start pt-4">
-                  <Button
+                  <button
                     onClick={() => setIsVideoOpen(true)}
-                    className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-lg"
-                    data-testid="button-meet-tyler"
+                    className="liquid-glass-button group flex items-center gap-3 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 ease-out relative overflow-hidden"
+                    data-testid="button-watch-introduction"
+                    style={{
+                      background: 'rgba(59, 130, 246, 0.15)',
+                      backdropFilter: 'blur(20px) saturate(130%) brightness(110%)',
+                      WebkitBackdropFilter: 'blur(20px) saturate(130%) brightness(110%)',
+                      border: '1px solid rgba(255, 255, 255, 0.25)',
+                      borderRadius: '16px',
+                      boxShadow: `
+                        0 8px 32px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                        inset 0 -1px 0 rgba(255, 255, 255, 0.1)
+                      `,
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = 'rgba(59, 130, 246, 0.25)';
+                      e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)';
+                      e.currentTarget.style.boxShadow = `
+                        0 16px 48px rgba(0, 0, 0, 0.25),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                        inset 0 -1px 0 rgba(255, 255, 255, 0.2)
+                      `;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'rgba(59, 130, 246, 0.15)';
+                      e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                      e.currentTarget.style.boxShadow = `
+                        0 8px 32px rgba(0, 0, 0, 0.2),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                        inset 0 -1px 0 rgba(255, 255, 255, 0.1)
+                      `;
+                    }}
+                    onMouseDown={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-1px) scale(0.98)';
+                      e.currentTarget.style.background = 'rgba(59, 130, 246, 0.08)';
+                    }}
+                    onMouseUp={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-3px) scale(1.02)';
+                      e.currentTarget.style.background = 'rgba(59, 130, 246, 0.25)';
+                    }}
                   >
-                    <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                      <Play size={16} className="ml-0.5" />
+                    {/* Shimmer effect overlay */}
+                    <div 
+                      className="absolute top-0 -left-full w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-700 group-hover:left-full"
+                      style={{
+                        background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent)'
+                      }}
+                    />
+                    
+                    {/* Play icon with glass effect */}
+                    <div 
+                      className="w-8 h-8 rounded-full flex items-center justify-center relative z-10"
+                      style={{
+                        background: 'rgba(255, 255, 255, 0.15)',
+                        backdropFilter: 'blur(10px)',
+                        WebkitBackdropFilter: 'blur(10px)',
+                        border: '1px solid rgba(255, 255, 255, 0.2)',
+                        boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.3)'
+                      }}
+                    >
+                      <Play size={16} className="ml-0.5 text-white drop-shadow-sm" />
                     </div>
-                    Meet Tyler
-                  </Button>
+                    
+                    {/* Button text */}
+                    <span className="relative z-10" style={{ textShadow: '0 1px 2px rgba(0, 0, 0, 0.3)' }}>
+                      Watch Introduction
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
