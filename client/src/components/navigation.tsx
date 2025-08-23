@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
-const profileImage = "https://via.placeholder.com/64x64/2563EB/white?text=TB";
+import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -86,14 +86,13 @@ export default function Navigation() {
       <nav 
         className={`fixed top-0 w-full z-50 transition-all duration-700 ease-out ${
           isScrolled 
-            ? 'bg-white/30 backdrop-blur-[10px] border-b border-white/20' 
+            ? 'bg-white/10 backdrop-blur-[25px] backdrop-saturate-[200%] backdrop-brightness-[110%] border-b border-white/20 shadow-2xl' 
             : 'bg-transparent'
         }`}
         style={{
-          backdropFilter: isScrolled ? 'blur(10px)' : 'none',
-          WebkitBackdropFilter: isScrolled ? 'blur(10px)' : 'none',
-          boxShadow: isScrolled ? '0 8px 32px hsla(0 0% 0% / 0.1), 0 1px 2px hsla(0 0% 0% / 0.1), inset 0 1px 0 hsla(0 0% 100% / 0.4), inset 0 -1px 0 hsla(0 0% 0% / 0.05)' : 'none',
-          background: isScrolled ? 'linear-gradient(135deg, hsla(0 0% 100% / 0.4) 0%, hsla(0 0% 100% / 0.1) 25%, hsla(0 0% 100% / 0.05) 50%, hsla(0 0% 100% / 0.1) 75%, hsla(0 0% 100% / 0.3) 100%)' : 'transparent',
+          backdropFilter: isScrolled ? 'blur(25px) saturate(200%) brightness(110%)' : 'none',
+          WebkitBackdropFilter: isScrolled ? 'blur(25px) saturate(200%) brightness(110%)' : 'none',
+          boxShadow: isScrolled ? '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)' : 'none',
         }}
       >
         <div className="container-width">

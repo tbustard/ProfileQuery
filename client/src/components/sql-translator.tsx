@@ -143,7 +143,7 @@ export default function SQLTranslator() {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Sample Database Schema */}
-          <Card className="apple-card apple-hover border-0">
+          <Card className="shadow-lg">
             <CardContent className="p-8">
               <h3 className="text-xl font-semibold text-foreground mb-6">
                 <Database className="inline-block text-primary mr-2" />
@@ -169,7 +169,7 @@ export default function SQLTranslator() {
           </Card>
 
           {/* SQL Translator Interface */}
-          <Card className="apple-card apple-hover border-0">
+          <Card className="shadow-lg">
             <CardContent className="p-8">
               <h3 className="text-xl font-semibold text-foreground mb-6">
                 <ArrowRight className="inline-block text-primary mr-2" />
