@@ -1,0 +1,32 @@
+edesign only the University of New Brunswick subsection in the Education section of my resume/portfolio website to mimic the look and transitions of an Apple WWDC 2025 keynote presentation. Replace the current static layout with a full-width, slide-like format inspired by Apple's "Liquid Glass" style: minimalist design with gradient backgrounds, transparent overlays, high-quality imagery (e.g., university-related stock photos or icons), and buttery-smooth animations for a professional, engaging experience. Structure it as a series of 3-5 "slides" if there are multiple details (e.g., one for overview/degree, one for achievements/courses, one for dates/GPA), navigable via arrows or auto-advancing on scroll.
+Key requirements:
+
+Overall Style: Use a clean, premium aesthetic with subtle gradients (e.g., blue-purple like macOS previews), semi-transparent cards that expand/contract on interaction, and 60fps fluid motion. Ensure mobile responsiveness.
+Transitions and Animations (Inspired by Apple Keynotes):
+
+Sequential reveals: Text elements (e.g., degree title, bullet points) fade in and scale up one-by-one with 0.5-1s delays, using ease-in-out.
+Slide transitions: Fades, pushes, or morphs between "slides" (e.g., content dissolves or slides in from side/bottom).
+Hover/Scroll Effects: Parallax on backgrounds; elements like icons or images zoom subtly (1.1x scale) with glow/shadow; transparent overlays that blur and expand like Liquid Glass menus.
+On-load: Initial fade-in of the entire section with staggered animations for content.
+
+
+Content Integration: Preserve all existing text/details (e.g., degree, dates, GPA, courses, achievements) but present them dynamically across slides. Add placeholder high-res images (e.g., campus photo, diploma icon) if none exist.
+Tools and Technologies to Use:
+
+CSS Animations/Transitions: For basic fades and scales using @keyframes (e.g., opacity: 0 to 1; transform: scale(0.95) to 1;) and transition properties with cubic-bezier easing to match Apple's smoothness.
+GSAP (GreenSock Animation Platform): Include via CDN (<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script> and <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>); use gsap.timeline() for sequenced animations, ScrollTrigger for scroll-based reveals, and gsap.to() for morphs/parallax. Register with gsap.registerPlugin(ScrollTrigger);.
+Swiper.js: For slide deck functionality—include via CDN (<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/> and <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>); initialize with new Swiper('.swiper', { effect: 'fade', speed: 800, navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' } }); for keynote-like slide transitions.
+Intersection Observer API: Vanilla JS for detecting viewport entry to trigger animations without libraries.
+
+
+Implementation Steps:
+
+Identify the University of New Brunswick HTML element in the Education section.
+Wrap content in a Swiper container with slide divs.
+Add GSAP scripts and timelines for animations on each slide.
+Apply CSS for Liquid Glass effects (e.g., backdrop-filter: blur(10px); for transparency).
+Ensure no changes to other site sections; test for performance.
+
+
+
+Generate the updated code with these integrations applied specifically to the targeted subsection. Preserve all other site content and functionality.
