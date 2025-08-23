@@ -97,22 +97,53 @@ export default function Navigation() {
           <div className="flex justify-between items-center py-5">
             {/* Logo/Home - Conditional based on page */}
             <div className="flex items-center">
-              {isScrolled && isHomePage && (
+              {/* Homepage: Show Tyler Bustard + image when scrolled */}
+              {isHomePage && (
                 <div 
-                  className="relative transition-all duration-700 ease-out mr-4"
-                  style={{
-                    transform: `translateX(${isScrolled ? 0 : 30}px) scale(${isScrolled ? 1 : 0.8})`,
-                    opacity: isScrolled ? 1 : 0,
-                  }}
+                  className={`flex items-center transition-all duration-700 ease-out ${
+                    isScrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
+                  }`}
                 >
-                  <img 
-                    src={profileImage} 
-                    alt="Tyler Bustard" 
-                    className="w-9 h-9 rounded-xl object-cover ring-1 ring-white/20 shadow-sm transition-all duration-300 hover:ring-white/40 hover:scale-110"
-                  />
+                  {/* Profile Image - slides in from right when scrolled */}
+                  <div 
+                    className="relative transition-all duration-700 ease-out mr-4"
+                    style={{
+                      transform: `translateX(${isScrolled ? 0 : 30}px) scale(${isScrolled ? 1 : 0.8})`,
+                      opacity: isScrolled ? 1 : 0,
+                    }}
+                  >
+                    <img 
+                      src={profileImage} 
+                      alt="Tyler Bustard" 
+                      className="w-9 h-9 rounded-xl object-cover ring-1 ring-white/20 shadow-sm transition-all duration-300 hover:ring-white/40 hover:scale-110"
+                    />
+                  </div>
+                  
+                  {/* Name - slides in from center when scrolled */}
+                  <div 
+                    className="transition-all duration-700 ease-out"
+                    style={{
+                      transform: `translateX(${isScrolled ? 0 : -20}px) translateY(${isScrolled ? 0 : 10}px)`,
+                      opacity: isScrolled ? 1 : 0,
+                    }}
+                  >
+                    <Link href="/" className="text-lg font-bold text-foreground transition-all duration-700 ease-out hover:text-primary">
+                      Tyler Bustard
+                    </Link>
+                  </div>
+                  
+                  {/* Section indicator */}
+                  {currentSection && (
+                    <div className="ml-3 px-2 py-1 bg-primary/10 rounded-lg transition-all duration-500">
+                      <span className="text-xs font-medium text-primary">
+                        {getSectionDisplayName(currentSection)}
+                      </span>
+                    </div>
+                  )}
                 </div>
               )}
               
+              {/* Other pages: Show Home link */}
               {!isHomePage && (
                 <Link 
                   href="/" 
@@ -120,14 +151,6 @@ export default function Navigation() {
                 >
                   Home
                 </Link>
-              )}
-              
-              {isScrolled && currentSection && isHomePage && (
-                <div className="ml-3 px-2 py-1 bg-primary/10 rounded-lg transition-all duration-500">
-                  <span className="text-xs font-medium text-primary">
-                    {getSectionDisplayName(currentSection)}
-                  </span>
-                </div>
               )}
             </div>
             
