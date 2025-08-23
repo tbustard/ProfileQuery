@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Trophy, Award, GraduationCap } from "lucide-react";
 
 export default function EducationSection() {
   const education = {
@@ -15,10 +16,23 @@ export default function EducationSection() {
   };
 
   const highlights = [
-    { title: "1st Place", subtitle: "CIBC Case Competition", icon: "🥇" },
-    { title: "$47,500", subtitle: "Total Scholarships & Awards", icon: "💰" },
-    { title: "Top 15%", subtitle: "Academic Standing", icon: "🎓" }
+    { title: "1st Place", subtitle: "CIBC Case Competition", iconType: "trophy" },
+    { title: "$47,500", subtitle: "Total Scholarships & Awards", iconType: "award" },
+    { title: "Top 15%", subtitle: "Academic Standing", iconType: "graduation" }
   ];
+
+  const renderIcon = (iconType: string) => {
+    switch (iconType) {
+      case "trophy":
+        return <Trophy className="w-8 h-8 text-primary" />;
+      case "award":
+        return <Award className="w-8 h-8 text-primary" />;
+      case "graduation":
+        return <GraduationCap className="w-8 h-8 text-primary" />;
+      default:
+        return null;
+    }
+  };
 
   const activities = [
     { category: "Leadership", items: ["Student Investment Fund Portfolio Manager", "Finance Club Executive Member"] },
@@ -66,7 +80,9 @@ export default function EducationSection() {
             {highlights.map((highlight, index) => (
               <Card key={index} className="apple-card apple-hover border-0 text-center" data-testid={`highlight-${index}`}>
                 <CardContent className="p-8">
-                  <div className="text-4xl mb-4">{highlight.icon}</div>
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    {renderIcon(highlight.iconType)}
+                  </div>
                   <div className="text-2xl font-bold text-foreground mb-2">{highlight.title}</div>
                   <p className="body-text text-muted-foreground">{highlight.subtitle}</p>
                 </CardContent>
