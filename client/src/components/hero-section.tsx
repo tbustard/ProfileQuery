@@ -136,11 +136,11 @@ export default function HeroSection() {
                           </div>
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                            <span>Multi-bank financial services expertise</span>
+                            <span>$2B+ portfolio management expertise</span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                            <span>Cross-industry strategic experience</span>
+                            <span>Multi-sector financial analysis leader</span>
                           </div>
                         </div>
                       </div>
@@ -168,11 +168,11 @@ export default function HeroSection() {
                           </div>
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                            <span>Class of 2020</span>
+                            <span>Finance Major, Class of 2020</span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                            <span>Business Administration Focus</span>
+                            <span>Financial markets & investment focus</span>
                           </div>
                         </div>
                       </div>
@@ -252,15 +252,15 @@ export default function HeroSection() {
                         <div className="space-y-2 text-sm text-muted-foreground">
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
-                            <span>Leadership through engagement</span>
+                            <span>United Way campaign leadership</span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
-                            <span>Meaningful community impact</span>
+                            <span>Financial literacy mentorship</span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
-                            <span>Commitment to service</span>
+                            <span>Community investment advocate</span>
                           </div>
                         </div>
                       </div>
