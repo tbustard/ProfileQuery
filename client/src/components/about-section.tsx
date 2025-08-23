@@ -21,9 +21,9 @@ export default function EducationSection() {
   };
 
   const highlights = [
-    { title: "$47,500", subtitle: "Total Scholarships & Awards", iconType: "award" },
-    { title: "Student Ambassador", subtitle: "RBC Student Ambassador of the Month - February 2020", iconType: "image", logoSrc: rbcLogo },
-    { title: "1st Place", subtitle: "CIBC Case Competition Winner", iconType: "image", logoSrc: cibcLogo }
+    { title: "5+", subtitle: "Years Experience", iconType: "award" },
+    { title: "6", subtitle: "Companies", iconType: "trophy" },
+    { title: "3", subtitle: "Industries", iconType: "graduation" }
   ];
 
   const renderIcon = (highlight: any) => {
