@@ -119,7 +119,7 @@ export default function CertificationsSection() {
             {certificationCategories.map((category, categoryIndex) => (
               <div key={categoryIndex} className="relative overflow-hidden">
                 {/* Modern Category Container */}
-                <div className="bg-white/20 backdrop-blur-2xl rounded-3xl border border-white/30 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-700">
+                <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500">
                   {/* Category Header with gradient */}
                   <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-8 lg:p-10">
                     <div className="flex items-center gap-6">
@@ -184,7 +184,7 @@ export default function CertificationsSection() {
         </div>
 
         {/* Achievement Metrics - Apple-style clean stats */}
-        <div className="bg-white/30 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
+        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500">
           <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-8 lg:p-12">
             <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
               Professional Development Highlights
@@ -279,15 +279,16 @@ export function CommunitySection() {
   return (
     <section id="community" className="apple-section">
       <div className="container-width">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
-            Community Impact
-          </h2>
-          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Demonstrating leadership and commitment through meaningful community engagement and volunteer service
-          </p>
-        </div>
+        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+              Community Impact
+            </h2>
+            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Demonstrating leadership and commitment through meaningful community engagement and volunteer service
+            </p>
+          </div>
 
         {/* Community Activities Timeline */}
         <div className="relative">
@@ -371,7 +372,7 @@ export function CommunitySection() {
 
         {/* Community Impact Summary */}
         <div className="mt-24">
-          <div className="bg-white/30 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
+          <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500">
             <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-8 lg:p-12">
               <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
                 Community Impact Highlights
@@ -392,6 +393,7 @@ export function CommunitySection() {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>
