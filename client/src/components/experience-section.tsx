@@ -106,13 +106,18 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="apple-section">
-      <div className="container-width">
+    <section id="experience" className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+      
+      <div className="container mx-auto px-6 lg:px-8 relative">
         {/* Header */}
         <div className="text-center mb-20">
-          <h2 className="large-title text-foreground mb-4">Professional Experience</h2>
-          <p className="callout text-muted-foreground max-w-2xl mx-auto">
-            My professional journey and key accomplishments in financial services.
+          <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+            Professional Experience
+          </h2>
+          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            My professional journey and key accomplishments in financial services
           </p>
         </div>
 
@@ -130,16 +135,17 @@ export default function ExperienceSection() {
                 
                 {/* Content */}
                 <div className="md:ml-20">
-                  <Card className="apple-card apple-hover border-0">
-                    <CardContent className="p-8">
+                  <div className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative p-8">
                       {/* Header Section */}
                       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
                         <div className="flex items-start gap-4">
-                          <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                          <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                             <img 
                               src={exp.logoSrc} 
                               alt={`${exp.company} Logo`} 
-                              className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                              className="w-10 h-10 object-contain"
                             />
                           </div>
                           <div>
@@ -177,7 +183,7 @@ export default function ExperienceSection() {
                           {exp.technologies.map((tech, techIndex) => (
                             <span
                               key={techIndex}
-                              className="bg-muted text-foreground px-3 py-1.5 rounded-full text-sm font-medium apple-hover"
+                              className="bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium hover:bg-primary/20 transition-colors duration-300"
                               data-testid={`tech-${index}-${techIndex}`}
                             >
                               {tech}
@@ -185,8 +191,8 @@ export default function ExperienceSection() {
                           ))}
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -194,30 +200,32 @@ export default function ExperienceSection() {
         </div>
 
         {/* Career Summary */}
-        <div className="mt-20">
-          <Card className="apple-card border-0 text-center">
-            <CardContent className="p-12">
-              <h3 className="text-lg font-semibold text-foreground mb-8">Career Highlights</h3>
-              <div className="grid md:grid-cols-4 gap-8">
-                <div>
-                  <div className="text-3xl font-bold text-foreground mb-2">5+</div>
-                  <div className="body-text text-muted-foreground">Years Experience</div>
+        <div className="mt-24">
+          <div className="bg-white/30 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
+            <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-8 lg:p-12">
+              <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
+                Career Highlights
+              </h3>
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="text-center">
+                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">5+</div>
+                  <div className="text-muted-foreground font-medium">Years Experience</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-foreground mb-2">$100M+</div>
-                  <div className="body-text text-muted-foreground">Portfolio Value Managed</div>
+                <div className="text-center">
+                  <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">$100M+</div>
+                  <div className="text-muted-foreground font-medium">Portfolio Value Managed</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-foreground mb-2">6</div>
-                  <div className="body-text text-muted-foreground">Companies</div>
+                <div className="text-center">
+                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">6</div>
+                  <div className="text-muted-foreground font-medium">Companies</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-foreground mb-2">100+</div>
-                  <div className="body-text text-muted-foreground">Tax Returns Processed</div>
+                <div className="text-center">
+                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">100+</div>
+                  <div className="text-muted-foreground font-medium">Tax Returns Processed</div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
     </section>
