@@ -18,19 +18,19 @@ export default function EducationSection() {
   };
 
   const highlights = [
-    { title: "1st Place", subtitle: "CIBC Case Competition", iconType: "trophy", color: "bg-gradient-to-br from-yellow-100 to-yellow-50" },
-    { title: "$47,500", subtitle: "Total Scholarships & Awards", iconType: "award", color: "bg-gradient-to-br from-green-100 to-green-50" },
-    { title: "3rd Place", subtitle: "TD Case Competition", iconType: "trophy", color: "bg-gradient-to-br from-blue-100 to-blue-50" }
+    { title: "1st Place", subtitle: "CIBC Case Competition", iconType: "trophy" },
+    { title: "$47,500", subtitle: "Total Scholarships & Awards", iconType: "award" },
+    { title: "3rd Place", subtitle: "TD Case Competition", iconType: "graduation" }
   ];
 
   const renderIcon = (iconType: string) => {
     switch (iconType) {
       case "trophy":
-        return <FaTrophy className="w-8 h-8 text-yellow-600" />;
+        return <FaTrophy className="w-8 h-8 text-primary" />;
       case "award":
-        return <FaStar className="w-8 h-8 text-green-600" />;
+        return <FaStar className="w-8 h-8 text-primary" />;
       case "graduation":
-        return <FaGraduationCap className="w-8 h-8 text-blue-600" />;
+        return <FaGraduationCap className="w-8 h-8 text-primary" />;
       default:
         return null;
     }
@@ -131,11 +131,8 @@ export default function EducationSection() {
                 
                 <div className="relative p-8 lg:p-10 text-center">
                   {/* Icon with enhanced styling */}
-                  <div className={`relative w-18 h-18 ${highlight.color} rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl group-hover:shadow-2xl transition-all duration-500 group-hover:scale-110`}>
-                    <div className="absolute inset-0 bg-white/20 rounded-2xl backdrop-blur-sm" />
-                    <div className="relative">
-                      {renderIcon(highlight.iconType)}
-                    </div>
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:scale-110">
+                    {renderIcon(highlight.iconType)}
                   </div>
                   
                   {/* Title with enhanced typography */}
