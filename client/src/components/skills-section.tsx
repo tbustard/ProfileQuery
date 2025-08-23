@@ -286,7 +286,7 @@ export function CommunitySection() {
       <div className="absolute inset-0 bg-white" />
       
       <div className="container-width">
-        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
+        <div className="bg-white rounded-[28px] p-10 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500">
           {/* Header */}
           <div className="text-center mb-20">
             <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
@@ -306,20 +306,18 @@ export function CommunitySection() {
             {communityActivities.map((activity, index) => (
               <div key={index} id={`community-${activity.organization.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} className="relative" data-testid={`community-activity-${index}`}>
                 {/* Beautiful Timeline Marker */}
-                <div className="absolute left-5 w-6 h-6 rounded-full bg-gradient-to-br from-white to-gray-50 border border-gray-200/60 shadow-[0_2px_8px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.12)] hidden md:block backdrop-blur-sm">
-                  <div className="absolute inset-1 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 shadow-inner"></div>
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/30 via-transparent to-transparent"></div>
+                <div className="absolute left-5 w-6 h-6 rounded-full bg-white border border-gray-200 shadow-lg hidden md:block">
+                  <div className="absolute inset-1 rounded-full bg-blue-500"></div>
                 </div>
                 
                 {/* Content */}
                 <div className="md:ml-24">
-                  <div className="relative bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="relative bg-white rounded-[28px] border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500 group">
                     <div className="relative p-8">
                       {/* Header Section */}
                       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
                         <div className="flex items-start gap-4">
-                          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
+                          <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                             {activity.logoSrc ? (
                               <img 
                                 src={activity.logoSrc} 
@@ -361,7 +359,7 @@ export function CommunitySection() {
                           {activity.skills.map((skill, skillIndex) => (
                             <span
                               key={skillIndex}
-                              className="bg-white text-foreground px-3 py-1.5 rounded-full text-sm font-medium hover:bg-white/80 transition-all duration-500"
+                              className="bg-gray-100 text-foreground px-3 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition-all duration-500"
                               data-testid={`skill-${index}-${skillIndex}`}
                             >
                               {skill}
@@ -379,7 +377,7 @@ export function CommunitySection() {
 
         {/* Community Impact Summary */}
         <div className="mt-24">
-          <div className="bg-white/95 backdrop-blur-xl rounded-[32px] border border-white/20 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.05)] overflow-hidden hover:shadow-[0_30px_50px_-12px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.05)] transition-all duration-500 hover:scale-[1.01]">
+          <div className="bg-white rounded-[32px] border border-gray-200 shadow-lg hover:shadow-xl overflow-hidden transition-all duration-500">
             <div className="p-8 lg:p-12">
               <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
                 Community Highlights
