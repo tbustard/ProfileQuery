@@ -50,11 +50,6 @@
   --spacing-2xl: 3rem;
   --spacing-3xl: 4rem;
   --spacing-4xl: 6rem;
-  
-  /* UNB Red Gradient Colors */
-  --unb-red-light: hsl(0 85% 85%);
-  --unb-red-medium: hsl(0 80% 75%);
-  --unb-red-accent: hsl(0 75% 65%);
 }
 
 .dark {
@@ -331,28 +326,4 @@
   50% {
     box-shadow: 0 6px 20px 0 rgba(0, 118, 255, 0.5);
   }
-}
-
-@keyframes movingRedGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.moving-red-gradient {
-  background: linear-gradient(45deg, 
-    var(--unb-red-light), 
-    var(--unb-red-medium), 
-    var(--unb-red-accent), 
-    var(--unb-red-medium), 
-    var(--unb-red-light)
-  );
-  background-size: 400% 400%;
-  animation: movingRedGradient 8s ease-in-out infinite;
 }

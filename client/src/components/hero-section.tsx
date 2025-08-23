@@ -29,10 +29,6 @@ export default function HeroSection() {
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/4 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-primary/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
       
-      {/* Moving Red Gradient Overlay */}
-      <div className="absolute inset-0 moving-red-gradient opacity-15 mix-blend-multiply" />
-      <div className="absolute top-20 right-10 w-80 h-80 moving-red-gradient rounded-full blur-2xl opacity-20" style={{ animationDelay: '4s' }} />
-      
       <div className="relative z-10 pt-32 pb-24 px-6">
         <div className="container-width">
           {/* Hero Header - Profile & Name Side by Side */}
