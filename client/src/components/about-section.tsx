@@ -150,7 +150,7 @@ export default function EducationSection() {
                     {category.items.map((item, itemIndex) => (
                       <div 
                         key={itemIndex} 
-                        className="bg-white/30 backdrop-blur-sm rounded-2xl p-6 border border-white/30 hover:bg-white/40 transition-all duration-300 hover:scale-[1.02]"
+                        className="bg-white/30 backdrop-blur-sm rounded-2xl p-10 border border-white/30 hover:bg-white/40 transition-all duration-500 hover:scale-[1.02]"
                       >
                         <h5 className="font-semibold text-foreground mb-2 text-lg">
                           {item.title}

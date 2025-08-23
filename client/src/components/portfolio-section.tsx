@@ -50,14 +50,14 @@ export default function PortfolioSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="shadow-lg overflow-hidden hover:shadow-xl transition-shadow" data-testid={`project-${index}`}>
+            <Card key={index} className="shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500" data-testid={`project-${index}`}>
               <img 
                 src={project.image} 
                 alt={project.title}
                 className="w-full h-48 object-cover"
               />
               
-              <CardContent className="p-6">
+              <CardContent className="p-10">
                 <h3 className="text-xl font-semibold text-foreground mb-3">{project.title}</h3>
                 <p className="text-secondary mb-4">
                   {project.description}
@@ -76,7 +76,7 @@ export default function PortfolioSection() {
                 <div className="flex gap-4">
                   <a 
                     href={project.demoUrl} 
-                    className="text-primary hover:text-primary/80 transition-colors flex items-center"
+                    className="text-primary hover:text-primary/80 transition-all duration-500 flex items-center"
                     data-testid={`link-demo-${index}`}
                   >
                     <ExternalLink className="mr-1 h-4 w-4" />
@@ -84,7 +84,7 @@ export default function PortfolioSection() {
                   </a>
                   <a 
                     href={project.codeUrl} 
-                    className="text-secondary hover:text-foreground transition-colors flex items-center"
+                    className="text-secondary hover:text-foreground transition-all duration-500 flex items-center"
                     data-testid={`link-code-${index}`}
                   >
                     <Github className="mr-1 h-4 w-4" />
@@ -99,7 +99,7 @@ export default function PortfolioSection() {
         <div className="text-center mt-12">
           <a 
             href="#" 
-            className="text-primary hover:text-primary/80 transition-colors font-medium flex items-center justify-center"
+            className="text-primary hover:text-primary/80 transition-all duration-500 font-medium flex items-center justify-center"
             data-testid="link-github-more"
           >
             <Github className="mr-2 h-4 w-4" />

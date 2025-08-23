@@ -143,15 +143,15 @@ export default function SQLTranslator() {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Sample Database Schema */}
-          <Card className="shadow-lg">
-            <CardContent className="p-8">
+          <Card className="shadow-2xl">
+            <CardContent className="p-10">
               <h3 className="text-xl font-semibold text-foreground mb-6">
                 <Database className="inline-block text-primary mr-2" />
                 Financial Database Schema
               </h3>
               <div className="space-y-6">
                 {schemaInfo.map((schema, index) => (
-                  <div key={index} className="bg-muted rounded-lg p-4" data-testid={`schema-${index}`}>
+                  <div key={index} className="bg-muted rounded-2xl p-6" data-testid={`schema-${index}`}>
                     <h4 className="font-semibold text-foreground mb-3">{schema.table}</h4>
                     <div className="text-sm text-secondary space-y-1">
                       {schema.columns.map((column, columnIndex) => (
@@ -169,8 +169,8 @@ export default function SQLTranslator() {
           </Card>
 
           {/* SQL Translator Interface */}
-          <Card className="shadow-lg">
-            <CardContent className="p-8">
+          <Card className="shadow-2xl">
+            <CardContent className="p-10">
               <h3 className="text-xl font-semibold text-foreground mb-6">
                 <ArrowRight className="inline-block text-primary mr-2" />
                 Investment Query Builder
@@ -212,7 +212,7 @@ export default function SQLTranslator() {
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Financial Analysis Query
                   </label>
-                  <div className="bg-gray-900 rounded-lg p-4 h-32 overflow-auto">
+                  <div className="bg-gray-900 rounded-2xl p-6 h-32 overflow-auto">
                     <pre className="text-green-400 text-sm font-mono" data-testid="output-sql">
                       {sqlOutput || "// Financial analysis query will appear here"}
                     </pre>
@@ -220,7 +220,7 @@ export default function SQLTranslator() {
                 </div>
 
                 {explanation && (
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6">
                     <h4 className="font-medium text-blue-900 mb-2">Query Explanation:</h4>
                     <p className="text-blue-800 text-sm" data-testid="text-explanation">{explanation}</p>
                   </div>

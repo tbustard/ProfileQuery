@@ -79,8 +79,8 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {contactInfo.map((info, index) => (
             <Card key={index} className="apple-card apple-hover border-0 text-center" data-testid={`contact-card-${index}`}>
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <CardContent className="p-10">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                   <info.icon className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">{info.label}</h3>
@@ -96,7 +96,7 @@ export default function ContactSection() {
             {/* Background accent */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary/2 rounded-full blur-3xl"></div>
             
-            <CardContent className="p-12 relative z-10">
+            <CardContent className="p-10 relative z-10">
               <div className="grid lg:grid-cols-2 gap-12 items-start">
                 {/* Form Info Section */}
                 <div className="space-y-8">
@@ -221,7 +221,7 @@ export default function ContactSection() {
           <div className="flex justify-center gap-8">
             <a 
               href="mailto:tbustard@unb.ca"
-              className="inline-flex items-center gap-2 font-medium text-primary hover:text-primary/80 transition-colors"
+              className="inline-flex items-center gap-2 font-medium text-primary hover:text-primary/80 transition-all duration-500"
               data-testid="link-email-direct"
             >
               <HiOutlineMail className="w-4 h-4" />
@@ -229,7 +229,7 @@ export default function ContactSection() {
             </a>
             <a 
               href="tel:+16139851223"
-              className="inline-flex items-center gap-2 font-medium text-primary hover:text-primary/80 transition-colors"
+              className="inline-flex items-center gap-2 font-medium text-primary hover:text-primary/80 transition-all duration-500"
               data-testid="link-phone-direct"
             >
               <HiOutlinePhone className="w-4 h-4" />
