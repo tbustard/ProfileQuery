@@ -2,7 +2,7 @@ import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import EducationSection from "@/components/about-section";
 import ExperienceSection from "@/components/experience-section";
-import CertificationsSection from "@/components/skills-section";
+import CertificationsSection, { CommunitySection } from "@/components/skills-section";
 import ContactSection from "@/components/contact-section";
 
 export default function Home() {
@@ -13,6 +13,7 @@ export default function Home() {
       <EducationSection />
       <ExperienceSection />
       <CertificationsSection />
+      <CommunitySection />
       <ContactSection />
       
       {/* Footer */}

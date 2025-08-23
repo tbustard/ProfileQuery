@@ -51,6 +51,7 @@ export default function Navigation() {
     { href: "#education", label: "Education" },
     { href: "#experience", label: "Experience" },
     { href: "#certifications", label: "Certifications" },
+    { href: "#community", label: "Community" },
     { href: "#contact", label: "Contact" },
   ];
 
@@ -70,6 +71,8 @@ export default function Navigation() {
         return 'Experience';
       case 'certifications':
         return 'Certifications';
+      case 'community':
+        return 'Community';
       case 'contact':
         return 'Contact';
       default:
