@@ -4,6 +4,8 @@ import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
 import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
+import irvingLogo from "@assets/Irving_Oil.svg_1755913265895.png";
+import grantThorntonLogo from "@assets/Grant_Thornton_logo_1755913265895.png";
 
 export default function HeroSection() {
   const scrollToSection = (href: string) => {
@@ -76,7 +78,7 @@ export default function HeroSection() {
             {/* Career Progression */}
             <div className="space-y-8">
               <h2 className="text-3xl font-bold text-foreground text-center lg:text-left">Career Journey</h2>
-              <div className="grid sm:grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 hover:shadow-lg transition-all duration-300">
                   <div className="space-y-4">
                     <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
@@ -116,6 +118,32 @@ export default function HeroSection() {
                       <h3 className="text-xl font-semibold text-foreground mb-2">Multi-Bank Experience</h3>
                       <p className="text-primary font-medium mb-2">TD Bank • RBC</p>
                       <p className="text-sm text-muted-foreground">Comprehensive financial services experience across major Canadian institutions</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 hover:shadow-lg transition-all duration-300">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                        <img 
+                          src={irvingLogo} 
+                          alt="Irving Oil Logo" 
+                          className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                        />
+                      </div>
+                      <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                        <img 
+                          src={grantThorntonLogo} 
+                          alt="Grant Thornton Logo" 
+                          className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-foreground mb-2">Strategic Experience</h3>
+                      <p className="text-primary font-medium mb-2">Irving Oil • Grant Thornton</p>
+                      <p className="text-sm text-muted-foreground">Cross-industry expertise in marketing analytics and professional services, driving strategic initiatives</p>
                     </div>
                   </div>
                 </div>
