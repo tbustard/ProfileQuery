@@ -387,11 +387,11 @@ export function CommunitySection() {
                   <div className="text-muted-foreground font-medium">Years of Service</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">3</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">3</div>
                   <div className="text-muted-foreground font-medium">Organizations Served</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-foreground ">500+</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">500+</div>
                   <div className="text-muted-foreground font-medium">People Helped</div>
                 </div>
               </div>
