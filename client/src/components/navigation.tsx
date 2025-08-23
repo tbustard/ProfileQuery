@@ -29,25 +29,17 @@ export default function Navigation() {
 
     const observerOptions = {
       root: null,
-      rootMargin: '-10% 0px -80% 0px',
-      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5]
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      // Find the entry with the highest intersection ratio
-      let maxRatio = 0;
-      let activeSection = '';
-      
       entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
-          maxRatio = entry.intersectionRatio;
-          activeSection = entry.target.id;
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          setCurrentSection(sectionId);
         }
       });
-      
-      if (activeSection) {
-        setCurrentSection(activeSection);
-      }
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
@@ -147,15 +139,12 @@ export default function Navigation() {
                     <span className="text-lg font-bold text-foreground transition-all duration-700 ease-out">
                       Tyler Bustard
                     </span>
-                    {/* Enhanced Section indicator with glass morphism */}
+                    {/* Section indicator - positioned under the name */}
                     {currentSection && (
-                      <div className="-mt-1 transition-all duration-500 ease-out">
-                        <div className="inline-flex items-center px-3 py-1 bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-full transition-all duration-300 hover:bg-primary/15 hover:scale-105">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2 animate-pulse"></div>
-                          <span className="text-xs font-semibold text-primary tracking-wide">
-                            {getSectionDisplayName(currentSection)}
-                          </span>
-                        </div>
+                      <div className="-mt-1">
+                        <span className="text-xs font-medium text-primary">
+                          {getSectionDisplayName(currentSection)}
+                        </span>
                       </div>
                     )}
                   </div>
