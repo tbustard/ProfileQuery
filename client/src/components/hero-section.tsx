@@ -81,52 +81,56 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Core Expertise - Enhanced */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-foreground">Core Expertise</h3>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="apple-card border-0 p-6 apple-hover">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <div className="w-6 h-6 bg-blue-500 rounded"></div>
+            {/* Professional Background - Apple Style */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-semibold text-foreground">Professional Background</h3>
+              
+              {/* Streamlined Expertise Cards */}
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div className="apple-card border-0 p-8 apple-hover">
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-primary/10 rounded-2xl flex items-center justify-center">
+                        <div className="w-5 h-5 bg-primary rounded"></div>
+                      </div>
+                      <h4 className="text-lg font-semibold text-foreground">Financial Expertise</h4>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-2">Financial Analysis</h4>
-                      <p className="text-sm text-muted-foreground">Equity research, DCF modeling, financial statement analysis</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="apple-card border-0 p-6 apple-hover">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <div className="w-6 h-6 bg-green-500 rounded"></div>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-2">Technology Integration</h4>
-                      <p className="text-sm text-muted-foreground">AI-driven analytics, portfolio optimization, data science</p>
+                    <div className="space-y-2 text-sm text-muted-foreground">
+                      <div>• Equity research & financial modeling</div>
+                      <div>• Portfolio management & optimization</div>
+                      <div>• Investment strategy & risk assessment</div>
+                      <div>• Multi-bank institutional experience</div>
                     </div>
                   </div>
                 </div>
-                <div className="apple-card border-0 p-6 apple-hover">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <div className="w-6 h-6 bg-purple-500 rounded"></div>
+
+                <div className="apple-card border-0 p-8 apple-hover">
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-primary/10 rounded-2xl flex items-center justify-center">
+                        <div className="w-5 h-5 bg-primary rounded"></div>
+                      </div>
+                      <h4 className="text-lg font-semibold text-foreground">Technology & Leadership</h4>
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-2">Investment Strategy</h4>
-                      <p className="text-sm text-muted-foreground">Portfolio management, risk assessment, market analysis</p>
+                    <div className="space-y-2 text-sm text-muted-foreground">
+                      <div>• AI-driven analytics & data science</div>
+                      <div>• Client relationship management</div>
+                      <div>• Marketing & business development</div>
+                      <div>• Cross-functional team leadership</div>
                     </div>
                   </div>
                 </div>
-                <div className="apple-card border-0 p-6 apple-hover">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <div className="w-6 h-6 bg-orange-500 rounded"></div>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-2">Client Relations</h4>
-                      <p className="text-sm text-muted-foreground">Relationship management, advisory services, solutions design</p>
-                    </div>
+              </div>
+
+              {/* Current Focus */}
+              <div className="apple-card border-0 p-6 bg-primary/5">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-1">Currently at BMO Private Wealth</h4>
+                    <p className="text-sm text-muted-foreground">Portfolio Assistant • CFA Level I Candidate • University of New Brunswick Graduate</p>
+                  </div>
+                  <div className="text-xs text-primary font-medium bg-primary/10 px-3 py-1 rounded-full">
+                    Present
                   </div>
                 </div>
               </div>
