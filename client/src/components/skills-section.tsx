@@ -162,9 +162,8 @@ export default function CertificationsSection() {
                                 <p className="text-muted-foreground font-medium">{cert.institution}</p>
                               </div>
                               {cert.percentile && (
-                                <div className="flex items-center gap-2">
-                                  <div className="w-4"></div>
-                                  <p className="text-sm text-primary font-semibold bg-primary/10 px-4 py-2 rounded-full whitespace-nowrap">{cert.percentile}</p>
+                                <div className="mt-1">
+                                  <p className="text-sm text-primary font-semibold bg-primary/10 px-4 py-2 rounded-full inline-block whitespace-nowrap">{cert.percentile}</p>
                                 </div>
                               )}
                             </div>
