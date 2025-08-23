@@ -110,7 +110,7 @@ export default function ExperienceSection() {
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
       
-      <div className="container mx-auto px-6 lg:px-8 relative">
+      <div className="container-width">
         <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header */}
           <div className="text-center mb-20">
