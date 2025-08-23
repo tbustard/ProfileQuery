@@ -106,7 +106,7 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="apple-section">
+    <section id="experience" className="apple-section-glass gsap-fade-in">
       <div className="container-width">
         {/* Header */}
         <div className="text-center mb-20">

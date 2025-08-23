@@ -84,7 +84,7 @@ export default function CertificationsSection() {
   );
 
   return (
-    <section id="certifications" className="apple-section-alt">
+    <section id="certifications" className="apple-section-glass gsap-fade-in">
       <div className="container-width">
         {/* Header */}
         <div className="text-center mb-20">

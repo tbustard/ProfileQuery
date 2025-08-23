@@ -3,6 +3,8 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { useEffect } from "react";
+import AppleGSAPAnimations from "@/lib/gsap-animations";
 import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
 
@@ -47,6 +49,11 @@ function Router() {
 }
 
 function App() {
+  useEffect(() => {
+    // Initialize GSAP animations after the app mounts
+    AppleGSAPAnimations.initializeAll();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
