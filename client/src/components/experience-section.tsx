@@ -93,11 +93,8 @@ export default function ExperienceSection() {
                       {/* Header Section */}
                       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
                         <div className="flex items-start gap-4">
-                          <div 
-                            className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
-                            style={{ backgroundColor: `${exp.color}15` }}
-                          >
-                            <exp.logo className="w-7 h-7" style={{ color: exp.color }} />
+                          <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                            <exp.logo className="w-8 h-8 text-primary" />
                           </div>
                           <div>
                             <h3 className="text-xl font-semibold text-foreground mb-1">{exp.title}</h3>

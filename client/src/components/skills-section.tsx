@@ -124,8 +124,8 @@ export default function CertificationsSection() {
               <div key={categoryIndex} className="space-y-4">
                 {/* Category Header */}
                 <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-muted rounded-2xl flex items-center justify-center mr-4">
-                    <category.icon className="w-6 h-6 text-foreground" />
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mr-4">
+                    <category.icon className="w-8 h-8 text-primary" />
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-foreground">{category.title}</h4>

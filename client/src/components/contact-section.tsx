@@ -82,8 +82,8 @@ export default function ContactSection() {
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
                 <div key={index} className="flex items-center group transition-all duration-300 hover:scale-105" data-testid={`contact-info-${index}`}>
-                  <div className="w-14 h-14 bg-primary/10 group-hover:bg-primary/20 rounded-xl flex items-center justify-center mr-5 transition-all duration-300">
-                    <info.icon className="text-primary w-7 h-7" />
+                  <div className="w-16 h-16 bg-primary/10 group-hover:bg-primary/20 rounded-2xl flex items-center justify-center mr-5 transition-all duration-300">
+                    <info.icon className="text-primary w-8 h-8" />
                   </div>
                   <div>
                     <p className="font-semibold text-foreground text-lg">{info.label}</p>
