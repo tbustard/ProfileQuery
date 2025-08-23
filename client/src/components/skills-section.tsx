@@ -260,9 +260,8 @@ export function CommunitySection() {
         {/* Community Activities Timeline */}
         <div className="relative">
           {/* Enhanced Apple Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/60 via-primary/80 via-primary/60 to-transparent hidden md:block shadow-sm"></div>
-          <div className="absolute left-7 top-0 bottom-0 w-1 bg-gradient-to-b from-white/40 via-white/60 to-white/40 backdrop-blur-xl rounded-full shadow-2xl border border-white/30 hidden md:block"></div>
-          <div className="absolute left-7.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/20 via-primary/40 to-primary/20 rounded-full hidden md:block"></div>
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/30 via-primary/70 to-primary/30 hidden md:block shadow-lg"></div>
+          <div className="absolute left-7.5 top-0 bottom-0 w-1 bg-white/20 backdrop-blur-sm rounded-full shadow-inner hidden md:block"></div>
           
           <div className="space-y-16">
             {communityActivities.map((activity, index) => (
