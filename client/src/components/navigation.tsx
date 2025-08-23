@@ -159,7 +159,11 @@ export default function Navigation() {
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#education') : undefined}
-                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
+                  className={`px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1 ${
+                    currentSection === 'education' 
+                      ? 'text-primary font-semibold bg-primary/5' 
+                      : 'text-foreground/90 hover:text-foreground'
+                  }`}
                   data-testid="nav-education"
                 >
                   Education
@@ -184,7 +188,11 @@ export default function Navigation() {
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#experience') : undefined}
-                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
+                  className={`px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1 ${
+                    currentSection === 'experience' 
+                      ? 'text-primary font-semibold bg-primary/5' 
+                      : 'text-foreground/90 hover:text-foreground'
+                  }`}
                   data-testid="nav-experience"
                 >
                   Experience
@@ -250,7 +258,11 @@ export default function Navigation() {
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#certifications') : undefined}
-                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
+                  className={`px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1 ${
+                    currentSection === 'certifications' 
+                      ? 'text-primary font-semibold bg-primary/5' 
+                      : 'text-foreground/90 hover:text-foreground'
+                  }`}
                   data-testid="nav-certifications"
                 >
                   Certifications
@@ -367,7 +379,11 @@ export default function Navigation() {
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#community') : undefined}
-                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
+                  className={`px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1 ${
+                    currentSection === 'community' 
+                      ? 'text-primary font-semibold bg-primary/5' 
+                      : 'text-foreground/90 hover:text-foreground'
+                  }`}
                   data-testid="nav-community"
                 >
                   Community
@@ -409,7 +425,11 @@ export default function Navigation() {
                 <div className="relative group">
                   <button
                     onClick={() => scrollToSection('#contact')}
-                    className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
+                    className={`px-3 py-2 text-sm font-medium rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1 ${
+                      currentSection === 'contact' 
+                        ? 'text-primary font-semibold bg-primary/5' 
+                        : 'text-foreground/90 hover:text-foreground'
+                    }`}
                     data-testid="nav-contact"
                   >
                     Contact
