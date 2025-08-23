@@ -242,22 +242,15 @@ export class AppleGSAPAnimations {
   }
 
   static initializeAll() {
-    // Wait for DOM and GSAP to be ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', () => {
-        setTimeout(() => {
-          this.initializeScrollAnimations();
-          this.addHoverAnimations();
-          this.parallaxGlassEffect();
-        }, 100);
-      });
-    } else {
-      setTimeout(() => {
-        this.initializeScrollAnimations();
-        this.addHoverAnimations();
-        this.parallaxGlassEffect();
-      }, 100);
+    // Simplified initialization for better performance
+    if (!this.isGSAPLoaded()) {
+      console.warn('GSAP not loaded, skipping animations');
+      return;
     }
+
+    // Only initialize basic scroll animations
+    this.initializeScrollAnimations();
+    this.addHoverAnimations();
   }
 }
 

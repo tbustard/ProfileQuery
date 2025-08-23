@@ -50,8 +50,12 @@ function Router() {
 
 function App() {
   useEffect(() => {
-    // Initialize GSAP animations after the app mounts
-    AppleGSAPAnimations.initializeAll();
+    // Initialize GSAP animations with delay to improve loading performance
+    const timer = setTimeout(() => {
+      AppleGSAPAnimations.initializeAll();
+    }, 500);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   return (

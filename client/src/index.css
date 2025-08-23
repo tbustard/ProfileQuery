@@ -270,18 +270,16 @@
   
   /* Advanced Apple Liquid Glass Components with SVG Filters */
   .apple-glass {
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 
-      0 8px 32px var(--glass-shadow),
-      0 2px 8px rgba(0, 0, 0, 0.05),
-      inset 0 1px 0 var(--glass-fresnel-light),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+      0 8px 32px rgba(0, 0, 0, 0.05),
+      0 2px 8px rgba(0, 0, 0, 0.02),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
-    filter: url(#glassRefraction);
   }
   
   .apple-glass::before {
@@ -291,11 +289,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--glass-refraction-primary);
-    opacity: 0.6;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    opacity: 0.3;
     pointer-events: none;
     z-index: 1;
-    filter: url(#glassDistortion);
   }
   
   .apple-glass::after {
@@ -305,16 +302,16 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: var(--glass-shimmer);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
     opacity: 0;
     pointer-events: none;
     z-index: 2;
     transform: translateX(-100%) rotate(45deg);
-    transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: all 0.6s ease;
   }
   
   .apple-glass:hover::after {
-    opacity: 0.3;
+    opacity: 0.4;
     transform: translateX(100%) rotate(45deg);
   }
   
@@ -383,7 +380,7 @@
       0 4px 12px rgba(0, 0, 0, 0.1),
       inset 0 1px 0 var(--glass-fresnel-light),
       inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-    filter: url(#glassFresnel);
+
   }
   
   .apple-card:hover::before {
@@ -399,14 +396,14 @@
   /* Premium Glass Variants */
   .apple-glass-premium {
     @apply apple-card;
-    background: var(--glass-bg-premium);
-    filter: url(#glassFresnel);
-    border: 1px solid var(--glass-border-hover);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 
-      0 12px 40px var(--glass-shadow-premium),
-      0 3px 10px rgba(0, 0, 0, 0.08),
-      inset 0 1px 0 var(--glass-fresnel-light),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+      0 8px 24px rgba(0, 0, 0, 0.08),
+      0 2px 6px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
   }
   
   .apple-glass-subtle {
@@ -423,7 +420,7 @@
     backdrop-filter: var(--glass-blur-strong);
     -webkit-backdrop-filter: var(--glass-blur-strong);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    filter: url(#glassGlow);
+
   }
   
   .apple-button {
@@ -443,7 +440,7 @@
       inset 0 -1px 0 rgba(0, 0, 0, 0.1);
     transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
     border-radius: 20px;
-    filter: url(#glassGlow);
+
     position: relative;
     overflow: hidden;
   }
@@ -628,7 +625,7 @@
     box-shadow: 
       0 16px 48px var(--glass-shadow-hover),
       0 4px 12px rgba(0, 0, 0, 0.1);
-    filter: url(#glassFresnel);
+
   }
   
   .apple-hover:hover::before {
@@ -642,14 +639,14 @@
   
   /* Enhanced Liquid Glass Section Effects */
   .apple-section-glass {
-    @apply section-padding relative overflow-hidden;
+    @apply section-padding relative;
     background: linear-gradient(
       180deg, 
-      rgba(247, 247, 247, 0.8) 0%, 
-      rgba(245, 245, 245, 0.9) 100%
+      rgba(255, 255, 255, 0.04) 0%, 
+      rgba(255, 255, 255, 0.02) 100%
     );
-    backdrop-filter: var(--glass-blur-subtle);
-    -webkit-backdrop-filter: var(--glass-blur-subtle);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
   
   .apple-section-glass::before {
@@ -659,8 +656,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--glass-refraction-primary);
-    opacity: 0.3;
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0.01)
+    );
+    opacity: 0.8;
     pointer-events: none;
     z-index: 1;
   }
