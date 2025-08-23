@@ -124,14 +124,13 @@ export default function ExperienceSection() {
         {/* Experience Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border hidden md:block"></div>
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/20 hidden md:block"></div>
           
           <div className="space-y-16">
             {experiences.map((exp, index) => (
               <div key={index} className="relative" data-testid={`experience-${index}`}>
                 {/* Timeline Marker */}
-                <div className="absolute left-6 w-4 h-4 rounded-full border-4 border-background shadow-sm hidden md:block" 
-                     style={{ backgroundColor: exp.color }}></div>
+                <div className="absolute left-6 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-sm hidden md:block"></div>
                 
                 {/* Content */}
                 <div className="md:ml-20">

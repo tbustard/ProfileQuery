@@ -274,13 +274,13 @@ export function CommunitySection() {
         {/* Community Activities Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border hidden md:block"></div>
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/20 hidden md:block"></div>
           
           <div className="space-y-16">
             {communityActivities.map((activity, index) => (
               <div key={index} className="relative" data-testid={`community-activity-${index}`}>
                 {/* Timeline Marker */}
-                <div className="absolute left-6 w-4 h-4 rounded-full border-4 border-background shadow-sm hidden md:block" style={{ backgroundColor: activity.color }}></div>
+                <div className="absolute left-6 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-sm hidden md:block"></div>
                 
                 {/* Content */}
                 <div className="md:ml-20">
@@ -318,7 +318,7 @@ export function CommunitySection() {
                         <div className="space-y-3">
                           {activity.achievements.map((achievement, achievementIndex) => (
                             <div key={achievementIndex} className="flex items-start gap-3">
-                              <div className="w-1.5 h-1.5 rounded-full mt-2.5 flex-shrink-0" style={{ backgroundColor: activity.color }}></div>
+                              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
                               <p className="text-muted-foreground font-medium leading-relaxed">{achievement}</p>
                             </div>
                           ))}
