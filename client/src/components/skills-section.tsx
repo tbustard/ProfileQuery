@@ -5,6 +5,10 @@ import { FaCertificate, FaGraduationCap, FaTrophy, FaStar, FaChartLine, FaCalcul
 import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
 import irvingLogo from "@assets/Irving_Oil.svg_1755913265895.png";
+import cfaLogo from "@assets/CFA_Institute_Logo_1755923720192.png";
+import csiLogo from "@assets/canadian securities institute_1755923720191.png";
+import wallStreetPrepLogo from "@assets/wall street prep_1755923720193.png";
+import mcgillLogo from "@assets/mcgill_1755937693386.png";
 
 interface Certification {
   name: string;
@@ -12,6 +16,7 @@ interface Certification {
   institution: string;
   highlight?: boolean;
   percentile?: string;
+  logoSrc?: string;
 }
 
 interface CertificationCategory {
@@ -28,12 +33,12 @@ export default function CertificationsSection() {
       icon: FaChartLine,
       color: "bg-blue-500",
       certifications: [
-        { name: "CFA Level I Candidate", year: "2025", institution: "CFA Institute", highlight: true },
-        { name: "Financial & Valuation Modeling", year: "2024", institution: "Wall Street Prep" },
+        { name: "CFA Level I Candidate", year: "2025", institution: "CFA Institute", highlight: true, logoSrc: cfaLogo },
+        { name: "Financial & Valuation Modeling", year: "2024", institution: "Wall Street Prep", logoSrc: wallStreetPrepLogo },
         { name: "Discounted Cash Flow Analysis", year: "2024", institution: "Training the Street" },
-        { name: "Financial Planning 1", year: "2023", institution: "Canadian Securities Institute" },
-        { name: "Canadian Securities Course", year: "2021", institution: "CSI" },
-        { name: "Personal Finance Essentials", year: "2020", institution: "McGill University" }
+        { name: "Financial Planning 1", year: "2023", institution: "Canadian Securities Institute", logoSrc: csiLogo },
+        { name: "Canadian Securities Course", year: "2021", institution: "CSI", logoSrc: csiLogo },
+        { name: "Personal Finance Essentials", year: "2020", institution: "McGill University", logoSrc: mcgillLogo }
       ]
     },
     {
@@ -137,7 +142,16 @@ export default function CertificationsSection() {
                                   </div>
                                 )}
                               </div>
-                              <p className="text-muted-foreground font-medium mb-1">{cert.institution}</p>
+                              <div className="flex items-center gap-2 mb-1">
+                                {cert.logoSrc && (
+                                  <img 
+                                    src={cert.logoSrc} 
+                                    alt={`${cert.institution} Logo`} 
+                                    className="w-4 h-4 object-contain flex-shrink-0"
+                                  />
+                                )}
+                                <p className="text-muted-foreground font-medium">{cert.institution}</p>
+                              </div>
                               {cert.percentile && (
                                 <div className="mt-2">
                                   <p className="text-sm text-primary font-semibold bg-primary/10 px-4 py-2 rounded-full inline-block whitespace-nowrap">{cert.percentile}</p>
