@@ -18,6 +18,7 @@ interface Certification {
   name: string;
   year: string;
   institution: string;
+  description: string;
   highlight?: boolean;
   percentile?: string;
   logoSrc?: string;
@@ -37,16 +38,16 @@ export default function CertificationsSection() {
       icon: FaChartLine,
       color: "bg-blue-500",
       certifications: [
-        { name: "CFA Level I Candidate", year: "2025", institution: "CFA Institute", highlight: true, logoSrc: cfaLogo },
-        { name: "Discounted Cash Flow Analysis", year: "2024", institution: "Training the Street", logoSrc: trainingTheStreetLogo },
-        { name: "Financial Planning 1", year: "2023", institution: "Canadian Securities Institute", logoSrc: csiLogo },
-        { name: "Certificate in Financial Services Advice", year: "2022", institution: "Canadian Securities Institute", logoSrc: csiLogo },
-        { name: "Personal Financial Service Advice", year: "2021", institution: "Canadian Securities Institute", logoSrc: csiLogo },
-        { name: "Canadian Securities Course", year: "2021", institution: "CSI", logoSrc: csiLogo },
-        { name: "Financial & Valuation Modeling", year: "2020", institution: "Wall Street Prep", logoSrc: wallStreetPrepLogo },
-        { name: "Investment Funds in Canada", year: "2020", institution: "Canadian Securities Institute", logoSrc: csiLogo },
-        { name: "Bloomberg Market Concepts Certificate", year: "2020", institution: "Bloomberg", logoSrc: bloombergLogo },
-        { name: "Personal Finance Essentials", year: "2020", institution: "McGill University", logoSrc: mcgillLogo }
+        { name: "CFA Level I Candidate", year: "2025", institution: "CFA Institute", description: "Comprehensive training in investment analysis, portfolio management, and ethical standards for investment professionals.", highlight: true, logoSrc: cfaLogo },
+        { name: "Discounted Cash Flow Analysis", year: "2024", institution: "Training the Street", description: "Advanced financial modeling techniques for valuation using discounted cash flow methodology and sensitivity analysis.", logoSrc: trainingTheStreetLogo },
+        { name: "Financial Planning 1", year: "2023", institution: "Canadian Securities Institute", description: "Foundational principles of personal financial planning including budgeting, insurance, and retirement planning strategies.", logoSrc: csiLogo },
+        { name: "Certificate in Financial Services Advice", year: "2022", institution: "Canadian Securities Institute", description: "Professional qualification for providing financial advisory services and investment recommendations to clients.", logoSrc: csiLogo },
+        { name: "Personal Financial Service Advice", year: "2021", institution: "Canadian Securities Institute", description: "Client relationship management and personalized financial advisory services for individual investors.", logoSrc: csiLogo },
+        { name: "Canadian Securities Course", year: "2021", institution: "CSI", description: "Comprehensive overview of Canadian capital markets, securities regulation, and investment products.", logoSrc: csiLogo },
+        { name: "Financial & Valuation Modeling", year: "2020", institution: "Wall Street Prep", description: "Excel-based financial modeling for company valuation, mergers & acquisitions, and investment banking analysis.", logoSrc: wallStreetPrepLogo },
+        { name: "Investment Funds in Canada", year: "2020", institution: "Canadian Securities Institute", description: "Mutual funds, ETFs, and alternative investment vehicles available in the Canadian market.", logoSrc: csiLogo },
+        { name: "Bloomberg Market Concepts Certificate", year: "2020", institution: "Bloomberg", description: "Financial markets fundamentals using Bloomberg Terminal for market analysis and economic indicators.", logoSrc: bloombergLogo },
+        { name: "Personal Finance Essentials", year: "2020", institution: "McGill University", description: "Core concepts of personal financial management including investing, debt management, and financial planning.", logoSrc: mcgillLogo }
       ]
     },
     {
@@ -54,12 +55,12 @@ export default function CertificationsSection() {
       icon: SiGoogle,
       color: "bg-emerald-500",
       certifications: [
-        { name: "Data Analytics Professional", year: "2023", institution: "Google", highlight: true, logoSrc: courseraLogo },
-        { name: "Data Visualization with Tableau", year: "2023", institution: "UC Davis", logoSrc: courseraLogo },
-        { name: "Python for Everybody", year: "2023", institution: "University of Michigan", logoSrc: courseraLogo },
-        { name: "Machine Learning", year: "2020", institution: "Stanford University", logoSrc: courseraLogo },
-        { name: "SQL for Data Science", year: "2020", institution: "UC Davis", logoSrc: courseraLogo },
-        { name: "Power BI Data Visualization", year: "2020", institution: "Microsoft", logoSrc: courseraLogo }
+        { name: "Data Analytics Professional", year: "2023", institution: "Google", description: "End-to-end data analysis workflow including data cleaning, analysis, visualization, and presentation of insights.", highlight: true, logoSrc: courseraLogo },
+        { name: "Data Visualization with Tableau", year: "2023", institution: "UC Davis", description: "Creating interactive dashboards and visualizations to communicate data insights effectively using Tableau.", logoSrc: courseraLogo },
+        { name: "Python for Everybody", year: "2023", institution: "University of Michigan", description: "Programming fundamentals in Python including data structures, web scraping, and database interactions.", logoSrc: courseraLogo },
+        { name: "Machine Learning", year: "2020", institution: "Stanford University", description: "Supervised and unsupervised learning algorithms, neural networks, and practical machine learning applications.", logoSrc: courseraLogo },
+        { name: "SQL for Data Science", year: "2020", institution: "UC Davis", description: "Database querying, data manipulation, and analysis using SQL for data science applications.", logoSrc: courseraLogo },
+        { name: "Power BI Data Visualization", year: "2020", institution: "Microsoft", description: "Business intelligence reporting and dashboard creation using Microsoft Power BI platform.", logoSrc: courseraLogo }
       ]
     },
     {
@@ -67,11 +68,11 @@ export default function CertificationsSection() {
       icon: FaCalculator,
       color: "bg-purple-500",
       certifications: [
-        { name: "Econometrics: Methods & Applications", year: "2024", institution: "Erasmus University", logoSrc: courseraLogo },
-        { name: "Matrix Algebra for Engineers", year: "2024", institution: "HKUST", logoSrc: courseraLogo },
-        { name: "Introduction to Calculus", year: "2023", institution: "University of Sydney", logoSrc: courseraLogo },
-        { name: "Inferential Statistics", year: "2020", institution: "Duke University", logoSrc: courseraLogo },
-        { name: "Excel Skills for Business", year: "2020", institution: "Macquarie University", logoSrc: courseraLogo }
+        { name: "Econometrics: Methods & Applications", year: "2024", institution: "Erasmus University", description: "Statistical methods for economic analysis including regression modeling, hypothesis testing, and causal inference.", logoSrc: courseraLogo },
+        { name: "Matrix Algebra for Engineers", year: "2024", institution: "HKUST", description: "Linear algebra applications in engineering including matrix operations, eigenvalues, and system analysis.", logoSrc: courseraLogo },
+        { name: "Introduction to Calculus", year: "2023", institution: "University of Sydney", description: "Fundamental calculus concepts including derivatives, integrals, and applications to optimization problems.", logoSrc: courseraLogo },
+        { name: "Inferential Statistics", year: "2020", institution: "Duke University", description: "Statistical inference methods including confidence intervals, hypothesis testing, and regression analysis.", logoSrc: courseraLogo },
+        { name: "Excel Skills for Business", year: "2020", institution: "Macquarie University", description: "Advanced Excel techniques for business analysis including formulas, pivot tables, and data visualization.", logoSrc: courseraLogo }
       ]
     },
     {
@@ -83,6 +84,7 @@ export default function CertificationsSection() {
           name: "GRE General Test", 
           year: "2024", 
           institution: "ETS", 
+          description: "Standardized test measuring verbal reasoning, quantitative reasoning, and analytical writing skills for graduate school admission.",
           highlight: true,
           percentile: "Verbal: 77th | Quant: 94th | Writing: 56th",
           logoSrc: etsLogo
@@ -151,7 +153,7 @@ export default function CertificationsSection() {
                                   </div>
                                 )}
                               </div>
-                              <div className="flex items-center gap-2 mb-1">
+                              <div className="flex items-center gap-2 mb-2">
                                 {cert.logoSrc && (
                                   <img 
                                     src={cert.logoSrc} 
@@ -161,6 +163,7 @@ export default function CertificationsSection() {
                                 )}
                                 <p className="text-muted-foreground font-medium">{cert.institution}</p>
                               </div>
+                              <p className="text-sm text-muted-foreground/80 leading-relaxed mb-2">{cert.description}</p>
                               {cert.percentile && (
                                 <div className="mt-1">
                                   <p className="text-sm text-primary font-semibold bg-primary/10 px-4 py-2 rounded-full inline-block whitespace-nowrap">{cert.percentile}</p>
