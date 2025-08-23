@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Trophy, Award, GraduationCap } from "lucide-react";
+import universityLogo from "@assets/image_1755912326819.png";
 
 export default function EducationSection() {
   const education = {
@@ -80,8 +81,12 @@ export default function EducationSection() {
           <Card className="apple-card border-0 text-center">
             <CardContent className="p-12">
               {/* University Logo/Badge */}
-              <div className="w-20 h-20 bg-gradient-to-br from-red-600 to-red-800 rounded-3xl flex items-center justify-center text-white font-bold text-xl shadow-lg mx-auto mb-8">
-                UNB
+              <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-3xl flex items-center justify-center shadow-lg mx-auto mb-8 apple-hover">
+                <img 
+                  src={universityLogo} 
+                  alt="University Logo" 
+                  className="w-14 h-14 object-contain transition-all duration-300 hover:scale-110"
+                />
               </div>
               
               {/* Main Info */}
