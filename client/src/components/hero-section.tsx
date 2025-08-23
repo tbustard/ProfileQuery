@@ -145,14 +145,6 @@ export default function HeroSection() {
                     data-testid="img-profile"
                   />
                 </div>
-                
-                {/* Floating CFA badge */}
-                <div className="absolute -top-4 -right-4 apple-card border-0 p-4 shadow-xl bg-primary">
-                  <div className="text-center">
-                    <div className="text-lg font-bold text-white mb-1">CFA</div>
-                    <div className="text-xs text-white/90 font-medium">Level I</div>
-                  </div>
-                </div>
               </div>
             </div>
 
