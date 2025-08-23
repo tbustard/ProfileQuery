@@ -111,15 +111,16 @@ export default function ExperienceSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
       
       <div className="container mx-auto px-6 lg:px-8 relative">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
-            Professional Experience
-          </h2>
-          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            My professional journey and key accomplishments in financial services
-          </p>
-        </div>
+        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+              Professional Experience
+            </h2>
+            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              My professional journey and key accomplishments in financial services
+            </p>
+          </div>
 
         {/* Experience Timeline */}
         <div className="relative">
@@ -220,6 +221,7 @@ export default function ExperienceSection() {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>

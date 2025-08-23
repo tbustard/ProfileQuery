@@ -102,15 +102,16 @@ export default function CertificationsSection() {
   return (
     <section id="certifications" className="apple-section-alt">
       <div className="container-width">
-        {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
-            Professional Certifications
-          </h2>
-          <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Comprehensive expertise across finance, technology, and analytics through continuous learning and professional development
-          </p>
-        </div>
+        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+              Professional Certifications
+            </h2>
+            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Comprehensive expertise across finance, technology, and analytics through continuous learning and professional development
+            </p>
+          </div>
 
         {/* All Certifications - Modern Apple-style showcase */}
         <div className="mb-24">
@@ -203,6 +204,7 @@ export default function CertificationsSection() {
               </div>
             </div>
           </div>
+        </div>
         </div>
 
       </div>
