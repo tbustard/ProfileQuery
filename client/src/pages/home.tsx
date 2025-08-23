@@ -67,10 +67,17 @@ export default function Home() {
       <footer className="relative bg-black/90 border-t border-gray-200 py-8">
         <div className="absolute inset-0 bg-black/90" />
         <div className="container mx-auto px-6 lg:px-8 relative">
-          <div className="text-center">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-white font-medium">
               © {new Date().getFullYear()} Tyler Bustard. All rights reserved.
             </p>
+            <button
+              onClick={() => window.location.href = '/employer'}
+              className="px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white transition-all duration-200"
+              data-testid="footer-employer-signin"
+            >
+              Employer Sign In
+            </button>
           </div>
         </div>
       </footer>

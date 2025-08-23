@@ -40,78 +40,39 @@ export default function DownloadSection() {
           <div className="bg-white/95 backdrop-blur-xl rounded-[2rem] p-12 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
             <div className="space-y-10">
               
-              {/* Resume Preview and Actions */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* Centered Actions */}
+              <div className="flex flex-col items-center space-y-8">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-3xl flex items-center justify-center shadow-xl transition-all duration-300 group-hover:scale-110">
+                  <Download size={40} className="text-primary transition-all duration-300" />
+                </div>
                 
-                {/* Left side - PDF Preview */}
-                <div className="flex flex-col items-center space-y-6">
-                  <div className="relative group-hover:scale-105 transition-all duration-500">
-                    <div className="bg-white border-2 border-gray-200/50 rounded-2xl shadow-xl p-8 w-56 h-72 relative overflow-hidden">
-                      <div className="space-y-3">
-                        <div className="h-4 bg-gray-900 rounded-lg w-4/5"></div>
-                        <div className="h-2.5 bg-gray-500 rounded w-3/5"></div>
-                        <div className="space-y-1.5 pt-5">
-                          <div className="h-2 bg-gray-300 rounded w-full"></div>
-                          <div className="h-2 bg-gray-300 rounded w-5/6"></div>
-                          <div className="h-2 bg-gray-300 rounded w-4/5"></div>
-                        </div>
-                        <div className="space-y-1.5 pt-4">
-                          <div className="h-2 bg-gray-300 rounded w-full"></div>
-                          <div className="h-2 bg-gray-300 rounded w-3/4"></div>
-                          <div className="h-2 bg-gray-300 rounded w-5/6"></div>
-                        </div>
-                        <div className="space-y-1.5 pt-4">
-                          <div className="h-2 bg-gray-300 rounded w-4/5"></div>
-                          <div className="h-2 bg-gray-300 rounded w-full"></div>
-                          <div className="h-2 bg-gray-300 rounded w-2/3"></div>
-                        </div>
-                      </div>
-                      <div className="absolute bottom-4 right-4 text-sm text-gray-500 font-medium">PDF</div>
-                    </div>
-                    {/* Second page behind */}
-                    <div className="absolute top-2 left-2 w-56 h-72 bg-white border border-gray-200/40 rounded-2xl -z-10 shadow-lg"></div>
-                  </div>
-
-                  <div className="text-center space-y-2">
-                    <p className="text-base font-semibold text-foreground">Tyler_Bustard_Resume.pdf</p>
-                    <p className="text-sm text-muted-foreground">Professional format • 2 pages</p>
-                  </div>
+                <div className="text-center space-y-6">
+                  <h3 className="text-3xl font-bold text-foreground">Get My Resume</h3>
+                  <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+                    Download or print my complete professional resume with detailed experience, education, and certifications.
+                  </p>
                 </div>
 
-                {/* Right side - Actions */}
-                <div className="space-y-8">
-                  <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-3xl flex items-center justify-center shadow-xl transition-all duration-300 group-hover:scale-110">
-                    <Download size={40} className="text-primary transition-all duration-300" />
-                  </div>
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
+                  <Button
+                    onClick={downloadResume}
+                    className="flex-1 bg-primary hover:bg-primary/90 text-white font-semibold py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 text-base"
+                    data-testid="download-resume-button"
+                  >
+                    <Download size={20} />
+                    Download PDF
+                  </Button>
                   
-                  <div className="space-y-6">
-                    <h3 className="text-3xl font-bold text-foreground">Get My Resume</h3>
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                      Download or print my complete professional resume with detailed experience, education, and certifications.
-                    </p>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="space-y-4">
-                    <Button
-                      onClick={downloadResume}
-                      className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 text-base"
-                      data-testid="download-resume-button"
-                    >
-                      <Download size={20} />
-                      Download PDF
-                    </Button>
-                    
-                    <Button
-                      onClick={printPage}
-                      variant="outline"
-                      className="w-full border-2 border-primary/20 hover:border-primary/40 bg-primary/5 hover:bg-primary/10 text-primary font-semibold py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 text-base"
-                      data-testid="print-page-button"
-                    >
-                      <Printer size={20} />
-                      Print Page
-                    </Button>
-                  </div>
+                  <Button
+                    onClick={printPage}
+                    variant="outline"
+                    className="flex-1 border-2 border-primary/20 hover:border-primary/40 bg-primary/5 hover:bg-primary/10 text-primary font-semibold py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 text-base"
+                    data-testid="print-page-button"
+                  >
+                    <Printer size={20} />
+                    Print Page
+                  </Button>
                 </div>
               </div>
             </div>

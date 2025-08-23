@@ -1,14 +1,11 @@
-import { useAuth } from "@/hooks/useAuth";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Upload, LogOut, FileText, Download } from "lucide-react";
+import { Upload, LogOut, FileText, Download, Eye, EyeOff } from "lucide-react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
-import { isUnauthorizedError } from "@/lib/authUtils";
 
 interface ResumeUpload {
   id: string;
@@ -17,33 +14,27 @@ interface ResumeUpload {
   uploadedAt: string;
 }
 
-function EmployerDashboard() {
-  const { user } = useAuth();
+function EmployerDashboard({ user }: { user: { email: string } }) {
   const { toast } = useToast();
-  const queryClient = useQueryClient();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-
-  // Fetch user's resume uploads
-  const { data: uploads = [], isLoading } = useQuery<ResumeUpload[]>({
-    queryKey: ["/api/resume-uploads"],
-    retry: false,
-  });
+  const [uploads, setUploads] = useState<ResumeUpload[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Upload mutation
   const uploadMutation = useMutation({
     mutationFn: async (file: File) => {
-      // In a real app, you'd upload to a cloud storage service
-      // For demo purposes, we'll simulate an upload
-      const formData = new FormData();
-      formData.append('file', file);
-      
       // Simulate upload to storage service
       const fakeUrl = `https://storage.example.com/resumes/${Date.now()}-${file.name}`;
       
-      await apiRequest("/api/resume-upload", "POST", {
+      // Add to local state since we're using mock authentication
+      const newUpload: ResumeUpload = {
+        id: Date.now().toString(),
         fileName: file.name,
         fileUrl: fakeUrl,
-      });
+        uploadedAt: new Date().toISOString(),
+      };
+      
+      setUploads(prev => [newUpload, ...prev]);
     },
     onSuccess: () => {
       toast({
@@ -51,20 +42,8 @@ function EmployerDashboard() {
         description: "Your resume has been uploaded successfully!",
       });
       setSelectedFile(null);
-      queryClient.invalidateQueries({ queryKey: ["/api/resume-uploads"] });
     },
-    onError: (error) => {
-      if (isUnauthorizedError(error)) {
-        toast({
-          title: "Session Expired",
-          description: "Please log in again to continue.",
-          variant: "destructive",
-        });
-        setTimeout(() => {
-          window.location.href = "/api/login";
-        }, 500);
-        return;
-      }
+    onError: () => {
       toast({
         title: "Upload Failed",
         description: "Failed to upload resume. Please try again.",
@@ -117,12 +96,15 @@ function EmployerDashboard() {
               Employer Dashboard
             </h1>
             <p className="text-slate-600 dark:text-slate-400 mt-2">
-              Welcome back, {(user as any)?.firstName || (user as any)?.email || 'Employer'}
+              Welcome back, {user.email}
             </p>
           </div>
           <Button 
             variant="outline" 
-            onClick={() => window.location.href = '/api/logout'}
+            onClick={() => {
+              localStorage.removeItem('employerAuth');
+              window.location.href = '/';
+            }}
             data-testid="button-logout"
             className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700"
           >
@@ -245,7 +227,35 @@ function EmployerDashboard() {
   );
 }
 
-function EmployerLogin() {
+function EmployerLogin({ onLogin }: { onLogin: (user: { email: string }) => void }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    // Check credentials
+    if (email === 'tbustard@unb.ca' && password === 'Tylmvn7c7bb!!') {
+      localStorage.setItem('employerAuth', JSON.stringify({ email }));
+      onLogin({ email });
+      toast({
+        title: "Login Successful",
+        description: "Welcome to the employer dashboard!",
+      });
+    } else {
+      toast({
+        title: "Login Failed",
+        description: "Invalid email or password. Please try again.",
+        variant: "destructive",
+      });
+    }
+    setIsLoading(false);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 flex items-center justify-center p-4">
       <Card className="w-full max-w-md bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700">
@@ -256,21 +266,54 @@ function EmployerLogin() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="text-center space-y-4">
-            <div className="p-6 bg-slate-50 dark:bg-slate-900 rounded-lg">
-              <FileText className="w-12 h-12 mx-auto mb-4 text-slate-400" />
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                Access the employer dashboard to upload and manage resume files
-              </p>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                required
+                data-testid="input-email"
+                className="bg-white dark:bg-slate-900"
+              />
             </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="password">Password</Label>
+              <div className="relative">
+                <Input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter your password"
+                  required
+                  data-testid="input-password"
+                  className="bg-white dark:bg-slate-900 pr-10"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                  data-testid="button-toggle-password"
+                >
+                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                </button>
+              </div>
+            </div>
+            
             <Button 
-              onClick={() => window.location.href = '/api/login'}
+              type="submit"
               className="w-full"
+              disabled={isLoading}
               data-testid="button-login"
             >
-              Sign In with Replit
+              {isLoading ? "Signing In..." : "Sign In"}
             </Button>
-          </div>
+          </form>
         </CardContent>
       </Card>
     </div>
@@ -278,21 +321,26 @@ function EmployerLogin() {
 }
 
 export default function EmployerPage() {
-  const { isAuthenticated, isLoading, user } = useAuth();
-  const { toast } = useToast();
+  const [user, setUser] = useState<{ email: string } | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!isLoading && !isAuthenticated) {
-      // Only show toast if user tried to access protected content
-      if (window.location.pathname === '/employer' && window.location.search.includes('redirect')) {
-        toast({
-          title: "Authentication Required",
-          description: "Please sign in to access the employer dashboard.",
-          variant: "default",
-        });
+    // Check for existing auth on component mount
+    const authData = localStorage.getItem('employerAuth');
+    if (authData) {
+      try {
+        const userData = JSON.parse(authData);
+        setUser(userData);
+      } catch (error) {
+        localStorage.removeItem('employerAuth');
       }
     }
-  }, [isAuthenticated, isLoading, toast]);
+    setIsLoading(false);
+  }, []);
+
+  const handleLogin = (userData: { email: string }) => {
+    setUser(userData);
+  };
 
   if (isLoading) {
     return (
@@ -305,5 +353,5 @@ export default function EmployerPage() {
     );
   }
 
-  return isAuthenticated ? <EmployerDashboard /> : <EmployerLogin />;
+  return user ? <EmployerDashboard user={user} /> : <EmployerLogin onLogin={handleLogin} />;
 }
