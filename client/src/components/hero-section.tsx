@@ -42,8 +42,8 @@ export default function HeroSection() {
               </div>
               
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Transforming financial markets through data-driven insights and innovative technology solutions. 
-                Specialized in equity research, portfolio optimization, and AI-enhanced investment strategies.
+                Driving innovation at the intersection of finance and technology. 
+                Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
               </p>
             </div>
 
