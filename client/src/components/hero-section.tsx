@@ -59,17 +59,6 @@ export default function HeroSection() {
                   </p>
                   
                   {/* Credentials */}
-                  <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
-                    <div className="bg-primary/10 backdrop-blur-sm rounded-2xl px-6 py-3 border border-primary/10">
-                      <span className="text-sm font-semibold text-primary">CFA Level I Candidate</span>
-                    </div>
-                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl px-6 py-3 border border-gray-200">
-                      <span className="text-sm font-medium text-foreground">5+ Years Experience</span>
-                    </div>
-                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl px-6 py-3 border border-gray-200">
-                      <span className="text-sm font-medium text-foreground">UNB Graduate</span>
-                    </div>
-                  </div>
                 </div>
                 
                 <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
