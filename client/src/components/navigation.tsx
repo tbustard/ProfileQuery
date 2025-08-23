@@ -6,12 +6,12 @@ import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 
 export default function Navigation() {
   const [location] = useLocation();
+  const isHomePage = location === '/';
+  
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [currentSection, setCurrentSection] = useState('');
-
-  const isHomePage = location === '/';
+  const [currentSection, setCurrentSection] = useState(isHomePage ? 'hero' : '');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +25,13 @@ export default function Navigation() {
   }, []);
 
   useEffect(() => {
-    if (!isHomePage) return;
+    if (!isHomePage) {
+      setCurrentSection('');
+      return;
+    }
+
+    // Set initial section to hero when on homepage
+    setCurrentSection('hero');
 
     const observerOptions = {
       root: null,
