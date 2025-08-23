@@ -20,9 +20,9 @@ export default function Home() {
       
       setShowScrollToTop(scrollY > 300);
       
-      // Check if we're near the footer (dark section)
-      // Footer typically starts around 200px from the bottom
-      const footerThreshold = documentHeight - windowHeight - 200;
+      // Check if we're actually over the black footer section
+      // Footer is much smaller, only about 80px high, so be more precise
+      const footerThreshold = documentHeight - windowHeight - 80;
       setIsOverDarkSection(scrollY > footerThreshold);
     };
 
