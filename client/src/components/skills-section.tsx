@@ -101,8 +101,9 @@ export default function CertificationsSection() {
           <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Featured Achievements</h3>
           <div className="grid md:grid-cols-3 gap-6">
             {featuredCerts.map((cert, index) => (
-              <Card key={index} className="apple-card apple-hover border-0 text-center" data-testid={`featured-cert-${index}`}>
-                <CardContent className="p-8">
+              <div key={index} className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group text-center" data-testid={`featured-cert-${index}`}>
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative p-8">
                   <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <cert.icon className="w-8 h-8 text-primary" />
                   </div>
@@ -112,8 +113,8 @@ export default function CertificationsSection() {
                   {cert.percentile && (
                     <p className="text-sm text-primary font-medium mt-3">{cert.percentile}</p>
                   )}
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -140,7 +141,7 @@ export default function CertificationsSection() {
                   {category.certifications.map((cert, certIndex) => (
                     <div 
                       key={certIndex}
-                      className="apple-card border-0 p-5 apple-hover"
+                      className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group p-5"
                       data-testid={`cert-${categoryIndex}-${certIndex}`}
                     >
                       <div className="flex justify-between items-start">
@@ -167,29 +168,31 @@ export default function CertificationsSection() {
         </div>
 
         {/* Achievement Metrics - Apple-style clean stats */}
-        <Card className="apple-card border-0 text-center">
-          <CardContent className="p-12">
-            <h3 className="text-lg font-semibold text-foreground mb-8">Professional Development Summary</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div>
-                <div className="text-3xl font-bold text-foreground mb-2">20+</div>
+        <div className="bg-white/30 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
+          <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-8 lg:p-12">
+            <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
+              Professional Development Summary
+            </h3>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">20+</div>
                 <div className="text-muted-foreground font-medium">Total Certifications</div>
               </div>
-              <div>
-                <div className="text-3xl font-bold text-foreground mb-2">4</div>
+              <div className="text-center">
+                <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">4</div>
                 <div className="text-muted-foreground font-medium">Expertise Areas</div>
               </div>
-              <div>
-                <div className="text-3xl font-bold text-foreground mb-2">2024</div>
+              <div className="text-center">
+                <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">2024</div>
                 <div className="text-muted-foreground font-medium">Latest Achievement</div>
               </div>
-              <div>
-                <div className="text-3xl font-bold text-foreground mb-2">94th</div>
+              <div className="text-center">
+                <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">94th</div>
                 <div className="text-muted-foreground font-medium">GRE Percentile</div>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -283,17 +286,18 @@ export function CommunitySection() {
                 
                 {/* Content */}
                 <div className="md:ml-20">
-                  <Card className="apple-card apple-hover border-0">
-                    <CardContent className="p-8">
+                  <div className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative p-8">
                       {/* Header Section */}
                       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
                         <div className="flex items-start gap-4">
-                          <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                          <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                             {activity.logoSrc ? (
                               <img 
                                 src={activity.logoSrc} 
                                 alt={`${activity.organization} Logo`} 
-                                className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                                className="w-10 h-10 object-contain"
                               />
                             ) : activity.icon ? (
                               <activity.icon className="w-8 h-8 text-primary" />
@@ -339,8 +343,8 @@ export function CommunitySection() {
                           ))}
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -348,26 +352,28 @@ export function CommunitySection() {
         </div>
 
         {/* Community Impact Summary */}
-        <div className="mt-20">
-          <Card className="apple-card border-0 text-center">
-            <CardContent className="p-12">
-              <h3 className="text-lg font-semibold text-foreground mb-8">Community Engagement Summary</h3>
-              <div className="grid md:grid-cols-3 gap-8">
-                <div>
-                  <div className="text-3xl font-bold text-foreground mb-2">4+</div>
+        <div className="mt-24">
+          <div className="bg-white/30 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
+            <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-8 lg:p-12">
+              <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
+                Community Impact Highlights
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="text-center">
+                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">4+</div>
                   <div className="text-muted-foreground font-medium">Years of Service</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-foreground mb-2">3</div>
+                <div className="text-center">
+                  <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">3</div>
                   <div className="text-muted-foreground font-medium">Organizations Served</div>
                 </div>
-                <div>
-                  <div className="text-3xl font-bold text-foreground mb-2">10K</div>
+                <div className="text-center">
+                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">10K</div>
                   <div className="text-muted-foreground font-medium">Community Challenge</div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </div>
     </section>
