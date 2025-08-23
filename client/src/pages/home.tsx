@@ -47,7 +47,14 @@ export default function Home() {
             : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
       >
-        <div className="bg-white/90 backdrop-blur-xl border border-gray-200/50 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105">
+        <div 
+          className="bg-white/10 backdrop-blur-[25px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+          style={{
+            backdropFilter: 'blur(25px) saturate(200%) brightness(110%)',
+            WebkitBackdropFilter: 'blur(25px) saturate(200%) brightness(110%)',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+          }}
+        >
           <div className="flex items-center px-6 py-3">
             <span className="text-sm font-medium text-foreground mr-4 whitespace-nowrap">
               Back to top
