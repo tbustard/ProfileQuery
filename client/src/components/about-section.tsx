@@ -57,7 +57,7 @@ export default function EducationSection() {
         { title: "5 Academic Awards", desc: "$47,500 in scholarships and alumni awards for merit and leadership" },
         { title: "Accredited Co-op Program", desc: "Professional work experience integrated with academic curriculum" }
       ],
-      gradient: "from-blue-500/10 to-purple-500/10"
+      gradient: "from-gray-100/50 to-gray-200/50"
     },
     { 
       category: "Leadership & Professional", 
@@ -66,7 +66,7 @@ export default function EducationSection() {
         { title: "RBC Student Ambassador", desc: "Campus leadership and financial services representation role" },
         { title: "UNB Finance Club", desc: "Active member in professional development and networking activities" }
       ],
-      gradient: "from-green-500/10 to-teal-500/10"
+      gradient: "from-gray-100/50 to-gray-200/50"
     },
     { 
       category: "Competition Achievements", 
@@ -75,7 +75,7 @@ export default function EducationSection() {
         { title: "TD Case Competition", desc: "3rd Place - Financial analysis and presentation excellence" },
         { title: "RBC Case Competition", desc: "Participant in competitive business case analysis and strategy" }
       ],
-      gradient: "from-orange-500/10 to-red-500/10"
+      gradient: "from-gray-100/50 to-gray-200/50"
     }
   ];
 
