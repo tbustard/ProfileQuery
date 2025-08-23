@@ -95,9 +95,9 @@ export default function Navigation() {
       >
         <div className="container-width">
           <div className="flex justify-between items-center py-5">
-            {/* Logo/Home - Always visible with Apple styling */}
+            {/* Logo/Home - Conditional based on page */}
             <div className="flex items-center">
-              {isScrolled && (
+              {isScrolled && isHomePage && (
                 <div 
                   className="relative transition-all duration-700 ease-out mr-4"
                   style={{
@@ -113,14 +113,16 @@ export default function Navigation() {
                 </div>
               )}
               
-              <Link 
-                href="/" 
-                className="text-xl font-semibold text-foreground transition-all duration-300 hover:text-primary"
-              >
-                Tyler Bustard
-              </Link>
+              {!isHomePage && (
+                <Link 
+                  href="/" 
+                  className="text-xl font-semibold text-foreground transition-all duration-300 hover:text-primary"
+                >
+                  Home
+                </Link>
+              )}
               
-              {isScrolled && currentSection && (
+              {isScrolled && currentSection && isHomePage && (
                 <div className="ml-3 px-2 py-1 bg-primary/10 rounded-lg transition-all duration-500">
                   <span className="text-xs font-medium text-primary">
                     {getSectionDisplayName(currentSection)}
