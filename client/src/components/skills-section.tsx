@@ -114,7 +114,6 @@ export default function CertificationsSection() {
 
         {/* All Certifications - Modern Apple-style showcase */}
         <div className="mb-24">
-          <h3 className="text-3xl font-bold text-foreground mb-16 text-center">Complete Certification Portfolio</h3>
           <div className="space-y-12">
             {certificationCategories.map((category, categoryIndex) => (
               <div key={categoryIndex} className="relative overflow-hidden">

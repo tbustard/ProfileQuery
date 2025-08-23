@@ -86,7 +86,6 @@ export default function HeroSection() {
           <div className="space-y-12 mb-20">
             {/* Professional Overview Quadrants */}
             <div className="space-y-8">
-              <h2 className="text-3xl font-bold text-foreground text-center lg:text-left">Professional Overview</h2>
               <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 shadow-xl">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   
