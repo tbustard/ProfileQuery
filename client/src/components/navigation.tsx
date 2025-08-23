@@ -99,7 +99,7 @@ export default function Navigation() {
     <>
       {/* Apple-style Liquid Glass Navigation Bar */}
       <nav 
-        className={`liquid-glass-nav fixed top-0 w-full z-50 transition-all duration-700 ease-out relative ${
+        className={`liquid-glass-nav fixed top-0 left-0 right-0 w-full z-50 transition-all duration-700 ease-out ${
           isScrolled 
             ? 'border-b shadow-2xl' 
             : 'bg-transparent'
@@ -112,7 +112,7 @@ export default function Navigation() {
           boxShadow: isScrolled ? '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)' : 'none',
         }}
       >
-        <div className="container-width">
+        <div className="container mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center py-5">
             {/* Logo/Home - Conditional based on page */}
             <div className="flex items-center">
