@@ -17,11 +17,11 @@ export default function Home() {
       <ContactInfoSection />
       
       {/* Clean Footer */}
-      <footer className="relative bg-white border-t border-gray-200 py-8">
-        <div className="absolute inset-0 bg-white" />
+      <footer className="relative bg-black/90 border-t border-gray-200 py-8">
+        <div className="absolute inset-0 bg-black/90" />
         <div className="container mx-auto px-6 lg:px-8 relative">
           <div className="text-center">
-            <p className="text-foreground font-medium">
+            <p className="text-white font-medium">
               © {new Date().getFullYear()} Tyler Bustard. All rights reserved.
             </p>
           </div>
