@@ -202,22 +202,18 @@ export default function ExperienceSection() {
               <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
                 Career Highlights
               </h3>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="text-center">
                   <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">5+</div>
                   <div className="text-muted-foreground font-medium">Years Experience</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">$100M+</div>
-                  <div className="text-muted-foreground font-medium">Portfolio Value Managed</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">6</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">6</div>
                   <div className="text-muted-foreground font-medium">Companies</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">100+</div>
-                  <div className="text-muted-foreground font-medium">Tax Returns Processed</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">3</div>
+                  <div className="text-muted-foreground font-medium">Industries</div>
                 </div>
               </div>
             </div>
