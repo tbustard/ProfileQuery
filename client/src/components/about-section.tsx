@@ -29,7 +29,7 @@ export default function EducationSection() {
   const highlights = [
     { title: "$47,500", subtitle: "Total Scholarships & Awards", iconType: "award" },
     { title: "Student Ambassador", subtitle: "RBC Student Ambassador of the Month - February 2020", iconType: "image", logoSrc: rbcLogo },
-    { title: "1st Place", subtitle: "CIBC Case Competition Winner", iconType: "image", logoSrc: cibcLogo }
+    { title: "1st Place", subtitle: "CIBC Mergers and Acquisitions Case Competition Winner", iconType: "image", logoSrc: cibcLogo }
   ];
 
   const renderIcon = (highlight: any) => {
@@ -77,8 +77,8 @@ export default function EducationSection() {
     { 
       category: "Competition Achievements", 
       items: [
-        { title: "CIBC Case Competition", desc: "1st Place - Strategic business problem solving and analysis" },
-        { title: "TD Case Competition", desc: "3rd Place - Financial analysis and presentation excellence" },
+        { title: "CIBC Mergers and Acquisitions Case Competition", desc: "1st Place - Strategic business problem solving and analysis" },
+        { title: "TD Mergers and Acquisitions Case Competition", desc: "3rd Place - Financial analysis and presentation excellence" },
         { title: "RBC Case Competition", desc: "Participant in competitive business case analysis and strategy" }
       ],
       gradient: "from-gray-100/50 to-gray-200/50"
@@ -200,7 +200,7 @@ export default function EducationSection() {
                 </div>
                 <div className="text-center">
                   <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">1st Place</div>
-                  <div className="text-muted-foreground font-medium">CIBC Case Competition Winner</div>
+                  <div className="text-muted-foreground font-medium">CIBC Mergers and Acquisitions Case Competition Winner</div>
                 </div>
               </div>
             </div>
