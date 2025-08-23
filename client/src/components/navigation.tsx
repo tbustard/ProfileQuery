@@ -99,15 +99,17 @@ export default function Navigation() {
     <>
       {/* Apple-style Liquid Glass Navigation Bar */}
       <nav 
-        className={`fixed top-0 w-full z-50 transition-all duration-700 ease-out ${
+        className={`liquid-glass-nav fixed top-0 w-full z-50 transition-all duration-700 ease-out relative ${
           isScrolled 
-            ? 'bg-white/10 backdrop-blur-[25px] backdrop-saturate-[200%] backdrop-brightness-[110%] border-b border-white/20 shadow-2xl' 
+            ? 'border-b shadow-2xl' 
             : 'bg-transparent'
         }`}
         style={{
-          backdropFilter: isScrolled ? 'blur(25px) saturate(200%) brightness(110%)' : 'none',
-          WebkitBackdropFilter: isScrolled ? 'blur(25px) saturate(200%) brightness(110%)' : 'none',
-          boxShadow: isScrolled ? '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)' : 'none',
+          background: isScrolled ? 'rgba(255, 255, 255, 0.02)' : 'transparent',
+          backdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
+          WebkitBackdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
+          borderColor: isScrolled ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+          boxShadow: isScrolled ? '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)' : 'none',
         }}
       >
         <div className="container-width">
@@ -178,8 +180,15 @@ export default function Navigation() {
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                {/* Apple-style Dropdown */}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-80 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                {/* True Glass Dropdown */}
+                <div className="liquid-glass-dropdown absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-80 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 relative overflow-hidden"
+                     style={{
+                       background: 'rgba(255, 255, 255, 0.02)',
+                       backdropFilter: 'blur(20px) saturate(180%)',
+                       WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                       border: '1px solid rgba(255, 255, 255, 0.1)',
+                       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
+                     }}>
                   <div className="p-2">
                     <button 
                       onClick={() => scrollToSection('#education')}
@@ -207,8 +216,15 @@ export default function Navigation() {
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                {/* Apple-style Dropdown */}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-96 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                {/* True Glass Dropdown */}
+                <div className="liquid-glass-dropdown absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-96 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 relative overflow-hidden"
+                     style={{
+                       background: 'rgba(255, 255, 255, 0.02)',
+                       backdropFilter: 'blur(20px) saturate(180%)',
+                       WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                       border: '1px solid rgba(255, 255, 255, 0.1)',
+                       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
+                     }}>
                   <div className="p-2 max-h-80 overflow-y-auto">
                     {/* Individual Experience Items */}
                     <button 
@@ -277,8 +293,15 @@ export default function Navigation() {
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                {/* Apple-style Dropdown */}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                {/* True Glass Dropdown */}
+                <div className="liquid-glass-dropdown absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 relative overflow-hidden"
+                     style={{
+                       background: 'rgba(255, 255, 255, 0.02)',
+                       backdropFilter: 'blur(20px) saturate(180%)',
+                       WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                       border: '1px solid rgba(255, 255, 255, 0.1)',
+                       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
+                     }}>
                   <div className="p-2 max-h-80 overflow-y-auto">
                     {/* Financial Excellence Certifications */}
                     <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 hover: transition-colors w-full text-left rounded-lg mb-2">Financial Excellence</div>
@@ -398,8 +421,15 @@ export default function Navigation() {
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                {/* Apple-style Dropdown */}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                {/* True Glass Dropdown */}
+                <div className="liquid-glass-dropdown absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 relative overflow-hidden"
+                     style={{
+                       background: 'rgba(255, 255, 255, 0.02)',
+                       backdropFilter: 'blur(20px) saturate(180%)',
+                       WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                       border: '1px solid rgba(255, 255, 255, 0.1)',
+                       boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
+                     }}>
                   <div className="p-2 max-h-80 overflow-y-auto">
                     <button 
                       onClick={() => scrollToSection('#community-united-way')}
@@ -444,8 +474,15 @@ export default function Navigation() {
                     <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                   </button>
                   
-                  {/* Apple-style Dropdown */}
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  {/* True Glass Dropdown */}
+                  <div className="liquid-glass-dropdown absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 relative overflow-hidden"
+                       style={{
+                         background: 'rgba(255, 255, 255, 0.02)',
+                         backdropFilter: 'blur(20px) saturate(180%)',
+                         WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                         border: '1px solid rgba(255, 255, 255, 0.1)',
+                         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
+                       }}>
                     <div className="p-2">
                       <button 
                         onClick={() => scrollToSection('#contact')}
@@ -507,17 +544,16 @@ export default function Navigation() {
             </Button>
           </div>
           
-          {/* Mobile Navigation */}
+          {/* Mobile Navigation - True Glass */}
           {isMobileMenuOpen && (
             <div 
-              className={`md:hidden transition-all duration-500 ${
-                isScrolled 
-                  ? 'bg-white/10 backdrop-blur-xl border-t border-white/20' 
-                  : 'bg-white/5 backdrop-blur-lg border-t border-white/15'
-              }`}
+              className="liquid-glass-mobile md:hidden transition-all duration-500 border-t relative overflow-hidden"
               style={{
-                backdropFilter: 'blur(20px) saturate(180%) brightness(105%)',
-                WebkitBackdropFilter: 'blur(20px) saturate(180%) brightness(105%)',
+                background: 'rgba(255, 255, 255, 0.02)',
+                backdropFilter: 'blur(20px) saturate(180%)',
+                WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                borderColor: 'rgba(255, 255, 255, 0.1)',
+                boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
               }}
             >
               <div className="px-4 py-6 space-y-3">

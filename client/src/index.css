@@ -421,6 +421,99 @@
     backdrop-filter: blur(25px) saturate(200%) !important;
     -webkit-backdrop-filter: blur(25px) saturate(200%) !important;
   }
+
+  /* Liquid Glass Navigation & Dropdowns */
+  .liquid-glass-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.15),
+      transparent
+    );
+    z-index: 1;
+  }
+  
+  .liquid-glass-dropdown::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.15),
+      transparent
+    );
+    border-radius: 0.75rem 0.75rem 0 0;
+    z-index: 3;
+  }
+  
+  .liquid-glass-dropdown::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.05),
+      transparent
+    );
+    border-radius: 0 0 0.75rem 0.75rem;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .liquid-glass-dropdown:hover::before {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+  }
+  
+  /* Mobile Menu Glass */
+  .liquid-glass-mobile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.15),
+      transparent
+    );
+    z-index: 1;
+  }
+  
+  .liquid-glass-mobile::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20%;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.05),
+      transparent
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
 }
 
 @keyframes appleSlideUp {
