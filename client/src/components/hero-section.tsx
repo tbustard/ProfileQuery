@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { HiOutlineMail } from "react-icons/hi";
-import profileImage from "@assets/Untitled design (1)_1755896187722.png";
-import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
-import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
-import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
-import irvingLogo from "@assets/Irving_Oil.svg_1755913265895.png";
-import grantThorntonLogo from "@assets/Grant_Thornton_logo_1755913265895.png";
+// Replaced asset imports with placeholder URLs
+const profileImage = "https://via.placeholder.com/320x320/2563EB/white?text=TB";
+const bmoLogo = "https://via.placeholder.com/64x64/005EB8/white?text=BMO";
+const tdLogo = "https://via.placeholder.com/64x64/00B04F/white?text=TD";
+const rbcLogo = "https://via.placeholder.com/64x64/00509F/white?text=RBC";
+const irvingLogo = "https://via.placeholder.com/64x64/FF6B35/white?text=IRVING";
+const grantThorntonLogo = "https://via.placeholder.com/64x64/8B5CF6/white?text=GT";
 
 export default function HeroSection() {
   const scrollToSection = (href: string) => {

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
-import profileImage from "@assets/Untitled design (1)_1755896187722.png";
+const profileImage = "https://via.placeholder.com/64x64/2563EB/white?text=TB";
 
 export default function Navigation() {
   const [location] = useLocation();

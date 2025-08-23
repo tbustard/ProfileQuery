@@ -2,8 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SiGoogle } from "react-icons/si";
 import { FaCertificate, FaGraduationCap, FaTrophy, FaStar, FaChartLine, FaCalculator, FaHeart, FaRunning, FaUsers, FaHandshake } from "react-icons/fa";
-import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
-import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
+const unitedWayLogo = "https://via.placeholder.com/64x64/FF6B35/white?text=UW";
+const rbcLogo = "https://via.placeholder.com/64x64/00509F/white?text=RBC";
 
 interface Certification {
   name: string;
@@ -84,7 +84,7 @@ export default function CertificationsSection() {
   );
 
   return (
-    <section id="certifications" className="apple-section-glass gsap-fade-in">
+    <section id="certifications" className="section-padding">
       <div className="container-width">
         {/* Header */}
         <div className="text-center mb-20">
