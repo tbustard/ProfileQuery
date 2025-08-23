@@ -28,6 +28,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [selectedVideo, setSelectedVideo] = useState<File | null>(null);
   const [uploads, setUploads] = useState<ResumeUpload[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   
   // Fetch videos from API
   const videosQuery = useQuery({
