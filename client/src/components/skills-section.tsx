@@ -13,7 +13,6 @@ import trainingTheStreetLogo from "@assets/trainning the street_1755938972014.pn
 import bloombergLogo from "@assets/bloomberg_1755939196335.png";
 import courseraLogo from "@assets/Coursera_1755939373919.png";
 import etsLogo from "@assets/ETS_1755939510188.png";
-import unbLogo from "@assets/University_of_New_Brunswick_Logo.svg_1755912478863.png";
 
 interface Certification {
   name: string;
@@ -207,82 +206,6 @@ export default function CertificationsSection() {
           </div>
         </div>
 
-        {/* Academic Foundation Section */}
-        <div className="bg-white/20 backdrop-blur-2xl rounded-3xl border border-white/30 shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-700 mt-24">
-          <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-8 lg:p-12">
-            <div className="flex items-center gap-6 mb-8">
-              <div className="w-20 h-20 bg-white/30 backdrop-blur-sm rounded-3xl flex items-center justify-center shadow-xl">
-                <FaGraduationCap className="w-10 h-10 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">Academic Foundation</h3>
-                <p className="text-lg text-muted-foreground font-medium">Bachelor of Business Administration</p>
-              </div>
-            </div>
-            
-            <div className="grid lg:grid-cols-2 gap-8">
-              {/* University Info */}
-              <div className="bg-white/40 backdrop-blur-sm rounded-2xl border border-white/40 p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <img 
-                    src={unbLogo} 
-                    alt="University of New Brunswick Logo" 
-                    className="w-8 h-8 object-contain flex-shrink-0"
-                  />
-                  <div>
-                    <h4 className="text-lg font-semibold text-foreground">University of New Brunswick</h4>
-                    <p className="text-muted-foreground font-medium">Saint John Campus</p>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-muted-foreground">Degree</span>
-                    <span className="font-semibold text-foreground">Bachelor of Business Administration</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-muted-foreground">Years Attended</span>
-                    <span className="font-semibold text-foreground">2014 - 2018</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-muted-foreground">Location</span>
-                    <span className="font-semibold text-foreground">Saint John, NB</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Key Areas of Study */}
-              <div className="bg-white/40 backdrop-blur-sm rounded-2xl border border-white/40 p-6">
-                <h4 className="text-lg font-semibold text-foreground mb-4">Core Areas of Study</h4>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-primary/10 text-primary text-xs font-bold rounded-full px-3 py-2 text-center">
-                    Accounting & Finance
-                  </div>
-                  <div className="bg-primary/10 text-primary text-xs font-bold rounded-full px-3 py-2 text-center">
-                    Marketing Management
-                  </div>
-                  <div className="bg-primary/10 text-primary text-xs font-bold rounded-full px-3 py-2 text-center">
-                    Economics
-                  </div>
-                  <div className="bg-primary/10 text-primary text-xs font-bold rounded-full px-3 py-2 text-center">
-                    Operations Management
-                  </div>
-                  <div className="bg-primary/10 text-primary text-xs font-bold rounded-full px-3 py-2 text-center">
-                    Human Resources
-                  </div>
-                  <div className="bg-primary/10 text-primary text-xs font-bold rounded-full px-3 py-2 text-center">
-                    Business Law
-                  </div>
-                  <div className="bg-primary/10 text-primary text-xs font-bold rounded-full px-3 py-2 text-center">
-                    Computer Programming
-                  </div>
-                  <div className="bg-primary/10 text-primary text-xs font-bold rounded-full px-3 py-2 text-center">
-                    Critical Thinking
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
