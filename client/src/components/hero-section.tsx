@@ -157,7 +157,7 @@ export default function HeroSection() {
                           <img 
                             src={unbLogo} 
                             alt="University of New Brunswick Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300"
+                            className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
                       </div>

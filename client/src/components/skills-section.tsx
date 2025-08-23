@@ -157,7 +157,7 @@ export default function CertificationsSection() {
                                   <img 
                                     src={cert.logoSrc} 
                                     alt={`${cert.institution} Logo`} 
-                                    className="w-4 h-4 object-contain flex-shrink-0"
+                                    className="w-8 h-8 object-contain flex-shrink-0"
                                   />
                                 )}
                                 <p className="text-muted-foreground font-medium">{cert.institution}</p>
@@ -317,7 +317,7 @@ export function CommunitySection() {
                               <img 
                                 src={activity.logoSrc} 
                                 alt={`${activity.organization} Logo`} 
-                                className="w-10 h-10 object-contain"
+                                className="w-8 h-8 object-contain"
                               />
                             ) : activity.icon ? (
                               <activity.icon className="w-8 h-8 text-primary" />
