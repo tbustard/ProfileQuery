@@ -93,30 +93,12 @@ export default function HeroSection() {
           {/* Stats/Highlights Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             
-            {/* Experience Card */}
-            <div className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
-                 style={{
-                   backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
-                   WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
-                   animationDelay: '0.5s'
-                 }}>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <img src={bmoLogo} alt="Experience" className="w-6 h-6 object-contain" />
-                </div>
-                <h3 className="text-lg font-semibold text-foreground">Experience</h3>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                5+ years across top-tier financial institutions
-              </p>
-            </div>
-
             {/* Education Card */}
             <div className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
-                   animationDelay: '0.6s'
+                   animationDelay: '0.5s'
                  }}>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
@@ -126,6 +108,24 @@ export default function HeroSection() {
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 BBA with $47,500 in academic scholarships
+              </p>
+            </div>
+
+            {/* Experience Card */}
+            <div className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
+                 style={{
+                   backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
+                   WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
+                   animationDelay: '0.6s'
+                 }}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                  <img src={bmoLogo} alt="Experience" className="w-6 h-6 object-contain" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground">Experience</h3>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                5+ years across top-tier financial institutions
               </p>
             </div>
 
