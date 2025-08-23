@@ -190,6 +190,7 @@ interface CommunityActivity {
   organization: string;
   period: string;
   duration: string;
+  location: string;
   description: string;
   achievements: string[];
   skills: string[];
@@ -205,6 +206,7 @@ export function CommunitySection() {
       organization: "Community Charitable Event",
       period: "2023",
       duration: "Annual Event",
+      location: "Kingston, Ontario",
       description: "Annual charitable fitness event supporting local community causes",
       achievements: [
         "Successfully completed 10K run",
@@ -219,6 +221,7 @@ export function CommunitySection() {
       organization: "United Way",
       period: "2020-2023",
       duration: "3 years",
+      location: "Toronto, Ontario",
       description: "Youth leadership and community engagement representative with 3 years of continuous service",
       achievements: [
         "Advocated for community initiatives and social causes",
@@ -233,6 +236,7 @@ export function CommunitySection() {
       organization: "RBC",
       period: "2019-2020",
       duration: "1 year",
+      location: "Fredericton, New Brunswick",
       description: "Campus representative and brand ambassador during university studies",
       achievements: [
         "Promoted RBC services to university students",
@@ -293,7 +297,7 @@ export function CommunitySection() {
                           <div>
                             <h3 className="text-xl font-semibold text-foreground mb-1">{activity.title}</h3>
                             <p className="text-lg font-medium text-primary mb-1">{activity.organization}</p>
-                            <p className="text-muted-foreground font-medium">{activity.description}</p>
+                            <p className="text-muted-foreground font-medium">{activity.location}</p>
                           </div>
                         </div>
                         <div className="mt-4 lg:mt-0 lg:text-right">
