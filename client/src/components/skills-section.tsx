@@ -96,38 +96,6 @@ export default function CertificationsSection() {
           </p>
         </div>
 
-        {/* Featured Certifications - Premium showcase */}
-        <div className="mb-24">
-          <h3 className="text-3xl font-bold text-foreground mb-16 text-center">Featured Achievements</h3>
-          <div className="grid lg:grid-cols-3 gap-8">
-            {featuredCerts.map((cert, index) => (
-              <div key={index} className="group relative overflow-hidden bg-white/20 backdrop-blur-2xl rounded-3xl border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-700 hover:scale-[1.02]" data-testid={`featured-cert-${index}`}>
-                {/* Ambient gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                
-                <div className="relative p-10 lg:p-12 text-center">
-                  {/* Enhanced icon with glow effect */}
-                  <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-blue-500/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:shadow-3xl transition-all duration-700 group-hover:scale-110">
-                    <cert.icon className="w-12 h-12 text-primary" />
-                  </div>
-                  
-                  {/* Enhanced typography */}
-                  <h4 className="text-xl lg:text-2xl font-bold text-foreground mb-4 leading-tight">{cert.name}</h4>
-                  <p className="text-lg text-muted-foreground font-medium mb-4">{cert.institution}</p>
-                  <div className="inline-block px-4 py-2 bg-primary/10 text-primary font-bold rounded-full border border-primary/20 text-sm">
-                    {cert.year}
-                  </div>
-                  {cert.percentile && (
-                    <div className="mt-6 p-4 bg-white/30 backdrop-blur-sm rounded-2xl border border-white/40">
-                      <p className="text-sm font-semibold text-primary">{cert.percentile}</p>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* All Certifications - Modern Apple-style showcase */}
         <div className="mb-24">
           <h3 className="text-3xl font-bold text-foreground mb-16 text-center">Complete Certification Portfolio</h3>
