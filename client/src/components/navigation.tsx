@@ -95,74 +95,62 @@ export default function Navigation() {
       >
         <div className="container-width">
           <div className="flex justify-between items-center py-5">
-            {/* Animated Profile Section - appears only when scrolling */}
-            <div 
-              className={`flex items-center transition-all duration-700 ease-out ${
-                isScrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
-              }`}
-            >
-              {/* Profile Image - slides in from right when scrolled */}
-              <div 
-                className="relative transition-all duration-700 ease-out mr-4"
-                style={{
-                  transform: `translateX(${isScrolled ? 0 : 30}px) scale(${isScrolled ? 1 : 0.8})`,
-                  opacity: isScrolled ? 1 : 0,
-                }}
-              >
-                <img 
-                  src={profileImage} 
-                  alt="Tyler Bustard" 
-                  className="w-11 h-11 rounded-2xl object-cover ring-2 ring-white/30 shadow-lg transition-all duration-300 hover:ring-white/50 hover:scale-110"
-                />
-              </div>
-              
-              {/* Name - slides in from center when scrolled */}
-              <div 
-                className="transition-all duration-700 ease-out"
-                style={{
-                  transform: `translateX(${isScrolled ? 0 : -20}px) translateY(${isScrolled ? 0 : 10}px)`,
-                  opacity: isScrolled ? 1 : 0,
-                }}
-              >
-                <Link href="/" className="text-lg font-bold text-foreground transition-all duration-700 ease-out hover:text-primary">
-                  Tyler Bustard
-                </Link>
-                <div className={`text-sm text-primary font-semibold transition-all duration-500 delay-300 ${
-                  isScrolled ? 'opacity-100 max-h-6' : 'opacity-0 max-h-0'
-                }`}>
-                  {currentSection ? getSectionDisplayName(currentSection) : 'Portfolio'}
+            {/* Logo/Home - Always visible with Apple styling */}
+            <div className="flex items-center">
+              {isScrolled && (
+                <div 
+                  className="relative transition-all duration-700 ease-out mr-4"
+                  style={{
+                    transform: `translateX(${isScrolled ? 0 : 30}px) scale(${isScrolled ? 1 : 0.8})`,
+                    opacity: isScrolled ? 1 : 0,
+                  }}
+                >
+                  <img 
+                    src={profileImage} 
+                    alt="Tyler Bustard" 
+                    className="w-9 h-9 rounded-xl object-cover ring-1 ring-white/20 shadow-sm transition-all duration-300 hover:ring-white/40 hover:scale-110"
+                  />
                 </div>
-              </div>
+              )}
+              
+              <Link 
+                href="/" 
+                className="text-xl font-semibold text-foreground transition-all duration-300 hover:text-primary"
+              >
+                Tyler Bustard
+              </Link>
+              
+              {isScrolled && currentSection && (
+                <div className="ml-3 px-2 py-1 bg-primary/10 rounded-lg transition-all duration-500">
+                  <span className="text-xs font-medium text-primary">
+                    {getSectionDisplayName(currentSection)}
+                  </span>
+                </div>
+              )}
             </div>
             
             {/* Desktop Navigation with Apple.com-style Dropdowns */}
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex items-center space-x-2">
               {/* Education Dropdown */}
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#education') : undefined}
-                  className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 group flex items-center gap-1 ${
-                    isScrolled
-                      ? 'text-foreground hover:bg-white/15 hover:text-primary'
-                      : 'text-foreground hover:bg-white/10 hover:text-primary'
-                  }`}
+                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
                   data-testid="nav-education"
                 >
                   Education
-                  <ChevronDown size={16} className="transition-transform group-hover:rotate-180" />
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary group-hover:w-full group-hover:left-0 transition-all duration-300" />
+                  <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
                 {/* Apple-style Dropdown */}
-                <div className="absolute top-full left-0 mt-2 w-72 bg-background/95 backdrop-blur-lg border border-border/20 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="p-4 space-y-2">
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-80 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="p-2">
                     <Link 
                       href="/education/university-of-new-brunswick"
-                      className="block p-3 rounded-xl hover:bg-muted/50 transition-colors"
+                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
                     >
-                      <div className="font-medium text-foreground">University of New Brunswick</div>
-                      <div className="text-sm text-muted-foreground">Bachelor of Business Administration • Class of 2020</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">University of New Brunswick</div>
+                      <div className="text-sm text-gray-600">Bachelor of Business Administration • Fredericton, NB (2016-2020)</div>
                     </Link>
                   </div>
                 </div>
@@ -172,63 +160,57 @@ export default function Navigation() {
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#experience') : undefined}
-                  className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 group flex items-center gap-1 ${
-                    isScrolled
-                      ? 'text-foreground hover:bg-white/15 hover:text-primary'
-                      : 'text-foreground hover:bg-white/10 hover:text-primary'
-                  }`}
+                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
                   data-testid="nav-experience"
                 >
                   Experience
-                  <ChevronDown size={16} className="transition-transform group-hover:rotate-180" />
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary group-hover:w-full group-hover:left-0 transition-all duration-300" />
+                  <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
                 {/* Apple-style Dropdown */}
-                <div className="absolute top-full left-0 mt-2 w-80 bg-background/95 backdrop-blur-lg border border-border/20 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="p-4 space-y-2 max-h-96 overflow-y-auto">
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-96 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="p-2 max-h-80 overflow-y-auto">
                     <Link 
                       href="/experience/bmo-private-wealth"
-                      className="block p-3 rounded-xl hover:bg-muted/50 transition-colors"
+                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50 last:border-b-0"
                     >
-                      <div className="font-medium text-foreground">BMO Private Wealth</div>
-                      <div className="text-sm text-muted-foreground">Portfolio Assistant • Toronto, ON (2022-2023)</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">BMO Private Wealth</div>
+                      <div className="text-sm text-gray-600">Portfolio Assistant • Toronto, ON (2022-2023)</div>
                     </Link>
                     <Link 
                       href="/experience/td-canada-trust"
-                      className="block p-3 rounded-xl hover:bg-muted/50 transition-colors"
+                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50 last:border-b-0"
                     >
-                      <div className="font-medium text-foreground">TD Canada Trust</div>
-                      <div className="text-sm text-muted-foreground">Financial Advisor • Kingston, ON (2021-2022)</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">TD Canada Trust</div>
+                      <div className="text-sm text-gray-600">Financial Advisor • Kingston, ON (2021-2022)</div>
                     </Link>
                     <Link 
                       href="/experience/rbc-banking-advisor"
-                      className="block p-3 rounded-xl hover:bg-muted/50 transition-colors"
+                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50 last:border-b-0"
                     >
-                      <div className="font-medium text-foreground">RBC Banking Advisor</div>
-                      <div className="text-sm text-muted-foreground">Banking Advisor • Kingston, ON (2020-2021)</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">RBC Banking Advisor</div>
+                      <div className="text-sm text-gray-600">Banking Advisor • Kingston, ON (2020-2021)</div>
                     </Link>
                     <Link 
                       href="/experience/rbc-client-advisor"
-                      className="block p-3 rounded-xl hover:bg-muted/50 transition-colors"
+                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50 last:border-b-0"
                     >
-                      <div className="font-medium text-foreground">RBC Client Advisor</div>
-                      <div className="text-sm text-muted-foreground">Client Advisor Intern • Fredericton, NB (2019-2020)</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">RBC Client Advisor</div>
+                      <div className="text-sm text-gray-600">Client Advisor Intern • Fredericton, NB (2019-2020)</div>
                     </Link>
                     <Link 
                       href="/experience/irving-oil"
-                      className="block p-3 rounded-xl hover:bg-muted/50 transition-colors"
+                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50 last:border-b-0"
                     >
-                      <div className="font-medium text-foreground">Irving Oil Limited</div>
-                      <div className="text-sm text-muted-foreground">Marketing Intern • Saint John, NB (Sep-Dec 2018)</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">Irving Oil Limited</div>
+                      <div className="text-sm text-gray-600">Marketing Intern • Saint John, NB (Sep-Dec 2018)</div>
                     </Link>
                     <Link 
                       href="/experience/grant-thornton"
-                      className="block p-3 rounded-xl hover:bg-muted/50 transition-colors"
+                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
                     >
-                      <div className="font-medium text-foreground">Grant Thornton LLP</div>
-                      <div className="text-sm text-muted-foreground">Tax Return Intern • Saint John, NB (Jan-May 2018)</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">Grant Thornton LLP</div>
+                      <div className="text-sm text-gray-600">Tax Return Intern • Saint John, NB (Jan-May 2018)</div>
                     </Link>
                   </div>
                 </div>
@@ -238,28 +220,22 @@ export default function Navigation() {
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#certifications') : undefined}
-                  className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 group flex items-center gap-1 ${
-                    isScrolled
-                      ? 'text-foreground hover:bg-white/15 hover:text-primary'
-                      : 'text-foreground hover:bg-white/10 hover:text-primary'
-                  }`}
+                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
                   data-testid="nav-certifications"
                 >
                   Certifications
-                  <ChevronDown size={16} className="transition-transform group-hover:rotate-180" />
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary group-hover:w-full group-hover:left-0 transition-all duration-300" />
+                  <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
                 {/* Apple-style Dropdown */}
-                <div className="absolute top-full left-0 mt-2 w-64 bg-background/95 backdrop-blur-lg border border-border/20 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="p-4 space-y-2">
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="p-2">
                     <Link 
                       href="/certifications"
-                      className="block p-3 rounded-xl hover:bg-muted/50 transition-colors"
+                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
                     >
-                      <div className="font-medium text-foreground">All Certifications</div>
-                      <div className="text-sm text-muted-foreground">Complete professional overview</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">All Certifications</div>
+                      <div className="text-sm text-gray-600">Complete professional overview</div>
                     </Link>
                   </div>
                 </div>
@@ -269,28 +245,22 @@ export default function Navigation() {
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#community') : undefined}
-                  className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 group flex items-center gap-1 ${
-                    isScrolled
-                      ? 'text-foreground hover:bg-white/15 hover:text-primary'
-                      : 'text-foreground hover:bg-white/10 hover:text-primary'
-                  }`}
+                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
                   data-testid="nav-community"
                 >
                   Community
-                  <ChevronDown size={16} className="transition-transform group-hover:rotate-180" />
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary group-hover:w-full group-hover:left-0 transition-all duration-300" />
+                  <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
                 {/* Apple-style Dropdown */}
-                <div className="absolute top-full left-0 mt-2 w-64 bg-background/95 backdrop-blur-lg border border-border/20 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  <div className="p-4 space-y-2">
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="p-2">
                     <Link 
                       href="/community"
-                      className="block p-3 rounded-xl hover:bg-muted/50 transition-colors"
+                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
                     >
-                      <div className="font-medium text-foreground">Community Impact</div>
-                      <div className="text-sm text-muted-foreground">All activities & volunteer work</div>
+                      <div className="font-semibold text-gray-900 text-base mb-1">Community Impact</div>
+                      <div className="text-sm text-gray-600">All activities & volunteer work</div>
                     </Link>
                   </div>
                 </div>
@@ -300,34 +270,11 @@ export default function Navigation() {
               {isHomePage && (
                 <button
                   onClick={() => scrollToSection('#contact')}
-                  className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 group ${
-                    isScrolled
-                      ? 'text-foreground hover:bg-white/15 hover:text-primary'
-                      : 'text-foreground hover:bg-white/10 hover:text-primary'
-                  }`}
+                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200"
                   data-testid="nav-contact"
                 >
                   Contact
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary group-hover:w-full group-hover:left-0 transition-all duration-300" />
                 </button>
-              )}
-
-              {/* Home - Only on sub pages */}
-              {!isHomePage && (
-                <Link 
-                  href="/" 
-                  className={`relative px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 hover:scale-105 group ${
-                    isScrolled
-                      ? 'text-foreground hover:bg-white/15 hover:text-primary'
-                      : 'text-foreground hover:bg-white/10 hover:text-primary'
-                  }`}
-                  data-testid="nav-home"
-                >
-                  Home
-                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                  <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary group-hover:w-full group-hover:left-0 transition-all duration-300" />
-                </Link>
               )}
             </div>
             
