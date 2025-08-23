@@ -117,65 +117,63 @@ export default function CertificationsSection() {
           </div>
 
         {/* All Certifications */}
-        <div className="mb-16">
-          <div className="space-y-8">
+        <div className="space-y-8 mb-24">
             {certificationCategories.map((category, categoryIndex) => (
-              <div key={categoryIndex} id={`certifications-${category.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
-                {/* Modern Category Container */}
-                <div className="p-8">
-                  {/* Category Header */}
-                  <div className="mb-6">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
-                        <category.icon className="w-8 h-8 text-white" />
+              <div key={categoryIndex} id={`certifications-${category.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} className={`relative overflow-hidden rounded-[28px] bg-gradient-to-r from-gray-100/50 to-gray-200/50 backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500`}>
+                <div className="absolute inset-0 bg-white/80 backdrop-blur-xl" />
+                <div className="relative p-8 lg:p-12">
+                  <div className="flex flex-col lg:flex-row lg:items-center gap-8">
+                    {/* Category Title */}
+                    <div className="lg:w-1/4">
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                          <category.icon className="w-8 h-8 text-white" />
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">{category.title}</h4>
-                        <p className="text-lg text-muted-foreground font-medium">{category.certifications.length} professional certifications</p>
-                      </div>
+                      <h4 className="text-2xl font-bold text-foreground mb-2">
+                        {category.title}
+                      </h4>
+                      <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 rounded-full" />
+                      <p className="text-sm text-muted-foreground mt-2">{category.certifications.length} professional certifications</p>
                     </div>
-                  </div>
 
-                  {/* Certifications Grid */}
-                  <div className="space-y-4">
-                    <div className="space-y-4">
+                    {/* Certification Items */}
+                    <div className="lg:w-3/4 grid md:grid-cols-2 gap-6">
                       {category.certifications.map((cert, certIndex) => (
                         <div 
                           key={certIndex}
                           id={`cert-${cert.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                          className="group relative bg-white/90 backdrop-blur-xl rounded-[20px] p-6 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500"
+                          className="bg-white/90 backdrop-blur-xl rounded-[20px] p-6 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.02]"
                           data-testid={`cert-${categoryIndex}-${certIndex}`}
                         >
+                          <div className="flex items-start justify-between mb-3">
+                            <h5 className="font-semibold text-foreground mb-2 text-lg flex-1">
+                              {cert.name}
+                            </h5>
+                            <span className="text-sm font-medium text-gray-500 ml-2">{cert.year}</span>
+                          </div>
+                          <div className="flex items-center gap-2 mb-2">
+                            {cert.logoSrc && (
+                              <img 
+                                src={cert.logoSrc} 
+                                alt={`${cert.institution} Logo`} 
+                                className="w-5 h-5 object-contain flex-shrink-0"
+                              />
+                            )}
+                            <p className="text-muted-foreground font-medium text-sm">{cert.institution}</p>
+                          </div>
+                          <p className="text-muted-foreground text-xs leading-relaxed mb-3">{cert.description}</p>
                           <div className="flex items-center justify-between">
-                            <div className="flex-1">
-                              <div className="flex items-center gap-3 mb-3">
-                                <h5 className="text-lg font-semibold text-foreground">{cert.name}</h5>
-                                {cert.highlight && (
-                                  <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold">
-                                    FEATURED
-                                  </div>
-                                )}
+                            {cert.highlight && (
+                              <div className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-bold">
+                                FEATURED
                               </div>
-                              <div className="flex items-center gap-2 mb-3">
-                                {cert.logoSrc && (
-                                  <img 
-                                    src={cert.logoSrc} 
-                                    alt={`${cert.institution} Logo`} 
-                                    className="w-6 h-6 object-contain flex-shrink-0"
-                                  />
-                                )}
-                                <p className="text-muted-foreground font-medium">{cert.institution}</p>
+                            )}
+                            {cert.percentile && (
+                              <div className="text-xs text-blue-600 font-semibold bg-blue-50 px-2 py-1 rounded-full">
+                                {cert.percentile}
                               </div>
-                              <p className="text-sm text-muted-foreground leading-relaxed mb-3">{cert.description}</p>
-                              {cert.percentile && (
-                                <div className="mt-1">
-                                  <p className="text-sm text-blue-600 font-semibold bg-blue-50 px-3 py-1 rounded-full inline-block">{cert.percentile}</p>
-                                </div>
-                              )}
-                            </div>
-                            <div className="text-right">
-                              <span className="text-lg font-bold text-foreground bg-white/20 backdrop-blur-sm px-3 py-1 rounded-xl">{cert.year}</span>
-                            </div>
+                            )}
                           </div>
                         </div>
                       ))}
@@ -184,7 +182,6 @@ export default function CertificationsSection() {
                 </div>
               </div>
             ))}
-          </div>
         </div>
 
         {/* Achievement Metrics - Clean stats */}
@@ -297,76 +294,74 @@ export function CommunitySection() {
             </p>
           </div>
 
-        {/* Community Activities Timeline */}
-        <div className="relative">
-          {/* Clean Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-gray-200 hidden md:block"></div>
-          
-          <div className="space-y-16">
+        {/* Community Activities */}
+        <div className="space-y-8 mb-24">
             {communityActivities.map((activity, index) => (
-              <div key={index} id={`community-${activity.organization.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} className="relative" data-testid={`community-activity-${index}`}>
-                {/* Beautiful Timeline Marker */}
-                <div className="absolute left-5 w-6 h-6 rounded-full bg-gradient-to-br from-white to-gray-50 border border-gray-200/60 shadow-[0_2px_8px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.12)] hidden md:block backdrop-blur-sm">
-                  <div className="absolute inset-1 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 shadow-inner"></div>
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/30 via-transparent to-transparent"></div>
-                </div>
-                
-                {/* Content */}
-                <div className="md:ml-24">
-                  <div className="relative bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="relative p-8">
-                      {/* Header Section */}
-                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
-                        <div className="flex items-start gap-4">
-                          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
-                            {activity.logoSrc ? (
-                              <img 
-                                src={activity.logoSrc} 
-                                alt={`${activity.organization} Logo`} 
-                                className="w-8 h-8 object-contain"
-                              />
-                            ) : activity.icon ? (
-                              <activity.icon className="w-8 h-8 text-foreground" />
-                            ) : null}
-                          </div>
-                          <div>
-                            <h3 className="text-xl font-semibold text-foreground mb-1">{activity.title}</h3>
-                            <p className="text-lg font-medium text-primary mb-1">{activity.organization}</p>
-                            <p className="text-muted-foreground font-medium">{activity.location}</p>
-                          </div>
-                        </div>
-                        <div className="mt-4 lg:mt-0 lg:text-right">
-                          <span className="text-lg font-medium text-gray-500">{activity.period}</span>
+              <div key={index} id={`community-${activity.organization.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} className={`relative overflow-hidden rounded-[28px] bg-gradient-to-r from-gray-100/50 to-gray-200/50 backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500`}>
+                <div className="absolute inset-0 bg-white/80 backdrop-blur-xl" />
+                <div className="relative p-8 lg:p-12">
+                  <div className="flex flex-col lg:flex-row lg:items-center gap-8">
+                    {/* Activity Title */}
+                    <div className="lg:w-1/4">
+                      <div className="flex items-center gap-4 mb-4">
+                        <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
+                          {activity.logoSrc ? (
+                            <img 
+                              src={activity.logoSrc} 
+                              alt={`${activity.organization} Logo`} 
+                              className="w-8 h-8 object-contain"
+                            />
+                          ) : activity.icon ? (
+                            <activity.icon className="w-8 h-8 text-foreground" />
+                          ) : null}
                         </div>
                       </div>
+                      <h4 className="text-2xl font-bold text-foreground mb-2">
+                        {activity.title}
+                      </h4>
+                      <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 rounded-full" />
+                      <p className="text-sm text-muted-foreground mt-2">{activity.organization} • {activity.period}</p>
+                    </div>
 
-                      {/* Key Achievements */}
-                      <div className="mb-6">
-                        <h4 className="font-semibold text-foreground mb-4">Key Achievements</h4>
-                        <div className="space-y-3">
-                          {activity.achievements.map((achievement, achievementIndex) => (
-                            <div key={achievementIndex} className="flex items-start gap-3">
-                              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                              <p className="text-muted-foreground font-medium leading-relaxed">{achievement}</p>
-                            </div>
-                          ))}
+                    {/* Activity Details */}
+                    <div className="lg:w-3/4 grid md:grid-cols-1 gap-6">
+                      <div className="bg-white/90 backdrop-blur-xl rounded-[20px] p-6 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.02]">
+                        <div className="flex items-start justify-between mb-3">
+                          <h5 className="font-semibold text-foreground mb-2 text-lg flex-1">
+                            {activity.organization}
+                          </h5>
+                          <span className="text-sm font-medium text-gray-500 ml-2">{activity.period}</span>
                         </div>
-                      </div>
+                        <p className="text-muted-foreground font-medium text-sm mb-3">{activity.location}</p>
+                        <p className="text-muted-foreground text-xs leading-relaxed mb-4">{activity.description}</p>
+                        
+                        {/* Key Achievements */}
+                        <div className="mb-4">
+                          <h6 className="font-semibold text-foreground mb-3 text-sm">Key Achievements</h6>
+                          <div className="space-y-2">
+                            {activity.achievements.map((achievement, achievementIndex) => (
+                              <div key={achievementIndex} className="flex items-start gap-2">
+                                <div className="w-1 h-1 bg-primary rounded-full mt-1.5 flex-shrink-0"></div>
+                                <p className="text-muted-foreground text-xs leading-relaxed">{achievement}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
 
-                      {/* Skills Developed */}
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-3">Core Competencies</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {activity.skills.map((skill, skillIndex) => (
-                            <span
-                              key={skillIndex}
-                              className="bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium hover:bg-primary/20 transition-colors duration-300"
-                              data-testid={`skill-${index}-${skillIndex}`}
-                            >
-                              {skill}
-                            </span>
-                          ))}
+                        {/* Skills */}
+                        <div>
+                          <h6 className="font-semibold text-foreground mb-2 text-sm">Core Competencies</h6>
+                          <div className="flex flex-wrap gap-1">
+                            {activity.skills.map((skill, skillIndex) => (
+                              <span
+                                key={skillIndex}
+                                className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs font-medium hover:bg-primary/20 transition-colors duration-300"
+                                data-testid={`skill-${index}-${skillIndex}`}
+                              >
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -374,7 +369,6 @@ export function CommunitySection() {
                 </div>
               </div>
             ))}
-          </div>
         </div>
 
         {/* Community Impact Summary */}
