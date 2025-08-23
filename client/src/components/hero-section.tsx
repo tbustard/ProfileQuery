@@ -22,23 +22,23 @@ import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 export default function HeroSection() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   return (
-    <section id="hero" className="relative overflow-hidden min-h-screen flex items-center justify-center pt-20" style={{ backgroundColor: '#f5f5f7' }}>
-      <div className="relative z-10 px-6">
-        <div className="max-w-7xl mx-auto">
+    <section id="hero" className="relative overflow-hidden min-h-screen flex flex-col items-center justify-center pt-24 pb-8" style={{ backgroundColor: '#f5f5f7' }}>
+      <div className="relative z-10 px-6 w-full">
+        <div className="max-w-7xl mx-auto space-y-8">
           
           {/* Main Hero Card */}
-          <div className="bg-white/70 backdrop-blur-[25px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-[2.5rem] p-12 lg:p-16 shadow-2xl hover:shadow-3xl transition-all duration-500"
+          <div className="bg-white/70 backdrop-blur-[25px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-[2.5rem] p-8 lg:p-12 shadow-2xl hover:shadow-3xl transition-all duration-500"
                style={{
                  backdropFilter: 'blur(25px) saturate(200%) brightness(110%)',
                  WebkitBackdropFilter: 'blur(25px) saturate(200%) brightness(110%)',
                  boxShadow: '0 20px 80px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
                }}>
             
-            <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="flex flex-col lg:flex-row items-center gap-12">
               {/* Profile Image */}
               <div className="flex-shrink-0">
                 <div className="relative">
-                  <div className="w-72 h-72 lg:w-80 lg:h-80 rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-black/5 hover:scale-105 transition-all duration-500">
+                  <div className="w-56 h-56 lg:w-64 lg:h-64 rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-black/5 hover:scale-105 transition-all duration-500">
                     <img 
                       src={profileImage} 
                       alt="Tyler Bustard professional headshot" 
@@ -50,35 +50,35 @@ export default function HeroSection() {
               </div>
 
               {/* Content */}
-              <div className="flex-1 space-y-8 text-center lg:text-left">
+              <div className="flex-1 space-y-6 text-center lg:text-left">
                 {/* Name & Title */}
-                <div className="space-y-6">
-                  <div className="space-y-3">
-                    <h1 className="text-5xl lg:text-7xl font-bold text-foreground tracking-tight leading-tight">
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <h1 className="text-4xl lg:text-6xl font-bold text-foreground tracking-tight leading-tight">
                       Tyler Bustard
                     </h1>
-                    <div className="h-1 w-20 bg-gradient-to-r from-primary to-primary/60 rounded-full mx-auto lg:mx-0" />
+                    <div className="h-1 w-16 bg-gradient-to-r from-primary to-primary/60 rounded-full mx-auto lg:mx-0" />
                   </div>
-                  <p className="text-2xl lg:text-3xl font-semibold text-primary">
+                  <p className="text-xl lg:text-2xl font-semibold text-primary">
                     Finance & Technology Professional
                   </p>
                 </div>
 
                 {/* Description */}
-                <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0">
                   Driving innovation at the intersection of finance and technology. 
                   Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
                 </p>
 
                 {/* Meet Tyler Button */}
-                <div className="flex justify-center lg:justify-start pt-4">
+                <div className="flex justify-center lg:justify-start pt-2">
                   <Button
                     onClick={() => setIsVideoOpen(true)}
-                    className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-lg"
+                    className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-base"
                     data-testid="button-meet-tyler"
                   >
-                    <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                      <Play size={16} className="ml-0.5" />
+                    <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
+                      <Play size={14} className="ml-0.5" />
                     </div>
                     Meet Tyler
                   </Button>
@@ -88,10 +88,10 @@ export default function HeroSection() {
           </div>
 
           {/* Stats/Highlights Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             
             {/* Experience Card */}
-            <div className="bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            <div className="bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
@@ -108,7 +108,7 @@ export default function HeroSection() {
             </div>
 
             {/* Education Card */}
-            <div className="bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            <div className="bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
@@ -125,7 +125,7 @@ export default function HeroSection() {
             </div>
 
             {/* Certifications Card */}
-            <div className="bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            <div className="bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
@@ -142,7 +142,7 @@ export default function HeroSection() {
             </div>
 
             {/* Community Card */}
-            <div className="bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            <div className="bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
