@@ -1,4 +1,4 @@
-import { pgTable, text, varchar, timestamp, jsonb, index } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, timestamp, jsonb, index, boolean } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
@@ -76,6 +76,27 @@ export const insertContactMessageSchema = createInsertSchema(contactMessages).pi
 
 export type UpsertUser = typeof users.$inferInsert;
 export type User = typeof users.$inferSelect;
+
+// Video storage table for introduction videos
+export const videos = pgTable("videos", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  fileName: varchar("file_name").notNull(),
+  fileUrl: varchar("file_url").notNull(),
+  isActive: boolean("is_active").notNull().default(false),
+  uploadedBy: varchar("uploaded_by").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+export const insertVideoSchema = createInsertSchema(videos).pick({
+  fileName: true,
+  fileUrl: true,
+  isActive: true,
+  uploadedBy: true,
+});
+
+export type InsertVideo = z.infer<typeof insertVideoSchema>;
+export type Video = typeof videos.$inferSelect;
 
 export type InsertSqlQuery = z.infer<typeof insertSqlQuerySchema>;
 export type SqlQuery = typeof sqlQueries.$inferSelect;

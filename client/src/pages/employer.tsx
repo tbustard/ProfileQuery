@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Upload, LogOut, FileText, Download, Eye, EyeOff } from "lucide-react";
+import { Upload, LogOut, FileText, Download, Eye, EyeOff, Video, Play } from "lucide-react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
 
 interface ResumeUpload {
   id: string;
@@ -14,11 +15,25 @@ interface ResumeUpload {
   uploadedAt: string;
 }
 
+interface VideoUpload {
+  id: string;
+  fileName: string;
+  fileUrl: string;
+  uploadedAt: string;
+  isActive: boolean;
+}
+
 function EmployerDashboard({ user }: { user: { email: string } }) {
   const { toast } = useToast();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<File | null>(null);
   const [uploads, setUploads] = useState<ResumeUpload[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  
+  // Fetch videos from API
+  const videosQuery = useQuery({
+    queryKey: ['/api/videos'],
+    staleTime: 30000, // 30 seconds
+  });
 
   // Upload mutation
   const uploadMutation = useMutation({
@@ -47,6 +62,42 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
       toast({
         title: "Upload Failed",
         description: "Failed to upload resume. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  // Video upload mutation
+  const videoUploadMutation = useMutation({
+    mutationFn: async (file: File) => {
+      const formData = new FormData();
+      formData.append('video', file);
+      formData.append('uploadedBy', user.email);
+      
+      const response = await fetch('/api/videos/upload', {
+        method: 'POST',
+        body: formData,
+      });
+      
+      if (!response.ok) {
+        throw new Error('Upload failed');
+      }
+      
+      return response.json();
+    },
+    onSuccess: (data) => {
+      toast({
+        title: "Video Upload Successful",
+        description: "Your introduction video has been uploaded and is now active!",
+      });
+      setSelectedVideo(null);
+      // Refresh videos list
+      videosQuery.refetch();
+    },
+    onError: () => {
+      toast({
+        title: "Video Upload Failed", 
+        description: "Failed to upload video. Please try again.",
         variant: "destructive",
       });
     },
@@ -86,6 +137,62 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
     }
   };
 
+  const handleVideoSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      // Validate file type (MP4, MOV, AVI, etc.)
+      const allowedTypes = ['video/mp4', 'video/mov', 'video/avi', 'video/quicktime'];
+      if (!allowedTypes.includes(file.type)) {
+        toast({
+          title: "Invalid File Type",
+          description: "Please select a MP4, MOV, or AVI video file.",
+          variant: "destructive",
+        });
+        return;
+      }
+      
+      // Validate file size (100MB limit)
+      if (file.size > 100 * 1024 * 1024) {
+        toast({
+          title: "File Too Large",
+          description: "Please select a video file smaller than 100MB.",
+          variant: "destructive",
+        });
+        return;
+      }
+      
+      setSelectedVideo(file);
+    }
+  };
+
+  const handleVideoUpload = () => {
+    if (selectedVideo) {
+      videoUploadMutation.mutate(selectedVideo);
+    }
+  };
+
+  const setActiveVideoMutation = useMutation({
+    mutationFn: async (videoId: string) => {
+      return apiRequest(`/api/videos/${videoId}/activate`, {
+        method: 'POST',
+      });
+    },
+    onSuccess: () => {
+      toast({
+        title: "Active Video Updated",
+        description: "The selected video is now active on the website.",
+      });
+      videosQuery.refetch();
+    },
+    onError: () => {
+      toast({
+        title: "Failed to Activate Video",
+        description: "Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
       <div className="container mx-auto px-4 py-8">
@@ -114,7 +221,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Upload Section */}
+          {/* Resume Upload Section */}
           <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -168,7 +275,63 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             </CardContent>
           </Card>
 
-          {/* Recent Uploads */}
+          {/* Video Upload Section */}
+          <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Video className="w-5 h-5" />
+                Upload Introduction Video
+              </CardTitle>
+              <CardDescription>
+                Upload a personal introduction video for the "Meet Tyler" button
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="video-file">Select Video File</Label>
+                <Input
+                  id="video-file"
+                  type="file"
+                  accept=".mp4,.mov,.avi"
+                  onChange={handleVideoSelect}
+                  data-testid="input-video-file"
+                  className="bg-white dark:bg-slate-900"
+                />
+                <p className="text-sm text-slate-500">
+                  Accepted formats: MP4, MOV, AVI (Max: 100MB)
+                </p>
+              </div>
+              
+              {selectedVideo && (
+                <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
+                  <p className="text-sm font-medium">Selected: {selectedVideo.name}</p>
+                  <p className="text-sm text-slate-500">
+                    {(selectedVideo.size / (1024 * 1024)).toFixed(2)} MB
+                  </p>
+                </div>
+              )}
+
+              <Button 
+                onClick={handleVideoUpload}
+                disabled={!selectedVideo || videoUploadMutation.isPending}
+                data-testid="button-upload-video"
+                className="w-full"
+              >
+                {videoUploadMutation.isPending ? (
+                  "Uploading..."
+                ) : (
+                  <>
+                    <Upload className="w-4 h-4 mr-2" />
+                    Upload Video
+                  </>
+                )}
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 mt-8">
+          {/* Recent Resume Uploads */}
           <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -215,6 +378,91 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                       >
                         <Download className="w-4 h-4" />
                       </Button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </CardContent>
+          </Card>
+
+          {/* Recent Video Uploads */}
+          <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Video className="w-5 h-5" />
+                Introduction Videos
+              </CardTitle>
+              <CardDescription>
+                Manage uploaded introduction videos
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              {videosQuery.isLoading ? (
+                <div className="space-y-3">
+                  {[...Array(2)].map((_, i) => (
+                    <div key={i} className="h-12 bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />
+                  ))}
+                </div>
+              ) : !videosQuery.data || videosQuery.data.length === 0 ? (
+                <p className="text-slate-500 text-center py-8">
+                  No videos uploaded yet. Upload your first video above!
+                </p>
+              ) : (
+                <div className="space-y-3">
+                  {videosQuery.data.map((video) => (
+                    <div 
+                      key={video.id}
+                      className={`flex items-center justify-between p-3 rounded-lg border-2 transition-all ${
+                        video.isActive 
+                          ? 'bg-primary/10 border-primary/20 dark:bg-primary/5' 
+                          : 'bg-slate-50 dark:bg-slate-900 border-transparent'
+                      }`}
+                      data-testid={`video-item-${video.id}`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="relative">
+                          <Video className="w-4 h-4 text-slate-500" />
+                          {video.isActive && (
+                            <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border border-white"></div>
+                          )}
+                        </div>
+                        <div>
+                          <p className="font-medium text-sm flex items-center gap-2">
+                            {video.fileName}
+                            {video.isActive && (
+                              <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full">
+                                Active
+                              </span>
+                            )}
+                          </p>
+                          <p className="text-xs text-slate-500">
+                            {new Date(video.createdAt).toLocaleDateString()}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {!video.isActive && (
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => setActiveVideoMutation.mutate(video.id)}
+                            disabled={setActiveVideoMutation.isPending}
+                            data-testid={`button-activate-${video.id}`}
+                            className="text-xs"
+                          >
+                            Set Active
+                          </Button>
+                        )}
+                        <Button 
+                          size="sm" 
+                          variant="ghost"
+                          onClick={() => window.open(`/api/introduction-video`, '_blank')}
+                          data-testid={`button-preview-${video.id}`}
+                          disabled={!video.isActive}
+                        >
+                          <Play className="w-4 h-4" />
+                        </Button>
+                      </div>
                     </div>
                   ))}
                 </div>

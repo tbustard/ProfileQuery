@@ -1,3 +1,7 @@
+import { useState } from "react";
+import { Play } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import VideoOverlay from "@/components/video-overlay";
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
@@ -16,6 +20,7 @@ import etsLogo from "@assets/ETS_1755939510188.png";
 import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 
 export default function HeroSection() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
   return (
     <section id="hero" className="relative overflow-hidden min-h-screen">
       {/* Clean Background */}
@@ -58,10 +63,24 @@ export default function HeroSection() {
                 </div>
                 
                 <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-8 border border-white/20 shadow-lg">
-                  <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-medium">
+                  <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-medium mb-8">
                     Driving innovation at the intersection of finance and technology. 
                     Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
                   </p>
+                  
+                  {/* Meet Tyler Button */}
+                  <div className="flex justify-center lg:justify-start">
+                    <Button
+                      onClick={() => setIsVideoOpen(true)}
+                      className="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-lg"
+                      data-testid="button-meet-tyler"
+                    >
+                      <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                        <Play size={16} className="ml-0.5" />
+                      </div>
+                      Meet Tyler
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -259,6 +278,13 @@ export default function HeroSection() {
 
         </div>
       </div>
+      
+      {/* Video Overlay */}
+      <VideoOverlay 
+        isOpen={isVideoOpen} 
+        onClose={() => setIsVideoOpen(false)}
+        videoSrc="/api/introduction-video" 
+      />
     </section>
   );
 }

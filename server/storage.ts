@@ -7,13 +7,16 @@ import {
   type UpsertUser,
   type ResumeUpload,
   type InsertResumeUpload,
+  type Video,
+  type InsertVideo,
   users,
   sqlQueries,
   contactMessages,
-  resumeUploads
+  resumeUploads,
+  videos
 } from "@shared/schema";
 import { db } from "./db";
-import { eq } from "drizzle-orm";
+import { eq, ne } from "drizzle-orm";
 import { randomUUID } from "crypto";
 
 export interface IStorage {
@@ -25,6 +28,11 @@ export interface IStorage {
   getContactMessages(): Promise<ContactMessage[]>;
   createResumeUpload(upload: InsertResumeUpload): Promise<ResumeUpload>;
   getResumeUploads(userId: string): Promise<ResumeUpload[]>;
+  createVideo(video: InsertVideo): Promise<Video>;
+  getVideos(): Promise<Video[]>;
+  getActiveVideo(): Promise<Video | undefined>;
+  setActiveVideo(id: string): Promise<void>;
+  deactivateOtherVideos(activeId: string): Promise<void>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -82,6 +90,34 @@ export class DatabaseStorage implements IStorage {
 
   async getResumeUploads(userId: string): Promise<ResumeUpload[]> {
     return await db.select().from(resumeUploads).where(eq(resumeUploads.userId, userId));
+  }
+
+  async createVideo(insertVideo: InsertVideo): Promise<Video> {
+    const [video] = await db
+      .insert(videos)
+      .values(insertVideo)
+      .returning();
+    return video;
+  }
+
+  async getVideos(): Promise<Video[]> {
+    return await db.select().from(videos).orderBy(videos.createdAt);
+  }
+
+  async getActiveVideo(): Promise<Video | undefined> {
+    const [video] = await db.select().from(videos).where(eq(videos.isActive, true));
+    return video;
+  }
+
+  async setActiveVideo(id: string): Promise<void> {
+    // Deactivate all videos first
+    await db.update(videos).set({ isActive: false });
+    // Activate the selected video
+    await db.update(videos).set({ isActive: true }).where(eq(videos.id, id));
+  }
+
+  async deactivateOtherVideos(activeId: string): Promise<void> {
+    await db.update(videos).set({ isActive: false }).where(ne(videos.id, activeId));
   }
 }
 

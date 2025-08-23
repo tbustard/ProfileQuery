@@ -1,12 +1,37 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertSqlQuerySchema, insertContactMessageSchema } from "@shared/schema";
+import { insertSqlQuerySchema, insertContactMessageSchema, insertVideoSchema } from "@shared/schema";
 import OpenAI from "openai";
+import multer from "multer";
+import path from "path";
+import fs from "fs";
 
 const openai = new OpenAI({ 
   apiKey: process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY_ENV_VAR || "default_key" 
 });
+
+// Configure multer for video uploads
+const upload = multer({
+  dest: 'uploads/videos/',
+  limits: {
+    fileSize: 100 * 1024 * 1024, // 100MB limit
+  },
+  fileFilter: (req, file, cb) => {
+    const allowedMimes = ['video/mp4', 'video/quicktime', 'video/avi'];
+    if (allowedMimes.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error('Invalid file type. Only MP4, MOV, and AVI are allowed.'));
+    }
+  },
+});
+
+// Ensure upload directories exist
+const uploadDir = 'uploads/videos/';
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // SQL Translation endpoint
@@ -88,6 +113,118 @@ Focus on investment analysis, portfolio management, and financial reporting quer
     }
   });
 
+  // Video upload endpoint
+  app.post("/api/videos/upload", upload.single('video'), async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: "No video file provided" });
+      }
+
+      const { uploadedBy = 'admin' } = req.body;
+      
+      // Create video record in storage
+      const video = await storage.createVideo({
+        fileName: req.file.originalname,
+        fileUrl: `/uploads/videos/${req.file.filename}`,
+        isActive: true, // Set new video as active by default
+        uploadedBy
+      });
+
+      // Mark all other videos as inactive
+      await storage.deactivateOtherVideos(video.id);
+
+      res.json({ 
+        success: true, 
+        video,
+        message: "Video uploaded and set as active"
+      });
+
+    } catch (error) {
+      console.error("Video upload error:", error);
+      res.status(500).json({ error: "Failed to upload video" });
+    }
+  });
+
+  // Get active introduction video
+  app.get("/api/introduction-video", async (req, res) => {
+    try {
+      const activeVideo = await storage.getActiveVideo();
+      
+      if (!activeVideo) {
+        return res.status(404).json({ error: "No active video found" });
+      }
+
+      const videoPath = path.join(process.cwd(), activeVideo.fileUrl.replace(/^\//, ''));
+      
+      if (!fs.existsSync(videoPath)) {
+        return res.status(404).json({ error: "Video file not found" });
+      }
+
+      // Stream video file
+      const stat = fs.statSync(videoPath);
+      const fileSize = stat.size;
+      const range = req.headers.range;
+
+      if (range) {
+        const parts = range.replace(/bytes=/, "").split("-");
+        const start = parseInt(parts[0], 10);
+        const end = parts[1] ? parseInt(parts[1], 10) : fileSize - 1;
+        
+        const chunksize = (end - start) + 1;
+        const file = fs.createReadStream(videoPath, { start, end });
+        
+        const head = {
+          'Content-Range': `bytes ${start}-${end}/${fileSize}`,
+          'Accept-Ranges': 'bytes',
+          'Content-Length': chunksize,
+          'Content-Type': 'video/mp4',
+        };
+        
+        res.writeHead(206, head);
+        file.pipe(res);
+      } else {
+        const head = {
+          'Content-Length': fileSize,
+          'Content-Type': 'video/mp4',
+        };
+        
+        res.writeHead(200, head);
+        fs.createReadStream(videoPath).pipe(res);
+      }
+    } catch (error) {
+      console.error("Error serving video:", error);
+      res.status(500).json({ error: "Failed to serve video" });
+    }
+  });
+
+  // Get video thumbnail (placeholder endpoint)
+  app.get("/api/video-thumbnail", async (req, res) => {
+    // For now, return a simple response or generate a thumbnail
+    res.status(204).end(); // No content - could implement thumbnail generation
+  });
+
+  // Get all videos
+  app.get("/api/videos", async (req, res) => {
+    try {
+      const videos = await storage.getVideos();
+      res.json(videos);
+    } catch (error) {
+      console.error("Get videos error:", error);
+      res.status(500).json({ error: "Failed to fetch videos" });
+    }
+  });
+
+  // Set active video
+  app.post("/api/videos/:id/activate", async (req, res) => {
+    try {
+      const { id } = req.params;
+      await storage.setActiveVideo(id);
+      res.json({ success: true, message: "Video activated successfully" });
+    } catch (error) {
+      console.error("Activate video error:", error);
+      res.status(500).json({ error: "Failed to activate video" });
+    }
+  });
 
   const httpServer = createServer(app);
   return httpServer;
