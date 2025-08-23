@@ -259,20 +259,23 @@ export function CommunitySection() {
 
         {/* Community Activities Timeline */}
         <div className="relative">
-          {/* Modern Apple-style Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/40 to-transparent hidden md:block"></div>
-          <div className="absolute left-7.5 top-0 bottom-0 w-0.5 bg-white/30 backdrop-blur-sm rounded-full shadow-inner hidden md:block"></div>
+          {/* Enhanced Apple Timeline Line */}
+          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/60 via-primary/80 via-primary/60 to-transparent hidden md:block shadow-sm"></div>
+          <div className="absolute left-7 top-0 bottom-0 w-1 bg-gradient-to-b from-white/40 via-white/60 to-white/40 backdrop-blur-xl rounded-full shadow-2xl border border-white/30 hidden md:block"></div>
+          <div className="absolute left-7.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/20 via-primary/40 to-primary/20 rounded-full hidden md:block"></div>
           
           <div className="space-y-16">
             {communityActivities.map((activity, index) => (
               <div key={index} className="relative" data-testid={`community-activity-${index}`}>
-                {/* Enhanced Apple-style Timeline Marker */}
-                <div className="absolute left-5 w-6 h-6 rounded-full border-2 border-white bg-gradient-to-br from-white/90 to-white/70 shadow-lg hidden md:block backdrop-blur-sm">
-                  <div className="absolute inset-1 rounded-full bg-primary shadow-inner"></div>
+                {/* Premium Apple Timeline Marker */}
+                <div className="absolute left-4 w-8 h-8 rounded-full border-2 border-white/60 bg-gradient-to-br from-white/95 via-white/85 to-white/75 shadow-2xl hidden md:block backdrop-blur-xl">
+                  <div className="absolute inset-0.5 rounded-full bg-gradient-to-br from-primary/90 to-primary shadow-inner"></div>
+                  <div className="absolute inset-1 rounded-full bg-gradient-to-br from-white/30 to-transparent"></div>
+                  <div className="absolute top-1 left-1 w-2 h-2 rounded-full bg-white/60 blur-sm"></div>
                 </div>
                 
                 {/* Content */}
-                <div className="md:ml-20">
+                <div className="md:ml-24">
                   <div className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group">
                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="relative p-8">
