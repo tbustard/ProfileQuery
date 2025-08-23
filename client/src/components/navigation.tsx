@@ -51,19 +51,17 @@ export default function Navigation() {
       >
         <div className="container-width">
           <div className="flex justify-between items-center py-5">
-            {/* Animated Profile Section - drifts to left upper corner */}
+            {/* Animated Profile Section - appears only when scrolling */}
             <div 
               className={`flex items-center transition-all duration-700 ease-out ${
-                isScrolled ? 'translate-x-0' : 'translate-x-0'
+                isScrolled ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
               }`}
             >
-              {/* Profile Image - appears and scales when scrolled */}
+              {/* Profile Image - slides in from right when scrolled */}
               <div 
-                className={`relative transition-all duration-700 ease-out mr-4 ${
-                  isScrolled ? 'opacity-100 scale-100' : 'opacity-0 scale-50'
-                }`}
+                className="relative transition-all duration-700 ease-out mr-4"
                 style={{
-                  transform: `scale(${isScrolled ? 1 : 0.5}) translateX(${isScrolled ? 0 : 20}px)`,
+                  transform: `translateX(${isScrolled ? 0 : 30}px) scale(${isScrolled ? 1 : 0.8})`,
                   opacity: isScrolled ? 1 : 0,
                 }}
               >
@@ -74,22 +72,18 @@ export default function Navigation() {
                 />
               </div>
               
-              {/* Name - animates and scales */}
+              {/* Name - slides in from center when scrolled */}
               <div 
                 className="transition-all duration-700 ease-out"
                 style={{
-                  transform: `scale(${isScrolled ? 0.9 : 1}) translateX(${isScrolled ? -10 : 0}px)`,
-                  opacity: isScrolled ? 1 : 0.95,
+                  transform: `translateX(${isScrolled ? 0 : -20}px) translateY(${isScrolled ? 0 : 10}px)`,
+                  opacity: isScrolled ? 1 : 0,
                 }}
               >
-                <span className={`font-bold transition-all duration-700 ease-out ${
-                  isScrolled 
-                    ? 'text-lg text-foreground' 
-                    : 'text-xl text-foreground'
-                }`}>
+                <span className="text-lg font-bold text-foreground transition-all duration-700 ease-out">
                   Tyler Bustard
                 </span>
-                <div className={`text-xs text-muted-foreground font-medium transition-all duration-500 ${
+                <div className={`text-xs text-muted-foreground font-medium transition-all duration-500 delay-300 ${
                   isScrolled ? 'opacity-100 max-h-4' : 'opacity-0 max-h-0'
                 }`}>
                   Equity Analyst
