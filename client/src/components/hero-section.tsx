@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { HiOutlineMail } from "react-icons/hi";
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
@@ -18,13 +16,6 @@ import etsLogo from "@assets/ETS_1755939510188.png";
 import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 
 export default function HeroSection() {
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section id="hero" className="relative overflow-hidden min-h-screen">
       {/* Clean Background */}
@@ -62,20 +53,10 @@ export default function HeroSection() {
                   {/* Credentials */}
                 </div>
                 
-                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
                   Driving innovation at the intersection of finance and technology. 
                   Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
                 </p>
-                
-                <Button 
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white text-lg px-10 py-4 rounded-2xl font-semibold transition-all duration-300 hover:shadow-lg hover:scale-105"
-                  onClick={() => scrollToSection("#contact")}
-                  data-testid="button-contact"
-                >
-                  <HiOutlineMail className="mr-3 h-5 w-5" />
-                  Contact
-                </Button>
               </div>
             </div>
           </div>
