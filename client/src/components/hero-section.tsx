@@ -101,7 +101,7 @@ export default function HeroSection() {
                    animationDelay: '0.5s'
                  }}>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative">
                   <img src={unbLogo} alt="Education" className="w-6 h-6 object-contain" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">Education</h3>
@@ -137,8 +137,13 @@ export default function HeroSection() {
                    animationDelay: '0.7s'
                  }}>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <img src={cfaLogo} alt="Certifications" className="w-6 h-6 object-contain" />
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative">
+                  {/* Three most recent certification logos stacked */}
+                  <div className="flex relative w-8 h-8">
+                    <img src={cfaLogo} alt="CFA Institute" className="w-4 h-4 object-contain absolute left-0 top-0 bg-white rounded-full p-0.5 shadow-sm border border-white/20" />
+                    <img src={trainingTheStreetLogo} alt="Training the Street" className="w-4 h-4 object-contain absolute left-2 top-1 bg-white rounded-full p-0.5 shadow-sm border border-white/20" />
+                    <img src={etsLogo} alt="ETS" className="w-4 h-4 object-contain absolute left-4 top-2 bg-white rounded-full p-0.5 shadow-sm border border-white/20" />
+                  </div>
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">Certifications</h3>
               </div>
@@ -155,8 +160,13 @@ export default function HeroSection() {
                    animationDelay: '0.8s'
                  }}>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <img src={unitedWayLogo} alt="Community" className="w-6 h-6 object-contain" />
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative">
+                  {/* Three most recent community logos stacked */}
+                  <div className="flex relative w-8 h-8">
+                    <img src={unitedWayLogo} alt="United Way" className="w-4 h-4 object-contain absolute left-0 top-0 bg-white rounded-full p-0.5 shadow-sm border border-white/20" />
+                    <img src={rbcLogo} alt="RBC" className="w-4 h-4 object-contain absolute left-2 top-1 bg-white rounded-full p-0.5 shadow-sm border border-white/20" />
+                    <img src={irvingLogo} alt="Irving Oil" className="w-4 h-4 object-contain absolute left-4 top-2 bg-white rounded-full p-0.5 shadow-sm border border-white/20" />
+                  </div>
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">Community</h3>
               </div>
