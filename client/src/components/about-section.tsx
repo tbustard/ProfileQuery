@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Trophy, Award, GraduationCap } from "lucide-react";
-import universityLogo from "@assets/image_1755912326819.png";
+import universityLogo from "@assets/University_of_New_Brunswick_Logo.svg_1755912478863.png";
 
 export default function EducationSection() {
   const education = {
