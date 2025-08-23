@@ -120,7 +120,7 @@ export default function CertificationsSection() {
         <div className="mb-24">
           <div className="space-y-12">
             {certificationCategories.map((category, categoryIndex) => (
-              <div key={categoryIndex} className="relative overflow-hidden">
+              <div key={categoryIndex} id={`certifications-${category.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} className="relative overflow-hidden">
                 {/* Modern Category Container */}
                 <div className="bg-white/95 backdrop-blur-xl rounded-[32px] border border-white/20 shadow-[0_20px_40px_-12px_rgba(0,0,0,0.25),0_0_0_1px_rgba(255,255,255,0.05)] hover:shadow-[0_30px_50px_-12px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.05)] overflow-hidden transition-all duration-500 hover:scale-[1.01]">
                   {/* Category Header with gradient */}
@@ -303,7 +303,7 @@ export function CommunitySection() {
           
           <div className="space-y-16">
             {communityActivities.map((activity, index) => (
-              <div key={index} className="relative" data-testid={`community-activity-${index}`}>
+              <div key={index} id={`community-${activity.organization.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} className="relative" data-testid={`community-activity-${index}`}>
                 {/* Beautiful Timeline Marker */}
                 <div className="absolute left-5 w-6 h-6 rounded-full bg-gradient-to-br from-white to-gray-50 border border-gray-200/60 shadow-[0_2px_8px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.12)] hidden md:block backdrop-blur-sm">
                   <div className="absolute inset-1 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 shadow-inner"></div>

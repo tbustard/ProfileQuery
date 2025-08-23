@@ -189,7 +189,7 @@ export default function Navigation() {
                   <div className="p-2 max-h-80 overflow-y-auto">
                     {/* Individual Experience Items */}
                     <button 
-                      onClick={() => scrollToSection('#experience')}
+                      onClick={() => scrollToSection('#experience-bmo-private-wealth')}
                       className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
                     >
                       <div className="font-semibold text-gray-900 text-base mb-1">BMO Private Wealth</div>
@@ -197,7 +197,7 @@ export default function Navigation() {
                     </button>
                     
                     <button 
-                      onClick={() => scrollToSection('#experience')}
+                      onClick={() => scrollToSection('#experience-td-canada-trust')}
                       className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
                     >
                       <div className="font-semibold text-gray-900 text-base mb-1">TD Canada Trust</div>
@@ -205,7 +205,7 @@ export default function Navigation() {
                     </button>
                     
                     <button 
-                      onClick={() => scrollToSection('#experience')}
+                      onClick={() => scrollToSection('#experience-royal-bank-of-canada')}
                       className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
                     >
                       <div className="font-semibold text-gray-900 text-base mb-1">RBC Banking Advisor</div>
@@ -213,7 +213,7 @@ export default function Navigation() {
                     </button>
                     
                     <button 
-                      onClick={() => scrollToSection('#experience')}
+                      onClick={() => scrollToSection('#experience-royal-bank-of-canada')}
                       className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
                     >
                       <div className="font-semibold text-gray-900 text-base mb-1">RBC Client Advisor</div>
@@ -221,7 +221,7 @@ export default function Navigation() {
                     </button>
                     
                     <button 
-                      onClick={() => scrollToSection('#experience')}
+                      onClick={() => scrollToSection('#experience-irving-oil-limited')}
                       className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
                     >
                       <div className="font-semibold text-gray-900 text-base mb-1">Irving Oil Limited</div>
@@ -229,7 +229,7 @@ export default function Navigation() {
                     </button>
                     
                     <button 
-                      onClick={() => scrollToSection('#experience')}
+                      onClick={() => scrollToSection('#experience-grant-thornton-llp')}
                       className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
                     >
                       <div className="font-semibold text-gray-900 text-base mb-1">Grant Thornton LLP</div>
@@ -254,65 +254,65 @@ export default function Navigation() {
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="p-2 max-h-80 overflow-y-auto">
                     {/* Financial Excellence Category */}
-                    <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30">Financial Excellence</div>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-financial-excellence')} className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 hover:bg-gray-50/50 transition-colors w-full text-left rounded-lg">Financial Excellence</button>
+                    <button onClick={() => scrollToSection('#certifications-financial-excellence')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">CFA Level I Candidate</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-financial-excellence')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">Discounted Cash Flow Analysis</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-financial-excellence')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">Financial Planning 1</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-financial-excellence')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">Certificate in Financial Services Advice</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-financial-excellence')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">Canadian Securities Course</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-financial-excellence')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">Financial & Valuation Modeling</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-financial-excellence')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">Bloomberg Market Concepts Certificate</div>
                     </button>
                     
                     {/* Data & Technology Category */}
-                    <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 mt-3">Data & Technology</div>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-data---technology')} className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 mt-3 hover:bg-gray-50/50 transition-colors w-full text-left rounded-lg">Data & Technology</button>
+                    <button onClick={() => scrollToSection('#certifications-data---technology')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">Data Analytics Professional</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-data---technology')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">Data Visualization with Tableau</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-data---technology')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">Python for Everybody</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-data---technology')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">Machine Learning</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-data---technology')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">SQL for Data Science</div>
                     </button>
                     
                     {/* Advanced Analytics Category */}
-                    <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 mt-3">Advanced Analytics</div>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-advanced-analytics')} className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 mt-3 hover:bg-gray-50/50 transition-colors w-full text-left rounded-lg">Advanced Analytics</button>
+                    <button onClick={() => scrollToSection('#certifications-advanced-analytics')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">Econometrics: Methods & Applications</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-advanced-analytics')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">Matrix Algebra for Engineers</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-advanced-analytics')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">Introduction to Calculus</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-advanced-analytics')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">Inferential Statistics</div>
                     </button>
                     
                     {/* Academic Achievement Category */}
-                    <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 mt-3">Academic Achievement</div>
-                    <button onClick={() => scrollToSection('#certifications')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
+                    <button onClick={() => scrollToSection('#certifications-academic-achievement')} className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 mt-3 hover:bg-gray-50/50 transition-colors w-full text-left rounded-lg">Academic Achievement</button>
+                    <button onClick={() => scrollToSection('#certifications-academic-achievement')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
                       <div className="text-sm text-gray-700">GRE General Test</div>
                     </button>
                   </div>
@@ -334,7 +334,7 @@ export default function Navigation() {
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="p-2 max-h-80 overflow-y-auto">
                     <button 
-                      onClick={() => scrollToSection('#community')}
+                      onClick={() => scrollToSection('#community-united-way')}
                       className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
                     >
                       <div className="font-semibold text-gray-900 text-base mb-1">United Way</div>
@@ -342,7 +342,7 @@ export default function Navigation() {
                     </button>
                     
                     <button 
-                      onClick={() => scrollToSection('#community')}
+                      onClick={() => scrollToSection('#community-royal-bank-of-canada')}
                       className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
                     >
                       <div className="font-semibold text-gray-900 text-base mb-1">Royal Bank of Canada</div>
@@ -350,7 +350,7 @@ export default function Navigation() {
                     </button>
                     
                     <button 
-                      onClick={() => scrollToSection('#community')}
+                      onClick={() => scrollToSection('#community-irving-oil-limited')}
                       className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
                     >
                       <div className="font-semibold text-gray-900 text-base mb-1">Irving Oil Limited</div>
@@ -376,7 +376,7 @@ export default function Navigation() {
                   <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     <div className="p-2">
                       <button 
-                        onClick={() => scrollToSection('#contact')}
+                        onClick={() => scrollToSection('#contact-email')}
                         className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
                       >
                         <div className="font-semibold text-gray-900 text-base mb-1">Email</div>
@@ -384,7 +384,7 @@ export default function Navigation() {
                       </button>
                       
                       <button 
-                        onClick={() => scrollToSection('#contact')}
+                        onClick={() => scrollToSection('#contact-phone')}
                         className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
                       >
                         <div className="font-semibold text-gray-900 text-base mb-1">Phone</div>
@@ -392,7 +392,7 @@ export default function Navigation() {
                       </button>
                       
                       <button 
-                        onClick={() => scrollToSection('#contact')}
+                        onClick={() => scrollToSection('#contact-location')}
                         className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
                       >
                         <div className="font-semibold text-gray-900 text-base mb-1">Location</div>

@@ -82,7 +82,7 @@ export default function ContactSection() {
         {/* Contact Cards Grid - Apple-style asymmetrical layout */}
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           {contactInfo.map((info, index) => (
-            <Card key={index} className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] text-center" data-testid={`contact-card-${index}`}>
+            <Card key={index} id={`contact-${info.label.toLowerCase()}`} className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] text-center" data-testid={`contact-card-${index}`}>
               <CardContent className="p-10">
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                   <info.icon className="w-8 h-8 text-primary" />
