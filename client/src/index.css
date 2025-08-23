@@ -440,6 +440,154 @@
     -webkit-backdrop-filter: blur(8px);
   }
   
+  /* Advanced Liquid Glass Effects for Overview Section Only */
+  .overview-liquid-glass {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    filter: url(#liquid-glass-filter);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      0 1px 2px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+  }
+  
+  .overview-liquid-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg, 
+      rgba(255, 255, 255, 0.4) 0%, 
+      rgba(255, 255, 255, 0.1) 25%, 
+      rgba(255, 255, 255, 0.05) 50%, 
+      rgba(255, 255, 255, 0.1) 75%, 
+      rgba(255, 255, 255, 0.3) 100%
+    );
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  
+  .overview-liquid-glass::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.3),
+      transparent,
+      rgba(255, 255, 255, 0.3)
+    );
+    border-radius: 22px;
+    z-index: -1;
+    animation: glassPulse 3s ease-in-out infinite;
+  }
+  
+  .overview-liquid-glass > * {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .overview-liquid-glass:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 16px 48px rgba(0, 0, 0, 0.15),
+      0 4px 12px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .overview-liquid-glass:hover::before {
+    opacity: 1;
+  }
+  
+  .overview-profile-glass {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    filter: url(#liquid-glass-filter);
+    box-shadow: 
+      0 12px 40px rgba(0, 0, 0, 0.15),
+      0 2px 8px rgba(0, 0, 0, 0.1),
+      inset 0 2px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+  }
+  
+  .overview-profile-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.2) 30%,
+      rgba(255, 255, 255, 0.1) 60%,
+      transparent 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .overview-profile-glass > * {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .overview-profile-glass:hover {
+    transform: scale(1.02) rotateY(5deg);
+    box-shadow: 
+      0 20px 60px rgba(0, 0, 0, 0.2),
+      0 4px 16px rgba(0, 0, 0, 0.15),
+      inset 0 2px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .overview-credential-glass {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    filter: url(#liquid-glass-filter);
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  
+  .overview-credential-glass:hover {
+    transform: scale(1.05) translateY(-2px);
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 
+      0 8px 24px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+  
   /* Spring-like animations for mobile responsiveness */
   @media (max-width: 768px) {
     .apple-card:hover {
@@ -453,6 +601,27 @@
     .apple-button-primary:hover,
     .apple-button-secondary:hover {
       transform: scale(1.02);
+    }
+    
+    /* Overview Section Mobile Optimizations */
+    .overview-liquid-glass:hover {
+      transform: scale(1.02);
+    }
+    
+    .overview-profile-glass:hover {
+      transform: scale(1.01);
+    }
+    
+    .overview-credential-glass:hover {
+      transform: scale(1.02) translateY(-1px);
+    }
+    
+    /* Reduce filter intensity on mobile for performance */
+    .overview-liquid-glass,
+    .overview-profile-glass,
+    .overview-credential-glass {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
   }
   
@@ -487,5 +656,28 @@
   }
   50% {
     box-shadow: 0 6px 20px 0 rgba(0, 118, 255, 0.5);
+  }
+}
+
+@keyframes glassPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes liquidFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
