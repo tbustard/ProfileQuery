@@ -250,7 +250,7 @@ export default function HeroSection() {
                   {/* Community Quadrant */}
                   <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 hover:shadow-lg transition-all duration-300">
                     <div className="space-y-4">
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 flex-wrap">
                         <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
                           <img src={unitedWayLogo} alt="United Way Logo" className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110" />
                         </div>
@@ -258,6 +258,13 @@ export default function HeroSection() {
                           <img
                             src={rbcLogo}
                             alt="RBC Community Logo"
+                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                          />
+                        </div>
+                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                          <img
+                            src={irvingLogo}
+                            alt="Irving Oil Community Logo"
                             className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
                           />
                         </div>
