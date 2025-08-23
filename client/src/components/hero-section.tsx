@@ -69,23 +69,23 @@ export default function HeroSection() {
           </div>
 
           {/* Profile Image Section - Apple's visual hierarchy */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+          <div className="order-1 lg:order-2 flex justify-center">
             <div className="relative">
               {/* Profile container with Apple styling */}
               <div className="relative">
-                <div className="w-80 h-80 rounded-3xl overflow-hidden apple-card border-0 shadow-2xl">
+                <div className="w-72 h-72 rounded-3xl overflow-hidden apple-card border-0 shadow-2xl">
                   <img 
                     src={profileImage} 
                     alt="Tyler Bustard professional headshot" 
-                    className="w-full h-full object-cover apple-hover"
+                    className="w-full h-full object-cover object-center apple-hover"
                     data-testid="img-profile"
                   />
                 </div>
                 
                 {/* Floating achievement badge - Apple style */}
-                <div className="absolute -bottom-6 -right-6 apple-card border-0 p-4 shadow-lg">
+                <div className="absolute -bottom-4 -right-4 apple-card border-0 p-3 shadow-lg">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-primary mb-1">CFA</div>
+                    <div className="text-lg font-bold text-primary mb-1">CFA</div>
                     <div className="body-text text-muted-foreground text-xs">Level I</div>
                   </div>
                 </div>
