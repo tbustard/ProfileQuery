@@ -119,8 +119,19 @@ export default function HeroSection() {
                    animationDelay: '0.6s'
                  }}>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <img src={bmoLogo} alt="Experience" className="w-6 h-6 object-contain" />
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
+                  {/* Three most recent experience logos stacked */}
+                  <div className="flex relative">
+                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-30">
+                      <img src={bmoLogo} alt="BMO" className="w-4 h-4 object-contain" />
+                    </div>
+                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-20 -ml-2">
+                      <img src={tdLogo} alt="TD" className="w-4 h-4 object-contain" />
+                    </div>
+                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-10 -ml-2">
+                      <img src={rbcLogo} alt="RBC" className="w-4 h-4 object-contain" />
+                    </div>
+                  </div>
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">Experience</h3>
               </div>
@@ -137,12 +148,18 @@ export default function HeroSection() {
                    animationDelay: '0.7s'
                  }}>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent certification logos stacked */}
-                  <div className="flex relative w-8 h-8">
-                    <img src={cfaLogo} alt="CFA Institute" className="w-4 h-4 object-contain absolute left-0 top-0 bg-white rounded-full p-0.5 shadow-sm border border-white/20" />
-                    <img src={trainingTheStreetLogo} alt="Training the Street" className="w-4 h-4 object-contain absolute left-2 top-1 bg-white rounded-full p-0.5 shadow-sm border border-white/20" />
-                    <img src={etsLogo} alt="ETS" className="w-4 h-4 object-contain absolute left-4 top-2 bg-white rounded-full p-0.5 shadow-sm border border-white/20" />
+                  <div className="flex relative">
+                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-30">
+                      <img src={cfaLogo} alt="CFA" className="w-4 h-4 object-contain" />
+                    </div>
+                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-20 -ml-2">
+                      <img src={trainingTheStreetLogo} alt="Training the Street" className="w-4 h-4 object-contain" />
+                    </div>
+                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-10 -ml-2">
+                      <img src={etsLogo} alt="ETS" className="w-4 h-4 object-contain" />
+                    </div>
                   </div>
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">Certifications</h3>
@@ -160,12 +177,18 @@ export default function HeroSection() {
                    animationDelay: '0.8s'
                  }}>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent community logos stacked */}
-                  <div className="flex relative w-8 h-8">
-                    <img src={unitedWayLogo} alt="United Way" className="w-4 h-4 object-contain absolute left-0 top-0 bg-white rounded-full p-0.5 shadow-sm border border-white/20" />
-                    <img src={rbcLogo} alt="RBC" className="w-4 h-4 object-contain absolute left-2 top-1 bg-white rounded-full p-0.5 shadow-sm border border-white/20" />
-                    <img src={irvingLogo} alt="Irving Oil" className="w-4 h-4 object-contain absolute left-4 top-2 bg-white rounded-full p-0.5 shadow-sm border border-white/20" />
+                  <div className="flex relative">
+                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-30">
+                      <img src={unitedWayLogo} alt="United Way" className="w-4 h-4 object-contain" />
+                    </div>
+                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-20 -ml-2">
+                      <img src={rbcLogo} alt="RBC" className="w-4 h-4 object-contain" />
+                    </div>
+                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-10 -ml-2">
+                      <img src={irvingLogo} alt="Irving Oil" className="w-4 h-4 object-contain" />
+                    </div>
                   </div>
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">Community</h3>
