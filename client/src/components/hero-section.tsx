@@ -17,19 +17,33 @@ export default function HeroSection() {
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary/2 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       
       <div className="container-width relative z-10">
+        {/* Mobile Profile Image - Displayed First on Mobile */}
+        <div className="lg:hidden mb-8 flex justify-center">
+          <div className="w-64 h-64 relative">
+            <div className="aspect-square rounded-3xl overflow-hidden apple-card border-0 shadow-2xl">
+              <img 
+                src={profileImage} 
+                alt="Tyler Bustard professional headshot" 
+                className="w-full h-full object-cover object-center apple-hover"
+                data-testid="img-profile"
+              />
+            </div>
+          </div>
+        </div>
+
         <div className="grid lg:grid-cols-5 gap-12 items-start">
           {/* Main Content Section */}
           <div className="lg:col-span-3 space-y-8">
             {/* Hero Header */}
-            <div className="space-y-6">
+            <div className="space-y-6 text-center lg:text-left">
               <div>
-                <h1 className="text-6xl font-bold text-foreground mb-4 tracking-tight leading-none">
+                <h1 className="text-4xl sm:text-6xl font-bold text-foreground mb-4 tracking-tight leading-none">
                   Tyler Bustard
                 </h1>
-                <p className="text-2xl font-semibold text-primary mb-4">
+                <p className="text-xl sm:text-2xl font-semibold text-primary mb-4">
                   Finance & Technology Professional
                 </p>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
                   <div className="inline-flex items-center bg-primary/10 rounded-full px-4 py-2">
                     <div className="w-2 h-2 bg-primary rounded-full mr-2"></div>
                     <span className="text-sm font-semibold text-primary">CFA Level I Candidate</span>
@@ -41,7 +55,7 @@ export default function HeroSection() {
                 </div>
               </div>
               
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
                 Driving innovation at the intersection of finance and technology. 
                 Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
               </p>
@@ -119,7 +133,7 @@ export default function HeroSection() {
             </div>
 
             {/* CTA Section */}
-            <div className="pt-4">
+            <div className="pt-4 flex justify-center lg:justify-start">
               <Button 
                 size="lg"
                 className="apple-button-primary text-lg px-8 py-4"
