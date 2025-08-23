@@ -89,17 +89,18 @@ export default function Navigation() {
 
   return (
     <>
-      {/* Apple-style Liquid Glass Navigation Bar */}
+      {/* Apple Liquid Glass Navigation Bar */}
       <nav 
         className={`fixed top-0 w-full z-50 transition-all duration-700 ease-out ${
           isScrolled 
-            ? 'bg-white/10 backdrop-blur-[25px] backdrop-saturate-[200%] backdrop-brightness-[110%] border-b border-white/20 shadow-2xl' 
+            ? 'bg-white/15 backdrop-blur-[30px] backdrop-saturate-[180%] backdrop-brightness-[120%] border-b border-white/25 shadow-2xl' 
             : 'bg-transparent'
         }`}
         style={{
-          backdropFilter: isScrolled ? 'blur(25px) saturate(200%) brightness(110%)' : 'none',
-          WebkitBackdropFilter: isScrolled ? 'blur(25px) saturate(200%) brightness(110%)' : 'none',
-          boxShadow: isScrolled ? '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)' : 'none',
+          backdropFilter: isScrolled ? 'blur(30px) saturate(180%) brightness(120%)' : 'none',
+          WebkitBackdropFilter: isScrolled ? 'blur(30px) saturate(180%) brightness(120%)' : 'none',
+          boxShadow: isScrolled ? '0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.05)' : 'none',
+          background: isScrolled ? 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.1) 100%)' : 'transparent',
         }}
       >
         <div className="container-width">
@@ -159,15 +160,23 @@ export default function Navigation() {
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#education') : undefined}
-                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
+                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
+                    currentSection === 'education'
+                      ? 'text-foreground bg-white/20 backdrop-blur-sm border border-white/30 shadow-sm'
+                      : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
+                  }`}
                   data-testid="nav-education"
                 >
                   Education
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                {/* Apple-style Dropdown */}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-80 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                {/* Apple Liquid Glass Dropdown */}
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-80 bg-white/20 backdrop-blur-[25px] backdrop-saturate-[180%] border border-white/30 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%)',
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
+                  }}>
                   <div className="p-2">
                     <button 
                       onClick={() => scrollToSection('#education')}
@@ -184,7 +193,11 @@ export default function Navigation() {
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#experience') : undefined}
-                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
+                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
+                    currentSection === 'experience'
+                      ? 'text-foreground bg-white/20 backdrop-blur-sm border border-white/30 shadow-sm'
+                      : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
+                  }`}
                   data-testid="nav-experience"
                 >
                   Experience
@@ -250,7 +263,11 @@ export default function Navigation() {
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#certifications') : undefined}
-                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
+                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
+                    currentSection === 'certifications'
+                      ? 'text-foreground bg-white/20 backdrop-blur-sm border border-white/30 shadow-sm'
+                      : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
+                  }`}
                   data-testid="nav-certifications"
                 >
                   Certifications
@@ -367,7 +384,11 @@ export default function Navigation() {
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#community') : undefined}
-                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
+                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
+                    currentSection === 'community'
+                      ? 'text-foreground bg-white/20 backdrop-blur-sm border border-white/30 shadow-sm'
+                      : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
+                  }`}
                   data-testid="nav-community"
                 >
                   Community
@@ -409,7 +430,11 @@ export default function Navigation() {
                 <div className="relative group">
                   <button
                     onClick={() => scrollToSection('#contact')}
-                    className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
+                    className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
+                      currentSection === 'contact'
+                        ? 'text-foreground bg-white/20 backdrop-blur-sm border border-white/30 shadow-sm'
+                        : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
+                    }`}
                     data-testid="nav-contact"
                   >
                     Contact
