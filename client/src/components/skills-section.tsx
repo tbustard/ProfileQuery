@@ -86,7 +86,6 @@ export default function CertificationsSection() {
           institution: "ETS", 
           description: "Standardized test measuring verbal reasoning, quantitative reasoning, and analytical writing skills for graduate school admission.",
           highlight: true,
-          percentile: "Verbal: 77th | Quant: 94th | Writing: 56th",
           logoSrc: etsLogo
         }
       ]
