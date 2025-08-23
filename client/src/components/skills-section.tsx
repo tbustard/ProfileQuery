@@ -85,7 +85,7 @@ export default function CertificationsSection() {
     <section id="certifications" className="apple-section-alt">
       <div className="container-width">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <h2 className="large-title text-foreground mb-4">
             Professional Certifications
           </h2>

@@ -66,10 +66,10 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="apple-section-alt">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-16">
+      <div className="container-width">
+        <div className="text-center mb-20">
           <h2 className="large-title text-foreground mb-4">Get In Touch</h2>
-          <p className="callout text-secondary max-w-2xl mx-auto">
+          <p className="callout text-muted-foreground max-w-2xl mx-auto">
             Ready to discuss your next project or opportunity? I'd love to hear from you.
           </p>
         </div>
@@ -77,7 +77,7 @@ export default function ContactSection() {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
-            <h3 className="large-title text-foreground mb-8">Let's Connect</h3>
+            <h3 className="text-xl font-semibold text-foreground mb-8">Let's Connect</h3>
             
             <div className="space-y-6">
               {contactInfo.map((info, index) => (

@@ -24,11 +24,11 @@ export default function EducationSection() {
   const renderIcon = (iconType: string) => {
     switch (iconType) {
       case "trophy":
-        return <Trophy className="w-12 h-12 text-primary" />;
+        return <Trophy className="w-8 h-8 text-primary" />;
       case "award":
-        return <Award className="w-12 h-12 text-primary" />;
+        return <Award className="w-8 h-8 text-primary" />;
       case "graduation":
-        return <GraduationCap className="w-12 h-12 text-primary" />;
+        return <GraduationCap className="w-8 h-8 text-primary" />;
       default:
         return null;
     }
