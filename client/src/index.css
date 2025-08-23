@@ -372,21 +372,24 @@
     transition-duration: 0.8s;
   }
 
-  /* Apple Liquid Glass Button Effect */
+  /* Apple Liquid Glass Button Effect - Enhanced Visibility */
   .liquid-glass-button::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 1px;
+    height: 2px;
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.8),
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.8),
       transparent
     );
-    z-index: 2;
+    border-radius: 9999px 9999px 0 0;
+    z-index: 3;
   }
   
   .liquid-glass-button::after {
@@ -395,15 +398,36 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 50%;
+    height: 60%;
     background: linear-gradient(
       to top,
+      rgba(255, 255, 255, 0.3),
       rgba(255, 255, 255, 0.1),
       transparent
     );
     border-radius: 0 0 9999px 9999px;
     pointer-events: none;
     z-index: 1;
+  }
+  
+  .liquid-glass-button:hover::before {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 0.9),
+      transparent
+    );
+  }
+  
+  .liquid-glass-button:hover::after {
+    background: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
   }
 }
 

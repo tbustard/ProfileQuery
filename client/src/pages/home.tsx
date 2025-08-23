@@ -59,11 +59,11 @@ export default function Home() {
         <div 
           className="liquid-glass-button rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 relative overflow-hidden"
           style={{
-            background: 'rgba(255, 255, 255, 0.08)',
-            backdropFilter: 'blur(20px) saturate(180%) brightness(110%)',
-            WebkitBackdropFilter: 'blur(20px) saturate(180%) brightness(110%)',
-            border: '1px solid rgba(255, 255, 255, 0.16)',
-            boxShadow: '0 8px 32px rgba(31, 38, 135, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(255, 255, 255, 0.1)'
+            background: 'rgba(255, 255, 255, 0.25)',
+            backdropFilter: 'blur(15px) saturate(200%) contrast(120%)',
+            WebkitBackdropFilter: 'blur(15px) saturate(200%) contrast(120%)',
+            border: '1px solid rgba(255, 255, 255, 0.4)',
+            boxShadow: '0 8px 32px rgba(31, 38, 135, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.6), inset 0 -2px 0 rgba(255, 255, 255, 0.3), inset -2px -2px 0 rgba(255, 255, 255, 0.2)'
           }}
         >
           <div className="flex items-center px-6 py-3">
@@ -81,23 +81,33 @@ export default function Home() {
             </button>
           </div>
           
-          {/* Liquid glass highlight pseudo-element */}
+          {/* Liquid glass highlight pseudo-element - More dramatic */}
           <div 
             className="absolute top-0 left-0 w-full h-full rounded-full pointer-events-none"
             style={{
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(255, 255, 255, 0.05) 100%)',
-              opacity: 0.6,
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%, rgba(255, 255, 255, 0.2) 100%)',
+              opacity: 0.8,
               zIndex: 1
             }}
           />
           
-          {/* Inner glow for liquid effect */}
+          {/* Inner glow for liquid effect - More visible */}
           <div 
             className="absolute top-0 left-0 w-full h-full rounded-full pointer-events-none"
             style={{
-              background: 'radial-gradient(ellipse at top, rgba(255, 255, 255, 0.15) 0%, transparent 70%)',
-              opacity: 0.4,
+              background: 'radial-gradient(ellipse at top left, rgba(255, 255, 255, 0.6) 0%, transparent 60%)',
+              opacity: 0.7,
               zIndex: 1
+            }}
+          />
+          
+          {/* Liquid shine streak */}
+          <div 
+            className="absolute top-2 left-4 w-16 h-1 rounded-full pointer-events-none"
+            style={{
+              background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3), transparent)',
+              zIndex: 2,
+              filter: 'blur(0.5px)'
             }}
           />
         </div>
