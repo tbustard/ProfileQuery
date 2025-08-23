@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
-import rbcLogo from "@assets/RBC-Logo_1755913265896.png";
+import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
 import irvingLogo from "@assets/Irving_Oil.svg_1755913265895.png";
 import grantThorntonLogo from "@assets/Grant_Thornton_logo_1755913265895.png";
 

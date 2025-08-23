@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { SiGoogle } from "react-icons/si";
 import { FaCertificate, FaGraduationCap, FaTrophy, FaStar, FaChartLine, FaCalculator, FaHeart, FaRunning, FaUsers, FaHandshake } from "react-icons/fa";
 import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
-import rbcLogo from "@assets/RBC-Logo_1755913265896.png";
+import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
 
 interface Certification {
   name: string;
