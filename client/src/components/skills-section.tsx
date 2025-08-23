@@ -127,7 +127,7 @@ export default function CertificationsSection() {
                   <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-8 lg:p-10">
                     <div className="flex items-center gap-6">
                       <div className="w-20 h-20 bg-white/30 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.12)] transition-all duration-300 hover:scale-110">
-                        <category.icon className="w-10 h-10 text-primary" />
+                        <category.icon className="w-10 h-10 text-foreground" />
                       </div>
                       <div>
                         <h4 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">{category.title}</h4>
@@ -150,7 +150,7 @@ export default function CertificationsSection() {
                               <div className="flex items-center gap-3 mb-2">
                                 <h5 className="text-lg font-semibold text-foreground">{cert.name}</h5>
                                 {cert.highlight && (
-                                  <div className="px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full border border-primary/30">
+                                  <div className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-bold rounded-full border border-gray-200">
                                     FEATURED
                                   </div>
                                 )}
@@ -168,7 +168,7 @@ export default function CertificationsSection() {
                               <p className="text-sm text-muted-foreground/80 leading-relaxed mb-2">{cert.description}</p>
                               {cert.percentile && (
                                 <div className="mt-1">
-                                  <p className="text-sm text-primary font-semibold bg-primary/10 px-4 py-2 rounded-full inline-block whitespace-nowrap">{cert.percentile}</p>
+                                  <p className="text-sm text-gray-700 font-semibold bg-gray-100 px-4 py-2 rounded-full inline-block whitespace-nowrap">{cert.percentile}</p>
                                 </div>
                               )}
                             </div>
@@ -202,7 +202,7 @@ export default function CertificationsSection() {
                 <div className="text-muted-foreground font-medium">Expertise Areas</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">17</div>
+                <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">17</div>
                 <div className="text-muted-foreground font-medium">Different Organizations</div>
               </div>
             </div>
@@ -326,12 +326,12 @@ export function CommunitySection() {
                                 className="w-8 h-8 object-contain"
                               />
                             ) : activity.icon ? (
-                              <activity.icon className="w-8 h-8 text-primary" />
+                              <activity.icon className="w-8 h-8 text-foreground" />
                             ) : null}
                           </div>
                           <div>
                             <h3 className="text-xl font-semibold text-foreground mb-1">{activity.title}</h3>
-                            <p className="text-lg font-medium text-primary mb-1">{activity.organization}</p>
+                            <p className="text-lg font-medium text-foreground mb-1">{activity.organization}</p>
                             <p className="text-muted-foreground font-medium">{activity.location}</p>
                           </div>
                         </div>
@@ -360,7 +360,7 @@ export function CommunitySection() {
                           {activity.skills.map((skill, skillIndex) => (
                             <span
                               key={skillIndex}
-                              className="bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium hover:bg-primary/20 transition-all duration-500"
+                              className="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition-all duration-500"
                               data-testid={`skill-${index}-${skillIndex}`}
                             >
                               {skill}
@@ -393,7 +393,7 @@ export function CommunitySection() {
                   <div className="text-muted-foreground font-medium">Organizations Served</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">500+</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">500+</div>
                   <div className="text-muted-foreground font-medium">People Helped</div>
                 </div>
               </div>
