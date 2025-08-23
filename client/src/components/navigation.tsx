@@ -7,6 +7,7 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [currentSection, setCurrentSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,33 @@ export default function Navigation() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id;
+          setCurrentSection(sectionId);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Observe all sections
+    const sections = document.querySelectorAll('section[id]');
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
   }, []);
 
   const navigationItems = [
@@ -32,6 +60,21 @@ export default function Navigation() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMobileMenuOpen(false);
+  };
+
+  const getSectionDisplayName = (sectionId: string) => {
+    switch (sectionId) {
+      case 'education':
+        return 'Education';
+      case 'experience':
+        return 'Experience';
+      case 'certifications':
+        return 'Certifications';
+      case 'contact':
+        return 'Contact';
+      default:
+        return 'Portfolio';
+    }
   };
 
   return (
@@ -86,7 +129,7 @@ export default function Navigation() {
                 <div className={`text-xs text-muted-foreground font-medium transition-all duration-500 delay-300 ${
                   isScrolled ? 'opacity-100 max-h-4' : 'opacity-0 max-h-0'
                 }`}>
-                  Equity Analyst
+                  {getSectionDisplayName(currentSection)}
                 </div>
               </div>
             </div>
