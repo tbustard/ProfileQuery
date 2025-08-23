@@ -29,7 +29,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{ backgroundColor: '#f5f5f7' }}>
       <Navigation />
       <HeroSection />
       <EducationSection />
@@ -56,7 +56,7 @@ export default function Home() {
           }}
         >
           <div className="flex items-center px-6 py-3">
-            <span className="text-sm font-medium text-foreground mr-4 whitespace-nowrap">
+            <span className="text-sm font-medium text-white mr-4 whitespace-nowrap">
               Back to top
             </span>
             <button
