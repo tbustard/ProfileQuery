@@ -67,6 +67,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="apple-section-alt">
       <div className="container-width">
+        {/* Header Section - Apple's content-first approach */}
         <div className="text-center mb-20">
           <h2 className="large-title text-foreground mb-4">Get In Touch</h2>
           <p className="callout text-muted-foreground max-w-2xl mx-auto">
@@ -74,110 +75,165 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <h3 className="text-xl font-semibold text-foreground mb-8">Let's Connect</h3>
+        {/* Contact Cards Grid - Apple-style asymmetrical layout */}
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          {contactInfo.map((info, index) => (
+            <Card key={index} className="apple-card apple-hover border-0 text-center" data-testid={`contact-card-${index}`}>
+              <CardContent className="p-8">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <info.icon className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-semibold text-foreground mb-2">{info.label}</h3>
+                <p className="body-text text-muted-foreground">{info.value}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Featured Contact Form - Apple's hero card design */}
+        <div className="max-w-4xl mx-auto">
+          <Card className="apple-card border-0 relative overflow-hidden">
+            {/* Background accent */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/2 rounded-full blur-3xl"></div>
             
-            <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-center group transition-all duration-300 hover:scale-105" data-testid={`contact-info-${index}`}>
-                  <div className="w-16 h-16 bg-primary/10 group-hover:bg-primary/20 rounded-2xl flex items-center justify-center mr-5 transition-all duration-300">
-                    <info.icon className="text-primary w-8 h-8" />
-                  </div>
+            <CardContent className="p-12 relative z-10">
+              <div className="grid lg:grid-cols-2 gap-12 items-start">
+                {/* Form Info Section */}
+                <div className="space-y-8">
                   <div>
-                    <p className="font-semibold text-foreground text-lg">{info.label}</p>
-                    <p className="text-muted-foreground">{info.value}</p>
+                    <h3 className="text-2xl font-semibold text-foreground mb-4">Send a Message</h3>
+                    <p className="callout text-muted-foreground">
+                      Whether you're looking to discuss investment opportunities, portfolio management, or potential collaboration, I'm here to help.
+                    </p>
                   </div>
-                </div>
-              ))}
-            </div>
-
-          </div>
-
-          {/* Contact Form */}
-          <Card className="apple-card apple-hover border-0">
-            <CardContent className="p-12">
-              <h3 className="text-xl font-semibold text-foreground mb-8">Send a Message</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="name" className="text-sm font-medium text-foreground mb-2">
-                      Name
-                    </Label>
-                    <Input
-                      id="name"
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => handleInputChange("name", e.target.value)}
-                      placeholder="Your full name"
-                      required
-                      data-testid="input-name"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="email" className="text-sm font-medium text-foreground mb-2">
-                      Email
-                    </Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleInputChange("email", e.target.value)}
-                      placeholder="your.email@example.com"
-                      required
-                      data-testid="input-email"
-                    />
+                  
+                  {/* Quick Stats - Apple style */}
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
+                      <span className="body-text text-muted-foreground">Typically responds within 24 hours</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
+                      <span className="body-text text-muted-foreground">Available for consulting opportunities</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 bg-primary rounded-full"></div>
+                      <span className="body-text text-muted-foreground">Open to investment discussions</span>
+                    </div>
                   </div>
                 </div>
 
-                <div>
-                  <Label htmlFor="subject" className="text-sm font-medium text-foreground mb-2">
-                    Subject
-                  </Label>
-                  <Input
-                    id="subject"
-                    type="text"
-                    value={formData.subject}
-                    onChange={(e) => handleInputChange("subject", e.target.value)}
-                    placeholder="What's this about?"
-                    required
-                    data-testid="input-subject"
-                  />
-                </div>
+                {/* Contact Form */}
+                <div className="space-y-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="name" className="text-sm font-medium text-foreground mb-2">
+                          Name
+                        </Label>
+                        <Input
+                          id="name"
+                          type="text"
+                          value={formData.name}
+                          onChange={(e) => handleInputChange("name", e.target.value)}
+                          placeholder="Your full name"
+                          required
+                          data-testid="input-name"
+                          className="apple-glass border-0"
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="email" className="text-sm font-medium text-foreground mb-2">
+                          Email
+                        </Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => handleInputChange("email", e.target.value)}
+                          placeholder="your.email@example.com"
+                          required
+                          data-testid="input-email"
+                          className="apple-glass border-0"
+                        />
+                      </div>
+                    </div>
 
-                <div>
-                  <Label htmlFor="message" className="text-sm font-medium text-foreground mb-2">
-                    Message
-                  </Label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => handleInputChange("message", e.target.value)}
-                    placeholder="Tell me about your project or opportunity..."
-                    className="h-32 resize-none"
-                    required
-                    data-testid="input-message"
-                  />
-                </div>
+                    <div>
+                      <Label htmlFor="subject" className="text-sm font-medium text-foreground mb-2">
+                        Subject
+                      </Label>
+                      <Input
+                        id="subject"
+                        type="text"
+                        value={formData.subject}
+                        onChange={(e) => handleInputChange("subject", e.target.value)}
+                        placeholder="What's this about?"
+                        required
+                        data-testid="input-subject"
+                        className="apple-glass border-0"
+                      />
+                    </div>
 
-                <Button
-                  type="submit"
-                  disabled={contactMutation.isPending}
-                  className="w-full"
-                  data-testid="button-send"
-                >
-                  {contactMutation.isPending ? (
-                    <AiOutlineLoading3Quarters className="mr-2 h-4 w-4 animate-spin" />
-                  ) : (
-                    <IoSend className="mr-2 h-4 w-4" />
-                  )}
-                  Send Message
-                </Button>
-              </form>
+                    <div>
+                      <Label htmlFor="message" className="text-sm font-medium text-foreground mb-2">
+                        Message
+                      </Label>
+                      <Textarea
+                        id="message"
+                        value={formData.message}
+                        onChange={(e) => handleInputChange("message", e.target.value)}
+                        placeholder="Tell me about your project or opportunity..."
+                        className="h-32 resize-none apple-glass border-0"
+                        required
+                        data-testid="input-message"
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      disabled={contactMutation.isPending}
+                      className="w-full apple-button-primary text-lg h-12"
+                      data-testid="button-send"
+                    >
+                      {contactMutation.isPending ? (
+                        <AiOutlineLoading3Quarters className="mr-2 h-5 w-5 animate-spin" />
+                      ) : (
+                        <IoSend className="mr-2 h-5 w-5" />
+                      )}
+                      Send Message
+                    </Button>
+                  </form>
+                </div>
+              </div>
             </CardContent>
           </Card>
+        </div>
+
+        {/* Alternative Contact Methods - Apple style */}
+        <div className="mt-16 text-center">
+          <p className="body-text text-muted-foreground mb-6">
+            Prefer a different approach? You can also reach out directly:
+          </p>
+          <div className="flex justify-center gap-8">
+            <a 
+              href="mailto:tbustard@unb.ca"
+              className="inline-flex items-center gap-2 body-text text-primary hover:text-primary/80 transition-colors"
+              data-testid="link-email-direct"
+            >
+              <HiOutlineMail className="w-4 h-4" />
+              Email Direct
+            </a>
+            <a 
+              href="tel:+16139851223"
+              className="inline-flex items-center gap-2 body-text text-primary hover:text-primary/80 transition-colors"
+              data-testid="link-phone-direct"
+            >
+              <HiOutlinePhone className="w-4 h-4" />
+              Call Direct
+            </a>
+          </div>
         </div>
       </div>
     </section>
