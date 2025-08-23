@@ -264,8 +264,8 @@ export default function Navigation() {
                       <div className="text-xs text-gray-600">Erasmus University • 2024</div>
                     </button>
                     
-                    {/* Academic Achievement */}
-                    <div className="font-semibold text-gray-900 text-base p-3 bg-amber-50/50 rounded-lg mb-2 mt-4">Academic Achievement</div>
+                    {/* Standardized Exam */}
+                    <div className="font-semibold text-gray-900 text-base p-3 bg-amber-50/50 rounded-lg mb-2 mt-4">Standardized Exam</div>
                     <button onClick={() => scrollToSection('#cert-gre-general-test')} className="w-full text-left block p-2 pl-4 rounded-lg hover:bg-white/5 transition-colors">
                       <div className="font-medium text-gray-900 text-sm">GRE General Test</div>
                       <div className="text-xs text-gray-600">ETS • 2024</div>

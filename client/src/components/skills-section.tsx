@@ -84,7 +84,7 @@ export default function CertificationsSection() {
       ]
     },
     {
-      title: "Academic Achievement",
+      title: "Standardized Exam",
       icon: FaGraduationCap,
       color: "bg-amber-500",
       certifications: [
