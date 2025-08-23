@@ -94,7 +94,7 @@ export default function Navigation() {
         }}
       >
         <div className="container-width">
-          <div className="flex justify-between items-center py-5">
+          <div className="flex justify-start items-center py-5 gap-8">
             {/* Logo/Home - Conditional based on page */}
             <div className="flex items-center">
               {/* Homepage: Show Tyler Bustard + image when scrolled */}
@@ -154,7 +154,7 @@ export default function Navigation() {
             </div>
             
             {/* Desktop Navigation with Apple.com-style Dropdowns */}
-            <div className="hidden md:flex items-center space-x-2">
+            <div className="hidden md:flex items-center space-x-2 flex-1">
               {/* Education Dropdown */}
               <div className="relative group">
                 <button
@@ -303,18 +303,20 @@ export default function Navigation() {
             </div>
             
             {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              className={`md:hidden transition-all duration-300 hover:scale-110 ${
-                isScrolled 
-                  ? 'hover:bg-white/15 text-foreground' 
-                  : 'hover:bg-white/10 text-foreground'
-              }`}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              data-testid="button-mobile-menu"
-            >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
+            <div className="md:hidden ml-auto">
+              <Button
+                variant="ghost"
+                className={`transition-all duration-300 hover:scale-110 ${
+                  isScrolled 
+                    ? 'hover:bg-white/15 text-foreground' 
+                    : 'hover:bg-white/10 text-foreground'
+                }`}
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                data-testid="button-mobile-menu"
+              >
+                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
+            </div>
           </div>
           
           {/* Mobile Navigation */}
