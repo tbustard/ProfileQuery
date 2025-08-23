@@ -152,8 +152,8 @@ export default function HeroSection() {
                   {/* Education Quadrant */}
                   <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
                     <div className="space-y-6">
-                      <div className="flex items-center">
-                        <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl transition-all duration-300 hover:scale-110">
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
                           <img 
                             src={unbLogo} 
                             alt="University of New Brunswick Logo" 
