@@ -10,8 +10,7 @@ export default function ContactInfoSection() {
 
   return (
     <section id="contact" className="py-24 lg:py-32 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/30" />
+      {/* Background - inherits Apple grey from parent */}
       
       <div className="container-width">
         <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">

@@ -101,8 +101,7 @@ export default function CertificationsSection() {
 
   return (
     <section id="certifications" className="py-24 lg:py-32 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-white" />
+      {/* Background - inherits Apple grey from parent */}
       
       <div className="container-width">
         <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
@@ -279,8 +278,7 @@ export function CommunitySection() {
 
   return (
     <section id="community" className="py-24 lg:py-32 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-white" />
+      {/* Background - inherits Apple grey from parent */}
       
       <div className="container-width">
         <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
