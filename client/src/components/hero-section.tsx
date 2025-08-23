@@ -21,42 +21,48 @@ export default function HeroSection() {
       {/* Clean Background */}
       <div className="absolute inset-0 bg-white" />
       
-      <div className="relative z-10 pt-32 pb-24 px-6">
+      <div className="relative z-10 pt-40 pb-32 px-6">
         <div className="container-width">
           {/* Hero Header - Profile & Name Side by Side */}
-          <div className="mb-20">
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
+          <div className="mb-32">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20">
               {/* Profile Image */}
               <div className="flex-shrink-0">
-                <div className="w-72 h-72 lg:w-80 lg:h-80 relative">
-                  <div className="aspect-square rounded-[2rem] overflow-hidden bg-white shadow-2xl ring-1 ring-black/5">
+                <div className="w-80 h-80 lg:w-96 lg:h-96 relative">
+                  <div className="aspect-square rounded-[2.5rem] overflow-hidden bg-white shadow-2xl hover:shadow-3xl ring-1 ring-black/5 transition-all duration-500 hover:scale-[1.02]">
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-white/10" />
                     <img 
                       src={profileImage} 
                       alt="Tyler Bustard professional headshot" 
-                      className="w-full h-full object-cover object-center"
+                      className="w-full h-full object-cover object-center transition-all duration-500"
                       data-testid="img-profile"
                     />
                   </div>
+                  {/* Subtle glow effect */}
+                  <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 via-transparent to-primary/5 rounded-[3rem] blur-xl opacity-50" />
                 </div>
               </div>
 
               {/* Name & Content */}
-              <div className="space-y-8 text-center lg:text-left max-w-2xl">
-                <div>
-                  <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tight leading-none">
-                    Tyler Bustard
-                  </h1>
-                  <p className="text-2xl md:text-3xl font-semibold text-primary mb-8">
+              <div className="space-y-10 text-center lg:text-left max-w-2xl">
+                <div className="space-y-6">
+                  <div className="space-y-4">
+                    <h1 className="text-6xl md:text-8xl lg:text-7xl xl:text-8xl font-bold text-foreground tracking-tight leading-none">
+                      Tyler Bustard
+                    </h1>
+                    <div className="h-1 w-24 lg:w-32 bg-gradient-to-r from-primary to-primary/50 rounded-full mx-auto lg:mx-0" />
+                  </div>
+                  <p className="text-2xl md:text-4xl lg:text-3xl xl:text-4xl font-semibold text-primary tracking-wide">
                     Finance & Technology Professional
                   </p>
-                  
-                  {/* Credentials */}
                 </div>
                 
-                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-                  Driving innovation at the intersection of finance and technology. 
-                  Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
-                </p>
+                <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-8 border border-white/20 shadow-lg">
+                  <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-medium">
+                    Driving innovation at the intersection of finance and technology. 
+                    Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
