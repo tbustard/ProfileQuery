@@ -132,7 +132,7 @@ export default function Navigation() {
                     </Link>
                     {/* Section indicator - positioned under the name */}
                     {currentSection && (
-                      <div className="mt-1">
+                      <div>
                         <span className="text-xs font-medium text-primary">
                           {getSectionDisplayName(currentSection)}
                         </span>
