@@ -56,7 +56,7 @@ export default function Navigation() {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      const navHeight = 80; // Navigation bar height
+      const navHeight = 120; // Navigation bar height + extra spacing
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navHeight;
       
