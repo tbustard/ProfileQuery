@@ -153,7 +153,7 @@ export default function HeroSection() {
                 <h3 className="text-lg font-semibold text-foreground">Experience</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                5+ years across top-tier financial institutions
+                Professional experience in investment banking and financial services
               </p>
             </div>
 
@@ -185,7 +185,7 @@ export default function HeroSection() {
                 <h3 className="text-lg font-semibold text-foreground">Certifications</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                22+ professional certifications from 17 institutions
+                Advanced certifications in finance, technology, and professional development
               </p>
             </div>
 
@@ -217,7 +217,7 @@ export default function HeroSection() {
                 <h3 className="text-lg font-semibold text-foreground">Community</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                United Way leadership & financial literacy mentorship
+                Community leadership and volunteer service initiatives
               </p>
             </div>
 
