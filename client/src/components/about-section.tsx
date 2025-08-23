@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Trophy, Award, GraduationCap } from "lucide-react";
+import { FaTrophy, FaStar, FaGraduationCap } from "react-icons/fa";
 import universityLogo from "@assets/University_of_New_Brunswick_Logo.svg_1755912478863.png";
 
 export default function EducationSection() {
@@ -26,11 +26,11 @@ export default function EducationSection() {
   const renderIcon = (iconType: string) => {
     switch (iconType) {
       case "trophy":
-        return <Trophy className="w-8 h-8 text-yellow-600" />;
+        return <FaTrophy className="w-8 h-8 text-yellow-600" />;
       case "award":
-        return <Award className="w-8 h-8 text-green-600" />;
+        return <FaStar className="w-8 h-8 text-green-600" />;
       case "graduation":
-        return <GraduationCap className="w-8 h-8 text-blue-600" />;
+        return <FaGraduationCap className="w-8 h-8 text-blue-600" />;
       default:
         return null;
     }
