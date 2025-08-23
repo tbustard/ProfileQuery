@@ -196,7 +196,7 @@ export default function CertificationsSection() {
                 <div className="text-muted-foreground font-medium">Total Certifications</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">4</div>
+                <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">4</div>
                 <div className="text-muted-foreground font-medium">Expertise Areas</div>
               </div>
               <div className="text-center">
