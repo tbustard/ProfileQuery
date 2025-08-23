@@ -161,18 +161,20 @@ export default function EducationSection() {
                   </div>
 
                   {/* Achievement Items */}
-                  <div className="lg:w-3/4 grid md:grid-cols-3 gap-6">
+                  <div className="lg:w-3/4 grid md:grid-cols-3 gap-6 md:grid-rows-1">
                     {category.items.map((item, itemIndex) => (
                       <div 
                         key={itemIndex} 
-                        className="bg-white/90 backdrop-blur-xl rounded-[20px] p-10 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.02]"
+                        className="bg-white/90 backdrop-blur-xl rounded-[20px] p-6 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.02] flex flex-col justify-between h-full"
                       >
-                        <h5 className="font-semibold text-foreground mb-2 text-lg">
-                          {item.title}
-                        </h5>
-                        <p className="text-muted-foreground text-sm leading-relaxed">
-                          {item.desc}
-                        </p>
+                        <div>
+                          <h5 className="font-semibold text-foreground mb-3 text-lg min-h-[3.5rem] flex items-center">
+                            {item.title}
+                          </h5>
+                          <p className="text-muted-foreground text-sm leading-relaxed">
+                            {item.desc}
+                          </p>
+                        </div>
                       </div>
                     ))}
                   </div>

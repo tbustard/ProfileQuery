@@ -156,32 +156,34 @@ export default function CertificationsSection() {
                     </div>
 
                     {/* Certification Items */}
-                    <div className="lg:w-3/4 grid md:grid-cols-2 gap-6">
+                    <div className="lg:w-3/4 grid md:grid-cols-2 gap-6 md:grid-rows-[repeat(auto-fit,1fr)]">
                       {category.certifications.map((cert, certIndex) => (
                         <div 
                           key={certIndex}
                           id={`cert-${cert.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                          className="bg-white/90 backdrop-blur-xl rounded-[20px] p-6 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.02]"
+                          className="bg-white/90 backdrop-blur-xl rounded-[20px] p-6 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.02] flex flex-col justify-between h-full"
                           data-testid={`cert-${categoryIndex}-${certIndex}`}
                         >
-                          <div className="flex items-start justify-between mb-3">
-                            <h5 className="font-semibold text-foreground mb-2 text-lg flex-1">
-                              {cert.name}
-                            </h5>
-                            <span className="text-sm font-medium text-gray-500 ml-2">{cert.year}</span>
+                          <div className="flex-1 flex flex-col">
+                            <div className="flex items-start justify-between mb-3 min-h-[4rem]">
+                              <h5 className="font-semibold text-foreground text-lg flex-1 flex items-start leading-tight">
+                                {cert.name}
+                              </h5>
+                              <span className="text-sm font-medium text-gray-500 ml-2 flex-shrink-0">{cert.year}</span>
+                            </div>
+                            <div className="flex items-center gap-2 mb-3">
+                              {cert.logoSrc && (
+                                <img 
+                                  src={cert.logoSrc} 
+                                  alt={`${cert.institution} Logo`} 
+                                  className="w-5 h-5 object-contain flex-shrink-0"
+                                />
+                              )}
+                              <p className="text-muted-foreground font-medium text-sm">{cert.institution}</p>
+                            </div>
+                            <p className="text-muted-foreground text-xs leading-relaxed mb-4 flex-1">{cert.description}</p>
                           </div>
-                          <div className="flex items-center gap-2 mb-2">
-                            {cert.logoSrc && (
-                              <img 
-                                src={cert.logoSrc} 
-                                alt={`${cert.institution} Logo`} 
-                                className="w-5 h-5 object-contain flex-shrink-0"
-                              />
-                            )}
-                            <p className="text-muted-foreground font-medium text-sm">{cert.institution}</p>
-                          </div>
-                          <p className="text-muted-foreground text-xs leading-relaxed mb-3">{cert.description}</p>
-                          <div className="flex items-center justify-between">
+                          <div className="flex items-center justify-between mt-auto">
                             {cert.highlight && (
                               <div className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-bold">
                                 FEATURED
