@@ -260,67 +260,60 @@ export default function Navigation() {
                 {/* Apple-style Dropdown */}
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="p-2 max-h-80 overflow-y-auto">
-                    {/* Financial Excellence Category */}
-                    <button onClick={() => scrollToSection('#certifications-financial-excellence')} className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 hover:bg-gray-50/50 transition-colors w-full text-left rounded-lg">Financial Excellence</button>
-                    <button onClick={() => scrollToSection('#certifications-financial-excellence')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">CFA Level I Candidate</div>
+                    {/* Financial Excellence Certifications */}
+                    <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 hover:bg-gray-50/50 transition-colors w-full text-left rounded-lg mb-2">Financial Excellence</div>
+                    <button onClick={() => scrollToSection('#cert-cfa-level-i-candidate')} className="w-full text-left block p-3 pl-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50">
+                      <div className="font-medium text-gray-900 text-sm mb-1">CFA Level I Candidate</div>
+                      <div className="text-xs text-gray-600">CFA Institute • 2025</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications-financial-excellence')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">Discounted Cash Flow Analysis</div>
+                    <button onClick={() => scrollToSection('#cert-discounted-cash-flow-analysis')} className="w-full text-left block p-3 pl-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50">
+                      <div className="font-medium text-gray-900 text-sm mb-1">Discounted Cash Flow Analysis</div>
+                      <div className="text-xs text-gray-600">Training the Street • 2024</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications-financial-excellence')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">Financial Planning 1</div>
+                    <button onClick={() => scrollToSection('#cert-financial-planning-1')} className="w-full text-left block p-3 pl-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50">
+                      <div className="font-medium text-gray-900 text-sm mb-1">Financial Planning 1</div>
+                      <div className="text-xs text-gray-600">Canadian Securities Institute • 2023</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications-financial-excellence')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">Certificate in Financial Services Advice</div>
+                    <button onClick={() => scrollToSection('#cert-canadian-securities-course')} className="w-full text-left block p-3 pl-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50">
+                      <div className="font-medium text-gray-900 text-sm mb-1">Canadian Securities Course</div>
+                      <div className="text-xs text-gray-600">CSI • 2021</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications-financial-excellence')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">Canadian Securities Course</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#certifications-financial-excellence')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">Financial & Valuation Modeling</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#certifications-financial-excellence')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">Bloomberg Market Concepts Certificate</div>
-                    </button>
-                    
-                    {/* Data & Technology Category */}
-                    <button onClick={() => scrollToSection('#certifications-data---technology')} className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 mt-3 hover:bg-gray-50/50 transition-colors w-full text-left rounded-lg">Data & Technology</button>
-                    <button onClick={() => scrollToSection('#certifications-data---technology')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">Data Analytics Professional</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#certifications-data---technology')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">Data Visualization with Tableau</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#certifications-data---technology')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">Python for Everybody</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#certifications-data---technology')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">Machine Learning</div>
-                    </button>
-                    <button onClick={() => scrollToSection('#certifications-data---technology')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">SQL for Data Science</div>
+                    <button onClick={() => scrollToSection('#cert-bloomberg-market-concepts-certificate')} className="w-full text-left block p-3 pl-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50">
+                      <div className="font-medium text-gray-900 text-sm mb-1">Bloomberg Market Concepts</div>
+                      <div className="text-xs text-gray-600">Bloomberg • 2020</div>
                     </button>
                     
-                    {/* Advanced Analytics Category */}
-                    <button onClick={() => scrollToSection('#certifications-advanced-analytics')} className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 mt-3 hover:bg-gray-50/50 transition-colors w-full text-left rounded-lg">Advanced Analytics</button>
-                    <button onClick={() => scrollToSection('#certifications-advanced-analytics')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">Econometrics: Methods & Applications</div>
+                    {/* Data & Technology Certifications */}
+                    <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 hover:bg-gray-50/50 transition-colors w-full text-left rounded-lg mb-2 mt-3">Data & Technology</div>
+                    <button onClick={() => scrollToSection('#cert-data-analytics-professional')} className="w-full text-left block p-3 pl-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50">
+                      <div className="font-medium text-gray-900 text-sm mb-1">Data Analytics Professional</div>
+                      <div className="text-xs text-gray-600">Google • 2023</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications-advanced-analytics')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">Matrix Algebra for Engineers</div>
+                    <button onClick={() => scrollToSection('#cert-machine-learning')} className="w-full text-left block p-3 pl-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50">
+                      <div className="font-medium text-gray-900 text-sm mb-1">Machine Learning</div>
+                      <div className="text-xs text-gray-600">Stanford University • 2020</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications-advanced-analytics')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">Introduction to Calculus</div>
+                    <button onClick={() => scrollToSection('#cert-python-for-everybody')} className="w-full text-left block p-3 pl-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50">
+                      <div className="font-medium text-gray-900 text-sm mb-1">Python for Everybody</div>
+                      <div className="text-xs text-gray-600">University of Michigan • 2023</div>
                     </button>
-                    <button onClick={() => scrollToSection('#certifications-advanced-analytics')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">Inferential Statistics</div>
+                    <button onClick={() => scrollToSection('#cert-data-visualization-with-tableau')} className="w-full text-left block p-3 pl-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50">
+                      <div className="font-medium text-gray-900 text-sm mb-1">Data Visualization with Tableau</div>
+                      <div className="text-xs text-gray-600">UC Davis • 2023</div>
                     </button>
                     
-                    {/* Academic Achievement Category */}
-                    <button onClick={() => scrollToSection('#certifications-academic-achievement')} className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 mt-3 hover:bg-gray-50/50 transition-colors w-full text-left rounded-lg">Academic Achievement</button>
-                    <button onClick={() => scrollToSection('#certifications-academic-achievement')} className="w-full text-left block p-2 pl-6 rounded-lg hover:bg-gray-50/50 transition-colors">
-                      <div className="text-sm text-gray-700">GRE General Test</div>
+                    {/* Advanced Analytics Certifications */}
+                    <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 hover:bg-gray-50/50 transition-colors w-full text-left rounded-lg mb-2 mt-3">Advanced Analytics</div>
+                    <button onClick={() => scrollToSection('#cert-econometrics-methods---applications')} className="w-full text-left block p-3 pl-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50">
+                      <div className="font-medium text-gray-900 text-sm mb-1">Econometrics: Methods & Applications</div>
+                      <div className="text-xs text-gray-600">Erasmus University • 2024</div>
+                    </button>
+                    
+                    {/* Academic Achievement Certifications */}
+                    <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 hover:bg-gray-50/50 transition-colors w-full text-left rounded-lg mb-2 mt-3">Academic Achievement</div>
+                    <button onClick={() => scrollToSection('#cert-gre-general-test')} className="w-full text-left block p-3 pl-4 rounded-lg hover:bg-gray-50/50 transition-colors">
+                      <div className="font-medium text-gray-900 text-sm mb-1">GRE General Test</div>
+                      <div className="text-xs text-gray-600">ETS • 2024</div>
                     </button>
                   </div>
                 </div>

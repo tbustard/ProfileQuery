@@ -142,6 +142,7 @@ export default function CertificationsSection() {
                       {category.certifications.map((cert, certIndex) => (
                         <div 
                           key={certIndex}
+                          id={`cert-${cert.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
                           className="group relative bg-white/95 backdrop-blur-xl rounded-[24px] border border-white/20 p-6 shadow-[0_12px_25px_rgba(0,0,0,0.12)] hover:shadow-[0_16px_35px_rgba(0,0,0,0.18)] hover:bg-white/98 transition-all duration-500 hover:scale-[1.02]"
                           data-testid={`cert-${categoryIndex}-${certIndex}`}
                         >
