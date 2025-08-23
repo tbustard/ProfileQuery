@@ -4,6 +4,7 @@ import { SiGoogle } from "react-icons/si";
 import { FaCertificate, FaGraduationCap, FaTrophy, FaStar, FaChartLine, FaCalculator, FaHeart, FaRunning, FaUsers, FaHandshake } from "react-icons/fa";
 import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
+import irvingLogo from "@assets/Irving_Oil.svg_1755913265895.png";
 
 interface Certification {
   name: string;
@@ -250,7 +251,7 @@ export function CommunitySection() {
     },
     {
       title: "Volunteer Staff",
-      organization: "Irving Oil",
+      organization: "Irving Oil Limited",
       period: "2018",
       duration: "Seasonal",
       location: "Saint John, New Brunswick",
@@ -261,7 +262,7 @@ export function CommunitySection() {
         "Contributed to positive community image for Irving Oil through dedicated volunteer service"
       ],
       skills: ["Youth Engagement", "Event Coordination", "Team Collaboration", "Community Relations", "Safety Management"],
-      icon: FaUsers,
+      logoSrc: irvingLogo,
       color: "#1E40AF"
     }
   ];
