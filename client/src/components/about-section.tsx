@@ -76,119 +76,96 @@ export default function EducationSection() {
           </p>
         </div>
 
-        {/* Apple-style Dynamic Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[200px]">
-          
-          {/* University Hero Card - Large */}
-          <Card className="col-span-2 row-span-2 md:col-span-2 lg:col-span-3 apple-card border-0 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950/30 dark:to-indigo-950/30 backdrop-blur-sm overflow-hidden group apple-hover">
-            <CardContent className="p-8 h-full flex flex-col justify-center items-center text-center relative">
-              <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center shadow-lg mb-6 transition-all duration-300 group-hover:scale-110">
+        {/* Hero Education Card */}
+        <div className="mb-16">
+          <Card className="apple-card border-0 text-center">
+            <CardContent className="p-12">
+              {/* University Logo/Badge */}
+              <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-3xl flex items-center justify-center shadow-lg mx-auto mb-8 apple-hover">
                 <img 
                   src={universityLogo} 
                   alt="University Logo" 
-                  className="w-16 h-16 object-contain"
+                  className="w-16 h-16 object-contain transition-all duration-300 hover:scale-110"
                 />
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-2">{education.institution}</h3>
-              <p className="text-lg font-semibold text-primary mb-2">{education.degree}</p>
-              <div className="inline-flex items-center bg-white/20 backdrop-blur-sm rounded-full px-4 py-2">
+              
+              {/* Main Info */}
+              <h3 className="text-2xl font-semibold text-foreground mb-2">{education.institution}</h3>
+              <p className="text-lg font-medium text-primary mb-2">{education.degree}</p>
+              <p className="body-text text-muted-foreground mb-4">{education.location}</p>
+              
+              {/* Year Badge */}
+              <div className="inline-flex items-center bg-muted rounded-full px-4 py-2">
                 <span className="font-medium text-foreground">Class of {education.year}</span>
               </div>
             </CardContent>
           </Card>
+        </div>
 
-          {/* CIBC Competition Win */}
-          <Card className="col-span-1 row-span-1 apple-card border-0 bg-gradient-to-br from-yellow-50 to-orange-100 dark:from-yellow-950/30 dark:to-orange-950/30 backdrop-blur-sm apple-hover group">
-            <CardContent className="p-6 h-full flex flex-col justify-center items-center text-center">
-              <Trophy className="w-8 h-8 text-amber-600 mb-3 transition-all duration-300 group-hover:scale-110" />
-              <div className="text-2xl font-bold text-foreground mb-1">1st</div>
-              <div className="text-xs font-medium text-foreground">CIBC Competition</div>
-            </CardContent>
-          </Card>
+        {/* Academic Highlights */}
+        <div className="mb-16">
+          <h3 className="text-xl font-semibold text-foreground mb-8 text-center">Academic Highlights</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {highlights.map((highlight, index) => (
+              <Card key={index} className="apple-card apple-hover border-0 text-center" data-testid={`highlight-${index}`}>
+                <CardContent className="p-8">
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    {renderIcon(highlight.iconType)}
+                  </div>
+                  <div className="text-2xl font-bold text-foreground mb-2">{highlight.title}</div>
+                  <p className="body-text text-muted-foreground">{highlight.subtitle}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
 
-          {/* Scholarships */}
-          <Card className="col-span-1 row-span-1 apple-card border-0 bg-gradient-to-br from-green-50 to-emerald-100 dark:from-green-950/30 dark:to-emerald-950/30 backdrop-blur-sm apple-hover group">
-            <CardContent className="p-6 h-full flex flex-col justify-center items-center text-center">
-              <Award className="w-8 h-8 text-emerald-600 mb-3 transition-all duration-300 group-hover:scale-110" />
-              <div className="text-lg font-bold text-foreground mb-1">$47,500</div>
-              <div className="text-xs font-medium text-foreground">Scholarships</div>
-            </CardContent>
-          </Card>
-
-          {/* Academic Standing */}
-          <Card className="col-span-1 row-span-1 apple-card border-0 bg-gradient-to-br from-purple-50 to-violet-100 dark:from-purple-950/30 dark:to-violet-950/30 backdrop-blur-sm apple-hover group">
-            <CardContent className="p-6 h-full flex flex-col justify-center items-center text-center">
-              <GraduationCap className="w-8 h-8 text-violet-600 mb-3 transition-all duration-300 group-hover:scale-110" />
-              <div className="text-lg font-bold text-foreground mb-1">Top 15%</div>
-              <div className="text-xs font-medium text-foreground">Academic</div>
-            </CardContent>
-          </Card>
-
-          {/* Finance Major Focus */}
-          <Card className="col-span-1 row-span-1 apple-card border-0 bg-gradient-to-br from-indigo-50 to-blue-100 dark:from-indigo-950/30 dark:to-blue-950/30 backdrop-blur-sm apple-hover">
-            <CardContent className="p-6 h-full flex flex-col justify-center items-center text-center">
-              <div className="text-3xl mb-2">📊</div>
-              <div className="text-sm font-bold text-foreground mb-1">Finance</div>
-              <div className="text-xs font-medium text-foreground">Major</div>
-            </CardContent>
-          </Card>
-
-          {/* Leadership Card - Tall */}
-          <Card className="col-span-1 row-span-2 md:col-span-1 lg:col-span-2 apple-card border-0 bg-gradient-to-br from-slate-50 to-gray-100 dark:from-slate-950/30 dark:to-gray-950/30 backdrop-blur-sm apple-hover">
-            <CardContent className="p-6 h-full flex flex-col justify-start">
-              <h4 className="text-lg font-bold text-foreground mb-4 text-center">Leadership</h4>
-              <div className="space-y-3 flex-1">
-                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3">
-                  <p className="text-sm font-medium text-foreground">Investment Fund Manager</p>
+        {/* Activities & Leadership */}
+        <div className="mb-16">
+          <h3 className="text-xl font-semibold text-foreground mb-8 text-center">Leadership & Activities</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {activities.map((activity, index) => (
+              <div key={index} className="space-y-4">
+                <div className="text-center">
+                  <h4 className="font-semibold text-foreground mb-4">{activity.category}</h4>
                 </div>
-                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3">
-                  <p className="text-sm font-medium text-foreground">Finance Club Executive</p>
+                <div className="space-y-3">
+                  {activity.items.map((item, itemIndex) => (
+                    <Card key={itemIndex} className="apple-card border-0 p-4 apple-hover">
+                      <p className="body-text text-muted-foreground text-center text-sm">{item}</p>
+                    </Card>
+                  ))}
                 </div>
-                <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3">
-                  <p className="text-sm font-medium text-foreground">RBC Ambassador</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Academic Summary Stats */}
+        <div className="mt-16">
+          <Card className="apple-card border-0 text-center">
+            <CardContent className="p-12">
+              <h3 className="text-lg font-semibold text-foreground mb-8">Academic Excellence Summary</h3>
+              <div className="grid md:grid-cols-4 gap-8">
+                <div>
+                  <div className="text-3xl font-bold text-foreground mb-2">BBA</div>
+                  <div className="body-text text-muted-foreground">Business Administration</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-foreground mb-2">5</div>
+                  <div className="body-text text-muted-foreground">Academic Awards</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-foreground mb-2">3</div>
+                  <div className="body-text text-muted-foreground">Case Competition Podiums</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-foreground mb-2">2020</div>
+                  <div className="body-text text-muted-foreground">Graduation Year</div>
                 </div>
               </div>
             </CardContent>
           </Card>
-
-          {/* Competition Results */}
-          <Card className="col-span-2 row-span-1 md:col-span-2 lg:col-span-2 apple-card border-0 bg-gradient-to-br from-rose-50 to-pink-100 dark:from-rose-950/30 dark:to-pink-950/30 backdrop-blur-sm apple-hover">
-            <CardContent className="p-6 h-full flex flex-col justify-center">
-              <h4 className="text-lg font-bold text-foreground mb-4 text-center">Case Competitions</h4>
-              <div className="grid grid-cols-3 gap-3 text-center">
-                <div>
-                  <div className="text-2xl font-bold text-foreground">🥇</div>
-                  <div className="text-xs font-medium text-foreground">CIBC</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-foreground">🥉</div>
-                  <div className="text-xs font-medium text-foreground">TD</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-foreground">🏆</div>
-                  <div className="text-xs font-medium text-foreground">RBC</div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Co-op Program */}
-          <Card className="col-span-1 row-span-1 apple-card border-0 bg-gradient-to-br from-teal-50 to-cyan-100 dark:from-teal-950/30 dark:to-cyan-950/30 backdrop-blur-sm apple-hover">
-            <CardContent className="p-6 h-full flex flex-col justify-center items-center text-center">
-              <div className="text-3xl mb-2">🎓</div>
-              <div className="text-sm font-bold text-foreground mb-1">Co-op</div>
-              <div className="text-xs font-medium text-foreground">Program</div>
-            </CardContent>
-          </Card>
-
-          {/* Awards Count */}
-          <Card className="col-span-1 row-span-1 apple-card border-0 bg-gradient-to-br from-amber-50 to-yellow-100 dark:from-amber-950/30 dark:to-yellow-950/30 backdrop-blur-sm apple-hover">
-            <CardContent className="p-6 h-full flex flex-col justify-center items-center text-center">
-              <div className="text-2xl font-bold text-foreground mb-1">5</div>
-              <div className="text-xs font-medium text-foreground">Academic Awards</div>
-            </CardContent>
-          </Card>
-
         </div>
       </div>
     </section>
