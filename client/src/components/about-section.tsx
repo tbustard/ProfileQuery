@@ -20,7 +20,7 @@ export default function EducationSection() {
   const highlights = [
     { title: "1st Place", subtitle: "CIBC Case Competition", iconType: "trophy", color: "bg-gradient-to-br from-yellow-100 to-yellow-50" },
     { title: "$47,500", subtitle: "Total Scholarships & Awards", iconType: "award", color: "bg-gradient-to-br from-green-100 to-green-50" },
-    { title: "Top 15%", subtitle: "Academic Standing", iconType: "graduation", color: "bg-gradient-to-br from-blue-100 to-blue-50" }
+    { title: "3rd Place", subtitle: "TD Case Competition", iconType: "trophy", color: "bg-gradient-to-br from-blue-100 to-blue-50" }
   ];
 
   const renderIcon = (iconType: string) => {
@@ -40,27 +40,27 @@ export default function EducationSection() {
     { 
       category: "Academic Excellence", 
       items: [
-        { title: "Finance Major Focus", desc: "Specialized in financial markets & investment analysis" },
-        { title: "5 Academic Awards", desc: "$47,500 in scholarships and merit recognition" },
-        { title: "Top 15% Standing", desc: "Consistent academic performance throughout degree" }
+        { title: "Finance Specialization", desc: "Bachelor of Business Administration with Finance Major" },
+        { title: "5 Academic Awards", desc: "$47,500 in scholarships and alumni awards for merit and leadership" },
+        { title: "Accredited Co-op Program", desc: "Professional work experience integrated with academics" }
       ],
       gradient: "from-blue-500/10 to-purple-500/10"
     },
     { 
-      category: "Leadership Impact", 
+      category: "Leadership & Professional", 
       items: [
-        { title: "Student Investment Fund", desc: "Portfolio Manager analyzing real market investments" },
+        { title: "Student Investment Fund", desc: "Analyst and Portfolio Manager - Energy sector focus" },
         { title: "RBC Student Ambassador", desc: "Campus leadership and financial services representation" },
-        { title: "Finance Club Executive", desc: "Member engagement and professional development" }
+        { title: "UNB Finance Club", desc: "Active member in professional development activities" }
       ],
       gradient: "from-green-500/10 to-teal-500/10"
     },
     { 
-      category: "Competition Success", 
+      category: "Competition Achievements", 
       items: [
         { title: "CIBC Case Competition", desc: "1st Place - Strategic business problem solving" },
         { title: "TD Case Competition", desc: "3rd Place - Financial analysis and presentation" },
-        { title: "RBC & SLC Competitions", desc: "Multiple case competition participation" }
+        { title: "RBC Case Competition", desc: "Participant in competitive business case analysis" }
       ],
       gradient: "from-orange-500/10 to-red-500/10"
     }
@@ -85,10 +85,10 @@ export default function EducationSection() {
         {/* Hero Education Card - Modern Apple Layout */}
         <div className="mb-16">
           <div className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg p-8 max-w-4xl mx-auto">
-            {/* Class badge in top right corner */}
+            {/* Date badge in top right corner */}
             <div className="absolute top-6 right-6">
-              <div className="bg-primary/10 backdrop-blur-sm rounded-xl px-3 py-1">
-                <span className="text-xs font-medium text-primary">Class of {education.year}</span>
+              <div className="bg-primary/10 backdrop-blur-sm rounded-xl px-4 py-2">
+                <span className="text-sm font-semibold text-primary">2016-2020</span>
               </div>
             </div>
             
@@ -104,13 +104,13 @@ export default function EducationSection() {
               
               {/* Content on right */}
               <div className="flex-1">
-                <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">
+                <h3 className="text-3xl lg:text-4xl font-bold text-foreground mb-3">
                   {education.institution}
                 </h3>
                 <div className="space-y-1">
-                  <p className="text-lg font-semibold text-primary">{education.degree}</p>
-                  <p className="text-base font-medium text-blue-600">{education.major}</p>
-                  <p className="text-sm text-muted-foreground">{education.location}</p>
+                  <p className="text-xl font-semibold text-primary">{education.degree}</p>
+                  <p className="text-lg font-medium text-blue-600">{education.major}</p>
+                  <p className="text-base text-muted-foreground">{education.location}</p>
                 </div>
               </div>
             </div>
@@ -199,8 +199,8 @@ export default function EducationSection() {
                   <div className="text-muted-foreground font-medium">Academic Awards</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-yellow-600 mb-3">1st</div>
-                  <div className="text-muted-foreground font-medium">CIBC Competition</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">BBA</div>
+                  <div className="text-muted-foreground font-medium">Business Administration</div>
                 </div>
                 <div className="text-center">
                   <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">2020</div>
