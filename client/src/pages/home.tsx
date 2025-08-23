@@ -76,7 +76,7 @@ export default function Home() {
               className="px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white transition-all duration-200"
               data-testid="footer-employer-signin"
             >
-              Employer Sign In
+              Sign In
             </button>
           </div>
         </div>

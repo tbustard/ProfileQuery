@@ -96,7 +96,7 @@ export default function DownloadSection() {
                 </div>
                 
                 <div className="text-center space-y-6">
-                  <h3 className="text-3xl font-bold text-foreground">Get My Resume</h3>
+                  <h3 className="text-3xl font-bold text-foreground">Download My Resume</h3>
                   <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
                     Download or print my complete professional resume with detailed experience, education, and certifications.
                   </p>
@@ -110,7 +110,7 @@ export default function DownloadSection() {
                     data-testid="download-resume-button"
                   >
                     <Download size={20} />
-                    Download Resume
+                    Download
                   </Button>
                   
                   <Button
@@ -120,7 +120,7 @@ export default function DownloadSection() {
                     data-testid="print-page-button"
                   >
                     <Printer size={20} />
-                    Print Resume
+                    Print
                   </Button>
                 </div>
               </div>
