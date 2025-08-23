@@ -9,6 +9,7 @@ import cfaLogo from "@assets/CFA_Institute_Logo_1755923720192.png";
 import csiLogo from "@assets/canadian securities institute_1755923720191.png";
 import wallStreetPrepLogo from "@assets/wall street prep_1755923720193.png";
 import mcgillLogo from "@assets/mcgill_1755937693386.png";
+import trainingTheStreetLogo from "@assets/trainning the street_1755938972014.png";
 
 interface Certification {
   name: string;
@@ -34,10 +35,13 @@ export default function CertificationsSection() {
       color: "bg-blue-500",
       certifications: [
         { name: "CFA Level I Candidate", year: "2025", institution: "CFA Institute", highlight: true, logoSrc: cfaLogo },
-        { name: "Financial & Valuation Modeling", year: "2024", institution: "Wall Street Prep", logoSrc: wallStreetPrepLogo },
-        { name: "Discounted Cash Flow Analysis", year: "2024", institution: "Training the Street" },
+        { name: "Discounted Cash Flow Analysis", year: "2024", institution: "Training the Street", logoSrc: trainingTheStreetLogo },
         { name: "Financial Planning 1", year: "2023", institution: "Canadian Securities Institute", logoSrc: csiLogo },
+        { name: "Certificate in Financial Services Advice", year: "2022", institution: "Canadian Securities Institute", logoSrc: csiLogo },
+        { name: "Personal Financial Service Advice", year: "2021", institution: "Canadian Securities Institute", logoSrc: csiLogo },
         { name: "Canadian Securities Course", year: "2021", institution: "CSI", logoSrc: csiLogo },
+        { name: "Financial & Valuation Modeling", year: "2020", institution: "Wall Street Prep", logoSrc: wallStreetPrepLogo },
+        { name: "Investment Funds in Canada", year: "2020", institution: "Canadian Securities Institute", logoSrc: csiLogo },
         { name: "Personal Finance Essentials", year: "2020", institution: "McGill University", logoSrc: mcgillLogo }
       ]
     },
