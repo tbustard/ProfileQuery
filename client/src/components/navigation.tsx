@@ -130,16 +130,15 @@ export default function Navigation() {
                     <Link href="/" className="text-lg font-bold text-foreground transition-all duration-700 ease-out hover:text-primary">
                       Tyler Bustard
                     </Link>
+                    {/* Section indicator - positioned under the name */}
+                    {currentSection && (
+                      <div className="mt-1">
+                        <span className="text-xs font-medium text-primary">
+                          {getSectionDisplayName(currentSection)}
+                        </span>
+                      </div>
+                    )}
                   </div>
-                  
-                  {/* Section indicator */}
-                  {currentSection && (
-                    <div className="ml-3 px-2 py-1 bg-primary/10 rounded-lg transition-all duration-500">
-                      <span className="text-xs font-medium text-primary">
-                        {getSectionDisplayName(currentSection)}
-                      </span>
-                    </div>
-                  )}
                 </div>
               )}
               
