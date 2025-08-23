@@ -18,9 +18,9 @@ export default function EducationSection() {
   };
 
   const highlights = [
-    { title: "1st Place", subtitle: "CIBC Case Competition", iconType: "trophy" },
+    { title: "1st Place", subtitle: "CIBC Case Competition Winner", iconType: "trophy" },
     { title: "$47,500", subtitle: "Total Scholarships & Awards", iconType: "award" },
-    { title: "3rd Place", subtitle: "TD Case Competition", iconType: "graduation" }
+    { title: "3rd Place", subtitle: "TD Case Competition Finalist", iconType: "graduation" }
   ];
 
   const renderIcon = (iconType: string) => {
@@ -40,27 +40,27 @@ export default function EducationSection() {
     { 
       category: "Academic Excellence", 
       items: [
-        { title: "Finance Specialization", desc: "Bachelor of Business Administration with Finance Major" },
+        { title: "Finance Specialization", desc: "Bachelor of Business Administration with Finance Major focus" },
         { title: "5 Academic Awards", desc: "$47,500 in scholarships and alumni awards for merit and leadership" },
-        { title: "Accredited Co-op Program", desc: "Professional work experience integrated with academics" }
+        { title: "Accredited Co-op Program", desc: "Professional work experience integrated with academic curriculum" }
       ],
       gradient: "from-blue-500/10 to-purple-500/10"
     },
     { 
       category: "Leadership & Professional", 
       items: [
-        { title: "Student Investment Fund", desc: "Analyst and Portfolio Manager - Energy sector focus" },
-        { title: "RBC Student Ambassador", desc: "Campus leadership and financial services representation" },
-        { title: "UNB Finance Club", desc: "Active member in professional development activities" }
+        { title: "Student Investment Fund", desc: "Analyst and Portfolio Manager - Energy sector focus and analysis" },
+        { title: "RBC Student Ambassador", desc: "Campus leadership and financial services representation role" },
+        { title: "UNB Finance Club", desc: "Active member in professional development and networking activities" }
       ],
       gradient: "from-green-500/10 to-teal-500/10"
     },
     { 
       category: "Competition Achievements", 
       items: [
-        { title: "CIBC Case Competition", desc: "1st Place - Strategic business problem solving" },
-        { title: "TD Case Competition", desc: "3rd Place - Financial analysis and presentation" },
-        { title: "RBC Case Competition", desc: "Participant in competitive business case analysis" }
+        { title: "CIBC Case Competition", desc: "1st Place - Strategic business problem solving and analysis" },
+        { title: "TD Case Competition", desc: "3rd Place - Financial analysis and presentation excellence" },
+        { title: "RBC Case Competition", desc: "Participant in competitive business case analysis and strategy" }
       ],
       gradient: "from-orange-500/10 to-red-500/10"
     }
