@@ -121,40 +121,34 @@ export default function ExperienceSection() {
           </p>
         </div>
 
-        {/* Enhanced Apple Timeline */}
+        {/* Experience Timeline */}
         <div className="relative">
-          {/* Sophisticated Multi-layer Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/60 to-transparent hidden md:block shadow-sm"></div>
-          <div className="absolute left-7 top-0 bottom-0 w-1 bg-gradient-to-b from-white/20 via-white/40 to-white/20 backdrop-blur-xl rounded-full shadow-inner hidden md:block"></div>
-          <div className="absolute left-7.5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/30 via-primary/50 to-primary/30 rounded-full hidden md:block"></div>
+          {/* Modern Apple-style Timeline Line */}
+          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/40 to-transparent hidden md:block"></div>
+          <div className="absolute left-7.5 top-0 bottom-0 w-0.5 bg-white/30 backdrop-blur-sm rounded-full shadow-inner hidden md:block"></div>
           
-          <div className="space-y-20">
+          <div className="space-y-16">
             {experiences.map((exp, index) => (
-              <div key={index} className="relative group" data-testid={`experience-${index}`}>
-                {/* Premium Apple-style Timeline Marker */}
-                <div className="absolute left-4 w-8 h-8 rounded-full border-2 border-white/80 bg-gradient-to-br from-white/95 to-white/80 shadow-xl hidden md:block backdrop-blur-xl group-hover:scale-110 transition-all duration-500">
-                  <div className="absolute inset-1.5 rounded-full bg-gradient-to-br from-primary to-primary/80 shadow-inner"></div>
-                  <div className="absolute inset-2 rounded-full bg-white/30 backdrop-blur-sm"></div>
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent to-white/40"></div>
+              <div key={index} className="relative" data-testid={`experience-${index}`}>
+                {/* Enhanced Apple-style Timeline Marker */}
+                <div className="absolute left-5 w-6 h-6 rounded-full border-2 border-white bg-gradient-to-br from-white/90 to-white/70 shadow-lg hidden md:block backdrop-blur-sm">
+                  <div className="absolute inset-1 rounded-full bg-primary shadow-inner"></div>
                 </div>
                 
                 {/* Content */}
-                <div className="md:ml-24">
-                  <div className="relative bg-white/40 backdrop-blur-[25px] backdrop-saturate-[200%] rounded-3xl border border-white/30 shadow-2xl hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)] transition-all duration-700 hover:scale-[1.02] group-hover:border-white/50">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl" />
-                    <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl" />
-                    <div className="relative p-10">
-                      {/* Enhanced Header Section */}
-                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-8">
-                        <div className="flex items-start gap-6">
-                          <div className="w-18 h-18 bg-gradient-to-br from-primary/15 to-primary/5 rounded-3xl flex items-center justify-center flex-shrink-0 shadow-xl hover:shadow-2xl transition-all duration-700 hover:scale-110 border border-white/20 backdrop-blur-sm">
-                            <div className="w-16 h-16 bg-white/30 rounded-2xl flex items-center justify-center shadow-inner">
-                              <img 
-                                src={exp.logoSrc} 
-                                alt={`${exp.company} Logo`} 
-                                className="w-11 h-11 object-contain"
-                              />
-                            </div>
+                <div className="md:ml-20">
+                  <div className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative p-8">
+                      {/* Header Section */}
+                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
+                        <div className="flex items-start gap-4">
+                          <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
+                            <img 
+                              src={exp.logoSrc} 
+                              alt={`${exp.company} Logo`} 
+                              className="w-10 h-10 object-contain"
+                            />
                           </div>
                           <div>
                             <h3 className="text-xl font-semibold text-foreground mb-1">{exp.title}</h3>
@@ -167,27 +161,27 @@ export default function ExperienceSection() {
                         </div>
                       </div>
 
-                      {/* Enhanced Key Achievements */}
-                      <div className="mb-8">
-                        <h4 className="text-lg font-semibold text-foreground mb-5 tracking-tight">Key Achievements</h4>
-                        <div className="space-y-4">
+                      {/* Key Achievements */}
+                      <div className="mb-6">
+                        <h4 className="font-semibold text-foreground mb-4">Key Achievements</h4>
+                        <div className="space-y-3">
                           {exp.achievements.map((achievement, achievementIndex) => (
-                            <div key={achievementIndex} className="flex items-start gap-4 p-3 rounded-xl bg-white/20 backdrop-blur-sm border border-white/10 hover:bg-white/30 transition-all duration-300">
-                              <div className="w-2 h-2 bg-gradient-to-br from-primary to-primary/70 rounded-full mt-3 flex-shrink-0 shadow-sm"></div>
-                              <p className="text-muted-foreground font-medium leading-relaxed text-base">{achievement}</p>
+                            <div key={achievementIndex} className="flex items-start gap-3">
+                              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
+                              <p className="text-muted-foreground font-medium leading-relaxed">{achievement}</p>
                             </div>
                           ))}
                         </div>
                       </div>
 
-                      {/* Enhanced Skills & Technologies */}
+                      {/* Skills & Technologies */}
                       <div>
-                        <h4 className="text-lg font-semibold text-foreground mb-4 tracking-tight">Core Competencies</h4>
-                        <div className="flex flex-wrap gap-3">
+                        <h4 className="font-semibold text-foreground mb-3">Core Competencies</h4>
+                        <div className="flex flex-wrap gap-2">
                           {exp.technologies.map((tech, techIndex) => (
                             <span
                               key={techIndex}
-                              className="bg-gradient-to-r from-primary/15 to-primary/10 text-primary px-4 py-2 rounded-2xl text-sm font-semibold hover:from-primary/25 hover:to-primary/15 transition-all duration-300 border border-primary/20 backdrop-blur-sm shadow-sm hover:shadow-md hover:scale-105"
+                              className="bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium hover:bg-primary/20 transition-colors duration-300"
                               data-testid={`tech-${index}-${techIndex}`}
                             >
                               {tech}
