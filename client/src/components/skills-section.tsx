@@ -259,14 +259,17 @@ export function CommunitySection() {
 
         {/* Community Activities Timeline */}
         <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/20 hidden md:block"></div>
+          {/* Modern Apple-style Timeline Line */}
+          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/40 to-transparent hidden md:block"></div>
+          <div className="absolute left-7.5 top-0 bottom-0 w-0.5 bg-white/30 backdrop-blur-sm rounded-full shadow-inner hidden md:block"></div>
           
           <div className="space-y-16">
             {communityActivities.map((activity, index) => (
               <div key={index} className="relative" data-testid={`community-activity-${index}`}>
-                {/* Timeline Marker */}
-                <div className="absolute left-6 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-sm hidden md:block"></div>
+                {/* Enhanced Apple-style Timeline Marker */}
+                <div className="absolute left-5 w-6 h-6 rounded-full border-2 border-white bg-gradient-to-br from-white/90 to-white/70 shadow-lg hidden md:block backdrop-blur-sm">
+                  <div className="absolute inset-1 rounded-full bg-primary shadow-inner"></div>
+                </div>
                 
                 {/* Content */}
                 <div className="md:ml-20">
