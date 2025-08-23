@@ -35,9 +35,33 @@ export default function EducationSection() {
   };
 
   const activities = [
-    { category: "Leadership", items: ["Student Investment Fund Portfolio Manager", "Finance Club Executive Member"] },
-    { category: "Recognition", items: ["RBC Student Ambassador", "5 Academic Merit Awards"] },
-    { category: "Competition", items: ["CIBC Case Competition Winner", "TD Case Competition 3rd Place", "RBC & SLC Participant"] }
+    { 
+      category: "Leadership", 
+      items: [
+        "Student Investment Fund Portfolio Manager",
+        "Finance Club Executive Member",
+        "Analyst and Portfolio Manager – UNB Student Investment Fund"
+      ] 
+    },
+    { 
+      category: "Recognition", 
+      items: [
+        "RBC Student Ambassador",
+        "5 Academic Merit Awards",
+        "Recipient of 5 Scholarship and Alumni Awards",
+        "Total $47,500 in Academic Merit Recognition",
+        "Accredited Co-op Program Participant"
+      ] 
+    },
+    { 
+      category: "Competition", 
+      items: [
+        "1st Place - CIBC Case Competition",
+        "3rd Place - TD Case Competition", 
+        "RBC Case Competition Participant",
+        "SLC Competition Participant"
+      ] 
+    }
   ];
 
   return (
@@ -111,21 +135,6 @@ export default function EducationSection() {
             ))}
           </div>
         </div>
-
-        {/* Detailed Achievements */}
-        <Card className="apple-card border-0">
-          <CardContent className="p-10">
-            <h3 className="text-lg font-semibold text-foreground mb-6 text-center">Complete Academic Record</h3>
-            <div className="space-y-4">
-              {education.achievements.map((achievement, index) => (
-                <div key={index} className="flex items-start gap-3" data-testid={`achievement-${index}`}>
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <p className="body-text text-muted-foreground leading-relaxed">{achievement}</p>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
 
         {/* Academic Summary Stats */}
         <div className="mt-16">
