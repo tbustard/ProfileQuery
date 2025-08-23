@@ -102,10 +102,10 @@ export default function Navigation() {
             : 'bg-transparent'
         }`}
         style={{
-          background: isScrolled ? 'rgba(255, 255, 255, 0.02)' : 'transparent',
+          background: isScrolled ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
           backdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
           WebkitBackdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
-          boxShadow: isScrolled ? '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05)' : 'none',
+          boxShadow: isScrolled ? '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)' : 'none',
         }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
