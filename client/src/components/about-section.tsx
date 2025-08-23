@@ -98,14 +98,14 @@ export default function EducationSection() {
 
         {/* Hero Education Card - Modern Apple Layout */}
         <div className="mb-24">
-          <div className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg p-12 lg:p-16 max-w-5xl mx-auto min-h-[200px]">
+          <div className="relative bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 p-12 lg:p-16 max-w-5xl mx-auto min-h-[200px]">
             <div className="flex items-center gap-8 h-full">
               {/* Logo on left */}
               <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 flex-shrink-0">
                 <img 
                   src={universityLogo} 
                   alt="University Logo" 
-                  className="w-8 h-8 object-contain"
+                  className="w-12 h-12 object-contain"
                 />
               </div>
               
@@ -132,9 +132,9 @@ export default function EducationSection() {
           {achievements.map((category, index) => (
             <div 
               key={index} 
-              className={`relative overflow-hidden rounded-3xl bg-gradient-to-r ${category.gradient} backdrop-blur-sm border border-white/20`}
+              className={`relative overflow-hidden rounded-[28px] bg-gradient-to-r ${category.gradient} backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500`}
             >
-              <div className="absolute inset-0 bg-white/40 backdrop-blur-xl" />
+              <div className="absolute inset-0 bg-white/80 backdrop-blur-xl" />
               <div className="relative p-8 lg:p-12">
                 <div className="flex flex-col lg:flex-row lg:items-center gap-8">
                   {/* Category Title */}
@@ -150,7 +150,7 @@ export default function EducationSection() {
                     {category.items.map((item, itemIndex) => (
                       <div 
                         key={itemIndex} 
-                        className="bg-white/30 backdrop-blur-sm rounded-2xl p-10 border border-white/30 hover:bg-white/40 transition-all duration-500 hover:scale-[1.02]"
+                        className="bg-white/90 backdrop-blur-xl rounded-[20px] p-10 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.02]"
                       >
                         <h5 className="font-semibold text-foreground mb-2 text-lg">
                           {item.title}
@@ -169,7 +169,7 @@ export default function EducationSection() {
 
         {/* Academic Excellence Summary - Modern Stats Grid */}
         <div className="mt-24">
-          <div className="bg-white/30 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
+          <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
             <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-8 lg:p-12">
               <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
                 Academic Excellence Highlights
