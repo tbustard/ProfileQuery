@@ -100,14 +100,14 @@ export default function CertificationsSection() {
   );
 
   return (
-    <section id="certifications" className="py-24 lg:py-32 relative overflow-hidden bg-gray-50">
+    <section id="certifications" className="py-24 lg:py-32 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0" />
+      <div className="absolute inset-0 bg-white" />
       
       <div className="container-width">
-        <div className="bg-white rounded-3xl p-10 shadow-xl border border-gray-100">
+        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
               Certifications
             </h2>
@@ -120,9 +120,9 @@ export default function CertificationsSection() {
         <div className="mb-16">
           <div className="space-y-8">
             {certificationCategories.map((category, categoryIndex) => (
-              <div key={categoryIndex} id={`certifications-${category.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+              <div key={categoryIndex} id={`certifications-${category.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
                 {/* Modern Category Container */}
-                <div className="mb-6">
+                <div className="p-8">
                   {/* Category Header */}
                   <div className="mb-6">
                     <div className="flex items-center gap-4 mb-4">
@@ -130,8 +130,8 @@ export default function CertificationsSection() {
                         <category.icon className="w-8 h-8 text-white" />
                       </div>
                       <div>
-                        <h4 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">{category.title}</h4>
-                        <p className="text-lg text-gray-600 font-medium">{category.certifications.length} professional certifications</p>
+                        <h4 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">{category.title}</h4>
+                        <p className="text-lg text-muted-foreground font-medium">{category.certifications.length} professional certifications</p>
                       </div>
                     </div>
                   </div>
@@ -143,13 +143,13 @@ export default function CertificationsSection() {
                         <div 
                           key={certIndex}
                           id={`cert-${cert.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                          className="group relative bg-gray-50 rounded-xl p-6 hover:bg-gray-100 transition-colors duration-200"
+                          className="group relative bg-white/90 backdrop-blur-xl rounded-[20px] p-6 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500"
                           data-testid={`cert-${categoryIndex}-${certIndex}`}
                         >
                           <div className="flex items-center justify-between">
                             <div className="flex-1">
                               <div className="flex items-center gap-3 mb-3">
-                                <h5 className="text-lg font-semibold text-gray-900">{cert.name}</h5>
+                                <h5 className="text-lg font-semibold text-foreground">{cert.name}</h5>
                                 {cert.highlight && (
                                   <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold">
                                     FEATURED
@@ -164,9 +164,9 @@ export default function CertificationsSection() {
                                     className="w-6 h-6 object-contain flex-shrink-0"
                                   />
                                 )}
-                                <p className="text-gray-600 font-medium">{cert.institution}</p>
+                                <p className="text-muted-foreground font-medium">{cert.institution}</p>
                               </div>
-                              <p className="text-sm text-gray-600 leading-relaxed mb-3">{cert.description}</p>
+                              <p className="text-sm text-muted-foreground leading-relaxed mb-3">{cert.description}</p>
                               {cert.percentile && (
                                 <div className="mt-1">
                                   <p className="text-sm text-blue-600 font-semibold bg-blue-50 px-3 py-1 rounded-full inline-block">{cert.percentile}</p>
@@ -174,7 +174,7 @@ export default function CertificationsSection() {
                               )}
                             </div>
                             <div className="text-right">
-                              <span className="text-lg font-bold text-gray-900 bg-gray-100 px-3 py-1 rounded-lg">{cert.year}</span>
+                              <span className="text-lg font-bold text-foreground bg-white/20 backdrop-blur-sm px-3 py-1 rounded-xl">{cert.year}</span>
                             </div>
                           </div>
                         </div>
@@ -188,23 +188,23 @@ export default function CertificationsSection() {
         </div>
 
         {/* Achievement Metrics - Clean stats */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">
+        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
+          <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-8 lg:p-12">
+            <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
               Professional Development Highlights
             </h3>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-blue-600 mb-2">22</div>
-                <div className="text-gray-600 font-medium">Total Certifications</div>
+                <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">22</div>
+                <div className="text-muted-foreground font-medium">Total Certifications</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-2">4</div>
-                <div className="text-gray-600 font-medium">Expertise Areas</div>
+                <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">4</div>
+                <div className="text-muted-foreground font-medium">Expertise Areas</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-purple-600 mb-2">17</div>
-                <div className="text-gray-600 font-medium">Different Organizations</div>
+                <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">17</div>
+                <div className="text-muted-foreground font-medium">Different Organizations</div>
               </div>
             </div>
           </div>
