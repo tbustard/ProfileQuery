@@ -77,8 +77,7 @@ export default function HeroSection() {
                   {/* Experience Quadrant */}
                   <div className="bg-white/95 backdrop-blur-xl rounded-[2rem] p-12 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
                     <div className="space-y-8">
-                      {/* Top Row */}
-                      <div className="grid grid-cols-3 gap-3 mb-3">
+                      <div className="grid grid-cols-5 gap-3 mb-6 h-14">
                         <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
                           <img 
                             src={bmoLogo} 
@@ -100,9 +99,6 @@ export default function HeroSection() {
                             className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
-                      </div>
-                      {/* Bottom Row */}
-                      <div className="grid grid-cols-3 gap-3 mb-4">
                         <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
                           <img 
                             src={irvingLogo} 
@@ -117,9 +113,6 @@ export default function HeroSection() {
                             className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20 opacity-20">
-                          {/* Empty placeholder for alignment */}
-                        </div>
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold text-foreground mb-4">Experience</h3>
@@ -133,8 +126,7 @@ export default function HeroSection() {
                   {/* Education Quadrant */}
                   <div className="bg-white/95 backdrop-blur-xl rounded-[2rem] p-12 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
                     <div className="space-y-8">
-                      {/* Top Row */}
-                      <div className="grid grid-cols-3 gap-3 mb-3">
+                      <div className="grid grid-cols-5 gap-3 mb-6 h-14">
                         <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
                           <img 
                             src={unbLogo} 
@@ -142,24 +134,10 @@ export default function HeroSection() {
                             className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20 opacity-20">
-                          {/* Empty placeholder */}
-                        </div>
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20 opacity-20">
-                          {/* Empty placeholder */}
-                        </div>
-                      </div>
-                      {/* Bottom Row */}
-                      <div className="grid grid-cols-3 gap-3 mb-4">
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20 opacity-20">
-                          {/* Empty placeholder */}
-                        </div>
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20 opacity-20">
-                          {/* Empty placeholder */}
-                        </div>
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20 opacity-20">
-                          {/* Empty placeholder */}
-                        </div>
+                        <div className="w-14 h-14"></div>
+                        <div className="w-14 h-14"></div>
+                        <div className="w-14 h-14"></div>
+                        <div className="w-14 h-14"></div>
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold text-foreground mb-4">Education</h3>
@@ -173,72 +151,62 @@ export default function HeroSection() {
                   {/* Certifications Quadrant */}
                   <div className="bg-white/95 backdrop-blur-xl rounded-[2rem] p-12 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
                     <div className="space-y-8">
-                      {/* Top Row */}
-                      <div className="grid grid-cols-3 gap-3 mb-3">
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
+                      <div className="flex flex-wrap justify-start gap-2 mb-6 h-14 items-center">
+                        <div className="w-12 h-12 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
                           <img 
                             src={cfaLogo} 
                             alt="CFA Institute Logo" 
-                            className="w-8 h-8 object-contain transition-all duration-300"
+                            className="w-6 h-6 object-contain transition-all duration-300"
                           />
                         </div>
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
+                        <div className="w-12 h-12 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
                           <img 
                             src={trainingTheStreetLogo} 
                             alt="Training the Street Logo" 
-                            className="w-8 h-8 object-contain transition-all duration-300"
+                            className="w-6 h-6 object-contain transition-all duration-300"
                           />
                         </div>
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
+                        <div className="w-12 h-12 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
                           <img 
                             src={etsLogo} 
                             alt="ETS Logo" 
-                            className="w-8 h-8 object-contain transition-all duration-300"
+                            className="w-6 h-6 object-contain transition-all duration-300"
                           />
                         </div>
-                      </div>
-                      {/* Bottom Row */}
-                      <div className="grid grid-cols-3 gap-3 mb-4">
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
+                        <div className="w-12 h-12 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
                           <img 
                             src={csiLogo} 
                             alt="Canadian Securities Institute Logo" 
-                            className="w-8 h-8 object-contain transition-all duration-300"
+                            className="w-6 h-6 object-contain transition-all duration-300"
                           />
                         </div>
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
+                        <div className="w-12 h-12 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
                           <img 
                             src={courseraLogo} 
                             alt="Coursera Logo" 
-                            className="w-8 h-8 object-contain transition-all duration-300"
+                            className="w-6 h-6 object-contain transition-all duration-300"
                           />
                         </div>
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
+                        <div className="w-12 h-12 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
                           <img 
                             src={bloombergLogo} 
                             alt="Bloomberg Logo" 
-                            className="w-8 h-8 object-contain transition-all duration-300"
+                            className="w-6 h-6 object-contain transition-all duration-300"
                           />
                         </div>
-                      </div>
-                      {/* Third Row */}
-                      <div className="grid grid-cols-3 gap-3 mb-4">
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
+                        <div className="w-12 h-12 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
                           <img 
                             src={wallStreetPrepLogo} 
                             alt="Wall Street Prep Logo" 
-                            className="w-8 h-8 object-contain transition-all duration-300"
+                            className="w-6 h-6 object-contain transition-all duration-300"
                           />
                         </div>
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
+                        <div className="w-12 h-12 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
                           <img 
                             src={mcgillLogo} 
                             alt="McGill University Logo" 
-                            className="w-8 h-8 object-contain transition-all duration-300"
+                            className="w-6 h-6 object-contain transition-all duration-300"
                           />
-                        </div>
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20 opacity-20">
-                          {/* Empty placeholder for alignment */}
                         </div>
                       </div>
                       <div>
@@ -253,8 +221,7 @@ export default function HeroSection() {
                   {/* Community Quadrant */}
                   <div className="bg-white/95 backdrop-blur-xl rounded-[2rem] p-12 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
                     <div className="space-y-8">
-                      {/* Top Row */}
-                      <div className="grid grid-cols-3 gap-3 mb-3">
+                      <div className="grid grid-cols-5 gap-3 mb-6 h-14">
                         <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
                           <img src={unitedWayLogo} alt="United Way Logo" className="w-8 h-8 object-contain transition-all duration-300" />
                         </div>
@@ -272,18 +239,8 @@ export default function HeroSection() {
                             className="w-8 h-8 object-contain transition-all duration-300"
                           />
                         </div>
-                      </div>
-                      {/* Bottom Row */}
-                      <div className="grid grid-cols-3 gap-3 mb-4">
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20 opacity-20">
-                          {/* Empty placeholder */}
-                        </div>
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20 opacity-20">
-                          {/* Empty placeholder */}
-                        </div>
-                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20 opacity-20">
-                          {/* Empty placeholder */}
-                        </div>
+                        <div className="w-14 h-14"></div>
+                        <div className="w-14 h-14"></div>
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold text-foreground mb-4">Community</h3>
