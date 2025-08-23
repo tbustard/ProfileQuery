@@ -108,8 +108,8 @@ export default function Navigation() {
           boxShadow: isScrolled ? '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)' : 'none',
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 sm:h-20">
             
             {/* Left side - Logo/Name */}
             <div className="flex items-center">
@@ -357,7 +357,7 @@ export default function Navigation() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-foreground hover:bg-white/10"
+                className="text-foreground hover:bg-white/10 min-h-[48px] min-w-[48px] p-3"
               >
                 {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
@@ -368,36 +368,36 @@ export default function Navigation() {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden mobile-glass border-t border-white/10">
-            <div className="px-6 py-4 space-y-2">
+            <div className="px-4 sm:px-6 py-6 space-y-3">
               {isHomePage && (
                 <>
                   <button
                     onClick={() => scrollToSection('#education')}
-                    className="block w-full text-left px-4 py-3 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200"
+                    className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
                   >
                     Education
                   </button>
                   <button
                     onClick={() => scrollToSection('#experience')}
-                    className="block w-full text-left px-4 py-3 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200"
+                    className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
                   >
                     Experience
                   </button>
                   <button
                     onClick={() => scrollToSection('#certifications')}
-                    className="block w-full text-left px-4 py-3 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200"
+                    className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
                   >
                     Certifications
                   </button>
                   <button
                     onClick={() => scrollToSection('#community')}
-                    className="block w-full text-left px-4 py-3 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200"
+                    className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
                   >
                     Community
                   </button>
                   <button
                     onClick={() => scrollToSection('#contact')}
-                    className="block w-full text-left px-4 py-3 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200"
+                    className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
                   >
                     Contact
                   </button>

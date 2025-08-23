@@ -111,7 +111,7 @@ export default function CertificationsSection() {
     <section 
       ref={sectionAnimation.ref}
       id="certifications" 
-      className={`py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
+      className={`py-16 sm:py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
     >
       {/* Background - inherits Apple grey from parent */}
       

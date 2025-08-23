@@ -65,25 +65,25 @@ export default function ContactSection() {
 
 
   return (
-    <section id="contact" className="py-24 lg:py-32 relative overflow-hidden">
+    <section id="contact" className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-white" />
       
       <div className="container-width">
-        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
+        <div className="bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] p-6 sm:p-8 lg:p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header Section - Apple's content-first approach */}
-          <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">Contact</h2>
-            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 tracking-tight">Contact</h2>
+            <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Ready to discuss your next project or opportunity? I'd love to hear from you.
             </p>
           </div>
 
         {/* Contact Cards Grid - Apple-style asymmetrical layout */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {contactInfo.map((info, index) => (
-            <Card key={index} id={`contact-${info.label.toLowerCase()}`} className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] text-center" data-testid={`contact-card-${index}`}>
-              <CardContent className="p-10">
+            <Card key={index} id={`contact-${info.label.toLowerCase()}`} className="bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] text-center" data-testid={`contact-card-${index}`}>
+              <CardContent className="p-6 sm:p-8 lg:p-10">
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                   <info.icon className="w-8 h-8 text-primary" />
                 </div>
@@ -96,12 +96,12 @@ export default function ContactSection() {
 
         {/* Featured Contact Form - Apple's hero card design */}
         <div className="max-w-4xl mx-auto">
-          <Card className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 relative overflow-hidden">
+          <Card className="bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 relative overflow-hidden">
             {/* Clean Background */}
             <div className="absolute inset-0 bg-white"></div>
             
-            <CardContent className="p-10 relative z-10">
-              <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <CardContent className="p-6 sm:p-8 lg:p-10 relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-start">
                 {/* Form Info Section */}
                 <div className="space-y-8">
                   <div>

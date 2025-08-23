@@ -89,16 +89,16 @@ export default function EducationSection() {
     <section 
       ref={sectionAnimation.ref}
       id="education" 
-      className={`py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
+      className={`py-16 sm:py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
     >
       {/* Background - inherits Apple grey from parent */}
       
       <div className="container-width">
-        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
+        <div className="bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] p-6 sm:p-8 lg:p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header */}
           <div 
             ref={headerAnimation.ref}
-            className={`text-center mb-20 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+            className={`text-center mb-12 sm:mb-16 lg:mb-20 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
           >
             <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
               Education
