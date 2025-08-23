@@ -85,7 +85,7 @@ export default function EducationSection() {
                 <img 
                   src={universityLogo} 
                   alt="University Logo" 
-                  className="w-14 h-14 object-contain transition-all duration-300 hover:scale-110"
+                  className="w-16 h-16 object-contain transition-all duration-300 hover:scale-110"
                 />
               </div>
               
