@@ -74,11 +74,11 @@ export default function HeroSection() {
               <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 shadow-xl">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   
-                  {/* Career Quadrant */}
-                  <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
-                    <div className="space-y-6">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
+                  {/* Experience Quadrant */}
+                  <div className="bg-white/95 backdrop-blur-xl rounded-[2rem] p-12 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
+                    <div className="space-y-8">
+                      <div className="flex items-center gap-3 flex-wrap mb-2">
+                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
                           <img 
                             src={bmoLogo} 
                             alt="BMO Logo" 
@@ -115,30 +115,19 @@ export default function HeroSection() {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-foreground mb-3">Experience</h3>
-                        <div className="space-y-2.5 text-sm text-muted-foreground font-medium">
-                          <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                            <span>5+ years in financial services industry</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                            <span>Wealth management & private banking expertise</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                            <span>Progressive leadership across top-tier institutions</span>
-                          </div>
-                        </div>
+                        <h3 className="text-2xl font-bold text-foreground mb-4">Experience</h3>
+                        <p className="text-base text-muted-foreground leading-relaxed font-medium">
+                          Five years of progressive leadership across top-tier financial institutions, specializing in wealth management and private banking with a proven track record of delivering exceptional client results.
+                        </p>
                       </div>
                     </div>
                   </div>
 
                   {/* Education Quadrant */}
-                  <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
-                    <div className="space-y-6">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
+                  <div className="bg-white/95 backdrop-blur-xl rounded-[2rem] p-12 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
+                    <div className="space-y-8">
+                      <div className="flex items-center gap-3 flex-wrap mb-2">
+                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
                           <img 
                             src={unbLogo} 
                             alt="University of New Brunswick Logo" 
@@ -147,30 +136,19 @@ export default function HeroSection() {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-foreground mb-3">Education</h3>
-                        <div className="space-y-2.5 text-sm text-muted-foreground font-medium">
-                          <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                            <span>4-year Bachelor of Business Administration</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                            <span>Finance major with investment focus</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                            <span>$47,500 in academic scholarships & awards</span>
-                          </div>
-                        </div>
+                        <h3 className="text-2xl font-bold text-foreground mb-4">Education</h3>
+                        <p className="text-base text-muted-foreground leading-relaxed font-medium">
+                          Bachelor of Business Administration with a Finance major and investment focus, recognized with $47,500 in academic scholarships and awards for exceptional academic achievement.
+                        </p>
                       </div>
                     </div>
                   </div>
 
                   {/* Certifications Quadrant */}
-                  <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
-                    <div className="space-y-6">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
+                  <div className="bg-white/95 backdrop-blur-xl rounded-[2rem] p-12 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
+                    <div className="space-y-8">
+                      <div className="flex items-center gap-3 flex-wrap mb-2">
+                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
                           <img 
                             src={cfaLogo} 
                             alt="CFA Institute Logo" 
@@ -228,30 +206,19 @@ export default function HeroSection() {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-foreground mb-3">Certifications</h3>
-                        <div className="space-y-2.5 text-sm text-muted-foreground font-medium">
-                          <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                            <span>22+ professional certifications earned</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                            <span>4 expertise areas across finance & technology</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                            <span>17 prestigious institutions & organizations</span>
-                          </div>
-                        </div>
+                        <h3 className="text-2xl font-bold text-foreground mb-4">Certifications</h3>
+                        <p className="text-base text-muted-foreground leading-relaxed font-medium">
+                          Twenty-two professional certifications spanning four expertise areas across finance and technology from seventeen prestigious institutions and organizations, demonstrating continuous commitment to professional excellence.
+                        </p>
                       </div>
                     </div>
                   </div>
 
                   {/* Community Quadrant */}
-                  <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
-                    <div className="space-y-6">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
+                  <div className="bg-white/95 backdrop-blur-xl rounded-[2rem] p-12 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
+                    <div className="space-y-8">
+                      <div className="flex items-center gap-3 flex-wrap mb-2">
+                        <div className="w-14 h-14 bg-gradient-to-br from-white/30 to-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-white/40 group-hover:to-white/20">
                           <img src={unitedWayLogo} alt="United Way Logo" className="w-8 h-8 object-contain transition-all duration-300" />
                         </div>
                         <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
@@ -270,21 +237,10 @@ export default function HeroSection() {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-foreground mb-3">Community</h3>
-                        <div className="space-y-2.5 text-sm text-muted-foreground font-medium">
-                          <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                            <span>United Way campaign leadership</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                            <span>Financial literacy mentorship</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
-                            <span>Community investment advocate</span>
-                          </div>
-                        </div>
+                        <h3 className="text-2xl font-bold text-foreground mb-4">Community</h3>
+                        <p className="text-base text-muted-foreground leading-relaxed font-medium">
+                          Dedicated community leader through United Way campaign leadership, financial literacy mentorship, and advocacy for community investment initiatives that create lasting positive impact.
+                        </p>
                       </div>
                     </div>
                   </div>
