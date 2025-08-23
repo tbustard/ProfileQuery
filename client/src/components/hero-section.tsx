@@ -121,7 +121,7 @@ export default function HeroSection() {
                 <h3 className="text-lg font-semibold text-foreground">Education</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                BBA with $47,500 in academic scholarships
+                Bachelor of Business Administration in Finance with $47,500 in academic scholarships
               </p>
             </div>
 
