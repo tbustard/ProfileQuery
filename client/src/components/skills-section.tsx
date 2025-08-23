@@ -265,9 +265,10 @@ export function CommunitySection() {
           <div className="space-y-16">
             {communityActivities.map((activity, index) => (
               <div key={index} className="relative" data-testid={`community-activity-${index}`}>
-                {/* Clean Timeline Marker */}
-                <div className="absolute left-6 w-4 h-4 rounded-full bg-white border-2 border-gray-200 shadow-sm hidden md:block">
-                  <div className="absolute inset-1 rounded-full bg-primary"></div>
+                {/* Beautiful Timeline Marker */}
+                <div className="absolute left-5 w-6 h-6 rounded-full bg-gradient-to-br from-white to-gray-50 border border-gray-200/60 shadow-[0_2px_8px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.12)] hidden md:block backdrop-blur-sm">
+                  <div className="absolute inset-1 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 shadow-inner"></div>
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/30 via-transparent to-transparent"></div>
                 </div>
                 
                 {/* Content */}
