@@ -165,8 +165,8 @@ export default function CertificationsSection() {
                           data-testid={`cert-${categoryIndex}-${certIndex}`}
                         >
                           <div className="flex-1 flex flex-col">
-                            <div className="flex items-start justify-between mb-3 min-h-[4rem]">
-                              <h5 className="font-semibold text-foreground text-lg flex-1 flex items-start leading-tight">
+                            <div className="flex items-start justify-between mb-3 min-h-[2.5rem]">
+                              <h5 className="font-semibold text-foreground text-lg flex-1 leading-tight">
                                 {cert.name}
                               </h5>
                               <span className="text-sm font-medium text-gray-500 ml-2 flex-shrink-0">{cert.year}</span>
