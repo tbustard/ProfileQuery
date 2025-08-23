@@ -4,8 +4,16 @@ import { Button } from "@/components/ui/button";
 export default function DownloadSection() {
   const downloadResume = async () => {
     try {
-      // Fetch the resume file
-      const response = await fetch('/Tyler_Bustard_Resume.html');
+      // Try to fetch the PDF version first, then fallback to HTML
+      let response = await fetch('/Tyler_Bustard_Resume.pdf');
+      let filename = 'Tyler_Bustard_Resume.pdf';
+      
+      if (!response.ok) {
+        // Fallback to HTML version if PDF not found
+        response = await fetch('/Tyler_Bustard_Resume.html');
+        filename = 'Tyler_Bustard_Resume.html';
+      }
+      
       if (!response.ok) {
         throw new Error('Failed to fetch resume');
       }
@@ -15,7 +23,7 @@ export default function DownloadSection() {
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'Tyler_Bustard_Resume.html';
+      link.download = filename;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -30,13 +38,31 @@ export default function DownloadSection() {
   };
 
   const printPage = () => {
-    // Open resume in new window and print
-    const printWindow = window.open('/Tyler_Bustard_Resume.html', '_blank');
-    if (printWindow) {
-      printWindow.onload = () => {
-        printWindow.print();
-      };
-    }
+    // For PDF files, open directly; for HTML, open and print
+    fetch('/Tyler_Bustard_Resume.pdf')
+      .then(response => {
+        if (response.ok) {
+          // PDF exists, open it directly
+          window.open('/Tyler_Bustard_Resume.pdf', '_blank');
+        } else {
+          // Fallback to HTML version
+          const printWindow = window.open('/Tyler_Bustard_Resume.html', '_blank');
+          if (printWindow) {
+            printWindow.onload = () => {
+              printWindow.print();
+            };
+          }
+        }
+      })
+      .catch(() => {
+        // Error case, fallback to HTML
+        const printWindow = window.open('/Tyler_Bustard_Resume.html', '_blank');
+        if (printWindow) {
+          printWindow.onload = () => {
+            printWindow.print();
+          };
+        }
+      });
   };
 
   return (
