@@ -23,6 +23,17 @@ import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 export default function HeroSection() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const isPageLoaded = useInitialPageAnimation(300);
+
+  // Smooth scroll to section function
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
   
   return (
     <section id="hero" className="relative overflow-hidden min-h-screen flex items-start justify-center pt-20" style={{ backgroundColor: '#f5f5f7' }}>
@@ -94,12 +105,15 @@ export default function HeroSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             
             {/* Education Card */}
-            <div className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
+            <div 
+              onClick={() => scrollToSection('education')}
+              className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in cursor-pointer ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    animationDelay: '0.5s'
-                 }}>
+                 }}
+                 data-testid="card-education">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative">
                   <img src={unbLogo} alt="Education" className="w-6 h-6 object-contain" />
@@ -112,12 +126,15 @@ export default function HeroSection() {
             </div>
 
             {/* Experience Card */}
-            <div className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
+            <div 
+              onClick={() => scrollToSection('experience')}
+              className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in cursor-pointer ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    animationDelay: '0.6s'
-                 }}>
+                 }}
+                 data-testid="card-experience">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent experience logos stacked */}
@@ -141,12 +158,15 @@ export default function HeroSection() {
             </div>
 
             {/* Certifications Card */}
-            <div className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
+            <div 
+              onClick={() => scrollToSection('skills')}
+              className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in cursor-pointer ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    animationDelay: '0.7s'
-                 }}>
+                 }}
+                 data-testid="card-certifications">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent certification logos stacked */}
@@ -170,12 +190,15 @@ export default function HeroSection() {
             </div>
 
             {/* Community Card */}
-            <div className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
+            <div 
+              onClick={() => scrollToSection('community')}
+              className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in cursor-pointer ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    animationDelay: '0.8s'
-                 }}>
+                 }}
+                 data-testid="card-community">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent community logos stacked */}
