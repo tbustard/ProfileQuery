@@ -261,9 +261,6 @@ export class AppleGSAPAnimations {
   }
 }
 
-// Auto-initialize when script loads
-if (typeof window !== 'undefined') {
-  AppleGSAPAnimations.initializeAll();
-}
+// Remove auto-initialization to prevent conflicts
 
 export default AppleGSAPAnimations;
