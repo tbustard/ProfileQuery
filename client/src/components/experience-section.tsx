@@ -150,13 +150,12 @@ export default function ExperienceSection() {
                           </div>
                           <div>
                             <h3 className="text-xl font-semibold text-foreground mb-1">{exp.title}</h3>
-                            <p className="text-lg font-medium mb-1" style={{ color: exp.color }}>{exp.company}</p>
+                            <p className="text-lg font-medium text-primary mb-1">{exp.company}</p>
                             <p className="text-muted-foreground font-medium">{exp.location}</p>
                           </div>
                         </div>
                         <div className="mt-4 lg:mt-0 lg:text-right">
                           <span className="text-lg font-medium text-gray-500">{exp.period}</span>
-                          <p className="text-muted-foreground text-sm font-medium mt-1 lg:text-right">{exp.duration}</p>
                         </div>
                       </div>
 

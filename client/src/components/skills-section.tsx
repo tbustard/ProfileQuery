@@ -303,13 +303,12 @@ export function CommunitySection() {
                           </div>
                           <div>
                             <h3 className="text-xl font-semibold text-foreground mb-1">{activity.title}</h3>
-                            <p className="text-lg font-medium mb-1" style={{ color: activity.color }}>{activity.organization}</p>
+                            <p className="text-lg font-medium text-primary mb-1">{activity.organization}</p>
                             <p className="text-muted-foreground font-medium">{activity.description}</p>
                           </div>
                         </div>
                         <div className="mt-4 lg:mt-0 lg:text-right">
                           <span className="text-lg font-medium text-gray-500">{activity.period}</span>
-                          <p className="text-muted-foreground text-sm font-medium mt-1 lg:text-right">{activity.duration}</p>
                         </div>
                       </div>
 

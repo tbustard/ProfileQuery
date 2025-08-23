@@ -117,7 +117,7 @@ export default function EducationSection() {
                 </div>
                 <div className="space-y-2">
                   <p className="text-xl font-semibold text-primary">{education.degree}</p>
-                  <p className="text-lg font-medium text-blue-600">{education.major}</p>
+                  <p className="text-lg font-medium text-primary">{education.major}</p>
                   <p className="text-base text-muted-foreground">{education.location}</p>
                 </div>
               </div>
