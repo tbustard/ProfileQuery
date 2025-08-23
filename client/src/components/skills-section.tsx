@@ -286,10 +286,10 @@ export function CommunitySection() {
       <div className="absolute inset-0 bg-white" />
       
       <div className="container-width">
-        <div className="rounded-[28px] p-10 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500">
+        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header */}
-          <div className="text-center ">
-            <h2 className="text-5xl lg:text-6xl font-bold text-foreground  tracking-tight">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
               Community
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -300,24 +300,26 @@ export function CommunitySection() {
         {/* Community Activities Timeline */}
         <div className="relative">
           {/* Clean Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-px hidden md:block"></div>
+          <div className="absolute left-8 top-0 bottom-0 w-px bg-gray-200 hidden md:block"></div>
           
           <div className="space-y-16">
             {communityActivities.map((activity, index) => (
               <div key={index} id={`community-${activity.organization.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} className="relative" data-testid={`community-activity-${index}`}>
                 {/* Beautiful Timeline Marker */}
-                <div className="absolute left-5 w-6 h-6 rounded-full border border-gray-200 shadow-lg hidden md:block">
-                  <div className="absolute inset-1 rounded-full"></div>
+                <div className="absolute left-5 w-6 h-6 rounded-full bg-gradient-to-br from-white to-gray-50 border border-gray-200/60 shadow-[0_2px_8px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.12)] hidden md:block backdrop-blur-sm">
+                  <div className="absolute inset-1 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 shadow-inner"></div>
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/30 via-transparent to-transparent"></div>
                 </div>
                 
                 {/* Content */}
                 <div className="md:ml-24">
-                  <div className="relative rounded-[28px] border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500 group">
+                  <div className="relative bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="relative p-8">
                       {/* Header Section */}
-                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start ">
-                        <div className="flex items-start ">
-                          <div className="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
+                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
+                        <div className="flex items-start gap-4">
+                          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                             {activity.logoSrc ? (
                               <img 
                                 src={activity.logoSrc} 
@@ -330,7 +332,7 @@ export function CommunitySection() {
                           </div>
                           <div>
                             <h3 className="text-xl font-semibold text-foreground mb-1">{activity.title}</h3>
-                            <p className="text-lg font-medium text-foreground mb-1">{activity.organization}</p>
+                            <p className="text-lg font-medium text-primary mb-1">{activity.organization}</p>
                             <p className="text-muted-foreground font-medium">{activity.location}</p>
                           </div>
                         </div>
@@ -340,12 +342,12 @@ export function CommunitySection() {
                       </div>
 
                       {/* Key Achievements */}
-                      <div className="">
+                      <div className="mb-6">
                         <h4 className="font-semibold text-foreground mb-4">Key Achievements</h4>
                         <div className="space-y-3">
                           {activity.achievements.map((achievement, achievementIndex) => (
-                            <div key={achievementIndex} className="flex items-start ">
-                              <div className="w-1.5 h-1.5 rounded-full mt-2.5 flex-shrink-0 border border-gray-300"></div>
+                            <div key={achievementIndex} className="flex items-start gap-3">
+                              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
                               <p className="text-muted-foreground font-medium leading-relaxed">{achievement}</p>
                             </div>
                           ))}
@@ -354,12 +356,12 @@ export function CommunitySection() {
 
                       {/* Skills Developed */}
                       <div>
-                        <h4 className="font-semibold text-foreground ">Core Competencies</h4>
-                        <div className="flex flex-wrap ">
+                        <h4 className="font-semibold text-foreground mb-3">Core Competencies</h4>
+                        <div className="flex flex-wrap gap-2">
                           {activity.skills.map((skill, skillIndex) => (
                             <span
                               key={skillIndex}
-                              className="text-foreground .5 rounded-full text-sm font-medium border border-gray-200 transition-all duration-500"
+                              className="bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium hover:bg-primary/20 transition-colors duration-300"
                               data-testid={`skill-${index}-${skillIndex}`}
                             >
                               {skill}
@@ -377,18 +379,18 @@ export function CommunitySection() {
 
         {/* Community Impact Summary */}
         <div className="mt-24">
-          <div className="rounded-[32px] border border-gray-200 shadow-lg hover:shadow-xl overflow-hidden transition-all duration-500">
-            <div className="p-8 lg:p-12">
-              <h3 className="text-2xl font-bold text-foreground  text-center">
+          <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
+            <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-8 lg:p-12">
+              <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
                 Community Highlights
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 ">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-foreground ">4+</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">4+</div>
                   <div className="text-muted-foreground font-medium">Years of Service</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-green-600 ">3</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">3</div>
                   <div className="text-muted-foreground font-medium">Organizations Served</div>
                 </div>
                 <div className="text-center">
