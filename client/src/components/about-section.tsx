@@ -99,11 +99,11 @@ export default function EducationSection() {
           <div className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg p-12 lg:p-16 max-w-5xl mx-auto min-h-[200px]">
             <div className="flex items-center gap-8 h-full">
               {/* Logo on left */}
-              <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-sm flex-shrink-0">
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 flex-shrink-0">
                 <img 
                   src={universityLogo} 
                   alt="University Logo" 
-                  className="w-16 h-16 object-contain"
+                  className="w-10 h-10 object-contain"
                 />
               </div>
               

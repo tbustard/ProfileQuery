@@ -203,12 +203,13 @@ interface CommunityActivity {
   title: string;
   organization: string;
   period: string;
-  type: string;
+  duration: string;
   description: string;
   achievements: string[];
   skills: string[];
   icon?: React.ComponentType<{ className?: string }>;
   logoSrc?: string;
+  color: string;
 }
 
 export function CommunitySection() {
@@ -217,46 +218,43 @@ export function CommunitySection() {
       title: "Limestone Race Weekend 10K Completion",
       organization: "Community Charitable Event",
       period: "2023",
-      type: "Athletic Achievement",
+      duration: "Annual Event",
       description: "Annual charitable fitness event supporting local community causes",
       achievements: [
         "Successfully completed 10K run",
-        "Contributed to fundraising for local charities",
-        "Promoted healthy lifestyle and community wellness",
-        "Demonstrated commitment to fitness and community support"
+        "Contributed to fundraising for local charities"
       ],
       skills: ["Physical Fitness", "Community Engagement", "Goal Achievement", "Charitable Support"],
-      icon: FaRunning
+      icon: FaRunning,
+      color: "#FF6B35"
     },
     {
       title: "Next Generation Ambassador",
       organization: "United Way",
-      period: "2020 - 2023",
-      type: "Leadership Role",
+      period: "2020-2023",
+      duration: "3 years",
       description: "Youth leadership and community engagement representative with 3 years of continuous service",
       achievements: [
         "Advocated for community initiatives and social causes",
-        "Engaged with local organizations and stakeholders",
-        "Promoted United Way's mission among young professionals",
-        "Contributed to fundraising efforts and community awareness programs"
+        "Engaged with local organizations and stakeholders"
       ],
       skills: ["Leadership", "Public Speaking", "Community Organizing", "Stakeholder Engagement"],
-      logoSrc: unitedWayLogo
+      logoSrc: unitedWayLogo,
+      color: "#FF5A28"
     },
     {
       title: "Student Ambassador",
       organization: "RBC",
-      period: "2019 - 2020",
-      type: "Brand Ambassador",
+      period: "2019-2020",
+      duration: "1 year",
       description: "Campus representative and brand ambassador during university studies",
       achievements: [
         "Promoted RBC services to university students",
-        "Organized campus events and educational sessions",
-        "Facilitated banking education and financial literacy",
-        "Successfully increased student engagement with RBC products and services"
+        "Organized campus events and educational sessions"
       ],
       skills: ["Marketing", "Event Coordination", "Peer Education", "Professional Networking"],
-      logoSrc: rbcLogo
+      logoSrc: rbcLogo,
+      color: "#005DAA"
     }
   ];
 
@@ -282,7 +280,7 @@ export function CommunitySection() {
             {communityActivities.map((activity, index) => (
               <div key={index} className="relative" data-testid={`community-activity-${index}`}>
                 {/* Timeline Marker */}
-                <div className="absolute left-6 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-sm hidden md:block"></div>
+                <div className="absolute left-6 w-4 h-4 rounded-full border-4 border-background shadow-sm hidden md:block" style={{ backgroundColor: activity.color }}></div>
                 
                 {/* Content */}
                 <div className="md:ml-20">
@@ -305,13 +303,13 @@ export function CommunitySection() {
                           </div>
                           <div>
                             <h3 className="text-xl font-semibold text-foreground mb-1">{activity.title}</h3>
-                            <p className="text-lg font-medium text-primary mb-1">{activity.organization}</p>
+                            <p className="text-lg font-medium mb-1" style={{ color: activity.color }}>{activity.organization}</p>
                             <p className="text-muted-foreground font-medium">{activity.description}</p>
                           </div>
                         </div>
                         <div className="mt-4 lg:mt-0 lg:text-right">
                           <span className="text-lg font-medium text-gray-500">{activity.period}</span>
-                          <p className="text-muted-foreground text-sm font-medium mt-1 lg:text-right">{activity.type}</p>
+                          <p className="text-muted-foreground text-sm font-medium mt-1 lg:text-right">{activity.duration}</p>
                         </div>
                       </div>
 
@@ -321,7 +319,7 @@ export function CommunitySection() {
                         <div className="space-y-3">
                           {activity.achievements.map((achievement, achievementIndex) => (
                             <div key={achievementIndex} className="flex items-start gap-3">
-                              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
+                              <div className="w-1.5 h-1.5 rounded-full mt-2.5 flex-shrink-0" style={{ backgroundColor: activity.color }}></div>
                               <p className="text-muted-foreground font-medium leading-relaxed">{achievement}</p>
                             </div>
                           ))}
