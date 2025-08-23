@@ -135,15 +135,15 @@ export default function HeroSection() {
                         <div className="space-y-2 text-sm text-muted-foreground font-medium">
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                            <span>BMO Private Wealth Portfolio Assistant</span>
+                            <span>Private wealth & portfolio management</span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                            <span>$2B+ portfolio management expertise</span>
+                            <span>Financial advisory & client relations</span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                            <span>Multi-sector financial analysis leader</span>
+                            <span>Multi-institutional finance experience</span>
                           </div>
                         </div>
                       </div>
@@ -167,15 +167,15 @@ export default function HeroSection() {
                         <div className="space-y-2 text-sm text-muted-foreground font-medium">
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                            <span>University of New Brunswick BBA</span>
+                            <span>University business education</span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                            <span>Finance Major, Class of 2020</span>
+                            <span>Finance specialization & expertise</span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                            <span>Financial markets & investment focus</span>
+                            <span>Academic excellence & recognition</span>
                           </div>
                         </div>
                       </div>
@@ -256,15 +256,15 @@ export default function HeroSection() {
                         <div className="space-y-2 text-sm text-muted-foreground font-medium">
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
-                            <span>CFA Level I Candidate</span>
+                            <span>Professional investment qualifications</span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
-                            <span>Bloomberg Market Concepts</span>
+                            <span>Advanced analytical & modeling skills</span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
-                            <span>Financial Modeling & Analysis</span>
+                            <span>Continuous professional development</span>
                           </div>
                         </div>
                       </div>
