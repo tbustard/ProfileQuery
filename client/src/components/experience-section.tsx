@@ -19,9 +19,9 @@ interface Experience {
 }
 
 export default function ExperienceSection() {
-  const sectionAnimation = useScrollAnimation({ threshold: 0.1, triggerOnce: true });
-  const headerAnimation = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
-  const { ref: experiencesRef, visibleItems } = useStaggeredScrollAnimation(6, { threshold: 0.1, triggerOnce: true });
+  const sectionAnimation = useScrollAnimation({ threshold: 0.15, triggerOnce: true });
+  const headerAnimation = useScrollAnimation({ threshold: 0.25, triggerOnce: true, delay: 100 });
+  const { ref: experiencesRef, visibleItems } = useStaggeredScrollAnimation(6, { threshold: 0.15, triggerOnce: true, delay: 200 });
 
   const experiences: Experience[] = [
     {

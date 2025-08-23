@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
 import VideoOverlay from "@/components/video-overlay";
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
@@ -21,13 +22,15 @@ import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 
 export default function HeroSection() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const isPageLoaded = useInitialPageAnimation(300);
+  
   return (
     <section id="hero" className="relative overflow-hidden min-h-screen flex items-start justify-center pt-20" style={{ backgroundColor: '#f5f5f7' }}>
       <div className="relative z-10 px-6 mt-4">
         <div className="max-w-7xl mx-auto">
           
           {/* Main Hero Card */}
-          <div className="bg-white/70 backdrop-blur-[25px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-[2.5rem] p-12 lg:p-16 shadow-2xl hover:shadow-3xl transition-all duration-500"
+          <div className={`bg-white/70 backdrop-blur-[25px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-[2.5rem] p-12 lg:p-16 shadow-2xl hover:shadow-3xl transition-all duration-500 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
                style={{
                  backdropFilter: 'blur(25px) saturate(200%) brightness(110%)',
                  WebkitBackdropFilter: 'blur(25px) saturate(200%) brightness(110%)',
@@ -91,10 +94,11 @@ export default function HeroSection() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             
             {/* Experience Card */}
-            <div className="bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            <div className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
+                   animationDelay: '0.5s'
                  }}>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
@@ -108,10 +112,11 @@ export default function HeroSection() {
             </div>
 
             {/* Education Card */}
-            <div className="bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            <div className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
+                   animationDelay: '0.6s'
                  }}>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
@@ -125,10 +130,11 @@ export default function HeroSection() {
             </div>
 
             {/* Certifications Card */}
-            <div className="bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            <div className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
+                   animationDelay: '0.7s'
                  }}>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
@@ -142,10 +148,11 @@ export default function HeroSection() {
             </div>
 
             {/* Community Card */}
-            <div className="bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            <div className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
+                   animationDelay: '0.8s'
                  }}>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">

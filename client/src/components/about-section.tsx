@@ -7,10 +7,10 @@ import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
 import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
 
 export default function EducationSection() {
-  const sectionAnimation = useScrollAnimation({ threshold: 0.1, triggerOnce: true });
-  const headerAnimation = useScrollAnimation({ threshold: 0.2, triggerOnce: true });
-  const heroCardAnimation = useScrollAnimation({ threshold: 0.1, triggerOnce: true });
-  const { ref: achievementsRef, visibleItems } = useStaggeredScrollAnimation(3, { threshold: 0.1, triggerOnce: true });
+  const sectionAnimation = useScrollAnimation({ threshold: 0.15, triggerOnce: true });
+  const headerAnimation = useScrollAnimation({ threshold: 0.25, triggerOnce: true, delay: 100 });
+  const heroCardAnimation = useScrollAnimation({ threshold: 0.15, triggerOnce: true, delay: 200 });
+  const { ref: achievementsRef, visibleItems } = useStaggeredScrollAnimation(3, { threshold: 0.15, triggerOnce: true, delay: 300 });
 
   const education = {
     institution: "University of New Brunswick",
