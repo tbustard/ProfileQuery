@@ -211,16 +211,16 @@ export default function EducationSection() {
               </h3>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">1st Place</div>
-                  <div className="text-muted-foreground font-medium">CIBC Case Competition Winner</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">3rd Place</div>
+                  <div className="text-muted-foreground font-medium">TD Case Competition Finalist</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">Portfolio Manager</div>
-                  <div className="text-muted-foreground font-medium">Student Investment Fund Leadership</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">Co-op Program</div>
+                  <div className="text-muted-foreground font-medium">Accredited Work Experience</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">$47,500</div>
-                  <div className="text-muted-foreground font-medium">Merit-Based Scholarships</div>
+                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">Finance Major</div>
+                  <div className="text-muted-foreground font-medium">Specialized Academic Focus</div>
                 </div>
               </div>
             </div>
