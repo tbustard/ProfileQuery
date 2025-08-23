@@ -10,11 +10,20 @@ import ContactInfoSection from "@/components/contact-info-section";
 
 export default function Home() {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
+  const [isOverDarkSection, setIsOverDarkSection] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
       setShowScrollToTop(scrollY > 300);
+      
+      // Check if we're near the footer (dark section)
+      // Footer typically starts around 200px from the bottom
+      const footerThreshold = documentHeight - windowHeight - 200;
+      setIsOverDarkSection(scrollY > footerThreshold);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -56,7 +65,9 @@ export default function Home() {
           }}
         >
           <div className="flex items-center px-6 py-3">
-            <span className="text-sm font-medium text-white mr-4 whitespace-nowrap">
+            <span className={`text-sm font-medium mr-4 whitespace-nowrap transition-colors duration-300 ${
+              isOverDarkSection ? 'text-white' : 'text-foreground'
+            }`}>
               Back to top
             </span>
             <button
