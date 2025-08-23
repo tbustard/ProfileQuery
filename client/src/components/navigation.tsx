@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 
 export default function Navigation() {
@@ -129,9 +129,9 @@ export default function Navigation() {
                       opacity: isScrolled ? 1 : 0,
                     }}
                   >
-                    <Link href="/" className="text-lg font-bold text-foreground transition-all duration-700 ease-out hover:text-primary">
+                    <span className="text-lg font-bold text-foreground transition-all duration-700 ease-out">
                       Tyler Bustard
-                    </Link>
+                    </span>
                     {/* Section indicator - positioned under the name */}
                     {currentSection && (
                       <div className="-mt-1">
@@ -144,15 +144,6 @@ export default function Navigation() {
                 </div>
               )}
               
-              {/* Other pages: Show Home link */}
-              {!isHomePage && (
-                <Link 
-                  href="/" 
-                  className="text-xl font-semibold text-foreground transition-all duration-300 hover:text-primary"
-                >
-                  Home
-                </Link>
-              )}
             </div>
             
             {/* Desktop Navigation with Apple.com-style Dropdowns */}
@@ -171,13 +162,13 @@ export default function Navigation() {
                 {/* Apple-style Dropdown */}
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-80 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="p-2">
-                    <Link 
-                      href="/education/university-of-new-brunswick"
-                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
+                    <button 
+                      onClick={() => scrollToSection('#education')}
+                      className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
                     >
                       <div className="font-semibold text-gray-900 text-base mb-1">University of New Brunswick</div>
                       <div className="text-sm text-gray-600">Bachelor of Business Administration • Fredericton, NB (2016-2020)</div>
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -195,49 +186,14 @@ export default function Navigation() {
                 
                 {/* Apple-style Dropdown */}
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-96 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                  <div className="p-2 max-h-80 overflow-y-auto">
-                    <Link 
-                      href="/experience/bmo-private-wealth"
-                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50 last:border-b-0"
+                  <div className="p-2">
+                    <button 
+                      onClick={() => scrollToSection('#experience')}
+                      className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
                     >
-                      <div className="font-semibold text-gray-900 text-base mb-1">BMO Private Wealth</div>
-                      <div className="text-sm text-gray-600">Portfolio Assistant • Toronto, ON (2022-2023)</div>
-                    </Link>
-                    <Link 
-                      href="/experience/td-canada-trust"
-                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50 last:border-b-0"
-                    >
-                      <div className="font-semibold text-gray-900 text-base mb-1">TD Canada Trust</div>
-                      <div className="text-sm text-gray-600">Financial Advisor • Kingston, ON (2021-2022)</div>
-                    </Link>
-                    <Link 
-                      href="/experience/rbc-banking-advisor"
-                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50 last:border-b-0"
-                    >
-                      <div className="font-semibold text-gray-900 text-base mb-1">RBC Banking Advisor</div>
-                      <div className="text-sm text-gray-600">Banking Advisor • Kingston, ON (2020-2021)</div>
-                    </Link>
-                    <Link 
-                      href="/experience/rbc-client-advisor"
-                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50 last:border-b-0"
-                    >
-                      <div className="font-semibold text-gray-900 text-base mb-1">RBC Client Advisor</div>
-                      <div className="text-sm text-gray-600">Client Advisor Intern • Fredericton, NB (2019-2020)</div>
-                    </Link>
-                    <Link 
-                      href="/experience/irving-oil"
-                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50 last:border-b-0"
-                    >
-                      <div className="font-semibold text-gray-900 text-base mb-1">Irving Oil Limited</div>
-                      <div className="text-sm text-gray-600">Marketing Intern • Saint John, NB (Sep-Dec 2018)</div>
-                    </Link>
-                    <Link 
-                      href="/experience/grant-thornton"
-                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
-                    >
-                      <div className="font-semibold text-gray-900 text-base mb-1">Grant Thornton LLP</div>
-                      <div className="text-sm text-gray-600">Tax Return Intern • Saint John, NB (Jan-May 2018)</div>
-                    </Link>
+                      <div className="font-semibold text-gray-900 text-base mb-1">Professional Experience</div>
+                      <div className="text-sm text-gray-600">5+ years in financial services • Portfolio management & client advisory</div>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -256,13 +212,13 @@ export default function Navigation() {
                 {/* Apple-style Dropdown */}
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="p-2">
-                    <Link 
-                      href="/certifications"
-                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
+                    <button 
+                      onClick={() => scrollToSection('#certifications')}
+                      className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
                     >
-                      <div className="font-semibold text-gray-900 text-base mb-1">All Certifications</div>
-                      <div className="text-sm text-gray-600">Complete professional overview</div>
-                    </Link>
+                      <div className="font-semibold text-gray-900 text-base mb-1">Professional Certifications</div>
+                      <div className="text-sm text-gray-600">22+ certifications across finance & technology</div>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -281,13 +237,13 @@ export default function Navigation() {
                 {/* Apple-style Dropdown */}
                 <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="p-2">
-                    <Link 
-                      href="/community"
-                      className="block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
+                    <button 
+                      onClick={() => scrollToSection('#community')}
+                      className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
                     >
-                      <div className="font-semibold text-gray-900 text-base mb-1">Community Impact</div>
-                      <div className="text-sm text-gray-600">All activities & volunteer work</div>
-                    </Link>
+                      <div className="font-semibold text-gray-900 text-base mb-1">Community Engagement</div>
+                      <div className="text-sm text-gray-600">Leadership & volunteer service across multiple organizations</div>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -371,15 +327,7 @@ export default function Navigation() {
                       Contact
                     </button>
                   </>
-                ) : (
-                  <Link 
-                    href="/" 
-                    className="text-foreground hover:text-primary hover:bg-white/15 block px-4 py-3 rounded-xl text-base font-medium w-full text-left transition-all duration-300 hover:scale-105 hover:translate-x-2"
-                    data-testid="nav-mobile-home"
-                  >
-                    Home
-                  </Link>
-                )}
+                ) : null}
               </div>
             </div>
           )}
