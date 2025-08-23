@@ -89,21 +89,97 @@ export default function Navigation() {
 
   return (
     <>
+      {/* SVG Filter for Liquid Glass Distortion */}
+      <svg style={{ display: 'none' }}>
+        <filter id="liquid-glass-distortion" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+          <feTurbulence 
+            type="fractalNoise" 
+            baseFrequency="0.008 0.008" 
+            numOctaves="1" 
+            seed="5" 
+            result="turbulence"
+          >
+            <animate 
+              attributeName="seed" 
+              from="1" 
+              to="100" 
+              dur="12s" 
+              repeatCount="indefinite"
+            />
+          </feTurbulence>
+          
+          <feComponentTransfer in="turbulence" result="mapped">
+            <feFuncR type="gamma" amplitude="1" exponent="8" offset="0.5"/>
+            <feFuncG type="gamma" amplitude="0" exponent="1" offset="0"/>
+            <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5"/>
+            <feFuncA type="discrete" tableValues="1"/>
+          </feComponentTransfer>
+          
+          <feGaussianBlur in="mapped" stdDeviation="2" result="softNoise"/>
+          
+          <feDisplacementMap 
+            in="SourceGraphic" 
+            in2="softNoise" 
+            scale="8" 
+            xChannelSelector="R" 
+            yChannelSelector="B"
+          />
+        </filter>
+      </svg>
+
       {/* Apple Liquid Glass Navigation Bar */}
       <nav 
         className={`fixed top-0 w-full z-50 transition-all duration-700 ease-out ${
-          isScrolled 
-            ? 'bg-white/15 backdrop-blur-[30px] backdrop-saturate-[180%] backdrop-brightness-[120%] border-b border-white/25 shadow-2xl' 
-            : 'bg-transparent'
+          isScrolled ? 'liquid-glass-active' : 'bg-transparent'
         }`}
         style={{
-          backdropFilter: isScrolled ? 'blur(30px) saturate(180%) brightness(120%)' : 'none',
-          WebkitBackdropFilter: isScrolled ? 'blur(30px) saturate(180%) brightness(120%)' : 'none',
-          boxShadow: isScrolled ? '0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.05)' : 'none',
-          background: isScrolled ? 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.1) 100%)' : 'transparent',
+          isolation: 'isolate',
         }}
       >
-        <div className="container-width">
+        {/* Liquid Glass Distortion Layer */}
+        {isScrolled && (
+          <div 
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backdropFilter: 'blur(3px)',
+              WebkitBackdropFilter: 'blur(3px)',
+              filter: 'url(#liquid-glass-distortion)',
+              zIndex: 1,
+            }}
+          />
+        )}
+        
+        {/* Tint Layer */}
+        {isScrolled && (
+          <div 
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%)',
+              zIndex: 2,
+            }}
+          />
+        )}
+        
+        {/* Specular Highlights */}
+        {isScrolled && (
+          <div 
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, transparent 30%, transparent 70%, rgba(255, 255, 255, 0.2) 100%)',
+              boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.05)',
+              zIndex: 3,
+            }}
+          />
+        )}
+        
+        {/* Border */}
+        {isScrolled && (
+          <div 
+            className="absolute bottom-0 left-0 right-0 h-px bg-white/20 pointer-events-none"
+            style={{ zIndex: 4 }}
+          />
+        )}
+        <div className="container-width relative" style={{ zIndex: 10 }}>
           <div className="flex justify-between items-center py-5">
             {/* Logo/Home - Conditional based on page */}
             <div className="flex items-center">
@@ -171,12 +247,8 @@ export default function Navigation() {
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                {/* Apple Liquid Glass Dropdown */}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-80 bg-white/20 backdrop-blur-[25px] backdrop-saturate-[180%] border border-white/30 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%)',
-                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.3)'
-                  }}>
+                {/* Liquid Glass Dropdown */}
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-80 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 liquid-glass-dropdown">
                   <div className="p-2">
                     <button 
                       onClick={() => scrollToSection('#education')}
