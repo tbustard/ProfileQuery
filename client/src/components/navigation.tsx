@@ -489,6 +489,15 @@ export default function Navigation() {
                   Download
                 </button>
               )}
+              
+              {/* Employer Portal */}
+              <button
+                onClick={() => window.location.href = '/employer'}
+                className="px-4 py-2 text-sm font-medium rounded-lg bg-slate-900/80 hover:bg-slate-800 text-white transition-all duration-200"
+                data-testid="nav-employer"
+              >
+                Employer Portal
+              </button>
             </div>
             
             {/* Mobile Menu Button */}

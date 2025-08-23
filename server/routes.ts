@@ -1,7 +1,8 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertSqlQuerySchema, insertContactMessageSchema } from "@shared/schema";
+import { insertSqlQuerySchema, insertContactMessageSchema, insertResumeUploadSchema } from "@shared/schema";
+import { setupAuth, isAuthenticated } from "./replitAuth";
 import OpenAI from "openai";
 
 const openai = new OpenAI({ 
@@ -9,6 +10,20 @@ const openai = new OpenAI({
 });
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Auth middleware
+  await setupAuth(app);
+
+  // Auth routes
+  app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const user = await storage.getUser(userId);
+      res.json(user);
+    } catch (error) {
+      console.error("Error fetching user:", error);
+      res.status(500).json({ message: "Failed to fetch user" });
+    }
+  });
   // SQL Translation endpoint
   app.post("/api/translate-sql", async (req, res) => {
     try {
@@ -85,6 +100,41 @@ Focus on investment analysis, portfolio management, and financial reporting quer
     } catch (error) {
       console.error("Get queries error:", error);
       res.status(500).json({ error: "Failed to fetch queries" });
+    }
+  });
+
+  // Resume upload endpoint
+  app.post("/api/resume-upload", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const { fileName, fileUrl } = req.body;
+      
+      if (!fileName || !fileUrl) {
+        return res.status(400).json({ error: "File name and URL are required" });
+      }
+
+      const resumeUpload = await storage.createResumeUpload({
+        userId,
+        fileName,
+        fileUrl
+      });
+      
+      res.json({ success: true, resumeUpload });
+    } catch (error) {
+      console.error("Resume upload error:", error);
+      res.status(500).json({ error: "Failed to upload resume" });
+    }
+  });
+
+  // Get user's resume uploads
+  app.get("/api/resume-uploads", isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const uploads = await storage.getResumeUploads(userId);
+      res.json(uploads);
+    } catch (error) {
+      console.error("Get resume uploads error:", error);
+      res.status(500).json({ error: "Failed to fetch resume uploads" });
     }
   });
 

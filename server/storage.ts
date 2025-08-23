@@ -1,77 +1,88 @@
-import { type SqlQuery, type InsertSqlQuery, type ContactMessage, type InsertContactMessage, type User, type InsertUser } from "@shared/schema";
+import { 
+  type SqlQuery, 
+  type InsertSqlQuery, 
+  type ContactMessage, 
+  type InsertContactMessage, 
+  type User, 
+  type UpsertUser,
+  type ResumeUpload,
+  type InsertResumeUpload,
+  users,
+  sqlQueries,
+  contactMessages,
+  resumeUploads
+} from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 import { randomUUID } from "crypto";
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  upsertUser(user: UpsertUser): Promise<User>;
   createSqlQuery(query: InsertSqlQuery): Promise<SqlQuery>;
   getSqlQueries(): Promise<SqlQuery[]>;
   createContactMessage(message: InsertContactMessage): Promise<ContactMessage>;
   getContactMessages(): Promise<ContactMessage[]>;
+  createResumeUpload(upload: InsertResumeUpload): Promise<ResumeUpload>;
+  getResumeUploads(userId: string): Promise<ResumeUpload[]>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<string, User>;
-  private sqlQueries: Map<string, SqlQuery>;
-  private contactMessages: Map<string, ContactMessage>;
-
-  constructor() {
-    this.users = new Map();
-    this.sqlQueries = new Map();
-    this.contactMessages = new Map();
-  }
-
+export class DatabaseStorage implements IStorage {
   async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
-  }
-
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
+  async upsertUser(userData: UpsertUser): Promise<User> {
+    const [user] = await db
+      .insert(users)
+      .values(userData)
+      .onConflictDoUpdate({
+        target: users.id,
+        set: {
+          ...userData,
+          updatedAt: new Date(),
+        },
+      })
+      .returning();
     return user;
   }
 
   async createSqlQuery(insertQuery: InsertSqlQuery): Promise<SqlQuery> {
-    const id = randomUUID();
-    const query: SqlQuery = { 
-      ...insertQuery, 
-      id, 
-      createdAt: new Date() 
-    };
-    this.sqlQueries.set(id, query);
+    const [query] = await db
+      .insert(sqlQueries)
+      .values(insertQuery)
+      .returning();
     return query;
   }
 
   async getSqlQueries(): Promise<SqlQuery[]> {
-    return Array.from(this.sqlQueries.values()).sort(
-      (a, b) => b.createdAt.getTime() - a.createdAt.getTime()
-    );
+    return await db.select().from(sqlQueries);
   }
 
   async createContactMessage(insertMessage: InsertContactMessage): Promise<ContactMessage> {
-    const id = randomUUID();
-    const message: ContactMessage = { 
-      ...insertMessage, 
-      id, 
-      createdAt: new Date() 
-    };
-    this.contactMessages.set(id, message);
+    const [message] = await db
+      .insert(contactMessages)
+      .values(insertMessage)
+      .returning();
     return message;
   }
 
   async getContactMessages(): Promise<ContactMessage[]> {
-    return Array.from(this.contactMessages.values()).sort(
-      (a, b) => b.createdAt.getTime() - a.createdAt.getTime()
-    );
+    return await db.select().from(contactMessages);
+  }
+
+  async createResumeUpload(upload: InsertResumeUpload): Promise<ResumeUpload> {
+    const [resumeUpload] = await db
+      .insert(resumeUploads)
+      .values(upload)
+      .returning();
+    return resumeUpload;
+  }
+
+  async getResumeUploads(userId: string): Promise<ResumeUpload[]> {
+    return await db.select().from(resumeUploads).where(eq(resumeUploads.userId, userId));
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
