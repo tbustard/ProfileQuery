@@ -10,7 +10,7 @@ interface UseScrollAnimationOptions {
 export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -64,7 +64,7 @@ export function useStaggeredScrollAnimation(
 ) {
   const [visibleItems, setVisibleItems] = useState(new Set<number>());
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const lastScrollY = useRef(0);
 
   useEffect(() => {

@@ -1,8 +1,12 @@
 import { Download, Printer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useScrollAnimation, useStaggeredScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function DownloadSection() {
+  const sectionAnimation = useScrollAnimation({ threshold: 0.15, triggerOnce: true });
+  const headerAnimation = useScrollAnimation({ threshold: 0.25, triggerOnce: true, delay: 100 });
+  const { ref: downloadsRef, visibleItems } = useStaggeredScrollAnimation(2, { threshold: 0.15, triggerOnce: true, delay: 200 });
   const downloadResume = async () => {
     try {
       // Try to fetch the PDF version first, then fallback to HTML
@@ -67,13 +71,20 @@ export default function DownloadSection() {
   };
 
   return (
-    <section id="download" className="py-24 lg:py-32 relative overflow-hidden">
+    <section 
+      ref={sectionAnimation.ref}
+      id="download" 
+      className={`py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
+    >
       {/* Background - inherits Apple grey from parent */}
       
       <div className="container-width">
         <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header Section - Apple's content-first approach */}
-          <div className="text-center mb-20">
+          <div 
+            ref={headerAnimation.ref}
+            className={`text-center mb-20 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+          >
             <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">Resume</h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Access my comprehensive professional resume showcasing expertise in finance and technology.
@@ -81,9 +92,11 @@ export default function DownloadSection() {
           </div>
 
           {/* Download Cards Grid - matching contact section layout */}
-          <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div ref={downloadsRef} className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {/* Download Card */}
-            <Card className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] text-center">
+            <Card 
+              className={`bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] text-center scroll-scale-in scroll-stagger-1 ${visibleItems.has(0) ? 'visible' : ''}`}
+            >
               <CardContent className="p-10">
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                   <Download className="w-8 h-8 text-primary" />
@@ -103,7 +116,9 @@ export default function DownloadSection() {
             </Card>
 
             {/* Print Card */}
-            <Card className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] text-center">
+            <Card 
+              className={`bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] text-center scroll-scale-in scroll-stagger-2 ${visibleItems.has(1) ? 'visible' : ''}`}
+            >
               <CardContent className="p-10">
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                   <Printer className="w-8 h-8 text-primary" />
