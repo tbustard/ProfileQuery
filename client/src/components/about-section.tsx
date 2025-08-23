@@ -16,7 +16,7 @@ export default function EducationSection() {
   ];
 
   return (
-    <section id="education" className="section-padding bg-gradient-to-b from-muted/30 to-background">
+    <section id="education" className="apple-section-alt">
       <div className="container-width">
         <div className="text-center mb-16">
           <h2 className="large-title text-foreground mb-4">Education</h2>
@@ -27,8 +27,8 @@ export default function EducationSection() {
 
         <div className="space-y-10">
           {educationData.map((education, index) => (
-            <Card key={index} className="shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-white/80 backdrop-blur-sm" data-testid={`education-${index}`}>
-              <CardContent className="p-10">
+            <Card key={index} className="apple-card apple-hover border-0" data-testid={`education-${index}`}>
+              <CardContent className="p-12">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
                   <div>
                     <h3 className="text-xl font-semibold text-foreground mb-3">{education.institution}</h3>

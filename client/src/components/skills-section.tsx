@@ -75,7 +75,7 @@ export default function CertificationsSection() {
   ];
 
   return (
-    <section id="certifications" className="section-padding bg-gradient-to-b from-background to-muted/30">
+    <section id="certifications" className="apple-section-alt">
       <div className="container-width">
         <div className="text-center mb-20">
           <div className="inline-flex items-center justify-center p-2 bg-primary/10 rounded-full mb-6">
@@ -91,9 +91,9 @@ export default function CertificationsSection() {
 
         <div className="grid lg:grid-cols-2 gap-8 mb-12">
           {certificationCategories.map((category, categoryIndex) => (
-            <Card key={categoryIndex} className="group shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-0 bg-white/95 backdrop-blur-sm overflow-hidden">
+            <Card key={categoryIndex} className="group apple-card apple-hover border-0 overflow-hidden">
               <div className={`h-2 ${category.color} transition-all duration-300 group-hover:h-3`}></div>
-              <CardContent className="p-8">
+              <CardContent className="p-10">
                 <div className="flex items-center mb-8">
                   <div className={`p-4 rounded-2xl mr-5 transition-all duration-300 group-hover:scale-110`} style={{backgroundColor: category.color.replace('bg-', '').replace('-500', '') === 'blue' ? '#3b82f61a' : category.color.replace('bg-', '').replace('-500', '') === 'emerald' ? '#10b9811a' : category.color.replace('bg-', '').replace('-500', '') === 'purple' ? '#a855f71a' : '#f59e0b1a'}}>
                     <category.icon className="w-7 h-7" style={{color: category.color.replace('bg-', '').replace('-500', '') === 'blue' ? '#3b82f6' : category.color.replace('bg-', '').replace('-500', '') === 'emerald' ? '#10b981' : category.color.replace('bg-', '').replace('-500', '') === 'purple' ? '#a855f7' : '#f59e0b'}} />

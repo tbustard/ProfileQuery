@@ -64,7 +64,7 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="section-padding">
+    <section id="experience" className="apple-section">
       <div className="container-width">
         <div className="text-center mb-16">
           <h2 className="large-title text-foreground mb-4">Professional Experience</h2>
@@ -75,8 +75,8 @@ export default function ExperienceSection() {
 
         <div className="space-y-10">
           {experiences.map((exp, index) => (
-            <Card key={index} className="shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-white/90 backdrop-blur-sm" data-testid={`experience-${index}`}>
-              <CardContent className="p-10">
+            <Card key={index} className="apple-card apple-hover border-0" data-testid={`experience-${index}`}>
+              <CardContent className="p-12">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-8">
                   <div className="flex items-start space-x-4">
                     <div 

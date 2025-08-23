@@ -65,7 +65,7 @@ export default function ContactSection() {
 
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-b from-muted/30 to-background">
+    <section id="contact" className="apple-section-alt">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="large-title text-foreground mb-4">Get In Touch</h2>
@@ -96,8 +96,8 @@ export default function ContactSection() {
           </div>
 
           {/* Contact Form */}
-          <Card className="shadow-xl hover:shadow-2xl transition-all duration-300 border-0 bg-white/90 backdrop-blur-sm">
-            <CardContent className="p-10">
+          <Card className="apple-card apple-hover border-0">
+            <CardContent className="p-12">
               <h3 className="text-xl font-semibold text-foreground mb-8">Send a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">

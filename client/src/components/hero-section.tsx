@@ -11,14 +11,17 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="pt-20 pb-24 px-6 relative overflow-hidden">
-      <div className="container-width">
+    <section className="apple-section pt-32 pb-32 px-6 relative overflow-hidden min-h-screen flex items-center justify-center">
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(0 0% 99%) 40%, hsl(0 0% 97%) 100%)' }} />
+      <div className="absolute top-20 left-20 w-96 h-96 bg-primary/3 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary/2 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="container-width relative z-10">
         <div className="text-center relative z-10">
           <div className="relative inline-block mb-12">
             <img 
               src={profileImage} 
               alt="Tyler Bustard professional headshot" 
-              className="w-40 h-40 rounded-full mx-auto object-cover shadow-2xl border-4 border-white ring-4 ring-primary/10 transition-all duration-300 hover:scale-105"
+              className="w-48 h-48 rounded-full mx-auto object-cover shadow-2xl border-4 border-white ring-4 ring-primary/10 apple-hover"
               data-testid="img-profile"
             />
           </div>
@@ -35,7 +38,7 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button 
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="apple-button-primary text-lg"
               onClick={() => scrollToSection("#contact")}
               data-testid="button-contact"
             >
