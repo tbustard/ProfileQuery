@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { HiOutlineMail } from "react-icons/hi";
-import { motion } from "framer-motion";
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
@@ -23,125 +22,50 @@ export default function HeroSection() {
     }
   };
 
-  // Animation variants for Apple-style entrance
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        staggerChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { 
-      opacity: 0, 
-      y: 60,
-      scale: 0.95
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
-
-  const imageVariants = {
-    hidden: { 
-      opacity: 0, 
-      scale: 0.8,
-      y: 40
-    },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      y: 0,
-      transition: {
-        duration: 1.2,
-        ease: [0.25, 0.46, 0.45, 0.94]
-      }
-    }
-  };
-
   return (
-    <section id="hero" className="relative overflow-hidden h-screen flex items-center justify-center">
+    <section id="hero" className="relative overflow-hidden min-h-screen">
       {/* Background Layers */}
-      <motion.div 
-        className="absolute inset-0 bg-gradient-to-br from-white via-gray-50/50 to-gray-100/30"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-      />
-      <motion.div 
-        className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/4 rounded-full blur-3xl"
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
-      />
-      <motion.div 
-        className="absolute bottom-1/4 -right-32 w-96 h-96 bg-primary/3 rounded-full blur-3xl"
-        initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 2, delay: 1, ease: "easeOut" }}
-      />
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50/50 to-gray-100/30" />
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/4 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-primary/3 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
       
-      <div className="relative z-10 px-6 w-full">
+      <div className="relative z-10 pt-32 pb-24 px-6">
         <div className="container-width">
           {/* Hero Header - Profile & Name Side by Side */}
-          <motion.div 
-            className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {/* Profile Image */}
-            <motion.div className="flex-shrink-0" variants={imageVariants}>
-              <div className="w-72 h-72 lg:w-80 lg:h-80 relative">
-                <div className="aspect-square rounded-[2rem] overflow-hidden bg-white shadow-2xl ring-1 ring-black/5">
-                  <img 
-                    src={profileImage} 
-                    alt="Tyler Bustard professional headshot" 
-                    className="w-full h-full object-cover object-center"
-                    data-testid="img-profile"
-                  />
+          <div className="mb-20">
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
+              {/* Profile Image */}
+              <div className="flex-shrink-0">
+                <div className="w-72 h-72 lg:w-80 lg:h-80 relative">
+                  <div className="aspect-square rounded-[2rem] overflow-hidden bg-white shadow-2xl ring-1 ring-black/5">
+                    <img 
+                      src={profileImage} 
+                      alt="Tyler Bustard professional headshot" 
+                      className="w-full h-full object-cover object-center"
+                      data-testid="img-profile"
+                    />
+                  </div>
                 </div>
               </div>
-            </motion.div>
 
-            {/* Name & Content */}
-            <div className="space-y-8 text-center lg:text-left max-w-2xl">
-              <div>
-                <motion.h1 
-                  className="text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tight leading-none"
-                  variants={itemVariants}
-                >
-                  Tyler Bustard
-                </motion.h1>
-                <motion.p 
-                  className="text-2xl md:text-3xl font-semibold text-primary mb-8"
-                  variants={itemVariants}
-                >
-                  Finance & Technology Professional
-                </motion.p>
+              {/* Name & Content */}
+              <div className="space-y-8 text-center lg:text-left max-w-2xl">
+                <div>
+                  <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tight leading-none">
+                    Tyler Bustard
+                  </h1>
+                  <p className="text-2xl md:text-3xl font-semibold text-primary mb-8">
+                    Finance & Technology Professional
+                  </p>
+                  
+                  {/* Credentials */}
+                </div>
                 
-                {/* Credentials */}
-              </div>
-              
-              <motion.p 
-                className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8"
-                variants={itemVariants}
-              >
-                Driving innovation at the intersection of finance and technology. 
-                Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
-              </motion.p>
-              
-              <motion.div variants={itemVariants}>
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
+                  Driving innovation at the intersection of finance and technology. 
+                  Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
+                </p>
+                
                 <Button 
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-white text-lg px-10 py-4 rounded-2xl font-semibold transition-all duration-300 hover:shadow-lg hover:scale-105"
@@ -151,18 +75,12 @@ export default function HeroSection() {
                   <HiOutlineMail className="mr-3 h-5 w-5" />
                   Get In Touch
                 </Button>
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Main Content */}
-          <motion.div 
-            className="space-y-12 mb-20 mt-32"
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
+          <div className="space-y-12 mb-20">
             {/* Professional Overview Quadrants */}
             <div className="space-y-8">
               <h2 className="text-3xl font-bold text-foreground text-center lg:text-left">Professional Overview</h2>
@@ -353,7 +271,7 @@ export default function HeroSection() {
               </div>
             </div>
 
-          </motion.div>
+          </div>
 
         </div>
       </div>
