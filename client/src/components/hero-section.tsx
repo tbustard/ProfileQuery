@@ -9,7 +9,8 @@ import grantThorntonLogo from "@assets/Grant_Thornton_logo_1755913265895.png";
 import cfaLogo from "@assets/CFA_Institute_Logo_1755923720192.png";
 import csiLogo from "@assets/canadian securities institute_1755923720191.png";
 import bloombergLogo from "@assets/bloomberg_1755923720190.png";
-import courseraLogo from "@assets/Coursera_1755923720192.png";
+import courseraLogo from "@assets/Coursera_1755937682843.png";
+import mcgillLogo from "@assets/mcgill_1755937693386.png";
 import unbLogo from "@assets/University_of_New_Brunswick_Logo.svg_1755912478863.png";
 import wallStreetPrepLogo from "@assets/wall street prep_1755923720193.png";
 import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
@@ -208,6 +209,20 @@ export default function HeroSection() {
                           <img 
                             src={wallStreetPrepLogo} 
                             alt="Wall Street Prep Logo" 
+                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                          />
+                        </div>
+                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                          <img 
+                            src={courseraLogo} 
+                            alt="Coursera Logo" 
+                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                          />
+                        </div>
+                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                          <img 
+                            src={mcgillLogo} 
+                            alt="McGill University Logo" 
                             className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
                           />
                         </div>
