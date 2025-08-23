@@ -127,12 +127,6 @@ export default function DownloadSection() {
             </div>
           </div>
 
-          {/* Last updated */}
-          <div className="text-center mt-16">
-            <p className="text-sm text-muted-foreground font-medium">
-              Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
-            </p>
-          </div>
         </div>
       </div>
     </section>
