@@ -181,8 +181,8 @@ export default function Navigation() {
         )}
         <div className="container-width relative" style={{ zIndex: 10 }}>
           <div className="flex justify-between items-center py-5 w-full">
-            {/* Logo/Home - Conditional based on page */}
-            <div className="flex items-center">
+            {/* Logo/Home - Left Side */}
+            <div className="flex items-center flex-shrink-0">
               {/* Homepage: Show Tyler Bustard + image when scrolled */}
               {isHomePage && (
                 <div 
@@ -230,8 +230,8 @@ export default function Navigation() {
               
             </div>
             
-            {/* Desktop Navigation with Apple.com-style Dropdowns */}
-            <div className="hidden md:flex items-center space-x-2 relative">
+            {/* Desktop Navigation - Right Side */}
+            <div className="hidden md:flex items-center space-x-2 relative ml-auto flex-shrink-0">
               {/* Experience Dropdown */}
               <div className="relative group">
                 <button

@@ -336,6 +336,7 @@ nav {
   left: 0 !important;
   right: 0 !important;
   width: 100% !important;
+  z-index: 50 !important;
 }
 
 .container-width {
@@ -343,6 +344,14 @@ nav {
   margin: 0 auto !important;
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Force navigation items to the right */
+nav .container-width > div:last-child {
+  margin-left: auto !important;
 }
 
 /* Liquid Glass Dropdown */
