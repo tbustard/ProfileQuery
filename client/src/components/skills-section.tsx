@@ -221,7 +221,7 @@ export function CommunitySection() {
       organization: "United Way",
       period: "2020-2023",
       duration: "3 years",
-      location: "Toronto, Ontario",
+      location: "Kingston, Ontario",
       description: "Youth leadership and community engagement representative with 3 years of continuous service",
       achievements: [
         "Advocated for community initiatives and social causes",
