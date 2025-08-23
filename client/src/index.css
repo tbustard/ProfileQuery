@@ -7,9 +7,9 @@
   /* Apple's 2024 Color System */
   --background: hsl(0 0% 100%);
   --foreground: hsl(0 0% 6%);
-  --card: hsla(0 0% 100% / 0.8);
+  --card: hsl(0 0% 100%);
   --card-foreground: hsl(0 0% 6%);
-  --popover: hsla(0 0% 100% / 0.95);
+  --popover: hsl(0 0% 100%);
   --popover-foreground: hsl(0 0% 6%);
   --primary: hsl(212 100% 50%);
   --primary-foreground: hsl(0 0% 100%);
@@ -31,9 +31,9 @@
   --chart-5: hsl(341.4894 75.2000% 50.9804%);
   --radius: 1rem;
   
-  /* Apple Glass Effects */
-  --glass-bg: hsla(0 0% 100% / 0.8);
-  --glass-border: hsla(0 0% 100% / 0.2);
+  /* Clean Effects */
+  --glass-bg: hsl(0 0% 100%);
+  --glass-border: hsl(0 0% 90%);
   --glass-shadow: hsla(0 0% 0% / 0.1);
   
   /* Apple Typography */
@@ -211,18 +211,16 @@
   .apple-input {
     @apply w-full px-4 py-4 text-base text-foreground placeholder:text-muted-foreground;
     @apply rounded-2xl border-0 outline-none transition-all duration-300;
-    background: hsla(0 0% 100% / 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid hsla(0 0% 100% / 0.2);
+    background: hsl(0 0% 100%);
+    border: 1px solid hsl(0 0% 90%);
     font-family: var(--font-text);
     letter-spacing: -0.022em;
   }
   
   .apple-input:focus {
-    background: hsla(0 0% 100% / 0.9);
-    border: 1px solid hsla(212 100% 50% / 0.3);
-    box-shadow: 0 0 0 4px hsla(212 100% 50% / 0.1);
+    background: hsl(0 0% 100%);
+    border: 1px solid hsl(212 100% 50%);
+    box-shadow: 0 0 0 4px hsl(212 100% 90%);
     transform: scale(1.02);
   }
   
@@ -233,11 +231,9 @@
     font-weight: 500;
   }
   
-  /* Apple Glass Components */
+  /* Clean Components */
   .apple-glass {
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
     box-shadow: 0 8px 32px var(--glass-shadow);
   }
@@ -245,7 +241,7 @@
   .apple-card {
     @apply apple-glass rounded-3xl transition-all duration-300 hover:scale-[1.02];
     border: 1px solid hsl(0 0% 94%);
-    background: hsla(0 0% 100% / 0.9);
+    background: hsl(0 0% 100%);
   }
   
   .apple-button {
@@ -269,13 +265,12 @@
   .apple-button-secondary {
     @apply apple-button bg-accent text-accent-foreground active:scale-95;
     border: 1px solid var(--border);
-    background: hsla(0 0% 100% / 0.8);
-    backdrop-filter: blur(20px);
+    background: hsl(0 0% 100%);
     transition: all 0.2s ease;
   }
   
   .apple-button-secondary:hover {
-    background: hsla(0 0% 94% / 0.9);
+    background: hsl(0 0% 94%);
   }
   
   /* Apple Navigation */
@@ -284,15 +279,15 @@
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   
-  /* Apple Sections */
+  /* Clean Sections */
   .apple-section {
     @apply section-padding relative overflow-hidden;
-    background: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 99%) 100%);
+    background: hsl(0 0% 100%);
   }
   
   .apple-section-alt {
     @apply section-padding relative overflow-hidden;
-    background: linear-gradient(180deg, hsl(0 0% 99%) 0%, hsl(0 0% 97%) 100%);
+    background: hsl(0 0% 100%);
   }
   
   /* Apple-style animations */
