@@ -89,100 +89,23 @@ export default function Navigation() {
 
   return (
     <>
-      {/* SVG Filter for Liquid Glass Distortion */}
-      <svg style={{ display: 'none' }}>
-        <filter id="liquid-glass-distortion" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
-          <feTurbulence 
-            type="fractalNoise" 
-            baseFrequency="0.008 0.008" 
-            numOctaves="1" 
-            seed="5" 
-            result="turbulence"
-          >
-            <animate 
-              attributeName="seed" 
-              from="1" 
-              to="100" 
-              dur="12s" 
-              repeatCount="indefinite"
-            />
-          </feTurbulence>
-          
-          <feComponentTransfer in="turbulence" result="mapped">
-            <feFuncR type="gamma" amplitude="1" exponent="8" offset="0.5"/>
-            <feFuncG type="gamma" amplitude="0" exponent="1" offset="0"/>
-            <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5"/>
-            <feFuncA type="discrete" tableValues="1"/>
-          </feComponentTransfer>
-          
-          <feGaussianBlur in="mapped" stdDeviation="2" result="softNoise"/>
-          
-          <feDisplacementMap 
-            in="SourceGraphic" 
-            in2="softNoise" 
-            scale="8" 
-            xChannelSelector="R" 
-            yChannelSelector="B"
-          />
-        </filter>
-      </svg>
-
-      {/* Apple Liquid Glass Navigation Bar */}
+      {/* Apple-style Liquid Glass Navigation Bar */}
       <nav 
         className={`fixed top-0 w-full z-50 transition-all duration-700 ease-out ${
-          isScrolled ? 'liquid-glass-active' : 'bg-transparent'
+          isScrolled 
+            ? 'bg-white/10 backdrop-blur-[25px] backdrop-saturate-[200%] backdrop-brightness-[110%] border-b border-white/20 shadow-2xl' 
+            : 'bg-transparent'
         }`}
         style={{
-          isolation: 'isolate',
+          backdropFilter: isScrolled ? 'blur(25px) saturate(200%) brightness(110%)' : 'none',
+          WebkitBackdropFilter: isScrolled ? 'blur(25px) saturate(200%) brightness(110%)' : 'none',
+          boxShadow: isScrolled ? '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)' : 'none',
         }}
       >
-        {/* Liquid Glass Distortion Layer */}
-        {isScrolled && (
-          <div 
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backdropFilter: 'blur(3px)',
-              WebkitBackdropFilter: 'blur(3px)',
-              filter: 'url(#liquid-glass-distortion)',
-              zIndex: 1,
-            }}
-          />
-        )}
-        
-        {/* Tint Layer */}
-        {isScrolled && (
-          <div 
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.15) 100%)',
-              zIndex: 2,
-            }}
-          />
-        )}
-        
-        {/* Specular Highlights */}
-        {isScrolled && (
-          <div 
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, transparent 30%, transparent 70%, rgba(255, 255, 255, 0.2) 100%)',
-              boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 rgba(0, 0, 0, 0.05)',
-              zIndex: 3,
-            }}
-          />
-        )}
-        
-        {/* Border */}
-        {isScrolled && (
-          <div 
-            className="absolute bottom-0 left-0 right-0 h-px bg-white/20 pointer-events-none"
-            style={{ zIndex: 4 }}
-          />
-        )}
-        <div className="container-width relative" style={{ zIndex: 10 }}>
-          <div className="flex justify-between items-center py-5 w-full">
-            {/* Logo/Home - Left Side */}
-            <div className="flex items-center flex-shrink-0">
+        <div className="container-width">
+          <div className="flex justify-between items-center py-5">
+            {/* Logo/Home - Conditional based on page */}
+            <div className="flex items-center">
               {/* Homepage: Show Tyler Bustard + image when scrolled */}
               {isHomePage && (
                 <div 
@@ -213,7 +136,7 @@ export default function Navigation() {
                       opacity: isScrolled ? 1 : 0,
                     }}
                   >
-                    <span className="text-lg font-bold text-foreground transition-all duration-700 ease-out" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}>
+                    <span className="text-lg font-bold text-foreground transition-all duration-700 ease-out">
                       Tyler Bustard
                     </span>
                     {/* Section indicator - positioned under the name */}
@@ -230,19 +153,39 @@ export default function Navigation() {
               
             </div>
             
-            {/* Desktop Navigation - Right Side */}
-            <div className="hidden md:flex items-center space-x-2 relative ml-auto flex-shrink-0">
+            {/* Desktop Navigation with Apple.com-style Dropdowns */}
+            <div className="hidden md:flex items-center space-x-2">
+              {/* Education Dropdown */}
+              <div className="relative group">
+                <button
+                  onClick={isHomePage ? () => scrollToSection('#education') : undefined}
+                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
+                  data-testid="nav-education"
+                >
+                  Education
+                  <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
+                </button>
+                
+                {/* Apple-style Dropdown */}
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-80 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="p-2">
+                    <button 
+                      onClick={() => scrollToSection('#education')}
+                      className="w-full text-left block p-4 rounded-lg hover: transition-colors"
+                    >
+                      <div className="font-semibold text-gray-900 text-base mb-1">University of New Brunswick</div>
+                      <div className="text-sm text-gray-600">Bachelor of Business Administration • Fredericton, NB (2016-2020)</div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
               {/* Experience Dropdown */}
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#experience') : undefined}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
-                    currentSection === 'experience'
-                      ? 'text-foreground bg-white/20 backdrop-blur-sm border border-white/30 shadow-sm'
-                      : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
-                  }`}
+                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
                   data-testid="nav-experience"
-                  style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}
                 >
                   Experience
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
@@ -303,54 +246,19 @@ export default function Navigation() {
                 </div>
               </div>
 
-              {/* Education Dropdown */}
-              <div className="relative group">
-                <button
-                  onClick={isHomePage ? () => scrollToSection('#education') : undefined}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
-                    currentSection === 'education'
-                      ? 'text-foreground bg-white/20 backdrop-blur-sm border border-white/30 shadow-sm'
-                      : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
-                  }`}
-                  data-testid="nav-education"
-                  style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}
-                >
-                  Education
-                  <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
-                </button>
-                
-                {/* Liquid Glass Dropdown */}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-80 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 liquid-glass-dropdown">
-                  <div className="p-2">
-                    <button 
-                      onClick={() => scrollToSection('#education')}
-                      className="w-full text-left block p-4 rounded-lg hover: transition-colors"
-                    >
-                      <div className="font-semibold text-gray-900 text-base mb-1">University of New Brunswick</div>
-                      <div className="text-sm text-gray-600">Bachelor of Business Administration • Fredericton, NB (2016-2020)</div>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
               {/* Certifications Dropdown */}
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#certifications') : undefined}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
-                    currentSection === 'certifications'
-                      ? 'text-foreground bg-white/20 backdrop-blur-sm border border-white/30 shadow-sm'
-                      : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
-                  }`}
+                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
                   data-testid="nav-certifications"
-                  style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}
                 >
                   Certifications
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                {/* Liquid Glass Dropdown */}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 liquid-glass-dropdown">
+                {/* Apple-style Dropdown */}
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="p-2 max-h-80 overflow-y-auto">
                     {/* Financial Excellence Certifications */}
                     <div className="font-semibold text-gray-900 text-base p-3 border-b border-gray-200/70 bg-gray-50/30 hover: transition-colors w-full text-left rounded-lg mb-2">Financial Excellence</div>
@@ -459,20 +367,15 @@ export default function Navigation() {
               <div className="relative group">
                 <button
                   onClick={isHomePage ? () => scrollToSection('#community') : undefined}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
-                    currentSection === 'community'
-                      ? 'text-foreground bg-white/20 backdrop-blur-sm border border-white/30 shadow-sm'
-                      : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
-                  }`}
+                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
                   data-testid="nav-community"
-                  style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}
                 >
                   Community
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                {/* Liquid Glass Dropdown */}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 liquid-glass-dropdown">
+                {/* Apple-style Dropdown */}
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="p-2 max-h-80 overflow-y-auto">
                     <button 
                       onClick={() => scrollToSection('#community-united-way')}
@@ -506,20 +409,15 @@ export default function Navigation() {
                 <div className="relative group">
                   <button
                     onClick={() => scrollToSection('#contact')}
-                    className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
-                      currentSection === 'contact'
-                        ? 'text-foreground bg-white/20 backdrop-blur-sm border border-white/30 shadow-sm'
-                        : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
-                    }`}
+                    className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
                     data-testid="nav-contact"
-                    style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}
                   >
                     Contact
                     <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                   </button>
                   
-                  {/* Liquid Glass Dropdown */}
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 liquid-glass-dropdown">
+                  {/* Apple-style Dropdown */}
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     <div className="p-2">
                       <button 
                         onClick={() => scrollToSection('#contact-email')}
@@ -582,18 +480,18 @@ export default function Navigation() {
                 {isHomePage ? (
                   <>
                     <button
-                      onClick={() => scrollToSection('#experience')}
-                      className="text-foreground hover:text-primary hover:bg-white/15 block px-4 py-3 rounded-xl text-base font-medium w-full text-left transition-all duration-300 hover:scale-105 hover:translate-x-2"
-                      data-testid="nav-mobile-experience"
-                    >
-                      Experience
-                    </button>
-                    <button
                       onClick={() => scrollToSection('#education')}
                       className="text-foreground hover:text-primary hover:bg-white/15 block px-4 py-3 rounded-xl text-base font-medium w-full text-left transition-all duration-300 hover:scale-105 hover:translate-x-2"
                       data-testid="nav-mobile-education"
                     >
                       Education
+                    </button>
+                    <button
+                      onClick={() => scrollToSection('#experience')}
+                      className="text-foreground hover:text-primary hover:bg-white/15 block px-4 py-3 rounded-xl text-base font-medium w-full text-left transition-all duration-300 hover:scale-105 hover:translate-x-2"
+                      data-testid="nav-mobile-experience"
+                    >
+                      Experience
                     </button>
                     <button
                       onClick={() => scrollToSection('#certifications')}
