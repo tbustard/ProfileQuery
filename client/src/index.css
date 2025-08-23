@@ -31,45 +31,16 @@
   --chart-5: hsl(341.4894 75.2000% 50.9804%);
   --radius: 1rem;
   
-  /* Advanced Apple Liquid Glass Effects */
-  --glass-bg: rgba(255, 255, 255, 0.3);
-  --glass-bg-hover: rgba(255, 255, 255, 0.4);
-  --glass-bg-premium: rgba(255, 255, 255, 0.5);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --glass-border-hover: rgba(255, 255, 255, 0.35);
-  --glass-shadow: rgba(0, 0, 0, 0.1);
-  --glass-shadow-hover: rgba(0, 0, 0, 0.2);
-  --glass-shadow-premium: rgba(0, 0, 0, 0.15);
+  /* Apple Liquid Glass Effects */
+  --glass-bg: hsla(0 0% 100% / 0.3);
+  --glass-bg-hover: hsla(0 0% 100% / 0.4);
+  --glass-border: hsla(0 0% 100% / 0.2);
+  --glass-border-hover: hsla(0 0% 100% / 0.3);
+  --glass-shadow: hsla(0 0% 0% / 0.1);
+  --glass-shadow-hover: hsla(0 0% 0% / 0.15);
+  --glass-refraction: linear-gradient(135deg, hsla(0 0% 100% / 0.4) 0%, hsla(0 0% 100% / 0.1) 25%, hsla(0 0% 100% / 0.05) 50%, hsla(0 0% 100% / 0.1) 75%, hsla(0 0% 100% / 0.3) 100%);
   --glass-blur: blur(10px);
   --glass-blur-strong: blur(20px);
-  --glass-blur-subtle: blur(6px);
-  
-  /* Advanced Refraction Gradients */
-  --glass-refraction-primary: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.6) 0%, 
-    rgba(255, 255, 255, 0.1) 15%, 
-    rgba(255, 255, 255, 0.05) 30%, 
-    rgba(255, 255, 255, 0.1) 45%, 
-    rgba(255, 255, 255, 0.3) 60%, 
-    rgba(255, 255, 255, 0.05) 75%, 
-    rgba(255, 255, 255, 0.4) 100%);
-    
-  --glass-refraction-secondary: linear-gradient(45deg, 
-    rgba(255, 255, 255, 0.4) 0%, 
-    rgba(255, 255, 255, 0.05) 25%, 
-    rgba(255, 255, 255, 0.2) 50%, 
-    rgba(255, 255, 255, 0.05) 75%, 
-    rgba(255, 255, 255, 0.3) 100%);
-    
-  --glass-shimmer: linear-gradient(90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    transparent 100%);
-    
-  /* Fresnel Effect Colors */
-  --glass-fresnel-light: rgba(255, 255, 255, 0.8);
-  --glass-fresnel-medium: rgba(255, 255, 255, 0.4);
-  --glass-fresnel-dark: rgba(255, 255, 255, 0.1);
   
   /* Apple Typography */
   --font-display: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -268,16 +239,16 @@
     font-weight: 500;
   }
   
-  /* Advanced Apple Liquid Glass Components with SVG Filters */
+  /* Advanced Apple Liquid Glass Components */
   .apple-glass {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
     box-shadow: 
-      0 8px 32px rgba(0, 0, 0, 0.05),
-      0 2px 8px rgba(0, 0, 0, 0.02),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      0 8px 32px var(--glass-shadow),
+      0 1px 2px hsla(0 0% 0% / 0.1),
+      inset 0 1px 0 hsla(0 0% 100% / 0.4);
     position: relative;
     overflow: hidden;
   }
@@ -289,52 +260,31 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-    opacity: 0.3;
+    background: var(--glass-refraction);
+    opacity: 0.6;
     pointer-events: none;
     z-index: 1;
   }
   
-  .apple-glass::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 2;
-    transform: translateX(-100%) rotate(45deg);
-    transition: all 0.6s ease;
-  }
-  
-  .apple-glass:hover::after {
-    opacity: 0.4;
-    transform: translateX(100%) rotate(45deg);
-  }
-  
   .apple-glass > * {
     position: relative;
-    z-index: 3;
+    z-index: 2;
   }
   
   .apple-card {
     @apply rounded-[20px];
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
+    background: hsla(0 0% 100% / 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid hsla(0 0% 100% / 0.2);
     box-shadow: 
-      0 8px 32px var(--glass-shadow),
-      0 2px 8px rgba(0, 0, 0, 0.05),
-      inset 0 1px 0 var(--glass-fresnel-light),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+      0 8px 32px hsla(0 0% 0% / 0.1),
+      0 1px 2px hsla(0 0% 0% / 0.1),
+      inset 0 1px 0 hsla(0 0% 100% / 0.4),
+      inset 0 -1px 0 hsla(0 0% 0% / 0.05);
     position: relative;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-    filter: url(#glassRefraction);
   }
   
   .apple-card::before {
@@ -344,83 +294,38 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--glass-refraction-primary);
-    opacity: 0.7;
+    background: linear-gradient(
+      135deg, 
+      hsla(0 0% 100% / 0.4) 0%, 
+      hsla(0 0% 100% / 0.1) 25%, 
+      hsla(0 0% 100% / 0.05) 50%, 
+      hsla(0 0% 100% / 0.1) 75%, 
+      hsla(0 0% 100% / 0.3) 100%
+    );
+    opacity: 0.8;
     pointer-events: none;
     z-index: 1;
-    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-  }
-  
-  .apple-card::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: var(--glass-shimmer);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 2;
-    transform: translateX(-100%) rotate(45deg);
-    transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
   }
   
   .apple-card > * {
     position: relative;
-    z-index: 3;
+    z-index: 2;
   }
   
   .apple-card:hover {
     transform: scale(1.05);
-    background: var(--glass-bg-hover);
-    border-color: var(--glass-border-hover);
+    background: hsla(0 0% 100% / 0.4);
+    border-color: hsla(0 0% 100% / 0.3);
     box-shadow: 
-      0 16px 48px var(--glass-shadow-hover),
-      0 4px 12px rgba(0, 0, 0, 0.1),
-      inset 0 1px 0 var(--glass-fresnel-light),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-
+      0 16px 48px hsla(0 0% 0% / 0.15),
+      0 4px 12px hsla(0 0% 0% / 0.1),
+      inset 0 1px 0 hsla(0 0% 100% / 0.5),
+      inset 0 -1px 0 hsla(0 0% 0% / 0.1);
   }
   
   .apple-card:hover::before {
     opacity: 1;
-    background: var(--glass-refraction-secondary);
-  }
-  
-  .apple-card:hover::after {
-    opacity: 0.4;
-    transform: translateX(100%) rotate(45deg);
-  }
-  
-  /* Premium Glass Variants */
-  .apple-glass-premium {
-    @apply apple-card;
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 
-      0 8px 24px rgba(0, 0, 0, 0.08),
-      0 2px 6px rgba(0, 0, 0, 0.04),
-      inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  }
-  
-  .apple-glass-subtle {
-    @apply apple-card;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: var(--glass-blur-subtle);
-    -webkit-backdrop-filter: var(--glass-blur-subtle);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-  }
-  
-  .apple-glass-strong {
-    @apply apple-card;
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: var(--glass-blur-strong);
-    -webkit-backdrop-filter: var(--glass-blur-strong);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-
   }
   
   .apple-button {
@@ -432,46 +337,19 @@
   
   .apple-button-primary {
     @apply apple-button bg-primary text-primary-foreground;
-    background: linear-gradient(135deg, hsl(212 100% 50%) 0%, hsl(212 100% 45%) 100%);
     box-shadow: 
       0 4px 14px 0 rgba(0, 118, 255, 0.39),
-      0 2px 6px rgba(0, 118, 255, 0.2),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+      inset 0 1px 0 hsla(0 0% 100% / 0.2);
     transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
     border-radius: 20px;
-
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .apple-button-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--glass-shimmer);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateX(-100%) rotate(45deg);
-    transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
   }
   
   .apple-button-primary:hover {
-    background: linear-gradient(135deg, hsl(212 100% 45%) 0%, hsl(212 100% 40%) 100%);
+    background: hsl(212 100% 45%);
     transform: scale(1.05);
     box-shadow: 
       0 8px 24px 0 rgba(0, 118, 255, 0.5),
-      0 4px 12px rgba(0, 118, 255, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-  }
-  
-  .apple-button-primary:hover::before {
-    opacity: 0.3;
-    transform: translateX(100%) rotate(45deg);
+      inset 0 1px 0 hsla(0 0% 100% / 0.3);
   }
   
   .apple-button-primary:active {
@@ -481,69 +359,24 @@
   
   .apple-button-secondary {
     @apply apple-button text-accent-foreground;
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
+    background: hsla(0 0% 100% / 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid hsla(0 0% 100% / 0.2);
     border-radius: 20px;
     box-shadow: 
-      0 4px 14px var(--glass-shadow),
-      0 2px 6px rgba(0, 0, 0, 0.05),
-      inset 0 1px 0 var(--glass-fresnel-light),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+      0 4px 14px hsla(0 0% 0% / 0.1),
+      inset 0 1px 0 hsla(0 0% 100% / 0.4);
     transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-    filter: url(#glassRefraction);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .apple-button-secondary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--glass-refraction-secondary);
-    opacity: 0.6;
-    pointer-events: none;
-    z-index: 1;
-  }
-  
-  .apple-button-secondary::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--glass-shimmer);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 2;
-    transform: translateX(-100%) rotate(45deg);
-    transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
-  }
-  
-  .apple-button-secondary > * {
-    position: relative;
-    z-index: 3;
   }
   
   .apple-button-secondary:hover {
-    background: var(--glass-bg-hover);
+    background: hsla(0 0% 100% / 0.4);
     transform: scale(1.05);
-    border-color: var(--glass-border-hover);
+    border-color: hsla(0 0% 100% / 0.3);
     box-shadow: 
-      0 8px 24px var(--glass-shadow-hover),
-      0 4px 12px rgba(0, 0, 0, 0.1),
-      inset 0 1px 0 var(--glass-fresnel-light),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-  }
-  
-  .apple-button-secondary:hover::after {
-    opacity: 0.3;
-    transform: translateX(100%) rotate(45deg);
+      0 8px 24px hsla(0 0% 0% / 0.15),
+      inset 0 1px 0 hsla(0 0% 100% / 0.5);
   }
   
   .apple-button-secondary:active {
@@ -582,93 +415,29 @@
   
   .apple-hover {
     transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .apple-hover::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--glass-refraction-secondary);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 1;
-    transition: opacity 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-  }
-  
-  .apple-hover::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: var(--glass-shimmer);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 2;
-    transform: translateX(-100%) rotate(45deg);
-    transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
-  }
-  
-  .apple-hover > * {
-    position: relative;
-    z-index: 3;
   }
   
   .apple-hover:hover {
     transform: scale(1.05);
     box-shadow: 
-      0 16px 48px var(--glass-shadow-hover),
-      0 4px 12px rgba(0, 0, 0, 0.1);
-
+      0 16px 48px hsla(0 0% 0% / 0.15),
+      0 4px 12px hsla(0 0% 0% / 0.1);
   }
   
-  .apple-hover:hover::before {
-    opacity: 0.6;
+  /* Enhanced Liquid Glass Card Variants */
+  .apple-card-premium {
+    @apply apple-card;
+    background: hsla(0 0% 100% / 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid hsla(0 0% 100% / 0.3);
   }
   
-  .apple-hover:hover::after {
-    opacity: 0.3;
-    transform: translateX(100%) rotate(45deg);
-  }
-  
-  /* Enhanced Liquid Glass Section Effects */
-  .apple-section-glass {
-    @apply section-padding relative;
-    background: linear-gradient(
-      180deg, 
-      rgba(255, 255, 255, 0.04) 0%, 
-      rgba(255, 255, 255, 0.02) 100%
-    );
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-  }
-  
-  .apple-section-glass::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.02),
-      rgba(255, 255, 255, 0.01)
-    );
-    opacity: 0.8;
-    pointer-events: none;
-    z-index: 1;
-  }
-  
-  .apple-section-glass > * {
-    position: relative;
-    z-index: 2;
+  .apple-card-subtle {
+    @apply apple-card;
+    background: hsla(0 0% 100% / 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
   
   /* Spring-like animations for mobile responsiveness */
@@ -705,7 +474,6 @@
   }
 }
 
-/* Advanced Apple-style Animations and Keyframes */
 @keyframes appleSlideUp {
   to {
     opacity: 1;
@@ -720,131 +488,4 @@
   50% {
     box-shadow: 0 6px 20px 0 rgba(0, 118, 255, 0.5);
   }
-}
-
-@keyframes glassShimmer {
-  0% {
-    transform: translateX(-100%) rotate(45deg);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateX(100%) rotate(45deg);
-    opacity: 0;
-  }
-}
-
-@keyframes glassRefractionShift {
-  0%, 100% {
-    background-position: 0% 0%;
-  }
-  25% {
-    background-position: 25% 25%;
-  }
-  50% {
-    background-position: 50% 50%;
-  }
-  75% {
-    background-position: 75% 75%;
-  }
-}
-
-@keyframes appleSpringScale {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.08);
-  }
-  100% {
-    transform: scale(1.05);
-  }
-}
-
-@keyframes glassBreathing {
-  0%, 100% {
-    background: var(--glass-bg);
-    border-color: var(--glass-border);
-  }
-  50% {
-    background: var(--glass-bg-hover);
-    border-color: var(--glass-border-hover);
-  }
-}
-
-/* GSAP Animation Classes */
-.gsap-fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.gsap-scale-in {
-  opacity: 0;
-  transform: scale(0.8);
-}
-
-.gsap-slide-left {
-  opacity: 0;
-  transform: translateX(-50px);
-}
-
-.gsap-slide-right {
-  opacity: 0;
-  transform: translateX(50px);
-}
-
-.gsap-rotate-in {
-  opacity: 0;
-  transform: rotate(-10deg) scale(0.9);
-}
-
-/* Interactive Glass Effects */
-.apple-interactive {
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.apple-interactive:hover {
-  transform: translateY(-2px) scale(1.02);
-  filter: url(#glassFresnel);
-}
-
-.apple-interactive:active {
-  transform: translateY(0) scale(0.98);
-  transition: all 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
-}
-
-/* Premium Glass Morphism Effects */
-.apple-morphism {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.4) 0%,
-    rgba(255, 255, 255, 0.1) 100%
-  );
-  backdrop-filter: blur(10px) saturate(200%) brightness(120%);
-  -webkit-backdrop-filter: blur(10px) saturate(200%) brightness(120%);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.12),
-    0 2px 8px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.06);
-  filter: url(#glassFresnel);
-}
-
-.apple-morphism:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0.2) 100%
-  );
-  box-shadow: 
-    0 16px 48px rgba(0, 0, 0, 0.18),
-    0 4px 12px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.08);
 }

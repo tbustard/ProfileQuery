@@ -1,10 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card";
-// Asset imports replaced with placeholder URLs
-const bmoLogo = "https://via.placeholder.com/64x64/005EB8/white?text=BMO";
-const tdLogo = "https://via.placeholder.com/64x64/00B04F/white?text=TD";
-const rbcLogo = "https://via.placeholder.com/64x64/00509F/white?text=RBC";
-const irvingLogo = "https://via.placeholder.com/64x64/FF6B35/white?text=IRVING";
-const grantThorntonLogo = "https://via.placeholder.com/64x64/8B5CF6/white?text=GT";
+import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
+import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
+import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
+import irvingLogo from "@assets/Irving_Oil.svg_1755913265895.png";
+import grantThorntonLogo from "@assets/Grant_Thornton_logo_1755913265895.png";
 
 interface Experience {
   title: string;
@@ -107,7 +106,7 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="section-padding">
+    <section id="experience" className="apple-section">
       <div className="container-width">
         {/* Header */}
         <div className="text-center mb-20">
