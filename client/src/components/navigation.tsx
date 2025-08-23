@@ -276,7 +276,7 @@ export default function Navigation() {
                     </button>
                     <button onClick={() => scrollToSection('#cert-canadian-securities-course')} className="w-full text-left block p-3 pl-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50">
                       <div className="font-medium text-gray-900 text-sm mb-1">Canadian Securities Course</div>
-                      <div className="text-xs text-gray-600">CSI • 2021</div>
+                      <div className="text-xs text-gray-600">Canadian Securities Institute • 2021</div>
                     </button>
                     <button onClick={() => scrollToSection('#cert-bloomberg-market-concepts-certificate')} className="w-full text-left block p-3 pl-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50">
                       <div className="font-medium text-gray-900 text-sm mb-1">Bloomberg Market Concepts</div>
