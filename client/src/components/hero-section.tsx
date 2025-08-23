@@ -27,7 +27,7 @@ export default function HeroSection() {
                   Tyler Bustard
                 </h1>
                 <p className="text-2xl font-semibold text-primary mb-4">
-                  Equity Analyst & Financial Technology Specialist
+                  Finance & Technology Professional
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <div className="inline-flex items-center bg-primary/10 rounded-full px-4 py-2">
