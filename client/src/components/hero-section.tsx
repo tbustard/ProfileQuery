@@ -61,10 +61,20 @@ export default function HeroSection() {
                   {/* Credentials */}
                 </div>
                 
-                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-8">
                   Driving innovation at the intersection of finance and technology. 
                   Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
                 </p>
+                
+                <Button 
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-white text-lg px-10 py-4 rounded-2xl font-semibold transition-all duration-300 hover:shadow-lg hover:scale-105"
+                  onClick={() => scrollToSection("#contact")}
+                  data-testid="button-contact"
+                >
+                  <HiOutlineMail className="mr-3 h-5 w-5" />
+                  Get In Touch
+                </Button>
               </div>
             </div>
           </div>
@@ -263,24 +273,6 @@ export default function HeroSection() {
 
           </div>
 
-          {/* Call to Action */}
-          <div className="text-center">
-            <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 inline-block">
-              <h3 className="text-2xl font-semibold text-foreground mb-4">Ready to Connect?</h3>
-              <p className="text-muted-foreground mb-6 max-w-md">
-                Explore detailed insights into my experience, education, and achievements below.
-              </p>
-              <Button 
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-white text-lg px-10 py-4 rounded-2xl font-semibold transition-all duration-300 hover:shadow-lg hover:scale-105"
-                onClick={() => scrollToSection("#contact")}
-                data-testid="button-contact"
-              >
-                <HiOutlineMail className="mr-3 h-5 w-5" />
-                Get In Touch
-              </Button>
-            </div>
-          </div>
         </div>
       </div>
     </section>
