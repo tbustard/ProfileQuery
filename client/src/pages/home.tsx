@@ -35,9 +35,9 @@ export default function Home() {
       <EducationSection />
       <ExperienceSection />
       <CertificationsSection />
-      <DownloadSection />
       <CommunitySection />
       <ContactInfoSection />
+      <DownloadSection />
       
       {/* Scroll to Top Button */}
       <div 
