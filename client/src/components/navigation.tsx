@@ -360,15 +360,47 @@ export default function Navigation() {
                 </div>
               </div>
 
-              {/* Contact - Only on home page */}
+              {/* Contact Dropdown - Only on home page */}
               {isHomePage && (
-                <button
-                  onClick={() => scrollToSection('#contact')}
-                  className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200"
-                  data-testid="nav-contact"
-                >
-                  Contact
-                </button>
+                <div className="relative group">
+                  <button
+                    onClick={() => scrollToSection('#contact')}
+                    className="px-3 py-2 text-sm font-medium text-foreground/90 hover:text-foreground rounded-lg hover:bg-white/5 transition-all duration-200 flex items-center gap-1"
+                    data-testid="nav-contact"
+                  >
+                    Contact
+                    <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
+                  </button>
+                  
+                  {/* Apple-style Dropdown */}
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="p-2">
+                      <button 
+                        onClick={() => scrollToSection('#contact')}
+                        className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
+                      >
+                        <div className="font-semibold text-gray-900 text-base mb-1">Email</div>
+                        <div className="text-sm text-gray-600">tbustard@unb.ca</div>
+                      </button>
+                      
+                      <button 
+                        onClick={() => scrollToSection('#contact')}
+                        className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors border-b border-gray-100/50"
+                      >
+                        <div className="font-semibold text-gray-900 text-base mb-1">Phone</div>
+                        <div className="text-sm text-gray-600">(613) 985-1223</div>
+                      </button>
+                      
+                      <button 
+                        onClick={() => scrollToSection('#contact')}
+                        className="w-full text-left block p-4 rounded-lg hover:bg-gray-50/50 transition-colors"
+                      >
+                        <div className="font-semibold text-gray-900 text-base mb-1">Location</div>
+                        <div className="text-sm text-gray-600">Toronto, Ontario, Canada</div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
             
