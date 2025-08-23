@@ -189,7 +189,7 @@ export default function CertificationsSection() {
             </h3>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">20+</div>
+                <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">22</div>
                 <div className="text-muted-foreground font-medium">Total Certifications</div>
               </div>
               <div className="text-center">
@@ -197,8 +197,8 @@ export default function CertificationsSection() {
                 <div className="text-muted-foreground font-medium">Expertise Areas</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">2024</div>
-                <div className="text-muted-foreground font-medium">Latest Achievement</div>
+                <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">17</div>
+                <div className="text-muted-foreground font-medium">Different Organizations</div>
               </div>
             </div>
           </div>
