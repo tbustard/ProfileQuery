@@ -207,6 +207,32 @@
     @apply max-w-7xl mx-auto;
   }
   
+  /* Apple Form Components */
+  .apple-input {
+    @apply w-full px-4 py-4 text-base text-foreground placeholder:text-muted-foreground;
+    @apply rounded-2xl border-0 outline-none transition-all duration-300;
+    background: hsla(0 0% 100% / 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsla(0 0% 100% / 0.2);
+    font-family: var(--font-text);
+    letter-spacing: -0.022em;
+  }
+  
+  .apple-input:focus {
+    background: hsla(0 0% 100% / 0.9);
+    border: 1px solid hsla(212 100% 50% / 0.3);
+    box-shadow: 0 0 0 4px hsla(212 100% 50% / 0.1);
+    transform: scale(1.02);
+  }
+  
+  .apple-label {
+    @apply block text-sm font-medium text-foreground mb-3;
+    font-family: var(--font-display);
+    letter-spacing: -0.022em;
+    font-weight: 500;
+  }
+  
   /* Apple Glass Components */
   .apple-glass {
     background: var(--glass-bg);

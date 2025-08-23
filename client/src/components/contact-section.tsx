@@ -126,13 +126,13 @@ export default function ContactSection() {
 
                 {/* Contact Form */}
                 <div className="space-y-6">
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid sm:grid-cols-2 gap-4">
+                  <form onSubmit={handleSubmit} className="space-y-8">
+                    <div className="grid sm:grid-cols-2 gap-6">
                       <div>
-                        <Label htmlFor="name" className="text-sm font-medium text-foreground mb-2">
+                        <label htmlFor="name" className="apple-label">
                           Name
-                        </Label>
-                        <Input
+                        </label>
+                        <input
                           id="name"
                           type="text"
                           value={formData.name}
@@ -140,14 +140,14 @@ export default function ContactSection() {
                           placeholder="Your full name"
                           required
                           data-testid="input-name"
-                          className="apple-glass border-0"
+                          className="apple-input"
                         />
                       </div>
                       <div>
-                        <Label htmlFor="email" className="text-sm font-medium text-foreground mb-2">
+                        <label htmlFor="email" className="apple-label">
                           Email
-                        </Label>
-                        <Input
+                        </label>
+                        <input
                           id="email"
                           type="email"
                           value={formData.email}
@@ -155,16 +155,16 @@ export default function ContactSection() {
                           placeholder="your.email@example.com"
                           required
                           data-testid="input-email"
-                          className="apple-glass border-0"
+                          className="apple-input"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <Label htmlFor="subject" className="text-sm font-medium text-foreground mb-2">
+                      <label htmlFor="subject" className="apple-label">
                         Subject
-                      </Label>
-                      <Input
+                      </label>
+                      <input
                         id="subject"
                         type="text"
                         value={formData.subject}
@@ -172,38 +172,40 @@ export default function ContactSection() {
                         placeholder="What's this about?"
                         required
                         data-testid="input-subject"
-                        className="apple-glass border-0"
+                        className="apple-input"
                       />
                     </div>
 
                     <div>
-                      <Label htmlFor="message" className="text-sm font-medium text-foreground mb-2">
+                      <label htmlFor="message" className="apple-label">
                         Message
-                      </Label>
-                      <Textarea
+                      </label>
+                      <textarea
                         id="message"
                         value={formData.message}
                         onChange={(e) => handleInputChange("message", e.target.value)}
                         placeholder="Tell me about your project or opportunity..."
-                        className="h-32 resize-none apple-glass border-0"
+                        className="apple-input h-32 resize-none"
                         required
                         data-testid="input-message"
                       />
                     </div>
 
-                    <Button
-                      type="submit"
-                      disabled={contactMutation.isPending}
-                      className="w-full apple-button-primary text-lg h-12"
-                      data-testid="button-send"
-                    >
-                      {contactMutation.isPending ? (
-                        <AiOutlineLoading3Quarters className="mr-2 h-5 w-5 animate-spin" />
-                      ) : (
-                        <IoSend className="mr-2 h-5 w-5" />
-                      )}
-                      Send Message
-                    </Button>
+                    <div className="pt-4">
+                      <Button
+                        type="submit"
+                        disabled={contactMutation.isPending}
+                        className="w-full apple-button-primary text-lg h-14 font-semibold"
+                        data-testid="button-send"
+                      >
+                        {contactMutation.isPending ? (
+                          <AiOutlineLoading3Quarters className="mr-3 h-5 w-5 animate-spin" />
+                        ) : (
+                          <IoSend className="mr-3 h-5 w-5" />
+                        )}
+                        Send Message
+                      </Button>
+                    </div>
                   </form>
                 </div>
               </div>
