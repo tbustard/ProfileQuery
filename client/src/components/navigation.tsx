@@ -577,18 +577,18 @@ export default function Navigation() {
                 {isHomePage ? (
                   <>
                     <button
-                      onClick={() => scrollToSection('#education')}
-                      className="text-foreground hover:text-primary hover:bg-white/15 block px-4 py-3 rounded-xl text-base font-medium w-full text-left transition-all duration-300 hover:scale-105 hover:translate-x-2"
-                      data-testid="nav-mobile-education"
-                    >
-                      Education
-                    </button>
-                    <button
                       onClick={() => scrollToSection('#experience')}
                       className="text-foreground hover:text-primary hover:bg-white/15 block px-4 py-3 rounded-xl text-base font-medium w-full text-left transition-all duration-300 hover:scale-105 hover:translate-x-2"
                       data-testid="nav-mobile-experience"
                     >
                       Experience
+                    </button>
+                    <button
+                      onClick={() => scrollToSection('#education')}
+                      className="text-foreground hover:text-primary hover:bg-white/15 block px-4 py-3 rounded-xl text-base font-medium w-full text-left transition-all duration-300 hover:scale-105 hover:translate-x-2"
+                      data-testid="nav-mobile-education"
+                    >
+                      Education
                     </button>
                     <button
                       onClick={() => scrollToSection('#certifications')}
