@@ -185,60 +185,68 @@ export default function HeroSection() {
                   {/* Certifications Quadrant */}
                   <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 hover:shadow-lg transition-all duration-300">
                     <div className="space-y-4">
-                      <div className="flex items-center gap-3 flex-wrap">
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                      <div className="flex items-center">
+                        {/* CFA 2025 - First/Newest */}
+                        <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg apple-hover z-20 hover:z-30 transition-all duration-300">
                           <img 
                             src={cfaLogo} 
                             alt="CFA Institute Logo" 
                             className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
                           />
                         </div>
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
-                          <img 
-                            src={csiLogo} 
-                            alt="Canadian Securities Institute Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
-                          />
-                        </div>
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
-                          <img 
-                            src={bloombergLogo} 
-                            alt="Bloomberg Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
-                          />
-                        </div>
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
-                          <img 
-                            src={wallStreetPrepLogo} 
-                            alt="Wall Street Prep Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
-                          />
-                        </div>
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
-                          <img 
-                            src={courseraLogo} 
-                            alt="Coursera Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
-                          />
-                        </div>
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
-                          <img 
-                            src={mcgillLogo} 
-                            alt="McGill University Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
-                          />
-                        </div>
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                        {/* Training the Street 2024 */}
+                        <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg apple-hover z-19 hover:z-30 transition-all duration-300 -ml-3">
                           <img 
                             src={trainingTheStreetLogo} 
                             alt="Training the Street Logo" 
                             className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
                           />
                         </div>
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                        {/* ETS 2024 */}
+                        <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg apple-hover z-18 hover:z-30 transition-all duration-300 -ml-3">
                           <img 
                             src={etsLogo} 
                             alt="ETS Logo" 
+                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                          />
+                        </div>
+                        {/* CSI 2023 */}
+                        <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg apple-hover z-17 hover:z-30 transition-all duration-300 -ml-3">
+                          <img 
+                            src={csiLogo} 
+                            alt="Canadian Securities Institute Logo" 
+                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                          />
+                        </div>
+                        {/* Coursera 2023 */}
+                        <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg apple-hover z-16 hover:z-30 transition-all duration-300 -ml-3">
+                          <img 
+                            src={courseraLogo} 
+                            alt="Coursera Logo" 
+                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                          />
+                        </div>
+                        {/* Bloomberg 2020 */}
+                        <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg apple-hover z-15 hover:z-30 transition-all duration-300 -ml-3">
+                          <img 
+                            src={bloombergLogo} 
+                            alt="Bloomberg Logo" 
+                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                          />
+                        </div>
+                        {/* Wall Street Prep 2020 */}
+                        <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg apple-hover z-14 hover:z-30 transition-all duration-300 -ml-3">
+                          <img 
+                            src={wallStreetPrepLogo} 
+                            alt="Wall Street Prep Logo" 
+                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                          />
+                        </div>
+                        {/* McGill 2020 */}
+                        <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg apple-hover z-13 hover:z-30 transition-all duration-300 -ml-3">
+                          <img 
+                            src={mcgillLogo} 
+                            alt="McGill University Logo" 
                             className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
                           />
                         </div>
