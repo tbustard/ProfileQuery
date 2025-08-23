@@ -163,7 +163,7 @@ export default function CertificationsSection() {
             <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
               Professional Development Summary
             </h3>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">20+</div>
                 <div className="text-muted-foreground font-medium">Total Certifications</div>
@@ -175,10 +175,6 @@ export default function CertificationsSection() {
               <div className="text-center">
                 <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">2024</div>
                 <div className="text-muted-foreground font-medium">Latest Achievement</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">94th</div>
-                <div className="text-muted-foreground font-medium">GRE Percentile</div>
               </div>
             </div>
           </div>
