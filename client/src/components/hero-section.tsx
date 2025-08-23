@@ -90,59 +90,64 @@ export default function HeroSection() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   
                   {/* Career Quadrant */}
-                  <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 hover:shadow-lg transition-all duration-300">
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-3 flex-wrap">
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                  <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
+                    <div className="space-y-6">
+                      <div className="flex items-center">
+                        {/* BMO 2022-2023 - Most Recent */}
+                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-20 hover:z-30 transition-all duration-300 hover:scale-110">
                           <img 
                             src={bmoLogo} 
                             alt="BMO Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            className="w-12 h-12 object-contain transition-all duration-300"
                           />
                         </div>
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                        {/* TD 2021-2022 */}
+                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-19 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
                           <img 
                             src={tdLogo} 
                             alt="TD Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            className="w-12 h-12 object-contain transition-all duration-300"
                           />
                         </div>
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                        {/* RBC 2020-2021 */}
+                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-18 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
                           <img 
                             src={rbcLogo} 
                             alt="RBC Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            className="w-12 h-12 object-contain transition-all duration-300"
                           />
                         </div>
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                        {/* Irving 2018 */}
+                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-17 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
                           <img 
                             src={irvingLogo} 
                             alt="Irving Oil Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            className="w-12 h-12 object-contain transition-all duration-300"
                           />
                         </div>
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                        {/* Grant Thornton 2018 */}
+                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-16 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
                           <img 
                             src={grantThorntonLogo} 
                             alt="Grant Thornton Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            className="w-12 h-12 object-contain transition-all duration-300"
                           />
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-foreground mb-2">Career</h3>
-                        <div className="space-y-2 text-sm text-muted-foreground font-medium">
+                        <h3 className="text-xl font-bold text-foreground mb-3">Career</h3>
+                        <div className="space-y-2.5 text-sm text-muted-foreground font-medium">
                           <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                            <span>Private wealth & portfolio management</span>
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                            <span>5+ years in financial services industry</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                            <span>Financial advisory & client relations</span>
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                            <span>Wealth management & private banking expertise</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
-                            <span>Multi-institutional finance experience</span>
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                            <span>Progressive leadership across top-tier institutions</span>
                           </div>
                         </div>
                       </div>
@@ -150,31 +155,31 @@ export default function HeroSection() {
                   </div>
 
                   {/* Education Quadrant */}
-                  <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 hover:shadow-lg transition-all duration-300">
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                  <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
+                    <div className="space-y-6">
+                      <div className="flex items-center">
+                        <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl transition-all duration-300 hover:scale-110">
                           <img 
                             src={unbLogo} 
                             alt="University of New Brunswick Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            className="w-12 h-12 object-contain transition-all duration-300"
                           />
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-foreground mb-2">Education</h3>
-                        <div className="space-y-2 text-sm text-muted-foreground font-medium">
+                        <h3 className="text-xl font-bold text-foreground mb-3">Education</h3>
+                        <div className="space-y-2.5 text-sm text-muted-foreground font-medium">
                           <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                            <span>University business education</span>
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                            <span>4-year Bachelor of Business Administration</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                            <span>Finance specialization & expertise</span>
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                            <span>Finance major with investment focus</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                            <span>Academic excellence & recognition</span>
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                            <span>$47,500 in academic scholarships & awards</span>
                           </div>
                         </div>
                       </div>
@@ -182,88 +187,88 @@ export default function HeroSection() {
                   </div>
 
                   {/* Certifications Quadrant */}
-                  <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 hover:shadow-lg transition-all duration-300">
-                    <div className="space-y-4">
+                  <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
+                    <div className="space-y-6">
                       <div className="flex items-center">
                         {/* CFA 2025 - First/Newest */}
-                        <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg apple-hover z-20 hover:z-30 transition-all duration-300">
+                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-20 hover:z-30 transition-all duration-300 hover:scale-110">
                           <img 
                             src={cfaLogo} 
                             alt="CFA Institute Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            className="w-12 h-12 object-contain transition-all duration-300"
                           />
                         </div>
                         {/* Training the Street 2024 */}
-                        <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg apple-hover z-19 hover:z-30 transition-all duration-300 -ml-3">
+                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-19 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
                           <img 
                             src={trainingTheStreetLogo} 
                             alt="Training the Street Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            className="w-12 h-12 object-contain transition-all duration-300"
                           />
                         </div>
                         {/* ETS 2024 */}
-                        <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg apple-hover z-18 hover:z-30 transition-all duration-300 -ml-3">
+                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-18 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
                           <img 
                             src={etsLogo} 
                             alt="ETS Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            className="w-12 h-12 object-contain transition-all duration-300"
                           />
                         </div>
                         {/* CSI 2023 */}
-                        <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg apple-hover z-17 hover:z-30 transition-all duration-300 -ml-3">
+                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-17 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
                           <img 
                             src={csiLogo} 
                             alt="Canadian Securities Institute Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            className="w-12 h-12 object-contain transition-all duration-300"
                           />
                         </div>
                         {/* Coursera 2023 */}
-                        <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg apple-hover z-16 hover:z-30 transition-all duration-300 -ml-3">
+                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-16 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
                           <img 
                             src={courseraLogo} 
                             alt="Coursera Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            className="w-12 h-12 object-contain transition-all duration-300"
                           />
                         </div>
                         {/* Bloomberg 2020 */}
-                        <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg apple-hover z-15 hover:z-30 transition-all duration-300 -ml-3">
+                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-15 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
                           <img 
                             src={bloombergLogo} 
                             alt="Bloomberg Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            className="w-12 h-12 object-contain transition-all duration-300"
                           />
                         </div>
                         {/* Wall Street Prep 2020 */}
-                        <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg apple-hover z-14 hover:z-30 transition-all duration-300 -ml-3">
+                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-14 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
                           <img 
                             src={wallStreetPrepLogo} 
                             alt="Wall Street Prep Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            className="w-12 h-12 object-contain transition-all duration-300"
                           />
                         </div>
                         {/* McGill 2020 */}
-                        <div className="relative w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg apple-hover z-13 hover:z-30 transition-all duration-300 -ml-3">
+                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-13 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
                           <img 
                             src={mcgillLogo} 
                             alt="McGill University Logo" 
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            className="w-12 h-12 object-contain transition-all duration-300"
                           />
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-foreground mb-2">Certifications</h3>
-                        <div className="space-y-2 text-sm text-muted-foreground font-medium">
+                        <h3 className="text-xl font-bold text-foreground mb-3">Certifications</h3>
+                        <div className="space-y-2.5 text-sm text-muted-foreground font-medium">
                           <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
-                            <span>Professional investment qualifications</span>
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                            <span>22+ professional certifications earned</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
-                            <span>Advanced analytical & modeling skills</span>
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                            <span>4 expertise areas across finance & technology</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
-                            <span>Continuous professional development</span>
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                            <span>17 prestigious institutions & organizations</span>
                           </div>
                         </div>
                       </div>
@@ -271,40 +276,43 @@ export default function HeroSection() {
                   </div>
 
                   {/* Community Quadrant */}
-                  <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 hover:shadow-lg transition-all duration-300">
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-3 flex-wrap">
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
-                          <img src={unitedWayLogo} alt="United Way Logo" className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110" />
+                  <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
+                    <div className="space-y-6">
+                      <div className="flex items-center">
+                        {/* United Way - Most Prominent */}
+                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-20 hover:z-30 transition-all duration-300 hover:scale-110">
+                          <img src={unitedWayLogo} alt="United Way Logo" className="w-12 h-12 object-contain transition-all duration-300" />
                         </div>
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                        {/* RBC Community */}
+                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-19 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
                           <img
                             src={rbcLogo}
                             alt="RBC Community Logo"
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            className="w-12 h-12 object-contain transition-all duration-300"
                           />
                         </div>
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg apple-hover">
+                        {/* Irving Community */}
+                        <div className="relative w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-xl z-18 hover:z-30 transition-all duration-300 hover:scale-110 -ml-3">
                           <img
                             src={irvingLogo}
                             alt="Irving Oil Community Logo"
-                            className="w-12 h-12 object-contain transition-all duration-300 hover:scale-110"
+                            className="w-12 h-12 object-contain transition-all duration-300"
                           />
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-foreground mb-2">Community</h3>
-                        <div className="space-y-2 text-sm text-muted-foreground font-medium">
+                        <h3 className="text-xl font-bold text-foreground mb-3">Community</h3>
+                        <div className="space-y-2.5 text-sm text-muted-foreground font-medium">
                           <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
                             <span>United Way campaign leadership</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
                             <span>Financial literacy mentorship</span>
                           </div>
                           <div className="flex items-center space-x-2">
-                            <div className="w-1.5 h-1.5 bg-orange-500 rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
                             <span>Community investment advocate</span>
                           </div>
                         </div>
