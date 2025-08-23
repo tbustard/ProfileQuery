@@ -82,52 +82,57 @@ export default function EducationSection() {
           </p>
         </div>
 
-        {/* Hero Education Card - Modern Asymmetric Layout */}
-        <div className="mb-24">
-          <div className="bg-white/40 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
-            <div className="grid lg:grid-cols-5 gap-0">
-              {/* Left Content */}
-              <div className="lg:col-span-3 p-12 lg:p-16">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg">
-                    <img 
-                      src={universityLogo} 
-                      alt="University Logo" 
-                      className="w-14 h-14 object-contain"
-                    />
-                  </div>
-                  <div className="bg-primary/10 backdrop-blur-sm rounded-2xl px-4 py-2">
-                    <span className="text-sm font-semibold text-primary">Class of {education.year}</span>
-                  </div>
+        {/* Hero Education Card - Clean Main Layout */}
+        <div className="mb-16">
+          <div className="bg-white/40 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl p-12 lg:p-16">
+            <div className="text-center">
+              <div className="flex items-center justify-center gap-4 mb-8">
+                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg">
+                  <img 
+                    src={universityLogo} 
+                    alt="University Logo" 
+                    className="w-14 h-14 object-contain"
+                  />
                 </div>
-                
-                <h3 className="text-3xl lg:text-4xl font-bold text-foreground mb-3">
-                  {education.institution}
-                </h3>
-                <div className="space-y-2 mb-6">
-                  <p className="text-xl font-semibold text-primary">{education.degree}</p>
-                  <p className="text-lg font-medium text-blue-600">{education.major}</p>
-                  <p className="text-muted-foreground">{education.location}</p>
+                <div className="bg-primary/10 backdrop-blur-sm rounded-2xl px-4 py-2">
+                  <span className="text-sm font-semibold text-primary">Class of {education.year}</span>
                 </div>
               </div>
-
-              {/* Right Stats */}
-              <div className="lg:col-span-2 bg-gradient-to-br from-primary/5 to-blue-500/10 p-8 lg:p-12 flex items-center">
-                <div className="space-y-8 w-full">
-                  {highlights.map((highlight, index) => (
-                    <div key={index} className="flex items-center gap-4">
-                      <div className={`w-12 h-12 ${highlight.color} rounded-xl flex items-center justify-center shadow-sm`}>
-                        {renderIcon(highlight.iconType)}
-                      </div>
-                      <div>
-                        <div className="text-2xl font-bold text-foreground">{highlight.title}</div>
-                        <p className="text-sm text-muted-foreground">{highlight.subtitle}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              
+              <h3 className="text-3xl lg:text-4xl font-bold text-foreground mb-3">
+                {education.institution}
+              </h3>
+              <div className="space-y-2 mb-6">
+                <p className="text-xl font-semibold text-primary">{education.degree}</p>
+                <p className="text-lg font-medium text-blue-600">{education.major}</p>
+                <p className="text-muted-foreground">{education.location}</p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Achievement Highlight Cards */}
+        <div className="mb-24">
+          <div className="grid md:grid-cols-3 gap-8">
+            {highlights.map((highlight, index) => (
+              <div 
+                key={index} 
+                className="bg-white/40 backdrop-blur-xl rounded-3xl border border-white/20 shadow-xl p-8 hover:shadow-2xl hover:scale-[1.02] transition-all duration-500"
+                data-testid={`highlight-${index}`}
+              >
+                <div className="text-center">
+                  <div className={`w-16 h-16 ${highlight.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg`}>
+                    {renderIcon(highlight.iconType)}
+                  </div>
+                  <div className="text-3xl lg:text-4xl font-bold text-foreground mb-3">
+                    {highlight.title}
+                  </div>
+                  <p className="text-muted-foreground font-medium">
+                    {highlight.subtitle}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
