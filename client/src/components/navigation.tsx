@@ -440,7 +440,7 @@ export default function Navigation() {
                   <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-72 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     <div className="p-2">
                       <button 
-                        onClick={() => scrollToSection('#contact-email')}
+                        onClick={() => scrollToSection('#contact')}
                         className="w-full text-left block p-4 rounded-lg hover: transition-colors border-b border-gray-200"
                       >
                         <div className="font-semibold text-gray-900 text-base mb-1">Email</div>
@@ -448,7 +448,7 @@ export default function Navigation() {
                       </button>
                       
                       <button 
-                        onClick={() => scrollToSection('#contact-phone')}
+                        onClick={() => scrollToSection('#contact')}
                         className="w-full text-left block p-4 rounded-lg hover: transition-colors border-b border-gray-200"
                       >
                         <div className="font-semibold text-gray-900 text-base mb-1">Phone</div>
@@ -456,7 +456,7 @@ export default function Navigation() {
                       </button>
                       
                       <button 
-                        onClick={() => scrollToSection('#contact-location')}
+                        onClick={() => scrollToSection('#contact')}
                         className="w-full text-left block p-4 rounded-lg hover: transition-colors"
                       >
                         <div className="font-semibold text-gray-900 text-base mb-1">Location</div>
