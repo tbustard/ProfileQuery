@@ -18,58 +18,87 @@ import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 export default function HeroSection() {
   return (
     <section id="hero" className="relative overflow-hidden min-h-screen">
-      {/* Clean Background */}
-      <div className="absolute inset-0 bg-white" />
+      {/* Enhanced Background with subtle gradients */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50/30 to-white" />
+      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/5 to-transparent" />
+      
+      {/* Subtle animated background elements */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-500 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+      </div>
       
       <div className="relative z-10 pt-32 pb-24 px-6">
         <div className="container-width">
           {/* Hero Header - Profile & Name Side by Side */}
           <div className="mb-20">
             <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
-              {/* Profile Image */}
-              <div className="flex-shrink-0">
+              {/* Enhanced Profile Image */}
+              <div className="flex-shrink-0 group">
                 <div className="w-72 h-72 lg:w-80 lg:h-80 relative">
-                  <div className="aspect-square rounded-[2rem] overflow-hidden bg-white shadow-2xl ring-1 ring-black/5">
+                  {/* Glowing ring effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-blue-500/20 to-primary/20 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  
+                  <div className="relative aspect-square rounded-[2rem] overflow-hidden bg-white shadow-2xl ring-1 ring-black/5 group-hover:shadow-3xl transition-all duration-500 group-hover:scale-[1.02]">
                     <img 
                       src={profileImage} 
                       alt="Tyler Bustard professional headshot" 
-                      className="w-full h-full object-cover object-center"
+                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                       data-testid="img-profile"
                     />
+                    
+                    {/* Subtle overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                 </div>
               </div>
 
-              {/* Name & Content */}
+              {/* Enhanced Name & Content */}
               <div className="space-y-8 text-center lg:text-left max-w-2xl">
-                <div>
-                  <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tight leading-none">
-                    Tyler Bustard
-                  </h1>
-                  <p className="text-2xl md:text-3xl font-semibold text-primary mb-8">
-                    Finance & Technology Professional
-                  </p>
+                <div className="space-y-6">
+                  {/* Name with subtle animation */}
+                  <div className="relative">
+                    <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tight leading-none animate-fade-in-up">
+                      Tyler Bustard
+                    </h1>
+                    {/* Subtle underline accent */}
+                    <div className="absolute -bottom-2 left-0 lg:left-0 right-0 lg:right-auto h-1 w-32 bg-gradient-to-r from-primary to-blue-500 rounded-full opacity-80 mx-auto lg:mx-0"></div>
+                  </div>
                   
-                  {/* Credentials */}
+                  {/* Enhanced subtitle with gradient */}
+                  <div className="relative">
+                    <p className="text-2xl md:text-3xl font-semibold bg-gradient-to-r from-primary via-blue-600 to-primary bg-clip-text text-transparent mb-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                      Finance & Technology Professional
+                    </p>
+                  </div>
                 </div>
                 
-                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-                  Driving innovation at the intersection of finance and technology. 
-                  Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
-                </p>
+                {/* Enhanced description with better typography */}
+                <div className="relative">
+                  <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                    Driving innovation at the <span className="text-foreground font-semibold">intersection of finance and technology</span>. 
+                    <br className="hidden lg:block" />
+                    Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Main Content */}
           <div className="space-y-12 mb-20">
-            {/* Professional Overview Quadrants */}
-            <div className="space-y-8">
-              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 shadow-xl">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Enhanced Professional Overview Quadrants */}
+            <div className="space-y-8 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+              <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-8 border border-gray-200/30 shadow-2xl hover:shadow-3xl transition-all duration-500 relative overflow-hidden">
+                {/* Subtle gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] via-transparent to-blue-500/[0.02] rounded-3xl"></div>
+                
+                <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8">
                   
-                  {/* Career Quadrant */}
-                  <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]">
+                  {/* Enhanced Career Quadrant */}
+                  <div className="bg-white/95 backdrop-blur-xl rounded-[28px] p-10 border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group relative overflow-hidden">
+                    {/* Hover gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[28px]"></div>
                     <div className="space-y-6">
                       <div className="flex items-center gap-2 flex-wrap">
                         <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
