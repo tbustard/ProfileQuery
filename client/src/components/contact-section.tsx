@@ -68,8 +68,8 @@ export default function ContactSection() {
     <section id="contact" className="section-padding bg-gradient-to-b from-muted/30 to-background">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Get In Touch</h2>
-          <p className="text-lg text-secondary max-w-2xl mx-auto">
+          <h2 className="large-title text-foreground mb-4">Get In Touch</h2>
+          <p className="callout text-secondary max-w-2xl mx-auto">
             Ready to discuss your next project or opportunity? I'd love to hear from you.
           </p>
         </div>
@@ -77,7 +77,7 @@ export default function ContactSection() {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
-            <h3 className="text-3xl font-bold text-foreground mb-8">Let's Connect</h3>
+            <h3 className="large-title text-foreground mb-8">Let's Connect</h3>
             
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
@@ -98,7 +98,7 @@ export default function ContactSection() {
           {/* Contact Form */}
           <Card className="shadow-xl hover:shadow-2xl transition-all duration-300 border-0 bg-white/90 backdrop-blur-sm">
             <CardContent className="p-10">
-              <h3 className="text-2xl font-bold text-foreground mb-8">Send a Message</h3>
+              <h3 className="text-xl font-semibold text-foreground mb-8">Send a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">

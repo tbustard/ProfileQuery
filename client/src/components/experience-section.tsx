@@ -67,8 +67,8 @@ export default function ExperienceSection() {
     <section id="experience" className="section-padding">
       <div className="container-width">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Professional Experience</h2>
-          <p className="text-lg text-secondary max-w-2xl mx-auto">
+          <h2 className="large-title text-foreground mb-4">Professional Experience</h2>
+          <p className="callout text-secondary max-w-2xl mx-auto">
             My professional journey and key accomplishments in financial services.
           </p>
         </div>
@@ -86,9 +86,9 @@ export default function ExperienceSection() {
                       <exp.logo className="w-8 h-8" style={{ color: exp.color }} />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-foreground mb-2">{exp.title}</h3>
-                      <p className="font-semibold mb-2 text-lg" style={{ color: exp.color }}>{exp.company}</p>
-                      <p className="text-muted-foreground font-medium">{exp.location}</p>
+                      <h3 className="text-xl font-semibold text-foreground mb-2">{exp.title}</h3>
+                      <p className="body-text font-semibold mb-2" style={{ color: exp.color }}>{exp.company}</p>
+                      <p className="body-text text-muted-foreground">{exp.location}</p>
                     </div>
                   </div>
                   <div className="text-secondary md:text-right mt-4 md:mt-0">

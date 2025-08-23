@@ -19,8 +19,8 @@ export default function EducationSection() {
     <section id="education" className="section-padding bg-gradient-to-b from-muted/30 to-background">
       <div className="container-width">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Education</h2>
-          <p className="text-lg text-secondary max-w-2xl mx-auto">
+          <h2 className="large-title text-foreground mb-4">Education</h2>
+          <p className="callout text-secondary max-w-2xl mx-auto">
             Academic foundation and achievements that drive my professional success.
           </p>
         </div>
@@ -31,9 +31,9 @@ export default function EducationSection() {
               <CardContent className="p-10">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
                   <div>
-                    <h3 className="text-2xl font-bold text-foreground mb-3">{education.institution}</h3>
-                    <p className="text-primary font-semibold mb-3 text-lg">{education.location}</p>
-                    <p className="text-xl font-semibold text-secondary">{education.degree}</p>
+                    <h3 className="text-xl font-semibold text-foreground mb-3">{education.institution}</h3>
+                    <p className="body-text text-primary font-semibold mb-3">{education.location}</p>
+                    <p className="callout font-semibold text-secondary">{education.degree}</p>
                   </div>
                   <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-800 rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
                     UNB

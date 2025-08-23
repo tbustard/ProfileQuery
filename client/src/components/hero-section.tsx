@@ -23,13 +23,13 @@ export default function HeroSection() {
             />
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-8 tracking-tight">
+          <h1 className="headline text-foreground mb-8">
             Tyler Bustard
           </h1>
-          <p className="text-2xl md:text-3xl text-primary mb-10 max-w-4xl mx-auto font-medium">
+          <p className="subheadline text-primary mb-10 max-w-4xl mx-auto">
             Equity Analyst & Financial Technology Specialist
           </p>
-          <p className="text-xl text-muted-foreground mb-16 max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="callout text-muted-foreground mb-16 max-w-3xl mx-auto">
             CFA Level I candidate with expertise in equity research, financial modeling, and AI-driven analytics. Combining traditional finance expertise with modern data science to drive investment decision-making and portfolio optimization.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">

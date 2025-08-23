@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=New+York:wght@400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,8 +29,9 @@
   --chart-4: hsl(147.1429 78.5047% 41.9608%);
   --chart-5: hsl(341.4894 75.2000% 50.9804%);
   --radius: 0.75rem;
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Source Sans 3', system-ui, sans-serif;
+  --font-display: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-text: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'New York', ui-serif, Georgia, 'Times New Roman', serif;
 }
 
 .dark {
@@ -60,10 +61,14 @@
   
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: var(--font-body);
-    letter-spacing: -0.005em;
-    line-height: 1.65;
+    font-family: var(--font-text);
+    letter-spacing: -0.022em;
+    line-height: 1.47059;
     font-weight: 400;
+    font-feature-settings: 'kern' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   html {
@@ -71,33 +76,107 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    @apply font-medium tracking-tight;
+    font-family: var(--font-display);
+    font-feature-settings: 'kern' 1;
+    text-rendering: optimizeLegibility;
   }
   
   h1 {
     @apply text-4xl md:text-6xl font-bold;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
+    letter-spacing: -0.022em;
+    line-height: 1.07143;
+    font-weight: 700;
   }
   
   h2 {
     @apply text-3xl md:text-4xl font-semibold;
-    letter-spacing: -0.015em;
-    line-height: 1.25;
+    letter-spacing: -0.022em;
+    line-height: 1.125;
+    font-weight: 600;
   }
   
   h3 {
     @apply text-xl md:text-2xl font-medium;
-    letter-spacing: -0.01em;
-    line-height: 1.35;
+    letter-spacing: -0.022em;
+    line-height: 1.23077;
+    font-weight: 500;
+  }
+  
+  h4 {
+    @apply text-lg font-medium;
+    letter-spacing: -0.022em;
+    line-height: 1.33337;
+    font-weight: 500;
+  }
+  
+  h5 {
+    @apply text-base font-medium;
+    letter-spacing: -0.022em;
+    line-height: 1.38462;
+    font-weight: 500;
+  }
+  
+  h6 {
+    @apply text-sm font-medium;
+    letter-spacing: -0.022em;
+    line-height: 1.42857;
+    font-weight: 500;
+  }
+  
+  .headline {
+    font-family: var(--font-display);
+    font-size: 80px;
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.022em;
+  }
+  
+  .subheadline {
+    font-family: var(--font-display);
+    font-size: 32px;
+    line-height: 1.125;
+    font-weight: 600;
+    letter-spacing: -0.022em;
+  }
+  
+  .large-title {
+    font-family: var(--font-display);
+    font-size: 28px;
+    line-height: 1.14286;
+    font-weight: 600;
+    letter-spacing: -0.022em;
+  }
+  
+  .callout {
+    font-family: var(--font-text);
+    font-size: 17px;
+    line-height: 1.47059;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+  }
+  
+  .body-text {
+    font-family: var(--font-text);
+    font-size: 16px;
+    line-height: 1.47059;
+    font-weight: 400;
+    letter-spacing: -0.022em;
   }
   
   .subheading {
-    font-family: var(--font-body);
-    @apply font-medium text-lg tracking-wide;
-    letter-spacing: 0.05em;
+    font-family: var(--font-text);
+    @apply font-medium text-lg;
+    letter-spacing: 0.35em;
     text-transform: uppercase;
+    font-weight: 600;
+  }
+  
+  .serif-headline {
+    font-family: var(--font-serif);
+    @apply text-4xl md:text-6xl font-bold;
+    letter-spacing: -0.02em;
+    line-height: 1.07143;
+    font-weight: 700;
   }
 }
 

@@ -81,10 +81,10 @@ export default function CertificationsSection() {
           <div className="inline-flex items-center justify-center p-2 bg-primary/10 rounded-full mb-6">
             <FaTrophy className="text-primary w-6 h-6" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
+          <h2 className="large-title text-foreground mb-6">
             Professional Certifications
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="callout text-muted-foreground max-w-3xl mx-auto">
             Comprehensive expertise across finance, technology, and analytics through continuous learning and professional development
           </p>
         </div>
