@@ -232,35 +232,6 @@ export default function Navigation() {
             
             {/* Desktop Navigation with Apple.com-style Dropdowns */}
             <div className="hidden md:flex items-center space-x-2">
-              {/* Education Dropdown */}
-              <div className="relative group">
-                <button
-                  onClick={isHomePage ? () => scrollToSection('#education') : undefined}
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
-                    currentSection === 'education'
-                      ? 'text-foreground bg-white/20 backdrop-blur-sm border border-white/30 shadow-sm'
-                      : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
-                  }`}
-                  data-testid="nav-education"
-                >
-                  Education
-                  <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
-                </button>
-                
-                {/* Liquid Glass Dropdown */}
-                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-80 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 liquid-glass-dropdown">
-                  <div className="p-2">
-                    <button 
-                      onClick={() => scrollToSection('#education')}
-                      className="w-full text-left block p-4 rounded-lg hover: transition-colors"
-                    >
-                      <div className="font-semibold text-gray-900 text-base mb-1">University of New Brunswick</div>
-                      <div className="text-sm text-gray-600">Bachelor of Business Administration • Fredericton, NB (2016-2020)</div>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
               {/* Experience Dropdown */}
               <div className="relative group">
                 <button
@@ -326,6 +297,35 @@ export default function Navigation() {
                     >
                       <div className="font-semibold text-gray-900 text-base mb-1">Grant Thornton LLP</div>
                       <div className="text-sm text-gray-600">Tax Return Intern • Saint John, NB (2018)</div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Education Dropdown */}
+              <div className="relative group">
+                <button
+                  onClick={isHomePage ? () => scrollToSection('#education') : undefined}
+                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
+                    currentSection === 'education'
+                      ? 'text-foreground bg-white/20 backdrop-blur-sm border border-white/30 shadow-sm'
+                      : 'text-foreground/90 hover:text-foreground hover:bg-white/10 backdrop-blur-sm'
+                  }`}
+                  data-testid="nav-education"
+                >
+                  Education
+                  <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
+                </button>
+                
+                {/* Liquid Glass Dropdown */}
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 w-80 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 liquid-glass-dropdown">
+                  <div className="p-2">
+                    <button 
+                      onClick={() => scrollToSection('#education')}
+                      className="w-full text-left block p-4 rounded-lg hover: transition-colors"
+                    >
+                      <div className="font-semibold text-gray-900 text-base mb-1">University of New Brunswick</div>
+                      <div className="text-sm text-gray-600">Bachelor of Business Administration • Fredericton, NB (2016-2020)</div>
                     </button>
                   </div>
                 </div>
