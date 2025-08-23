@@ -217,34 +217,52 @@ export function CommunitySection() {
       color: "#FF6B35"
     },
     {
-      title: "Next Generation Ambassador",
+      title: "Next Gen Ambassador",
       organization: "United Way",
       period: "2020-2023",
       duration: "3 years",
       location: "Kingston, Ontario",
-      description: "Youth leadership and community engagement representative with 3 years of continuous service",
+      description: "Led workplace fundraising and engagement initiatives for United Way's Next Generation programs",
       achievements: [
-        "Advocated for community initiatives and social causes",
-        "Engaged with local organizations and stakeholders"
+        "Led implementation of fundraising strategies achieving 20% increase in funds raised over three years",
+        "Spearheaded engagement initiatives resulting in 15% rise in participation and awareness within workplace community",
+        "Organized events and networking opportunities to strengthen community connections"
       ],
-      skills: ["Leadership", "Public Speaking", "Community Organizing", "Stakeholder Engagement"],
+      skills: ["Fundraising Strategy", "Leadership", "Event Planning", "Community Engagement", "Stakeholder Management"],
       logoSrc: unitedWayLogo,
       color: "#FF5A28"
     },
     {
       title: "Student Ambassador",
-      organization: "RBC",
+      organization: "Royal Bank of Canada",
       period: "2019-2020",
       duration: "1 year",
       location: "Fredericton, New Brunswick",
-      description: "Campus representative and brand ambassador during university studies",
+      description: "Campus representative focused on student engagement and brand awareness initiatives",
       achievements: [
-        "Promoted RBC services to university students",
-        "Organized campus events and educational sessions"
+        "Organized and executed campus-wide events resulting in 25% increase in student engagement and awareness",
+        "Developed targeted outreach strategy achieving 30% increase in student participation in RBC-sponsored events",
+        "Successfully managed information sessions and promotional activities across university campus"
       ],
-      skills: ["Marketing", "Event Coordination", "Peer Education", "Professional Networking"],
+      skills: ["Event Management", "Strategic Outreach", "Campus Relations", "Brand Promotion", "Student Engagement"],
       logoSrc: rbcLogo,
       color: "#005DAA"
+    },
+    {
+      title: "Volunteer Staff",
+      organization: "Irving Oil",
+      period: "2018",
+      duration: "Seasonal",
+      location: "Saint John, New Brunswick",
+      description: "Community event volunteer supporting local youth engagement and corporate social responsibility initiatives",
+      achievements: [
+        "Successfully organized and executed engaging activities for over 100 children ensuring safe and enjoyable experience",
+        "Demonstrated leadership through collaboration with fellow volunteers for well-coordinated event execution",
+        "Contributed to positive community image for Irving Oil through dedicated volunteer service"
+      ],
+      skills: ["Youth Engagement", "Event Coordination", "Team Collaboration", "Community Relations", "Safety Management"],
+      icon: FaUsers,
+      color: "#1E40AF"
     }
   ];
 
