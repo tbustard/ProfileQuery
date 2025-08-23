@@ -155,10 +155,7 @@ export default function ExperienceSection() {
                           </div>
                         </div>
                         <div className="mt-4 lg:mt-0 lg:text-right">
-                          <div className="inline-flex items-center gap-2 bg-muted rounded-full px-4 py-2">
-                            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: exp.color }}></div>
-                            <span className="font-medium text-foreground">{exp.period}</span>
-                          </div>
+                          <span className="text-lg font-medium text-gray-500">{exp.period}</span>
                           <p className="body-text text-muted-foreground mt-1 lg:text-right">{exp.duration}</p>
                         </div>
                       </div>
