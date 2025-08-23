@@ -4,7 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
+import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi";
+import { IoSend } from "react-icons/io5";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -56,9 +58,9 @@ export default function ContactSection() {
   };
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: "tbustard@unb.ca" },
-    { icon: Phone, label: "Phone", value: "(613) 985-1223" },
-    { icon: MapPin, label: "Location", value: "Toronto, Ontario, Canada" },
+    { icon: HiOutlineMail, label: "Email", value: "tbustard@unb.ca" },
+    { icon: HiOutlinePhone, label: "Phone", value: "(613) 985-1223" },
+    { icon: HiOutlineLocationMarker, label: "Location", value: "Toronto, Ontario, Canada" },
   ];
 
 
@@ -167,9 +169,9 @@ export default function ContactSection() {
                   data-testid="button-send"
                 >
                   {contactMutation.isPending ? (
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    <AiOutlineLoading3Quarters className="mr-2 h-4 w-4 animate-spin" />
                   ) : (
-                    <Send className="mr-2 h-4 w-4" />
+                    <IoSend className="mr-2 h-4 w-4" />
                   )}
                   Send Message
                 </Button>

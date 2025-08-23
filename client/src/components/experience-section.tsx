@@ -1,4 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { HiOfficeBuilding } from "react-icons/hi";
+import { FaUniversity, FaBuilding } from "react-icons/fa";
 
 interface Experience {
   title: string;
@@ -8,6 +10,8 @@ interface Experience {
   duration: string;
   achievements: string[];
   technologies: string[];
+  logo: React.ComponentType<{ className?: string }>;
+  color: string;
 }
 
 export default function ExperienceSection() {
@@ -24,6 +28,8 @@ export default function ExperienceSection() {
         "Enhanced client communication strategies achieving 9% improvement in response rates",
       ],
       technologies: ["Portfolio Management", "Client Relations", "Financial Analysis", "Excel"],
+      logo: HiOfficeBuilding,
+      color: "#005EB8"
     },
     {
       title: "Financial Advisor",
@@ -37,6 +43,8 @@ export default function ExperienceSection() {
         "Provided comprehensive financial needs assessment and personalized solution development",
       ],
       technologies: ["Financial Planning", "Sales", "Client Advisory", "Product Knowledge"],
+      logo: FaUniversity,
+      color: "#00AC46"
     },
     {
       title: "Banking Advisor",
@@ -50,6 +58,8 @@ export default function ExperienceSection() {
         "Demonstrated expertise in needs-based financial advising and solution-oriented approach",
       ],
       technologies: ["Banking Products", "Financial Advisory", "Client Relationship Management", "Digital Banking"],
+      logo: FaBuilding,
+      color: "#005DAA"
     },
   ];
 
@@ -67,11 +77,19 @@ export default function ExperienceSection() {
           {experiences.map((exp, index) => (
             <Card key={index} className="shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 bg-white/90 backdrop-blur-sm" data-testid={`experience-${index}`}>
               <CardContent className="p-10">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
-                  <div>
-                    <h3 className="text-2xl font-bold text-foreground mb-3">{exp.title}</h3>
-                    <p className="text-primary font-semibold mb-3 text-lg">{exp.company}</p>
-                    <p className="text-muted-foreground font-medium">{exp.location}</p>
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-8">
+                  <div className="flex items-start space-x-4">
+                    <div 
+                      className="p-3 rounded-2xl flex-shrink-0 mt-1"
+                      style={{ backgroundColor: `${exp.color}15` }}
+                    >
+                      <exp.logo className="w-8 h-8" style={{ color: exp.color }} />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground mb-2">{exp.title}</h3>
+                      <p className="font-semibold mb-2 text-lg" style={{ color: exp.color }}>{exp.company}</p>
+                      <p className="text-muted-foreground font-medium">{exp.location}</p>
+                    </div>
                   </div>
                   <div className="text-secondary md:text-right mt-4 md:mt-0">
                     <p className="font-semibold text-lg">{exp.period}</p>

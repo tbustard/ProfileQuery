@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { GraduationCap, Trophy, Users, Award } from "lucide-react";
 
 export default function EducationSection() {
   const educationData = [
@@ -36,8 +35,8 @@ export default function EducationSection() {
                     <p className="text-primary font-semibold mb-3 text-lg">{education.location}</p>
                     <p className="text-xl font-semibold text-secondary">{education.degree}</p>
                   </div>
-                  <div className="bg-primary/10 p-4 rounded-full">
-                    <GraduationCap className="text-primary w-8 h-8" />
+                  <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-800 rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                    UNB
                   </div>
                 </div>
                 <div className="space-y-2">

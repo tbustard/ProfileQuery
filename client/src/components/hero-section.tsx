@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Database, Mail } from "lucide-react";
+import { HiOutlineMail } from "react-icons/hi";
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 
 export default function HeroSection() {
@@ -39,7 +39,7 @@ export default function HeroSection() {
               onClick={() => scrollToSection("#contact")}
               data-testid="button-contact"
             >
-              <Mail className="mr-3 h-5 w-5" />
+              <HiOutlineMail className="mr-3 h-5 w-5" />
               Get In Touch
             </Button>
           </div>

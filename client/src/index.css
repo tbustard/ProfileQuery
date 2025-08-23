@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,7 +29,8 @@
   --chart-4: hsl(147.1429 78.5047% 41.9608%);
   --chart-5: hsl(341.4894 75.2000% 50.9804%);
   --radius: 0.75rem;
-  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Source Sans 3', system-ui, sans-serif;
 }
 
 .dark {
@@ -58,10 +59,11 @@
   }
   
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: var(--font-inter);
-    letter-spacing: -0.01em;
-    line-height: 1.6;
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+    letter-spacing: -0.005em;
+    line-height: 1.65;
+    font-weight: 400;
   }
   
   html {
@@ -69,25 +71,33 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold tracking-tight;
+    font-family: var(--font-heading);
+    @apply font-medium tracking-tight;
   }
   
   h1 {
     @apply text-4xl md:text-6xl font-bold;
-    letter-spacing: -0.04em;
-    line-height: 1.1;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
   }
   
   h2 {
-    @apply text-3xl md:text-4xl;
-    letter-spacing: -0.03em;
-    line-height: 1.2;
+    @apply text-3xl md:text-4xl font-semibold;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
   }
   
   h3 {
-    @apply text-xl md:text-2xl;
-    letter-spacing: -0.02em;
-    line-height: 1.3;
+    @apply text-xl md:text-2xl font-medium;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+  }
+  
+  .subheading {
+    font-family: var(--font-body);
+    @apply font-medium text-lg tracking-wide;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
   }
 }
 

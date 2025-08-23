@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Award, TrendingUp, Database, Calculator, Star, Trophy, Target } from "lucide-react";
+import { SiGoogle } from "react-icons/si";
+import { FaCertificate, FaGraduationCap, FaTrophy, FaStar, FaChartLine, FaCalculator } from "react-icons/fa";
 
 interface Certification {
   name: string;
@@ -12,7 +13,7 @@ interface Certification {
 
 interface CertificationCategory {
   title: string;
-  icon: typeof Award;
+  icon: React.ComponentType<{ className?: string }>;
   color: string;
   certifications: Certification[];
 }
@@ -21,7 +22,7 @@ export default function CertificationsSection() {
   const certificationCategories: CertificationCategory[] = [
     {
       title: "Financial Excellence",
-      icon: TrendingUp,
+      icon: FaChartLine,
       color: "bg-blue-500",
       certifications: [
         { name: "CFA Level I Candidate", year: "2025", institution: "CFA Institute", highlight: true },
@@ -34,7 +35,7 @@ export default function CertificationsSection() {
     },
     {
       title: "Data & Technology",
-      icon: Database,
+      icon: SiGoogle,
       color: "bg-emerald-500",
       certifications: [
         { name: "Data Analytics Professional", year: "2023", institution: "Google", highlight: true },
@@ -47,7 +48,7 @@ export default function CertificationsSection() {
     },
     {
       title: "Advanced Analytics",
-      icon: Calculator,
+      icon: FaCalculator,
       color: "bg-purple-500",
       certifications: [
         { name: "Econometrics: Methods & Applications", year: "2024", institution: "Erasmus University" },
@@ -59,7 +60,7 @@ export default function CertificationsSection() {
     },
     {
       title: "Academic Achievement",
-      icon: Award,
+      icon: FaGraduationCap,
       color: "bg-amber-500",
       certifications: [
         { 
@@ -78,7 +79,7 @@ export default function CertificationsSection() {
       <div className="container-width">
         <div className="text-center mb-20">
           <div className="inline-flex items-center justify-center p-2 bg-primary/10 rounded-full mb-6">
-            <Trophy className="text-primary w-6 h-6" />
+            <FaTrophy className="text-primary w-6 h-6" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
             Professional Certifications
@@ -114,7 +115,7 @@ export default function CertificationsSection() {
                     >
                       {cert.highlight && (
                         <div className="absolute -top-1 -right-1">
-                          <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
+                          <FaStar className="w-5 h-5 text-amber-500" />
                         </div>
                       )}
                       <div className="flex justify-between items-start mb-2">
