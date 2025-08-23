@@ -96,7 +96,7 @@ export default function EducationSection() {
         </div>
 
         {/* Hero Education Card - Modern Apple Layout */}
-        <div className="mb-16">
+        <div className="mb-24">
           <div className="relative bg-white/30 backdrop-blur-xl rounded-2xl border border-white/20 shadow-lg p-12 lg:p-16 max-w-5xl mx-auto min-h-[200px]">
             <div className="flex items-center gap-8 h-full">
               {/* Logo on left */}
@@ -123,42 +123,6 @@ export default function EducationSection() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Achievement Highlight Cards */}
-        <div className="mb-24">
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-            {highlights.map((highlight, index) => (
-              <div 
-                key={index} 
-                className="group relative overflow-hidden bg-white/20 backdrop-blur-2xl rounded-2xl border border-white/30 shadow-2xl hover:shadow-3xl transition-all duration-700 hover:scale-[1.03] hover:bg-white/30"
-                data-testid={`highlight-${index}`}
-              >
-                {/* Subtle gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative p-8 lg:p-10 text-center">
-                  {/* Icon with enhanced styling */}
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-lg group-hover:shadow-xl transition-all duration-500 group-hover:scale-110">
-                    {renderIcon(highlight)}
-                  </div>
-                  
-                  {/* Title with enhanced typography */}
-                  <div className="text-3xl lg:text-4xl font-bold text-foreground mb-3 tracking-tight group-hover:scale-105 transition-transform duration-300">
-                    {highlight.title}
-                  </div>
-                  
-                  {/* Subtitle with refined styling */}
-                  <p className="text-muted-foreground font-medium text-base leading-relaxed">
-                    {highlight.subtitle}
-                  </p>
-                  
-                  {/* Subtle bottom accent */}
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-gradient-to-r from-primary/40 to-blue-500/40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-              </div>
-            ))}
           </div>
         </div>
 
