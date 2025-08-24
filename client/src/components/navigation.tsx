@@ -34,17 +34,33 @@ export default function Navigation() {
 
     const observerOptions = {
       root: null,
-      rootMargin: '-40% 0px -50% 0px',
-      threshold: 0.1
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
     };
+
+    let visibleSections = new Map();
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const sectionId = entry.target.id;
-          setCurrentSection(sectionId);
+          visibleSections.set(entry.target.id, entry.intersectionRatio);
+        } else {
+          visibleSections.delete(entry.target.id);
         }
       });
+
+      // Find the section with the highest intersection ratio
+      let maxRatio = 0;
+      let activeSection = 'hero';
+      
+      for (const [sectionId, ratio] of visibleSections) {
+        if (ratio > maxRatio) {
+          maxRatio = ratio;
+          activeSection = sectionId;
+        }
+      }
+
+      setCurrentSection(activeSection);
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
@@ -53,6 +69,7 @@ export default function Navigation() {
 
     return () => {
       sections.forEach((section) => observer.unobserve(section));
+      visibleSections.clear();
     };
   }, [isHomePage]);
 
