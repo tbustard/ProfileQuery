@@ -36,9 +36,9 @@
   --glass-border: hsl(0 0% 90%);
   --glass-shadow: hsla(0 0% 0% / 0.1);
   
-  /* Apple Typography */
-  --font-display: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-text: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  /* Apple Typography - SF Pro Font System (2025) */
+  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-text: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-serif: 'New York', ui-serif, Georgia, 'Times New Roman', serif;
   
   /* Apple Spacing System */
@@ -545,9 +545,9 @@
   }
 }
 
-/* Apple-inspired Typography for Tyler Bustard */
+/* Apple SF Pro Typography Classes - 2025 Design System */
 .apple-heading {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  font-family: var(--font-display);
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -556,7 +556,7 @@
 }
 
 .apple-heading-nav {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+  font-family: var(--font-text);
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

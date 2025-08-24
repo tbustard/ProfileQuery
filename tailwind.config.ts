@@ -53,8 +53,9 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)"],
-        inter: ["var(--font-inter)"],
+        sans: ["-apple-system", "BlinkMacSystemFont", "'SF Pro Text'", "'SF Pro Display'", "system-ui", "'Segoe UI'", "Roboto", "Helvetica", "Arial", "sans-serif"],
+        display: ["-apple-system", "BlinkMacSystemFont", "'SF Pro Display'", "'SF Pro Text'", "system-ui", "'Segoe UI'", "Roboto", "Helvetica", "Arial", "sans-serif"],
+        apple: ["-apple-system", "BlinkMacSystemFont", "'SF Pro Text'", "'SF Pro Display'", "system-ui", "'Segoe UI'", "Roboto", "Helvetica", "Arial", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {
