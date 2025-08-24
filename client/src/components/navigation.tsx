@@ -349,8 +349,50 @@ export default function Navigation() {
               glassStyle={navGlassStyle}
               style="border-top: 1px solid rgba(255, 255, 255, 0.1);"
             >
-              <div className="h-full w-full">
-                {/* Glass overlay only - no content yet */}
+              <div className="h-full w-full p-6">
+                {isHomePage && (
+                  <div className="space-y-4">
+                    
+                    {/* Navigation Items */}
+                    <div className="space-y-2">
+                      <button 
+                        onClick={() => setOpenDropdown(openDropdown === 'education' ? null : 'education')}
+                        className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                      >
+                        Education
+                      </button>
+                      
+                      <button 
+                        onClick={() => setOpenDropdown(openDropdown === 'experience' ? null : 'experience')}
+                        className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                      >
+                        Experience
+                      </button>
+                      
+                      <button 
+                        onClick={() => setOpenDropdown(openDropdown === 'certifications' ? null : 'certifications')}
+                        className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                      >
+                        Certifications
+                      </button>
+                      
+                      <button 
+                        onClick={() => setOpenDropdown(openDropdown === 'community' ? null : 'community')}
+                        className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                      >
+                        Community
+                      </button>
+                      
+                      <button 
+                        onClick={() => setOpenDropdown(openDropdown === 'contact' ? null : 'contact')}
+                        className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                      >
+                        Contact
+                      </button>
+                    </div>
+
+                  </div>
+                )}
               </div>
             </LiquidGlass>
           </div>
