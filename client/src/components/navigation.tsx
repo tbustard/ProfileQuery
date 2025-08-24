@@ -14,6 +14,17 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentSection, setCurrentSection] = useState(isHomePage ? 'hero' : '');
 
+  const glassStyle = {
+    depth: 0,
+    segments: 86,
+    radius: 0,
+    tint: null,
+    reflectivity: 0.9,
+    thickness: 50,
+    dispersion: 5,
+    roughness: 0.2,
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -342,7 +353,7 @@ export default function Navigation() {
       {/* Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 w-full z-50">
         {isScrolled ? (
-          <LiquidGlass>
+          <LiquidGlass glassStyle={glassStyle}>
             <div className="w-full border-b border-white/10 shadow-2xl">
               <NavContent />
             </div>
