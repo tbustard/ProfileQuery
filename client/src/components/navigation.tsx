@@ -156,7 +156,7 @@ export default function Navigation() {
             </div>
 
             {/* Center - Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-1">
+            <div className="hidden lg:flex items-center space-x-1">
               
               {/* Education */}
               <div className="relative group">
@@ -378,7 +378,7 @@ export default function Navigation() {
             </div>
 
             {/* Right side - Mobile Menu Button */}
-            <div className="md:hidden">
+            <div className="lg:hidden">
               <Button
                 variant="ghost"
                 size="sm"
@@ -393,7 +393,7 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mobile-glass border-t border-white/10">
+          <div className="lg:hidden mobile-glass border-t border-white/10">
             <div className="px-4 sm:px-6 py-6 space-y-3">
               {isHomePage && (
                 <>
