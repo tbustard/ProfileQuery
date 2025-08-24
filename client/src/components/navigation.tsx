@@ -131,7 +131,15 @@ export default function Navigation() {
             {/* Left side - Logo/Name */}
             <div className="flex items-center">
               {isHomePage && isScrolled && (
-                <div className="flex items-center space-x-4 transition-all duration-700 ease-out">
+                <button 
+                  onClick={() => {
+                    window.scrollTo({
+                      top: 0,
+                      behavior: 'smooth'
+                    });
+                  }}
+                  className="flex items-center space-x-4 transition-all duration-700 ease-out hover:scale-105 cursor-pointer"
+                >
                   <img 
                     src={profileImage} 
                     alt="Tyler Bustard" 
@@ -143,7 +151,7 @@ export default function Navigation() {
                       <span className="font-medium bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500 bg-clip-text text-transparent dark:from-gray-300 dark:via-gray-400 dark:to-gray-500">Bustard</span>
                     </span>
                   </div>
-                </div>
+                </button>
               )}
             </div>
 
