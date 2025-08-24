@@ -365,13 +365,13 @@ export function CommunitySection() {
                         
                         {/* Content on right */}
                         <div className="flex-1">
-                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2 sm:gap-0">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 gap-1 sm:gap-0">
                             <h3 className="text-xl sm:text-2xl font-bold text-foreground">
                               {activity.title}
                             </h3>
                             <span className="hidden sm:block text-base sm:text-lg font-medium text-gray-500">{activity.period}</span>
                           </div>
-                          <div className="space-y-2">
+                          <div className="space-y-0.5">
                             <p className="text-lg sm:text-xl font-semibold text-primary">{activity.organization}</p>
                             <p className="text-base text-muted-foreground">{activity.location}</p>
                             <span className="block sm:hidden text-base font-medium text-gray-500">{activity.period}</span>
