@@ -1,8 +1,8 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
-import { LiquidGlass } from "@specy/liquid-glass-react";
+import { LiquidGlass, type LiquidGlassRef } from "@specy/liquid-glass-react";
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 
 export default function Navigation() {
@@ -14,6 +14,14 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentSection, setCurrentSection] = useState(isHomePage ? 'hero' : '');
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  
+  // Refs for liquid glass components to access their methods
+  const navGlassRef = useRef<LiquidGlassRef>(null);
+  const educationDropdownRef = useRef<LiquidGlassRef>(null);
+  const experienceDropdownRef = useRef<LiquidGlassRef>(null);
+  const certificationsDropdownRef = useRef<LiquidGlassRef>(null);
+  const communityDropdownRef = useRef<LiquidGlassRef>(null);
+  const contactDropdownRef = useRef<LiquidGlassRef>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -107,7 +115,28 @@ export default function Navigation() {
     setIsMobileMenuOpen(false);
   };
 
-  // Memoized glass styles for navigation - optimized for readability with current section dependency
+  // Effect to update liquid glass screenshots when section changes
+  useEffect(() => {
+    if (currentSection && isScrolled) {
+      // Update navigation background
+      navGlassRef.current?.updateScreenshot();
+      
+      // Update dropdown backgrounds if open
+      if (openDropdown === 'education') {
+        educationDropdownRef.current?.updateScreenshot();
+      } else if (openDropdown === 'experience') {
+        experienceDropdownRef.current?.updateScreenshot();
+      } else if (openDropdown === 'certifications') {
+        certificationsDropdownRef.current?.updateScreenshot();
+      } else if (openDropdown === 'community') {
+        communityDropdownRef.current?.updateScreenshot();
+      } else if (openDropdown === 'contact') {
+        contactDropdownRef.current?.updateScreenshot();
+      }
+    }
+  }, [currentSection, isScrolled, openDropdown]);
+
+  // Memoized glass styles - stable configuration
   const navGlassStyle = useMemo(() => ({
     depth: 0,
     segments: 50,
@@ -117,7 +146,7 @@ export default function Navigation() {
     thickness: 50,
     dispersion: 5,
     roughness: 0.3
-  }), [currentSection]); // Force re-render when section changes
+  }), []); // No dependencies - stable
 
   const dropdownGlassStyle = useMemo(() => ({
     depth: 10,
@@ -128,7 +157,7 @@ export default function Navigation() {
     thickness: 50,
     dispersion: 5,
     roughness: 0.3
-  }), [currentSection]); // Force re-render when section changes
+  }), []); // No dependencies - stable
 
   return (
     <>
@@ -142,6 +171,7 @@ export default function Navigation() {
       >
         {isScrolled ? (
           <LiquidGlass
+            ref={navGlassRef}
             glassStyle={navGlassStyle}
             style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);"
           >
@@ -309,6 +339,7 @@ export default function Navigation() {
         {isMobileMenuOpen && (
           <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40">
             <LiquidGlass
+              ref={navGlassRef}
               glassStyle={navGlassStyle}
               style="border-top: 1px solid rgba(255, 255, 255, 0.1);"
             >
@@ -369,6 +400,7 @@ export default function Navigation() {
       {openDropdown === 'education' && (
         <div className="fixed top-20 left-1/2 transform -translate-x-80 w-80 z-[9999] mt-2">
           <LiquidGlass 
+            ref={educationDropdownRef}
             glassStyle={dropdownGlassStyle}
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
@@ -396,6 +428,7 @@ export default function Navigation() {
       {openDropdown === 'experience' && (
         <div className="fixed top-20 left-1/2 transform -translate-x-32 w-80 z-[9999] mt-2">
           <LiquidGlass 
+            ref={experienceDropdownRef}
             glassStyle={dropdownGlassStyle}
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
@@ -506,6 +539,7 @@ export default function Navigation() {
       {openDropdown === 'certifications' && (
         <div className="fixed top-20 left-1/2 transform translate-x-8 w-96 z-[9999] mt-2">
           <LiquidGlass 
+            ref={certificationsDropdownRef}
             glassStyle={dropdownGlassStyle}
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
@@ -698,6 +732,7 @@ export default function Navigation() {
       {openDropdown === 'community' && (
         <div className="fixed top-20 left-1/2 transform translate-x-48 w-80 z-[9999] mt-2">
           <LiquidGlass 
+            ref={communityDropdownRef}
             glassStyle={dropdownGlassStyle}
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
@@ -762,6 +797,7 @@ export default function Navigation() {
       {openDropdown === 'contact' && (
         <div className="fixed top-20 left-1/2 transform translate-x-80 w-80 z-[9999] mt-2">
           <LiquidGlass 
+            ref={contactDropdownRef}
             glassStyle={dropdownGlassStyle}
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
