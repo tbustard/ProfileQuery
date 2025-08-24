@@ -24,6 +24,19 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   useEffect(() => {
     if (!isHomePage) {
       setCurrentSection('');
@@ -393,8 +406,8 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden mobile-glass border-t border-white/10">
-            <div className="px-4 sm:px-6 py-6 space-y-3">
+          <div className="lg:hidden mobile-glass border-t border-white/10 fixed left-0 right-0 bottom-0 top-16 sm:top-20 z-40">
+            <div className="h-full overflow-y-auto px-4 sm:px-6 py-6 space-y-3">
               {isHomePage && (
                 <>
                   {/* Education Section */}
