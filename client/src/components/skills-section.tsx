@@ -165,13 +165,13 @@ export default function CertificationsSection() {
                           data-testid={`cert-${categoryIndex}-${certIndex}`}
                         >
                           <div className="flex-1 flex flex-col">
-                            <div className="flex items-start justify-between mb-2 min-h-[2.5rem]">
+                            <div className="flex items-start justify-between mb-1 min-h-[2.5rem]">
                               <h5 className="font-semibold text-foreground text-lg flex-1 leading-tight">
                                 {cert.name}
                               </h5>
                               <span className="text-sm font-medium text-gray-500 ml-2 flex-shrink-0">{cert.year}</span>
                             </div>
-                            <div className="flex items-center gap-2 mb-2">
+                            <div className="flex items-center gap-2 mb-1">
                               {cert.logoSrc && (
                                 <img 
                                   src={cert.logoSrc} 
@@ -181,7 +181,7 @@ export default function CertificationsSection() {
                               )}
                               <p className="text-muted-foreground font-medium text-sm">{cert.institution}</p>
                             </div>
-                            <p className="text-muted-foreground text-xs leading-relaxed mb-3 flex-1">{cert.description}</p>
+                            <p className="text-muted-foreground text-xs leading-relaxed mb-2 flex-1">{cert.description}</p>
                           </div>
                           <div className="flex items-center justify-between mt-auto">
                             {cert.highlight && (
@@ -365,13 +365,13 @@ export function CommunitySection() {
                         
                         {/* Content on right */}
                         <div className="flex-1">
-                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2 gap-1 sm:gap-0">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1 gap-0 sm:gap-0">
                             <h3 className="text-xl sm:text-2xl font-bold text-foreground">
                               {activity.title}
                             </h3>
                             <span className="hidden sm:block text-base sm:text-lg font-medium text-gray-500">{activity.period}</span>
                           </div>
-                          <div className="space-y-0.5">
+                          <div className="space-y-0">
                             <p className="text-lg sm:text-xl font-semibold text-primary">{activity.organization}</p>
                             <p className="text-base text-muted-foreground">{activity.location}</p>
                             <span className="block sm:hidden text-base font-medium text-gray-500">{activity.period}</span>
