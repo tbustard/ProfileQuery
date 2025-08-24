@@ -107,7 +107,7 @@ export default function Navigation() {
     setIsMobileMenuOpen(false);
   };
 
-  // Memoized glass styles for navigation - optimized for readability
+  // Memoized glass styles for navigation - optimized for readability with current section dependency
   const navGlassStyle = useMemo(() => ({
     depth: 0,
     segments: 50,
@@ -117,7 +117,7 @@ export default function Navigation() {
     thickness: 50,
     dispersion: 5,
     roughness: 0.3
-  }), []);
+  }), [currentSection]); // Force re-render when section changes
 
   const dropdownGlassStyle = useMemo(() => ({
     depth: 10,
@@ -128,7 +128,7 @@ export default function Navigation() {
     thickness: 50,
     dispersion: 5,
     roughness: 0.3
-  }), []);
+  }), [currentSection]); // Force re-render when section changes
 
   return (
     <>
