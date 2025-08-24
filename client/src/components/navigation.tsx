@@ -42,6 +42,19 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    // Cleanup function to ensure scroll is restored
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     if (!isHomePage) {
@@ -307,12 +320,12 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40">
+          <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40 overflow-hidden">
             <LiquidGlass
               glassStyle={navGlassStyle}
-              style="border-top: 1px solid rgba(255, 255, 255, 0.1);"
+              style="border-top: 1px solid rgba(255, 255, 255, 0.1); height: 100%;"
             >
-              <div className="max-w-2xl mx-auto px-4 py-6 h-full overflow-y-auto">
+              <div className="max-w-2xl mx-auto px-4 py-6 h-full overflow-y-auto overscroll-contain">
                 <div className="space-y-6">
                   {isHomePage && (
                     <>
