@@ -68,7 +68,7 @@ export default function DownloadSection() {
           <div ref={downloadsRef} className="max-w-md mx-auto">
             {/* Download Card */}
             <Card 
-              className={`bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] text-center scroll-scale-in scroll-stagger-1 ${visibleItems.has(0) ? 'visible' : ''}`}
+              className={`bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 transition-all duration-500 hover:scale-[1.02] text-center scroll-scale-in scroll-stagger-1 ${visibleItems.has(0) ? 'visible' : ''}`}
             >
               <CardContent className="p-10">
                 <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
