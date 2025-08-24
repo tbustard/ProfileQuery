@@ -355,24 +355,24 @@ export default function Navigation() {
 
       {/* Education Dropdown - Outside nav container */}
       {openDropdown === 'education' && (
-        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 w-96 z-[9999] mt-2">
+        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 w-80 z-[9999] mt-2">
           <LiquidGlass 
             glassStyle={dropdownGlassStyle}
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
-            <div className="rounded-xl p-6">
+            <div className="rounded-xl p-4">
               <button 
                 onClick={() => {
                   scrollToSection('#education');
                   setOpenDropdown(null);
                 }}
-                className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-3 transition-all duration-200 -m-3"
+                className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200 -m-2"
               >
-                <div className="space-y-2">
-                  <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 inline-block whitespace-nowrap">University of New Brunswick</div>
-                  <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 inline-block whitespace-nowrap">Bachelor of Business Administration</div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 inline-block whitespace-nowrap">Fredericton, NB</div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 inline-block whitespace-nowrap">2016-2020</div>
+                <div className="space-y-1">
+                  <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">University of New Brunswick</div>
+                  <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Bachelor of Business Administration</div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Fredericton, NB</div>
+                  <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2016-2020</div>
                 </div>
               </button>
             </div>
