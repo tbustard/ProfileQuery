@@ -14,6 +14,7 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentSection, setCurrentSection] = useState(isHomePage ? 'hero' : '');
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [liquidGlassKey, setLiquidGlassKey] = useState(0);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -79,7 +80,13 @@ export default function Navigation() {
         }
       });
 
-      setCurrentSection(activeSection);
+      if (activeSection !== currentSection) {
+        setCurrentSection(activeSection);
+        // Force liquid glass to refresh background after section change
+        setTimeout(() => {
+          setLiquidGlassKey(prev => prev + 1);
+        }, 100);
+      }
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
@@ -142,7 +149,7 @@ export default function Navigation() {
       >
         {isScrolled ? (
           <LiquidGlass
-            key={`nav-background-${currentSection}`}
+            key={`nav-${liquidGlassKey}-${currentSection}`}
             glassStyle={navGlassStyle}
             style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);"
           >
