@@ -114,7 +114,7 @@ export default function EducationSection() {
           className={`mb-10 sm:mb-12 lg:mb-14 scroll-scale-in scroll-stagger-1 ${heroCardAnimation.isVisible ? 'visible' : ''}`}
         >
           <div className="relative bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 p-6 sm:p-8 lg:p-16 min-h-[200px]">
-            <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 h-full text-center sm:text-left">
+            <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 h-full text-center">
               {/* Logo on left */}
               <div className="w-20 h-20 sm:w-24 sm:h-24 bg-primary/10 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 flex-shrink-0">
                 <img 
@@ -126,13 +126,13 @@ export default function EducationSection() {
               
               {/* Content on right */}
               <div className="flex-1">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1 gap-0 sm:gap-0">
-                  <h3 className="text-xl sm:text-2xl lg:text-4xl font-bold text-foreground">
+                <div className="flex flex-col items-center justify-center mb-1 gap-0">
+                  <h3 className="text-xl sm:text-2xl lg:text-4xl font-bold text-foreground text-center">
                     {education.institution}
                   </h3>
                   <span className="text-base sm:text-lg font-medium text-gray-500">2016-2020</span>
                 </div>
-                <div className="space-y-0">
+                <div className="space-y-0 text-center">
                   <p className="text-lg sm:text-xl font-semibold text-primary">{education.degree}</p>
                   <p className="text-base sm:text-lg font-medium text-primary">{education.major}</p>
                   <p className="text-base text-muted-foreground">{education.location}</p>
