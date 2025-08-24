@@ -158,7 +158,7 @@ export default function ExperienceSection() {
                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="relative p-8">
                       {/* Header Section */}
-                      <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 mb-6 text-center">
+                      <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 mb-6 text-center sm:text-left">
                         {/* Logo on left */}
                         <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                           <img 
@@ -170,15 +170,16 @@ export default function ExperienceSection() {
                         
                         {/* Content on right */}
                         <div className="flex-1">
-                          <div className="flex flex-col items-center justify-center mb-1 gap-0">
-                            <h3 className="text-xl sm:text-2xl font-bold text-foreground text-center">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1 gap-0 sm:gap-0">
+                            <h3 className="text-xl sm:text-2xl font-bold text-foreground">
                               {exp.title}
                             </h3>
-                            <span className="text-base sm:text-lg font-medium text-gray-500">{exp.period}</span>
+                            <span className="hidden sm:block text-base sm:text-lg font-medium text-gray-500">{exp.period}</span>
                           </div>
-                          <div className="space-y-0 text-center">
+                          <div className="space-y-0">
                             <p className="text-lg sm:text-xl font-semibold text-primary">{exp.company}</p>
                             <p className="text-base text-muted-foreground">{exp.location}</p>
+                            <span className="block sm:hidden text-base font-medium text-gray-500">{exp.period}</span>
                           </div>
                         </div>
                       </div>
