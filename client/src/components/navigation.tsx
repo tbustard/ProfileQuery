@@ -385,7 +385,7 @@ export default function Navigation() {
 
       {/* Experience Dropdown - Outside nav container */}
       {openDropdown === 'experience' && (
-        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 w-96 z-[9999] mt-2">
+        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 w-80 z-[9999] mt-2">
           <LiquidGlass 
             glassStyle={dropdownGlassStyle}
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
@@ -415,12 +415,36 @@ export default function Navigation() {
                     <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2021-2022</div>
                   </div>
                   
-                  {/* RBC */}
+                  {/* RBC Banking Advisor */}
                   <div className="space-y-1">
                     <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Banking Advisor</div>
                     <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Royal Bank of Canada</div>
                     <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Kingston, Ontario</div>
                     <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2020-2021</div>
+                  </div>
+                  
+                  {/* RBC Client Advisor Intern */}
+                  <div className="space-y-1">
+                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Client Advisor Intern</div>
+                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Royal Bank of Canada</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Fredericton, New Brunswick</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2019-2020</div>
+                  </div>
+                  
+                  {/* Irving Oil */}
+                  <div className="space-y-1">
+                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Marketing Intern</div>
+                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Irving Oil Limited</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Saint John, New Brunswick</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2018</div>
+                  </div>
+                  
+                  {/* Grant Thornton */}
+                  <div className="space-y-1">
+                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Tax Return Intern</div>
+                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Grant Thornton LLP</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Saint John, New Brunswick</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2018</div>
                   </div>
                 </div>
               </button>
