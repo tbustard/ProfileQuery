@@ -131,7 +131,7 @@ export default function CertificationsSection() {
           </div>
 
         {/* All Certifications */}
-        <div ref={certificationsRef} className="space-y-6 sm:space-y-8 mb-12 sm:mb-16 lg:mb-20 certifications-container">
+        <div ref={certificationsRef} className="space-y-8 mb-12 sm:mb-16 lg:mb-20 certifications-container">
             {certificationCategories.map((category, categoryIndex) => (
               <div 
                 key={categoryIndex} 
@@ -139,20 +139,20 @@ export default function CertificationsSection() {
                 className={`relative overflow-hidden rounded-[20px] sm:rounded-[28px] bg-gradient-to-r from-gray-100/50 to-gray-200/50 backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 mobile-visible scroll-scale-in scroll-stagger-${categoryIndex + 1} ${visibleItems.has(categoryIndex) ? 'visible' : ''}`}
               >
                 <div className="absolute inset-0 bg-white/80 backdrop-blur-xl" />
-                <div className="relative p-6 sm:p-8 lg:p-12">
-                  <div className="flex flex-col lg:flex-row lg:items-center gap-6 sm:gap-8">
+                <div className="relative p-6 sm:p-8 lg:p-10">
+                  <div className="flex flex-col lg:flex-row lg:items-center gap-8">
                     {/* Category Title */}
                     <div className="lg:w-1/4 text-center sm:text-left">
-                      <div className="flex items-center gap-4 mb-4">
+                      <div className="flex items-center justify-center sm:justify-start gap-4 mb-6">
                         <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
                           <category.icon className="w-8 h-8 text-white" />
                         </div>
                       </div>
-                      <h4 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
+                      <h4 className="text-xl sm:text-2xl font-bold text-foreground mb-3">
                         {category.title}
                       </h4>
-                      <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 rounded-full" />
-                      <p className="text-base text-muted-foreground mt-2">{category.certifications.length} professional certifications</p>
+                      <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 rounded-full mx-auto sm:mx-0 mb-3" />
+                      <p className="text-base text-muted-foreground">{category.certifications.length} professional certifications</p>
                     </div>
 
                     {/* Certification Items */}
