@@ -341,73 +341,520 @@ export default function Navigation() {
           </div>
         )}
 
-        {/* Mobile Menu - Simple Navigation */}
+        {/* Mobile Menu - Detailed Navigation */}
         {isMobileMenuOpen && (
           <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40 bg-background/95 backdrop-blur-sm">
-            <div className="h-full w-full p-6">
+            <div className="h-full w-full p-6 overflow-y-auto">
               {isHomePage && (
-                <div className="space-y-4">
+                <div className="space-y-6">
                   
-                  {/* Navigation Items */}
-                  <div className="space-y-2">
+                  {/* Education Section */}
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-bold text-foreground">Education</h3>
                     <button 
                       onClick={() => {
-                        setOpenDropdown(openDropdown === 'education' ? null : 'education');
+                        scrollToSection('#education');
                         setIsMobileMenuOpen(false);
                       }}
-                      className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
-                      Education
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">University of New Brunswick</div>
+                        <div className="text-base text-foreground/80">Bachelor of Business Administration</div>
+                        <div className="text-sm text-foreground/70">Fredericton, NB</div>
+                        <div className="text-sm text-foreground/70">2016-2020</div>
+                      </div>
+                    </button>
+                  </div>
+
+                  {/* Experience Section */}
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-bold text-foreground">Experience</h3>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#experience-bmo-private-wealth-portfolio-assistant');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Portfolio Assistant</div>
+                        <div className="text-base text-foreground/80">BMO Private Wealth</div>
+                        <div className="text-sm text-foreground/70">Toronto, Ontario</div>
+                        <div className="text-sm text-foreground/70">2022-2023</div>
+                      </div>
                     </button>
                     
                     <button 
                       onClick={() => {
-                        setOpenDropdown(openDropdown === 'experience' ? null : 'experience');
+                        scrollToSection('#experience-td-canada-trust-financial-advisor');
                         setIsMobileMenuOpen(false);
                       }}
-                      className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
-                      Experience
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Financial Advisor</div>
+                        <div className="text-base text-foreground/80">TD Canada Trust</div>
+                        <div className="text-sm text-foreground/70">Kingston, Ontario</div>
+                        <div className="text-sm text-foreground/70">2021-2022</div>
+                      </div>
                     </button>
                     
                     <button 
                       onClick={() => {
-                        setOpenDropdown(openDropdown === 'certifications' ? null : 'certifications');
+                        scrollToSection('#experience-royal-bank-of-canada-banking-advisor');
                         setIsMobileMenuOpen(false);
                       }}
-                      className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
-                      Certifications
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Banking Advisor</div>
+                        <div className="text-base text-foreground/80">Royal Bank of Canada</div>
+                        <div className="text-sm text-foreground/70">Kingston, Ontario</div>
+                        <div className="text-sm text-foreground/70">2020-2021</div>
+                      </div>
                     </button>
                     
                     <button 
                       onClick={() => {
-                        setOpenDropdown(openDropdown === 'community' ? null : 'community');
+                        scrollToSection('#experience-royal-bank-of-canada-client-advisor-intern');
                         setIsMobileMenuOpen(false);
                       }}
-                      className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
-                      Community
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Client Advisor Intern</div>
+                        <div className="text-base text-foreground/80">Royal Bank of Canada</div>
+                        <div className="text-sm text-foreground/70">Fredericton, New Brunswick</div>
+                        <div className="text-sm text-foreground/70">2019-2020</div>
+                      </div>
                     </button>
                     
                     <button 
                       onClick={() => {
-                        setOpenDropdown(openDropdown === 'contact' ? null : 'contact');
+                        scrollToSection('#experience-irving-oil-limited-marketing-intern');
                         setIsMobileMenuOpen(false);
                       }}
-                      className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
-                      Contact
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Marketing Intern</div>
+                        <div className="text-base text-foreground/80">Irving Oil Limited</div>
+                        <div className="text-sm text-foreground/70">Saint John, New Brunswick</div>
+                        <div className="text-sm text-foreground/70">2018</div>
+                      </div>
                     </button>
                     
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#experience-grant-thornton-llp-tax-return-intern');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Tax Return Intern</div>
+                        <div className="text-base text-foreground/80">Grant Thornton LLP</div>
+                        <div className="text-sm text-foreground/70">Saint John, New Brunswick</div>
+                        <div className="text-sm text-foreground/70">2018</div>
+                      </div>
+                    </button>
+                  </div>
+
+                  {/* Certifications Section */}
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-bold text-foreground">Certifications</h3>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-financial-excellence');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">CFA Level I Candidate</div>
+                        <div className="text-base text-foreground/80">CFA Institute</div>
+                        <div className="text-sm text-foreground/70">2025</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-financial-excellence');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Discounted Cash Flow Analysis</div>
+                        <div className="text-base text-foreground/80">Training the Street</div>
+                        <div className="text-sm text-foreground/70">2024</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-financial-excellence');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Financial Planning 1</div>
+                        <div className="text-base text-foreground/80">Canadian Securities Institute</div>
+                        <div className="text-sm text-foreground/70">2023</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-financial-excellence');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Certificate in Financial Services Advice</div>
+                        <div className="text-base text-foreground/80">Canadian Securities Institute</div>
+                        <div className="text-sm text-foreground/70">2022</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-financial-excellence');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Personal Financial Service Advice</div>
+                        <div className="text-base text-foreground/80">Canadian Securities Institute</div>
+                        <div className="text-sm text-foreground/70">2021</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-financial-excellence');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Canadian Securities Course</div>
+                        <div className="text-base text-foreground/80">Canadian Securities Institute</div>
+                        <div className="text-sm text-foreground/70">2021</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-financial-excellence');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Financial & Valuation Modeling</div>
+                        <div className="text-base text-foreground/80">Wall Street Prep</div>
+                        <div className="text-sm text-foreground/70">2020</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-financial-excellence');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Investment Funds in Canada</div>
+                        <div className="text-base text-foreground/80">Canadian Securities Institute</div>
+                        <div className="text-sm text-foreground/70">2020</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-financial-excellence');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Bloomberg Market Concepts Certificate</div>
+                        <div className="text-base text-foreground/80">Bloomberg</div>
+                        <div className="text-sm text-foreground/70">2020</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-financial-excellence');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Personal Finance Essentials</div>
+                        <div className="text-base text-foreground/80">McGill University</div>
+                        <div className="text-sm text-foreground/70">2020</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-data---technology');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Data Analytics Professional</div>
+                        <div className="text-base text-foreground/80">Google</div>
+                        <div className="text-sm text-foreground/70">2023</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-data---technology');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Data Visualization with Tableau</div>
+                        <div className="text-base text-foreground/80">UC Davis</div>
+                        <div className="text-sm text-foreground/70">2023</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-data---technology');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Python for Everybody</div>
+                        <div className="text-base text-foreground/80">University of Michigan</div>
+                        <div className="text-sm text-foreground/70">2023</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-data---technology');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Machine Learning</div>
+                        <div className="text-base text-foreground/80">Stanford University</div>
+                        <div className="text-sm text-foreground/70">2020</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-data---technology');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">SQL for Data Science</div>
+                        <div className="text-base text-foreground/80">UC Davis</div>
+                        <div className="text-sm text-foreground/70">2020</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-data---technology');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Power BI Data Visualization</div>
+                        <div className="text-base text-foreground/80">Microsoft</div>
+                        <div className="text-sm text-foreground/70">2020</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-advanced-analytics');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Econometrics: Methods & Applications</div>
+                        <div className="text-base text-foreground/80">Erasmus University</div>
+                        <div className="text-sm text-foreground/70">2024</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-advanced-analytics');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Financial Modeling & Valuation</div>
+                        <div className="text-base text-foreground/80">Duke University</div>
+                        <div className="text-sm text-foreground/70">2020</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-advanced-analytics');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Excel Skills for Business</div>
+                        <div className="text-base text-foreground/80">Macquarie University</div>
+                        <div className="text-sm text-foreground/70">2020</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#certifications-standardized-exam');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">GRE General Test</div>
+                        <div className="text-base text-foreground/80">ETS</div>
+                        <div className="text-sm text-foreground/70">2024</div>
+                      </div>
+                    </button>
+                  </div>
+
+                  {/* Community Section */}
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-bold text-foreground">Community</h3>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#community-united-way');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Next Gen Ambassador</div>
+                        <div className="text-base text-foreground/80">United Way</div>
+                        <div className="text-sm text-foreground/70">Kingston, Ontario</div>
+                        <div className="text-sm text-foreground/70">2020-2023</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#community-royal-bank-of-canada');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Student Ambassador</div>
+                        <div className="text-base text-foreground/80">Royal Bank of Canada</div>
+                        <div className="text-sm text-foreground/70">Fredericton, New Brunswick</div>
+                        <div className="text-sm text-foreground/70">2019-2020</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#community-irving-oil-limited');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Volunteer Staff</div>
+                        <div className="text-base text-foreground/80">Irving Oil Limited</div>
+                        <div className="text-sm text-foreground/70">Saint John, New Brunswick</div>
+                        <div className="text-sm text-foreground/70">2018</div>
+                      </div>
+                    </button>
+                  </div>
+
+                  {/* Contact Section */}
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-bold text-foreground">Contact</h3>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#contact');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Email</div>
+                        <div className="text-base text-foreground/80">tbustard@unb.ca</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#contact');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Phone</div>
+                        <div className="text-base text-foreground/80">(613) 985-1223</div>
+                      </div>
+                    </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#contact');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
+                    >
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Location</div>
+                        <div className="text-base text-foreground/80">Toronto, Ontario, Canada</div>
+                      </div>
+                    </button>
+                  </div>
+
+                  {/* Download Section */}
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-bold text-foreground">Download</h3>
                     <button 
                       onClick={() => {
                         scrollToSection('#download');
                         setIsMobileMenuOpen(false);
                       }}
-                      className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                      className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
-                      Download
+                      <div className="space-y-2">
+                        <div className="text-lg font-bold text-foreground">Resume</div>
+                        <div className="text-base text-foreground/80">Download Tyler's Resume</div>
+                      </div>
                     </button>
                   </div>
 
