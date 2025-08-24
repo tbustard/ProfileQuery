@@ -320,12 +320,12 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40 overflow-hidden">
+          <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40">
             <LiquidGlass
               glassStyle={navGlassStyle}
-              style="border-top: 1px solid rgba(255, 255, 255, 0.1); height: 100%;"
+              style="border-top: 1px solid rgba(255, 255, 255, 0.1);"
             >
-              <div className="max-w-2xl mx-auto px-4 py-6 h-full overflow-y-auto overscroll-contain">
+              <div className="max-w-2xl mx-auto px-4 py-6 h-screen overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent" style={{ height: 'calc(100vh - 4rem)' }}>
                 <div className="space-y-6">
                   {isHomePage && (
                     <>
