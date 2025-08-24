@@ -57,23 +57,25 @@ export default function Home() {
             : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
       >
-        <div className="shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105">
+        <div className="shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 rounded-full overflow-hidden">
           <LiquidGlass>
-            <div className="flex items-center px-6 py-3 rounded-full">
+            <div className="flex items-center px-6 py-3 bg-transparent">
               <span className={`text-sm font-medium mr-4 whitespace-nowrap transition-colors duration-300 ${
                 isOverDarkSection ? 'text-white' : 'text-foreground'
               }`}>
                 Back to top
               </span>
-              <LiquidGlass>
-                <button
-                  onClick={scrollToTop}
-                  className="w-10 h-10 bg-primary hover:bg-primary/90 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
-                  data-testid="scroll-to-top-button"
-                >
-                  <ChevronUp size={20} className="transition-transform duration-300 hover:scale-110" />
-                </button>
-              </LiquidGlass>
+              <div className="rounded-full overflow-hidden">
+                <LiquidGlass>
+                  <div
+                    onClick={scrollToTop}
+                    className="w-10 h-10 bg-primary hover:bg-primary/90 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg cursor-pointer"
+                    data-testid="scroll-to-top-button"
+                  >
+                    <ChevronUp size={20} className="transition-transform duration-300 hover:scale-110" />
+                  </div>
+                </LiquidGlass>
+              </div>
             </div>
           </LiquidGlass>
         </div>
