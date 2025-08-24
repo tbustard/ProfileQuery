@@ -70,8 +70,8 @@ export default function DownloadSection() {
             <Card 
               className={`bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 transition-all duration-500 hover:scale-[1.02] text-center scroll-scale-in scroll-stagger-1 ${visibleItems.has(0) ? 'visible' : ''}`}
             >
-              <CardContent className="p-4 sm:p-6 lg:p-8">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
+              <CardContent className="p-4 sm:p-6 lg:p-8 flex flex-col items-center">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                   <Download className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                 </div>
                 <Button
