@@ -100,10 +100,10 @@ export default function EducationSection() {
             ref={headerAnimation.ref}
             className={`text-center mb-12 sm:mb-16 lg:mb-20 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
           >
-            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 tracking-tight">
               Education
             </h2>
-            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Academic foundation in finance and business that drives professional excellence
             </p>
           </div>
@@ -111,30 +111,30 @@ export default function EducationSection() {
         {/* Hero Education Card - Modern Apple Layout */}
         <div 
           ref={heroCardAnimation.ref}
-          className={`mb-24 scroll-scale-in scroll-stagger-1 ${heroCardAnimation.isVisible ? 'visible' : ''}`}
+          className={`mb-16 sm:mb-20 lg:mb-24 scroll-scale-in scroll-stagger-1 ${heroCardAnimation.isVisible ? 'visible' : ''}`}
         >
-          <div className="relative bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 p-12 lg:p-16 min-h-[200px]">
-            <div className="flex items-center gap-8 h-full">
+          <div className="relative bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 p-6 sm:p-8 lg:p-16 min-h-[200px]">
+            <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 h-full text-center sm:text-left">
               {/* Logo on left */}
-              <div className="w-24 h-24 bg-primary/10 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 flex-shrink-0">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-primary/10 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 flex-shrink-0">
                 <img 
                   src={universityLogo} 
                   alt="University Logo" 
-                  className="w-16 h-16 object-contain"
+                  className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
                 />
               </div>
               
               {/* Content on right */}
               <div className="flex-1">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-3xl lg:text-4xl font-bold text-foreground">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2 sm:gap-0">
+                  <h3 className="text-xl sm:text-2xl lg:text-4xl font-bold text-foreground">
                     {education.institution}
                   </h3>
-                  <span className="text-lg font-medium text-gray-500">2016-2020</span>
+                  <span className="text-base sm:text-lg font-medium text-gray-500">2016-2020</span>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-xl font-semibold text-primary">{education.degree}</p>
-                  <p className="text-lg font-medium text-primary">{education.major}</p>
+                  <p className="text-lg sm:text-xl font-semibold text-primary">{education.degree}</p>
+                  <p className="text-base sm:text-lg font-medium text-primary">{education.major}</p>
                   <p className="text-base text-muted-foreground">{education.location}</p>
                 </div>
               </div>
@@ -143,32 +143,32 @@ export default function EducationSection() {
         </div>
 
         {/* Achievement Categories - Modern Flowing Layout */}
-        <div ref={achievementsRef} className="space-y-8">
+        <div ref={achievementsRef} className="space-y-6 sm:space-y-8">
           {achievements.map((category, index) => (
             <div 
               key={index} 
-              className={`relative overflow-hidden rounded-[28px] bg-gradient-to-r ${category.gradient} backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 scroll-scale-in scroll-stagger-${index + 2} ${visibleItems.has(index) ? 'visible' : ''}`}
+              className={`relative overflow-hidden rounded-[20px] sm:rounded-[28px] bg-gradient-to-r ${category.gradient} backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 scroll-scale-in scroll-stagger-${index + 2} ${visibleItems.has(index) ? 'visible' : ''}`}
             >
               <div className="absolute inset-0 bg-white/80 backdrop-blur-xl" />
-              <div className="relative p-8 lg:p-12">
-                <div className="flex flex-col lg:flex-row lg:items-center gap-8">
+              <div className="relative p-6 sm:p-8 lg:p-12">
+                <div className="flex flex-col lg:flex-row lg:items-center gap-6 sm:gap-8">
                   {/* Category Title */}
-                  <div className="lg:w-1/4">
-                    <h4 className="text-2xl font-bold text-foreground mb-2">
+                  <div className="lg:w-1/4 text-center sm:text-left">
+                    <h4 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
                       {category.category}
                     </h4>
                     <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 rounded-full" />
                   </div>
 
                   {/* Achievement Items */}
-                  <div className="lg:w-3/4 grid md:grid-cols-3 gap-6 md:grid-rows-1">
+                  <div className="lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {category.items.map((item, itemIndex) => (
                       <div 
                         key={itemIndex} 
-                        className="bg-white/90 backdrop-blur-xl rounded-[20px] p-6 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.02] flex flex-col justify-between h-full"
+                        className="bg-white/90 backdrop-blur-xl rounded-[16px] sm:rounded-[20px] p-4 sm:p-6 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.02] flex flex-col justify-between h-full"
                       >
                         <div>
-                          <h5 className="font-semibold text-foreground mb-3 text-lg min-h-[3.5rem] flex items-center">
+                          <h5 className="font-semibold text-foreground mb-3 text-base sm:text-lg min-h-[3rem] sm:min-h-[3.5rem] flex items-center">
                             {item.title}
                           </h5>
                           <p className="text-muted-foreground text-sm leading-relaxed">
@@ -185,24 +185,24 @@ export default function EducationSection() {
         </div>
 
         {/* Academic Excellence Summary - Modern Stats Grid */}
-        <div className="mt-24">
-          <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
-            <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-8 lg:p-12">
-              <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
+        <div className="mt-16 sm:mt-20 lg:mt-24">
+          <div className="bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
+            <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-6 sm:p-8 lg:p-12">
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-8 sm:mb-12 text-center">
                 Academic Excellence Highlights
               </h3>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">$47,500</div>
-                  <div className="text-muted-foreground font-medium">Total Scholarships & Awards</div>
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-2 sm:mb-3">$47,500</div>
+                  <div className="text-sm sm:text-base text-muted-foreground font-medium">Total Scholarships & Awards</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">1st Place</div>
-                  <div className="text-muted-foreground font-medium">RBC Student Ambassador of the Month - February 2020</div>
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-600 mb-2 sm:mb-3">Featured</div>
+                  <div className="text-sm sm:text-base text-muted-foreground font-medium">RBC Student Ambassador of the Month</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">1st Place</div>
-                  <div className="text-muted-foreground font-medium">CIBC Case Competition Winner</div>
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2 sm:mb-3">1st Place</div>
+                  <div className="text-sm sm:text-base text-muted-foreground font-medium">CIBC Case Competition Winner</div>
                 </div>
               </div>
             </div>
