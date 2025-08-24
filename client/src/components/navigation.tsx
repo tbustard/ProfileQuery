@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowLeft } from "lucide-react";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { LiquidGlass, type LiquidGlassRef } from "@specy/liquid-glass-react";
@@ -351,35 +351,50 @@ export default function Navigation() {
                   {/* Navigation Items */}
                   <div className="space-y-2">
                     <button 
-                      onClick={() => setOpenDropdown(openDropdown === 'education' ? null : 'education')}
+                      onClick={() => {
+                        setOpenDropdown(openDropdown === 'education' ? null : 'education');
+                        setIsMobileMenuOpen(false);
+                      }}
                       className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
                     >
                       Education
                     </button>
                     
                     <button 
-                      onClick={() => setOpenDropdown(openDropdown === 'experience' ? null : 'experience')}
+                      onClick={() => {
+                        setOpenDropdown(openDropdown === 'experience' ? null : 'experience');
+                        setIsMobileMenuOpen(false);
+                      }}
                       className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
                     >
                       Experience
                     </button>
                     
                     <button 
-                      onClick={() => setOpenDropdown(openDropdown === 'certifications' ? null : 'certifications')}
+                      onClick={() => {
+                        setOpenDropdown(openDropdown === 'certifications' ? null : 'certifications');
+                        setIsMobileMenuOpen(false);
+                      }}
                       className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
                     >
                       Certifications
                     </button>
                     
                     <button 
-                      onClick={() => setOpenDropdown(openDropdown === 'community' ? null : 'community')}
+                      onClick={() => {
+                        setOpenDropdown(openDropdown === 'community' ? null : 'community');
+                        setIsMobileMenuOpen(false);
+                      }}
                       className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
                     >
                       Community
                     </button>
                     
                     <button 
-                      onClick={() => setOpenDropdown(openDropdown === 'contact' ? null : 'contact')}
+                      onClick={() => {
+                        setOpenDropdown(openDropdown === 'contact' ? null : 'contact');
+                        setIsMobileMenuOpen(false);
+                      }}
                       className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
                     >
                       Contact
@@ -413,8 +428,18 @@ export default function Navigation() {
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
             <div className="lg:rounded-xl p-6 lg:p-4 h-full lg:h-auto overflow-y-auto">
-              {/* Close button for mobile */}
+              {/* Header with Back and Close buttons for mobile */}
               <div className="lg:hidden flex justify-between items-center mb-6">
+                <button 
+                  onClick={() => {
+                    setOpenDropdown(null);
+                    setIsMobileMenuOpen(true);
+                  }}
+                  className="flex items-center gap-2 px-3 py-2 text-white hover:text-gray-300 transition-colors bg-black/20 rounded-lg"
+                >
+                  <ArrowLeft size={20} />
+                  <span>Back</span>
+                </button>
                 <h2 className="text-2xl font-bold text-white">Education</h2>
                 <button 
                   onClick={() => setOpenDropdown(null)}
@@ -452,8 +477,18 @@ export default function Navigation() {
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
             <div className="lg:rounded-xl p-6 lg:p-4 h-full lg:h-auto overflow-y-auto">
-              {/* Close button for mobile */}
+              {/* Header with Back and Close buttons for mobile */}
               <div className="lg:hidden flex justify-between items-center mb-6">
+                <button 
+                  onClick={() => {
+                    setOpenDropdown(null);
+                    setIsMobileMenuOpen(true);
+                  }}
+                  className="flex items-center gap-2 px-3 py-2 text-white hover:text-gray-300 transition-colors bg-black/20 rounded-lg"
+                >
+                  <ArrowLeft size={20} />
+                  <span>Back</span>
+                </button>
                 <h2 className="text-2xl font-bold text-white">Experience</h2>
                 <button 
                   onClick={() => setOpenDropdown(null)}
@@ -574,8 +609,18 @@ export default function Navigation() {
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
             <div className="lg:rounded-xl p-6 lg:p-4 h-full lg:h-auto overflow-y-auto">
-              {/* Close button for mobile */}
+              {/* Header with Back and Close buttons for mobile */}
               <div className="lg:hidden flex justify-between items-center mb-6">
+                <button 
+                  onClick={() => {
+                    setOpenDropdown(null);
+                    setIsMobileMenuOpen(true);
+                  }}
+                  className="flex items-center gap-2 px-3 py-2 text-white hover:text-gray-300 transition-colors bg-black/20 rounded-lg"
+                >
+                  <ArrowLeft size={20} />
+                  <span>Back</span>
+                </button>
                 <h2 className="text-2xl font-bold text-white">Certifications</h2>
                 <button 
                   onClick={() => setOpenDropdown(null)}
@@ -778,8 +823,18 @@ export default function Navigation() {
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
             <div className="lg:rounded-xl p-6 lg:p-4 h-full lg:h-auto overflow-y-auto">
-              {/* Close button for mobile */}
+              {/* Header with Back and Close buttons for mobile */}
               <div className="lg:hidden flex justify-between items-center mb-6">
+                <button 
+                  onClick={() => {
+                    setOpenDropdown(null);
+                    setIsMobileMenuOpen(true);
+                  }}
+                  className="flex items-center gap-2 px-3 py-2 text-white hover:text-gray-300 transition-colors bg-black/20 rounded-lg"
+                >
+                  <ArrowLeft size={20} />
+                  <span>Back</span>
+                </button>
                 <h2 className="text-2xl font-bold text-white">Community</h2>
                 <button 
                   onClick={() => setOpenDropdown(null)}
@@ -854,8 +909,18 @@ export default function Navigation() {
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
             <div className="lg:rounded-xl p-6 lg:p-4 h-full lg:h-auto overflow-y-auto">
-              {/* Close button for mobile */}
+              {/* Header with Back and Close buttons for mobile */}
               <div className="lg:hidden flex justify-between items-center mb-6">
+                <button 
+                  onClick={() => {
+                    setOpenDropdown(null);
+                    setIsMobileMenuOpen(true);
+                  }}
+                  className="flex items-center gap-2 px-3 py-2 text-white hover:text-gray-300 transition-colors bg-black/20 rounded-lg"
+                >
+                  <ArrowLeft size={20} />
+                  <span>Back</span>
+                </button>
                 <h2 className="text-2xl font-bold text-white">Contact</h2>
                 <button 
                   onClick={() => setOpenDropdown(null)}
