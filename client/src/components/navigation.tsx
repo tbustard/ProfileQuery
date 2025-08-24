@@ -384,6 +384,16 @@ export default function Navigation() {
                     >
                       Contact
                     </button>
+                    
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#download');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                    >
+                      Download
+                    </button>
                   </div>
 
                 </div>
