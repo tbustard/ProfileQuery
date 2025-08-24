@@ -493,21 +493,27 @@ export default function Navigation() {
 
         {/* Desktop Dropdown Menu */}
         {openDropdown === 'education' && (
-          <div className="hidden lg:block absolute top-full left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg z-50">
+          <div className="hidden lg:block absolute top-full left-0 right-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-t border-gray-200/20 dark:border-gray-700/20 shadow-2xl z-50">
             <LiquidGlass glassStyle={dropdownGlassStyle}>
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                <div className="max-w-md">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div className="max-w-lg">
                   <button 
                     onClick={() => {
                       scrollToSection('#education');
                       setOpenDropdown(null);
                     }}
-                    className="w-full text-left block p-5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    className="w-full text-left block p-8 rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl border border-gray-100 dark:border-gray-700 hover:scale-[1.02] transition-all duration-300"
                   >
-                    <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">University of New Brunswick</div>
-                    <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-                      <div>Bachelor of Business Administration</div>
-                      <div className="mt-1 font-medium">Fredericton, NB • 2016-2020</div>
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white apple-heading">
+                        University of New Brunswick
+                      </h3>
+                      <p className="text-lg text-gray-600 dark:text-gray-300 font-medium">
+                        Bachelor of Business Administration
+                      </p>
+                      <p className="text-base text-gray-500 dark:text-gray-400 font-medium">
+                        Fredericton, NB • 2016-2020
+                      </p>
                     </div>
                   </button>
                 </div>
