@@ -14,6 +14,7 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentSection, setCurrentSection] = useState(isHomePage ? 'hero' : '');
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [savedScrollPosition, setSavedScrollPosition] = useState(0);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -46,28 +47,23 @@ export default function Navigation() {
   useEffect(() => {
     if (isMobileMenuOpen) {
       // Save current scroll position
-      const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
+      setSavedScrollPosition(window.scrollY);
+      // Prevent scrolling without changing position
+      document.body.style.overflow = 'hidden';
     } else {
-      // Restore scroll position
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
-      }
+      // Restore scrolling and position
+      document.body.style.overflow = '';
+      // Use requestAnimationFrame to ensure DOM is ready
+      requestAnimationFrame(() => {
+        window.scrollTo(0, savedScrollPosition);
+      });
     }
     
     // Cleanup function to ensure scroll is restored
     return () => {
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
+      document.body.style.overflow = '';
     };
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, savedScrollPosition]);
 
   useEffect(() => {
     if (!isHomePage) {
