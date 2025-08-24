@@ -341,60 +341,54 @@ export default function Navigation() {
           </div>
         )}
 
-        {/* Mobile Menu - Full Screen Liquid Glass Overlay */}
+        {/* Mobile Menu - Simple Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40">
-            <LiquidGlass
-              ref={mobileMenuGlassRef}
-              glassStyle={navGlassStyle}
-              style="border-top: 1px solid rgba(255, 255, 255, 0.1);"
-            >
-              <div className="h-full w-full p-6">
-                {isHomePage && (
-                  <div className="space-y-4">
+          <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40 bg-background/95 backdrop-blur-sm">
+            <div className="h-full w-full p-6">
+              {isHomePage && (
+                <div className="space-y-4">
+                  
+                  {/* Navigation Items */}
+                  <div className="space-y-2">
+                    <button 
+                      onClick={() => setOpenDropdown(openDropdown === 'education' ? null : 'education')}
+                      className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                    >
+                      Education
+                    </button>
                     
-                    {/* Navigation Items */}
-                    <div className="space-y-2">
-                      <button 
-                        onClick={() => setOpenDropdown(openDropdown === 'education' ? null : 'education')}
-                        className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
-                      >
-                        Education
-                      </button>
-                      
-                      <button 
-                        onClick={() => setOpenDropdown(openDropdown === 'experience' ? null : 'experience')}
-                        className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
-                      >
-                        Experience
-                      </button>
-                      
-                      <button 
-                        onClick={() => setOpenDropdown(openDropdown === 'certifications' ? null : 'certifications')}
-                        className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
-                      >
-                        Certifications
-                      </button>
-                      
-                      <button 
-                        onClick={() => setOpenDropdown(openDropdown === 'community' ? null : 'community')}
-                        className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
-                      >
-                        Community
-                      </button>
-                      
-                      <button 
-                        onClick={() => setOpenDropdown(openDropdown === 'contact' ? null : 'contact')}
-                        className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
-                      >
-                        Contact
-                      </button>
-                    </div>
-
+                    <button 
+                      onClick={() => setOpenDropdown(openDropdown === 'experience' ? null : 'experience')}
+                      className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                    >
+                      Experience
+                    </button>
+                    
+                    <button 
+                      onClick={() => setOpenDropdown(openDropdown === 'certifications' ? null : 'certifications')}
+                      className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                    >
+                      Certifications
+                    </button>
+                    
+                    <button 
+                      onClick={() => setOpenDropdown(openDropdown === 'community' ? null : 'community')}
+                      className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                    >
+                      Community
+                    </button>
+                    
+                    <button 
+                      onClick={() => setOpenDropdown(openDropdown === 'contact' ? null : 'contact')}
+                      className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                    >
+                      Contact
+                    </button>
                   </div>
-                )}
-              </div>
-            </LiquidGlass>
+
+                </div>
+              )}
+            </div>
           </div>
         )}
 
@@ -402,7 +396,7 @@ export default function Navigation() {
 
       {/* Education Dropdown - Outside nav container */}
       {openDropdown === 'education' && (
-        <div className="fixed top-20 left-1/2 transform -translate-x-80 lg:-translate-x-80 md:-translate-x-40 sm:-translate-x-40 w-80 z-[9999] mt-2">
+        <div className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:-translate-x-80 lg:w-80 lg:mt-2 z-[9999]">
           <LiquidGlass 
             ref={educationDropdownRef}
             glassStyle={dropdownGlassStyle}
@@ -430,7 +424,7 @@ export default function Navigation() {
 
       {/* Experience Dropdown - Outside nav container */}
       {openDropdown === 'experience' && (
-        <div className="fixed top-20 left-1/2 transform -translate-x-32 lg:-translate-x-32 md:-translate-x-40 sm:-translate-x-40 w-80 z-[9999] mt-2">
+        <div className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:-translate-x-32 lg:w-80 lg:mt-2 z-[9999]">
           <LiquidGlass 
             ref={experienceDropdownRef}
             glassStyle={dropdownGlassStyle}
@@ -541,7 +535,7 @@ export default function Navigation() {
 
       {/* Certifications Dropdown - Outside nav container */}
       {openDropdown === 'certifications' && (
-        <div className="fixed top-20 left-1/2 transform translate-x-8 lg:translate-x-8 md:-translate-x-48 sm:-translate-x-48 w-96 z-[9999] mt-2">
+        <div className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-8 lg:w-96 lg:mt-2 z-[9999]">
           <LiquidGlass 
             ref={certificationsDropdownRef}
             glassStyle={dropdownGlassStyle}
@@ -734,7 +728,7 @@ export default function Navigation() {
 
       {/* Community Dropdown - Outside nav container */}
       {openDropdown === 'community' && (
-        <div className="fixed top-20 left-1/2 transform translate-x-48 lg:translate-x-48 md:-translate-x-40 sm:-translate-x-40 w-80 z-[9999] mt-2">
+        <div className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-48 lg:w-80 lg:mt-2 z-[9999]">
           <LiquidGlass 
             ref={communityDropdownRef}
             glassStyle={dropdownGlassStyle}
@@ -799,7 +793,7 @@ export default function Navigation() {
 
       {/* Contact Dropdown - Outside nav container */}
       {openDropdown === 'contact' && (
-        <div className="fixed top-20 left-1/2 transform translate-x-80 lg:translate-x-80 md:-translate-x-40 sm:-translate-x-40 w-80 z-[9999] mt-2">
+        <div className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-80 lg:w-80 lg:mt-2 z-[9999]">
           <LiquidGlass 
             ref={contactDropdownRef}
             glassStyle={dropdownGlassStyle}
