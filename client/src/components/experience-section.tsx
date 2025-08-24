@@ -158,23 +158,28 @@ export default function ExperienceSection() {
                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="relative p-8">
                       {/* Header Section */}
-                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
-                        <div className="flex items-start gap-4">
-                          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
-                            <img 
-                              src={exp.logoSrc} 
-                              alt={`${exp.company} Logo`} 
-                              className="w-8 h-8 object-contain"
-                            />
-                          </div>
-                          <div>
-                            <h3 className="text-xl font-semibold text-foreground mb-1">{exp.title}</h3>
-                            <p className="text-lg font-medium text-primary mb-1">{exp.company}</p>
-                            <p className="text-muted-foreground font-medium">{exp.location}</p>
-                          </div>
+                      <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 mb-6 text-center sm:text-left">
+                        {/* Logo on left */}
+                        <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
+                          <img 
+                            src={exp.logoSrc} 
+                            alt={`${exp.company} Logo`} 
+                            className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
+                          />
                         </div>
-                        <div className="mt-4 lg:mt-0 lg:text-right">
-                          <span className="text-lg font-medium text-gray-500">{exp.period}</span>
+                        
+                        {/* Content on right */}
+                        <div className="flex-1">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2 sm:gap-0">
+                            <h3 className="text-xl sm:text-2xl font-bold text-foreground">
+                              {exp.title}
+                            </h3>
+                            <span className="text-base sm:text-lg font-medium text-gray-500">{exp.period}</span>
+                          </div>
+                          <div className="space-y-2">
+                            <p className="text-lg sm:text-xl font-semibold text-primary">{exp.company}</p>
+                            <p className="text-base text-muted-foreground">{exp.location}</p>
+                          </div>
                         </div>
                       </div>
 
