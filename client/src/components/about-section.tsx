@@ -104,7 +104,7 @@ export default function EducationSection() {
               Education
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Bachelor of Business Administration in Finance
+              Strategic business foundation with finance expertise
             </p>
           </div>
 

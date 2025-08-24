@@ -222,7 +222,7 @@ export default function HeroSection() {
                 <h3 className="text-lg font-semibold text-foreground">Education</h3>
               </div>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Bachelor of Business Administration in Finance
+                Strategic business foundation with finance expertise
               </p>
             </div>
 
