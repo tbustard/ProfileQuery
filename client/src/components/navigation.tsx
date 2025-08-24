@@ -92,15 +92,14 @@ export default function Navigation() {
 
   // Memoized glass styles for navigation - optimized for readability
   const navGlassStyle = useMemo(() => ({
-    depth: 0.15,
-    segments: 24,
-    radius: 0.6,
-    roughness: 0.15,
-    transmission: 0.82,
-    reflectivity: 0.1,
-    ior: 1.1,
-    dispersion: 0.01,
-    thickness: 0.1
+    depth: 0,
+    segments: 50,
+    radius: 0,
+    tint: null,
+    reflectivity: 0.9,
+    thickness: 50,
+    dispersion: 5,
+    roughness: 0.3
   }), []);
 
   const dropdownGlassStyle = useMemo(() => ({
