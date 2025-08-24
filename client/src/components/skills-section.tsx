@@ -161,7 +161,7 @@ export default function CertificationsSection() {
                         <div 
                           key={certIndex}
                           id={`cert-${cert.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                          className="bg-white/90 backdrop-blur-xl rounded-2xl p-4 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.02] flex flex-col h-full min-h-[120px]"
+                          className="bg-white/90 backdrop-blur-xl rounded-2xl p-4 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.02] flex flex-col h-full min-h-[160px]"
                           data-testid={`cert-${categoryIndex}-${certIndex}`}
                         >
                           {/* Header with title and year */}
