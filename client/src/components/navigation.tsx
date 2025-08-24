@@ -308,6 +308,18 @@ export default function Navigation() {
 
       </nav>
 
+      {/* Mobile Glass Menu - NO TEXT */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40">
+          <LiquidGlass
+            glassStyle={dropdownGlassStyle}
+            style="border-top: 1px solid rgba(255, 255, 255, 0.1);"
+          >
+            <div className="h-full w-full"></div>
+          </LiquidGlass>
+        </div>
+      )}
+
       {/* Education Dropdown - Outside nav container */}
       {openDropdown === 'education' && (
         <div className="fixed top-20 left-1/2 transform -translate-x-80 w-80 z-[9999] mt-2">
