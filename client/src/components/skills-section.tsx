@@ -369,11 +369,12 @@ export function CommunitySection() {
                             <h3 className="text-xl sm:text-2xl font-bold text-foreground">
                               {activity.title}
                             </h3>
-                            <span className="text-base sm:text-lg font-medium text-gray-500">{activity.period}</span>
+                            <span className="hidden sm:block text-base sm:text-lg font-medium text-gray-500">{activity.period}</span>
                           </div>
                           <div className="space-y-2">
                             <p className="text-lg sm:text-xl font-semibold text-primary">{activity.organization}</p>
                             <p className="text-base text-muted-foreground">{activity.location}</p>
+                            <span className="block sm:hidden text-base font-medium text-gray-500">{activity.period}</span>
                           </div>
                         </div>
                       </div>

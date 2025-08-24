@@ -174,11 +174,12 @@ export default function ExperienceSection() {
                             <h3 className="text-xl sm:text-2xl font-bold text-foreground">
                               {exp.title}
                             </h3>
-                            <span className="text-base sm:text-lg font-medium text-gray-500">{exp.period}</span>
+                            <span className="hidden sm:block text-base sm:text-lg font-medium text-gray-500">{exp.period}</span>
                           </div>
                           <div className="space-y-2">
                             <p className="text-lg sm:text-xl font-semibold text-primary">{exp.company}</p>
                             <p className="text-base text-muted-foreground">{exp.location}</p>
+                            <span className="block sm:hidden text-base font-medium text-gray-500">{exp.period}</span>
                           </div>
                         </div>
                       </div>
