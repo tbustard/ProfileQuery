@@ -360,7 +360,7 @@ export default function Navigation() {
             glassStyle={dropdownGlassStyle}
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
-            <div className="rounded-xl p-6 bg-white/20 dark:bg-black/20 backdrop-blur-sm">
+            <div className="rounded-xl p-6">
               <button 
                 onClick={() => {
                   scrollToSection('#education');
@@ -368,9 +368,9 @@ export default function Navigation() {
                 }}
                 className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-3 transition-all duration-200 -m-3"
               >
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 drop-shadow-sm">University of New Brunswick</h3>
-                <p className="text-base text-gray-700 dark:text-gray-300 mb-1 drop-shadow-sm">Bachelor of Business Administration</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400 font-medium drop-shadow-sm">Fredericton, NB • 2016-2020</p>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">University of New Brunswick</h3>
+                <p className="text-base text-gray-700 dark:text-gray-300 mb-1">Bachelor of Business Administration</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Fredericton, NB • 2016-2020</p>
               </button>
             </div>
           </LiquidGlass>
