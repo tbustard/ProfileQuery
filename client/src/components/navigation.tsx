@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
@@ -111,23 +111,37 @@ export default function Navigation() {
     }
   };
 
-  const glassStyle = {
+  // ⚠️ IMPORTANT: Memoize the glassStyle object to prevent unnecessary re-renders
+  const glassStyle = useMemo(() => ({
     depth: 0,
     segments: 70,
     radius: 0,
     tint: null,
-    reflectivity: 1,
-    thickness: 100,
+    transmission: 1,
+    reflectivity: 0.9,
+    ior: 1.5,
     dispersion: 4,
+    thickness: 100,
     roughness: 0.32,
-  };
+  }), []);
 
   return (
     <>
       {/* Navigation Bar */}
       {isScrolled ? (
-        <LiquidGlass glassStyle={glassStyle}>
-          <nav className="fixed top-0 left-0 right-0 w-full z-50 border-b border-white/10 shadow-2xl transition-all duration-700 ease-out">
+        <LiquidGlass 
+          glassStyle={glassStyle}
+          wrapperStyle={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            width: '100%',
+            zIndex: 50,
+          }}
+          style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);"
+        >
+          <nav className="w-full transition-all duration-700 ease-out">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center h-16 sm:h-20">
                 
