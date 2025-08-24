@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
 import { useLocation } from "wouter";
 import { LiquidGlass, type LiquidGlassRef } from "@specy/liquid-glass-react";
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
@@ -9,7 +8,6 @@ export default function Navigation() {
   const [location] = useLocation();
   const isHomePage = location === '/';
   
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentSection, setCurrentSection] = useState(isHomePage ? 'hero' : '');
@@ -300,15 +298,7 @@ export default function Navigation() {
 
                 {/* Right side - Mobile menu toggle */}
                 <div className="lg:hidden">
-                  <Button
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    variant="ghost"
-                    size="sm"
-                    className="relative z-50 p-2 text-foreground hover:text-primary transition-colors"
-                    data-testid="mobile-menu-toggle"
-                  >
-                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                  </Button>
+                  {/* Mobile menu removed - ready for fresh implementation */}
                 </div>
               </div>
             </div>
@@ -321,78 +311,13 @@ export default function Navigation() {
               <div></div>
               <div></div>
               <div className="lg:hidden">
-                <Button
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  variant="ghost"
-                  size="sm"
-                  className="relative z-50 p-2 text-foreground hover:text-primary transition-colors"
-                  data-testid="mobile-menu-toggle"
-                >
-                  {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </Button>
+                {/* Mobile menu removed - ready for fresh implementation */}
               </div>
             </div>
           </div>
         )}
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40">
-            <LiquidGlass
-              ref={navGlassRef}
-              glassStyle={navGlassStyle}
-              style="border-top: 1px solid rgba(255, 255, 255, 0.1);"
-            >
-              <div className="max-w-2xl mx-auto px-4 py-6 h-full overflow-y-auto">
-                <div className="space-y-6">
-                  {isHomePage && (
-                    <>
-                      {/* Navigation Items for Mobile */}
-                      <div className="space-y-2">
-                        <button onClick={() => { scrollToSection('#education'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium">
-                          Education
-                        </button>
-                        <button onClick={() => { scrollToSection('#experience'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium">
-                          Experience
-                        </button>
-                        <button onClick={() => { scrollToSection('#certifications'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium">
-                          Certifications
-                        </button>
-                        <button onClick={() => { scrollToSection('#community'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium">
-                          Community
-                        </button>
-                      </div>
-
-                      {/* Contact Section */}
-                      <div className="space-y-2">
-                        <button onClick={() => { scrollToSection('#contact'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium">
-                          Contact
-                        </button>
-                        <button onClick={() => { scrollToSection('#contact'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                          <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Email</div>
-                          <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">tbustard@unb.ca</div>
-                        </button>
-                        <button onClick={() => { scrollToSection('#contact'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                          <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Phone</div>
-                          <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">(613) 985-1223</div>
-                        </button>
-                        <button onClick={() => { scrollToSection('#contact'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                          <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Location</div>
-                          <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Toronto, Ontario, Canada</div>
-                        </button>
-                      </div>
-
-                      {/* Download Button */}
-                      <button onClick={() => { scrollToSection('#download'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg bg-primary/10 hover:bg-primary/20 border border-primary/20 hover:border-primary/30 text-primary transition-all duration-200 text-lg font-medium">
-                        Download
-                      </button>
-                    </>
-                  )}
-                </div>
-              </div>
-            </LiquidGlass>
-          </div>
-        )}
+        {/* Mobile Menu - Removed for fresh implementation */}
 
       </nav>
 
