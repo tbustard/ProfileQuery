@@ -197,7 +197,7 @@ export default function EducationSection() {
                   <div className="text-sm sm:text-base text-muted-foreground font-medium">Total Scholarships & Awards</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-600 mb-2 sm:mb-3">1st</div>
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-600 mb-2 sm:mb-3">1st Place</div>
                   <div className="text-sm sm:text-base text-muted-foreground font-medium">RBC Student Ambassador of the Month</div>
                 </div>
                 <div className="text-center">
