@@ -360,7 +360,7 @@ export default function Navigation() {
 
       {/* Education Dropdown - Outside nav container */}
       {openDropdown === 'education' && (
-        <div className="fixed top-20 left-1/2 transform -translate-x-80 w-80 z-[9999] mt-2">
+        <div className="fixed top-20 left-1/2 transform -translate-x-80 lg:-translate-x-80 md:-translate-x-40 sm:-translate-x-40 w-80 z-[9999] mt-2">
           <LiquidGlass 
             ref={educationDropdownRef}
             glassStyle={dropdownGlassStyle}
@@ -388,7 +388,7 @@ export default function Navigation() {
 
       {/* Experience Dropdown - Outside nav container */}
       {openDropdown === 'experience' && (
-        <div className="fixed top-20 left-1/2 transform -translate-x-32 w-80 z-[9999] mt-2">
+        <div className="fixed top-20 left-1/2 transform -translate-x-32 lg:-translate-x-32 md:-translate-x-40 sm:-translate-x-40 w-80 z-[9999] mt-2">
           <LiquidGlass 
             ref={experienceDropdownRef}
             glassStyle={dropdownGlassStyle}
@@ -499,7 +499,7 @@ export default function Navigation() {
 
       {/* Certifications Dropdown - Outside nav container */}
       {openDropdown === 'certifications' && (
-        <div className="fixed top-20 left-1/2 transform translate-x-8 w-96 z-[9999] mt-2">
+        <div className="fixed top-20 left-1/2 transform translate-x-8 lg:translate-x-8 md:-translate-x-48 sm:-translate-x-48 w-96 z-[9999] mt-2">
           <LiquidGlass 
             ref={certificationsDropdownRef}
             glassStyle={dropdownGlassStyle}
@@ -692,7 +692,7 @@ export default function Navigation() {
 
       {/* Community Dropdown - Outside nav container */}
       {openDropdown === 'community' && (
-        <div className="fixed top-20 left-1/2 transform translate-x-48 w-80 z-[9999] mt-2">
+        <div className="fixed top-20 left-1/2 transform translate-x-48 lg:translate-x-48 md:-translate-x-40 sm:-translate-x-40 w-80 z-[9999] mt-2">
           <LiquidGlass 
             ref={communityDropdownRef}
             glassStyle={dropdownGlassStyle}
@@ -757,7 +757,7 @@ export default function Navigation() {
 
       {/* Contact Dropdown - Outside nav container */}
       {openDropdown === 'contact' && (
-        <div className="fixed top-20 left-1/2 transform translate-x-80 w-80 z-[9999] mt-2">
+        <div className="fixed top-20 left-1/2 transform translate-x-80 lg:translate-x-80 md:-translate-x-40 sm:-translate-x-40 w-80 z-[9999] mt-2">
           <LiquidGlass 
             ref={contactDropdownRef}
             glassStyle={dropdownGlassStyle}
