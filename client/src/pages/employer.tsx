@@ -46,8 +46,12 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
 
   // Set initial YouTube URL when data loads
   useEffect(() => {
-    if (siteSettingsQuery.data && 'youtubeUrl' in siteSettingsQuery.data && siteSettingsQuery.data.youtubeUrl) {
-      setYoutubeUrl(siteSettingsQuery.data.youtubeUrl);
+    if (siteSettingsQuery.data && 
+        typeof siteSettingsQuery.data === 'object' && 
+        siteSettingsQuery.data !== null &&
+        'youtubeUrl' in siteSettingsQuery.data && 
+        (siteSettingsQuery.data as any).youtubeUrl) {
+      setYoutubeUrl((siteSettingsQuery.data as any).youtubeUrl);
     }
   }, [siteSettingsQuery.data]);
 
@@ -212,13 +216,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
   // YouTube URL update mutation
   const youtubeUrlMutation = useMutation({
     mutationFn: async (url: string) => {
-      return apiRequest('/api/site-settings/youtube', {
-        method: 'POST',
-        body: JSON.stringify({ youtubeUrl: url }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      return apiRequest('/api/site-settings/youtube', 'POST', { youtubeUrl: url });
     },
     onSuccess: () => {
       toast({
@@ -263,7 +261,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
           </Button>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-1 gap-8">
           {/* YouTube URL Section */}
           <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700">
             <CardHeader>
@@ -364,59 +362,6 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             </CardContent>
           </Card>
 
-          {/* Video Upload Section */}
-          <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Video className="w-5 h-5" />
-                Upload Introduction Video
-              </CardTitle>
-              <CardDescription>
-                Upload a personal introduction video for the "Meet Tyler" button
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="video-file">Select Video File</Label>
-                <Input
-                  id="video-file"
-                  type="file"
-                  accept=".mp4,.mov,.avi"
-                  onChange={handleVideoSelect}
-                  data-testid="input-video-file"
-                  className="bg-white dark:bg-slate-900"
-                />
-                <p className="text-sm text-slate-500">
-                  Accepted formats: MP4, MOV, AVI (Max: 100MB)
-                </p>
-              </div>
-              
-              {selectedVideo && (
-                <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                  <p className="text-sm font-medium">Selected: {selectedVideo.name}</p>
-                  <p className="text-sm text-slate-500">
-                    {(selectedVideo.size / (1024 * 1024)).toFixed(2)} MB
-                  </p>
-                </div>
-              )}
-
-              <Button 
-                onClick={handleVideoUpload}
-                disabled={!selectedVideo || videoUploadMutation.isPending}
-                data-testid="button-upload-video"
-                className="w-full"
-              >
-                {videoUploadMutation.isPending ? (
-                  "Uploading..."
-                ) : (
-                  <>
-                    <Upload className="w-4 h-4 mr-2" />
-                    Upload Video
-                  </>
-                )}
-              </Button>
-            </CardContent>
-          </Card>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mt-8">
@@ -474,87 +419,48 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             </CardContent>
           </Card>
 
-          {/* Recent Video Uploads */}
+          {/* Current YouTube URL Display */}
           <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Video className="w-5 h-5" />
-                Introduction Videos
+                <Youtube className="w-5 h-5" />
+                Current Video Setting
               </CardTitle>
               <CardDescription>
-                Manage uploaded introduction videos
+                The current YouTube video that will be displayed on the website
               </CardDescription>
             </CardHeader>
             <CardContent>
-              {videosQuery.isLoading ? (
+              {siteSettingsQuery.isLoading ? (
                 <div className="space-y-3">
-                  {[...Array(2)].map((_, i) => (
-                    <div key={i} className="h-12 bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />
-                  ))}
+                  <div className="h-12 bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />
                 </div>
-              ) : !videosQuery.data || (Array.isArray(videosQuery.data) && videosQuery.data.length === 0) ? (
-                <p className="text-slate-500 text-center py-8">
-                  No videos uploaded yet. Upload your first video above!
-                </p>
+              ) : siteSettingsQuery.data && 
+                    typeof siteSettingsQuery.data === 'object' && 
+                    siteSettingsQuery.data !== null &&
+                    'youtubeUrl' in siteSettingsQuery.data && 
+                    (siteSettingsQuery.data as any).youtubeUrl ? (
+                <div className="space-y-3">
+                  <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
+                    <p className="text-sm font-medium mb-2">Active YouTube Video:</p>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 break-all">
+                      {(siteSettingsQuery.data as any).youtubeUrl}
+                    </p>
+                  </div>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => window.open((siteSettingsQuery.data as any).youtubeUrl, '_blank')}
+                    className="w-full"
+                  >
+                    <Play className="w-4 h-4 mr-2" />
+                    Preview Video
+                  </Button>
+                </div>
               ) : (
-                <div className="space-y-3">
-                  {Array.isArray(videosQuery.data) && videosQuery.data.map((video: any) => (
-                    <div 
-                      key={video.id}
-                      className={`flex items-center justify-between p-3 rounded-lg border-2 transition-all ${
-                        video.isActive 
-                          ? 'bg-primary/10 border-primary/20 dark:bg-primary/5' 
-                          : 'bg-slate-50 dark:bg-slate-900 border-transparent'
-                      }`}
-                      data-testid={`video-item-${video.id}`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="relative">
-                          <Video className="w-4 h-4 text-slate-500" />
-                          {video.isActive && (
-                            <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border border-white"></div>
-                          )}
-                        </div>
-                        <div>
-                          <p className="font-medium text-sm flex items-center gap-2">
-                            {video.fileName}
-                            {video.isActive && (
-                              <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full">
-                                Active
-                              </span>
-                            )}
-                          </p>
-                          <p className="text-xs text-slate-500">
-                            {new Date(video.createdAt).toLocaleDateString()}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        {!video.isActive && (
-                          <Button 
-                            size="sm" 
-                            variant="outline"
-                            onClick={() => setActiveVideoMutation.mutate(video.id)}
-                            disabled={setActiveVideoMutation.isPending}
-                            data-testid={`button-activate-${video.id}`}
-                            className="text-xs"
-                          >
-                            Set Active
-                          </Button>
-                        )}
-                        <Button 
-                          size="sm" 
-                          variant="ghost"
-                          onClick={() => window.open(`/api/introduction-video`, '_blank')}
-                          data-testid={`button-preview-${video.id}`}
-                          disabled={!video.isActive}
-                        >
-                          <Play className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                <p className="text-slate-500 text-center py-8">
+                  No YouTube video URL set. Add one using the form above!
+                </p>
               )}
             </CardContent>
           </Card>
