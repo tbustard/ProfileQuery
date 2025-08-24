@@ -56,12 +56,19 @@ export default function DownloadSection() {
           {/* Header Section - Apple's content-first approach */}
           <div 
             ref={headerAnimation.ref}
-            className={`text-center mb-4 sm:mb-6 lg:mb-8 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+            className={`text-center mb-6 sm:mb-8 lg:mb-10 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
           >
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4 tracking-tight">Resume</h2>
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Access my comprehensive professional resume showcasing expertise in finance and technology.
             </p>
+          </div>
+
+          {/* Download Icon - Centered between description and button */}
+          <div className="text-center mb-6 sm:mb-8 lg:mb-10">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-primary/10 rounded-xl flex items-center justify-center mx-auto shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
+              <Download className="w-8 h-8 sm:w-10 sm:h-10 text-primary" />
+            </div>
           </div>
 
           {/* Download Card - single column layout */}
@@ -70,10 +77,7 @@ export default function DownloadSection() {
             <Card 
               className={`bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 transition-all duration-500 hover:scale-[1.02] text-center scroll-scale-in scroll-stagger-1 ${visibleItems.has(0) ? 'visible' : ''}`}
             >
-              <CardContent className="p-4 sm:p-6 lg:p-8 flex flex-col items-center">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
-                  <Download className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-                </div>
+              <CardContent className="p-4 sm:p-6 lg:p-8">
                 <Button
                   onClick={downloadResume}
                   className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
