@@ -3,6 +3,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
+import { LiquidGlass } from "@specy/liquid-glass-react";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -116,17 +117,36 @@ export default function Navigation() {
       <nav 
         className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-700 ease-out ${
           isScrolled 
-            ? 'nav-glass border-b border-white/10 shadow-2xl' 
+            ? 'border-b border-white/10 shadow-2xl' 
             : 'bg-transparent'
         }`}
         style={{
-          background: isScrolled ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
-          backdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
-          WebkitBackdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
+          background: isScrolled ? 'transparent' : 'transparent',
           boxShadow: isScrolled ? '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)' : 'none',
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Liquid Glass Background when scrolled */}
+        {isScrolled && (
+          <LiquidGlass
+            style={{
+              position: 'absolute' as const,
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: -1,
+              borderRadius: '0px',
+            }}
+            segments={24}
+            roughness={0.1}
+            thickness={40}
+            chromaticAberration={2}
+            reflectivity={0.85}
+            color="rgba(255, 255, 255, 0.1)"
+          />
+        )}
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex justify-between items-center h-16 sm:h-20">
             
             {/* Left side - Logo/Name */}
@@ -173,7 +193,25 @@ export default function Navigation() {
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                <div className="dropdown-glass absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 relative">
+                  {/* Liquid Glass Background for Dropdown */}
+                  <LiquidGlass
+                    style={{
+                      position: 'absolute' as const,
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      zIndex: -1,
+                      borderRadius: '12px',
+                    }}
+                    segments={20}
+                    roughness={0.08}
+                    thickness={30}
+                    chromaticAberration={1.5}
+                    reflectivity={0.9}
+                    color="rgba(255, 255, 255, 0.15)"
+                  />
                   <div className="p-3">
                     <button 
                       onClick={() => scrollToSection('#education')}
@@ -203,7 +241,25 @@ export default function Navigation() {
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                <div className="dropdown-glass absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 relative">
+                  {/* Liquid Glass Background for Dropdown */}
+                  <LiquidGlass
+                    style={{
+                      position: 'absolute' as const,
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      zIndex: -1,
+                      borderRadius: '12px',
+                    }}
+                    segments={20}
+                    roughness={0.08}
+                    thickness={30}
+                    chromaticAberration={1.5}
+                    reflectivity={0.9}
+                    color="rgba(255, 255, 255, 0.15)"
+                  />
                   <div className="p-3">
                     <button onClick={() => scrollToSection('#experience-bmo-private-wealth-portfolio-assistant')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
                       <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">BMO Private Wealth</div>
@@ -384,7 +440,25 @@ export default function Navigation() {
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                <div className="dropdown-glass absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 relative">
+                  {/* Liquid Glass Background for Dropdown */}
+                  <LiquidGlass
+                    style={{
+                      position: 'absolute' as const,
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      zIndex: -1,
+                      borderRadius: '12px',
+                    }}
+                    segments={20}
+                    roughness={0.08}
+                    thickness={30}
+                    chromaticAberration={1.5}
+                    reflectivity={0.9}
+                    color="rgba(255, 255, 255, 0.15)"
+                  />
                   <div className="p-3">
                     <button onClick={() => scrollToSection('#community-united-way')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
                       <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">United Way</div>
@@ -426,7 +500,25 @@ export default function Navigation() {
                     <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                   </button>
                   
-                  <div className="dropdown-glass absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 relative">
+                  {/* Liquid Glass Background for Dropdown */}
+                  <LiquidGlass
+                    style={{
+                      position: 'absolute' as const,
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      zIndex: -1,
+                      borderRadius: '12px',
+                    }}
+                    segments={20}
+                    roughness={0.08}
+                    thickness={30}
+                    chromaticAberration={1.5}
+                    reflectivity={0.9}
+                    color="rgba(255, 255, 255, 0.15)"
+                  />
                     <div className="p-3">
                       <button onClick={() => scrollToSection('#contact')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
                         <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Email</div>
