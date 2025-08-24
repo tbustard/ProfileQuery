@@ -152,7 +152,7 @@ export default function CertificationsSection() {
                         {category.title}
                       </h4>
                       <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 rounded-full" />
-                      <p className="text-sm text-muted-foreground mt-2">{category.certifications.length} professional certifications</p>
+                      <p className="text-base text-muted-foreground mt-2">{category.certifications.length} professional certifications</p>
                     </div>
 
                     {/* Certification Items */}
@@ -179,9 +179,9 @@ export default function CertificationsSection() {
                                   className="w-5 h-5 object-contain flex-shrink-0"
                                 />
                               )}
-                              <p className="text-muted-foreground font-medium text-sm">{cert.institution}</p>
+                              <p className="text-muted-foreground font-medium text-base">{cert.institution}</p>
                             </div>
-                            <p className="text-muted-foreground text-sm leading-relaxed mb-2 flex-1">{cert.description}</p>
+                            <p className="text-muted-foreground text-base leading-relaxed mb-2 flex-1">{cert.description}</p>
                           </div>
                           <div className="flex items-center justify-between mt-auto">
                             {cert.highlight && (
@@ -213,15 +213,15 @@ export default function CertificationsSection() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-2 sm:mb-3">22</div>
-                <div className="text-sm sm:text-base text-muted-foreground font-medium">Total Certifications</div>
+                <div className="text-base text-muted-foreground font-medium">Total Certifications</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-600 mb-2 sm:mb-3">4</div>
-                <div className="text-sm sm:text-base text-muted-foreground font-medium">Expertise Areas</div>
+                <div className="text-base text-muted-foreground font-medium">Expertise Areas</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2 sm:mb-3">17</div>
-                <div className="text-sm sm:text-base text-muted-foreground font-medium">Different Organizations</div>
+                <div className="text-base text-muted-foreground font-medium">Different Organizations</div>
               </div>
             </div>
           </div>
@@ -386,7 +386,7 @@ export function CommunitySection() {
                           {activity.achievements.map((achievement, achievementIndex) => (
                             <div key={achievementIndex} className="flex items-start gap-3">
                               <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                              <p className="text-sm text-muted-foreground font-medium leading-relaxed">{achievement}</p>
+                              <p className="text-base text-muted-foreground font-medium leading-relaxed">{achievement}</p>
                             </div>
                           ))}
                         </div>
@@ -425,15 +425,15 @@ export function CommunitySection() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
                 <div className="text-center">
                   <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-2 sm:mb-3">4+</div>
-                  <div className="text-sm sm:text-base text-muted-foreground font-medium">Years of Service</div>
+                  <div className="text-base text-muted-foreground font-medium">Years of Service</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-600 mb-2 sm:mb-3">3</div>
-                  <div className="text-sm sm:text-base text-muted-foreground font-medium">Organizations Served</div>
+                  <div className="text-base text-muted-foreground font-medium">Organizations Served</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2 sm:mb-3">500+</div>
-                  <div className="text-sm sm:text-base text-muted-foreground font-medium">People Helped</div>
+                  <div className="text-base text-muted-foreground font-medium">People Helped</div>
                 </div>
               </div>
             </div>
