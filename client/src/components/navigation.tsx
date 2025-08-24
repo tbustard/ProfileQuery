@@ -760,7 +760,7 @@ export default function Navigation() {
 
       {/* Contact Dropdown - Outside nav container */}
       {openDropdown === 'contact' && (
-        <div className="fixed top-20 left-1/2 transform translate-x-20 w-80 z-[9999] mt-2">
+        <div className="fixed top-20 left-1/2 transform translate-x-80 w-80 z-[9999] mt-2">
           <LiquidGlass 
             glassStyle={dropdownGlassStyle}
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
