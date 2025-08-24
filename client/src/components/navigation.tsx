@@ -16,6 +16,22 @@ export default function Navigation() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (openDropdown) {
+        const target = event.target as HTMLElement;
+        if (!target.closest('.dropdown-container')) {
+          setOpenDropdown(null);
+        }
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [openDropdown]);
+
+  useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setScrollY(currentScrollY);
@@ -163,11 +179,9 @@ export default function Navigation() {
                 <div className="hidden lg:flex items-center space-x-1">
                   
                   {/* Education */}
-                  <div className="relative">
+                  <div className="relative dropdown-container">
                     <button
-                      onMouseEnter={() => setOpenDropdown('education')}
-                      onMouseLeave={() => setOpenDropdown(null)}
-                      onClick={isHomePage ? () => scrollToSection('#education') : undefined}
+                      onClick={() => setOpenDropdown(openDropdown === 'education' ? null : 'education')}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                         currentSection === 'education' 
                           ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
@@ -179,11 +193,7 @@ export default function Navigation() {
                     </button>
                     
                     {openDropdown === 'education' && (
-                      <div 
-                        onMouseEnter={() => setOpenDropdown('education')}
-                        onMouseLeave={() => setOpenDropdown(null)}
-                        className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 rounded-xl shadow-2xl bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-white/20 z-[9999]"
-                      >
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 rounded-xl shadow-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 z-[9999]">
                         <LiquidGlass glassStyle={dropdownGlassStyle}>
                           <div className="p-3">
                             <button 
@@ -191,7 +201,7 @@ export default function Navigation() {
                                 scrollToSection('#education');
                                 setOpenDropdown(null);
                               }}
-                              className="w-full text-left block p-5 rounded-lg hover:bg-white/5 transition-colors"
+                              className="w-full text-left block p-5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                             >
                               <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">University of New Brunswick</div>
                               <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
