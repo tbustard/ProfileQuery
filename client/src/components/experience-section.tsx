@@ -114,7 +114,7 @@ export default function ExperienceSection() {
     <section 
       ref={sectionAnimation.ref}
       id="experience" 
-      className={`py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
+      className={`py-16 sm:py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
     >
       {/* Background - inherits Apple grey from parent */}
       

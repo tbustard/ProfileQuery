@@ -47,7 +47,7 @@ export default function DownloadSection() {
     <section 
       ref={sectionAnimation.ref}
       id="download" 
-      className={`py-12 sm:py-16 lg:py-20 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
+      className={`py-16 sm:py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
     >
       {/* Background - inherits Apple grey from parent */}
       
