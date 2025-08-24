@@ -103,15 +103,14 @@ export default function Navigation() {
   }), []);
 
   const dropdownGlassStyle = useMemo(() => ({
-    depth: 0.4,
-    segments: 32,
-    radius: 0.3,
-    roughness: 0.08,
-    transmission: 0.92,
-    reflectivity: 0.4,
-    ior: 1.35,
-    dispersion: 0.08,
-    thickness: 0.3
+    depth: 0,
+    segments: 50,
+    radius: 0,
+    tint: null,
+    reflectivity: 0.9,
+    thickness: 50,
+    dispersion: 5,
+    roughness: 0.3
   }), []);
 
   return (
