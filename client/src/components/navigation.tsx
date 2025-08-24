@@ -81,8 +81,10 @@ export default function Navigation() {
       });
 
       setCurrentSection(activeSection);
-      // Force liquid glass to refresh background after section change
-      setLiquidGlassKey(prev => prev + 1);
+      // Force liquid glass to refresh background after section change with delay
+      setTimeout(() => {
+        setLiquidGlassKey(prev => prev + 1);
+      }, 200);
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
@@ -144,10 +146,11 @@ export default function Navigation() {
         }`}
       >
         {isScrolled ? (
-          <LiquidGlass
-            key={`nav-${liquidGlassKey}-${currentSection}`}
-            glassStyle={navGlassStyle}
-            style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);"
+          <div 
+            className="backdrop-blur-xl bg-white/10 dark:bg-black/10 border-b border-white/10"
+            style={{
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+            }}
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center h-16 sm:h-20">
@@ -286,7 +289,7 @@ export default function Navigation() {
                 </div>
               </div>
             </div>
-          </LiquidGlass>
+          </div>
         ) : (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16 sm:h-20">
@@ -315,10 +318,11 @@ export default function Navigation() {
       {/* Fresh Mobile Menu Implementation */}
       {isMobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40">
-          <LiquidGlass
-            key={`mobile-nav-${liquidGlassKey}`}
-            glassStyle={navGlassStyle}
-            style="border-top: 1px solid rgba(255, 255, 255, 0.1);"
+          <div 
+            className="backdrop-blur-xl bg-white/10 dark:bg-black/10 border-t border-white/10 h-full"
+            style={{
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+            }}
           >
             <div className="px-4 py-6 h-full overflow-y-auto">
               <div className="space-y-4">
@@ -360,7 +364,7 @@ export default function Navigation() {
                 </button>
               </div>
             </div>
-          </LiquidGlass>
+          </div>
         </div>
       )}
 
