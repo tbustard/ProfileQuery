@@ -215,13 +215,13 @@ export default function HeroSection() {
                    animationDelay: '0.5s'
                  }}
                  data-testid="card-education">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 mb-0">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative">
                   <img src={unbLogo} alt="Education" className="w-6 h-6 object-contain" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">Education</h3>
+                <h3 className="text-lg font-semibold text-foreground leading-none mb-0">Education</h3>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed -mt-6">
+              <p className="text-sm text-muted-foreground leading-tight -mt-10 ml-15">
                 Bachelor of Business Administration in Finance
               </p>
             </div>
@@ -236,7 +236,7 @@ export default function HeroSection() {
                    animationDelay: '0.6s'
                  }}
                  data-testid="card-experience">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 mb-0">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent experience logos stacked */}
                   <div className="flex relative">
@@ -251,9 +251,9 @@ export default function HeroSection() {
                     </div>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">Experience</h3>
+                <h3 className="text-lg font-semibold text-foreground leading-none mb-0">Experience</h3>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed -mt-6">
+              <p className="text-sm text-muted-foreground leading-tight -mt-10 ml-15">
                 Professional experience in investment banking and financial services
               </p>
             </div>
@@ -268,7 +268,7 @@ export default function HeroSection() {
                    animationDelay: '0.7s'
                  }}
                  data-testid="card-certifications">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 mb-0">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent certification logos stacked */}
                   <div className="flex relative">
@@ -283,9 +283,9 @@ export default function HeroSection() {
                     </div>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">Certifications</h3>
+                <h3 className="text-lg font-semibold text-foreground leading-none mb-0">Certifications</h3>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed -mt-6">
+              <p className="text-sm text-muted-foreground leading-tight -mt-10 ml-15">
                 Advanced certifications in finance, technology, and professional development
               </p>
             </div>
@@ -300,7 +300,7 @@ export default function HeroSection() {
                    animationDelay: '0.8s'
                  }}
                  data-testid="card-community">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 mb-0">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent community logos stacked */}
                   <div className="flex relative">
@@ -315,9 +315,9 @@ export default function HeroSection() {
                     </div>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">Community</h3>
+                <h3 className="text-lg font-semibold text-foreground leading-none mb-0">Community</h3>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed -mt-6">
+              <p className="text-sm text-muted-foreground leading-tight -mt-10 ml-15">
                 Community leadership and volunteer service initiatives
               </p>
             </div>
