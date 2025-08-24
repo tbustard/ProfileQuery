@@ -77,7 +77,7 @@ export default function HeroSection() {
                       <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground tracking-tight leading-tight">
                         Tyler Bustard
                       </h1>
-                      <div className="h-1 w-20 bg-gradient-to-r from-primary to-primary/60 rounded-full mt-2" />
+                      <div className="h-1 w-20 bg-gradient-to-r from-primary to-primary/60 rounded-full mt-2 mx-auto lg:mx-0" />
                     </div>
                   </div>
                   <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-primary">
