@@ -12,7 +12,7 @@ const openai = new OpenAI({
 });
 
 // Configure multer for video uploads
-const upload = multer({
+const videoUpload = multer({
   dest: 'uploads/videos/',
   limits: {
     fileSize: 100 * 1024 * 1024, // 100MB limit
@@ -27,10 +27,30 @@ const upload = multer({
   },
 });
 
+// Configure multer for resume uploads
+const resumeUpload = multer({
+  dest: 'uploads/resumes/',
+  limits: {
+    fileSize: 10 * 1024 * 1024, // 10MB limit
+  },
+  fileFilter: (req, file, cb) => {
+    const allowedMimes = ['application/pdf', 'text/html', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    if (allowedMimes.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error('Invalid file type. Only PDF, HTML, DOC, and DOCX are allowed.'));
+    }
+  },
+});
+
 // Ensure upload directories exist
-const uploadDir = 'uploads/videos/';
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
+const videoUploadDir = 'uploads/videos/';
+const resumeUploadDir = 'uploads/resumes/';
+if (!fs.existsSync(videoUploadDir)) {
+  fs.mkdirSync(videoUploadDir, { recursive: true });
+}
+if (!fs.existsSync(resumeUploadDir)) {
+  fs.mkdirSync(resumeUploadDir, { recursive: true });
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -146,8 +166,133 @@ Focus on investment analysis, portfolio management, and financial reporting quer
     }
   });
 
+  // Resume upload endpoint
+  app.post("/api/resumes/upload", resumeUpload.single('resume'), async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: "No resume file provided" });
+      }
+
+      const { userId = 'employer' } = req.body;
+      
+      // Create resume record in storage
+      const resume = await storage.createResumeUpload({
+        fileName: req.file.originalname,
+        fileUrl: `/uploads/resumes/${req.file.filename}`,
+        userId
+      });
+
+      res.json({ 
+        success: true, 
+        resume,
+        message: "Resume uploaded successfully"
+      });
+    } catch (error: any) {
+      console.error("Resume upload error:", error);
+      res.status(500).json({ error: "Failed to upload resume" });
+    }
+  });
+
+  // Get resumes for a user
+  app.get("/api/resumes/:userId", async (req, res) => {
+    try {
+      const { userId } = req.params;
+      const resumes = await storage.getResumeUploads(userId);
+      res.json(resumes);
+    } catch (error) {
+      console.error("Get resumes error:", error);
+      res.status(500).json({ error: "Failed to fetch resumes" });
+    }
+  });
+
+  // Get latest resume for download
+  app.get("/api/resumes/latest/:userId", async (req, res) => {
+    try {
+      const { userId } = req.params;
+      const resumes = await storage.getResumeUploads(userId);
+      
+      if (resumes.length === 0) {
+        return res.status(404).json({ error: "No resume found" });
+      }
+
+      // Get the most recent resume
+      const latestResume = resumes.sort((a, b) => 
+        new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
+      )[0];
+
+      const resumePath = path.join(process.cwd(), latestResume.fileUrl.replace(/^\//, ''));
+      
+      if (!fs.existsSync(resumePath)) {
+        return res.status(404).json({ error: "Resume file not found" });
+      }
+
+      // Set appropriate headers based on file type
+      const ext = path.extname(latestResume.fileName).toLowerCase();
+      let contentType = 'application/octet-stream';
+      
+      switch (ext) {
+        case '.pdf':
+          contentType = 'application/pdf';
+          break;
+        case '.html':
+          contentType = 'text/html';
+          break;
+        case '.doc':
+          contentType = 'application/msword';
+          break;
+        case '.docx':
+          contentType = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+          break;
+      }
+
+      res.setHeader('Content-Type', contentType);
+      res.setHeader('Content-Disposition', `attachment; filename="${latestResume.fileName}"`);
+      
+      const fileStream = fs.createReadStream(resumePath);
+      fileStream.pipe(res);
+    } catch (error) {
+      console.error("Error serving resume:", error);
+      res.status(500).json({ error: "Failed to serve resume" });
+    }
+  });
+
+  // Serve Tyler Bustard Resume files (fallback for static access)
+  app.get("/Tyler_Bustard_Resume.pdf", async (req, res) => {
+    try {
+      const resumes = await storage.getResumeUploads('employer');
+      
+      if (resumes.length === 0) {
+        return res.status(404).json({ error: "No resume found" });
+      }
+
+      // Get the most recent PDF resume
+      const pdfResume = resumes
+        .filter(r => r.fileName.toLowerCase().endsWith('.pdf'))
+        .sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime())[0];
+
+      if (!pdfResume) {
+        return res.status(404).json({ error: "No PDF resume found" });
+      }
+
+      const resumePath = path.join(process.cwd(), pdfResume.fileUrl.replace(/^\//, ''));
+      
+      if (!fs.existsSync(resumePath)) {
+        return res.status(404).json({ error: "Resume file not found" });
+      }
+
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `attachment; filename="Tyler_Bustard_Resume.pdf"`);
+      
+      const fileStream = fs.createReadStream(resumePath);
+      fileStream.pipe(res);
+    } catch (error) {
+      console.error("Error serving Tyler Bustard resume:", error);
+      res.status(404).json({ error: "Resume not found" });
+    }
+  });
+
   // Video upload endpoint
-  app.post("/api/videos/upload", upload.single('video'), async (req, res) => {
+  app.post("/api/videos/upload", videoUpload.single('video'), async (req, res) => {
     try {
       if (!req.file) {
         return res.status(400).json({ error: "No video file provided" });

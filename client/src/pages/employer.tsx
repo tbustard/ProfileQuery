@@ -58,18 +58,21 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
   // Upload mutation
   const uploadMutation = useMutation({
     mutationFn: async (file: File) => {
-      // Simulate upload to storage service
-      const fakeUrl = `https://storage.example.com/resumes/${Date.now()}-${file.name}`;
-      
-      // Add to local state since we're using mock authentication
-      const newUpload: ResumeUpload = {
-        id: Date.now().toString(),
-        fileName: file.name,
-        fileUrl: fakeUrl,
-        uploadedAt: new Date().toISOString(),
-      };
-      
-      setUploads(prev => [newUpload, ...prev]);
+      const formData = new FormData();
+      formData.append('resume', file);
+      formData.append('userId', 'employer');
+
+      const response = await fetch('/api/resumes/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Upload failed');
+      }
+
+      return response.json();
     },
     onSuccess: () => {
       toast({
@@ -77,6 +80,9 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
         description: "Your resume has been uploaded successfully!",
       });
       setSelectedFile(null);
+      // Reset file input
+      const fileInput = document.getElementById('resume-file') as HTMLInputElement;
+      if (fileInput) fileInput.value = '';
     },
     onError: () => {
       toast({
