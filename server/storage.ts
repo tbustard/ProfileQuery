@@ -120,6 +120,10 @@ export class DatabaseStorage implements IStorage {
     await db.update(videos).set({ isActive: false }).where(ne(videos.id, activeId));
   }
 
+  async updateVideoUrl(id: string, fileUrl: string): Promise<void> {
+    await db.update(videos).set({ fileUrl }).where(eq(videos.id, id));
+  }
+
 }
 
 export const storage = new DatabaseStorage();

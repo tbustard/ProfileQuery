@@ -119,13 +119,28 @@ export default function HeroSection() {
                               height="100%" 
                               controls
                               autoplay
+                              muted
                               class="w-full h-full"
                             >
                               <source src="${activeVideo.fileUrl}" type="video/mp4">
+                              <source src="${activeVideo.fileUrl}" type="video/quicktime">
+                              <source src="${activeVideo.fileUrl}" type="video/mov">
+                              <source src="${activeVideo.fileUrl}" type="video/avi">
+                              <source src="${activeVideo.fileUrl}" type="video/webm">
                               Your browser does not support the video tag.
                             </video>
                           </div>
                         `;
+                        
+                        // Try to play the video after a short delay
+                        setTimeout(() => {
+                          const video = overlay.querySelector('video') as HTMLVideoElement;
+                          if (video) {
+                            video.play().catch(e => {
+                              console.log('Autoplay failed, user will need to click play manually:', e);
+                            });
+                          }
+                        }, 100);
                         document.body.appendChild(overlay);
                         
                         // Close on escape key

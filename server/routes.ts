@@ -1,4 +1,4 @@
-import type { Express } from "express";
+import express, { type Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertSqlQuerySchema, insertContactMessageSchema, insertVideoSchema, insertSiteSettingsSchema } from "@shared/schema";
@@ -6,6 +6,7 @@ import OpenAI from "openai";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
+import crypto from "crypto";
 
 const openai = new OpenAI({ 
   apiKey: process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY_ENV_VAR || "default_key" 
@@ -13,16 +14,24 @@ const openai = new OpenAI({
 
 // Configure multer for video uploads
 const videoUpload = multer({
-  dest: 'uploads/videos/',
+  storage: multer.diskStorage({
+    destination: 'uploads/videos/',
+    filename: (req, file, cb) => {
+      // Preserve file extension
+      const ext = path.extname(file.originalname);
+      const name = crypto.randomUUID();
+      cb(null, `${name}${ext}`);
+    }
+  }),
   limits: {
     fileSize: 100 * 1024 * 1024, // 100MB limit
   },
   fileFilter: (req, file, cb) => {
-    const allowedMimes = ['video/mp4', 'video/quicktime', 'video/avi'];
+    const allowedMimes = ['video/mp4', 'video/quicktime', 'video/avi', 'video/webm'];
     if (allowedMimes.includes(file.mimetype)) {
       cb(null, true);
     } else {
-      cb(new Error('Invalid file type. Only MP4, MOV, and AVI are allowed.'));
+      cb(new Error('Invalid file type. Only MP4, MOV, AVI, and WebM are allowed.'));
     }
   },
 });
@@ -378,6 +387,25 @@ Focus on investment analysis, portfolio management, and financial reporting quer
       res.status(500).json({ error: "Failed to activate video" });
     }
   });
+
+
+  // Serve uploaded files (videos and resumes) with proper MIME types
+  app.use('/uploads', express.static(path.join(process.cwd(), 'uploads'), {
+    setHeaders: (res, filePath) => {
+      const ext = path.extname(filePath).toLowerCase();
+      if (ext === '.mp4') {
+        res.setHeader('Content-Type', 'video/mp4');
+      } else if (ext === '.mov') {
+        res.setHeader('Content-Type', 'video/quicktime');
+      } else if (ext === '.avi') {
+        res.setHeader('Content-Type', 'video/x-msvideo');
+      } else if (ext === '.webm') {
+        res.setHeader('Content-Type', 'video/webm');
+      } else if (ext === '.pdf') {
+        res.setHeader('Content-Type', 'application/pdf');
+      }
+    }
+  }));
 
   const httpServer = createServer(app);
   return httpServer;
