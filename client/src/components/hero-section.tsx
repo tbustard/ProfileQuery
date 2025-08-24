@@ -221,7 +221,7 @@ export default function HeroSection() {
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">Education</h3>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed -mt-1">
+              <p className="text-sm text-muted-foreground leading-relaxed -mt-3">
                 Bachelor of Business Administration in Finance
               </p>
             </div>
@@ -253,7 +253,7 @@ export default function HeroSection() {
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">Experience</h3>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed -mt-1">
+              <p className="text-sm text-muted-foreground leading-relaxed -mt-3">
                 Professional experience in investment banking and financial services
               </p>
             </div>
@@ -285,7 +285,7 @@ export default function HeroSection() {
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">Certifications</h3>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed -mt-1">
+              <p className="text-sm text-muted-foreground leading-relaxed -mt-3">
                 Advanced certifications in finance, technology, and professional development
               </p>
             </div>
@@ -317,7 +317,7 @@ export default function HeroSection() {
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">Community</h3>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed -mt-1">
+              <p className="text-sm text-muted-foreground leading-relaxed -mt-3">
                 Community leadership and volunteer service initiatives
               </p>
             </div>
