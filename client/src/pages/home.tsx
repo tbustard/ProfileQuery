@@ -57,42 +57,24 @@ export default function Home() {
             : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
       >
-        <LiquidGlass
-          className="shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
-          style="border-radius: 30px; padding: 12px 24px; height: 60px; width: 200px;"
-          radius={10}
-          thickness={50}
-          roughness={0.2}
-          reflectivity={0.9}
-          chromaticAberration={5}
-          segments={86}
-        >
-          <div className="flex items-center justify-between w-full h-full">
-            <span className={`text-sm font-medium whitespace-nowrap transition-colors duration-300 ${
-              isOverDarkSection ? 'text-white' : 'text-foreground'
-            }`}>
-              Back to top
-            </span>
-            <LiquidGlass
-              className="rounded-full"
-              style="border-radius: 50%; width: 40px; height: 40px;"
-              radius={5}
-              thickness={30}
-              roughness={0.2}
-              reflectivity={0.9}
-              chromaticAberration={3}
-              segments={40}
-            >
+        <div className="shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105">
+          <LiquidGlass>
+            <div className="flex items-center px-6 py-3">
+              <span className={`text-sm font-medium mr-4 whitespace-nowrap transition-colors duration-300 ${
+                isOverDarkSection ? 'text-white' : 'text-foreground'
+              }`}>
+                Back to top
+              </span>
               <button
                 onClick={scrollToTop}
-                className="w-full h-full bg-primary hover:bg-primary/90 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+                className="w-10 h-10 bg-primary hover:bg-primary/90 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
                 data-testid="scroll-to-top-button"
               >
                 <ChevronUp size={20} className="transition-transform duration-300 hover:scale-110" />
               </button>
-            </LiquidGlass>
-          </div>
-        </LiquidGlass>
+            </div>
+          </LiquidGlass>
+        </div>
       </div>
       
       {/* Clean Footer */}
