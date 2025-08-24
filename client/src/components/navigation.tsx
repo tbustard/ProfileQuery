@@ -14,7 +14,6 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentSection, setCurrentSection] = useState(isHomePage ? 'hero' : '');
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null);
   
   // Refs for liquid glass components to access their methods
   const navGlassRef = useRef<LiquidGlassRef>(null);
@@ -219,7 +218,7 @@ export default function Navigation() {
                   <div 
                     className="relative dropdown-container"
                     onMouseEnter={() => setOpenDropdown('education')}
-                    onMouseLeave={() => setTimeout(() => setOpenDropdown(null), 100)}
+                    onMouseLeave={() => setOpenDropdown(null)}
                   >
                     <button
                       onClick={() => {
@@ -242,7 +241,7 @@ export default function Navigation() {
                   <div 
                     className="relative dropdown-container"
                     onMouseEnter={() => setOpenDropdown('experience')}
-                    onMouseLeave={() => setTimeout(() => setOpenDropdown(null), 100)}
+                    onMouseLeave={() => setOpenDropdown(null)}
                   >
                     <button
                       onClick={() => {
@@ -264,7 +263,7 @@ export default function Navigation() {
                   <div 
                     className="relative dropdown-container"
                     onMouseEnter={() => setOpenDropdown('certifications')}
-                    onMouseLeave={() => setTimeout(() => setOpenDropdown(null), 100)}
+                    onMouseLeave={() => setOpenDropdown(null)}
                   >
                     <button
                       onClick={() => {
@@ -286,7 +285,7 @@ export default function Navigation() {
                   <div 
                     className="relative dropdown-container"
                     onMouseEnter={() => setOpenDropdown('community')}
-                    onMouseLeave={() => setTimeout(() => setOpenDropdown(null), 100)}
+                    onMouseLeave={() => setOpenDropdown(null)}
                   >
                     <button
                       onClick={() => {
@@ -308,7 +307,7 @@ export default function Navigation() {
                   <div 
                     className="relative dropdown-container"
                     onMouseEnter={() => setOpenDropdown('contact')}
-                    onMouseLeave={() => setTimeout(() => setOpenDropdown(null), 100)}
+                    onMouseLeave={() => setOpenDropdown(null)}
                   >
                     <button
                       onClick={() => {
@@ -906,13 +905,8 @@ export default function Navigation() {
       {openDropdown === 'education' && (
         <div 
           className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:-translate-x-80 lg:w-80 lg:mt-2 z-[9999]"
-          onMouseEnter={() => {
-            if (closeTimeout) clearTimeout(closeTimeout);
-          }}
-          onMouseLeave={() => {
-            const timeout = setTimeout(() => setOpenDropdown(null), 200);
-            setCloseTimeout(timeout);
-          }}
+          onMouseEnter={() => setOpenDropdown('education')}
+          onMouseLeave={() => setOpenDropdown(null)}
         >
           <LiquidGlass 
             ref={educationDropdownRef}
@@ -964,13 +958,8 @@ export default function Navigation() {
       {openDropdown === 'experience' && (
         <div 
           className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:-translate-x-32 lg:w-80 lg:mt-2 z-[9999]"
-          onMouseEnter={() => {
-            if (closeTimeout) clearTimeout(closeTimeout);
-          }}
-          onMouseLeave={() => {
-            const timeout = setTimeout(() => setOpenDropdown(null), 200);
-            setCloseTimeout(timeout);
-          }}
+          onMouseEnter={() => setOpenDropdown('experience')}
+          onMouseLeave={() => setOpenDropdown(null)}
         >
           <LiquidGlass 
             ref={experienceDropdownRef}
@@ -1105,13 +1094,8 @@ export default function Navigation() {
       {openDropdown === 'certifications' && (
         <div 
           className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-8 lg:w-96 lg:mt-2 z-[9999]"
-          onMouseEnter={() => {
-            if (closeTimeout) clearTimeout(closeTimeout);
-          }}
-          onMouseLeave={() => {
-            const timeout = setTimeout(() => setOpenDropdown(null), 200);
-            setCloseTimeout(timeout);
-          }}
+          onMouseEnter={() => setOpenDropdown('certifications')}
+          onMouseLeave={() => setOpenDropdown(null)}
         >
           <LiquidGlass 
             ref={certificationsDropdownRef}
@@ -1328,13 +1312,8 @@ export default function Navigation() {
       {openDropdown === 'community' && (
         <div 
           className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-48 lg:w-80 lg:mt-2 z-[9999]"
-          onMouseEnter={() => {
-            if (closeTimeout) clearTimeout(closeTimeout);
-          }}
-          onMouseLeave={() => {
-            const timeout = setTimeout(() => setOpenDropdown(null), 200);
-            setCloseTimeout(timeout);
-          }}
+          onMouseEnter={() => setOpenDropdown('community')}
+          onMouseLeave={() => setOpenDropdown(null)}
         >
           <LiquidGlass 
             ref={communityDropdownRef}
@@ -1423,13 +1402,8 @@ export default function Navigation() {
       {openDropdown === 'contact' && (
         <div 
           className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-80 lg:w-80 lg:mt-2 z-[9999]"
-          onMouseEnter={() => {
-            if (closeTimeout) clearTimeout(closeTimeout);
-          }}
-          onMouseLeave={() => {
-            const timeout = setTimeout(() => setOpenDropdown(null), 200);
-            setCloseTimeout(timeout);
-          }}
+          onMouseEnter={() => setOpenDropdown('contact')}
+          onMouseLeave={() => setOpenDropdown(null)}
         >
           <LiquidGlass 
             ref={contactDropdownRef}
