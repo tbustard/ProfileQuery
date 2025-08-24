@@ -236,8 +236,8 @@ export default function Navigation() {
                   onClick={isHomePage ? () => scrollToSection('#certifications') : undefined}
                   className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                     currentSection === 'certifications' 
-                      ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
-                      : 'text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:bg-blue-50/10 dark:hover:bg-blue-900/10'
+                      ? 'text-black dark:text-white font-semibold bg-gray-100/10 dark:bg-gray-900/20' 
+                      : 'text-black dark:text-white hover:text-black dark:hover:text-white hover:bg-gray-50/10 dark:hover:bg-gray-900/10'
                   }`}
                 >
                   Certifications
@@ -247,7 +247,7 @@ export default function Navigation() {
                 <div className="dropdown-glass absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-96 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="p-2">
                     {/* Financial Excellence */}
-                    <div className="px-4 py-2 text-sm font-semibold text-blue-600 dark:text-blue-400">Financial Excellence</div>
+                    <div className="px-4 py-2 text-sm font-semibold text-black dark:text-white">Financial Excellence</div>
                     <button onClick={() => scrollToSection('#cert-cfa-level-i-candidate')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/20">
                       <div className="font-semibold text-gray-900 dark:text-white text-base mb-1">CFA Level I Candidate</div>
                       <div className="text-sm text-gray-600 dark:text-gray-400">CFA Institute • 2025</div>
@@ -290,7 +290,7 @@ export default function Navigation() {
                     </button>
                     
                     {/* Data & Technology */}
-                    <div className="px-4 py-2 text-sm font-semibold text-blue-600 dark:text-blue-400 mt-4">Data & Technology</div>
+                    <div className="px-4 py-2 text-sm font-semibold text-black dark:text-white mt-4">Data & Technology</div>
                     <button onClick={() => scrollToSection('#cert-data-analytics-professional')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/20">
                       <div className="font-semibold text-gray-900 dark:text-white text-base mb-1">Data Analytics Professional</div>
                       <div className="text-sm text-gray-600 dark:text-gray-400">Google • 2023</div>
@@ -317,7 +317,7 @@ export default function Navigation() {
                     </button>
                     
                     {/* Advanced Analytics */}
-                    <div className="px-4 py-2 text-sm font-semibold text-blue-600 dark:text-blue-400 mt-4">Advanced Analytics</div>
+                    <div className="px-4 py-2 text-sm font-semibold text-black dark:text-white mt-4">Advanced Analytics</div>
                     <button onClick={() => scrollToSection('#cert-econometrics--methods---applications')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/20">
                       <div className="font-semibold text-gray-900 dark:text-white text-base mb-1">Econometrics: Methods & Applications</div>
                       <div className="text-sm text-gray-600 dark:text-gray-400">Erasmus University • 2024</div>
@@ -340,7 +340,7 @@ export default function Navigation() {
                     </button>
                     
                     {/* Standardized Exam */}
-                    <div className="px-4 py-2 text-sm font-semibold text-blue-600 dark:text-blue-400 mt-4">Standardized Exam</div>
+                    <div className="px-4 py-2 text-sm font-semibold text-black dark:text-white mt-4">Standardized Exam</div>
                     <button onClick={() => scrollToSection('#cert-gre-general-test')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors">
                       <div className="font-semibold text-gray-900 dark:text-white text-base mb-1">GRE General Test</div>
                       <div className="text-sm text-gray-600 dark:text-gray-400">ETS • 2024</div>
