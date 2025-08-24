@@ -13,6 +13,7 @@ export default function Navigation() {
   const [scrollY, setScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentSection, setCurrentSection] = useState(isHomePage ? 'hero' : '');
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -162,8 +163,10 @@ export default function Navigation() {
                 <div className="hidden lg:flex items-center space-x-1">
                   
                   {/* Education */}
-                  <div className="relative group">
+                  <div className="relative">
                     <button
+                      onMouseEnter={() => setOpenDropdown('education')}
+                      onMouseLeave={() => setOpenDropdown(null)}
                       onClick={isHomePage ? () => scrollToSection('#education') : undefined}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                         currentSection === 'education' 
@@ -172,30 +175,41 @@ export default function Navigation() {
                       }`}
                     >
                       Education
-                      <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
+                      <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'education' ? 'rotate-180' : ''}`} />
                     </button>
                     
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 rounded-xl shadow-2xl bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-white/20 group-hover:block hidden z-[9999]">
-                      <LiquidGlass glassStyle={dropdownGlassStyle}>
-                        <div className="p-3">
-                          <button 
-                            onClick={() => scrollToSection('#education')}
-                            className="w-full text-left block p-5 rounded-lg hover:bg-white/5 transition-colors"
-                          >
-                            <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">University of New Brunswick</div>
-                            <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-                              <div>Bachelor of Business Administration</div>
-                              <div className="mt-1 font-medium">Fredericton, NB • 2016-2020</div>
-                            </div>
-                          </button>
-                        </div>
-                      </LiquidGlass>
-                    </div>
+                    {openDropdown === 'education' && (
+                      <div 
+                        onMouseEnter={() => setOpenDropdown('education')}
+                        onMouseLeave={() => setOpenDropdown(null)}
+                        className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 rounded-xl shadow-2xl bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-white/20 z-[9999]"
+                      >
+                        <LiquidGlass glassStyle={dropdownGlassStyle}>
+                          <div className="p-3">
+                            <button 
+                              onClick={() => {
+                                scrollToSection('#education');
+                                setOpenDropdown(null);
+                              }}
+                              className="w-full text-left block p-5 rounded-lg hover:bg-white/5 transition-colors"
+                            >
+                              <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">University of New Brunswick</div>
+                              <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+                                <div>Bachelor of Business Administration</div>
+                                <div className="mt-1 font-medium">Fredericton, NB • 2016-2020</div>
+                              </div>
+                            </button>
+                          </div>
+                        </LiquidGlass>
+                      </div>
+                    )}
                   </div>
 
                   {/* Experience */}
-                  <div className="relative group">
+                  <div className="relative">
                     <button
+                      onMouseEnter={() => setOpenDropdown('experience')}
+                      onMouseLeave={() => setOpenDropdown(null)}
                       onClick={isHomePage ? () => scrollToSection('#experience') : undefined}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                         currentSection === 'experience' 
@@ -204,48 +218,56 @@ export default function Navigation() {
                       }`}
                     >
                       Experience
-                      <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
+                      <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'experience' ? 'rotate-180' : ''}`} />
                     </button>
                     
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-white/20 group-hover:block hidden z-[9999]">
-                      <LiquidGlass glassStyle={dropdownGlassStyle}>
-                        <div className="p-3">
-                          <button onClick={() => scrollToSection('#experience-bmo-private-wealth-portfolio-assistant')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
-                            <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">BMO Private Wealth</div>
-                            <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-                              <div>Portfolio Assistant</div>
-                              <div className="mt-1 font-medium">Toronto, ON • 2022-2023</div>
-                            </div>
-                          </button>
-                          <button onClick={() => scrollToSection('#experience-td-canada-trust-financial-advisor')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
-                            <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">TD Canada Trust</div>
-                            <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-                              <div>Financial Advisor</div>
-                              <div className="mt-1 font-medium">Kingston, ON • 2021-2022</div>
-                            </div>
-                          </button>
-                          <button onClick={() => scrollToSection('#experience-royal-bank-of-canada-banking-advisor')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
-                            <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Royal Bank of Canada</div>
-                            <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-                              <div>Banking Advisor</div>
-                              <div className="mt-1 font-medium">Kingston, ON • 2020-2021</div>
-                            </div>
-                          </button>
-                          <button onClick={() => scrollToSection('#experience-royal-bank-of-canada-client-advisor-intern')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
-                            <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">RBC</div>
-                            <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-                              <div>Client Advisor Intern</div>
-                              <div className="mt-1 font-medium">Fredericton, NB • 2019-2020</div>
-                            </div>
-                          </button>
-                        </div>
-                      </LiquidGlass>
-                    </div>
+                    {openDropdown === 'experience' && (
+                      <div 
+                        onMouseEnter={() => setOpenDropdown('experience')}
+                        onMouseLeave={() => setOpenDropdown(null)}
+                        className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-white/20 z-[9999]"
+                      >
+                        <LiquidGlass glassStyle={dropdownGlassStyle}>
+                          <div className="p-3">
+                            <button onClick={() => { scrollToSection('#experience-bmo-private-wealth-portfolio-assistant'); setOpenDropdown(null); }} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
+                              <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">BMO Private Wealth</div>
+                              <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+                                <div>Portfolio Assistant</div>
+                                <div className="mt-1 font-medium">Toronto, ON • 2022-2023</div>
+                              </div>
+                            </button>
+                            <button onClick={() => { scrollToSection('#experience-td-canada-trust-financial-advisor'); setOpenDropdown(null); }} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
+                              <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">TD Canada Trust</div>
+                              <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+                                <div>Financial Advisor</div>
+                                <div className="mt-1 font-medium">Kingston, ON • 2021-2022</div>
+                              </div>
+                            </button>
+                            <button onClick={() => { scrollToSection('#experience-royal-bank-of-canada-banking-advisor'); setOpenDropdown(null); }} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
+                              <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Royal Bank of Canada</div>
+                              <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+                                <div>Banking Advisor</div>
+                                <div className="mt-1 font-medium">Kingston, ON • 2020-2021</div>
+                              </div>
+                            </button>
+                            <button onClick={() => { scrollToSection('#experience-royal-bank-of-canada-client-advisor-intern'); setOpenDropdown(null); }} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
+                              <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">RBC</div>
+                              <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+                                <div>Client Advisor Intern</div>
+                                <div className="mt-1 font-medium">Fredericton, NB • 2019-2020</div>
+                              </div>
+                            </button>
+                          </div>
+                        </LiquidGlass>
+                      </div>
+                    )}
                   </div>
 
                   {/* Certifications */}
-                  <div className="relative group">
+                  <div className="relative">
                     <button
+                      onMouseEnter={() => setOpenDropdown('certifications')}
+                      onMouseLeave={() => setOpenDropdown(null)}
                       onClick={isHomePage ? () => scrollToSection('#certifications') : undefined}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                         currentSection === 'certifications' 
@@ -254,41 +276,49 @@ export default function Navigation() {
                       }`}
                     >
                       Certifications
-                      <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
+                      <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'certifications' ? 'rotate-180' : ''}`} />
                     </button>
                     
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-96 max-h-96 overflow-y-auto rounded-xl shadow-2xl bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-white/20 group-hover:block hidden z-[9999]">
-                      <LiquidGlass glassStyle={dropdownGlassStyle}>
-                        <div className="p-2">
-                          {/* Financial Excellence */}
-                          <div className="px-4 py-2 text-sm font-semibold text-black dark:text-white">Financial Excellence</div>
-                          <button onClick={() => scrollToSection('#cert-cfa-level-i-candidate')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/20">
-                            <div className="font-semibold text-gray-900 dark:text-white text-base mb-1">CFA Level I Candidate</div>
-                            <div className="text-sm text-gray-600 dark:text-gray-400">CFA Institute • 2025</div>
-                          </button>
-                          <button onClick={() => scrollToSection('#cert-canadian-securities-course')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/20">
-                            <div className="font-semibold text-gray-900 dark:text-white text-base mb-1">Canadian Securities Course</div>
-                            <div className="text-sm text-gray-600 dark:text-gray-400">CSI • 2021</div>
-                          </button>
-                          
-                          {/* Data & Technology */}
-                          <div className="px-4 py-2 text-sm font-semibold text-black dark:text-white mt-4">Data & Technology</div>
-                          <button onClick={() => scrollToSection('#cert-data-analytics-professional')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/20">
-                            <div className="font-semibold text-gray-900 dark:text-white text-base mb-1">Data Analytics Professional</div>
-                            <div className="text-sm text-gray-600 dark:text-gray-400">Google • 2023</div>
-                          </button>
-                          <button onClick={() => scrollToSection('#cert-python-for-everybody')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors">
-                            <div className="font-semibold text-gray-900 dark:text-white text-base mb-1">Python for Everybody</div>
-                            <div className="text-sm text-gray-600 dark:text-gray-400">University of Michigan • 2023</div>
-                          </button>
-                        </div>
-                      </LiquidGlass>
-                    </div>
+                    {openDropdown === 'certifications' && (
+                      <div 
+                        onMouseEnter={() => setOpenDropdown('certifications')}
+                        onMouseLeave={() => setOpenDropdown(null)}
+                        className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-96 max-h-96 overflow-y-auto rounded-xl shadow-2xl bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-white/20 z-[9999]"
+                      >
+                        <LiquidGlass glassStyle={dropdownGlassStyle}>
+                          <div className="p-2">
+                            {/* Financial Excellence */}
+                            <div className="px-4 py-2 text-sm font-semibold text-black dark:text-white">Financial Excellence</div>
+                            <button onClick={() => { scrollToSection('#cert-cfa-level-i-candidate'); setOpenDropdown(null); }} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/20">
+                              <div className="font-semibold text-gray-900 dark:text-white text-base mb-1">CFA Level I Candidate</div>
+                              <div className="text-sm text-gray-600 dark:text-gray-400">CFA Institute • 2025</div>
+                            </button>
+                            <button onClick={() => { scrollToSection('#cert-canadian-securities-course'); setOpenDropdown(null); }} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/20">
+                              <div className="font-semibold text-gray-900 dark:text-white text-base mb-1">Canadian Securities Course</div>
+                              <div className="text-sm text-gray-600 dark:text-gray-400">CSI • 2021</div>
+                            </button>
+                            
+                            {/* Data & Technology */}
+                            <div className="px-4 py-2 text-sm font-semibold text-black dark:text-white mt-4">Data & Technology</div>
+                            <button onClick={() => { scrollToSection('#cert-data-analytics-professional'); setOpenDropdown(null); }} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/20">
+                              <div className="font-semibold text-gray-900 dark:text-white text-base mb-1">Data Analytics Professional</div>
+                              <div className="text-sm text-gray-600 dark:text-gray-400">Google • 2023</div>
+                            </button>
+                            <button onClick={() => { scrollToSection('#cert-python-for-everybody'); setOpenDropdown(null); }} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors">
+                              <div className="font-semibold text-gray-900 dark:text-white text-base mb-1">Python for Everybody</div>
+                              <div className="text-sm text-gray-600 dark:text-gray-400">University of Michigan • 2023</div>
+                            </button>
+                          </div>
+                        </LiquidGlass>
+                      </div>
+                    )}
                   </div>
 
                   {/* Community */}
-                  <div className="relative group">
+                  <div className="relative">
                     <button
+                      onMouseEnter={() => setOpenDropdown('community')}
+                      onMouseLeave={() => setOpenDropdown(null)}
                       onClick={isHomePage ? () => scrollToSection('#community') : undefined}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                         currentSection === 'community' 
@@ -297,27 +327,35 @@ export default function Navigation() {
                       }`}
                     >
                       Community
-                      <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
+                      <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'community' ? 'rotate-180' : ''}`} />
                     </button>
                     
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-white/20 group-hover:block hidden z-[9999]">
-                      <LiquidGlass glassStyle={dropdownGlassStyle}>
-                        <div className="p-3">
-                          <button onClick={() => scrollToSection('#community-canadian-red-cross-volunteer')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
-                            <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Canadian Red Cross</div>
-                            <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-                              <div>Volunteer</div>
-                              <div className="mt-1 font-medium">Kingston, ON • 2021-2022</div>
-                            </div>
-                          </button>
-                        </div>
-                      </LiquidGlass>
-                    </div>
+                    {openDropdown === 'community' && (
+                      <div 
+                        onMouseEnter={() => setOpenDropdown('community')}
+                        onMouseLeave={() => setOpenDropdown(null)}
+                        className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-white/20 z-[9999]"
+                      >
+                        <LiquidGlass glassStyle={dropdownGlassStyle}>
+                          <div className="p-3">
+                            <button onClick={() => { scrollToSection('#community-canadian-red-cross-volunteer'); setOpenDropdown(null); }} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
+                              <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Canadian Red Cross</div>
+                              <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+                                <div>Volunteer</div>
+                                <div className="mt-1 font-medium">Kingston, ON • 2021-2022</div>
+                              </div>
+                            </button>
+                          </div>
+                        </LiquidGlass>
+                      </div>
+                    )}
                   </div>
 
                   {/* Contact */}
-                  <div className="relative group">
+                  <div className="relative">
                     <button
+                      onMouseEnter={() => setOpenDropdown('contact')}
+                      onMouseLeave={() => setOpenDropdown(null)}
                       onClick={isHomePage ? () => scrollToSection('#contact') : undefined}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                         currentSection === 'contact' 
@@ -326,27 +364,33 @@ export default function Navigation() {
                       }`}
                     >
                       Contact
-                      <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
+                      <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'contact' ? 'rotate-180' : ''}`} />
                     </button>
                     
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-white/20 group-hover:block hidden z-[9999]">
-                      <LiquidGlass glassStyle={dropdownGlassStyle}>
-                        <div className="p-3">
-                          <button onClick={() => scrollToSection('#contact')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
-                            <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Email</div>
-                            <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed font-medium">tbustard@unb.ca</div>
-                          </button>
-                          <button onClick={() => scrollToSection('#contact')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
-                            <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Phone</div>
-                            <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed font-medium">(613) 985-1223</div>
-                          </button>
-                          <button onClick={() => scrollToSection('#contact')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors">
-                            <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Location</div>
-                            <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Toronto, Ontario, Canada</div>
-                          </button>
-                        </div>
-                      </LiquidGlass>
-                    </div>
+                    {openDropdown === 'contact' && (
+                      <div 
+                        onMouseEnter={() => setOpenDropdown('contact')}
+                        onMouseLeave={() => setOpenDropdown(null)}
+                        className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border border-white/20 z-[9999]"
+                      >
+                        <LiquidGlass glassStyle={dropdownGlassStyle}>
+                          <div className="p-3">
+                            <button onClick={() => { scrollToSection('#contact'); setOpenDropdown(null); }} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
+                              <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Email</div>
+                              <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed font-medium">tbustard@unb.ca</div>
+                            </button>
+                            <button onClick={() => { scrollToSection('#contact'); setOpenDropdown(null); }} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
+                              <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Phone</div>
+                              <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed font-medium">(613) 985-1223</div>
+                            </button>
+                            <button onClick={() => { scrollToSection('#contact'); setOpenDropdown(null); }} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors">
+                              <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Location</div>
+                              <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Toronto, Ontario, Canada</div>
+                            </button>
+                          </div>
+                        </LiquidGlass>
+                      </div>
+                    )}
                   </div>
 
                   {/* Download */}
