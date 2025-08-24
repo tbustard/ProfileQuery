@@ -111,11 +111,22 @@ export default function Navigation() {
     }
   };
 
+  const glassStyle = {
+    depth: 0,
+    segments: 70,
+    radius: 0,
+    tint: null,
+    reflectivity: 1,
+    thickness: 100,
+    dispersion: 4,
+    roughness: 0.32,
+  };
+
   return (
     <>
       {/* Navigation Bar */}
       {isScrolled ? (
-        <LiquidGlass>
+        <LiquidGlass glassStyle={glassStyle}>
           <nav className="fixed top-0 left-0 right-0 w-full z-50 border-b border-white/10 shadow-2xl transition-all duration-700 ease-out">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center h-16 sm:h-20">
