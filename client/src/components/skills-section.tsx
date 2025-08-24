@@ -116,39 +116,39 @@ export default function CertificationsSection() {
       {/* Background - inherits Apple grey from parent */}
       
       <div className="container-width">
-        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
+        <div className="bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] p-6 sm:p-8 lg:p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header */}
           <div 
             ref={headerAnimation.ref}
-            className={`text-center mb-20 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+            className={`text-center mb-12 sm:mb-16 lg:mb-20 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
           >
-            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 tracking-tight">
               Certifications
             </h2>
-            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-4">
+            <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-4">
               Comprehensive expertise across finance, technology, and analytics through continuous learning and professional development
             </p>
           </div>
 
         {/* All Certifications */}
-        <div ref={certificationsRef} className="space-y-8 mb-24">
+        <div ref={certificationsRef} className="space-y-6 sm:space-y-8 mb-16 sm:mb-20 lg:mb-24">
             {certificationCategories.map((category, categoryIndex) => (
               <div 
                 key={categoryIndex} 
                 id={`certifications-${category.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} 
-                className={`relative overflow-hidden rounded-[28px] bg-gradient-to-r from-gray-100/50 to-gray-200/50 backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 scroll-scale-in scroll-stagger-${categoryIndex + 1} ${visibleItems.has(categoryIndex) ? 'visible' : ''}`}
+                className={`relative overflow-hidden rounded-[20px] sm:rounded-[28px] bg-gradient-to-r from-gray-100/50 to-gray-200/50 backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 scroll-scale-in scroll-stagger-${categoryIndex + 1} ${visibleItems.has(categoryIndex) ? 'visible' : ''}`}
               >
                 <div className="absolute inset-0 bg-white/80 backdrop-blur-xl" />
-                <div className="relative p-8 lg:p-12">
-                  <div className="flex flex-col lg:flex-row lg:items-center gap-8">
+                <div className="relative p-6 sm:p-8 lg:p-12">
+                  <div className="flex flex-col lg:flex-row lg:items-center gap-6 sm:gap-8">
                     {/* Category Title */}
-                    <div className="lg:w-1/4">
+                    <div className="lg:w-1/4 text-center sm:text-left">
                       <div className="flex items-center gap-4 mb-4">
                         <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
                           <category.icon className="w-8 h-8 text-white" />
                         </div>
                       </div>
-                      <h4 className="text-2xl font-bold text-foreground mb-2">
+                      <h4 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
                         {category.title}
                       </h4>
                       <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 rounded-full" />
@@ -156,12 +156,12 @@ export default function CertificationsSection() {
                     </div>
 
                     {/* Certification Items */}
-                    <div className="lg:w-3/4 grid md:grid-cols-2 gap-6 md:grid-rows-[repeat(auto-fit,1fr)]">
+                    <div className="lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                       {category.certifications.map((cert, certIndex) => (
                         <div 
                           key={certIndex}
                           id={`cert-${cert.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                          className="bg-white/90 backdrop-blur-xl rounded-[20px] p-6 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.02] flex flex-col justify-between h-full"
+                          className="bg-white/90 backdrop-blur-xl rounded-[16px] sm:rounded-[20px] p-4 sm:p-6 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.02] flex flex-col justify-between h-full"
                           data-testid={`cert-${categoryIndex}-${certIndex}`}
                         >
                           <div className="flex-1 flex flex-col">
@@ -205,23 +205,23 @@ export default function CertificationsSection() {
         </div>
 
         {/* Achievement Metrics - Clean stats */}
-        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
-          <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-8 lg:p-12">
-            <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
+        <div className="bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
+          <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-6 sm:p-8 lg:p-12">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-8 sm:mb-12 text-center">
               Professional Development Highlights
             </h3>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">22</div>
-                <div className="text-muted-foreground font-medium">Total Certifications</div>
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-2 sm:mb-3">22</div>
+                <div className="text-sm sm:text-base text-muted-foreground font-medium">Total Certifications</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">4</div>
-                <div className="text-muted-foreground font-medium">Expertise Areas</div>
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-600 mb-2 sm:mb-3">4</div>
+                <div className="text-sm sm:text-base text-muted-foreground font-medium">Expertise Areas</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">17</div>
-                <div className="text-muted-foreground font-medium">Different Organizations</div>
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2 sm:mb-3">17</div>
+                <div className="text-sm sm:text-base text-muted-foreground font-medium">Different Organizations</div>
               </div>
             </div>
           </div>
@@ -305,21 +305,21 @@ export function CommunitySection() {
     <section 
       ref={communityAnimation.ref}
       id="community" 
-      className={`py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${communityAnimation.isVisible ? 'visible' : ''}`}
+      className={`py-16 sm:py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${communityAnimation.isVisible ? 'visible' : ''}`}
     >
       {/* Background - inherits Apple grey from parent */}
       
       <div className="container-width">
-        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
+        <div className="bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] p-6 sm:p-8 lg:p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header */}
           <div 
             ref={communityHeaderAnimation.ref}
-            className={`text-center mb-20 scroll-slide-up ${communityHeaderAnimation.isVisible ? 'visible' : ''}`}
+            className={`text-center mb-12 sm:mb-16 lg:mb-20 scroll-slide-up ${communityHeaderAnimation.isVisible ? 'visible' : ''}`}
           >
-            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 tracking-tight">
               Community
             </h2>
-            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Demonstrating leadership and commitment through meaningful community engagement and volunteer service
             </p>
           </div>
@@ -329,7 +329,7 @@ export function CommunitySection() {
           {/* Clean Timeline Line */}
           <div className="absolute left-8 top-0 bottom-0 w-px bg-gray-200 hidden md:block"></div>
           
-          <div className="space-y-16">
+          <div className="space-y-12 sm:space-y-16">
             {communityActivities.map((activity, index) => (
               <div 
                 key={index} 
@@ -345,31 +345,31 @@ export function CommunitySection() {
                 
                 {/* Content */}
                 <div className="md:ml-24">
-                  <div className="relative bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
+                  <div className="relative bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
                     <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="relative p-8">
+                    <div className="relative p-6 sm:p-8">
                       {/* Header Section */}
-                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-6">
-                        <div className="flex items-start gap-4">
-                          <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
+                      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4 sm:mb-6">
+                        <div className="flex items-start gap-3 sm:gap-4">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                             {activity.logoSrc ? (
                               <img 
                                 src={activity.logoSrc} 
                                 alt={`${activity.organization} Logo`} 
-                                className="w-8 h-8 object-contain"
+                                className="w-6 h-6 sm:w-8 sm:h-8 object-contain"
                               />
                             ) : activity.icon ? (
-                              <activity.icon className="w-8 h-8 text-foreground" />
+                              <activity.icon className="w-6 h-6 sm:w-8 sm:h-8 text-foreground" />
                             ) : null}
                           </div>
                           <div>
-                            <h3 className="text-xl font-semibold text-foreground mb-1">{activity.title}</h3>
-                            <p className="text-lg font-medium text-primary mb-1">{activity.organization}</p>
-                            <p className="text-muted-foreground font-medium">{activity.location}</p>
+                            <h3 className="text-lg sm:text-xl font-semibold text-foreground mb-1">{activity.title}</h3>
+                            <p className="text-base sm:text-lg font-medium text-primary mb-1">{activity.organization}</p>
+                            <p className="text-sm sm:text-base text-muted-foreground font-medium">{activity.location}</p>
                           </div>
                         </div>
-                        <div className="mt-4 lg:mt-0 lg:text-right">
-                          <span className="text-lg font-medium text-gray-500">{activity.period}</span>
+                        <div className="mt-3 lg:mt-0 lg:text-right">
+                          <span className="text-base sm:text-lg font-medium text-gray-500">{activity.period}</span>
                         </div>
                       </div>
 
@@ -410,24 +410,24 @@ export function CommunitySection() {
         </div>
 
         {/* Community Impact Summary */}
-        <div className="mt-24">
-          <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
-            <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-8 lg:p-12">
-              <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
+        <div className="mt-16 sm:mt-20 lg:mt-24">
+          <div className="bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
+            <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-6 sm:p-8 lg:p-12">
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-8 sm:mb-12 text-center">
                 Community Highlights
               </h3>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">4+</div>
-                  <div className="text-muted-foreground font-medium">Years of Service</div>
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-2 sm:mb-3">4+</div>
+                  <div className="text-sm sm:text-base text-muted-foreground font-medium">Years of Service</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">3</div>
-                  <div className="text-muted-foreground font-medium">Organizations Served</div>
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-600 mb-2 sm:mb-3">3</div>
+                  <div className="text-sm sm:text-base text-muted-foreground font-medium">Organizations Served</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">500+</div>
-                  <div className="text-muted-foreground font-medium">People Helped</div>
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2 sm:mb-3">500+</div>
+                  <div className="text-sm sm:text-base text-muted-foreground font-medium">People Helped</div>
                 </div>
               </div>
             </div>
