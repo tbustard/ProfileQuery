@@ -59,8 +59,8 @@ export default function Home() {
       >
         <LiquidGlass
           className="shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
-          style="border-radius: 25px; padding: 12px 24px;"
-          radius={25}
+          style="border-radius: 30px; padding: 12px 24px; height: 60px; width: 200px;"
+          radius={10}
           thickness={50}
           roughness={0.2}
           reflectivity={0.9}
