@@ -2,6 +2,7 @@ import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
 import { useQuery } from "@tanstack/react-query";
+import { LiquidGlass } from "@specy/liquid-glass-react";
 // VideoOverlay no longer needed - using YouTube directly
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
@@ -46,12 +47,9 @@ export default function HeroSection() {
         <div className="max-w-7xl mx-auto">
           
           {/* Main Hero Card */}
-          <div className={`bg-white/70 backdrop-blur-[25px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-12 lg:p-16 shadow-2xl hover:shadow-3xl transition-all duration-500 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
-               style={{
-                 backdropFilter: 'blur(25px) saturate(200%) brightness(110%)',
-                 WebkitBackdropFilter: 'blur(25px) saturate(200%) brightness(110%)',
-                 boxShadow: '0 20px 80px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
-               }}>
+          <div className="rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden">
+            <LiquidGlass>
+              <div className={`bg-transparent border border-white/20 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-12 lg:p-16 shadow-2xl hover:shadow-3xl transition-all duration-500 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}>
             
             <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
               {/* Profile Image */}
@@ -200,6 +198,8 @@ export default function HeroSection() {
                 </div>
               </div>
             </div>
+              </div>
+            </LiquidGlass>
           </div>
 
           {/* Stats/Highlights Cards */}
