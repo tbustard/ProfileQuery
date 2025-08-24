@@ -112,51 +112,21 @@ export default function Navigation() {
 
   return (
     <>
-      {/* SVG Filters for Liquid Glass Effect */}
-      <svg style={{ position: 'absolute', width: 0, height: 0 }} aria-hidden="true">
-        <defs>
-          {/* Displacement Map for Glass Refraction */}
-          <filter id="liquid-glass-filter" x="-50%" y="-50%" width="200%" height="200%" colorInterpolationFilters="sRGB">
-            {/* Create radial gradients for edge refraction */}
-            <feGaussianBlur in="SourceGraphic" stdDeviation="0.5" result="blur" />
-            <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.15 0" result="coloredBlur" />
-            
-            {/* Edge detection and displacement */}
-            <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="dilated" />
-            <feGaussianBlur in="dilated" stdDeviation="2" result="blurred" />
-            <feOffset in="blurred" dx="1" dy="1" result="offset" />
-            
-            {/* Combine for glass effect */}
-            <feComposite in="coloredBlur" in2="offset" operator="over" result="glass" />
-            <feComposite in="glass" in2="SourceGraphic" operator="over" />
-          </filter>
-          
-          {/* Dropdown Glass Filter */}
-          <filter id="dropdown-glass-filter" x="-20%" y="-20%" width="140%" height="140%" colorInterpolationFilters="sRGB">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="0.3" result="blur" />
-            <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.2 0" result="glass" />
-            <feComposite in="glass" in2="SourceGraphic" operator="over" />
-          </filter>
-        </defs>
-      </svg>
-
       {/* Navigation Bar */}
       <nav 
         className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-700 ease-out ${
           isScrolled 
-            ? 'liquid-glass-nav border-b border-white/20 shadow-2xl' 
+            ? 'nav-glass border-b border-white/10 shadow-2xl' 
             : 'bg-transparent'
         }`}
         style={{
-          background: isScrolled ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
-          backdropFilter: isScrolled ? 'blur(20px) saturate(180%) brightness(110%)' : 'none',
-          WebkitBackdropFilter: isScrolled ? 'blur(20px) saturate(180%) brightness(110%)' : 'none',
-          filter: isScrolled ? 'url(#liquid-glass-filter)' : 'none',
-          boxShadow: isScrolled ? '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.25)' : 'none',
+          background: isScrolled ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
+          backdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
+          WebkitBackdropFilter: isScrolled ? 'blur(20px) saturate(180%)' : 'none',
+          boxShadow: isScrolled ? '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)' : 'none',
         }}
       >
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
             
             {/* Left side - Logo/Name */}
@@ -203,14 +173,7 @@ export default function Navigation() {
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                <div className="liquid-glass-dropdown absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
-                     style={{
-                       background: 'rgba(255, 255, 255, 0.15)',
-                       backdropFilter: 'blur(20px) saturate(180%) brightness(110%)',
-                       WebkitBackdropFilter: 'blur(20px) saturate(180%) brightness(110%)',
-                       filter: 'url(#dropdown-glass-filter)',
-                       border: '1px solid rgba(255, 255, 255, 0.2)',
-                     }}>
+                <div className="dropdown-glass absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="p-3">
                     <button 
                       onClick={() => scrollToSection('#education')}
@@ -240,14 +203,7 @@ export default function Navigation() {
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                <div className="liquid-glass-dropdown absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
-                     style={{
-                       background: 'rgba(255, 255, 255, 0.15)',
-                       backdropFilter: 'blur(20px) saturate(180%) brightness(110%)',
-                       WebkitBackdropFilter: 'blur(20px) saturate(180%) brightness(110%)',
-                       filter: 'url(#dropdown-glass-filter)',
-                       border: '1px solid rgba(255, 255, 255, 0.2)',
-                     }}>
+                <div className="dropdown-glass absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="p-3">
                     <button onClick={() => scrollToSection('#experience-bmo-private-wealth-portfolio-assistant')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
                       <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">BMO Private Wealth</div>
@@ -428,14 +384,7 @@ export default function Navigation() {
                   <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                 </button>
                 
-                <div className="liquid-glass-dropdown absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
-                     style={{
-                       background: 'rgba(255, 255, 255, 0.15)',
-                       backdropFilter: 'blur(20px) saturate(180%) brightness(110%)',
-                       WebkitBackdropFilter: 'blur(20px) saturate(180%) brightness(110%)',
-                       filter: 'url(#dropdown-glass-filter)',
-                       border: '1px solid rgba(255, 255, 255, 0.2)',
-                     }}>
+                <div className="dropdown-glass absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                   <div className="p-3">
                     <button onClick={() => scrollToSection('#community-united-way')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
                       <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">United Way</div>
@@ -477,14 +426,7 @@ export default function Navigation() {
                     <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                   </button>
                   
-                  <div className="liquid-glass-dropdown absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
-                     style={{
-                       background: 'rgba(255, 255, 255, 0.15)',
-                       backdropFilter: 'blur(20px) saturate(180%) brightness(110%)',
-                       WebkitBackdropFilter: 'blur(20px) saturate(180%) brightness(110%)',
-                       filter: 'url(#dropdown-glass-filter)',
-                       border: '1px solid rgba(255, 255, 255, 0.2)',
-                     }}>
+                  <div className="dropdown-glass absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                     <div className="p-3">
                       <button onClick={() => scrollToSection('#contact')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
                         <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Email</div>
