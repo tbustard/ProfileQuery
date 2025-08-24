@@ -161,7 +161,7 @@ export default function CertificationsSection() {
                         <div 
                           key={certIndex}
                           id={`cert-${cert.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`}
-                          className="bg-white/90 backdrop-blur-xl rounded-2xl p-4 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.02] flex flex-col h-full min-h-[200px]"
+                          className="bg-white/90 backdrop-blur-xl rounded-2xl p-4 border border-white/20 shadow-lg hover:shadow-xl hover:bg-white/95 transition-all duration-500 hover:scale-[1.02] flex flex-col h-full min-h-[160px]"
                           data-testid={`cert-${categoryIndex}-${certIndex}`}
                         >
                           {/* Header with title and year */}
@@ -191,11 +191,6 @@ export default function CertificationsSection() {
                           
                           {/* Footer badges */}
                           <div className="flex items-center justify-start gap-2 mt-auto pt-4">
-                            {cert.highlight && (
-                              <div className="bg-blue-100 text-blue-800 px-3 py-1.5 rounded-full text-xs font-bold tracking-wide">
-                                FEATURED
-                              </div>
-                            )}
                             {cert.percentile && (
                               <div className="text-xs text-blue-600 font-semibold bg-blue-50 px-3 py-1.5 rounded-full">
                                 {cert.percentile}
