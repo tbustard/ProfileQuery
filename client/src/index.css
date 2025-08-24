@@ -364,6 +364,14 @@
   .scroll-stagger-5 { transition-delay: 0.25s; }
   .scroll-stagger-6 { transition-delay: 0.3s; }
 
+  /* Mobile visibility fallback for certifications */
+  @media (max-width: 640px) {
+    .certifications-container .scroll-scale-in {
+      opacity: 1 !important;
+      transform: scale(1) translateY(0) !important;
+    }
+  }
+
   /* Scroll direction responsive animations */
   .scroll-up-fast .scroll-fade-in {
     transition-duration: 0.4s;
