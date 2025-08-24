@@ -175,7 +175,7 @@ export default function Navigation() {
                       <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                     </button>
                     
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[9999] pointer-events-none group-hover:pointer-events-auto">
                       <LiquidGlass glassStyle={dropdownGlassStyle}>
                         <div className="p-3">
                           <button 
@@ -207,7 +207,7 @@ export default function Navigation() {
                       <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                     </button>
                     
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[9999] pointer-events-none group-hover:pointer-events-auto">
                       <LiquidGlass glassStyle={dropdownGlassStyle}>
                         <div className="p-3">
                           <button onClick={() => scrollToSection('#experience-bmo-private-wealth-portfolio-assistant')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
@@ -257,7 +257,7 @@ export default function Navigation() {
                       <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                     </button>
                     
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-96 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-96 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[9999] pointer-events-none group-hover:pointer-events-auto">
                       <LiquidGlass glassStyle={dropdownGlassStyle}>
                         <div className="p-2">
                           {/* Financial Excellence */}
@@ -300,7 +300,7 @@ export default function Navigation() {
                       <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                     </button>
                     
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[9999] pointer-events-none group-hover:pointer-events-auto">
                       <LiquidGlass glassStyle={dropdownGlassStyle}>
                         <div className="p-3">
                           <button onClick={() => scrollToSection('#community-canadian-red-cross-volunteer')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
@@ -329,7 +329,7 @@ export default function Navigation() {
                       <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                     </button>
                     
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[9999] pointer-events-none group-hover:pointer-events-auto">
                       <LiquidGlass glassStyle={dropdownGlassStyle}>
                         <div className="p-3">
                           <button onClick={() => scrollToSection('#contact')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/10">
