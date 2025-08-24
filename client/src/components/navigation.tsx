@@ -391,7 +391,7 @@ export default function Navigation() {
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
             <div className="rounded-xl p-4">
-              <div className="space-y-3">
+              <div className="space-y-3 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
                 {/* BMO Private Wealth */}
                 <button 
                   onClick={() => {
