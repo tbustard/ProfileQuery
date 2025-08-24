@@ -74,16 +74,11 @@ export default function DownloadSection() {
                 <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                   <Download className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-4">Download</h3>
-                <p className="text-base text-muted-foreground mb-6">
-                  Download my complete professional resume with detailed experience, education, and certifications.
-                </p>
                 <Button
                   onClick={downloadResume}
                   className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                   data-testid="download-resume-button"
                 >
-                  Download
                 </Button>
               </CardContent>
             </Card>
