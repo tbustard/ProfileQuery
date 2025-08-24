@@ -54,6 +54,52 @@ if (!fs.existsSync(resumeUploadDir)) {
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Serve Tyler Bustard Resume files (must be before API routes)
+  app.get("/Tyler_Bustard_Resume.pdf", async (req, res) => {
+    try {
+      // Always serve from attached assets first for immediate availability
+      const fallbackPath = path.join(process.cwd(), 'attached_assets/Tyler_Bustard_Resume.pdf');
+      
+      if (fs.existsSync(fallbackPath)) {
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', `attachment; filename="Tyler_Bustard_Resume.pdf"`);
+        const fileStream = fs.createReadStream(fallbackPath);
+        return fileStream.pipe(res);
+      }
+
+      // Check database for uploaded resumes
+      const resumes = await storage.getResumeUploads('employer');
+      
+      if (resumes.length === 0) {
+        return res.status(404).json({ error: "No resume found" });
+      }
+
+      // Get the most recent PDF resume
+      const pdfResume = resumes
+        .filter(r => r.fileName.toLowerCase().endsWith('.pdf'))
+        .sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime())[0];
+
+      if (!pdfResume) {
+        return res.status(404).json({ error: "No PDF resume found" });
+      }
+
+      const resumePath = path.join(process.cwd(), pdfResume.fileUrl.replace(/^\//, ''));
+      
+      if (!fs.existsSync(resumePath)) {
+        return res.status(404).json({ error: "Resume file not found" });
+      }
+
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `attachment; filename="Tyler_Bustard_Resume.pdf"`);
+      
+      const fileStream = fs.createReadStream(resumePath);
+      fileStream.pipe(res);
+    } catch (error) {
+      console.error("Error serving Tyler Bustard resume:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  });
+
   // SQL Translation endpoint
   app.post("/api/translate-sql", async (req, res) => {
     try {
@@ -256,40 +302,6 @@ Focus on investment analysis, portfolio management, and financial reporting quer
     }
   });
 
-  // Serve Tyler Bustard Resume files (fallback for static access)
-  app.get("/Tyler_Bustard_Resume.pdf", async (req, res) => {
-    try {
-      const resumes = await storage.getResumeUploads('employer');
-      
-      if (resumes.length === 0) {
-        return res.status(404).json({ error: "No resume found" });
-      }
-
-      // Get the most recent PDF resume
-      const pdfResume = resumes
-        .filter(r => r.fileName.toLowerCase().endsWith('.pdf'))
-        .sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime())[0];
-
-      if (!pdfResume) {
-        return res.status(404).json({ error: "No PDF resume found" });
-      }
-
-      const resumePath = path.join(process.cwd(), pdfResume.fileUrl.replace(/^\//, ''));
-      
-      if (!fs.existsSync(resumePath)) {
-        return res.status(404).json({ error: "Resume file not found" });
-      }
-
-      res.setHeader('Content-Type', 'application/pdf');
-      res.setHeader('Content-Disposition', `attachment; filename="Tyler_Bustard_Resume.pdf"`);
-      
-      const fileStream = fs.createReadStream(resumePath);
-      fileStream.pipe(res);
-    } catch (error) {
-      console.error("Error serving Tyler Bustard resume:", error);
-      res.status(404).json({ error: "Resume not found" });
-    }
-  });
 
   // Video upload endpoint
   app.post("/api/videos/upload", videoUpload.single('video'), async (req, res) => {
