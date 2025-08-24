@@ -272,7 +272,7 @@ export default function Navigation() {
                       <div className="font-semibold text-gray-900 dark:text-white text-base mb-1">Canadian Securities Course</div>
                       <div className="text-sm text-gray-600 dark:text-gray-400">CSI • 2021</div>
                     </button>
-                    <button onClick={() => scrollToSection('#cert-financial-valuation-modeling')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/20">
+                    <button onClick={() => scrollToSection('#cert-financial---valuation-modeling')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/20">
                       <div className="font-semibold text-gray-900 dark:text-white text-base mb-1">Financial & Valuation Modeling</div>
                       <div className="text-sm text-gray-600 dark:text-gray-400">Wall Street Prep • 2020</div>
                     </button>
@@ -318,7 +318,7 @@ export default function Navigation() {
                     
                     {/* Advanced Analytics */}
                     <div className="px-4 py-2 text-sm font-semibold text-blue-600 dark:text-blue-400 mt-4">Advanced Analytics</div>
-                    <button onClick={() => scrollToSection('#cert-econometrics-methods-applications')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/20">
+                    <button onClick={() => scrollToSection('#cert-econometrics--methods---applications')} className="w-full text-left block p-4 rounded-lg hover:bg-white/5 transition-colors border-b border-gray-200/20">
                       <div className="font-semibold text-gray-900 dark:text-white text-base mb-1">Econometrics: Methods & Applications</div>
                       <div className="text-sm text-gray-600 dark:text-gray-400">Erasmus University • 2024</div>
                     </button>
@@ -532,7 +532,7 @@ export default function Navigation() {
                       <div className="font-semibold text-gray-900 dark:text-white mb-1">Canadian Securities Course</div>
                       <div className="text-xs text-gray-600 dark:text-gray-400">CSI • 2021</div>
                     </button>
-                    <button onClick={() => { scrollToSection('#cert-financial-valuation-modeling'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
+                    <button onClick={() => { scrollToSection('#cert-financial---valuation-modeling'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
                       <div className="font-semibold text-gray-900 dark:text-white mb-1">Financial & Valuation Modeling</div>
                       <div className="text-xs text-gray-600 dark:text-gray-400">Wall Street Prep • 2020</div>
                     </button>
@@ -578,7 +578,7 @@ export default function Navigation() {
                     
                     {/* Advanced Analytics */}
                     <div className="px-6 py-2 text-sm font-semibold text-blue-600 dark:text-blue-400">Advanced Analytics</div>
-                    <button onClick={() => { scrollToSection('#cert-econometrics-methods-applications'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
+                    <button onClick={() => { scrollToSection('#cert-econometrics--methods---applications'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
                       <div className="font-semibold text-gray-900 dark:text-white mb-1">Econometrics: Methods & Applications</div>
                       <div className="text-xs text-gray-600 dark:text-gray-400">Erasmus University • 2024</div>
                     </button>
