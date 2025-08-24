@@ -106,33 +106,35 @@ export default function HeroSection() {
                         // Create and show video overlay with uploaded video player
                         const overlay = document.createElement('div');
                         overlay.id = 'video-overlay';
-                        overlay.className = 'fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4';
+                        overlay.className = 'fixed inset-0 bg-black/90 flex items-center justify-center p-4';
+                        overlay.style.zIndex = '9998';
                         
                         overlay.innerHTML = `
-                          <div class="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden">
+                          <div class="relative w-full max-w-5xl mx-auto" style="max-height: 90vh;">
                             <button 
                               onclick="document.getElementById('video-overlay').remove()" 
-                              class="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white backdrop-blur-sm transition-all"
+                              class="absolute -top-12 right-0 z-20 w-12 h-12 bg-white/80 hover:bg-white/90 rounded-full flex items-center justify-center text-black backdrop-blur-sm transition-all shadow-lg"
+                              style="z-index: 9999;"
                             >
                               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="18" y1="6" x2="6" y2="18"></line>
                                 <line x1="6" y1="6" x2="18" y2="18"></line>
                               </svg>
                             </button>
-                            <video 
-                              width="100%" 
-                              height="100%" 
-                              controls
-                              preload="auto"
-                              class="w-full h-full"
-                              onloadstart="console.log('Video loading started')"
-                              onloadeddata="console.log('Video data loaded')"
-                              onerror="console.error('Video error:', event)"
-                            >
-                              <source src="${activeVideo.fileUrl}" type="video/quicktime">
-                              <source src="${activeVideo.fileUrl}" type="video/mp4">
-                              Your browser does not support the video tag.
-                            </video>
+                            <div class="bg-black rounded-xl shadow-2xl overflow-hidden">
+                              <video 
+                                controls
+                                preload="auto"
+                                style="width: 100%; height: auto; display: block; max-height: 80vh;"
+                                onloadstart="console.log('Video loading started')"
+                                onloadeddata="console.log('Video data loaded')"
+                                onerror="console.error('Video error:', event)"
+                              >
+                                <source src="${activeVideo.fileUrl}" type="video/quicktime">
+                                <source src="${activeVideo.fileUrl}" type="video/mp4">
+                                Your browser does not support the video tag.
+                              </video>
+                            </div>
                           </div>
                         `;
                         
