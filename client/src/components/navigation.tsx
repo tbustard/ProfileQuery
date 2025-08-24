@@ -357,13 +357,13 @@ export default function Navigation() {
       {openDropdown === 'education' && (
         <div className="fixed top-20 left-1/2 transform -translate-x-1/2 w-80 z-[9999] mt-2">
           <LiquidGlass glassStyle={dropdownGlassStyle}>
-            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-xl border border-gray-200/50 dark:border-gray-700/50">
+            <div className="rounded-xl p-6 shadow-xl backdrop-blur-xl">
               <button 
                 onClick={() => {
                   scrollToSection('#education');
                   setOpenDropdown(null);
                 }}
-                className="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 transition-all duration-200 -m-3"
+                className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-3 transition-all duration-200 -m-3"
               >
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">University of New Brunswick</h3>
                 <p className="text-base text-gray-700 dark:text-gray-300 mb-1">Bachelor of Business Administration</p>
