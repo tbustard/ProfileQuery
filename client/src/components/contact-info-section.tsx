@@ -21,11 +21,11 @@ export default function ContactInfoSection() {
       {/* Background - inherits Apple grey from parent */}
       
       <div className="container-width">
-        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
+        <div className="bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] p-6 sm:p-8 lg:p-12 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header */}
           <div 
             ref={headerAnimation.ref}
-            className={`text-center mb-20 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+            className={`text-center mb-8 sm:mb-12 lg:mb-16 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
           >
             <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
               Contact
@@ -36,7 +36,7 @@ export default function ContactInfoSection() {
           </div>
 
         {/* Contact Cards Grid */}
-        <div ref={contactRef} className="grid lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div ref={contactRef} className="grid lg:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto">
           {contactInfo.map((info, index) => (
             <div 
               key={index} 
