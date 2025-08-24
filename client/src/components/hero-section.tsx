@@ -215,17 +215,15 @@ export default function HeroSection() {
                    animationDelay: '0.5s'
                  }}
                  data-testid="card-education">
-              <div className="flex items-start gap-3">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative flex-shrink-0">
+              <div className="flex items-center gap-3 mb-1">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative">
                   <img src={unbLogo} alt="Education" className="w-6 h-6 object-contain" />
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-0 leading-none">Education</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mt-0">
-                    Bachelor of Business Administration in Finance
-                  </p>
-                </div>
+                <h3 className="text-lg font-semibold text-foreground">Education</h3>
               </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Bachelor of Business Administration in Finance
+              </p>
             </div>
 
             {/* Experience Card */}
@@ -238,8 +236,8 @@ export default function HeroSection() {
                    animationDelay: '0.6s'
                  }}
                  data-testid="card-experience">
-              <div className="flex items-start gap-3">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible flex-shrink-0">
+              <div className="flex items-center gap-3 mb-1">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent experience logos stacked */}
                   <div className="flex relative">
                     <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-30">
@@ -253,13 +251,11 @@ export default function HeroSection() {
                     </div>
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-0 leading-none">Experience</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mt-0">
-                    Professional experience in investment banking and financial services
-                  </p>
-                </div>
+                <h3 className="text-lg font-semibold text-foreground">Experience</h3>
               </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Professional experience in investment banking and financial services
+              </p>
             </div>
 
             {/* Certifications Card */}
@@ -272,8 +268,8 @@ export default function HeroSection() {
                    animationDelay: '0.7s'
                  }}
                  data-testid="card-certifications">
-              <div className="flex items-start gap-3">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible flex-shrink-0">
+              <div className="flex items-center gap-3 mb-1">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent certification logos stacked */}
                   <div className="flex relative">
                     <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-30">
@@ -287,13 +283,11 @@ export default function HeroSection() {
                     </div>
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-0 leading-none">Certifications</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mt-0">
-                    Advanced certifications in finance, technology, and professional development
-                  </p>
-                </div>
+                <h3 className="text-lg font-semibold text-foreground">Certifications</h3>
               </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Advanced certifications in finance, technology, and professional development
+              </p>
             </div>
 
             {/* Community Card */}
@@ -306,8 +300,8 @@ export default function HeroSection() {
                    animationDelay: '0.8s'
                  }}
                  data-testid="card-community">
-              <div className="flex items-start gap-3">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible flex-shrink-0">
+              <div className="flex items-center gap-3 mb-1">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent community logos stacked */}
                   <div className="flex relative">
                     <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-30">
@@ -321,13 +315,11 @@ export default function HeroSection() {
                     </div>
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-foreground mb-0 leading-none">Community</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mt-0">
-                    Community leadership and volunteer service initiatives
-                  </p>
-                </div>
+                <h3 className="text-lg font-semibold text-foreground">Community</h3>
               </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Community leadership and volunteer service initiatives
+              </p>
             </div>
 
           </div>
