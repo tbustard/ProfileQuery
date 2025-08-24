@@ -47,21 +47,34 @@ export default function Navigation() {
   useEffect(() => {
     if (isMobileMenuOpen) {
       // Save current scroll position
-      setSavedScrollPosition(window.scrollY);
-      // Prevent scrolling without changing position
-      document.body.style.overflow = 'hidden';
-    } else {
-      // Restore scrolling and position
-      document.body.style.overflow = '';
-      // Use requestAnimationFrame to ensure DOM is ready
-      requestAnimationFrame(() => {
-        window.scrollTo(0, savedScrollPosition);
-      });
+      const scrollY = window.scrollY;
+      setSavedScrollPosition(scrollY);
+      
+      // Lock body in current position
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+    } else if (savedScrollPosition !== undefined) {
+      // Restore body styles
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
+      
+      // Restore scroll position without animation
+      window.scrollTo(0, savedScrollPosition);
     }
     
-    // Cleanup function to ensure scroll is restored
+    // Cleanup function to ensure styles are restored
     return () => {
-      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
     };
   }, [isMobileMenuOpen, savedScrollPosition]);
 
