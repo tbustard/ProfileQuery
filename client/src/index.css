@@ -364,11 +364,33 @@
   .scroll-stagger-5 { transition-delay: 0.25s; }
   .scroll-stagger-6 { transition-delay: 0.3s; }
 
-  /* Mobile visibility fallback for certifications */
+  /* Mobile visibility fallback - Force all elements to be visible on mobile */
   @media (max-width: 640px) {
-    .certifications-container .scroll-scale-in {
+    .mobile-visible,
+    .mobile-visible.scroll-fade-in,
+    .mobile-visible.scroll-slide-up,
+    .mobile-visible.scroll-scale-in {
       opacity: 1 !important;
       transform: scale(1) translateY(0) !important;
+      transition: none !important;
+    }
+    
+    .certifications-container .scroll-scale-in,
+    .certifications-container .scroll-scale-in.visible,
+    .certifications-container .scroll-scale-in:not(.visible) {
+      opacity: 1 !important;
+      transform: scale(1) translateY(0) !important;
+      transition: none !important;
+    }
+    
+    /* Force visibility for certification cards specifically */
+    #certifications .scroll-scale-in,
+    #certifications .mobile-visible {
+      opacity: 1 !important;
+      transform: scale(1) translateY(0) !important;
+      transition: none !important;
+      visibility: visible !important;
+      display: block !important;
     }
   }
 

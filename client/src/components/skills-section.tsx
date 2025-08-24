@@ -111,7 +111,7 @@ export default function CertificationsSection() {
     <section 
       ref={sectionAnimation.ref}
       id="certifications" 
-      className={`py-16 sm:py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
+      className={`py-16 sm:py-24 lg:py-32 relative overflow-hidden mobile-visible scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
     >
       {/* Background - inherits Apple grey from parent */}
       
@@ -136,7 +136,7 @@ export default function CertificationsSection() {
               <div 
                 key={categoryIndex} 
                 id={`certifications-${category.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} 
-                className={`relative overflow-hidden rounded-[20px] sm:rounded-[28px] bg-gradient-to-r from-gray-100/50 to-gray-200/50 backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 scroll-scale-in scroll-stagger-${categoryIndex + 1} ${visibleItems.has(categoryIndex) ? 'visible' : 'sm:opacity-100'}`}
+                className={`relative overflow-hidden rounded-[20px] sm:rounded-[28px] bg-gradient-to-r from-gray-100/50 to-gray-200/50 backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 mobile-visible scroll-scale-in scroll-stagger-${categoryIndex + 1} ${visibleItems.has(categoryIndex) ? 'visible' : ''}`}
               >
                 <div className="absolute inset-0 bg-white/80 backdrop-blur-xl" />
                 <div className="relative p-6 sm:p-8 lg:p-12">
