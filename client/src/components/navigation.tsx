@@ -14,6 +14,7 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentSection, setCurrentSection] = useState(isHomePage ? 'hero' : '');
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null);
   
   // Refs for liquid glass components to access their methods
   const navGlassRef = useRef<LiquidGlassRef>(null);
@@ -215,9 +216,16 @@ export default function Navigation() {
                 <div className="hidden lg:flex items-center space-x-1">
                   
                   {/* Education */}
-                  <div className="relative dropdown-container">
+                  <div 
+                    className="relative dropdown-container"
+                    onMouseEnter={() => setOpenDropdown('education')}
+                    onMouseLeave={() => setTimeout(() => setOpenDropdown(null), 100)}
+                  >
                     <button
-                      onClick={() => setOpenDropdown(openDropdown === 'education' ? null : 'education')}
+                      onClick={() => {
+                        scrollToSection('#education');
+                        setOpenDropdown(null);
+                      }}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                         currentSection === 'education' 
                           ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
@@ -231,9 +239,16 @@ export default function Navigation() {
                   </div>
 
                   {/* Experience */}
-                  <div className="relative dropdown-container">
+                  <div 
+                    className="relative dropdown-container"
+                    onMouseEnter={() => setOpenDropdown('experience')}
+                    onMouseLeave={() => setTimeout(() => setOpenDropdown(null), 100)}
+                  >
                     <button
-                      onClick={() => setOpenDropdown(openDropdown === 'experience' ? null : 'experience')}
+                      onClick={() => {
+                        scrollToSection('#experience');
+                        setOpenDropdown(null);
+                      }}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                         currentSection === 'experience' 
                           ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
@@ -246,9 +261,16 @@ export default function Navigation() {
                   </div>
 
                   {/* Certifications */}
-                  <div className="relative dropdown-container">
+                  <div 
+                    className="relative dropdown-container"
+                    onMouseEnter={() => setOpenDropdown('certifications')}
+                    onMouseLeave={() => setTimeout(() => setOpenDropdown(null), 100)}
+                  >
                     <button
-                      onClick={() => setOpenDropdown(openDropdown === 'certifications' ? null : 'certifications')}
+                      onClick={() => {
+                        scrollToSection('#certifications');
+                        setOpenDropdown(null);
+                      }}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                         currentSection === 'certifications' 
                           ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
@@ -261,9 +283,16 @@ export default function Navigation() {
                   </div>
 
                   {/* Community */}
-                  <div className="relative dropdown-container">
+                  <div 
+                    className="relative dropdown-container"
+                    onMouseEnter={() => setOpenDropdown('community')}
+                    onMouseLeave={() => setTimeout(() => setOpenDropdown(null), 100)}
+                  >
                     <button
-                      onClick={() => setOpenDropdown(openDropdown === 'community' ? null : 'community')}
+                      onClick={() => {
+                        scrollToSection('#community');
+                        setOpenDropdown(null);
+                      }}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                         currentSection === 'community' 
                           ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
@@ -276,9 +305,16 @@ export default function Navigation() {
                   </div>
 
                   {/* Contact */}
-                  <div className="relative dropdown-container">
+                  <div 
+                    className="relative dropdown-container"
+                    onMouseEnter={() => setOpenDropdown('contact')}
+                    onMouseLeave={() => setTimeout(() => setOpenDropdown(null), 100)}
+                  >
                     <button
-                      onClick={() => setOpenDropdown(openDropdown === 'contact' ? null : 'contact')}
+                      onClick={() => {
+                        scrollToSection('#contact');
+                        setOpenDropdown(null);
+                      }}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                         currentSection === 'contact' 
                           ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
@@ -868,7 +904,16 @@ export default function Navigation() {
 
       {/* Education Dropdown - Outside nav container */}
       {openDropdown === 'education' && (
-        <div className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:-translate-x-80 lg:w-80 lg:mt-2 z-[9999]">
+        <div 
+          className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:-translate-x-80 lg:w-80 lg:mt-2 z-[9999]"
+          onMouseEnter={() => {
+            if (closeTimeout) clearTimeout(closeTimeout);
+          }}
+          onMouseLeave={() => {
+            const timeout = setTimeout(() => setOpenDropdown(null), 200);
+            setCloseTimeout(timeout);
+          }}
+        >
           <LiquidGlass 
             ref={educationDropdownRef}
             glassStyle={dropdownGlassStyle}
@@ -917,7 +962,16 @@ export default function Navigation() {
 
       {/* Experience Dropdown - Outside nav container */}
       {openDropdown === 'experience' && (
-        <div className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:-translate-x-32 lg:w-80 lg:mt-2 z-[9999]">
+        <div 
+          className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:-translate-x-32 lg:w-80 lg:mt-2 z-[9999]"
+          onMouseEnter={() => {
+            if (closeTimeout) clearTimeout(closeTimeout);
+          }}
+          onMouseLeave={() => {
+            const timeout = setTimeout(() => setOpenDropdown(null), 200);
+            setCloseTimeout(timeout);
+          }}
+        >
           <LiquidGlass 
             ref={experienceDropdownRef}
             glassStyle={dropdownGlassStyle}
@@ -1049,7 +1103,16 @@ export default function Navigation() {
 
       {/* Certifications Dropdown - Outside nav container */}
       {openDropdown === 'certifications' && (
-        <div className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-8 lg:w-96 lg:mt-2 z-[9999]">
+        <div 
+          className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-8 lg:w-96 lg:mt-2 z-[9999]"
+          onMouseEnter={() => {
+            if (closeTimeout) clearTimeout(closeTimeout);
+          }}
+          onMouseLeave={() => {
+            const timeout = setTimeout(() => setOpenDropdown(null), 200);
+            setCloseTimeout(timeout);
+          }}
+        >
           <LiquidGlass 
             ref={certificationsDropdownRef}
             glassStyle={dropdownGlassStyle}
@@ -1263,7 +1326,16 @@ export default function Navigation() {
 
       {/* Community Dropdown - Outside nav container */}
       {openDropdown === 'community' && (
-        <div className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-48 lg:w-80 lg:mt-2 z-[9999]">
+        <div 
+          className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-48 lg:w-80 lg:mt-2 z-[9999]"
+          onMouseEnter={() => {
+            if (closeTimeout) clearTimeout(closeTimeout);
+          }}
+          onMouseLeave={() => {
+            const timeout = setTimeout(() => setOpenDropdown(null), 200);
+            setCloseTimeout(timeout);
+          }}
+        >
           <LiquidGlass 
             ref={communityDropdownRef}
             glassStyle={dropdownGlassStyle}
@@ -1349,7 +1421,16 @@ export default function Navigation() {
 
       {/* Contact Dropdown - Outside nav container */}
       {openDropdown === 'contact' && (
-        <div className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-80 lg:w-80 lg:mt-2 z-[9999]">
+        <div 
+          className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-80 lg:w-80 lg:mt-2 z-[9999]"
+          onMouseEnter={() => {
+            if (closeTimeout) clearTimeout(closeTimeout);
+          }}
+          onMouseLeave={() => {
+            const timeout = setTimeout(() => setOpenDropdown(null), 200);
+            setCloseTimeout(timeout);
+          }}
+        >
           <LiquidGlass 
             ref={contactDropdownRef}
             glassStyle={dropdownGlassStyle}
