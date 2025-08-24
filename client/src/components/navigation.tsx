@@ -53,12 +53,12 @@ export default function Navigation() {
       let maxRatio = 0;
       let activeSection = 'hero';
       
-      for (const [sectionId, ratio] of visibleSections) {
+      Array.from(visibleSections.entries()).forEach(([sectionId, ratio]) => {
         if (ratio > maxRatio) {
           maxRatio = ratio;
           activeSection = sectionId;
         }
-      }
+      });
 
       setCurrentSection(activeSection);
     };
@@ -140,7 +140,7 @@ export default function Navigation() {
                   <div className="relative">
                     <span className="text-lg font-bold text-foreground tracking-tight">Tyler Bustard</span>
                     {/* Blue underline identical to main page */}
-                    <div className="h-1 w-20 bg-gradient-to-r from-primary to-primary/60 rounded-full mt-1" />
+                    <div className="h-1 w-16 bg-gradient-to-r from-primary to-primary/60 rounded-full mt-1" />
                   </div>
                 </div>
               )}

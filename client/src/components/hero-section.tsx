@@ -73,10 +73,12 @@ export default function HeroSection() {
                 {/* Name & Title */}
                 <div className="space-y-4 sm:space-y-6">
                   <div className="space-y-2 sm:space-y-3">
-                    <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground tracking-tight leading-tight">
-                      Tyler Bustard
-                    </h1>
-                    <div className="h-1 w-20 bg-gradient-to-r from-primary to-primary/60 rounded-full mx-auto lg:mx-0" />
+                    <div className="relative">
+                      <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground tracking-tight leading-tight">
+                        Tyler Bustard
+                      </h1>
+                      <div className="h-1 w-20 bg-gradient-to-r from-primary to-primary/60 rounded-full mt-2" />
+                    </div>
                   </div>
                   <p className="text-xl sm:text-2xl lg:text-3xl font-semibold text-primary">
                     Finance & Technology Professional
