@@ -12,6 +12,7 @@ import ContactInfoSection from "@/components/contact-info-section";
 export default function Home() {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
   const [isOverDarkSection, setIsOverDarkSection] = useState(false);
+  const [buttonBottomOffset, setButtonBottomOffset] = useState(32); // 32px = bottom-8
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,6 +26,20 @@ export default function Home() {
       // Footer is much smaller, only about 80px high, so be more precise
       const footerThreshold = documentHeight - windowHeight - 80;
       setIsOverDarkSection(scrollY > footerThreshold);
+      
+      // Adjust button position to avoid overlapping with footer
+      // Footer height is approximately 120px including padding and content
+      const footerHeight = 120;
+      const buttonAdjustmentThreshold = documentHeight - windowHeight - footerHeight;
+      
+      if (scrollY > buttonAdjustmentThreshold) {
+        // Position button above footer when near bottom
+        const adjustedBottom = footerHeight + 16; // 16px gap above footer
+        setButtonBottomOffset(adjustedBottom);
+      } else {
+        // Normal position when not near footer
+        setButtonBottomOffset(32); // 32px = bottom-8
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -51,11 +66,12 @@ export default function Home() {
       
       {/* Scroll to Top Button with Liquid Glass Effect */}
       <div 
-        className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40 transition-all duration-500 ease-out ${
+        className={`fixed left-1/2 transform -translate-x-1/2 z-40 transition-all duration-500 ease-out ${
           showScrollToTop 
             ? 'opacity-100 translate-y-0 pointer-events-auto' 
             : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
+        style={{ bottom: `${buttonBottomOffset}px` }}
       >
         <div className="shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 rounded-full overflow-hidden">
           <LiquidGlass>
