@@ -54,8 +54,8 @@ export default function Navigation() {
 
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -70% 0px',
-      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+      rootMargin: '-10% 0px -60% 0px',
+      threshold: [0, 0.25, 0.5, 0.75, 1.0]
     };
 
     let visibleSections = new Map();
@@ -80,13 +80,9 @@ export default function Navigation() {
         }
       });
 
-      if (activeSection !== currentSection) {
-        setCurrentSection(activeSection);
-        // Force liquid glass to refresh background after section change
-        setTimeout(() => {
-          setLiquidGlassKey(prev => prev + 1);
-        }, 100);
-      }
+      setCurrentSection(activeSection);
+      // Force liquid glass to refresh background after section change
+      setLiquidGlassKey(prev => prev + 1);
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
