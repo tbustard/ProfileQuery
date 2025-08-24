@@ -179,7 +179,7 @@ export default function Navigation() {
                       onClick={() => scrollToSection('#education')}
                       className="w-full text-left block p-5 rounded-lg hover:bg-white/5 transition-colors"
                     >
-                      <div className="font-semibold text-gray-900 dark:text-white text-lg mb-2">University of New Brunswick</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">University of New Brunswick</div>
                       <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                         <div>Bachelor of Business Administration</div>
                         <div className="mt-1 font-medium">Fredericton, NB • 2016-2020</div>
@@ -588,73 +588,73 @@ export default function Navigation() {
                       <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Wall Street Prep • 2020</div>
                     </button>
                     <button onClick={() => { scrollToSection('#cert-investment-funds-in-canada'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Investment Funds in Canada</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">CSI • 2020</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Investment Funds in Canada</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">CSI • 2020</div>
                     </button>
                     <button onClick={() => { scrollToSection('#cert-bloomberg-market-concepts-certificate'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Bloomberg Market Concepts Certificate</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">Bloomberg • 2020</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Bloomberg Market Concepts Certificate</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Bloomberg • 2020</div>
                     </button>
                     <button onClick={() => { scrollToSection('#cert-personal-finance-essentials'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Personal Finance Essentials</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">McGill University • 2020</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Personal Finance Essentials</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">McGill University • 2020</div>
                     </button>
                     
                     {/* Data & Technology */}
                     <div className="px-6 py-3 text-sm font-semibold text-black dark:text-white">Data & Technology</div>
                     <button onClick={() => { scrollToSection('#cert-data-analytics-professional'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Data Analytics Professional</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">Google • 2023</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Data Analytics Professional</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Google • 2023</div>
                     </button>
                     <button onClick={() => { scrollToSection('#cert-python-for-everybody'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Python for Everybody</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">University of Michigan • 2023</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Python for Everybody</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">University of Michigan • 2023</div>
                     </button>
                     <button onClick={() => { scrollToSection('#cert-data-visualization-with-tableau'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Data Visualization with Tableau</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">UC Davis • 2023</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Data Visualization with Tableau</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">UC Davis • 2023</div>
                     </button>
                     <button onClick={() => { scrollToSection('#cert-machine-learning'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Machine Learning</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">Stanford • 2020</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Machine Learning</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Stanford • 2020</div>
                     </button>
                     <button onClick={() => { scrollToSection('#cert-sql-for-data-science'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">SQL for Data Science</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">UC Davis • 2020</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">SQL for Data Science</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">UC Davis • 2020</div>
                     </button>
                     <button onClick={() => { scrollToSection('#cert-power-bi-data-visualization'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Power BI Data Visualization</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">Microsoft • 2020</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Power BI Data Visualization</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Microsoft • 2020</div>
                     </button>
                     
                     {/* Advanced Analytics */}
                     <div className="px-6 py-3 text-sm font-semibold text-black dark:text-white">Advanced Analytics</div>
                     <button onClick={() => { scrollToSection('#cert-econometrics--methods---applications'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Econometrics: Methods & Applications</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">Erasmus University • 2024</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Econometrics: Methods & Applications</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Erasmus University • 2024</div>
                     </button>
                     <button onClick={() => { scrollToSection('#cert-matrix-algebra-for-engineers'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Matrix Algebra for Engineers</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">HKUST • 2024</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Matrix Algebra for Engineers</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">HKUST • 2024</div>
                     </button>
                     <button onClick={() => { scrollToSection('#cert-introduction-to-calculus'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Introduction to Calculus</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">University of Sydney • 2023</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Introduction to Calculus</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">University of Sydney • 2023</div>
                     </button>
                     <button onClick={() => { scrollToSection('#cert-inferential-statistics'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Inferential Statistics</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">Duke University • 2020</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Inferential Statistics</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Duke University • 2020</div>
                     </button>
                     <button onClick={() => { scrollToSection('#cert-excel-skills-for-business'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Excel Skills for Business</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">Macquarie University • 2020</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Excel Skills for Business</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Macquarie University • 2020</div>
                     </button>
                     
                     {/* Standardized Exam */}
                     <div className="px-6 py-3 text-sm font-semibold text-black dark:text-white">Standardized Exam</div>
                     <button onClick={() => { scrollToSection('#cert-gre-general-test'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">GRE General Test</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">ETS • 2024</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">GRE General Test</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">ETS • 2024</div>
                     </button>
                   </div>
 
@@ -698,16 +698,16 @@ export default function Navigation() {
                       Contact
                     </button>
                     <button onClick={() => { scrollToSection('#contact'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Email</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">tbustard@unb.ca</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Email</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">tbustard@unb.ca</div>
                     </button>
                     <button onClick={() => { scrollToSection('#contact'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Phone</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">(613) 985-1223</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Phone</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">(613) 985-1223</div>
                     </button>
                     <button onClick={() => { scrollToSection('#contact'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-1">Location</div>
-                      <div className="text-xs text-gray-600 dark:text-gray-400">Toronto, Ontario, Canada</div>
+                      <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Location</div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Toronto, Ontario, Canada</div>
                     </button>
                   </div>
 

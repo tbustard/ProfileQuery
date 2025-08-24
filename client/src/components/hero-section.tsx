@@ -187,7 +187,7 @@ export default function HeroSection() {
                         scrollToSection('introduction');
                       }
                     }}
-                    className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 sm:px-8 py-4 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-base sm:text-lg min-h-[56px]"
+                    className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 sm:px-8 py-4 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-lg min-h-[56px]"
                     data-testid="button-introduction"
                   >
                     <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">

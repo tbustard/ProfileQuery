@@ -171,13 +171,13 @@ export default function ExperienceSection() {
                         {/* Content on right */}
                         <div className="flex-1">
                           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1 gap-0 sm:gap-0">
-                            <h3 className="text-xl sm:text-2xl font-bold text-foreground">
+                            <h3 className="text-xl font-bold text-foreground">
                               {exp.title}
                             </h3>
-                            <span className="hidden sm:block text-base sm:text-lg font-medium text-gray-500">{exp.period}</span>
+                            <span className="hidden sm:block text-base font-medium text-gray-500">{exp.period}</span>
                           </div>
                           <div className="space-y-0">
-                            <p className="text-lg sm:text-xl font-semibold text-primary">{exp.company}</p>
+                            <p className="text-lg font-semibold text-primary">{exp.company}</p>
                             <p className="text-base text-muted-foreground">{exp.location}</p>
                             <span className="block sm:hidden text-base font-medium text-gray-500">{exp.period}</span>
                           </div>
@@ -191,7 +191,7 @@ export default function ExperienceSection() {
                           {exp.achievements.map((achievement, achievementIndex) => (
                             <div key={achievementIndex} className="flex items-start gap-3">
                               <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                              <p className="text-muted-foreground font-medium leading-relaxed">{achievement}</p>
+                              <p className="text-sm text-muted-foreground font-medium leading-relaxed">{achievement}</p>
                             </div>
                           ))}
                         </div>

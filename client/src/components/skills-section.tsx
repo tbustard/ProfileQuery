@@ -122,10 +122,10 @@ export default function CertificationsSection() {
             ref={headerAnimation.ref}
             className={`text-center mb-8 sm:mb-12 lg:mb-16 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-2 sm:mb-3 tracking-tight">
+            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
               Certifications
             </h2>
-            <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-2">
+            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Comprehensive expertise across finance, technology, and analytics through continuous learning and professional development
             </p>
           </div>
@@ -166,7 +166,7 @@ export default function CertificationsSection() {
                         >
                           <div className="flex-1 flex flex-col">
                             <div className="flex items-start justify-between mb-1 min-h-[2.5rem]">
-                              <h5 className="font-semibold text-foreground text-lg flex-1 leading-tight">
+                              <h5 className="font-semibold text-foreground text-base flex-1 leading-tight">
                                 {cert.name}
                               </h5>
                               <span className="text-sm font-medium text-gray-500 ml-2 flex-shrink-0">{cert.year}</span>
@@ -181,7 +181,7 @@ export default function CertificationsSection() {
                               )}
                               <p className="text-muted-foreground font-medium text-sm">{cert.institution}</p>
                             </div>
-                            <p className="text-muted-foreground text-xs leading-relaxed mb-2 flex-1">{cert.description}</p>
+                            <p className="text-muted-foreground text-sm leading-relaxed mb-2 flex-1">{cert.description}</p>
                           </div>
                           <div className="flex items-center justify-between mt-auto">
                             {cert.highlight && (
@@ -316,10 +316,10 @@ export function CommunitySection() {
             ref={communityHeaderAnimation.ref}
             className={`text-center mb-8 sm:mb-10 lg:mb-12 scroll-slide-up ${communityHeaderAnimation.isVisible ? 'visible' : ''}`}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-2 sm:mb-3 tracking-tight">
+            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
               Community
             </h2>
-            <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Demonstrating leadership and commitment through meaningful community engagement and volunteer service
             </p>
           </div>
@@ -366,13 +366,13 @@ export function CommunitySection() {
                         {/* Content on right */}
                         <div className="flex-1">
                           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1 gap-0 sm:gap-0">
-                            <h3 className="text-xl sm:text-2xl font-bold text-foreground">
+                            <h3 className="text-xl font-bold text-foreground">
                               {activity.title}
                             </h3>
-                            <span className="hidden sm:block text-base sm:text-lg font-medium text-gray-500">{activity.period}</span>
+                            <span className="hidden sm:block text-base font-medium text-gray-500">{activity.period}</span>
                           </div>
                           <div className="space-y-0">
-                            <p className="text-lg sm:text-xl font-semibold text-primary">{activity.organization}</p>
+                            <p className="text-lg font-semibold text-primary">{activity.organization}</p>
                             <p className="text-base text-muted-foreground">{activity.location}</p>
                             <span className="block sm:hidden text-base font-medium text-gray-500">{activity.period}</span>
                           </div>
@@ -386,7 +386,7 @@ export function CommunitySection() {
                           {activity.achievements.map((achievement, achievementIndex) => (
                             <div key={achievementIndex} className="flex items-start gap-3">
                               <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                              <p className="text-muted-foreground font-medium leading-relaxed">{achievement}</p>
+                              <p className="text-sm text-muted-foreground font-medium leading-relaxed">{achievement}</p>
                             </div>
                           ))}
                         </div>

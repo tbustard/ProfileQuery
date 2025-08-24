@@ -74,7 +74,7 @@ export default function DownloadSection() {
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
                   <Download className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-4">Download</h3>
+                <h3 className="text-xl font-semibold text-foreground mb-4">Download</h3>
                 <p className="text-base text-muted-foreground mb-6">
                   Download my complete professional resume with detailed experience, education, and certifications.
                 </p>
