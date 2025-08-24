@@ -44,6 +44,12 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
     staleTime: 30000,
   });
 
+  // Fetch uploaded resumes
+  const resumesQuery = useQuery({
+    queryKey: ['/api/resumes/employer'],
+    staleTime: 30000,
+  });
+
   // Set initial YouTube URL when data loads
   useEffect(() => {
     if (siteSettingsQuery.data && 
@@ -74,7 +80,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
 
       return response.json();
     },
-    onSuccess: () => {
+    onSuccess: (data) => {
       toast({
         title: "Upload Successful",
         description: "Your resume has been uploaded successfully!",
@@ -83,6 +89,8 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
       // Reset file input
       const fileInput = document.getElementById('resume-file') as HTMLInputElement;
       if (fileInput) fileInput.value = '';
+      // Refresh the resume list by invalidating the query
+      queryClient.invalidateQueries({ queryKey: ['/api/resumes/employer'] });
     },
     onError: () => {
       toast({
@@ -383,19 +391,19 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              {isLoading ? (
+              {resumesQuery.isLoading ? (
                 <div className="space-y-3">
                   {[...Array(3)].map((_, i) => (
                     <div key={i} className="h-12 bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />
                   ))}
                 </div>
-              ) : uploads.length === 0 ? (
+              ) : (!resumesQuery.data || resumesQuery.data.length === 0) ? (
                 <p className="text-slate-500 text-center py-8">
                   No uploads yet. Upload your first resume above!
                 </p>
               ) : (
                 <div className="space-y-3">
-                  {uploads.map((upload) => (
+                  {(resumesQuery.data || []).map((upload) => (
                     <div 
                       key={upload.id}
                       className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-900 rounded-lg"
