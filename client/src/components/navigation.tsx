@@ -501,13 +501,13 @@ export default function Navigation() {
                   <div className="space-y-2">
                     <button
                       onClick={() => { scrollToSection('#certifications'); setIsMobileMenuOpen(false); }}
-                      className="block w-full text-left px-4 py-4 rounded-lg text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:bg-blue-50/10 dark:hover:bg-blue-900/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
+                      className="block w-full text-left px-4 py-4 rounded-lg text-black dark:text-white hover:text-black dark:hover:text-white hover:bg-gray-50/10 dark:hover:bg-gray-900/10 transition-all duration-200 min-h-[48px] text-lg font-medium"
                     >
                       Certifications
                     </button>
                     
                     {/* Financial Excellence */}
-                    <div className="px-6 py-2 text-sm font-semibold text-blue-600 dark:text-blue-400">Financial Excellence</div>
+                    <div className="px-6 py-2 text-sm font-semibold text-black dark:text-white">Financial Excellence</div>
                     <button onClick={() => { scrollToSection('#cert-cfa-level-i-candidate'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
                       <div className="font-semibold text-gray-900 dark:text-white mb-1">CFA Level I Candidate</div>
                       <div className="text-xs text-gray-600 dark:text-gray-400">CFA Institute • 2025</div>
@@ -550,7 +550,7 @@ export default function Navigation() {
                     </button>
                     
                     {/* Data & Technology */}
-                    <div className="px-6 py-2 text-sm font-semibold text-blue-600 dark:text-blue-400">Data & Technology</div>
+                    <div className="px-6 py-2 text-sm font-semibold text-black dark:text-white">Data & Technology</div>
                     <button onClick={() => { scrollToSection('#cert-data-analytics-professional'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
                       <div className="font-semibold text-gray-900 dark:text-white mb-1">Data Analytics Professional</div>
                       <div className="text-xs text-gray-600 dark:text-gray-400">Google • 2023</div>
@@ -577,7 +577,7 @@ export default function Navigation() {
                     </button>
                     
                     {/* Advanced Analytics */}
-                    <div className="px-6 py-2 text-sm font-semibold text-blue-600 dark:text-blue-400">Advanced Analytics</div>
+                    <div className="px-6 py-2 text-sm font-semibold text-black dark:text-white">Advanced Analytics</div>
                     <button onClick={() => { scrollToSection('#cert-econometrics--methods---applications'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
                       <div className="font-semibold text-gray-900 dark:text-white mb-1">Econometrics: Methods & Applications</div>
                       <div className="text-xs text-gray-600 dark:text-gray-400">Erasmus University • 2024</div>
@@ -600,7 +600,7 @@ export default function Navigation() {
                     </button>
                     
                     {/* Standardized Exam */}
-                    <div className="px-6 py-2 text-sm font-semibold text-blue-600 dark:text-blue-400">Standardized Exam</div>
+                    <div className="px-6 py-2 text-sm font-semibold text-black dark:text-white">Standardized Exam</div>
                     <button onClick={() => { scrollToSection('#cert-gre-general-test'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
                       <div className="font-semibold text-gray-900 dark:text-white mb-1">GRE General Test</div>
                       <div className="text-xs text-gray-600 dark:text-gray-400">ETS • 2024</div>
