@@ -76,9 +76,7 @@ export default function Home() {
         <div className="shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 rounded-full overflow-hidden">
           <LiquidGlass>
             <div className="flex items-center px-6 py-3 bg-transparent">
-              <span className={`text-sm font-medium mr-4 whitespace-nowrap transition-colors duration-300 ${
-                isOverDarkSection ? 'text-white' : 'text-foreground'
-              }`}>
+              <span className="text-sm font-medium mr-4 whitespace-nowrap text-foreground">
                 Back to top
               </span>
               <div className="rounded-full overflow-hidden">
