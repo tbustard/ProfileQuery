@@ -120,14 +120,14 @@ export default function Navigation() {
   }), []);
 
   const dropdownGlassStyle = useMemo(() => ({
-    depth: 5,
+    depth: 10,
     segments: 50,
-    radius: 8,
+    radius: 10,
     tint: null,
-    reflectivity: 0.8,
-    thickness: 25,
-    dispersion: 3,
-    roughness: 0.25
+    reflectivity: 0.9,
+    thickness: 50,
+    dispersion: 5,
+    roughness: 0.3
   }), []);
 
   return (
@@ -493,26 +493,26 @@ export default function Navigation() {
 
         {/* Desktop Dropdown Menu */}
         {openDropdown === 'education' && (
-          <div className="hidden lg:block absolute top-full left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg z-50">
-            <LiquidGlass glassStyle={dropdownGlassStyle}>
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                <div className="max-w-md">
-                  <button 
-                    onClick={() => {
-                      scrollToSection('#education');
-                      setOpenDropdown(null);
-                    }}
-                    className="w-full text-left block p-5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-                  >
-                    <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">University of New Brunswick</div>
-                    <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-                      <div>Bachelor of Business Administration</div>
-                      <div className="mt-1 font-medium">Fredericton, NB • 2016-2020</div>
-                    </div>
-                  </button>
-                </div>
+          <div className="hidden lg:block absolute top-full left-0 right-0 bg-gray-50/95 dark:bg-gray-800/95 backdrop-blur-xl border-t border-gray-200/50 dark:border-gray-700/50 shadow-2xl z-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+              <div className="max-w-lg">
+                <LiquidGlass glassStyle={dropdownGlassStyle}>
+                  <div className="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-xl border border-gray-200/50 dark:border-gray-700/50">
+                    <button 
+                      onClick={() => {
+                        scrollToSection('#education');
+                        setOpenDropdown(null);
+                      }}
+                      className="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-4 transition-all duration-200 -m-4"
+                    >
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">University of New Brunswick</h3>
+                      <p className="text-lg text-gray-700 dark:text-gray-300 mb-2">Bachelor of Business Administration</p>
+                      <p className="text-base text-gray-500 dark:text-gray-400 font-medium">Fredericton, NB • 2016-2020</p>
+                    </button>
+                  </div>
+                </LiquidGlass>
               </div>
-            </LiquidGlass>
+            </div>
           </div>
         )}
       </nav>
