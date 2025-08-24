@@ -1,7 +1,7 @@
-// No longer need useState since we're not managing overlay state
 import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
+import { useQuery } from "@tanstack/react-query";
 // VideoOverlay no longer needed - using YouTube directly
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
@@ -23,8 +23,11 @@ import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 export default function HeroSection() {
   const isPageLoaded = useInitialPageAnimation(300);
   
-  // YouTube video URL - you can change this to your video
-  const youtubeVideoUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // Replace with your video URL
+  // Fetch YouTube URL from backend
+  const siteSettingsQuery = useQuery({
+    queryKey: ['/api/site-settings'],
+    staleTime: 60000, // 1 minute
+  });
 
   // Smooth scroll to section function
   const scrollToSection = (sectionId: string) => {
@@ -89,7 +92,17 @@ export default function HeroSection() {
                 {/* Introduction Button */}
                 <div className="flex justify-center lg:justify-start pt-2 sm:pt-4">
                   <Button
-                    onClick={() => window.open(youtubeVideoUrl, '_blank')}
+                    onClick={() => {
+                      const youtubeUrl = siteSettingsQuery.data && 'youtubeUrl' in siteSettingsQuery.data 
+                        ? siteSettingsQuery.data.youtubeUrl 
+                        : null;
+                      
+                      if (youtubeUrl) {
+                        window.open(youtubeUrl, '_blank');
+                      } else {
+                        alert('Introduction video URL not set. Please contact the site administrator.');
+                      }
+                    }}
                     className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 sm:px-8 py-4 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-base sm:text-lg min-h-[56px]"
                     data-testid="button-introduction"
                   >

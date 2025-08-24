@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertSqlQuerySchema, insertContactMessageSchema, insertVideoSchema } from "@shared/schema";
+import { insertSqlQuerySchema, insertContactMessageSchema, insertVideoSchema, insertSiteSettingsSchema } from "@shared/schema";
 import OpenAI from "openai";
 import multer from "multer";
 import path from "path";
@@ -99,6 +99,39 @@ Focus on investment analysis, portfolio management, and financial reporting quer
     } catch (error) {
       console.error("Contact form error:", error);
       res.status(400).json({ error: "Failed to send message. Please check your input." });
+    }
+  });
+
+  // Site settings endpoints
+  app.get("/api/site-settings", async (req, res) => {
+    try {
+      const settings = await storage.getSiteSettings();
+      res.json(settings || { youtubeUrl: null });
+    } catch (error) {
+      console.error("Error fetching site settings:", error);
+      res.status(500).json({ error: "Failed to fetch site settings" });
+    }
+  });
+
+  app.post("/api/site-settings/youtube", async (req, res) => {
+    try {
+      const { youtubeUrl } = req.body;
+      
+      if (!youtubeUrl || typeof youtubeUrl !== 'string') {
+        return res.status(400).json({ error: "YouTube URL is required" });
+      }
+
+      // Simple validation for YouTube URL
+      const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+/;
+      if (!youtubeRegex.test(youtubeUrl)) {
+        return res.status(400).json({ error: "Invalid YouTube URL" });
+      }
+
+      const settings = await storage.updateYoutubeUrl(youtubeUrl, "employer");
+      res.json(settings);
+    } catch (error) {
+      console.error("Error updating YouTube URL:", error);
+      res.status(500).json({ error: "Failed to update YouTube URL" });
     }
   });
 
