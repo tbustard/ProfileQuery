@@ -215,16 +215,9 @@ export default function Navigation() {
                 <div className="hidden lg:flex items-center space-x-1">
                   
                   {/* Education */}
-                  <div 
-                    className="relative dropdown-container"
-                    onMouseEnter={() => setOpenDropdown('education')}
-                    onMouseLeave={() => setOpenDropdown(null)}
-                  >
+                  <div className="relative dropdown-container">
                     <button
-                      onClick={() => {
-                        scrollToSection('#education');
-                        setOpenDropdown(null);
-                      }}
+                      onClick={() => setOpenDropdown(openDropdown === 'education' ? null : 'education')}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                         currentSection === 'education' 
                           ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
@@ -238,16 +231,9 @@ export default function Navigation() {
                   </div>
 
                   {/* Experience */}
-                  <div 
-                    className="relative dropdown-container"
-                    onMouseEnter={() => setOpenDropdown('experience')}
-                    onMouseLeave={() => setOpenDropdown(null)}
-                  >
+                  <div className="relative dropdown-container">
                     <button
-                      onClick={() => {
-                        scrollToSection('#experience');
-                        setOpenDropdown(null);
-                      }}
+                      onClick={() => setOpenDropdown(openDropdown === 'experience' ? null : 'experience')}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                         currentSection === 'experience' 
                           ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
@@ -260,16 +246,9 @@ export default function Navigation() {
                   </div>
 
                   {/* Certifications */}
-                  <div 
-                    className="relative dropdown-container"
-                    onMouseEnter={() => setOpenDropdown('certifications')}
-                    onMouseLeave={() => setOpenDropdown(null)}
-                  >
+                  <div className="relative dropdown-container">
                     <button
-                      onClick={() => {
-                        scrollToSection('#certifications');
-                        setOpenDropdown(null);
-                      }}
+                      onClick={() => setOpenDropdown(openDropdown === 'certifications' ? null : 'certifications')}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                         currentSection === 'certifications' 
                           ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
@@ -282,16 +261,9 @@ export default function Navigation() {
                   </div>
 
                   {/* Community */}
-                  <div 
-                    className="relative dropdown-container"
-                    onMouseEnter={() => setOpenDropdown('community')}
-                    onMouseLeave={() => setOpenDropdown(null)}
-                  >
+                  <div className="relative dropdown-container">
                     <button
-                      onClick={() => {
-                        scrollToSection('#community');
-                        setOpenDropdown(null);
-                      }}
+                      onClick={() => setOpenDropdown(openDropdown === 'community' ? null : 'community')}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                         currentSection === 'community' 
                           ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
@@ -304,16 +276,9 @@ export default function Navigation() {
                   </div>
 
                   {/* Contact */}
-                  <div 
-                    className="relative dropdown-container"
-                    onMouseEnter={() => setOpenDropdown('contact')}
-                    onMouseLeave={() => setOpenDropdown(null)}
-                  >
+                  <div className="relative dropdown-container">
                     <button
-                      onClick={() => {
-                        scrollToSection('#contact');
-                        setOpenDropdown(null);
-                      }}
+                      onClick={() => setOpenDropdown(openDropdown === 'contact' ? null : 'contact')}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                         currentSection === 'contact' 
                           ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
@@ -903,11 +868,7 @@ export default function Navigation() {
 
       {/* Education Dropdown - Outside nav container */}
       {openDropdown === 'education' && (
-        <div 
-          className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:-translate-x-80 lg:w-80 lg:mt-2 z-[9999]"
-          onMouseEnter={() => setOpenDropdown('education')}
-          onMouseLeave={() => setOpenDropdown(null)}
-        >
+        <div className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:-translate-x-80 lg:w-80 lg:mt-2 z-[9999]">
           <LiquidGlass 
             ref={educationDropdownRef}
             glassStyle={dropdownGlassStyle}
@@ -956,11 +917,7 @@ export default function Navigation() {
 
       {/* Experience Dropdown - Outside nav container */}
       {openDropdown === 'experience' && (
-        <div 
-          className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:-translate-x-32 lg:w-80 lg:mt-2 z-[9999]"
-          onMouseEnter={() => setOpenDropdown('experience')}
-          onMouseLeave={() => setOpenDropdown(null)}
-        >
+        <div className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:-translate-x-32 lg:w-80 lg:mt-2 z-[9999]">
           <LiquidGlass 
             ref={experienceDropdownRef}
             glassStyle={dropdownGlassStyle}
@@ -1092,11 +1049,7 @@ export default function Navigation() {
 
       {/* Certifications Dropdown - Outside nav container */}
       {openDropdown === 'certifications' && (
-        <div 
-          className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-8 lg:w-96 lg:mt-2 z-[9999]"
-          onMouseEnter={() => setOpenDropdown('certifications')}
-          onMouseLeave={() => setOpenDropdown(null)}
-        >
+        <div className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-8 lg:w-96 lg:mt-2 z-[9999]">
           <LiquidGlass 
             ref={certificationsDropdownRef}
             glassStyle={dropdownGlassStyle}
@@ -1310,11 +1263,7 @@ export default function Navigation() {
 
       {/* Community Dropdown - Outside nav container */}
       {openDropdown === 'community' && (
-        <div 
-          className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-48 lg:w-80 lg:mt-2 z-[9999]"
-          onMouseEnter={() => setOpenDropdown('community')}
-          onMouseLeave={() => setOpenDropdown(null)}
-        >
+        <div className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-48 lg:w-80 lg:mt-2 z-[9999]">
           <LiquidGlass 
             ref={communityDropdownRef}
             glassStyle={dropdownGlassStyle}
@@ -1400,11 +1349,7 @@ export default function Navigation() {
 
       {/* Contact Dropdown - Outside nav container */}
       {openDropdown === 'contact' && (
-        <div 
-          className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-80 lg:w-80 lg:mt-2 z-[9999]"
-          onMouseEnter={() => setOpenDropdown('contact')}
-          onMouseLeave={() => setOpenDropdown(null)}
-        >
+        <div className="fixed inset-0 lg:top-20 lg:left-1/2 lg:transform lg:translate-x-80 lg:w-80 lg:mt-2 z-[9999]">
           <LiquidGlass 
             ref={contactDropdownRef}
             glassStyle={dropdownGlassStyle}
