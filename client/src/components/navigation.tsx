@@ -225,16 +225,19 @@ export default function Navigation() {
                   </div>
 
                   {/* Community */}
-                  <button
-                    onClick={isHomePage ? () => scrollToSection('#community') : undefined}
-                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                      currentSection === 'community' 
-                        ? 'text-black dark:text-white font-semibold bg-gray-100/10 dark:bg-gray-900/20' 
-                        : 'text-black dark:text-white hover:text-black dark:hover:text-white hover:bg-gray-50/10 dark:hover:bg-gray-900/10'
-                    }`}
-                  >
-                    Community
-                  </button>
+                  <div className="relative dropdown-container">
+                    <button
+                      onClick={() => setOpenDropdown(openDropdown === 'community' ? null : 'community')}
+                      className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
+                        currentSection === 'community' 
+                          ? 'text-black dark:text-white font-semibold bg-gray-100/10 dark:bg-gray-900/20' 
+                          : 'text-black dark:text-white hover:text-black dark:hover:text-white hover:bg-gray-50/10 dark:hover:bg-gray-900/10'
+                      }`}
+                    >
+                      Community
+                      <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'community' ? 'rotate-180' : ''}`} />
+                    </button>
+                  </div>
 
                   {/* Contact */}
                   <button
@@ -679,6 +682,67 @@ export default function Navigation() {
                     </div>
                   </button>
                 </div>
+
+              </div>
+            </div>
+          </LiquidGlass>
+        </div>
+      )}
+
+      {/* Community Dropdown - Outside nav container */}
+      {openDropdown === 'community' && (
+        <div className="fixed top-20 left-1/2 transform translate-x-24 w-80 z-[9999] mt-2">
+          <LiquidGlass 
+            glassStyle={dropdownGlassStyle}
+            style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
+          >
+            <div className="rounded-xl p-4">
+              <div className="space-y-3 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
+                
+                {/* United Way */}
+                <button 
+                  onClick={() => {
+                    scrollToSection('#community-united-way');
+                    setOpenDropdown(null);
+                  }}
+                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200"
+                >
+                  <div className="space-y-1">
+                    <div className="text-sm font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Next Gen Ambassador</div>
+                    <div className="text-xs text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">United Way</div>
+                    <div className="text-xs text-gray-600 dark:text-gray-400 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2020-2023 • Kingston, Ontario</div>
+                  </div>
+                </button>
+
+                {/* Royal Bank of Canada */}
+                <button 
+                  onClick={() => {
+                    scrollToSection('#community-royal-bank-of-canada');
+                    setOpenDropdown(null);
+                  }}
+                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200"
+                >
+                  <div className="space-y-1">
+                    <div className="text-sm font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Student Ambassador</div>
+                    <div className="text-xs text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Royal Bank of Canada</div>
+                    <div className="text-xs text-gray-600 dark:text-gray-400 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2019-2020 • Fredericton, New Brunswick</div>
+                  </div>
+                </button>
+
+                {/* Irving Oil Limited */}
+                <button 
+                  onClick={() => {
+                    scrollToSection('#community-irving-oil-limited');
+                    setOpenDropdown(null);
+                  }}
+                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200"
+                >
+                  <div className="space-y-1">
+                    <div className="text-sm font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Volunteer Staff</div>
+                    <div className="text-xs text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Irving Oil Limited</div>
+                    <div className="text-xs text-gray-600 dark:text-gray-400 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2018 • Saint John, New Brunswick</div>
+                  </div>
+                </button>
 
               </div>
             </div>
