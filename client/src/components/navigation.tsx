@@ -192,6 +192,25 @@ export default function Navigation() {
                       <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'education' ? 'rotate-180' : ''}`} />
                     </button>
                     
+                    {openDropdown === 'education' && (
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 z-[9999]">
+                        <LiquidGlass glassStyle={dropdownGlassStyle}>
+                          <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-xl border border-gray-200/50 dark:border-gray-700/50">
+                            <button 
+                              onClick={() => {
+                                scrollToSection('#education');
+                                setOpenDropdown(null);
+                              }}
+                              className="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 transition-all duration-200 -m-3"
+                            >
+                              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">University of New Brunswick</h3>
+                              <p className="text-base text-gray-700 dark:text-gray-300 mb-1">Bachelor of Business Administration</p>
+                              <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Fredericton, NB • 2016-2020</p>
+                            </button>
+                          </div>
+                        </LiquidGlass>
+                      </div>
+                    )}
                   </div>
 
                   {/* Experience */}
@@ -491,30 +510,6 @@ export default function Navigation() {
           </div>
         )}
 
-        {/* Desktop Dropdown Menu */}
-        {openDropdown === 'education' && (
-          <div className="hidden lg:block absolute top-full left-0 right-0 bg-gray-50/95 dark:bg-gray-800/95 backdrop-blur-xl border-t border-gray-200/50 dark:border-gray-700/50 shadow-2xl z-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-              <div className="max-w-lg">
-                <LiquidGlass glassStyle={dropdownGlassStyle}>
-                  <div className="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-xl border border-gray-200/50 dark:border-gray-700/50">
-                    <button 
-                      onClick={() => {
-                        scrollToSection('#education');
-                        setOpenDropdown(null);
-                      }}
-                      className="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-4 transition-all duration-200 -m-4"
-                    >
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">University of New Brunswick</h3>
-                      <p className="text-lg text-gray-700 dark:text-gray-300 mb-2">Bachelor of Business Administration</p>
-                      <p className="text-base text-gray-500 dark:text-gray-400 font-medium">Fredericton, NB • 2016-2020</p>
-                    </button>
-                  </div>
-                </LiquidGlass>
-              </div>
-            </div>
-          </div>
-        )}
       </nav>
     </>
   );
