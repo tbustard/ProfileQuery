@@ -165,8 +165,8 @@ export default function Navigation() {
                   onClick={isHomePage ? () => scrollToSection('#education') : undefined}
                   className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                     currentSection === 'education' 
-                      ? 'text-primary font-semibold bg-primary/10' 
-                      : 'text-foreground/90 hover:text-foreground hover:bg-white/5'
+                      ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
+                      : 'text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:bg-blue-50/10 dark:hover:bg-blue-900/10'
                   }`}
                 >
                   Education
@@ -192,8 +192,8 @@ export default function Navigation() {
                   onClick={isHomePage ? () => scrollToSection('#experience') : undefined}
                   className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                     currentSection === 'experience' 
-                      ? 'text-primary font-semibold bg-primary/10' 
-                      : 'text-foreground/90 hover:text-foreground hover:bg-white/5'
+                      ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
+                      : 'text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:bg-blue-50/10 dark:hover:bg-blue-900/10'
                   }`}
                 >
                   Experience
@@ -307,8 +307,8 @@ export default function Navigation() {
                   onClick={isHomePage ? () => scrollToSection('#community') : undefined}
                   className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                     currentSection === 'community' 
-                      ? 'text-primary font-semibold bg-primary/10' 
-                      : 'text-foreground/90 hover:text-foreground hover:bg-white/5'
+                      ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
+                      : 'text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:bg-blue-50/10 dark:hover:bg-blue-900/10'
                   }`}
                 >
                   Community
@@ -340,8 +340,8 @@ export default function Navigation() {
                     onClick={() => scrollToSection('#contact')}
                     className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                       currentSection === 'contact' 
-                        ? 'text-primary font-semibold bg-primary/10' 
-                        : 'text-foreground/90 hover:text-foreground hover:bg-white/5'
+                        ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
+                        : 'text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:bg-blue-50/10 dark:hover:bg-blue-900/10'
                     }`}
                   >
                     Contact
