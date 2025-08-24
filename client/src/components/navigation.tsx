@@ -195,64 +195,52 @@ export default function Navigation() {
                   </div>
 
                   {/* Experience */}
-                  <div className="relative dropdown-container">
-                    <button
-                      onClick={() => setOpenDropdown(openDropdown === 'experience' ? null : 'experience')}
-                      className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
-                        currentSection === 'experience' 
-                          ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
-                          : 'text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50/10 dark:hover:bg-gray-900/10'
-                      }`}
-                    >
-                      Experience
-                      <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'experience' ? 'rotate-180' : ''}`} />
-                    </button>
-                  </div>
+                  <button
+                    onClick={isHomePage ? () => scrollToSection('#experience') : undefined}
+                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                      currentSection === 'experience' 
+                        ? 'text-blue-600 dark:text-blue-400 font-semibold bg-blue-100/10 dark:bg-blue-900/20' 
+                        : 'text-black dark:text-white hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50/10 dark:hover:bg-gray-900/10'
+                    }`}
+                  >
+                    Experience
+                  </button>
 
                   {/* Certifications */}
-                  <div className="relative dropdown-container">
-                    <button
-                      onClick={() => setOpenDropdown(openDropdown === 'certifications' ? null : 'certifications')}
-                      className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
-                        currentSection === 'certifications' 
-                          ? 'text-black dark:text-white font-semibold bg-gray-100/10 dark:bg-gray-900/20' 
-                          : 'text-black dark:text-white hover:text-black dark:hover:text-white hover:bg-gray-50/10 dark:hover:bg-gray-900/10'
-                      }`}
-                    >
-                      Certifications
-                      <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'certifications' ? 'rotate-180' : ''}`} />
-                    </button>
-                  </div>
+                  <button
+                    onClick={isHomePage ? () => scrollToSection('#certifications') : undefined}
+                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                      currentSection === 'certifications' 
+                        ? 'text-black dark:text-white font-semibold bg-gray-100/10 dark:bg-gray-900/20' 
+                        : 'text-black dark:text-white hover:text-black dark:hover:text-white hover:bg-gray-50/10 dark:hover:bg-gray-900/10'
+                    }`}
+                  >
+                    Certifications
+                  </button>
 
                   {/* Community */}
-                  <div className="relative dropdown-container">
-                    <button
-                      onClick={() => setOpenDropdown(openDropdown === 'community' ? null : 'community')}
-                      className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
-                        currentSection === 'community' 
-                          ? 'text-black dark:text-white font-semibold bg-gray-100/10 dark:bg-gray-900/20' 
-                          : 'text-black dark:text-white hover:text-black dark:hover:text-white hover:bg-gray-50/10 dark:hover:bg-gray-900/10'
-                      }`}
-                    >
-                      Community
-                      <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'community' ? 'rotate-180' : ''}`} />
-                    </button>
-                  </div>
+                  <button
+                    onClick={isHomePage ? () => scrollToSection('#community') : undefined}
+                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                      currentSection === 'community' 
+                        ? 'text-black dark:text-white font-semibold bg-gray-100/10 dark:bg-gray-900/20' 
+                        : 'text-black dark:text-white hover:text-black dark:hover:text-white hover:bg-gray-50/10 dark:hover:bg-gray-900/10'
+                    }`}
+                  >
+                    Community
+                  </button>
 
                   {/* Contact */}
-                  <div className="relative dropdown-container">
-                    <button
-                      onClick={() => setOpenDropdown(openDropdown === 'contact' ? null : 'contact')}
-                      className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
-                        currentSection === 'contact' 
-                          ? 'text-black dark:text-white font-semibold bg-gray-100/10 dark:bg-gray-900/20' 
-                          : 'text-black dark:text-white hover:text-black dark:hover:text-white hover:bg-gray-50/10 dark:hover:bg-gray-900/10'
-                      }`}
-                    >
-                      Contact
-                      <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'contact' ? 'rotate-180' : ''}`} />
-                    </button>
-                  </div>
+                  <button
+                    onClick={isHomePage ? () => scrollToSection('#contact') : undefined}
+                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                      currentSection === 'contact' 
+                        ? 'text-black dark:text-white font-semibold bg-gray-100/10 dark:bg-gray-900/20' 
+                        : 'text-black dark:text-white hover:text-black dark:hover:text-white hover:bg-gray-50/10 dark:hover:bg-gray-900/10'
+                    }`}
+                  >
+                    Contact
+                  </button>
 
                   {/* Download */}
                   <button
@@ -386,120 +374,6 @@ export default function Navigation() {
         </div>
       )}
 
-      {/* Experience Dropdown */}
-      {openDropdown === 'experience' && (
-        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 w-80 z-[9999] mt-2">
-          <LiquidGlass glassStyle={dropdownGlassStyle}>
-            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-xl border border-gray-200/50 dark:border-gray-700/50 max-h-96 overflow-y-auto">
-              <div className="space-y-1">
-                <button onClick={() => { scrollToSection('#experience-bmo-private-wealth-portfolio-assistant'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 transition-all duration-200 -m-1">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">BMO Private Wealth</h3>
-                  <p className="text-base text-gray-700 dark:text-gray-300 mb-1">Portfolio Assistant</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Toronto, ON • 2022-2023</p>
-                </button>
-                <button onClick={() => { scrollToSection('#experience-td-canada-trust-financial-advisor'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 transition-all duration-200 -m-1">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">TD Canada Trust</h3>
-                  <p className="text-base text-gray-700 dark:text-gray-300 mb-1">Financial Advisor</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Kingston, ON • 2021-2022</p>
-                </button>
-                <button onClick={() => { scrollToSection('#experience-royal-bank-of-canada-banking-advisor'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 transition-all duration-200 -m-1">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Royal Bank of Canada</h3>
-                  <p className="text-base text-gray-700 dark:text-gray-300 mb-1">Banking Advisor</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Kingston, ON • 2020-2021</p>
-                </button>
-                <button onClick={() => { scrollToSection('#experience-royal-bank-of-canada-client-advisor-intern'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 transition-all duration-200 -m-1">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">RBC</h3>
-                  <p className="text-base text-gray-700 dark:text-gray-300 mb-1">Client Advisor Intern</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Fredericton, NB • 2019-2020</p>
-                </button>
-              </div>
-            </div>
-          </LiquidGlass>
-        </div>
-      )}
-
-      {/* Certifications Dropdown */}
-      {openDropdown === 'certifications' && (
-        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 w-96 z-[9999] mt-2">
-          <LiquidGlass glassStyle={dropdownGlassStyle}>
-            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-xl border border-gray-200/50 dark:border-gray-700/50 max-h-96 overflow-y-auto">
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">Financial Excellence</h4>
-                  <div className="space-y-1">
-                    <button onClick={() => { scrollToSection('#cert-cfa-level-i-candidate'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 transition-all duration-200 -m-1">
-                      <h3 className="text-base font-bold text-gray-900 dark:text-white mb-1">CFA Level I Candidate</h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">CFA Institute • 2025</p>
-                    </button>
-                    <button onClick={() => { scrollToSection('#cert-canadian-securities-course'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 transition-all duration-200 -m-1">
-                      <h3 className="text-base font-bold text-gray-900 dark:text-white mb-1">Canadian Securities Course</h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">CSI • 2021</p>
-                    </button>
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">Data & Technology</h4>
-                  <div className="space-y-1">
-                    <button onClick={() => { scrollToSection('#cert-data-analytics-professional'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 transition-all duration-200 -m-1">
-                      <h3 className="text-base font-bold text-gray-900 dark:text-white mb-1">Data Analytics Professional</h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">Google • 2023</p>
-                    </button>
-                    <button onClick={() => { scrollToSection('#cert-python-for-everybody'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 transition-all duration-200 -m-1">
-                      <h3 className="text-base font-bold text-gray-900 dark:text-white mb-1">Python for Everybody</h3>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">University of Michigan • 2023</p>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </LiquidGlass>
-        </div>
-      )}
-
-      {/* Community Dropdown */}
-      {openDropdown === 'community' && (
-        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 w-80 z-[9999] mt-2">
-          <LiquidGlass glassStyle={dropdownGlassStyle}>
-            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-xl border border-gray-200/50 dark:border-gray-700/50">
-              <button 
-                onClick={() => {
-                  scrollToSection('#community-canadian-red-cross-volunteer');
-                  setOpenDropdown(null);
-                }}
-                className="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 transition-all duration-200 -m-3"
-              >
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Canadian Red Cross</h3>
-                <p className="text-base text-gray-700 dark:text-gray-300 mb-1">Volunteer</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">Kingston, ON • 2021-2022</p>
-              </button>
-            </div>
-          </LiquidGlass>
-        </div>
-      )}
-
-      {/* Contact Dropdown */}
-      {openDropdown === 'contact' && (
-        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 w-80 z-[9999] mt-2">
-          <LiquidGlass glassStyle={dropdownGlassStyle}>
-            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-xl border border-gray-200/50 dark:border-gray-700/50">
-              <div className="space-y-1">
-                <button onClick={() => { scrollToSection('#contact'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 transition-all duration-200 -m-1">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Email</h3>
-                  <p className="text-base text-gray-700 dark:text-gray-300 font-medium">tbustard@unb.ca</p>
-                </button>
-                <button onClick={() => { scrollToSection('#contact'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 transition-all duration-200 -m-1">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Phone</h3>
-                  <p className="text-base text-gray-700 dark:text-gray-300 font-medium">(613) 985-1223</p>
-                </button>
-                <button onClick={() => { scrollToSection('#contact'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg p-3 transition-all duration-200 -m-1">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Location</h3>
-                  <p className="text-base text-gray-700 dark:text-gray-300 font-medium">Toronto, Ontario, Canada</p>
-                </button>
-              </div>
-            </div>
-          </LiquidGlass>
-        </div>
-      )}
     </>
   );
 }
