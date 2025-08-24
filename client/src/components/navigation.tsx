@@ -1105,7 +1105,7 @@ export default function Navigation() {
                 
                 <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
                   <div className="space-y-2 lg:space-y-1">
-                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Certificate in Financial Services Advice</div>
+                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit lg:whitespace-nowrap">Certificate in Financial Services Advice</div>
                     <div className="text-lg lg:text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Canadian Securities Institute</div>
                     <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2022</div>
                   </div>
@@ -1113,7 +1113,7 @@ export default function Navigation() {
                 
                 <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
                   <div className="space-y-2 lg:space-y-1">
-                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Personal Financial Service Advice</div>
+                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit lg:whitespace-nowrap">Personal Financial Service Advice</div>
                     <div className="text-lg lg:text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Canadian Securities Institute</div>
                     <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2021</div>
                   </div>
@@ -1129,7 +1129,7 @@ export default function Navigation() {
                 
                 <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
                   <div className="space-y-2 lg:space-y-1">
-                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Financial & Valuation Modeling</div>
+                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit lg:whitespace-nowrap">Financial & Valuation Modeling</div>
                     <div className="text-lg lg:text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Wall Street Prep</div>
                     <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2020</div>
                   </div>
@@ -1145,7 +1145,7 @@ export default function Navigation() {
                 
                 <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
                   <div className="space-y-2 lg:space-y-1">
-                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Bloomberg Market Concepts Certificate</div>
+                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit lg:whitespace-nowrap">Bloomberg Market Concepts Certificate</div>
                     <div className="text-lg lg:text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Bloomberg</div>
                     <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2020</div>
                   </div>
@@ -1169,7 +1169,7 @@ export default function Navigation() {
                 
                 <button onClick={() => { scrollToSection('#certifications-data---technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
                   <div className="space-y-2 lg:space-y-1">
-                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Data Visualization with Tableau</div>
+                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit lg:whitespace-nowrap">Data Visualization with Tableau</div>
                     <div className="text-lg lg:text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">UC Davis</div>
                     <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2023</div>
                   </div>
@@ -1209,7 +1209,7 @@ export default function Navigation() {
 
                 <button onClick={() => { scrollToSection('#certifications-advanced-analytics'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
                   <div className="space-y-2 lg:space-y-1">
-                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Econometrics: Methods & Applications</div>
+                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit lg:whitespace-nowrap">Econometrics: Methods & Applications</div>
                     <div className="text-lg lg:text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Erasmus University</div>
                     <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2024</div>
                   </div>
