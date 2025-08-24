@@ -146,9 +146,9 @@ export default function Navigation() {
                     className="w-9 h-9 rounded-xl object-cover ring-1 ring-white/20 shadow-sm"
                   />
                   <div className="relative">
-                    <span className="text-lg font-black tracking-tight apple-heading-nav">
-                      <span className="bg-gradient-to-r from-gray-900 via-black to-gray-800 bg-clip-text text-transparent dark:from-white dark:via-gray-100 dark:to-gray-300">Tyler</span>{' '}
-                      <span className="font-black bg-gradient-to-r from-gray-900 via-black to-gray-800 bg-clip-text text-transparent dark:from-white dark:via-gray-100 dark:to-gray-300">Bustard</span>
+                    <span className="text-lg tracking-tight apple-heading-nav">
+                      <span className="font-bold bg-gradient-to-r from-gray-900 via-black to-gray-800 bg-clip-text text-transparent dark:from-white dark:via-gray-100 dark:to-gray-300">Tyler</span>{' '}
+                      <span className="font-normal bg-gradient-to-r from-gray-900 via-black to-gray-800 bg-clip-text text-transparent dark:from-white dark:via-gray-100 dark:to-gray-300">Bustard</span>
                     </span>
                   </div>
                 </button>
