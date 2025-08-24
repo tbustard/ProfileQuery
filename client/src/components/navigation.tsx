@@ -175,11 +175,11 @@ export default function Navigation() {
                       <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                     </button>
                     
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 max-h-96 overflow-y-auto rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[9999] pointer-events-none group-hover:pointer-events-auto bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border border-white/20">
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-80 rounded-xl shadow-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 group-hover:block hidden">
                       <div className="p-3">
                         <button 
                           onClick={() => scrollToSection('#education')}
-                          className="w-full text-left block p-5 rounded-lg hover:bg-white/5 transition-colors"
+                          className="w-full text-left block p-5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                         >
                           <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">University of New Brunswick</div>
                           <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed">
