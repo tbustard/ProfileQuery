@@ -359,10 +359,10 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">University of New Brunswick</div>
-                        <div className="text-base text-foreground/80">Bachelor of Business Administration</div>
-                        <div className="text-sm text-foreground/70">Fredericton, NB</div>
-                        <div className="text-sm text-foreground/70">2016-2020</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">University of New Brunswick</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Bachelor of Business Administration</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">Fredericton, NB</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2016-2020</div>
                       </div>
                     </button>
                   </div>
@@ -379,10 +379,10 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Portfolio Assistant</div>
-                        <div className="text-base text-foreground/80">BMO Private Wealth</div>
-                        <div className="text-sm text-foreground/70">Toronto, Ontario</div>
-                        <div className="text-sm text-foreground/70">2022-2023</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Portfolio Assistant</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">BMO Private Wealth</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">Toronto, Ontario</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2022-2023</div>
                       </div>
                     </button>
                     
@@ -394,10 +394,10 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Financial Advisor</div>
-                        <div className="text-base text-foreground/80">TD Canada Trust</div>
-                        <div className="text-sm text-foreground/70">Kingston, Ontario</div>
-                        <div className="text-sm text-foreground/70">2021-2022</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Financial Advisor</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">TD Canada Trust</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">Kingston, Ontario</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2021-2022</div>
                       </div>
                     </button>
                     
@@ -409,10 +409,10 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Banking Advisor</div>
-                        <div className="text-base text-foreground/80">Royal Bank of Canada</div>
-                        <div className="text-sm text-foreground/70">Kingston, Ontario</div>
-                        <div className="text-sm text-foreground/70">2020-2021</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Banking Advisor</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Royal Bank of Canada</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">Kingston, Ontario</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2020-2021</div>
                       </div>
                     </button>
                     
@@ -424,10 +424,10 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Client Advisor Intern</div>
-                        <div className="text-base text-foreground/80">Royal Bank of Canada</div>
-                        <div className="text-sm text-foreground/70">Fredericton, New Brunswick</div>
-                        <div className="text-sm text-foreground/70">2019-2020</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Client Advisor Intern</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Royal Bank of Canada</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">Fredericton, New Brunswick</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2019-2020</div>
                       </div>
                     </button>
                     
@@ -439,10 +439,10 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Marketing Intern</div>
-                        <div className="text-base text-foreground/80">Irving Oil Limited</div>
-                        <div className="text-sm text-foreground/70">Saint John, New Brunswick</div>
-                        <div className="text-sm text-foreground/70">2018</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Marketing Intern</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Irving Oil Limited</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">Saint John, New Brunswick</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2018</div>
                       </div>
                     </button>
                     
@@ -454,10 +454,10 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Tax Return Intern</div>
-                        <div className="text-base text-foreground/80">Grant Thornton LLP</div>
-                        <div className="text-sm text-foreground/70">Saint John, New Brunswick</div>
-                        <div className="text-sm text-foreground/70">2018</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Tax Return Intern</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Grant Thornton LLP</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">Saint John, New Brunswick</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2018</div>
                       </div>
                     </button>
                   </div>
@@ -474,9 +474,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">CFA Level I Candidate</div>
-                        <div className="text-base text-foreground/80">CFA Institute</div>
-                        <div className="text-sm text-foreground/70">2025</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">CFA Level I Candidate</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">CFA Institute</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2025</div>
                       </div>
                     </button>
                     
@@ -488,9 +488,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Discounted Cash Flow Analysis</div>
-                        <div className="text-base text-foreground/80">Training the Street</div>
-                        <div className="text-sm text-foreground/70">2024</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Discounted Cash Flow Analysis</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Training the Street</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2024</div>
                       </div>
                     </button>
                     
@@ -502,9 +502,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Financial Planning 1</div>
-                        <div className="text-base text-foreground/80">Canadian Securities Institute</div>
-                        <div className="text-sm text-foreground/70">2023</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Financial Planning 1</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Canadian Securities Institute</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2023</div>
                       </div>
                     </button>
                     
@@ -516,9 +516,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Certificate in Financial Services Advice</div>
-                        <div className="text-base text-foreground/80">Canadian Securities Institute</div>
-                        <div className="text-sm text-foreground/70">2022</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Certificate in Financial Services Advice</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Canadian Securities Institute</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2022</div>
                       </div>
                     </button>
                     
@@ -530,9 +530,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Personal Financial Service Advice</div>
-                        <div className="text-base text-foreground/80">Canadian Securities Institute</div>
-                        <div className="text-sm text-foreground/70">2021</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Personal Financial Service Advice</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Canadian Securities Institute</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2021</div>
                       </div>
                     </button>
                     
@@ -544,9 +544,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Canadian Securities Course</div>
-                        <div className="text-base text-foreground/80">Canadian Securities Institute</div>
-                        <div className="text-sm text-foreground/70">2021</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Canadian Securities Course</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Canadian Securities Institute</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2021</div>
                       </div>
                     </button>
                     
@@ -558,9 +558,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Financial & Valuation Modeling</div>
-                        <div className="text-base text-foreground/80">Wall Street Prep</div>
-                        <div className="text-sm text-foreground/70">2020</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Financial & Valuation Modeling</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Wall Street Prep</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2020</div>
                       </div>
                     </button>
                     
@@ -572,9 +572,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Investment Funds in Canada</div>
-                        <div className="text-base text-foreground/80">Canadian Securities Institute</div>
-                        <div className="text-sm text-foreground/70">2020</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Investment Funds in Canada</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Canadian Securities Institute</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2020</div>
                       </div>
                     </button>
                     
@@ -586,9 +586,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Bloomberg Market Concepts Certificate</div>
-                        <div className="text-base text-foreground/80">Bloomberg</div>
-                        <div className="text-sm text-foreground/70">2020</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Bloomberg Market Concepts Certificate</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Bloomberg</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2020</div>
                       </div>
                     </button>
                     
@@ -600,9 +600,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Personal Finance Essentials</div>
-                        <div className="text-base text-foreground/80">McGill University</div>
-                        <div className="text-sm text-foreground/70">2020</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Personal Finance Essentials</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">McGill University</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2020</div>
                       </div>
                     </button>
                     
@@ -614,9 +614,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Data Analytics Professional</div>
-                        <div className="text-base text-foreground/80">Google</div>
-                        <div className="text-sm text-foreground/70">2023</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Data Analytics Professional</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Google</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2023</div>
                       </div>
                     </button>
                     
@@ -628,9 +628,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Data Visualization with Tableau</div>
-                        <div className="text-base text-foreground/80">UC Davis</div>
-                        <div className="text-sm text-foreground/70">2023</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Data Visualization with Tableau</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">UC Davis</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2023</div>
                       </div>
                     </button>
                     
@@ -642,9 +642,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Python for Everybody</div>
-                        <div className="text-base text-foreground/80">University of Michigan</div>
-                        <div className="text-sm text-foreground/70">2023</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Python for Everybody</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">University of Michigan</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2023</div>
                       </div>
                     </button>
                     
@@ -656,9 +656,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Machine Learning</div>
-                        <div className="text-base text-foreground/80">Stanford University</div>
-                        <div className="text-sm text-foreground/70">2020</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Machine Learning</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Stanford University</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2020</div>
                       </div>
                     </button>
                     
@@ -670,9 +670,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">SQL for Data Science</div>
-                        <div className="text-base text-foreground/80">UC Davis</div>
-                        <div className="text-sm text-foreground/70">2020</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">SQL for Data Science</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">UC Davis</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2020</div>
                       </div>
                     </button>
                     
@@ -684,9 +684,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Power BI Data Visualization</div>
-                        <div className="text-base text-foreground/80">Microsoft</div>
-                        <div className="text-sm text-foreground/70">2020</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Power BI Data Visualization</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Microsoft</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2020</div>
                       </div>
                     </button>
                     
@@ -698,9 +698,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Econometrics: Methods & Applications</div>
-                        <div className="text-base text-foreground/80">Erasmus University</div>
-                        <div className="text-sm text-foreground/70">2024</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Econometrics: Methods & Applications</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Erasmus University</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2024</div>
                       </div>
                     </button>
                     
@@ -712,9 +712,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Financial Modeling & Valuation</div>
-                        <div className="text-base text-foreground/80">Duke University</div>
-                        <div className="text-sm text-foreground/70">2020</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Financial Modeling & Valuation</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Duke University</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2020</div>
                       </div>
                     </button>
                     
@@ -726,9 +726,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Excel Skills for Business</div>
-                        <div className="text-base text-foreground/80">Macquarie University</div>
-                        <div className="text-sm text-foreground/70">2020</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Excel Skills for Business</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Macquarie University</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2020</div>
                       </div>
                     </button>
                     
@@ -740,9 +740,9 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">GRE General Test</div>
-                        <div className="text-base text-foreground/80">ETS</div>
-                        <div className="text-sm text-foreground/70">2024</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">GRE General Test</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">ETS</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2024</div>
                       </div>
                     </button>
                   </div>
@@ -759,10 +759,10 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Next Gen Ambassador</div>
-                        <div className="text-base text-foreground/80">United Way</div>
-                        <div className="text-sm text-foreground/70">Kingston, Ontario</div>
-                        <div className="text-sm text-foreground/70">2020-2023</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Next Gen Ambassador</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">United Way</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">Kingston, Ontario</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2020-2023</div>
                       </div>
                     </button>
                     
@@ -774,10 +774,10 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Student Ambassador</div>
-                        <div className="text-base text-foreground/80">Royal Bank of Canada</div>
-                        <div className="text-sm text-foreground/70">Fredericton, New Brunswick</div>
-                        <div className="text-sm text-foreground/70">2019-2020</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Student Ambassador</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Royal Bank of Canada</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">Fredericton, New Brunswick</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2019-2020</div>
                       </div>
                     </button>
                     
@@ -789,10 +789,10 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Volunteer Staff</div>
-                        <div className="text-base text-foreground/80">Irving Oil Limited</div>
-                        <div className="text-sm text-foreground/70">Saint John, New Brunswick</div>
-                        <div className="text-sm text-foreground/70">2018</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Volunteer Staff</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Irving Oil Limited</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">Saint John, New Brunswick</div>
+                        <div className="text-sm text-gray-200 bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">2018</div>
                       </div>
                     </button>
                   </div>
@@ -809,8 +809,8 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Email</div>
-                        <div className="text-base text-foreground/80">tbustard@unb.ca</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Email</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">tbustard@unb.ca</div>
                       </div>
                     </button>
                     
@@ -822,8 +822,8 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Phone</div>
-                        <div className="text-base text-foreground/80">(613) 985-1223</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Phone</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">(613) 985-1223</div>
                       </div>
                     </button>
                     
@@ -835,8 +835,8 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Location</div>
-                        <div className="text-base text-foreground/80">Toronto, Ontario, Canada</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Location</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Toronto, Ontario, Canada</div>
                       </div>
                     </button>
                   </div>
@@ -852,8 +852,8 @@ export default function Navigation() {
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-lg font-bold text-foreground">Resume</div>
-                        <div className="text-base text-foreground/80">Download Tyler's Resume</div>
+                        <div className="text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Resume</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Download Tyler's Resume</div>
                       </div>
                     </button>
                   </div>
