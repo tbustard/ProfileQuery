@@ -93,11 +93,16 @@ export default function HeroSection() {
                 <div className="flex justify-center lg:justify-start pt-2 sm:pt-4">
                   <Button
                     onClick={() => {
+                      console.log('Button clicked. Videos data:', videosQuery.data);
                       const activeVideo = videosQuery.data && 
                         Array.isArray(videosQuery.data) &&
                         videosQuery.data.find((video: any) => video.isActive);
                       
+                      console.log('Active video found:', activeVideo);
+                      
                       if (activeVideo) {
+                        console.log('Creating video overlay for:', activeVideo.fileUrl);
+                        
                         // Create and show video overlay with uploaded video player
                         const overlay = document.createElement('div');
                         overlay.id = 'video-overlay';
@@ -118,30 +123,21 @@ export default function HeroSection() {
                               width="100%" 
                               height="100%" 
                               controls
-                              autoplay
-                              muted
+                              preload="auto"
                               class="w-full h-full"
+                              onloadstart="console.log('Video loading started')"
+                              onloadeddata="console.log('Video data loaded')"
+                              onerror="console.error('Video error:', event)"
                             >
-                              <source src="${activeVideo.fileUrl}" type="video/mp4">
                               <source src="${activeVideo.fileUrl}" type="video/quicktime">
-                              <source src="${activeVideo.fileUrl}" type="video/mov">
-                              <source src="${activeVideo.fileUrl}" type="video/avi">
-                              <source src="${activeVideo.fileUrl}" type="video/webm">
+                              <source src="${activeVideo.fileUrl}" type="video/mp4">
                               Your browser does not support the video tag.
                             </video>
                           </div>
                         `;
                         
-                        // Try to play the video after a short delay
-                        setTimeout(() => {
-                          const video = overlay.querySelector('video') as HTMLVideoElement;
-                          if (video) {
-                            video.play().catch(e => {
-                              console.log('Autoplay failed, user will need to click play manually:', e);
-                            });
-                          }
-                        }, 100);
                         document.body.appendChild(overlay);
+                        console.log('Video overlay added to DOM');
                         
                         // Close on escape key
                         const handleEscape = (e: KeyboardEvent) => {
@@ -160,6 +156,7 @@ export default function HeroSection() {
                           }
                         });
                       } else {
+                        console.log('No active video found, scrolling to introduction');
                         scrollToSection('introduction');
                       }
                     }}
