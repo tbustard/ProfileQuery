@@ -69,9 +69,9 @@ export default function HeroSection() {
               </div>
 
               {/* Content */}
-              <div className="flex-1 space-y-4 sm:space-y-5 text-center lg:text-left">
+              <div className="flex-1 space-y-6 sm:space-y-8 text-center lg:text-left">
                 {/* Name & Title */}
-                <div className="space-y-2 sm:space-y-3">
+                <div className="space-y-4 sm:space-y-6">
                   <div className="space-y-2 sm:space-y-3">
                     <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-foreground tracking-tight leading-tight">
                       Tyler Bustard
@@ -203,19 +203,19 @@ export default function HeroSection() {
           </div>
 
           {/* Stats/Highlights Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1 sm:gap-2 mt-6 sm:mt-8 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 mt-8 sm:mt-12 mb-8">
             
             {/* Education Card */}
             <div 
               onClick={() => scrollToSection('education')}
-              className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-5 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in cursor-pointer min-h-[140px] sm:min-h-[160px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
+              className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in cursor-pointer min-h-[180px] sm:min-h-[200px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    animationDelay: '0.5s'
                  }}
                  data-testid="card-education">
-              <div className="flex items-center gap-3 mb-2">
+              <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative">
                   <img src={unbLogo} alt="Education" className="w-6 h-6 object-contain" />
                 </div>
@@ -229,14 +229,14 @@ export default function HeroSection() {
             {/* Experience Card */}
             <div 
               onClick={() => scrollToSection('experience')}
-              className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-5 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in cursor-pointer min-h-[140px] sm:min-h-[160px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
+              className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in cursor-pointer min-h-[180px] sm:min-h-[200px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    animationDelay: '0.6s'
                  }}
                  data-testid="card-experience">
-              <div className="flex items-center gap-3 mb-2">
+              <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent experience logos stacked */}
                   <div className="flex relative">
@@ -261,14 +261,14 @@ export default function HeroSection() {
             {/* Certifications Card */}
             <div 
               onClick={() => scrollToSection('skills')}
-              className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-5 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in cursor-pointer min-h-[140px] sm:min-h-[160px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
+              className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in cursor-pointer min-h-[180px] sm:min-h-[200px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    animationDelay: '0.7s'
                  }}
                  data-testid="card-certifications">
-              <div className="flex items-center gap-3 mb-2">
+              <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent certification logos stacked */}
                   <div className="flex relative">
@@ -293,14 +293,14 @@ export default function HeroSection() {
             {/* Community Card */}
             <div 
               onClick={() => scrollToSection('community')}
-              className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-5 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in cursor-pointer min-h-[140px] sm:min-h-[160px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
+              className={`bg-white/50 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 page-load-fade-in cursor-pointer min-h-[180px] sm:min-h-[200px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    animationDelay: '0.8s'
                  }}
                  data-testid="card-community">
-              <div className="flex items-center gap-3 mb-2">
+              <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent community logos stacked */}
                   <div className="flex relative">
