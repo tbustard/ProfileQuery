@@ -59,19 +59,21 @@ export default function Home() {
       >
         <div className="shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105">
           <LiquidGlass>
-            <div className="flex items-center px-6 py-3">
+            <div className="flex items-center px-6 py-3 rounded-full">
               <span className={`text-sm font-medium mr-4 whitespace-nowrap transition-colors duration-300 ${
                 isOverDarkSection ? 'text-white' : 'text-foreground'
               }`}>
                 Back to top
               </span>
-              <button
-                onClick={scrollToTop}
-                className="w-10 h-10 bg-primary hover:bg-primary/90 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
-                data-testid="scroll-to-top-button"
-              >
-                <ChevronUp size={20} className="transition-transform duration-300 hover:scale-110" />
-              </button>
+              <LiquidGlass>
+                <button
+                  onClick={scrollToTop}
+                  className="w-10 h-10 bg-primary hover:bg-primary/90 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg"
+                  data-testid="scroll-to-top-button"
+                >
+                  <ChevronUp size={20} className="transition-transform duration-300 hover:scale-110" />
+                </button>
+              </LiquidGlass>
             </div>
           </LiquidGlass>
         </div>
