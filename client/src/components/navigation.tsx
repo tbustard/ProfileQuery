@@ -1,6 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from "react";
-import { ChevronDown, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
 import { useLocation } from "wouter";
 import { LiquidGlass, type LiquidGlassRef } from "@specy/liquid-glass-react";
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
@@ -9,7 +8,6 @@ export default function Navigation() {
   const [location] = useLocation();
   const isHomePage = location === '/';
   
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentSection, setCurrentSection] = useState(isHomePage ? 'hero' : '');
@@ -300,14 +298,7 @@ export default function Navigation() {
 
                 {/* Right side - Mobile menu toggle */}
                 <div className="lg:hidden">
-                  <Button
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    variant="ghost"
-                    size="sm"
-                    className="relative z-50 p-2 text-foreground hover:text-primary transition-colors"
-                  >
-                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                  </Button>
+                  {/* Mobile menu removed - ready for fresh implementation */}
                 </div>
               </div>
             </div>
@@ -320,33 +311,13 @@ export default function Navigation() {
               <div></div>
               <div></div>
               <div className="lg:hidden">
-                <Button
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  variant="ghost"
-                  size="sm"
-                  className="relative z-50 p-2 text-foreground hover:text-primary transition-colors"
-                >
-                  {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </Button>
+                {/* Mobile menu removed - ready for fresh implementation */}
               </div>
             </div>
           </div>
         )}
 
-        {/* Mobile Menu - Fresh liquid glass implementation */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40">
-            <LiquidGlass
-              ref={navGlassRef}
-              glassStyle={navGlassStyle}
-              style="border-top: 1px solid rgba(255, 255, 255, 0.1);"
-            >
-              <div className="max-w-2xl mx-auto px-4 py-6 h-full overflow-y-auto">
-                {/* Content will be added after liquid glass is working */}
-              </div>
-            </LiquidGlass>
-          </div>
-        )}
+        {/* Mobile Menu - Removed for fresh implementation */}
 
       </nav>
 
