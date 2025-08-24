@@ -2,7 +2,6 @@ import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
 import { useQuery } from "@tanstack/react-query";
-import { LiquidGlass } from "@specy/liquid-glass-react";
 // VideoOverlay no longer needed - using YouTube directly
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
@@ -20,17 +19,6 @@ import wallStreetPrepLogo from "@assets/wall street prep_1755923720193.png";
 import trainingTheStreetLogo from "@assets/trainning the street_1755938972014.png";
 import etsLogo from "@assets/ETS_1755939510188.png";
 import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
-
-const glassStyle = {
-  depth: 20,
-  segments: 50,
-  radius: 20,
-  tint: null,
-  reflectivity: 0,
-  thickness: 100,
-  dispersion: 0,
-  roughness: 0,
-};
 
 export default function HeroSection() {
   const isPageLoaded = useInitialPageAnimation(300);
@@ -58,9 +46,12 @@ export default function HeroSection() {
         <div className="max-w-7xl mx-auto">
           
           {/* Main Hero Card */}
-          <div className="rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden">
-            <LiquidGlass glassStyle={glassStyle}>
-              <div className={`bg-transparent border border-white/20 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-12 lg:p-16 shadow-2xl hover:shadow-3xl transition-all duration-500 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}>
+          <div className={`bg-white/70 backdrop-blur-[25px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-12 lg:p-16 shadow-2xl hover:shadow-3xl transition-all duration-500 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
+               style={{
+                 backdropFilter: 'blur(25px) saturate(200%) brightness(110%)',
+                 WebkitBackdropFilter: 'blur(25px) saturate(200%) brightness(110%)',
+                 boxShadow: '0 20px 80px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+               }}>
             
             <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
               {/* Profile Image */}
@@ -209,8 +200,6 @@ export default function HeroSection() {
                 </div>
               </div>
             </div>
-              </div>
-            </LiquidGlass>
           </div>
 
           {/* Stats/Highlights Cards */}
