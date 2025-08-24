@@ -1,4 +1,4 @@
-import { Download, Printer } from "lucide-react";
+import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useScrollAnimation, useStaggeredScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -6,7 +6,7 @@ import { useScrollAnimation, useStaggeredScrollAnimation } from "@/hooks/useScro
 export default function DownloadSection() {
   const sectionAnimation = useScrollAnimation({ threshold: 0.15, triggerOnce: true });
   const headerAnimation = useScrollAnimation({ threshold: 0.25, triggerOnce: true, delay: 100 });
-  const { ref: downloadsRef, visibleItems } = useStaggeredScrollAnimation(2, { threshold: 0.15, triggerOnce: true, delay: 200 });
+  const { ref: downloadsRef, visibleItems } = useStaggeredScrollAnimation(1, { threshold: 0.15, triggerOnce: true, delay: 200 });
   const downloadResume = async () => {
     try {
       // Try to fetch the PDF version first
@@ -42,22 +42,6 @@ export default function DownloadSection() {
     }
   };
 
-  const printPage = () => {
-    // Open the PDF in a new window specifically for printing (uses uploaded resume)
-    const printWindow = window.open('/Tyler_Bustard_Resume.pdf', '_blank');
-    
-    if (printWindow) {
-      // Wait for the PDF to load, then trigger print dialog
-      printWindow.onload = () => {
-        setTimeout(() => {
-          printWindow.print();
-        }, 1000); // Give PDF time to fully load
-      };
-    } else {
-      // Fallback if popup blocked - open in same tab
-      window.open('/Tyler_Bustard_Resume.pdf', '_blank');
-    }
-  };
 
   return (
     <section 
@@ -80,8 +64,8 @@ export default function DownloadSection() {
             </p>
           </div>
 
-          {/* Download Cards Grid - matching contact section layout */}
-          <div ref={downloadsRef} className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {/* Download Card - single column layout */}
+          <div ref={downloadsRef} className="max-w-md mx-auto">
             {/* Download Card */}
             <Card 
               className={`bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] text-center scroll-scale-in scroll-stagger-1 ${visibleItems.has(0) ? 'visible' : ''}`}
@@ -104,28 +88,6 @@ export default function DownloadSection() {
               </CardContent>
             </Card>
 
-            {/* Print Card */}
-            <Card 
-              className={`bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] text-center scroll-scale-in scroll-stagger-2 ${visibleItems.has(1) ? 'visible' : ''}`}
-            >
-              <CardContent className="p-10">
-                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
-                  <Printer className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold text-foreground mb-4">Print</h3>
-                <p className="text-base text-muted-foreground mb-6">
-                  Open and print my resume directly in your browser for offline viewing and reference.
-                </p>
-                <Button
-                  onClick={printPage}
-                  variant="outline"
-                  className="w-full border-2 border-primary/20 hover:border-primary/40 bg-primary/5 hover:bg-primary/10 text-primary font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                  data-testid="print-page-button"
-                >
-                  Print
-                </Button>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>
