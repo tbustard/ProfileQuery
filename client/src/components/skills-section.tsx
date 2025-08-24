@@ -126,7 +126,7 @@ export default function CertificationsSection() {
               Certifications
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Comprehensive expertise across finance, technology, and analytics through continuous learning and professional development
+              Advanced certifications in finance, technology, and professional development
             </p>
           </div>
 
@@ -327,7 +327,7 @@ export function CommunitySection() {
               Community
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Demonstrating leadership and commitment through meaningful community engagement and volunteer service
+              Community leadership and volunteer service initiatives
             </p>
           </div>
 

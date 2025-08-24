@@ -125,11 +125,11 @@ export default function ExperienceSection() {
             ref={headerAnimation.ref}
             className={`text-center mb-8 sm:mb-12 lg:mb-16 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
           >
-            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-3 tracking-tight">
+            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
               Experience
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              My professional journey and key accomplishments in financial services
+              Professional experience in investment banking and financial services
             </p>
           </div>
 

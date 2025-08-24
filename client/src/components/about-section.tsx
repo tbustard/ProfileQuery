@@ -100,11 +100,11 @@ export default function EducationSection() {
             ref={headerAnimation.ref}
             className={`text-center mb-8 sm:mb-10 lg:mb-12 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-2 sm:mb-3 tracking-tight">
+            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
               Education
             </h2>
-            <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Academic foundation in finance and business that drives professional excellence
+            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Bachelor of Business Administration in Finance
             </p>
           </div>
 
