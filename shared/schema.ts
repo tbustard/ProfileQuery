@@ -43,7 +43,7 @@ export const contactMessages = pgTable("contact_messages", {
 
 export const resumeUploads = pgTable("resume_uploads", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  userId: varchar("user_id").notNull().references(() => users.id),
+  userId: varchar("user_id").notNull(),
   fileName: text("file_name").notNull(),
   fileUrl: text("file_url").notNull(),
   uploadedAt: timestamp("uploaded_at").defaultNow().notNull(),
