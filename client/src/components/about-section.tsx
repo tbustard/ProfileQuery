@@ -29,7 +29,7 @@ export default function EducationSection() {
   const highlights = [
     { title: "$47,500", subtitle: "Total Scholarships & Awards", iconType: "award" },
     { title: "Student Ambassador", subtitle: "RBC Student Ambassador of the Month - February 2020", iconType: "image", logoSrc: rbcLogo },
-    { title: "1st Place", subtitle: "CIBC Capital Markets M&A Case Competitio Winner", iconType: "image", logoSrc: cibcLogo }
+    { title: "1st Place", subtitle: "CIBC Capital Markets M&A Case Competition Winner", iconType: "image", logoSrc: cibcLogo }
   ];
 
   const renderIcon = (highlight: any) => {
@@ -77,7 +77,7 @@ export default function EducationSection() {
     { 
       category: "Competition Achievements", 
       items: [
-        { title: "CIBC Capital Markets M&A Case Competitio", desc: "1st Place (Mergers & Acquisitions Case Competition)" },
+        { title: "CIBC Capital Markets M&A Case Competition", desc: "1st Place (Mergers & Acquisitions Case Competition)" },
         { title: "TD Securities M&A Case Competition", desc: "3rd Place (Mergers & Acquisitions Case Competition)" },
         { title: "RBC Capital Markets M&A Case Competition", desc: "Participant (Mergers & Acquisitions Case Competition)" }
       ],
@@ -202,7 +202,7 @@ export default function EducationSection() {
                 </div>
                 <div className="text-center">
                   <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2 sm:mb-3">1st Place</div>
-                  <div className="text-sm sm:text-base text-muted-foreground font-medium">CIBC Capital Markets M&A Case Competitio Winner</div>
+                  <div className="text-sm sm:text-base text-muted-foreground font-medium">CIBC Capital Markets M&A Case Competition Winner</div>
                 </div>
               </div>
             </div>
