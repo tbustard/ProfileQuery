@@ -405,7 +405,7 @@ export default function Navigation() {
         {isMobileMenuOpen && (
           <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40">
             <LiquidGlass
-              glassStyle={dropdownGlassStyle}
+              glassStyle={navGlassStyle}
               style="border-top: 1px solid rgba(255, 255, 255, 0.1);"
             >
               <div className="max-w-2xl mx-auto px-4 py-6 h-full overflow-y-auto">
