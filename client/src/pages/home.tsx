@@ -9,6 +9,17 @@ import CertificationsSection, { CommunitySection } from "@/components/skills-sec
 import DownloadSection from "@/components/download-section";
 import ContactInfoSection from "@/components/contact-info-section";
 
+const glassStyle = {
+  depth: 20,
+  segments: 50,
+  radius: 20,
+  tint: null,
+  reflectivity: 0,
+  thickness: 100,
+  dispersion: 0,
+  roughness: 0,
+};
+
 export default function Home() {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
   const [isOverDarkSection, setIsOverDarkSection] = useState(false);
@@ -58,7 +69,7 @@ export default function Home() {
         }`}
       >
         <div className="shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 rounded-full overflow-hidden">
-          <LiquidGlass>
+          <LiquidGlass glassStyle={glassStyle}>
             <div className="flex items-center px-6 py-3 bg-transparent">
               <span className={`text-sm font-medium mr-4 whitespace-nowrap transition-colors duration-300 ${
                 isOverDarkSection ? 'text-white' : 'text-foreground'
@@ -66,7 +77,7 @@ export default function Home() {
                 Back to top
               </span>
               <div className="rounded-full overflow-hidden">
-                <LiquidGlass>
+                <LiquidGlass glassStyle={glassStyle}>
                   <div
                     onClick={scrollToTop}
                     className="w-10 h-10 bg-primary hover:bg-primary/90 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg cursor-pointer"

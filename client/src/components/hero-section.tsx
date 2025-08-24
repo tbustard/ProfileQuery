@@ -21,6 +21,17 @@ import trainingTheStreetLogo from "@assets/trainning the street_1755938972014.pn
 import etsLogo from "@assets/ETS_1755939510188.png";
 import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 
+const glassStyle = {
+  depth: 20,
+  segments: 50,
+  radius: 20,
+  tint: null,
+  reflectivity: 0,
+  thickness: 100,
+  dispersion: 0,
+  roughness: 0,
+};
+
 export default function HeroSection() {
   const isPageLoaded = useInitialPageAnimation(300);
   
@@ -48,7 +59,7 @@ export default function HeroSection() {
           
           {/* Main Hero Card */}
           <div className="rounded-[2rem] sm:rounded-[2.5rem] overflow-hidden">
-            <LiquidGlass>
+            <LiquidGlass glassStyle={glassStyle}>
               <div className={`bg-transparent border border-white/20 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-12 lg:p-16 shadow-2xl hover:shadow-3xl transition-all duration-500 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}>
             
             <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
