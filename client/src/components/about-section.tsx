@@ -154,10 +154,10 @@ export default function EducationSection() {
                 <div className="flex flex-col lg:flex-row lg:items-center gap-6 sm:gap-8">
                   {/* Category Title */}
                   <div className="lg:w-1/4 text-center sm:text-left">
-                    <h4 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
+                    <h4 className="text-xl sm:text-2xl font-bold text-foreground mb-2 sm:mb-2">
                       {category.category}
                     </h4>
-                    <div className="w-12 h-1 bg-gradient-to-r from-primary to-blue-500 rounded-full" />
+                    <div className="w-20 sm:w-12 h-1.5 sm:h-1 bg-gradient-to-r from-primary to-blue-500 rounded-full mx-auto sm:mx-0 mb-4 sm:mb-0" />
                   </div>
 
                   {/* Achievement Items */}
