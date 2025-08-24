@@ -369,9 +369,9 @@ export default function Navigation() {
                 className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-3 transition-all duration-200 -m-3"
               >
                 <div className="space-y-2">
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-lg px-3 py-2 inline-block">University of New Brunswick</h3>
-                  <p className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-lg px-3 py-2 inline-block">Bachelor of Business Administration</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-lg px-3 py-2 inline-block">Fredericton, NB • 2016-2020</p>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 inline-block">University of New Brunswick</h3>
+                  <p className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 inline-block">Bachelor of Business Administration</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 inline-block">Fredericton, NB • 2016-2020</p>
                 </div>
               </button>
             </div>
