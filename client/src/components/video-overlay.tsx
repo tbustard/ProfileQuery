@@ -100,6 +100,10 @@ export default function VideoOverlay({ isOpen, onClose, videoSrc }: VideoOverlay
                 className="w-full h-full object-cover"
                 poster="/api/video-thumbnail" // Optional: Add thumbnail endpoint
                 data-testid="video-player"
+                onError={() => {
+                  console.error('Video failed to load');
+                  setIsPlaying(false);
+                }}
               />
               
               {/* Video Controls */}

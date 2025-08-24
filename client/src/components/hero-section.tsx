@@ -22,6 +22,7 @@ import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 
 export default function HeroSection() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [hasVideo, setHasVideo] = useState(true); // Check if video exists
   const isPageLoaded = useInitialPageAnimation(300);
 
   // Smooth scroll to section function
@@ -87,7 +88,18 @@ export default function HeroSection() {
                 {/* Introduction Button */}
                 <div className="flex justify-center lg:justify-start pt-2 sm:pt-4">
                   <Button
-                    onClick={() => setIsVideoOpen(true)}
+                    onClick={async () => {
+                      try {
+                        const response = await fetch('/api/introduction-video');
+                        if (response.ok) {
+                          setIsVideoOpen(true);
+                        } else {
+                          alert('Introduction video is coming soon! Please check back later.');
+                        }
+                      } catch (error) {
+                        alert('Introduction video is coming soon! Please check back later.');
+                      }
+                    }}
                     className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 sm:px-8 py-4 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-base sm:text-lg min-h-[56px]"
                     data-testid="button-introduction"
                   >

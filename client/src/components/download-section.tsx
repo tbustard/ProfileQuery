@@ -9,32 +9,32 @@ export default function DownloadSection() {
   const { ref: downloadsRef, visibleItems } = useStaggeredScrollAnimation(2, { threshold: 0.15, triggerOnce: true, delay: 200 });
   const downloadResume = async () => {
     try {
-      // Try to fetch the PDF version first, then fallback to HTML
+      // Try to fetch the PDF version first
       let response = await fetch('/Tyler_Bustard_Resume.pdf');
       let filename = 'Tyler_Bustard_Resume.pdf';
       
       if (!response.ok) {
-        // Fallback to HTML version if PDF not found
+        // Fallback to HTML version
         response = await fetch('/Tyler_Bustard_Resume.html');
         filename = 'Tyler_Bustard_Resume.html';
       }
       
-      if (!response.ok) {
-        throw new Error('Failed to fetch resume');
+      if (response.ok) {
+        // Create blob and download
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        // Clean up
+        window.URL.revokeObjectURL(url);
+      } else {
+        throw new Error('Resume file not found');
       }
-      
-      // Create blob and download
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = filename;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      // Clean up
-      window.URL.revokeObjectURL(url);
     } catch (error) {
       console.error('Download failed:', error);
       // Fallback to opening in new tab
