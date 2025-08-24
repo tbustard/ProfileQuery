@@ -200,7 +200,22 @@ export default function ExperienceSection() {
                       {/* Skills & Technologies */}
                       <div>
                         <h4 className="font-semibold text-foreground mb-3">Core Competencies</h4>
-                        <div className="flex flex-wrap gap-2">
+                        
+                        {/* Mobile version - Row format */}
+                        <div className="sm:hidden space-y-2">
+                          {exp.technologies.map((tech, techIndex) => (
+                            <div
+                              key={techIndex}
+                              className="bg-primary/10 text-primary px-4 py-2 rounded-lg text-sm font-medium border border-primary/20 w-full text-center"
+                              data-testid={`tech-${index}-${techIndex}`}
+                            >
+                              {tech}
+                            </div>
+                          ))}
+                        </div>
+                        
+                        {/* Desktop version - Wrap format */}
+                        <div className="hidden sm:flex flex-wrap gap-2">
                           {exp.technologies.map((tech, techIndex) => (
                             <span
                               key={techIndex}
