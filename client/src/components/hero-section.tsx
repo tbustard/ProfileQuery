@@ -215,7 +215,7 @@ export default function HeroSection() {
                    animationDelay: '0.5s'
                  }}
                  data-testid="card-education">
-              <div className="flex items-center gap-3 mb-2">
+              <div className="flex items-center gap-3 mb-1">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative">
                   <img src={unbLogo} alt="Education" className="w-6 h-6 object-contain" />
                 </div>
@@ -236,7 +236,7 @@ export default function HeroSection() {
                    animationDelay: '0.6s'
                  }}
                  data-testid="card-experience">
-              <div className="flex items-center gap-3 mb-2">
+              <div className="flex items-center gap-3 mb-1">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent experience logos stacked */}
                   <div className="flex relative">
@@ -268,7 +268,7 @@ export default function HeroSection() {
                    animationDelay: '0.7s'
                  }}
                  data-testid="card-certifications">
-              <div className="flex items-center gap-3 mb-2">
+              <div className="flex items-center gap-3 mb-1">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent certification logos stacked */}
                   <div className="flex relative">
@@ -300,7 +300,7 @@ export default function HeroSection() {
                    animationDelay: '0.8s'
                  }}
                  data-testid="card-community">
-              <div className="flex items-center gap-3 mb-2">
+              <div className="flex items-center gap-3 mb-1">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
                   {/* Three most recent community logos stacked */}
                   <div className="flex relative">
