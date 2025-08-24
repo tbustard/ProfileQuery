@@ -79,6 +79,7 @@ export default function DownloadSection() {
                   className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                   data-testid="download-resume-button"
                 >
+                  Download
                 </Button>
               </CardContent>
             </Card>
