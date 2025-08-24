@@ -130,7 +130,7 @@ export default function EducationSection() {
                 <div className="sm:hidden space-y-1">
                   <h3 className="text-xl font-bold text-foreground">University of New Brunswick</h3>
                   <p className="text-lg font-semibold text-primary">Bachelor of Business Administration</p>
-                  <p className="text-base font-medium text-primary">Finance Major</p>
+                  <p className="text-base font-semibold text-foreground">Finance Major</p>
                   <p className="text-base text-muted-foreground">Saint John, New Brunswick</p>
                   <span className="text-base font-medium text-gray-500">2016-2020</span>
                 </div>
@@ -145,7 +145,7 @@ export default function EducationSection() {
                   </div>
                   <div className="space-y-0">
                     <p className="text-lg sm:text-xl font-semibold text-primary">{education.degree}</p>
-                    <p className="text-base sm:text-lg font-medium text-primary">{education.major}</p>
+                    <p className="text-base sm:text-lg font-semibold text-foreground">{education.major}</p>
                     <p className="text-base text-muted-foreground">{education.location}</p>
                   </div>
                 </div>
