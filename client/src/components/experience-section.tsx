@@ -123,9 +123,9 @@ export default function ExperienceSection() {
           {/* Header */}
           <div 
             ref={headerAnimation.ref}
-            className={`text-center mb-20 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+            className={`text-center mb-12 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
           >
-            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
+            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-3 tracking-tight">
               Experience
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -138,7 +138,7 @@ export default function ExperienceSection() {
           {/* Clean Timeline Line */}
           <div className="absolute left-8 top-0 bottom-0 w-px bg-gray-200 hidden md:block"></div>
           
-          <div className="space-y-16">
+          <div className="space-y-10">
             {experiences.map((exp, index) => (
               <div 
                 key={index} 
@@ -221,7 +221,7 @@ export default function ExperienceSection() {
         </div>
 
         {/* Career Summary */}
-        <div className="mt-24">
+        <div className="mt-16">
           <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
             <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-8 lg:p-12">
               <h3 className="text-2xl font-bold text-foreground mb-12 text-center">

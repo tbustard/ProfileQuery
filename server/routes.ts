@@ -389,30 +389,6 @@ Focus on investment analysis, portfolio management, and financial reporting quer
   });
 
 
-  // Test video endpoint for debugging
-  app.get('/test-video', (req, res) => {
-    res.send(`
-      <!DOCTYPE html>
-      <html>
-      <head><title>Video Test</title></head>
-      <body>
-        <h1>Video Test</h1>
-        <video width="800" height="450" controls preload="auto">
-          <source src="/uploads/videos/5bf2c8ea-5c41-439c-8655-b4928a21851a.mov" type="video/quicktime">
-          <source src="/uploads/videos/5bf2c8ea-5c41-439c-8655-b4928a21851a.mov" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <p>Direct link: <a href="/uploads/videos/5bf2c8ea-5c41-439c-8655-b4928a21851a.mov">Video File</a></p>
-        <script>
-          const video = document.querySelector('video');
-          video.addEventListener('loadstart', () => console.log('Video loading started'));
-          video.addEventListener('loadeddata', () => console.log('Video data loaded'));
-          video.addEventListener('error', (e) => console.error('Video error:', e));
-        </script>
-      </body>
-      </html>
-    `);
-  });
 
   // Serve uploaded files (videos and resumes) with proper MIME types
   app.use('/uploads', express.static(path.join(process.cwd(), 'uploads'), {

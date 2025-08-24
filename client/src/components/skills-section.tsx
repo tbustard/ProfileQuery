@@ -120,18 +120,18 @@ export default function CertificationsSection() {
           {/* Header */}
           <div 
             ref={headerAnimation.ref}
-            className={`text-center mb-12 sm:mb-16 lg:mb-20 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+            className={`text-center mb-8 sm:mb-10 lg:mb-12 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-2 sm:mb-3 tracking-tight">
               Certifications
             </h2>
-            <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-4">
+            <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-2">
               Comprehensive expertise across finance, technology, and analytics through continuous learning and professional development
             </p>
           </div>
 
         {/* All Certifications */}
-        <div ref={certificationsRef} className="space-y-6 sm:space-y-8 mb-16 sm:mb-20 lg:mb-24 certifications-container">
+        <div ref={certificationsRef} className="space-y-4 sm:space-y-6 mb-10 sm:mb-12 lg:mb-14 certifications-container">
             {certificationCategories.map((category, categoryIndex) => (
               <div 
                 key={categoryIndex} 
@@ -165,13 +165,13 @@ export default function CertificationsSection() {
                           data-testid={`cert-${categoryIndex}-${certIndex}`}
                         >
                           <div className="flex-1 flex flex-col">
-                            <div className="flex items-start justify-between mb-3 min-h-[2.5rem]">
+                            <div className="flex items-start justify-between mb-2 min-h-[2.5rem]">
                               <h5 className="font-semibold text-foreground text-lg flex-1 leading-tight">
                                 {cert.name}
                               </h5>
                               <span className="text-sm font-medium text-gray-500 ml-2 flex-shrink-0">{cert.year}</span>
                             </div>
-                            <div className="flex items-center gap-2 mb-3">
+                            <div className="flex items-center gap-2 mb-2">
                               {cert.logoSrc && (
                                 <img 
                                   src={cert.logoSrc} 
@@ -181,7 +181,7 @@ export default function CertificationsSection() {
                               )}
                               <p className="text-muted-foreground font-medium text-sm">{cert.institution}</p>
                             </div>
-                            <p className="text-muted-foreground text-xs leading-relaxed mb-4 flex-1">{cert.description}</p>
+                            <p className="text-muted-foreground text-xs leading-relaxed mb-3 flex-1">{cert.description}</p>
                           </div>
                           <div className="flex items-center justify-between mt-auto">
                             {cert.highlight && (
@@ -207,7 +207,7 @@ export default function CertificationsSection() {
         {/* Achievement Metrics - Clean stats */}
         <div className="bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
           <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-6 sm:p-8 lg:p-12">
-            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-8 sm:mb-12 text-center">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6 sm:mb-8 text-center">
               Professional Development Highlights
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
@@ -314,9 +314,9 @@ export function CommunitySection() {
           {/* Header */}
           <div 
             ref={communityHeaderAnimation.ref}
-            className={`text-center mb-12 sm:mb-16 lg:mb-20 scroll-slide-up ${communityHeaderAnimation.isVisible ? 'visible' : ''}`}
+            className={`text-center mb-8 sm:mb-10 lg:mb-12 scroll-slide-up ${communityHeaderAnimation.isVisible ? 'visible' : ''}`}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-2 sm:mb-3 tracking-tight">
               Community
             </h2>
             <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -329,7 +329,7 @@ export function CommunitySection() {
           {/* Clean Timeline Line */}
           <div className="absolute left-8 top-0 bottom-0 w-px bg-gray-200 hidden md:block"></div>
           
-          <div className="space-y-12 sm:space-y-16">
+          <div className="space-y-8 sm:space-y-10">
             {communityActivities.map((activity, index) => (
               <div 
                 key={index} 

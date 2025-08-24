@@ -98,9 +98,9 @@ export default function EducationSection() {
           {/* Header */}
           <div 
             ref={headerAnimation.ref}
-            className={`text-center mb-12 sm:mb-16 lg:mb-20 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+            className={`text-center mb-8 sm:mb-10 lg:mb-12 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-2 sm:mb-3 tracking-tight">
               Education
             </h2>
             <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -111,7 +111,7 @@ export default function EducationSection() {
         {/* Hero Education Card - Modern Apple Layout */}
         <div 
           ref={heroCardAnimation.ref}
-          className={`mb-16 sm:mb-20 lg:mb-24 scroll-scale-in scroll-stagger-1 ${heroCardAnimation.isVisible ? 'visible' : ''}`}
+          className={`mb-10 sm:mb-12 lg:mb-14 scroll-scale-in scroll-stagger-1 ${heroCardAnimation.isVisible ? 'visible' : ''}`}
         >
           <div className="relative bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 p-6 sm:p-8 lg:p-16 min-h-[200px]">
             <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 h-full text-center sm:text-left">
@@ -185,7 +185,7 @@ export default function EducationSection() {
         </div>
 
         {/* Academic Excellence Summary - Modern Stats Grid */}
-        <div className="mt-16 sm:mt-20 lg:mt-24">
+        <div className="mt-10 sm:mt-12 lg:mt-14">
           <div className="bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
             <div className="bg-gradient-to-r from-primary/10 via-blue-500/10 to-purple-500/10 p-6 sm:p-8 lg:p-12">
               <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-8 sm:mb-12 text-center">
