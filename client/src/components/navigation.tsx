@@ -14,7 +14,6 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentSection, setCurrentSection] = useState(isHomePage ? 'hero' : '');
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [liquidGlassKey, setLiquidGlassKey] = useState(0);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -54,8 +53,8 @@ export default function Navigation() {
 
     const observerOptions = {
       root: null,
-      rootMargin: '-10% 0px -60% 0px',
-      threshold: [0, 0.25, 0.5, 0.75, 1.0]
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
     };
 
     let visibleSections = new Map();
@@ -81,10 +80,6 @@ export default function Navigation() {
       });
 
       setCurrentSection(activeSection);
-      // Force liquid glass to refresh background after section change with delay
-      setTimeout(() => {
-        setLiquidGlassKey(prev => prev + 1);
-      }, 200);
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
@@ -146,11 +141,9 @@ export default function Navigation() {
         }`}
       >
         {isScrolled ? (
-          <div 
-            className="backdrop-blur-xl bg-white/10 dark:bg-black/10 border-b border-white/10"
-            style={{
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-            }}
+          <LiquidGlass
+            glassStyle={navGlassStyle}
+            style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);"
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center h-16 sm:h-20">
@@ -289,7 +282,7 @@ export default function Navigation() {
                 </div>
               </div>
             </div>
-          </div>
+          </LiquidGlass>
         ) : (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16 sm:h-20">
@@ -312,61 +305,65 @@ export default function Navigation() {
           </div>
         )}
 
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40">
+            <LiquidGlass
+              glassStyle={navGlassStyle}
+              style="border-top: 1px solid rgba(255, 255, 255, 0.1);"
+            >
+              <div className="max-w-2xl mx-auto px-4 py-6 h-full overflow-y-auto">
+                <div className="space-y-6">
+                  {isHomePage && (
+                    <>
+                      {/* Navigation Items for Mobile */}
+                      <div className="space-y-2">
+                        <button onClick={() => { scrollToSection('#education'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium">
+                          Education
+                        </button>
+                        <button onClick={() => { scrollToSection('#experience'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium">
+                          Experience
+                        </button>
+                        <button onClick={() => { scrollToSection('#certifications'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium">
+                          Certifications
+                        </button>
+                        <button onClick={() => { scrollToSection('#community'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium">
+                          Community
+                        </button>
+                      </div>
+
+                      {/* Contact Section */}
+                      <div className="space-y-2">
+                        <button onClick={() => { scrollToSection('#contact'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-foreground hover:text-primary hover:bg-white/10 transition-all duration-200 min-h-[48px] text-lg font-medium">
+                          Contact
+                        </button>
+                        <button onClick={() => { scrollToSection('#contact'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
+                          <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Email</div>
+                          <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">tbustard@unb.ca</div>
+                        </button>
+                        <button onClick={() => { scrollToSection('#contact'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
+                          <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Phone</div>
+                          <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">(613) 985-1223</div>
+                        </button>
+                        <button onClick={() => { scrollToSection('#contact'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-6 py-3 rounded-lg text-sm text-foreground/80 hover:text-primary hover:bg-white/5 transition-all duration-200">
+                          <div className="font-semibold text-gray-900 dark:text-white text-base mb-2">Location</div>
+                          <div className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Toronto, Ontario, Canada</div>
+                        </button>
+                      </div>
+
+                      {/* Download Button */}
+                      <button onClick={() => { scrollToSection('#download'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg bg-primary/10 hover:bg-primary/20 border border-primary/20 hover:border-primary/30 text-primary transition-all duration-200 text-lg font-medium">
+                        Download
+                      </button>
+                    </>
+                  )}
+                </div>
+              </div>
+            </LiquidGlass>
+          </div>
+        )}
 
       </nav>
-
-      {/* Fresh Mobile Menu Implementation */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40">
-          <div 
-            className="backdrop-blur-xl bg-white/10 dark:bg-black/10 border-t border-white/10 h-full"
-            style={{
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-            }}
-          >
-            <div className="px-4 py-6 h-full overflow-y-auto">
-              <div className="space-y-4">
-                <button
-                  onClick={() => { scrollToSection('#education'); setIsMobileMenuOpen(false); }}
-                  className="block w-full text-left px-4 py-3 rounded-lg text-gray-900 dark:text-white hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200"
-                >
-                  Education
-                </button>
-                <button
-                  onClick={() => { scrollToSection('#experience'); setIsMobileMenuOpen(false); }}
-                  className="block w-full text-left px-4 py-3 rounded-lg text-gray-900 dark:text-white hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200"
-                >
-                  Experience
-                </button>
-                <button
-                  onClick={() => { scrollToSection('#certifications'); setIsMobileMenuOpen(false); }}
-                  className="block w-full text-left px-4 py-3 rounded-lg text-gray-900 dark:text-white hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200"
-                >
-                  Certifications
-                </button>
-                <button
-                  onClick={() => { scrollToSection('#community'); setIsMobileMenuOpen(false); }}
-                  className="block w-full text-left px-4 py-3 rounded-lg text-gray-900 dark:text-white hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200"
-                >
-                  Community
-                </button>
-                <button
-                  onClick={() => { scrollToSection('#contact'); setIsMobileMenuOpen(false); }}
-                  className="block w-full text-left px-4 py-3 rounded-lg text-gray-900 dark:text-white hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200"
-                >
-                  Contact
-                </button>
-                <button
-                  onClick={() => { scrollToSection('#download'); setIsMobileMenuOpen(false); }}
-                  className="block w-full text-left px-4 py-3 rounded-lg bg-blue-600/20 hover:bg-blue-600/30 text-blue-600 dark:text-blue-400 transition-all duration-200"
-                >
-                  Download
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Education Dropdown - Outside nav container */}
       {openDropdown === 'education' && (
