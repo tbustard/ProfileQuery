@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChevronUp } from "lucide-react";
+import { LiquidGlass } from '@specy/liquid-glass-react';
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import EducationSection from "@/components/about-section";
@@ -48,7 +49,7 @@ export default function Home() {
       <ContactInfoSection />
       <DownloadSection />
       
-      {/* Scroll to Top Button */}
+      {/* Scroll to Top Button with Liquid Glass Effect */}
       <div 
         className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40 transition-all duration-500 ease-out ${
           showScrollToTop 
@@ -56,17 +57,20 @@ export default function Home() {
             : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
       >
-        <div 
-          className="liquid-glass-button rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 relative overflow-hidden"
+        <LiquidGlass
+          className="rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
           style={{
-            background: 'rgba(255, 255, 255, 0.02)',
-            backdropFilter: 'blur(20px) saturate(180%)',
-            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
-            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.1)'
+            borderRadius: '9999px',
+            padding: '12px 24px'
           }}
+          radius={20}
+          thickness={50}
+          roughness={0.2}
+          reflectivity={0.9}
+          chromaticAberration={5}
+          segments={86}
         >
-          <div className="flex items-center px-6 py-3">
+          <div className="flex items-center">
             <span className={`text-sm font-medium mr-4 whitespace-nowrap transition-colors duration-300 ${
               isOverDarkSection ? 'text-white' : 'text-foreground'
             }`}>
@@ -80,27 +84,7 @@ export default function Home() {
               <ChevronUp size={20} className="transition-transform duration-300 hover:scale-110" />
             </button>
           </div>
-          
-          {/* Subtle glass refraction - not white overlay */}
-          <div 
-            className="absolute top-0 left-0 w-full h-full rounded-full pointer-events-none"
-            style={{
-              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%)',
-              opacity: 1,
-              zIndex: 1
-            }}
-          />
-          
-          {/* Glass edge highlight - very subtle */}
-          <div 
-            className="absolute top-0 left-0 w-full h-full rounded-full pointer-events-none"
-            style={{
-              background: 'radial-gradient(ellipse at top left, rgba(255, 255, 255, 0.08) 0%, transparent 70%)',
-              opacity: 0.6,
-              zIndex: 1
-            }}
-          />
-        </div>
+        </LiquidGlass>
       </div>
       
       {/* Clean Footer */}
