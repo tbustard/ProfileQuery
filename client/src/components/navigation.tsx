@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo, useRef } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
+import { Button } from "@/components/ui/button";
 import { LiquidGlass, type LiquidGlassRef } from "@specy/liquid-glass-react";
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 
@@ -8,6 +9,7 @@ export default function Navigation() {
   const [location] = useLocation();
   const isHomePage = location === '/';
   
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentSection, setCurrentSection] = useState(isHomePage ? 'hero' : '');
@@ -15,6 +17,7 @@ export default function Navigation() {
   
   // Refs for liquid glass components to access their methods
   const navGlassRef = useRef<LiquidGlassRef>(null);
+  const mobileMenuGlassRef = useRef<LiquidGlassRef>(null);
   const educationDropdownRef = useRef<LiquidGlassRef>(null);
   const experienceDropdownRef = useRef<LiquidGlassRef>(null);
   const certificationsDropdownRef = useRef<LiquidGlassRef>(null);
@@ -119,6 +122,11 @@ export default function Navigation() {
       // Update navigation background
       navGlassRef.current?.updateScreenshot();
       
+      // Update mobile menu background if open
+      if (isMobileMenuOpen) {
+        mobileMenuGlassRef.current?.updateScreenshot();
+      }
+      
       // Update dropdown backgrounds if open
       if (openDropdown === 'education') {
         educationDropdownRef.current?.updateScreenshot();
@@ -132,7 +140,7 @@ export default function Navigation() {
         contactDropdownRef.current?.updateScreenshot();
       }
     }
-  }, [currentSection, isScrolled, openDropdown]);
+  }, [currentSection, isScrolled, openDropdown, isMobileMenuOpen]);
 
   // Memoized glass styles - stable configuration
   const navGlassStyle = useMemo(() => ({
@@ -298,7 +306,15 @@ export default function Navigation() {
 
                 {/* Right side - Mobile menu toggle */}
                 <div className="lg:hidden">
-                  {/* Mobile menu removed - ready for fresh implementation */}
+                  <Button
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    variant="ghost"
+                    size="sm"
+                    className="relative z-50 p-2 text-foreground hover:text-primary transition-colors"
+                    data-testid="mobile-menu-toggle"
+                  >
+                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                  </Button>
                 </div>
               </div>
             </div>
@@ -311,13 +327,34 @@ export default function Navigation() {
               <div></div>
               <div></div>
               <div className="lg:hidden">
-                {/* Mobile menu removed - ready for fresh implementation */}
+                <Button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  variant="ghost"
+                  size="sm"
+                  className="relative z-50 p-2 text-foreground hover:text-primary transition-colors"
+                  data-testid="mobile-menu-toggle"
+                >
+                  {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </Button>
               </div>
             </div>
           </div>
         )}
 
-        {/* Mobile Menu - Removed for fresh implementation */}
+        {/* Mobile Menu - Full Screen Liquid Glass Overlay */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40">
+            <LiquidGlass
+              ref={mobileMenuGlassRef}
+              glassStyle={navGlassStyle}
+              style="border-top: 1px solid rgba(255, 255, 255, 0.1);"
+            >
+              <div className="h-full w-full">
+                {/* Glass overlay only - no content yet */}
+              </div>
+            </LiquidGlass>
+          </div>
+        )}
 
       </nav>
 
