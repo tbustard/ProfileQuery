@@ -43,31 +43,20 @@ export default function DownloadSection() {
   };
 
   const printPage = () => {
-    // For PDF files, open directly; for HTML, open and print
-    fetch('/Tyler_Bustard_Resume.pdf')
-      .then(response => {
-        if (response.ok) {
-          // PDF exists, open it directly
-          window.open('/Tyler_Bustard_Resume.pdf', '_blank');
-        } else {
-          // Fallback to HTML version
-          const printWindow = window.open('/Tyler_Bustard_Resume.html', '_blank');
-          if (printWindow) {
-            printWindow.onload = () => {
-              printWindow.print();
-            };
-          }
-        }
-      })
-      .catch(() => {
-        // Error case, fallback to HTML
-        const printWindow = window.open('/Tyler_Bustard_Resume.html', '_blank');
-        if (printWindow) {
-          printWindow.onload = () => {
-            printWindow.print();
-          };
-        }
-      });
+    // Open the PDF in a new window specifically for printing (uses uploaded resume)
+    const printWindow = window.open('/Tyler_Bustard_Resume.pdf', '_blank');
+    
+    if (printWindow) {
+      // Wait for the PDF to load, then trigger print dialog
+      printWindow.onload = () => {
+        setTimeout(() => {
+          printWindow.print();
+        }, 1000); // Give PDF time to fully load
+      };
+    } else {
+      // Fallback if popup blocked - open in same tab
+      window.open('/Tyler_Bustard_Resume.pdf', '_blank');
+    }
   };
 
   return (

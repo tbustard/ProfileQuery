@@ -86,30 +86,15 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createResumeUpload(upload: InsertResumeUpload): Promise<ResumeUpload> {
-    console.log('Creating resume upload with data:', upload);
-    try {
-      const [resumeUpload] = await db
-        .insert(resumeUploads)
-        .values(upload)
-        .returning();
-      console.log('Successfully created resume upload:', resumeUpload);
-      return resumeUpload;
-    } catch (error) {
-      console.error('Error creating resume upload:', error);
-      throw error;
-    }
+    const [resumeUpload] = await db
+      .insert(resumeUploads)
+      .values(upload)
+      .returning();
+    return resumeUpload;
   }
 
   async getResumeUploads(userId: string): Promise<ResumeUpload[]> {
-    console.log('Getting resumes for userId:', userId);
-    try {
-      const results = await db.select().from(resumeUploads).where(eq(resumeUploads.userId, userId));
-      console.log('Found resumes:', results);
-      return results;
-    } catch (error) {
-      console.error('Error getting resume uploads:', error);
-      throw error;
-    }
+    return await db.select().from(resumeUploads).where(eq(resumeUploads.userId, userId));
   }
 
   async createVideo(insertVideo: InsertVideo): Promise<Video> {
