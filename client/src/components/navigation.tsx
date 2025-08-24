@@ -414,20 +414,77 @@ export default function Navigation() {
                 </button>
               </div>
               
-              <button 
-                onClick={() => {
-                  scrollToSection('#education');
-                  setOpenDropdown(null);
-                }}
-                className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200 lg:-m-2"
-              >
-                <div className="space-y-2 lg:space-y-1">
-                  <div className="text-2xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">University of New Brunswick</div>
-                  <div className="text-xl lg:text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Bachelor of Business Administration</div>
-                  <div className="text-lg lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Fredericton, NB</div>
-                  <div className="text-lg lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2016-2020</div>
+              <div className="space-y-4">
+                {/* University of New Brunswick - Main Education */}
+                <button 
+                  onClick={() => {
+                    scrollToSection('#education');
+                    setOpenDropdown(null);
+                  }}
+                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
+                >
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-2xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">University of New Brunswick</div>
+                    <div className="text-xl lg:text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Bachelor of Business Administration</div>
+                    <div className="text-lg lg:text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Finance Major</div>
+                    <div className="text-lg lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Saint John, New Brunswick</div>
+                    <div className="text-lg lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2016-2020</div>
+                  </div>
+                </button>
+                
+                {/* Academic Excellence */}
+                <div className="px-2">
+                  <h3 className="text-lg font-semibold text-white mb-3">Academic Excellence</h3>
+                  <div className="space-y-3">
+                    <div className="p-3 bg-black/30 rounded-lg">
+                      <div className="text-base font-semibold text-white">Finance Specialization</div>
+                      <div className="text-sm text-gray-200">Bachelor of Business Administration with Finance Major focus</div>
+                    </div>
+                    <div className="p-3 bg-black/30 rounded-lg">
+                      <div className="text-base font-semibold text-white">5 Academic Awards</div>
+                      <div className="text-sm text-gray-200">$47,500 in scholarships and alumni awards for merit and leadership</div>
+                    </div>
+                    <div className="p-3 bg-black/30 rounded-lg">
+                      <div className="text-base font-semibold text-white">Accredited Co-op Program</div>
+                      <div className="text-sm text-gray-200">Professional work experience integrated with academic curriculum</div>
+                    </div>
+                  </div>
                 </div>
-              </button>
+
+                {/* Leadership & Professional */}
+                <div className="px-2">
+                  <h3 className="text-lg font-semibold text-white mb-3">Leadership & Professional</h3>
+                  <div className="space-y-3">
+                    <div className="p-3 bg-black/30 rounded-lg">
+                      <div className="text-base font-semibold text-white">Student Investment Fund</div>
+                      <div className="text-sm text-gray-200">Analyst and Portfolio Manager - Energy sector focus and analysis</div>
+                    </div>
+                    <div className="p-3 bg-black/30 rounded-lg">
+                      <div className="text-base font-semibold text-white">RBC Student Ambassador</div>
+                      <div className="text-sm text-gray-200">Campus leadership and financial services representation role</div>
+                    </div>
+                    <div className="p-3 bg-black/30 rounded-lg">
+                      <div className="text-base font-semibold text-white">UNB Finance Club</div>
+                      <div className="text-sm text-gray-200">Active member in professional development and networking activities</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Key Achievements */}
+                <div className="px-2">
+                  <h3 className="text-lg font-semibold text-white mb-3">Key Achievements</h3>
+                  <div className="space-y-3">
+                    <div className="p-3 bg-black/30 rounded-lg">
+                      <div className="text-base font-semibold text-white">Case Competitions</div>
+                      <div className="text-sm text-gray-200">1st Place (CIBC), 3rd Place (TD), RBC and SLC participant</div>
+                    </div>
+                    <div className="p-3 bg-black/30 rounded-lg">
+                      <div className="text-base font-semibold text-white">$47,500 Total Awards</div>
+                      <div className="text-sm text-gray-200">Recipient of 5 Scholarship and Alumni Awards for academic merit and leadership skills</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </LiquidGlass>
         </div>
@@ -454,101 +511,139 @@ export default function Navigation() {
               </div>
               
               <div className="space-y-4 lg:space-y-3 lg:max-h-80 lg:overflow-y-auto lg:scrollbar-thin lg:scrollbar-thumb-gray-300 lg:dark:scrollbar-thumb-gray-600 lg:scrollbar-track-transparent">
-                {/* BMO Private Wealth */}
-                <button 
-                  onClick={() => {
-                    scrollToSection('#experience-bmo-private-wealth-portfolio-assistant');
-                    setOpenDropdown(null);
-                  }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
-                >
-                  <div className="space-y-2 lg:space-y-1">
-                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Portfolio Assistant</div>
-                    <div className="text-lg lg:text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">BMO Private Wealth</div>
-                    <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Toronto, Ontario</div>
-                    <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2022-2023</div>
-                  </div>
-                </button>
                 
-                {/* TD Canada Trust */}
-                <button 
-                  onClick={() => {
-                    scrollToSection('#experience-td-canada-trust-financial-advisor');
-                    setOpenDropdown(null);
-                  }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
-                >
-                  <div className="space-y-2 lg:space-y-1">
-                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Financial Advisor</div>
-                    <div className="text-lg lg:text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">TD Canada Trust</div>
-                    <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Kingston, Ontario</div>
-                    <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2021-2022</div>
+                {/* BMO Private Wealth - Detailed */}
+                <div className="p-4 bg-black/20 rounded-lg">
+                  <button 
+                    onClick={() => {
+                      scrollToSection('#experience-bmo-private-wealth-portfolio-assistant');
+                      setOpenDropdown(null);
+                    }}
+                    className="w-full text-left"
+                  >
+                    <div className="space-y-2">
+                      <div className="text-xl font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Portfolio Assistant</div>
+                      <div className="text-lg text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">BMO Private Wealth</div>
+                      <div className="text-base text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">Toronto, Ontario • 2022-2023</div>
+                    </div>
+                  </button>
+                  <div className="mt-3 space-y-2">
+                    <div className="text-sm text-gray-200">• Advised two Investment Counsellors managing portfolios over $100M and cut preparation time by 12%</div>
+                    <div className="text-sm text-gray-200">• Bolstered client communications, boosting response rates by 9% heightening client satisfaction and retention</div>
+                    <div className="text-xs text-gray-300 mt-2">Portfolio Management • Client Relations • Financial Analysis • Excel</div>
                   </div>
-                </button>
+                </div>
                 
-                {/* RBC Banking Advisor */}
-                <button 
-                  onClick={() => {
-                    scrollToSection('#experience-royal-bank-of-canada-banking-advisor');
-                    setOpenDropdown(null);
-                  }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
-                >
-                  <div className="space-y-2 lg:space-y-1">
-                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Banking Advisor</div>
-                    <div className="text-lg lg:text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Royal Bank of Canada</div>
-                    <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Kingston, Ontario</div>
-                    <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2020-2021</div>
+                {/* TD Canada Trust - Detailed */}
+                <div className="p-4 bg-black/20 rounded-lg">
+                  <button 
+                    onClick={() => {
+                      scrollToSection('#experience-td-canada-trust-financial-advisor');
+                      setOpenDropdown(null);
+                    }}
+                    className="w-full text-left"
+                  >
+                    <div className="space-y-2">
+                      <div className="text-xl font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Financial Advisor</div>
+                      <div className="text-lg text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">TD Canada Trust</div>
+                      <div className="text-base text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">Kingston, Ontario • 2021-2022</div>
+                    </div>
+                  </button>
+                  <div className="mt-3 space-y-2">
+                    <div className="text-sm text-gray-200">• Cultivated strong client relationships by assessing individual financial needs, resulting in an 11% increase in sales</div>
+                    <div className="text-sm text-gray-200">• Exceeded sales targets, achieving a top 15% performance ranking within the district</div>
+                    <div className="text-xs text-gray-300 mt-2">Financial Planning • Sales • Client Advisory • Product Knowledge</div>
                   </div>
-                </button>
+                </div>
                 
-                {/* RBC Client Advisor Intern */}
-                <button 
-                  onClick={() => {
-                    scrollToSection('#experience-royal-bank-of-canada-client-advisor-intern');
-                    setOpenDropdown(null);
-                  }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
-                >
-                  <div className="space-y-2 lg:space-y-1">
-                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Client Advisor Intern</div>
-                    <div className="text-lg lg:text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Royal Bank of Canada</div>
-                    <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Fredericton, New Brunswick</div>
-                    <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2019-2020</div>
+                {/* RBC Banking Advisor - Detailed */}
+                <div className="p-4 bg-black/20 rounded-lg">
+                  <button 
+                    onClick={() => {
+                      scrollToSection('#experience-royal-bank-of-canada-banking-advisor');
+                      setOpenDropdown(null);
+                    }}
+                    className="w-full text-left"
+                  >
+                    <div className="space-y-2">
+                      <div className="text-xl font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Banking Advisor</div>
+                      <div className="text-lg text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Royal Bank of Canada</div>
+                      <div className="text-base text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">Kingston, Ontario • 2020-2021</div>
+                    </div>
+                  </button>
+                  <div className="mt-3 space-y-2">
+                    <div className="text-sm text-gray-200">• Strengthened client relationships by advising on personalized solutions, increased repeat transactions by 13%</div>
+                    <div className="text-sm text-gray-200">• Excelled in needs-based advising, boosting adoption of core products like GICs, mutual funds, and TFSAs by 8%</div>
+                    <div className="text-xs text-gray-300 mt-2">Banking Products • Financial Advisory • Client Relationship Management • Digital Banking</div>
                   </div>
-                </button>
+                </div>
                 
-                {/* Irving Oil */}
-                <button 
-                  onClick={() => {
-                    scrollToSection('#experience-irving-oil-limited-marketing-intern');
-                    setOpenDropdown(null);
-                  }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
-                >
-                  <div className="space-y-2 lg:space-y-1">
-                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Marketing Intern</div>
-                    <div className="text-lg lg:text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Irving Oil Limited</div>
-                    <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Saint John, New Brunswick</div>
-                    <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2018</div>
+                {/* RBC Client Advisor Intern - Detailed */}
+                <div className="p-4 bg-black/20 rounded-lg">
+                  <button 
+                    onClick={() => {
+                      scrollToSection('#experience-royal-bank-of-canada-client-advisor-intern');
+                      setOpenDropdown(null);
+                    }}
+                    className="w-full text-left"
+                  >
+                    <div className="space-y-2">
+                      <div className="text-xl font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Client Advisor Intern</div>
+                      <div className="text-lg text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Royal Bank of Canada</div>
+                      <div className="text-base text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">Fredericton, New Brunswick • 2019-2020</div>
+                    </div>
+                  </button>
+                  <div className="mt-3 space-y-2">
+                    <div className="text-sm text-gray-200">• Resolved complex client issues, achieving a 15% boost in positive feedback scores for the branch</div>
+                    <div className="text-sm text-gray-200">• Promoted RBC's digital banking tools, leading to a 10% increase in online and mobile banking adoption</div>
+                    <div className="text-xs text-gray-300 mt-2">Client Service • Digital Banking • Problem Resolution • Customer Support</div>
                   </div>
-                </button>
+                </div>
                 
-                {/* Grant Thornton */}
-                <button 
-                  onClick={() => {
-                    scrollToSection('#experience-grant-thornton-llp-tax-return-intern');
-                    setOpenDropdown(null);
-                  }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
-                >
-                  <div className="space-y-2 lg:space-y-1">
-                    <div className="text-xl lg:text-lg font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Tax Return Intern</div>
-                    <div className="text-lg lg:text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Grant Thornton LLP</div>
-                    <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Saint John, New Brunswick</div>
-                    <div className="text-base lg:text-sm text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2018</div>
+                {/* Irving Oil - Detailed */}
+                <div className="p-4 bg-black/20 rounded-lg">
+                  <button 
+                    onClick={() => {
+                      scrollToSection('#experience-irving-oil-limited-marketing-intern');
+                      setOpenDropdown(null);
+                    }}
+                    className="w-full text-left"
+                  >
+                    <div className="space-y-2">
+                      <div className="text-xl font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Marketing Intern</div>
+                      <div className="text-lg text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Irving Oil Limited</div>
+                      <div className="text-base text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">Saint John, New Brunswick • 2018</div>
+                    </div>
+                  </button>
+                  <div className="mt-3 space-y-2">
+                    <div className="text-sm text-gray-200">• Developed comprehensive marketing campaigns for regional fuel distribution networks</div>
+                    <div className="text-sm text-gray-200">• Analyzed market trends and customer data to optimize promotional strategies</div>
+                    <div className="text-xs text-gray-300 mt-2">Marketing Strategy • Data Analysis • Campaign Development • Customer Research</div>
                   </div>
-                </button>
+                </div>
+                
+                {/* Grant Thornton - Detailed */}
+                <div className="p-4 bg-black/20 rounded-lg">
+                  <button 
+                    onClick={() => {
+                      scrollToSection('#experience-grant-thornton-llp-tax-return-intern');
+                      setOpenDropdown(null);
+                    }}
+                    className="w-full text-left"
+                  >
+                    <div className="space-y-2">
+                      <div className="text-xl font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Tax Return Intern</div>
+                      <div className="text-lg text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Grant Thornton LLP</div>
+                      <div className="text-base text-gray-200 font-medium bg-black/40 backdrop-blur-sm rounded px-3 py-2 block w-fit">Saint John, New Brunswick • 2018</div>
+                    </div>
+                  </button>
+                  <div className="mt-3 space-y-2">
+                    <div className="text-sm text-gray-200">• Improved tax return preparation processes, cutting filing errors by 15%</div>
+                    <div className="text-sm text-gray-200">• Assisted senior accountants with complex client tax situations and compliance requirements</div>
+                    <div className="text-xs text-gray-300 mt-2">Tax Preparation • Financial Analysis • Data Management • Client Service</div>
+                  </div>
+                </div>
+                
               </div>
             </div>
           </LiquidGlass>
