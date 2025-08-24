@@ -23,9 +23,9 @@ import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 export default function HeroSection() {
   const isPageLoaded = useInitialPageAnimation(300);
   
-  // Fetch YouTube URL from backend
-  const siteSettingsQuery = useQuery({
-    queryKey: ['/api/site-settings'],
+  // Fetch active video from backend
+  const videosQuery = useQuery({
+    queryKey: ['/api/videos'],
     staleTime: 60000, // 1 minute
   });
 
@@ -93,67 +93,59 @@ export default function HeroSection() {
                 <div className="flex justify-center lg:justify-start pt-2 sm:pt-4">
                   <Button
                     onClick={() => {
-                      const youtubeUrl = siteSettingsQuery.data && 
-                        typeof siteSettingsQuery.data === 'object' && 
-                        siteSettingsQuery.data !== null &&
-                        'youtubeUrl' in siteSettingsQuery.data 
-                        ? (siteSettingsQuery.data as any).youtubeUrl 
-                        : null;
+                      const activeVideo = videosQuery.data && 
+                        Array.isArray(videosQuery.data) &&
+                        videosQuery.data.find((video: any) => video.isActive);
                       
-                      if (youtubeUrl && typeof youtubeUrl === 'string') {
-                        // Create and show video overlay with embedded YouTube player
+                      if (activeVideo) {
+                        // Create and show video overlay with uploaded video player
                         const overlay = document.createElement('div');
                         overlay.id = 'video-overlay';
                         overlay.className = 'fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4';
                         
-                        // Extract video ID from YouTube URL
-                        const videoId = youtubeUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/)?.[1];
+                        overlay.innerHTML = `
+                          <div class="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden">
+                            <button 
+                              onclick="document.getElementById('video-overlay').remove()" 
+                              class="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white backdrop-blur-sm transition-all"
+                            >
+                              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                              </svg>
+                            </button>
+                            <video 
+                              width="100%" 
+                              height="100%" 
+                              controls
+                              autoplay
+                              class="w-full h-full"
+                            >
+                              <source src="${activeVideo.fileUrl}" type="video/mp4">
+                              Your browser does not support the video tag.
+                            </video>
+                          </div>
+                        `;
+                        document.body.appendChild(overlay);
                         
-                        if (videoId) {
-                          overlay.innerHTML = `
-                            <div class="relative w-full max-w-4xl aspect-video bg-black rounded-lg overflow-hidden">
-                              <button 
-                                onclick="document.getElementById('video-overlay').remove()" 
-                                class="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white backdrop-blur-sm transition-all"
-                              >
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                                </svg>
-                              </button>
-                              <iframe 
-                                width="100%" 
-                                height="100%" 
-                                src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1" 
-                                title="Introduction Video" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen
-                                class="w-full h-full"
-                              ></iframe>
-                            </div>
-                          `;
-                          document.body.appendChild(overlay);
-                          
-                          // Close on escape key
-                          const handleEscape = (e: KeyboardEvent) => {
-                            if (e.key === 'Escape') {
-                              overlay.remove();
-                              document.removeEventListener('keydown', handleEscape);
-                            }
-                          };
-                          document.addEventListener('keydown', handleEscape);
-                          
-                          // Close on background click
-                          overlay.addEventListener('click', (e) => {
-                            if (e.target === overlay) {
-                              overlay.remove();
-                              document.removeEventListener('keydown', handleEscape);
-                            }
-                          });
-                        }
+                        // Close on escape key
+                        const handleEscape = (e: KeyboardEvent) => {
+                          if (e.key === 'Escape') {
+                            overlay.remove();
+                            document.removeEventListener('keydown', handleEscape);
+                          }
+                        };
+                        document.addEventListener('keydown', handleEscape);
+                        
+                        // Close on background click
+                        overlay.addEventListener('click', (e) => {
+                          if (e.target === overlay) {
+                            overlay.remove();
+                            document.removeEventListener('keydown', handleEscape);
+                          }
+                        });
                       } else {
-                        alert('Introduction video URL not set. Please contact the site administrator.');
+                        scrollToSection('introduction');
                       }
                     }}
                     className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 sm:px-8 py-4 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-base sm:text-lg min-h-[56px]"
@@ -162,7 +154,9 @@ export default function HeroSection() {
                     <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
                       <Play size={16} className="ml-0.5" />
                     </div>
-                    Introduction
+                    {videosQuery.data && 
+                     Array.isArray(videosQuery.data) &&
+                     videosQuery.data.find((video: any) => video.isActive) ? 'Watch Introduction Video' : 'Introduction'}
                   </Button>
                 </div>
               </div>

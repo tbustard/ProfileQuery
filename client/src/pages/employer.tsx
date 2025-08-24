@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Upload, LogOut, FileText, Download, Eye, EyeOff, Video, Play, Youtube } from "lucide-react";
+import { Upload, LogOut, FileText, Download, Eye, EyeOff, Video, Play } from "lucide-react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 
@@ -29,7 +29,6 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
   const [selectedVideo, setSelectedVideo] = useState<File | null>(null);
   const [uploads, setUploads] = useState<ResumeUpload[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [youtubeUrl, setYoutubeUrl] = useState("");
   const queryClient = useQueryClient();
   
   // Fetch videos from API
@@ -38,28 +37,12 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
     staleTime: 30000, // 30 seconds
   });
 
-  // Fetch site settings
-  const siteSettingsQuery = useQuery({
-    queryKey: ['/api/site-settings'],
-    staleTime: 30000,
-  });
-
   // Fetch uploaded resumes
   const resumesQuery = useQuery({
     queryKey: ['/api/resumes/employer'],
     staleTime: 30000,
   });
 
-  // Set initial YouTube URL when data loads
-  useEffect(() => {
-    if (siteSettingsQuery.data && 
-        typeof siteSettingsQuery.data === 'object' && 
-        siteSettingsQuery.data !== null &&
-        'youtubeUrl' in siteSettingsQuery.data && 
-        (siteSettingsQuery.data as any).youtubeUrl) {
-      setYoutubeUrl((siteSettingsQuery.data as any).youtubeUrl);
-    }
-  }, [siteSettingsQuery.data]);
 
   // Upload mutation
   const uploadMutation = useMutation({
@@ -207,9 +190,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
 
   const setActiveVideoMutation = useMutation({
     mutationFn: async (videoId: string) => {
-      return apiRequest(`/api/videos/${videoId}/activate`, {
-        method: 'POST',
-      });
+      return apiRequest(`/api/videos/${videoId}/activate`, 'POST');
     },
     onSuccess: () => {
       toast({
@@ -227,26 +208,6 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
     },
   });
 
-  // YouTube URL update mutation
-  const youtubeUrlMutation = useMutation({
-    mutationFn: async (url: string) => {
-      return apiRequest('/api/site-settings/youtube', 'POST', { youtubeUrl: url });
-    },
-    onSuccess: () => {
-      toast({
-        title: "YouTube URL Updated",
-        description: "The introduction video link has been updated successfully.",
-      });
-      queryClient.invalidateQueries({ queryKey: ['/api/site-settings'] });
-    },
-    onError: (error: any) => {
-      toast({
-        title: "Failed to Update YouTube URL",
-        description: error.message || "Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#f5f5f7' }}>
@@ -276,46 +237,54 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
         </div>
 
         <div className="grid md:grid-cols-1 gap-8">
-          {/* YouTube URL Section */}
+          {/* Video Upload Section */}
           <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Youtube className="w-5 h-5" />
-                Introduction Video URL
+                <Video className="w-5 h-5" />
+                Upload Introduction Video
               </CardTitle>
               <CardDescription>
-                Set the YouTube URL for the introduction video button
+                Upload a video file for the introduction section
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="youtube-url">YouTube Video URL</Label>
+                <Label htmlFor="video-file">Select Video File</Label>
                 <Input
-                  id="youtube-url"
-                  type="url"
-                  value={youtubeUrl}
-                  onChange={(e) => setYoutubeUrl(e.target.value)}
-                  placeholder="https://www.youtube.com/watch?v=..."
-                  data-testid="input-youtube-url"
+                  id="video-file"
+                  type="file"
+                  accept="video/*"
+                  onChange={handleVideoSelect}
+                  data-testid="input-video-file"
                   className="bg-white dark:bg-slate-900"
                 />
                 <p className="text-sm text-slate-500">
-                  Enter a valid YouTube URL (youtube.com or youtu.be)
+                  Accepted formats: MP4, MOV, AVI, WebM (Max: 100MB)
                 </p>
               </div>
               
+              {selectedVideo && (
+                <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
+                  <p className="text-sm font-medium">Selected: {selectedVideo.name}</p>
+                  <p className="text-sm text-slate-500">
+                    {(selectedVideo.size / (1024 * 1024)).toFixed(2)} MB
+                  </p>
+                </div>
+              )}
+
               <Button 
-                onClick={() => youtubeUrl && youtubeUrlMutation.mutate(youtubeUrl)}
-                disabled={!youtubeUrl || youtubeUrlMutation.isPending}
-                data-testid="button-update-youtube"
+                onClick={handleVideoUpload}
+                disabled={!selectedVideo || videoUploadMutation.isPending}
+                data-testid="button-upload-video"
                 className="w-full"
               >
-                {youtubeUrlMutation.isPending ? (
-                  "Updating..."
+                {videoUploadMutation.isPending ? (
+                  "Uploading..."
                 ) : (
                   <>
-                    <Youtube className="w-4 h-4 mr-2" />
-                    Update Video URL
+                    <Video className="w-4 h-4 mr-2" />
+                    Upload Video
                   </>
                 )}
               </Button>
@@ -397,13 +366,13 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                     <div key={i} className="h-12 bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />
                   ))}
                 </div>
-              ) : (!resumesQuery.data || resumesQuery.data.length === 0) ? (
+              ) : (!resumesQuery.data || !Array.isArray(resumesQuery.data) || resumesQuery.data.length === 0) ? (
                 <p className="text-slate-500 text-center py-8">
                   No uploads yet. Upload your first resume above!
                 </p>
               ) : (
                 <div className="space-y-3">
-                  {(resumesQuery.data || []).map((upload) => (
+                  {resumesQuery.data.map((upload: ResumeUpload) => (
                     <div 
                       key={upload.id}
                       className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-900 rounded-lg"
@@ -433,47 +402,57 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             </CardContent>
           </Card>
 
-          {/* Current YouTube URL Display */}
+          {/* Uploaded Videos */}
           <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Youtube className="w-5 h-5" />
-                Current Video Setting
+                <Video className="w-5 h-5" />
+                Uploaded Videos
               </CardTitle>
               <CardDescription>
-                The current YouTube video that will be displayed on the website
+                Manage uploaded introduction videos for the website
               </CardDescription>
             </CardHeader>
             <CardContent>
-              {siteSettingsQuery.isLoading ? (
+              {videosQuery.isLoading ? (
                 <div className="space-y-3">
                   <div className="h-12 bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />
                 </div>
-              ) : siteSettingsQuery.data && 
-                    typeof siteSettingsQuery.data === 'object' && 
-                    siteSettingsQuery.data !== null &&
-                    'youtubeUrl' in siteSettingsQuery.data && 
-                    (siteSettingsQuery.data as any).youtubeUrl ? (
+              ) : videosQuery.data && Array.isArray(videosQuery.data) && videosQuery.data.length > 0 ? (
                 <div className="space-y-3">
-                  <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                    <p className="text-sm font-medium mb-2">Active YouTube Video:</p>
-                    <p className="text-xs text-slate-600 dark:text-slate-400 break-all">
-                      {(siteSettingsQuery.data as any).youtubeUrl}
-                    </p>
-                  </div>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() => window.open((siteSettingsQuery.data as any).youtubeUrl, '_blank')}
-                    className="w-full"
-                  >
-                    <Play className="w-4 h-4 mr-2" />
-                    Preview Video
-                  </Button>
+                  {videosQuery.data.map((video: VideoUpload) => (
+                    <div key={video.id} className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <p className="text-sm font-medium">{video.fileName}</p>
+                          <p className="text-xs text-slate-500">
+                            Uploaded {new Date(video.uploadedAt).toLocaleDateString()}
+                          </p>
+                          {video.isActive && (
+                            <span className="inline-block mt-1 px-2 py-1 text-xs bg-green-100 text-green-800 rounded">
+                              Active
+                            </span>
+                          )}
+                        </div>
+                        <div className="flex gap-2">
+                          {!video.isActive && (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => setActiveVideoMutation.mutate(video.id)}
+                              disabled={setActiveVideoMutation.isPending}
+                            >
+                              Set Active
+                            </Button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               ) : (
                 <p className="text-slate-500 text-center py-8">
-                  No YouTube video URL set. Add one using the form above!
+                  No videos uploaded yet. Upload one using the form above!
                 </p>
               )}
             </CardContent>

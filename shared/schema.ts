@@ -107,7 +107,7 @@ export type ContactMessage = typeof contactMessages.$inferSelect;
 export type InsertResumeUpload = z.infer<typeof insertResumeUploadSchema>;
 export type ResumeUpload = typeof resumeUploads.$inferSelect;
 
-// Site settings table for managing YouTube URL and other settings
+// Site settings table for managing settings (keeping for database compatibility)
 export const siteSettings = pgTable("site_settings", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   youtubeUrl: varchar("youtube_url"),
@@ -122,3 +122,4 @@ export const insertSiteSettingsSchema = createInsertSchema(siteSettings).pick({
 
 export type InsertSiteSettings = z.infer<typeof insertSiteSettingsSchema>;
 export type SiteSettings = typeof siteSettings.$inferSelect;
+

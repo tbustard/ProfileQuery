@@ -9,14 +9,11 @@ import {
   type InsertResumeUpload,
   type Video,
   type InsertVideo,
-  type SiteSettings,
-  type InsertSiteSettings,
   users,
   sqlQueries,
   contactMessages,
   resumeUploads,
   videos,
-  siteSettings
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, ne } from "drizzle-orm";
@@ -36,8 +33,6 @@ export interface IStorage {
   getActiveVideo(): Promise<Video | undefined>;
   setActiveVideo(id: string): Promise<void>;
   deactivateOtherVideos(activeId: string): Promise<void>;
-  getSiteSettings(): Promise<SiteSettings | undefined>;
-  updateYoutubeUrl(url: string, updatedBy: string): Promise<SiteSettings>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -125,32 +120,6 @@ export class DatabaseStorage implements IStorage {
     await db.update(videos).set({ isActive: false }).where(ne(videos.id, activeId));
   }
 
-  async getSiteSettings(): Promise<SiteSettings | undefined> {
-    const [settings] = await db.select().from(siteSettings).limit(1);
-    return settings;
-  }
-
-  async updateYoutubeUrl(url: string, updatedBy: string): Promise<SiteSettings> {
-    // Check if settings exist
-    const existing = await this.getSiteSettings();
-    
-    if (existing) {
-      // Update existing
-      const [updated] = await db
-        .update(siteSettings)
-        .set({ youtubeUrl: url, updatedBy, updatedAt: new Date() })
-        .where(eq(siteSettings.id, existing.id))
-        .returning();
-      return updated;
-    } else {
-      // Create new
-      const [created] = await db
-        .insert(siteSettings)
-        .values({ youtubeUrl: url, updatedBy })
-        .returning();
-      return created;
-    }
-  }
 }
 
 export const storage = new DatabaseStorage();
