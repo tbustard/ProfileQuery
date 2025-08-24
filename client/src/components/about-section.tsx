@@ -98,7 +98,7 @@ export default function EducationSection() {
           {/* Header */}
           <div 
             ref={headerAnimation.ref}
-            className={`text-center mb-12 sm:mb-16 lg:mb-20 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+            className={`text-center mb-8 sm:mb-10 lg:mb-12 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
           >
             <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 tracking-tight">
               Education
@@ -111,21 +111,21 @@ export default function EducationSection() {
         {/* Hero Education Card - Modern Apple Layout */}
         <div 
           ref={heroCardAnimation.ref}
-          className={`mb-16 sm:mb-20 lg:mb-24 scroll-scale-in scroll-stagger-1 ${heroCardAnimation.isVisible ? 'visible' : ''}`}
+          className={`mb-10 sm:mb-12 lg:mb-14 scroll-scale-in scroll-stagger-1 ${heroCardAnimation.isVisible ? 'visible' : ''}`}
         >
           <div className="relative bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 p-6 sm:p-8 lg:p-16 min-h-[200px]">
-            <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 h-full text-center sm:text-left">
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-5 h-full text-center sm:text-left">
               {/* Logo on left */}
-              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-primary/10 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 flex-shrink-0">
+              <div className="w-16 h-16 sm:w-18 sm:h-18 bg-primary/10 rounded-xl flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110 flex-shrink-0">
                 <img 
                   src={universityLogo} 
                   alt="University Logo" 
-                  className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
                 />
               </div>
               
               {/* Content on right */}
-              <div className="flex-1">
+              <div className="flex-1 flex flex-col justify-center">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2 sm:gap-0">
                   <h3 className="text-xl sm:text-2xl lg:text-4xl font-bold text-foreground">
                     {education.institution}

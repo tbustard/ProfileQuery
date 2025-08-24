@@ -73,24 +73,24 @@ export default function ExperienceSection() {
       period: "2019-2020",
       duration: "1 year",
       achievements: [
-        "Resolved complex client issues, achieving a 15% boost in positive feedback scores for the branch",
-        "Promoted RBC's digital banking tools, leading to a 10% increase in online and mobile banking adoption",
+        "Delivered exceptional personalized banking solutions, securing a 17% increase in client loyalty scores",
+        "Initiated comprehensive needs-assessments, driving a 20% growth in customer financial product uptake",
       ],
-      technologies: ["Client Service", "Digital Banking", "Problem Resolution", "Customer Support"],
+      technologies: ["Customer Service", "Sales Support", "Product Knowledge", "Financial Consultation"],
       logoSrc: rbcLogo,
       color: "#005DAA"
     },
     {
-      title: "Marketing Intern",
-      company: "Irving Oil Limited",
+      title: "Fuel Station Attendant",
+      company: "Irving Oil",
       location: "Saint John, New Brunswick",
-      period: "2018",
-      duration: "4 months",
+      period: "2017-2019",
+      duration: "2 years",
       achievements: [
-        "Conducted competitor analysis driving insights that improved targeted marketing by 11%",
-        "Developed a Customer Lifecycle model that increased targeted promotions, boosting customer engagement by 8%",
+        "Enhanced customer service efficiency, maintaining above-average customer satisfaction ratings of 95%+",
+        "Maintained precise cash-handling and transaction records, ensuring perfect daily reconciliation accuracy",
       ],
-      technologies: ["Market Research", "Customer Analytics", "Competitive Analysis", "Marketing Strategy"],
+      technologies: ["Customer Service", "Cash Management", "Operations", "Team Collaboration"],
       logoSrc: irvingLogo,
       color: "#FF6B35"
     },
@@ -116,14 +116,12 @@ export default function ExperienceSection() {
       id="experience" 
       className={`py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
     >
-      {/* Background - inherits Apple grey from parent */}
-      
       <div className="container-width">
-        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
+        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-8 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header */}
           <div 
             ref={headerAnimation.ref}
-            className={`text-center mb-20 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+            className={`text-center mb-10 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
           >
             <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
               Experience
@@ -133,117 +131,116 @@ export default function ExperienceSection() {
             </p>
           </div>
 
-        {/* Experience Timeline */}
-        <div ref={experiencesRef} className="relative">
-          {/* Clean Timeline Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-gray-200 hidden md:block"></div>
-          
-          <div className="space-y-16">
-            {experiences.map((exp, index) => (
-              <div 
-                key={index} 
-                id={`experience-${exp.company.toLowerCase().replace(/[^a-z0-9]/g, '-')}-${exp.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} 
-                className={`relative scroll-scale-in scroll-stagger-${index + 1} ${visibleItems.has(index) ? 'visible' : ''}`}
-                data-testid={`experience-${index}`}
-              >
-                {/* Beautiful Timeline Marker */}
-                <div className="absolute left-5 w-6 h-6 rounded-full bg-gradient-to-br from-white to-gray-50 border border-gray-200/60 shadow-[0_2px_8px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.12)] hidden md:block backdrop-blur-sm">
-                  <div className="absolute inset-1 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 shadow-inner"></div>
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/30 via-transparent to-transparent"></div>
-                </div>
-                
-                {/* Content */}
-                <div className="md:ml-24">
-                  <div className="relative bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="relative p-8">
-                      {/* Header Section */}
-                      <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 mb-6 text-center sm:text-left">
-                        {/* Logo on left */}
-                        <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
-                          <img 
-                            src={exp.logoSrc} 
-                            alt={`${exp.company} Logo`} 
-                            className="w-12 h-12 sm:w-16 sm:h-16 object-contain"
-                          />
-                        </div>
-                        
-                        {/* Content on right */}
-                        <div className="flex-1">
-                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2 sm:gap-0">
-                            <h3 className="text-xl sm:text-2xl font-bold text-foreground">
-                              {exp.title}
-                            </h3>
-                            <span className="hidden sm:block text-base sm:text-lg font-medium text-gray-500">{exp.period}</span>
+          {/* Experience Timeline */}
+          <div ref={experiencesRef} className="relative">
+            {/* Clean Timeline Line */}
+            <div className="absolute left-8 top-0 bottom-0 w-px bg-gray-200 hidden md:block"></div>
+            
+            <div className="space-y-6">
+              {experiences.map((exp, index) => (
+                <div 
+                  key={index} 
+                  id={`experience-${exp.company.toLowerCase().replace(/[^a-z0-9]/g, '-')}-${exp.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} 
+                  className={`relative scroll-scale-in scroll-stagger-${index + 1} ${visibleItems.has(index) ? 'visible' : ''}`}
+                  data-testid={`experience-${index}`}
+                >
+                  {/* Beautiful Timeline Marker */}
+                  <div className="absolute left-5 w-6 h-6 rounded-full bg-gradient-to-br from-white to-gray-50 border border-gray-200/60 shadow-[0_2px_8px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.12)] hidden md:block backdrop-blur-sm">
+                    <div className="absolute inset-1 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 shadow-inner"></div>
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/30 via-transparent to-transparent"></div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="md:ml-24">
+                    <div className="relative bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] group">
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="relative p-4">
+                        {/* Header Section */}
+                        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mb-3 text-center sm:text-left">
+                          {/* Logo on left */}
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
+                            <img 
+                              src={exp.logoSrc} 
+                              alt={`${exp.company} Logo`} 
+                              className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+                            />
                           </div>
-                          <div className="space-y-2">
-                            <p className="text-lg sm:text-xl font-semibold text-primary">{exp.company}</p>
-                            <p className="text-base text-muted-foreground">{exp.location}</p>
-                            <span className="block sm:hidden text-base font-medium text-gray-500">{exp.period}</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Key Achievements */}
-                      <div className="mb-6">
-                        <h4 className="font-semibold text-foreground mb-4">Key Achievements</h4>
-                        <div className="space-y-3">
-                          {exp.achievements.map((achievement, achievementIndex) => (
-                            <div key={achievementIndex} className="flex items-start gap-3">
-                              <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                              <p className="text-muted-foreground font-medium leading-relaxed">{achievement}</p>
+                          
+                          {/* Content on right - vertically centered */}
+                          <div className="flex-1 flex flex-col justify-center">
+                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1 gap-1 sm:gap-0">
+                              <h3 className="text-lg sm:text-xl font-bold text-foreground">
+                                {exp.title}
+                              </h3>
+                              <span className="hidden sm:block text-sm sm:text-base font-medium text-gray-500">{exp.period}</span>
                             </div>
-                          ))}
+                            <div className="space-y-1">
+                              <p className="text-base sm:text-lg font-semibold text-primary">{exp.company}</p>
+                              <p className="text-sm text-muted-foreground">{exp.location}</p>
+                              <span className="block sm:hidden text-sm font-medium text-gray-500">{exp.period}</span>
+                            </div>
+                          </div>
                         </div>
-                      </div>
 
-                      {/* Skills & Technologies */}
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-3">Core Competencies</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {exp.technologies.map((tech, techIndex) => (
-                            <span
-                              key={techIndex}
-                              className="bg-primary/10 text-primary px-3 py-1.5 rounded-full text-sm font-medium hover:bg-primary/20 transition-colors duration-300"
-                              data-testid={`tech-${index}-${techIndex}`}
-                            >
-                              {tech}
-                            </span>
-                          ))}
+                        {/* Key Achievements */}
+                        <div className="mb-3">
+                          <h4 className="font-semibold text-foreground mb-2">Key Achievements</h4>
+                          <div className="space-y-1.5">
+                            {exp.achievements.map((achievement, achievementIndex) => (
+                              <div key={achievementIndex} className="flex items-start gap-3">
+                                <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
+                                <p className="text-muted-foreground font-medium leading-relaxed text-sm">{achievement}</p>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Technologies/Skills */}
+                        <div>
+                          <h4 className="font-semibold text-foreground mb-2">Key Skills</h4>
+                          <div className="flex flex-wrap gap-1.5">
+                            {exp.technologies.map((tech, techIndex) => (
+                              <span 
+                                key={techIndex}
+                                className="px-2 py-1 bg-primary/10 text-primary rounded-lg text-xs font-medium"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Career Summary */}
-        <div className="mt-24">
-          <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
-            <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-8 lg:p-12">
-              <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
-                Career Highlights
-              </h3>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">5+</div>
-                  <div className="text-muted-foreground font-medium">Years Experience</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">6</div>
-                  <div className="text-muted-foreground font-medium">Companies</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">3</div>
-                  <div className="text-muted-foreground font-medium">Industries</div>
+          {/* Career Summary */}
+          <div className="mt-16">
+            <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
+              <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-6 lg:p-8">
+                <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
+                  Career Highlights
+                </h3>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">5+</div>
+                    <div className="text-muted-foreground font-medium">Years Experience</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">6</div>
+                    <div className="text-muted-foreground font-medium">Companies</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">3</div>
+                    <div className="text-muted-foreground font-medium">Industries</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </section>
