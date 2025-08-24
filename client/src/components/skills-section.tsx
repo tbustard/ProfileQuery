@@ -435,12 +435,12 @@ export function CommunitySection() {
                   <div className="text-base text-muted-foreground font-medium">Years of Service</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-600 mb-2 sm:mb-3">3</div>
-                  <div className="text-base text-muted-foreground font-medium">Organizations Served</div>
-                </div>
-                <div className="text-center">
                   <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2 sm:mb-3">500+</div>
                   <div className="text-base text-muted-foreground font-medium">People Helped</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-600 mb-2 sm:mb-3">3</div>
+                  <div className="text-base text-muted-foreground font-medium">Organizations Served</div>
                 </div>
               </div>
             </div>
