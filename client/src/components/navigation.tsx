@@ -311,40 +311,57 @@ export default function Navigation() {
       {/* Mobile Glass Menu - CATEGORY TEXT ONLY */}
       {isMobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40">
-          <LiquidGlass
-            glassStyle={dropdownGlassStyle}
-            style="border-top: 1px solid rgba(255, 255, 255, 0.1);"
+          <div 
+            className="absolute inset-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-t border-gray-200/20 dark:border-gray-700/20"
+            style={{
+              background: 'rgba(255, 255, 255, 0.95)',
+              backdropFilter: 'blur(20px)',
+            }}
           >
-            <div className="max-w-2xl mx-auto px-4 py-6 h-full overflow-y-auto">
-              <div className="space-y-6">
-                {isHomePage && (
-                  <>
-                    {/* Category Navigation Items for Mobile */}
-                    <div className="space-y-2">
-                      <button onClick={() => { scrollToSection('#education'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200 min-h-[48px] text-lg font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
-                        Education
-                      </button>
-                      <button onClick={() => { scrollToSection('#experience'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200 min-h-[48px] text-lg font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
-                        Experience
-                      </button>
-                      <button onClick={() => { scrollToSection('#certifications'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200 min-h-[48px] text-lg font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
-                        Certifications
-                      </button>
-                      <button onClick={() => { scrollToSection('#community'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200 min-h-[48px] text-lg font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
-                        Community
-                      </button>
-                      <button onClick={() => { scrollToSection('#contact'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200 min-h-[48px] text-lg font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
-                        Contact
-                      </button>
-                      <button onClick={() => { scrollToSection('#download'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg bg-primary/10 hover:bg-primary/20 border border-primary/20 hover:border-primary/30 text-primary transition-all duration-200 text-lg font-medium backdrop-blur-sm">
-                        Download
-                      </button>
-                    </div>
-                  </>
-                )}
+            <LiquidGlass
+              glassStyle={{
+                depth: 15,
+                segments: 60,
+                radius: 12,
+                tint: null,
+                reflectivity: 0.95,
+                thickness: 60,
+                dispersion: 8,
+                roughness: 0.2
+              }}
+              style="border-radius: 0; border: none; background: transparent;"
+            >
+              <div className="max-w-2xl mx-auto px-4 py-6 h-full overflow-y-auto">
+                <div className="space-y-6">
+                  {isHomePage && (
+                    <>
+                      {/* Category Navigation Items for Mobile */}
+                      <div className="space-y-2">
+                        <button onClick={() => { scrollToSection('#education'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200 min-h-[48px] text-lg font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
+                          Education
+                        </button>
+                        <button onClick={() => { scrollToSection('#experience'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200 min-h-[48px] text-lg font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
+                          Experience
+                        </button>
+                        <button onClick={() => { scrollToSection('#certifications'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200 min-h-[48px] text-lg font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
+                          Certifications
+                        </button>
+                        <button onClick={() => { scrollToSection('#community'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200 min-h-[48px] text-lg font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
+                          Community
+                        </button>
+                        <button onClick={() => { scrollToSection('#contact'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white/10 dark:hover:bg-black/10 transition-all duration-200 min-h-[48px] text-lg font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
+                          Contact
+                        </button>
+                        <button onClick={() => { scrollToSection('#download'); setIsMobileMenuOpen(false); }} className="block w-full text-left px-4 py-4 rounded-lg bg-primary/10 hover:bg-primary/20 border border-primary/20 hover:border-primary/30 text-primary transition-all duration-200 text-lg font-medium backdrop-blur-sm">
+                          Download
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
-            </div>
-          </LiquidGlass>
+            </LiquidGlass>
+          </div>
         </div>
       )}
 
