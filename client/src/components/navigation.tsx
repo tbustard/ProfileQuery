@@ -710,7 +710,8 @@ export default function Navigation() {
                   <div className="space-y-1">
                     <div className="text-sm font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Next Gen Ambassador</div>
                     <div className="text-xs text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">United Way</div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2020-2023 • Kingston, Ontario</div>
+                    <div className="text-xs text-gray-600 dark:text-gray-400 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Kingston, Ontario</div>
+                    <div className="text-xs text-gray-600 dark:text-gray-400 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2020-2023</div>
                   </div>
                 </button>
 
@@ -725,7 +726,8 @@ export default function Navigation() {
                   <div className="space-y-1">
                     <div className="text-sm font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Student Ambassador</div>
                     <div className="text-xs text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Royal Bank of Canada</div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2019-2020 • Fredericton, New Brunswick</div>
+                    <div className="text-xs text-gray-600 dark:text-gray-400 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Fredericton, New Brunswick</div>
+                    <div className="text-xs text-gray-600 dark:text-gray-400 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2019-2020</div>
                   </div>
                 </button>
 
@@ -740,7 +742,8 @@ export default function Navigation() {
                   <div className="space-y-1">
                     <div className="text-sm font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Volunteer Staff</div>
                     <div className="text-xs text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Irving Oil Limited</div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2018 • Saint John, New Brunswick</div>
+                    <div className="text-xs text-gray-600 dark:text-gray-400 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Saint John, New Brunswick</div>
+                    <div className="text-xs text-gray-600 dark:text-gray-400 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2018</div>
                   </div>
                 </button>
 
