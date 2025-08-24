@@ -402,19 +402,30 @@ export default function Navigation() {
             glassStyle={dropdownGlassStyle}
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
-            <div className="rounded-xl p-4">
+            <div className="lg:rounded-xl p-6 lg:p-4 h-full lg:h-auto overflow-y-auto">
+              {/* Close button for mobile */}
+              <div className="lg:hidden flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-white">Education</h2>
+                <button 
+                  onClick={() => setOpenDropdown(null)}
+                  className="p-2 text-white hover:text-gray-300 transition-colors"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+              
               <button 
                 onClick={() => {
                   scrollToSection('#education');
                   setOpenDropdown(null);
                 }}
-                className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200 -m-2"
+                className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200 lg:-m-2"
               >
-                <div className="space-y-1">
-                  <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">University of New Brunswick</div>
-                  <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Bachelor of Business Administration</div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Fredericton, NB</div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2016-2020</div>
+                <div className="space-y-2 lg:space-y-1">
+                  <div className="text-2xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">University of New Brunswick</div>
+                  <div className="text-xl lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Bachelor of Business Administration</div>
+                  <div className="text-lg lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Fredericton, NB</div>
+                  <div className="text-lg lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2016-2020</div>
                 </div>
               </button>
             </div>
@@ -430,21 +441,32 @@ export default function Navigation() {
             glassStyle={dropdownGlassStyle}
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
-            <div className="rounded-xl p-4">
-              <div className="space-y-3 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
+            <div className="lg:rounded-xl p-6 lg:p-4 h-full lg:h-auto overflow-y-auto">
+              {/* Close button for mobile */}
+              <div className="lg:hidden flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-white">Experience</h2>
+                <button 
+                  onClick={() => setOpenDropdown(null)}
+                  className="p-2 text-white hover:text-gray-300 transition-colors"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+              
+              <div className="space-y-4 lg:space-y-3 lg:max-h-80 lg:overflow-y-auto lg:scrollbar-thin lg:scrollbar-thumb-gray-300 lg:dark:scrollbar-thumb-gray-600 lg:scrollbar-track-transparent">
                 {/* BMO Private Wealth */}
                 <button 
                   onClick={() => {
                     scrollToSection('#experience-bmo-private-wealth-portfolio-assistant');
                     setOpenDropdown(null);
                   }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200"
+                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
                 >
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Portfolio Assistant</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">BMO Private Wealth</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Toronto, Ontario</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2022-2023</div>
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Portfolio Assistant</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">BMO Private Wealth</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Toronto, Ontario</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2022-2023</div>
                   </div>
                 </button>
                 
@@ -454,13 +476,13 @@ export default function Navigation() {
                     scrollToSection('#experience-td-canada-trust-financial-advisor');
                     setOpenDropdown(null);
                   }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200"
+                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
                 >
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Financial Advisor</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">TD Canada Trust</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Kingston, Ontario</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2021-2022</div>
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Financial Advisor</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">TD Canada Trust</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Kingston, Ontario</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2021-2022</div>
                   </div>
                 </button>
                 
@@ -470,13 +492,13 @@ export default function Navigation() {
                     scrollToSection('#experience-royal-bank-of-canada-banking-advisor');
                     setOpenDropdown(null);
                   }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200"
+                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
                 >
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Banking Advisor</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Royal Bank of Canada</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Kingston, Ontario</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2020-2021</div>
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Banking Advisor</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Royal Bank of Canada</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Kingston, Ontario</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2020-2021</div>
                   </div>
                 </button>
                 
@@ -486,13 +508,13 @@ export default function Navigation() {
                     scrollToSection('#experience-royal-bank-of-canada-client-advisor-intern');
                     setOpenDropdown(null);
                   }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200"
+                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
                 >
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Client Advisor Intern</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Royal Bank of Canada</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Fredericton, New Brunswick</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2019-2020</div>
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Client Advisor Intern</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Royal Bank of Canada</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Fredericton, New Brunswick</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2019-2020</div>
                   </div>
                 </button>
                 
@@ -502,13 +524,13 @@ export default function Navigation() {
                     scrollToSection('#experience-irving-oil-limited-marketing-intern');
                     setOpenDropdown(null);
                   }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200"
+                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
                 >
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Marketing Intern</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Irving Oil Limited</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Saint John, New Brunswick</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2018</div>
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Marketing Intern</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Irving Oil Limited</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Saint John, New Brunswick</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2018</div>
                   </div>
                 </button>
                 
@@ -518,13 +540,13 @@ export default function Navigation() {
                     scrollToSection('#experience-grant-thornton-llp-tax-return-intern');
                     setOpenDropdown(null);
                   }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200"
+                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
                 >
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Tax Return Intern</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Grant Thornton LLP</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Saint John, New Brunswick</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2018</div>
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Tax Return Intern</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Grant Thornton LLP</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Saint John, New Brunswick</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2018</div>
                   </div>
                 </button>
               </div>
@@ -541,182 +563,193 @@ export default function Navigation() {
             glassStyle={dropdownGlassStyle}
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
-            <div className="rounded-xl p-4">
-              <div className="space-y-3 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
+            <div className="lg:rounded-xl p-6 lg:p-4 h-full lg:h-auto overflow-y-auto">
+              {/* Close button for mobile */}
+              <div className="lg:hidden flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-white">Certifications</h2>
+                <button 
+                  onClick={() => setOpenDropdown(null)}
+                  className="p-2 text-white hover:text-gray-300 transition-colors"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+              
+              <div className="space-y-4 lg:space-y-3 lg:max-h-80 lg:overflow-y-auto lg:scrollbar-thin lg:scrollbar-thumb-gray-300 lg:dark:scrollbar-thumb-gray-600 lg:scrollbar-track-transparent">
                 
-                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">CFA Level I Candidate</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">CFA Institute</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2025</div>
+                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">CFA Level I Candidate</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">CFA Institute</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2025</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Discounted Cash Flow Analysis</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Training the Street</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2024</div>
+                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Discounted Cash Flow Analysis</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Training the Street</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2024</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Financial Planning 1</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Canadian Securities Institute</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2023</div>
+                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Financial Planning 1</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Canadian Securities Institute</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2023</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Certificate in Financial Services Advice</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Canadian Securities Institute</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2022</div>
+                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Certificate in Financial Services Advice</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Canadian Securities Institute</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2022</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Personal Financial Service Advice</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Canadian Securities Institute</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2021</div>
+                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Personal Financial Service Advice</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Canadian Securities Institute</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2021</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Canadian Securities Course</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Canadian Securities Institute</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2021</div>
+                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Canadian Securities Course</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Canadian Securities Institute</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2021</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Financial & Valuation Modeling</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Wall Street Prep</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2020</div>
+                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Financial & Valuation Modeling</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Wall Street Prep</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2020</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Investment Funds in Canada</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Canadian Securities Institute</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2020</div>
+                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Investment Funds in Canada</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Canadian Securities Institute</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2020</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Bloomberg Market Concepts Certificate</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Bloomberg</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2020</div>
+                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Bloomberg Market Concepts Certificate</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Bloomberg</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2020</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Personal Finance Essentials</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">McGill University</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2020</div>
+                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Personal Finance Essentials</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">McGill University</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2020</div>
                   </div>
                 </button>
 
-                <button onClick={() => { scrollToSection('#certifications-data---technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Data Analytics Professional</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Google</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2023</div>
+                <button onClick={() => { scrollToSection('#certifications-data---technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Data Analytics Professional</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Google</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2023</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-data---technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Data Visualization with Tableau</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">UC Davis</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2023</div>
+                <button onClick={() => { scrollToSection('#certifications-data---technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Data Visualization with Tableau</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">UC Davis</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2023</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-data---technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Python for Everybody</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">University of Michigan</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2023</div>
+                <button onClick={() => { scrollToSection('#certifications-data---technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Python for Everybody</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">University of Michigan</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2023</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-data---technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Machine Learning</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Stanford University</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2020</div>
+                <button onClick={() => { scrollToSection('#certifications-data---technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Machine Learning</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Stanford University</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2020</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-data---technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">SQL for Data Science</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">UC Davis</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2020</div>
+                <button onClick={() => { scrollToSection('#certifications-data---technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">SQL for Data Science</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">UC Davis</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2020</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-data---technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Power BI Data Visualization</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Microsoft</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2020</div>
+                <button onClick={() => { scrollToSection('#certifications-data---technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Power BI Data Visualization</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Microsoft</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2020</div>
                   </div>
                 </button>
 
-                <button onClick={() => { scrollToSection('#certifications-advanced-analytics'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Econometrics: Methods & Applications</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Erasmus University</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2024</div>
+                <button onClick={() => { scrollToSection('#certifications-advanced-analytics'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Econometrics: Methods & Applications</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Erasmus University</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2024</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-advanced-analytics'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Matrix Algebra for Engineers</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">HKUST</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2024</div>
+                <button onClick={() => { scrollToSection('#certifications-advanced-analytics'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Matrix Algebra for Engineers</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">HKUST</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2024</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-advanced-analytics'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Introduction to Calculus</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">University of Sydney</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2023</div>
+                <button onClick={() => { scrollToSection('#certifications-advanced-analytics'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Introduction to Calculus</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">University of Sydney</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2023</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-advanced-analytics'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Inferential Statistics</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Duke University</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2020</div>
+                <button onClick={() => { scrollToSection('#certifications-advanced-analytics'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Inferential Statistics</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Duke University</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2020</div>
                   </div>
                 </button>
                 
-                <button onClick={() => { scrollToSection('#certifications-advanced-analytics'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Excel Skills for Business</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Macquarie University</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2020</div>
+                <button onClick={() => { scrollToSection('#certifications-advanced-analytics'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Excel Skills for Business</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Macquarie University</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2020</div>
                   </div>
                 </button>
 
-                <button onClick={() => { scrollToSection('#certifications-standardized-exam'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200">
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">GRE General Test</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">ETS</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2024</div>
+                <button onClick={() => { scrollToSection('#certifications-standardized-exam'); setOpenDropdown(null); }} className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200">
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">GRE General Test</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">ETS</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2024</div>
                   </div>
                 </button>
 
@@ -734,8 +767,19 @@ export default function Navigation() {
             glassStyle={dropdownGlassStyle}
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
-            <div className="rounded-xl p-4">
-              <div className="space-y-3 max-h-80 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
+            <div className="lg:rounded-xl p-6 lg:p-4 h-full lg:h-auto overflow-y-auto">
+              {/* Close button for mobile */}
+              <div className="lg:hidden flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-white">Community</h2>
+                <button 
+                  onClick={() => setOpenDropdown(null)}
+                  className="p-2 text-white hover:text-gray-300 transition-colors"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+              
+              <div className="space-y-4 lg:space-y-3 lg:max-h-80 lg:overflow-y-auto lg:scrollbar-thin lg:scrollbar-thumb-gray-300 lg:dark:scrollbar-thumb-gray-600 lg:scrollbar-track-transparent">
                 
                 {/* United Way */}
                 <button 
@@ -743,13 +787,13 @@ export default function Navigation() {
                     scrollToSection('#community-united-way');
                     setOpenDropdown(null);
                   }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200"
+                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
                 >
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Next Gen Ambassador</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">United Way</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Kingston, Ontario</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2020-2023</div>
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Next Gen Ambassador</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">United Way</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Kingston, Ontario</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2020-2023</div>
                   </div>
                 </button>
 
@@ -759,13 +803,13 @@ export default function Navigation() {
                     scrollToSection('#community-royal-bank-of-canada');
                     setOpenDropdown(null);
                   }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200"
+                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
                 >
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Student Ambassador</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Royal Bank of Canada</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Fredericton, New Brunswick</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2019-2020</div>
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Student Ambassador</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Royal Bank of Canada</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Fredericton, New Brunswick</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2019-2020</div>
                   </div>
                 </button>
 
@@ -775,13 +819,13 @@ export default function Navigation() {
                     scrollToSection('#community-irving-oil-limited');
                     setOpenDropdown(null);
                   }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200"
+                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
                 >
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Volunteer Staff</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Irving Oil Limited</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Saint John, New Brunswick</div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">2018</div>
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Volunteer Staff</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Irving Oil Limited</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Saint John, New Brunswick</div>
+                    <div className="text-base lg:text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">2018</div>
                   </div>
                 </button>
 
@@ -799,8 +843,19 @@ export default function Navigation() {
             glassStyle={dropdownGlassStyle}
             style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.1);"
           >
-            <div className="rounded-xl p-4">
-              <div className="space-y-3">
+            <div className="lg:rounded-xl p-6 lg:p-4 h-full lg:h-auto overflow-y-auto">
+              {/* Close button for mobile */}
+              <div className="lg:hidden flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-white">Contact</h2>
+                <button 
+                  onClick={() => setOpenDropdown(null)}
+                  className="p-2 text-white hover:text-gray-300 transition-colors"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+              
+              <div className="space-y-4 lg:space-y-3">
                 
                 {/* Email */}
                 <button 
@@ -808,11 +863,11 @@ export default function Navigation() {
                     scrollToSection('#contact');
                     setOpenDropdown(null);
                   }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200"
+                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
                 >
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Email</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">tbustard@unb.ca</div>
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Email</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">tbustard@unb.ca</div>
                   </div>
                 </button>
 
@@ -822,11 +877,11 @@ export default function Navigation() {
                     scrollToSection('#contact');
                     setOpenDropdown(null);
                   }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200"
+                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
                 >
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Phone</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">(613) 985-1223</div>
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Phone</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">(613) 985-1223</div>
                   </div>
                 </button>
 
@@ -836,11 +891,11 @@ export default function Navigation() {
                     scrollToSection('#contact');
                     setOpenDropdown(null);
                   }}
-                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200"
+                  className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-4 lg:p-2 transition-all duration-200"
                 >
-                  <div className="space-y-1">
-                    <div className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Location</div>
-                    <div className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 block w-fit">Toronto, Ontario, Canada</div>
+                  <div className="space-y-2 lg:space-y-1">
+                    <div className="text-xl lg:text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Location</div>
+                    <div className="text-lg lg:text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-3 py-2 lg:px-1 lg:py-0.5 block w-fit">Toronto, Ontario, Canada</div>
                   </div>
                 </button>
 
