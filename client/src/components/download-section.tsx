@@ -47,18 +47,18 @@ export default function DownloadSection() {
     <section 
       ref={sectionAnimation.ref}
       id="download" 
-      className={`py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
+      className={`py-16 sm:py-20 lg:py-24 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
     >
       {/* Background - inherits Apple grey from parent */}
       
       <div className="container-width">
-        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-6 sm:p-8 lg:p-12 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
+        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-6 sm:p-8 lg:p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header Section - Apple's content-first approach */}
           <div 
             ref={headerAnimation.ref}
-            className={`text-center mb-8 sm:mb-12 lg:mb-16 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+            className={`text-center mb-6 sm:mb-8 lg:mb-10 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
           >
-            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">Resume</h2>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 tracking-tight">Resume</h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Access my comprehensive professional resume showcasing expertise in finance and technology.
             </p>
@@ -70,9 +70,9 @@ export default function DownloadSection() {
             <Card 
               className={`bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 transition-all duration-500 hover:scale-[1.02] text-center scroll-scale-in scroll-stagger-1 ${visibleItems.has(0) ? 'visible' : ''}`}
             >
-              <CardContent className="p-10">
-                <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
-                  <Download className="w-8 h-8 text-primary" />
+              <CardContent className="p-6 sm:p-8 lg:p-10">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-110">
+                  <Download className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
                 </div>
                 <Button
                   onClick={downloadResume}
