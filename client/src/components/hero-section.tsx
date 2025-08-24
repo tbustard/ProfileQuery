@@ -1,8 +1,8 @@
-import { useState } from "react";
+// No longer need useState since we're not managing overlay state
 import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
-import VideoOverlay from "@/components/video-overlay";
+// VideoOverlay no longer needed - using YouTube directly
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
@@ -21,9 +21,10 @@ import etsLogo from "@assets/ETS_1755939510188.png";
 import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 
 export default function HeroSection() {
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
-  const [hasVideo, setHasVideo] = useState(true); // Check if video exists
   const isPageLoaded = useInitialPageAnimation(300);
+  
+  // YouTube video URL - you can change this to your video
+  const youtubeVideoUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"; // Replace with your video URL
 
   // Smooth scroll to section function
   const scrollToSection = (sectionId: string) => {
@@ -88,18 +89,7 @@ export default function HeroSection() {
                 {/* Introduction Button */}
                 <div className="flex justify-center lg:justify-start pt-2 sm:pt-4">
                   <Button
-                    onClick={async () => {
-                      try {
-                        const response = await fetch('/api/introduction-video');
-                        if (response.ok) {
-                          setIsVideoOpen(true);
-                        } else {
-                          alert('Introduction video is coming soon! Please check back later.');
-                        }
-                      } catch (error) {
-                        alert('Introduction video is coming soon! Please check back later.');
-                      }
-                    }}
+                    onClick={() => window.open(youtubeVideoUrl, '_blank')}
                     className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 sm:px-8 py-4 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-base sm:text-lg min-h-[56px]"
                     data-testid="button-introduction"
                   >
@@ -237,12 +227,7 @@ export default function HeroSection() {
         </div>
       </div>
       
-      {/* Video Overlay */}
-      <VideoOverlay 
-        isOpen={isVideoOpen} 
-        onClose={() => setIsVideoOpen(false)}
-        videoSrc="/api/introduction-video" 
-      />
+      {/* Video now opens directly on YouTube */}
     </section>
   );
 }
