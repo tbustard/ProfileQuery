@@ -10,6 +10,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface ContactForm {
   name: string;
@@ -26,6 +27,8 @@ export default function ContactSection() {
     message: "",
   });
   const { toast } = useToast();
+  const sectionAnimation = useScrollAnimation({ threshold: 0.15, triggerOnce: true });
+  const headerAnimation = useScrollAnimation({ threshold: 0.25, triggerOnce: true, delay: 100 });
 
   const contactMutation = useMutation({
     mutationFn: async (data: ContactForm) => {
@@ -65,14 +68,20 @@ export default function ContactSection() {
 
 
   return (
-    <section id="contact" className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+    <section 
+      ref={sectionAnimation.ref}
+      id="contact" 
+      className={`py-16 sm:py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}>
       {/* Background */}
       <div className="absolute inset-0 bg-white" />
       
       <div className="container-width">
         <div className="bg-white/90 backdrop-blur-xl rounded-[20px] sm:rounded-[28px] p-6 sm:p-8 lg:p-10 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header Section - Apple's content-first approach */}
-          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <div 
+            ref={headerAnimation.ref}
+            className={`text-center mb-8 sm:mb-12 lg:mb-16 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+          >
             <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 tracking-tight">Contact</h2>
             <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Ready to discuss your next project or opportunity? I'd love to hear from you.

@@ -35,7 +35,7 @@ interface CertificationCategory {
 export default function CertificationsSection() {
   const sectionAnimation = useScrollAnimation({ threshold: 0.15, triggerOnce: true });
   const headerAnimation = useScrollAnimation({ threshold: 0.25, triggerOnce: true, delay: 100 });
-  const { ref: certificationsRef, visibleItems } = useStaggeredScrollAnimation(4, { threshold: 0.05, triggerOnce: true, delay: 100 });
+  const { ref: certificationsRef, visibleItems } = useStaggeredScrollAnimation(4, { threshold: 0.15, triggerOnce: true, delay: 200 });
   const communityAnimation = useScrollAnimation({ threshold: 0.15, triggerOnce: true });
   const communityHeaderAnimation = useScrollAnimation({ threshold: 0.25, triggerOnce: true, delay: 100 });
   const { ref: communityRef, visibleItems: communityItems } = useStaggeredScrollAnimation(3, { threshold: 0.15, triggerOnce: true, delay: 200 });

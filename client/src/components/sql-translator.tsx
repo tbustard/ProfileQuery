@@ -7,6 +7,7 @@ import { Database, ArrowRight, Copy, HelpCircle, Loader2 } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface SQLTranslationResponse {
   sql: string;
@@ -18,6 +19,8 @@ export default function SQLTranslator() {
   const [sqlOutput, setSqlOutput] = useState("");
   const [explanation, setExplanation] = useState("");
   const { toast } = useToast();
+  const sectionAnimation = useScrollAnimation({ threshold: 0.15, triggerOnce: true });
+  const headerAnimation = useScrollAnimation({ threshold: 0.25, triggerOnce: true, delay: 100 });
 
   const translateMutation = useMutation({
     mutationFn: async (naturalLanguage: string): Promise<SQLTranslationResponse> => {
@@ -129,9 +132,15 @@ export default function SQLTranslator() {
   ];
 
   return (
-    <section id="sql-translator" className="section-padding">
+    <section 
+      ref={sectionAnimation.ref}
+      id="sql-translator" 
+      className={`py-16 sm:py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}>
       <div className="container-width">
-        <div className="text-center mb-16">
+        <div 
+          ref={headerAnimation.ref}
+          className={`text-center mb-8 sm:mb-12 lg:mb-16 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+        >
           <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
             <Database className="inline-block text-primary mr-4" />
             Financial Data Analytics Tool

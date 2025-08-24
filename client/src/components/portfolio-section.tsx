@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink, Github } from "lucide-react";
+import { useScrollAnimation, useStaggeredScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface Project {
   title: string;
@@ -11,6 +12,10 @@ interface Project {
 }
 
 export default function PortfolioSection() {
+  const sectionAnimation = useScrollAnimation({ threshold: 0.15, triggerOnce: true });
+  const headerAnimation = useScrollAnimation({ threshold: 0.25, triggerOnce: true, delay: 100 });
+  const { ref: projectsRef, visibleItems } = useStaggeredScrollAnimation(3, { threshold: 0.15, triggerOnce: true, delay: 200 });
+  
   const projects: Project[] = [
     {
       title: "AI-Driven Investment Analytics Platform",
@@ -39,18 +44,28 @@ export default function PortfolioSection() {
   ];
 
   return (
-    <section id="portfolio" className="section-padding bg-muted/20">
+    <section 
+      ref={sectionAnimation.ref}
+      id="portfolio" 
+      className={`py-16 sm:py-24 lg:py-32 relative overflow-hidden bg-muted/20 scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}>
       <div className="container-width">
-        <div className="text-center mb-16">
+        <div 
+          ref={headerAnimation.ref}
+          className={`text-center mb-8 sm:mb-12 lg:mb-16 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+        >
           <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">Featured Projects</h2>
           <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             A showcase of my recent work and technical achievements.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={projectsRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500" data-testid={`project-${index}`}>
+            <Card 
+              key={index} 
+              className={`shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 scroll-scale-in scroll-stagger-${index + 1} ${visibleItems.has(index) ? 'visible' : ''}`}
+              data-testid={`project-${index}`}
+            >
               <img 
                 src={project.image} 
                 alt={project.title}
