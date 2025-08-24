@@ -368,12 +368,11 @@ export default function Navigation() {
                 }}
                 className="w-full text-left hover:bg-white/10 dark:hover:bg-black/10 rounded-lg p-2 transition-all duration-200 -m-2"
               >
-                <div className="flex items-center space-x-3 whitespace-nowrap">
+                <div className="space-y-1">
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 inline-block">University of New Brunswick</h3>
-                  <span className="text-gray-400">•</span>
                   <p className="text-base text-gray-700 dark:text-gray-300 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 inline-block">Bachelor of Business Administration</p>
-                  <span className="text-gray-400">•</span>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 inline-block">Fredericton, NB • 2016-2020</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 inline-block">Fredericton, NB</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded px-1 py-0.5 inline-block">2016-2020</p>
                 </div>
               </button>
             </div>
