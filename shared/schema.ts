@@ -101,6 +101,7 @@ export const videos = pgTable("videos", {
   mimeType: varchar("mime_type").notNull(),
   fileSize: integer("file_size").notNull(),
   isActive: boolean("is_active").default(false),
+  uploadedBy: varchar("uploaded_by").notNull(),
   uploadedAt: timestamp("uploaded_at").defaultNow(),
   createdAt: timestamp("created_at").defaultNow(),
 });
