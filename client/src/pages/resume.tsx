@@ -2,6 +2,7 @@ import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { useEffect, useRef } from "react";
 import { Mail, Phone, MapPin, Globe, Download, Printer, Linkedin } from "lucide-react";
 
 // Import logos from assets
@@ -18,6 +19,21 @@ import trainingTheStreetLogo from "@assets/trainning the street_1755938972014.pn
 
 export default function Resume() {
   const isPageLoaded = useInitialPageAnimation(400);
+  const downloadButtonRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    // Scroll to download button area when page loads
+    const timer = setTimeout(() => {
+      if (downloadButtonRef.current) {
+        downloadButtonRef.current.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }, 500); // Small delay to allow page to fully load
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   const handlePrint = () => {
     window.print();
@@ -31,7 +47,7 @@ export default function Resume() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#f5f5f7' }}>
       {/* Header Actions - Hide on print */}
-      <div className="print:hidden sticky top-4 z-50 px-4 sm:px-6">
+      <div ref={downloadButtonRef} className="print:hidden sticky top-4 z-50 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto flex justify-end gap-3">
           <Button
             onClick={handlePrint}
