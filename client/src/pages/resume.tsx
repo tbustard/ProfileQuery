@@ -386,7 +386,7 @@ export default function Resume() {
       <style>{`
         @media print {
           @page {
-            margin: 0.5in;
+            margin: 0.75in 0.5in;
             size: letter;
           }
           
@@ -394,6 +394,7 @@ export default function Resume() {
           body { 
             print-color-adjust: exact; 
             background: white !important;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
           }
           
           /* Hide navigation and non-printable elements */
@@ -404,6 +405,17 @@ export default function Resume() {
           .min-h-screen {
             min-height: auto !important;
             background: white !important;
+            padding: 0 !important;
+          }
+          
+          /* Resume content container */
+          .px-4.sm\\:px-6.pb-16.pt-24 {
+            padding: 0 !important;
+          }
+          
+          .max-w-4xl {
+            max-width: 100% !important;
+            margin: 0 !important;
           }
           
           /* Resume content styling */
@@ -417,6 +429,13 @@ export default function Resume() {
           .max-w-4xl > div:first-child {
             page-break-after: always;
             margin-bottom: 0 !important;
+            height: auto !important;
+            min-height: 9.5in !important;
+          }
+          
+          .max-w-4xl > div:last-child {
+            page-break-before: always;
+            margin-top: 0 !important;
           }
           
           /* Ensure resume cards fill the page properly */
@@ -426,20 +445,121 @@ export default function Resume() {
             border-radius: 0 !important;
             box-shadow: none !important;
             margin: 0 !important;
-            padding: 1rem !important;
+            padding: 0.5in !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+          }
+          
+          /* Typography improvements */
+          h1 { 
+            font-size: 28pt !important; 
+            margin: 0 0 8pt 0 !important; 
+            line-height: 1.2 !important;
+            font-weight: bold !important;
+          }
+          
+          h2 { 
+            font-size: 14pt !important; 
+            margin: 0 0 12pt 0 !important; 
+            color: #2563eb !important;
+            font-weight: 600 !important;
+          }
+          
+          h3 { 
+            font-size: 16pt !important; 
+            margin: 20pt 0 10pt 0 !important; 
+            font-weight: 600 !important;
+          }
+          
+          h4 { 
+            font-size: 12pt !important; 
+            margin: 8pt 0 4pt 0 !important; 
+            font-weight: 600 !important;
+          }
+          
+          p, span, div {
+            font-size: 10pt !important;
+            line-height: 1.3 !important;
+            margin: 0 !important;
+          }
+          
+          /* Contact info styling */
+          .text-sm.text-muted-foreground {
+            text-align: center !important;
+            margin: 12pt 0 20pt 0 !important;
+            font-size: 10pt !important;
+          }
+          
+          /* Experience sections */
+          .space-y-6 > div {
+            margin-bottom: 12pt !important;
+            page-break-inside: avoid !important;
+          }
+          
+          /* Badges/Tags */
+          .text-xs {
+            font-size: 8pt !important;
+            padding: 2pt 6pt !important;
+            background: #f3f4f6 !important;
+            border: 1px solid #d1d5db !important;
+            border-radius: 3pt !important;
+            margin: 1pt !important;
+          }
+          
+          /* Lists */
+          ul {
+            margin: 6pt 0 !important;
+            padding-left: 12pt !important;
+          }
+          
+          li {
+            font-size: 10pt !important;
+            line-height: 1.3 !important;
+            margin: 2pt 0 !important;
           }
           
           /* Hide background and ensure white print area */
           * { 
-            -webkit-print-color-adjust: exact; 
-            background-color: white !important;
+            -webkit-print-color-adjust: exact !important;
           }
           
           /* Specific overrides for resume content */
           .bg-white\\/90,
-          .bg-white\\/80 {
+          .bg-white\\/80,
+          .backdrop-blur-md {
             background: white !important;
             backdrop-filter: none !important;
+          }
+          
+          /* Section dividers */
+          .h-px {
+            height: 1pt !important;
+            background: #000 !important;
+            margin: 6pt 0 !important;
+          }
+          
+          /* Image containers */
+          .w-12.h-12 {
+            width: 32pt !important;
+            height: 32pt !important;
+          }
+          
+          .w-40.h-40 {
+            width: 120pt !important;
+            height: 120pt !important;
+          }
+          
+          /* Flex layouts for print */
+          .flex {
+            display: flex !important;
+          }
+          
+          .gap-6 {
+            gap: 12pt !important;
+          }
+          
+          .gap-8 {
+            gap: 16pt !important;
           }
         }
       `}</style>
