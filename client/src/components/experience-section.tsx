@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useScrollAnimation, useStaggeredScrollAnimation } from "@/hooks/useScrollAnimation";
-import fiscalAiLogo from "@assets/fiscal_ai_logo.png";
+import fiscalAiLogo from "@assets/fiscal_ai_logo_new.png";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
 import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
