@@ -119,9 +119,10 @@ export default function Navigation() {
 
   // Effect to update liquid glass screenshots when section changes
   useEffect(() => {
-    if (currentSection && isScrolled) {
-      // Update navigation background
-      navGlassRef.current?.updateScreenshot();
+    // Always update navigation background, not just when scrolled
+    navGlassRef.current?.updateScreenshot();
+    
+    if (currentSection) {
       
       // Update mobile menu background if open
       if (isMobileMenuOpen) {
@@ -179,7 +180,7 @@ export default function Navigation() {
         <LiquidGlass
           ref={navGlassRef}
           glassStyle={navGlassStyle}
-          style={isScrolled ? "border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);" : "background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.2);"}
+          style={isScrolled ? "border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15); background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px);" : "background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);"}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16 sm:h-20">
