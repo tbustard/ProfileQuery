@@ -7,6 +7,8 @@ import Home from "@/pages/home";
 import EmployerPage from "@/pages/employer";
 import Resume from "@/pages/resume";
 import UploadResume from "@/pages/upload-resume";
+import ResumeUploadSignIn from "@/pages/resume-upload-signin";
+import UploadResumeDashboard from "@/pages/upload-resume-dashboard";
 import { useGlobalAnimations } from "@/hooks/useGlobalAnimations";
 
 function Router() {
@@ -15,7 +17,8 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/resume" component={Resume} />
       <Route path="/employer" component={EmployerPage} />
-      <Route path="/upload-resume" component={UploadResume} />
+      <Route path="/upload-resume" component={UploadResumeDashboard} />
+      <Route path="/resume-upload-signin" component={ResumeUploadSignIn} />
       <Route>404: Page not found</Route>
     </Switch>
   );

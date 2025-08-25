@@ -1,8 +1,9 @@
+import { useState, useEffect } from "react";
 import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Globe, Download, Printer, Linkedin, Upload } from "lucide-react";
+import { Mail, Phone, MapPin, Globe, Download, Printer, Linkedin, ChevronUp } from "lucide-react";
 import Navigation from "@/components/navigation";
 
 // Import logos from assets
@@ -19,11 +20,41 @@ import trainingTheStreetLogo from "@assets/trainning the street_1755938972014.pn
 
 export default function Resume() {
   const isPageLoaded = useInitialPageAnimation(400);
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
 
-  const handlePrint = () => {
-    window.print();
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout | null = null;
+    let lastKnownScrollY = 0;
+    
+    const handleScroll = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      
+      timeoutId = setTimeout(() => {
+        const scrollY = window.scrollY;
+        // Only update if there's a significant change
+        if (Math.abs(scrollY - lastKnownScrollY) > 50) {
+          setShowScrollToTop(scrollY > 300);
+          lastKnownScrollY = scrollY;
+        }
+      }, 100);
+    };
+
+    // Initial check
+    setShowScrollToTop(window.scrollY > 300);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
-
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#f5f5f7' }}>
@@ -33,25 +64,6 @@ export default function Resume() {
       <div className="px-4 sm:px-6 lg:px-8 pb-16 pt-24">
         <div className="max-w-5xl mx-auto">
           
-          {/* Action Buttons */}
-          <div className="flex justify-end gap-3 mb-6 print:hidden">
-            <Button
-              onClick={handlePrint}
-              className="bg-gray-900 hover:bg-gray-800 text-white rounded-xl px-5 py-2.5 flex items-center gap-2 transition-all duration-200 hover:scale-105 shadow-sm"
-              data-testid="button-print-pdf"
-            >
-              <Printer className="w-4 h-4" />
-              <span>Print PDF</span>
-            </Button>
-            <Button
-              onClick={() => window.location.href = '/upload-resume'}
-              className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-5 py-2.5 flex items-center gap-2 transition-all duration-200 hover:scale-105 shadow-sm"
-              data-testid="button-upload-resume"
-            >
-              <Upload className="w-4 h-4" />
-              <span>Upload Resume</span>
-            </Button>
-          </div>
           
           {/* Page 1 */}
           <div className={`bg-white/95 backdrop-blur-xl border border-white/40 rounded-[2rem] p-8 sm:p-12 lg:p-16 shadow-xl mb-6 page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}>
@@ -806,6 +818,50 @@ export default function Resume() {
           }
         }
       `}</style>
+      
+      {/* Back to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40 transition-all duration-300 ease-in-out rounded-full print:hidden ${
+          showScrollToTop 
+            ? 'opacity-100 pointer-events-auto translate-y-0' 
+            : 'opacity-0 pointer-events-none translate-y-4'
+        } hover:scale-105 shadow-xl hover:shadow-2xl`}
+        style={{ 
+          background: 'rgba(255, 255, 255, 0.92)',
+          backdropFilter: 'blur(20px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+          border: '1px solid rgba(0, 0, 0, 0.08)'
+        }}
+        data-testid="scroll-to-top-button"
+      >
+        <div className="flex items-center px-5 py-3">
+          <span className="text-sm font-medium mr-3 text-gray-700">
+            Back to top
+          </span>
+          <div className="w-8 h-8 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center transition-colors duration-200">
+            <ChevronUp size={18} />
+          </div>
+        </div>
+      </button>
+      
+      {/* Footer with Sign In */}
+      <footer className="relative bg-gradient-to-b from-gray-900 to-black border-t border-gray-800 py-8 transition-all duration-500 print:hidden">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-white/90 font-medium">
+              © {new Date().getFullYear()} Tyler Bustard. All rights reserved.
+            </p>
+            <button
+              onClick={() => window.location.href = '/resume-upload-signin'}
+              className="px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white transition-all duration-200 hover:scale-105"
+              data-testid="footer-resume-signin"
+            >
+              Sign In
+            </button>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

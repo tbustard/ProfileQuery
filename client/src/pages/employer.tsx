@@ -282,7 +282,7 @@ function EmployerLogin({ onLogin }: { onLogin: (user: { email: string }) => void
     setIsLoading(true);
 
     // Check credentials
-    if (email === 'tbustard@unb.ca' && password === 'Tylmvn7c7bb!!') {
+    if (email === 'tylerbustard' && password === 'Mvn7c7bb!!') {
       localStorage.setItem('employerAuth', JSON.stringify({ email }));
       onLogin({ email });
       toast({
@@ -311,13 +311,13 @@ function EmployerLogin({ onLogin }: { onLogin: (user: { email: string }) => void
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">Username</Label>
               <Input
                 id="email"
-                type="email"
+                type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
+                placeholder="Enter your username"
                 required
                 data-testid="input-email"
                 className="bg-white dark:bg-slate-900"

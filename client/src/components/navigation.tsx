@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from "react";
-import { ChevronDown, Menu, X, ArrowLeft } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowLeft, Printer } from "lucide-react";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
@@ -644,6 +644,20 @@ export default function Navigation() {
 
             {/* Right side */}
             <div className="flex items-center space-x-3">
+              {/* Print PDF Button - Only on Resume Page */}
+              {isResumePage && (
+                <div className="hidden lg:block">
+                  <button
+                    onClick={() => window.print()}
+                    className="px-4 py-2 text-sm font-medium rounded-lg bg-white/70 text-gray-700 border border-gray-200 hover:bg-gray-50 transition-all duration-200 hover:scale-105 shadow-sm flex items-center gap-2"
+                    data-testid="button-print-pdf"
+                  >
+                    <Printer className="w-4 h-4" />
+                    <span>Print PDF</span>
+                  </button>
+                </div>
+              )}
+              
               {/* Desktop Resume Button */}
               <div className="hidden lg:block">
                 <button 
