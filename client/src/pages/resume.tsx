@@ -29,7 +29,7 @@ export default function Resume() {
     <div className="min-h-screen" style={{ backgroundColor: '#f5f5f7' }}>
       <Navigation />
       {/* Header Actions - Hide on print */}
-      <div className="print:hidden sticky top-4 z-50 px-4 sm:px-6">
+      <div className="print:hidden sticky top-20 z-40 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto flex justify-end gap-3">
           <Button
             onClick={handlePrint}
