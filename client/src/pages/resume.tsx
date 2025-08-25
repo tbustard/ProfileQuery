@@ -225,8 +225,22 @@ export default function Resume() {
                     </div>
                   </div>
                 </div>
-                
-                {/* RBC Intern Experience - Additional */}
+              </div>
+            </section>
+          </div>
+
+          {/* Page 2 */}
+          <div className={`bg-white/90 backdrop-blur-md border border-white/30 rounded-[2rem] p-8 sm:p-12 shadow-2xl page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}>
+            
+            {/* Professional Experience Continued */}
+            <section className="mb-12">
+              <h3 className="text-2xl font-semibold mb-8 flex items-center gap-3">
+                Professional Experience (continued)
+                <div className="h-px bg-border flex-1"></div>
+              </h3>
+              
+              <div className="space-y-8">
+                {/* RBC Intern Experience */}
                 <div className="flex gap-6">
                   <div className="flex-shrink-0">
                     <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
@@ -308,11 +322,7 @@ export default function Resume() {
                 </div>
               </div>
             </section>
-          </div>
 
-          {/* Page 2 */}
-          <div className={`bg-white/90 backdrop-blur-md border border-white/30 rounded-[2rem] p-8 sm:p-12 shadow-2xl page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}>
-            
             {/* Professional Certifications */}
             <section className="mb-12">
               <h3 className="text-2xl font-semibold mb-8 flex items-center gap-3">
