@@ -3,7 +3,7 @@ import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Globe, Download, Printer, Linkedin, ChevronUp, Briefcase, GraduationCap, Award, Heart } from "lucide-react";
+import { Mail, Phone, MapPin, Globe, Download, Printer, Linkedin, ChevronUp, Briefcase, GraduationCap, Award, Heart, Target } from "lucide-react";
 import Navigation from "@/components/navigation";
 
 // Import logos from assets
@@ -512,33 +512,45 @@ export default function Resume() {
 
             {/* Core Competencies - ATS Keywords */}
             <section>
-              <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider mb-4">Core Competencies</h3>
+              <div className="flex items-center gap-2 mb-5">
+                <Target className="w-5 h-5 text-blue-600" />
+                <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider">Core Competencies</h3>
+              </div>
               
-              <div className="bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-4 border border-blue-100/50">
-                <div className="grid grid-cols-3 gap-4">
-                  <div>
-                    <h4 className="text-xs font-bold text-gray-700 mb-2 uppercase">Technical Skills</h4>
-                    <div className="space-y-1">
+              <div className="bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-6 border border-blue-200 shadow-sm hover:shadow-md transition-shadow">
+                <div className="grid grid-cols-3 gap-6">
+                  <div className="bg-white rounded-lg p-4 border border-gray-100">
+                    <h4 className="text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide">Technical Skills</h4>
+                    <div className="space-y-2">
                       {['Python/SQL/VBA Programming', 'Advanced Excel & Financial Modeling', 'Data Analytics & Visualization', 'Bloomberg Terminal & Refinitiv', 'AI/Machine Learning Integration', 'API Development & Integration'].map(skill => (
-                        <p key={skill} className="text-xs text-gray-600">• {skill}</p>
+                        <p key={skill} className="text-xs text-gray-700 flex items-start">
+                          <span className="text-blue-500 mr-2 mt-0.5">•</span>
+                          <span>{skill}</span>
+                        </p>
                       ))}
                     </div>
                   </div>
                   
-                  <div>
-                    <h4 className="text-xs font-bold text-gray-700 mb-2 uppercase">Finance Expertise</h4>
-                    <div className="space-y-1">
+                  <div className="bg-white rounded-lg p-4 border border-gray-100">
+                    <h4 className="text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide">Finance Expertise</h4>
+                    <div className="space-y-2">
                       {['Portfolio Management & Asset Allocation', 'Equity Research & Valuation', 'Risk Assessment & Mitigation', 'High Net Worth Wealth Management', 'Investment Banking & M&A', 'Capital Markets & Trading'].map(skill => (
-                        <p key={skill} className="text-xs text-gray-600">• {skill}</p>
+                        <p key={skill} className="text-xs text-gray-700 flex items-start">
+                          <span className="text-blue-500 mr-2 mt-0.5">•</span>
+                          <span>{skill}</span>
+                        </p>
                       ))}
                     </div>
                   </div>
                   
-                  <div>
-                    <h4 className="text-xs font-bold text-gray-700 mb-2 uppercase">Leadership & Soft Skills</h4>
-                    <div className="space-y-1">
+                  <div className="bg-white rounded-lg p-4 border border-gray-100">
+                    <h4 className="text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide">Leadership & Soft Skills</h4>
+                    <div className="space-y-2">
                       {['Client Relationship Management', 'Strategic Planning & Execution', 'Team Leadership & Mentoring', 'Complex Problem Solving', 'Executive Communication', 'Agile Project Management'].map(skill => (
-                        <p key={skill} className="text-xs text-gray-600">• {skill}</p>
+                        <p key={skill} className="text-xs text-gray-700 flex items-start">
+                          <span className="text-blue-500 mr-2 mt-0.5">•</span>
+                          <span>{skill}</span>
+                        </p>
                       ))}
                     </div>
                   </div>
