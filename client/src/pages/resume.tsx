@@ -158,27 +158,39 @@ export default function Resume() {
                 <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider">Education</h3>
               </div>
               
-              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+              <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-50 to-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
-                      <img src={unbLogo} alt="UNB" className="w-8 h-8 object-contain" />
+                    <div className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center border border-blue-200">
+                      <img src={unbLogo} alt="UNB" className="w-10 h-10 object-contain" />
                     </div>
                   </div>
                   <div className="flex-1">
-                    <div className="flex justify-between items-start mb-2">
+                    <div className="flex justify-between items-start mb-3">
                       <div>
                         <h4 className="text-base font-bold text-gray-900">Bachelor of Business Administration</h4>
                         <p className="text-sm text-blue-600 font-semibold">Finance Major • University of New Brunswick</p>
                       </div>
                       <span className="text-sm font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded">2016-2020</span>
                     </div>
-                    <div className="grid grid-cols-2 gap-x-8 gap-y-1 text-xs text-gray-600 mt-3">
-                      <div>• <span className="font-semibold">1st Place</span> CIBC Capital Markets Case Competition</div>
-                      <div>• UNB Student Investment Fund <span className="font-semibold">Portfolio Manager</span></div>
-                      <div>• <span className="font-semibold">$47,500</span> in Scholarship Awards</div>
-                      <div>• <span className="font-semibold">3rd Place</span> TD Securities Case Competition</div>
-                    </div>
+                    <ul className="space-y-1.5">
+                      <li className="text-sm text-gray-700 flex items-start">
+                        <span className="text-blue-500 mr-2">•</span>
+                        <span><span className="font-semibold">1st Place</span> CIBC Capital Markets Case Competition</span>
+                      </li>
+                      <li className="text-sm text-gray-700 flex items-start">
+                        <span className="text-blue-500 mr-2">•</span>
+                        <span>UNB Student Investment Fund <span className="font-semibold">Portfolio Manager</span></span>
+                      </li>
+                      <li className="text-sm text-gray-700 flex items-start">
+                        <span className="text-blue-500 mr-2">•</span>
+                        <span><span className="font-semibold">$47,500</span> in Scholarship Awards</span>
+                      </li>
+                      <li className="text-sm text-gray-700 flex items-start">
+                        <span className="text-blue-500 mr-2">•</span>
+                        <span><span className="font-semibold">3rd Place</span> TD Securities Case Competition</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
