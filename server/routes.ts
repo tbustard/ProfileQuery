@@ -7,22 +7,15 @@ import multer from "multer";
 import path from "path";
 import fs from "fs";
 import crypto from "crypto";
+import cloudinary from "./cloudinary.js";
 
 const openai = new OpenAI({ 
   apiKey: process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY_ENV_VAR || "default_key" 
 });
 
-// Configure multer for video uploads
+// Configure multer for video uploads (memory storage for Cloudinary)
 const videoUpload = multer({
-  storage: multer.diskStorage({
-    destination: 'uploads/videos/',
-    filename: (req, file, cb) => {
-      // Preserve file extension
-      const ext = path.extname(file.originalname);
-      const name = crypto.randomUUID();
-      cb(null, `${name}${ext}`);
-    }
-  }),
+  storage: multer.memoryStorage(),
   limits: {
     fileSize: 100 * 1024 * 1024, // 100MB limit
   },
@@ -36,9 +29,9 @@ const videoUpload = multer({
   },
 });
 
-// Configure multer for resume uploads
+// Configure multer for resume uploads (memory storage for database)
 const resumeUpload = multer({
-  dest: 'uploads/resumes/',
+  storage: multer.memoryStorage(),
   limits: {
     fileSize: 10 * 1024 * 1024, // 10MB limit
   },
@@ -52,15 +45,7 @@ const resumeUpload = multer({
   },
 });
 
-// Ensure upload directories exist
-const videoUploadDir = 'uploads/videos/';
-const resumeUploadDir = 'uploads/resumes/';
-if (!fs.existsSync(videoUploadDir)) {
-  fs.mkdirSync(videoUploadDir, { recursive: true });
-}
-if (!fs.existsSync(resumeUploadDir)) {
-  fs.mkdirSync(resumeUploadDir, { recursive: true });
-}
+// No longer need to create upload directories since we're using cloud storage
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Serve Tyler Bustard Resume files (must be before API routes)

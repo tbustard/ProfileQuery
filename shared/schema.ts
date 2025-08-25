@@ -45,7 +45,10 @@ export const resumeUploads = pgTable("resume_uploads", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   userId: varchar("user_id").notNull(),
   fileName: text("file_name").notNull(),
-  fileUrl: text("file_url").notNull(),
+  fileUrl: text("file_url"),
+  fileContent: text("file_content"), // Base64 encoded PDF content
+  mimeType: varchar("mime_type").notNull(),
+  fileSize: varchar("file_size").notNull(),
   uploadedAt: timestamp("uploaded_at").defaultNow().notNull(),
 });
 
@@ -60,6 +63,9 @@ export const insertResumeUploadSchema = createInsertSchema(resumeUploads).pick({
   userId: true,
   fileName: true,
   fileUrl: true,
+  fileContent: true,
+  mimeType: true,
+  fileSize: true,
 });
 
 export const insertSqlQuerySchema = createInsertSchema(sqlQueries).pick({
