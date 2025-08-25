@@ -40,17 +40,6 @@ export default function ResumeUploadSignIn() {
     <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: '#f5f5f7' }}>
       <Card className="w-full max-w-md bg-white/95 backdrop-blur-xl border border-white/40 shadow-xl">
         <CardHeader className="text-center space-y-2">
-          <Link href="/resume">
-            <Button 
-              variant="ghost" 
-              size="sm"
-              className="absolute top-4 left-4 text-gray-600 hover:text-gray-900"
-              data-testid="button-back"
-            >
-              <ArrowLeft className="w-4 h-4 mr-1" />
-              Back
-            </Button>
-          </Link>
           <CardTitle className="text-2xl font-semibold text-gray-900" style={{ 
             fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
             letterSpacing: '-0.025em'

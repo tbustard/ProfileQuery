@@ -301,17 +301,24 @@ function EmployerLogin({ onLogin }: { onLogin: (user: { email: string }) => void
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: '#f5f5f7' }}>
-      <Card className="w-full max-w-md bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700">
-        <CardHeader className="text-center">
-          <CardTitle className="text-2xl">Employer Access</CardTitle>
-          <CardDescription>
+      <Card className="w-full max-w-md bg-white/95 backdrop-blur-xl border border-white/40 shadow-xl">
+        <CardHeader className="text-center space-y-2">
+          <CardTitle className="text-2xl font-semibold text-gray-900" style={{ 
+            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+            letterSpacing: '-0.025em'
+          }}>
+            Employer Access
+          </CardTitle>
+          <CardDescription className="text-gray-600" style={{ 
+            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+          }}>
             Sign in to upload and manage resume files for Tyler Bustard's portfolio
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Username</Label>
+              <Label htmlFor="email" className="text-gray-700 font-medium">Username</Label>
               <Input
                 id="email"
                 type="text"
@@ -320,12 +327,13 @@ function EmployerLogin({ onLogin }: { onLogin: (user: { email: string }) => void
                 placeholder="Enter your username"
                 required
                 data-testid="input-email"
-                className="bg-white dark:bg-slate-900"
+                className="bg-white border-gray-200 focus:border-blue-500"
+                style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
               />
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-gray-700 font-medium">Password</Label>
               <div className="relative">
                 <Input
                   id="password"
@@ -335,12 +343,13 @@ function EmployerLogin({ onLogin }: { onLogin: (user: { email: string }) => void
                   placeholder="Enter your password"
                   required
                   data-testid="input-password"
-                  className="bg-white dark:bg-slate-900 pr-10"
+                  className="bg-white border-gray-200 focus:border-blue-500 pr-10"
+                  style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                   data-testid="button-toggle-password"
                 >
                   {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
@@ -350,9 +359,10 @@ function EmployerLogin({ onLogin }: { onLogin: (user: { email: string }) => void
             
             <Button 
               type="submit"
-              className="w-full"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl py-2.5 transition-all duration-200 hover:scale-105"
               disabled={isLoading}
               data-testid="button-login"
+              style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
             >
               {isLoading ? "Signing In..." : "Sign In"}
             </Button>
