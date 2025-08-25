@@ -149,7 +149,7 @@ export default function HeroSection() {
                           height: auto;
                           background: black;
                         `;
-                        video.src = activeVideo.fileUrl;
+                        video.src = '/api/introduction-video';
                         
                         // Add event listeners for debugging
                         video.addEventListener('loadstart', () => console.log('✅ Video loading started'));
