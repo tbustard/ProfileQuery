@@ -65,7 +65,7 @@ export default function Resume() {
               
               {/* Contact Information - Elegant Bar */}
               <div className="bg-gray-50 rounded-2xl px-8 py-4">
-                <div className="text-sm text-gray-600 flex justify-center items-center flex-wrap gap-6" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}>
+                <div className="text-base text-gray-600 flex justify-center items-center flex-wrap gap-6" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}>
                   <div className="flex items-center gap-1.5">
                     <Globe className="w-4 h-4 text-blue-500" />
                     <span className="font-medium">tylerbustard.ca</span>
@@ -88,7 +88,7 @@ export default function Resume() {
 
             {/* Education */}
             <section className="mb-10">
-              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '0.95rem', letterSpacing: '0.08em' }}>
+              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '1.25rem', letterSpacing: '0.08em' }}>
                 Education
               </h3>
               
@@ -104,23 +104,23 @@ export default function Resume() {
                     <span className="text-sm font-medium text-gray-500">2020</span>
                   </div>
                   <p className="text-blue-600 font-medium mb-1">University of New Brunswick</p>
-                  <p className="text-sm text-gray-500 mb-4">Saint John, New Brunswick</p>
+                  <p className="text-base text-gray-500 mb-4">Saint John, New Brunswick</p>
                   <div className="space-y-2">
                     <div className="flex items-start">
-                      <span className="text-blue-500 mr-2 text-sm">▸</span>
-                      <span className="text-sm text-gray-700">Case Competitions: <span className="font-semibold text-gray-900">1st Place (CIBC)</span>, <span className="font-medium">3rd Place (TD)</span>, RBC and SLC participant</span>
+                      <span className="text-blue-500 mr-2">▸</span>
+                      <span className="text-base text-gray-700">Case Competitions: <span className="font-semibold text-gray-900">1st Place (CIBC)</span>, <span className="font-medium">3rd Place (TD)</span>, RBC and SLC participant</span>
                     </div>
                     <div className="flex items-start">
-                      <span className="text-blue-500 mr-2 text-sm">▸</span>
-                      <span className="text-sm text-gray-700">Analyst and Portfolio Manager – University of New Brunswick Student Investment Fund</span>
+                      <span className="text-blue-500 mr-2">▸</span>
+                      <span className="text-base text-gray-700">Analyst and Portfolio Manager – University of New Brunswick Student Investment Fund</span>
                     </div>
                     <div className="flex items-start">
-                      <span className="text-blue-500 mr-2 text-sm">▸</span>
-                      <span className="text-sm text-gray-700">UNB Finance Club, RBC Student Ambassador, Accredited Co-op Program</span>
+                      <span className="text-blue-500 mr-2">▸</span>
+                      <span className="text-base text-gray-700">UNB Finance Club, RBC Student Ambassador, Accredited Co-op Program</span>
                     </div>
                     <div className="flex items-start">
-                      <span className="text-blue-500 mr-2 text-sm">▸</span>
-                      <span className="text-sm text-gray-700">Recipient of 5 Scholarship and Alumni Awards for academic merit and leadership skills, Total <span className="font-semibold text-gray-900">$47,500</span></span>
+                      <span className="text-blue-500 mr-2">▸</span>
+                      <span className="text-base text-gray-700">Recipient of 5 Scholarship and Alumni Awards for academic merit and leadership skills, Total <span className="font-semibold text-gray-900">$47,500</span></span>
                     </div>
                   </div>
                 </div>
@@ -129,7 +129,7 @@ export default function Resume() {
 
             {/* Professional Experience */}
             <section className="mb-8">
-              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '0.95rem', letterSpacing: '0.08em' }}>
+              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '1.25rem', letterSpacing: '0.08em' }}>
                 Professional Experience
               </h3>
               
@@ -147,22 +147,22 @@ export default function Resume() {
                       <span className="text-sm font-medium text-gray-500 tabular-nums">2022 - 2023</span>
                     </div>
                     <p className="text-blue-600 font-medium mb-1">BMO Private Wealth</p>
-                    <p className="text-sm text-gray-500 mb-3">Toronto, Ontario</p>
+                    <p className="text-base text-gray-500 mb-3">Toronto, Ontario</p>
                     <div className="space-y-1.5 mb-3">
                       <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 text-sm">—</span>
-                        <span className="text-sm text-gray-700">Advised two Investment Counsellors managing portfolios over <span className="font-semibold text-gray-900">$100M</span> and cut preparation time by <span className="font-semibold text-gray-900">12%</span></span>
+                        <span className="text-gray-400 mr-2">—</span>
+                        <span className="text-base text-gray-700">Advised two Investment Counsellors managing portfolios over <span className="font-semibold text-gray-900">$100M</span> and cut preparation time by <span className="font-semibold text-gray-900">12%</span></span>
                       </div>
                       <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 text-sm">—</span>
-                        <span className="text-sm text-gray-700">Bolstered client communications, boosting response rates by <span className="font-semibold text-gray-900">9%</span> heightening client satisfaction and retention</span>
+                        <span className="text-gray-400 mr-2">—</span>
+                        <span className="text-base text-gray-700">Bolstered client communications, boosting response rates by <span className="font-semibold text-gray-900">9%</span> heightening client satisfaction and retention</span>
                       </div>
                     </div>
                     <div className="flex flex-wrap gap-1.5">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Portfolio Management</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Relations</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Financial Analysis</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Excel</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Portfolio Management</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Relations</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Financial Analysis</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Excel</span>
                     </div>
                   </div>
                 </div>
@@ -180,22 +180,22 @@ export default function Resume() {
                       <span className="text-sm font-medium text-gray-500 tabular-nums">2021 - 2022</span>
                     </div>
                     <p className="text-blue-600 font-medium mb-1">TD Canada Trust</p>
-                    <p className="text-sm text-gray-500 mb-3">Kingston, Ontario</p>
+                    <p className="text-base text-gray-500 mb-3">Kingston, Ontario</p>
                     <div className="space-y-1.5 mb-3">
                       <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 text-sm">—</span>
-                        <span className="text-sm text-gray-700">Cultivated strong client relationships by assessing individual financial needs, resulting in an <span className="font-semibold text-gray-900">11% increase</span> in sales</span>
+                        <span className="text-gray-400 mr-2">—</span>
+                        <span className="text-base text-gray-700">Cultivated strong client relationships by assessing individual financial needs, resulting in an <span className="font-semibold text-gray-900">11% increase</span> in sales</span>
                       </div>
                       <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 text-sm">—</span>
-                        <span className="text-sm text-gray-700">Exceeded sales targets, achieving a <span className="font-semibold text-gray-900">top 15%</span> performance ranking within the district</span>
+                        <span className="text-gray-400 mr-2">—</span>
+                        <span className="text-base text-gray-700">Exceeded sales targets, achieving a <span className="font-semibold text-gray-900">top 15%</span> performance ranking within the district</span>
                       </div>
                     </div>
                     <div className="flex flex-wrap gap-1.5">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Financial Planning</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Sales</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Advisory</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Product Knowledge</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Financial Planning</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Sales</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Advisory</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Product Knowledge</span>
                     </div>
                   </div>
                 </div>
@@ -213,22 +213,22 @@ export default function Resume() {
                       <span className="text-sm font-medium text-gray-500 tabular-nums">2020 - 2021</span>
                     </div>
                     <p className="text-blue-600 font-medium mb-1">Royal Bank of Canada</p>
-                    <p className="text-sm text-gray-500 mb-3">Kingston, Ontario</p>
+                    <p className="text-base text-gray-500 mb-3">Kingston, Ontario</p>
                     <div className="space-y-1.5 mb-3">
                       <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 text-sm">—</span>
-                        <span className="text-sm text-gray-700">Strengthened client relationships by advising on personalized solutions, increased repeat transactions by <span className="font-semibold text-gray-900">13%</span></span>
+                        <span className="text-gray-400 mr-2">—</span>
+                        <span className="text-base text-gray-700">Strengthened client relationships by advising on personalized solutions, increased repeat transactions by <span className="font-semibold text-gray-900">13%</span></span>
                       </div>
                       <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 text-sm">—</span>
-                        <span className="text-sm text-gray-700">Excelled in needs-based advising, boosting adoption of core products like GICs, mutual funds, and TFSAs by <span className="font-semibold text-gray-900">8%</span></span>
+                        <span className="text-gray-400 mr-2">—</span>
+                        <span className="text-base text-gray-700">Excelled in needs-based advising, boosting adoption of core products like GICs, mutual funds, and TFSAs by <span className="font-semibold text-gray-900">8%</span></span>
                       </div>
                     </div>
                     <div className="flex flex-wrap gap-1.5">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Banking Products</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Financial Advisory</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Relationship Management</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Digital Banking</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Banking Products</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Financial Advisory</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Relationship Management</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Digital Banking</span>
                     </div>
                   </div>
                 </div>
@@ -241,7 +241,7 @@ export default function Resume() {
             
             {/* Professional Experience Continued */}
             <section className="mb-10">
-              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '0.95rem', letterSpacing: '0.08em' }}>
+              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '1.25rem', letterSpacing: '0.08em' }}>
                 Professional Experience (continued)
               </h3>
               
@@ -259,22 +259,22 @@ export default function Resume() {
                       <span className="text-sm font-medium text-gray-500 tabular-nums">2019 - 2020</span>
                     </div>
                     <p className="text-blue-600 font-medium mb-1">Royal Bank of Canada</p>
-                    <p className="text-sm text-gray-500 mb-3">Fredericton, New Brunswick</p>
+                    <p className="text-base text-gray-500 mb-3">Fredericton, New Brunswick</p>
                     <div className="space-y-1.5 mb-3">
                       <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 text-sm">—</span>
-                        <span className="text-sm text-gray-700">Resolved complex client issues, achieving a <span className="font-semibold text-gray-900">15% boost</span> in positive feedback scores for the branch</span>
+                        <span className="text-gray-400 mr-2">—</span>
+                        <span className="text-base text-gray-700">Resolved complex client issues, achieving a <span className="font-semibold text-gray-900">15% boost</span> in positive feedback scores for the branch</span>
                       </div>
                       <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 text-sm">—</span>
-                        <span className="text-sm text-gray-700">Promoted RBC's digital banking tools, leading to a <span className="font-semibold text-gray-900">10% increase</span> in online and mobile banking adoption</span>
+                        <span className="text-gray-400 mr-2">—</span>
+                        <span className="text-base text-gray-700">Promoted RBC's digital banking tools, leading to a <span className="font-semibold text-gray-900">10% increase</span> in online and mobile banking adoption</span>
                       </div>
                     </div>
                     <div className="flex flex-wrap gap-1.5">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Service</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Digital Banking</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Problem Resolution</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Customer Support</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Service</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Digital Banking</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Problem Resolution</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Customer Support</span>
                     </div>
                   </div>
                 </div>
@@ -292,22 +292,22 @@ export default function Resume() {
                       <span className="text-sm font-medium text-gray-500 tabular-nums">2018</span>
                     </div>
                     <p className="text-blue-600 font-medium mb-1">Irving Oil Limited</p>
-                    <p className="text-sm text-gray-500 mb-3">Saint John, New Brunswick</p>
+                    <p className="text-base text-gray-500 mb-3">Saint John, New Brunswick</p>
                     <div className="space-y-1.5 mb-3">
                       <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 text-sm">—</span>
-                        <span className="text-sm text-gray-700">Conducted competitor analysis driving insights that improved targeted marketing by <span className="font-semibold text-gray-900">11%</span></span>
+                        <span className="text-gray-400 mr-2">—</span>
+                        <span className="text-base text-gray-700">Conducted competitor analysis driving insights that improved targeted marketing by <span className="font-semibold text-gray-900">11%</span></span>
                       </div>
                       <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 text-sm">—</span>
-                        <span className="text-sm text-gray-700">Developed a Customer Lifecycle model that increased targeted promotions, boosting customer engagement by <span className="font-semibold text-gray-900">8%</span></span>
+                        <span className="text-gray-400 mr-2">—</span>
+                        <span className="text-base text-gray-700">Developed a Customer Lifecycle model that increased targeted promotions, boosting customer engagement by <span className="font-semibold text-gray-900">8%</span></span>
                       </div>
                     </div>
                     <div className="flex flex-wrap gap-1.5">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Market Research</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Customer Analytics</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Competitive Analysis</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Marketing Strategy</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Market Research</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Customer Analytics</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Competitive Analysis</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Marketing Strategy</span>
                     </div>
                   </div>
                 </div>
@@ -325,22 +325,22 @@ export default function Resume() {
                       <span className="text-sm font-medium text-gray-500 tabular-nums">2018</span>
                     </div>
                     <p className="text-blue-600 font-medium mb-1">Grant Thornton LLP</p>
-                    <p className="text-sm text-gray-500 mb-3">Saint John, New Brunswick</p>
+                    <p className="text-base text-gray-500 mb-3">Saint John, New Brunswick</p>
                     <div className="space-y-1.5 mb-3">
                       <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 text-sm">—</span>
-                        <span className="text-sm text-gray-700">Streamlined client financial data, boosting accuracy by <span className="font-semibold text-gray-900">10%</span> ensuring timely submission of 100+ tax returns</span>
+                        <span className="text-gray-400 mr-2">—</span>
+                        <span className="text-base text-gray-700">Streamlined client financial data, boosting accuracy by <span className="font-semibold text-gray-900">10%</span> ensuring timely submission of 100+ tax returns</span>
                       </div>
                       <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 text-sm">—</span>
-                        <span className="text-sm text-gray-700">Improved tax return preparation processes, cutting filing errors by <span className="font-semibold text-gray-900">15%</span></span>
+                        <span className="text-gray-400 mr-2">—</span>
+                        <span className="text-base text-gray-700">Improved tax return preparation processes, cutting filing errors by <span className="font-semibold text-gray-900">15%</span></span>
                       </div>
                     </div>
                     <div className="flex flex-wrap gap-1.5">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Tax Preparation</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Financial Analysis</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Data Management</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Service</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Tax Preparation</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Financial Analysis</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Data Management</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Service</span>
                     </div>
                   </div>
                 </div>
@@ -349,7 +349,7 @@ export default function Resume() {
 
             {/* Professional Certifications */}
             <section className="mb-10">
-              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '0.95rem', letterSpacing: '0.08em' }}>
+              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '1.25rem', letterSpacing: '0.08em' }}>
                 Professional Certifications
               </h3>
               
@@ -366,7 +366,7 @@ export default function Resume() {
                       <span className="text-sm font-medium text-gray-500 tabular-nums">2025</span>
                     </div>
                     <p className="text-blue-600 font-medium mb-2">CFA Institute</p>
-                    <p className="text-sm text-gray-600">Comprehensive training in investment analysis, portfolio management, and ethical standards</p>
+                    <p className="text-base text-gray-600">Comprehensive training in investment analysis, portfolio management, and ethical standards</p>
                   </div>
                 </div>
 
@@ -382,7 +382,7 @@ export default function Resume() {
                       <span className="text-sm font-medium text-gray-500 tabular-nums">2024</span>
                     </div>
                     <p className="text-blue-600 font-medium mb-1.5">Training the Street</p>
-                    <p className="text-sm text-gray-600">Advanced financial modeling techniques for valuation using discounted cash flow methodology</p>
+                    <p className="text-base text-gray-600">Advanced financial modeling techniques for valuation using discounted cash flow methodology</p>
                   </div>
                 </div>
               </div>
@@ -390,7 +390,7 @@ export default function Resume() {
 
             {/* Community Leadership & Volunteer Service */}
             <section>
-              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '0.95rem', letterSpacing: '0.08em' }}>
+              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '1.25rem', letterSpacing: '0.08em' }}>
                 Community
               </h3>
               
@@ -408,23 +408,23 @@ export default function Resume() {
                       <span className="text-sm font-medium text-gray-500 tabular-nums">2020 - 2023</span>
                     </div>
                     <p className="text-blue-600 font-medium mb-1">United Way</p>
-                    <p className="text-sm text-gray-500 mb-3">Kingston, Ontario</p>
+                    <p className="text-base text-gray-500 mb-3">Kingston, Ontario</p>
                     <div className="space-y-1.5 mb-3">
                       <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 text-sm">—</span>
-                        <span className="text-sm text-gray-700">Led implementation of fundraising strategies achieving <span className="font-semibold text-gray-900">20% increase</span> in funds raised over three years</span>
+                        <span className="text-gray-400 mr-2">—</span>
+                        <span className="text-base text-gray-700">Led implementation of fundraising strategies achieving <span className="font-semibold text-gray-900">20% increase</span> in funds raised over three years</span>
                       </div>
                       <div className="flex items-start">
-                        <span className="text-gray-400 mr-2 text-sm">—</span>
-                        <span className="text-sm text-gray-700">Spearheaded engagement initiatives resulting in <span className="font-semibold text-gray-900">15% rise</span> in participation and awareness within workplace community</span>
+                        <span className="text-gray-400 mr-2">—</span>
+                        <span className="text-base text-gray-700">Spearheaded engagement initiatives resulting in <span className="font-semibold text-gray-900">15% rise</span> in participation and awareness within workplace community</span>
                       </div>
                     </div>
                     <div className="flex flex-wrap gap-1.5">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Fundraising Strategy</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Leadership</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Event Planning</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Community Engagement</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Stakeholder Management</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Fundraising Strategy</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Leadership</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Event Planning</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Community Engagement</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Stakeholder Management</span>
                     </div>
                   </div>
                 </div>
@@ -452,7 +452,7 @@ export default function Resume() {
             -webkit-print-color-adjust: exact;
             margin: 0 !important;
             padding: 0 !important;
-            font-size: 11pt !important;
+            font-size: 12pt !important;
             line-height: 1.4 !important;
             font-family: -apple-system, 'SF Pro Text', BlinkMacSystemFont, system-ui, sans-serif !important;
             letter-spacing: -0.008em !important;
@@ -540,7 +540,7 @@ export default function Resume() {
           
           /* Description - refined text with emphasis on key words */
           .text-base {
-            font-size: 0.85rem !important;
+            font-size: 1rem !important;
             line-height: 1.4 !important;
             color: #3C3C43 !important;
             font-weight: 400 !important;
@@ -557,7 +557,7 @@ export default function Resume() {
           }
           
           .text-sm {
-            font-size: 0.75rem !important;
+            font-size: 0.9rem !important;
             line-height: 1 !important;
             color: #8E8E93 !important;
             font-weight: 400 !important;
@@ -573,13 +573,13 @@ export default function Resume() {
             margin: 0 0.4rem !important;
             color: #D1D1D6 !important;
             font-weight: 300 !important;
-            font-size: 0.65rem !important;
+            font-size: 0.85rem !important;
           }
           
           /* Section headers - Apple's refined approach */
           h3.text-2xl.font-semibold,
           .text-2xl.font-semibold {
-            font-size: 0.95rem !important;
+            font-size: 1.15rem !important;
             font-weight: 700 !important;
             margin: 1.5rem 0 0.75rem 0 !important;
             color: #1C1C1E !important;
@@ -627,7 +627,7 @@ export default function Resume() {
           
           /* Job titles - emphasis on role */
           .text-lg.font-semibold {
-            font-size: 0.95rem !important;
+            font-size: 1.1rem !important;
             font-weight: 600 !important;
             color: #000 !important;
             margin-bottom: 0.1rem !important;
@@ -638,13 +638,13 @@ export default function Resume() {
           .text-primary.font-medium {
             color: #007AFF !important;
             font-weight: 500 !important;
-            font-size: 0.8rem !important;
+            font-size: 0.95rem !important;
             margin-bottom: 0 !important;
           }
           
           /* Location text - de-emphasized */
           p.text-sm.text-muted-foreground {
-            font-size: 0.75rem !important;
+            font-size: 0.9rem !important;
             color: #AEAEB2 !important;
             margin-bottom: 0.4rem !important;
             font-weight: 400 !important;
@@ -652,7 +652,7 @@ export default function Resume() {
           
           /* Dates - subtle but clear */
           span.text-sm.text-muted-foreground {
-            font-size: 0.75rem !important;
+            font-size: 0.9rem !important;
             color: #8E8E93 !important;
             white-space: nowrap !important;
             font-weight: 400 !important;
@@ -668,7 +668,7 @@ export default function Resume() {
           ul.space-y-1\\.5 li,
           ul.space-y-1 li {
             margin: 0.15rem 0 !important;
-            font-size: 0.78rem !important;
+            font-size: 0.95rem !important;
             line-height: 1.4 !important;
             color: #1C1C1E !important;
             font-weight: 400 !important;
@@ -714,7 +714,7 @@ export default function Resume() {
             border: 1px solid #E5E5EA !important;
             padding: 0.05rem 0.4rem !important;
             border-radius: 0.6rem !important;
-            font-size: 0.6rem !important;
+            font-size: 0.8rem !important;
             font-weight: 500 !important;
             white-space: nowrap !important;
             letter-spacing: 0.015em !important;
