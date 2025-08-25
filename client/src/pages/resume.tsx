@@ -95,12 +95,14 @@ export default function Resume() {
           <div className={`resume-page bg-white/95 backdrop-blur-xl border border-white/40 rounded-[2rem] shadow-xl mb-6 page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}
                style={{ 
                  padding: '48px',
-                 minHeight: '2200px' // Approximately 22 inches at 100 DPI
+                 minHeight: '2100px', // Optimized for 22 inches at standard DPI
+                 maxWidth: '816px', // 8.5 inches at 96 DPI
+                 margin: '0 auto'
                }}>
             
             {/* Header Section - Compact and Professional */}
-            <div className="mb-8">
-              <div className="flex items-start gap-6 mb-6">
+            <div className="mb-6">
+              <div className="flex items-start gap-6 mb-5">
                 {/* Profile Photo */}
                 <img 
                   src={profileImage} 
@@ -148,19 +150,19 @@ export default function Resume() {
               {/* Professional Summary - ATS Optimized */}
               <div className="bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-4 border border-blue-100/50">
                 <p className="text-sm leading-relaxed text-gray-700">
-                  <span className="font-semibold">Strategic Finance Professional</span> with 6+ years driving 
-                  <span className="font-medium"> innovation</span> at the intersection of 
-                  <span className="font-medium"> capital markets, wealth management, AI technology</span>, and 
-                  <span className="font-medium"> data analytics</span>. 
+                  <span className="font-semibold">Strategic Finance Professional</span> with <span className="font-semibold">6+ years</span> driving 
+                  <span className="font-medium">innovation</span> at the intersection of 
+                  <span className="font-medium">capital markets, wealth management, AI technology</span>, and 
+                  <span className="font-medium">data analytics</span>. 
                   Proven track record of <span className="font-medium">optimizing portfolio performance</span>, 
-                  <span className="font-medium"> enhancing client relationships</span>, and 
-                  <span className="font-medium"> implementing AI-driven solutions</span> that boost operational efficiency by up to 15%.
+                  <span className="font-medium">enhancing client relationships</span>, and 
+                  <span className="font-medium">implementing AI-driven solutions</span> that boost operational efficiency by up to <span className="font-semibold">15%</span>.
                 </p>
               </div>
             </div>
 
             {/* Education Section */}
-            <section className="mb-8">
+            <section className="mb-6">
               <div className="flex items-center gap-2 mb-4">
                 <GraduationCap className="w-5 h-5 text-blue-600" />
                 <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider">Education</h3>
@@ -185,7 +187,7 @@ export default function Resume() {
                       <div>• <span className="font-semibold">1st Place</span> CIBC Case Competition</div>
                       <div>• UNB Student Investment Fund <span className="font-semibold">Portfolio Manager</span></div>
                       <div>• <span className="font-semibold">$47,500</span> in Scholarship Awards</div>
-                      <div>• <span className="font-semibold">Dean's List</span> Academic Achievement</div>
+                      <div>• <span className="font-semibold">3rd Place</span> TD Case Competition</div>
                     </div>
                   </div>
                 </div>
@@ -193,7 +195,7 @@ export default function Resume() {
             </section>
 
             {/* Professional Experience Section */}
-            <section className="mb-8">
+            <section className="mb-6">
               <div className="flex items-center gap-2 mb-4">
                 <Briefcase className="w-5 h-5 text-blue-600" />
                 <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider">Professional Experience</h3>
@@ -219,15 +221,15 @@ export default function Resume() {
                       <ul className="space-y-1 mb-3">
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
-                          <span>Analyze and compile public company financial statements, cutting reporting turnaround by <span className="font-semibold">13%</span> through automation</span>
+                          <span>Analyze and compile public company financial statements, cutting reporting turnaround by <span className="font-semibold">13%</span></span>
                         </li>
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
-                          <span>Collaborate with product and engineering teams to implement <span className="font-semibold">AI-driven data features</span> boosting adoption by <span className="font-semibold">12%</span></span>
+                          <span>Collaborate with product and engineering to implement <span className="font-semibold">AI-driven data features</span> boosting adoption by <span className="font-semibold">12%</span></span>
                         </li>
                       </ul>
                       <div className="flex flex-wrap gap-1">
-                        {['Financial Analysis', 'AI/ML', 'Python', 'Data Analytics', 'API Integration'].map(skill => (
+                        {['Financial Analysis', 'AI Integration', 'Data Analytics', 'Python', 'SQL'].map(skill => (
                           <span key={skill} className="inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
                             {skill}
                           </span>
@@ -260,7 +262,7 @@ export default function Resume() {
                         </li>
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
-                          <span>Enhanced client communications strategy, boosting response rates by <span className="font-semibold">9%</span> and improving retention</span>
+                          <span>Bolstered client communications, boosting response rates by <span className="font-semibold">9%</span> heightening client satisfaction and retention</span>
                         </li>
                       </ul>
                       <div className="flex flex-wrap gap-1">
@@ -326,7 +328,7 @@ export default function Resume() {
                         <div className="flex-1 min-w-0">
                           <h5 className="text-sm font-semibold text-gray-900 truncate">Banking Advisor</h5>
                           <p className="text-xs text-gray-600">RBC • Kingston, ON • 2020-2021</p>
-                          <p className="text-xs text-gray-500 mt-1">Increased repeat transactions by 13%</p>
+                          <p className="text-xs text-gray-500 mt-1">Strengthened relationships, +13% repeat transactions</p>
                         </div>
                       </div>
                     </div>
@@ -338,7 +340,7 @@ export default function Resume() {
                         <div className="flex-1 min-w-0">
                           <h5 className="text-sm font-semibold text-gray-900 truncate">Client Advisor Intern</h5>
                           <p className="text-xs text-gray-600">RBC • Fredericton, NB • 2019-2020</p>
-                          <p className="text-xs text-gray-500 mt-1">Boosted feedback scores by 15%</p>
+                          <p className="text-xs text-gray-500 mt-1">Resolved complex issues, +15% feedback scores</p>
                         </div>
                       </div>
                     </div>
@@ -350,7 +352,7 @@ export default function Resume() {
                         <div className="flex-1 min-w-0">
                           <h5 className="text-sm font-semibold text-gray-900 truncate">Marketing Intern</h5>
                           <p className="text-xs text-gray-600">Irving Oil • Saint John, NB • 2018</p>
-                          <p className="text-xs text-gray-500 mt-1">Improved targeting by 11%</p>
+                          <p className="text-xs text-gray-500 mt-1">Competitor analysis, +11% targeted marketing</p>
                         </div>
                       </div>
                     </div>
@@ -361,8 +363,8 @@ export default function Resume() {
                         <img src={grantThorntonLogo} alt="Grant Thornton" className="w-6 h-6 object-contain mt-0.5" />
                         <div className="flex-1 min-w-0">
                           <h5 className="text-sm font-semibold text-gray-900 truncate">Tax Return Intern</h5>
-                          <p className="text-xs text-gray-600">Grant Thornton • Saint John, NB • 2018</p>
-                          <p className="text-xs text-gray-500 mt-1">Processed 100+ returns</p>
+                          <p className="text-xs text-gray-600">Grant Thornton LLP • Saint John, NB • 2018</p>
+                          <p className="text-xs text-gray-500 mt-1">Processed 100+ tax returns, exceeded targets</p>
                         </div>
                       </div>
                     </div>
@@ -372,7 +374,7 @@ export default function Resume() {
             </section>
 
             {/* Professional Certifications */}
-            <section className="mb-8">
+            <section className="mb-6">
               <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider mb-4">Professional Certifications</h3>
               
               <div className="grid grid-cols-2 gap-3">
@@ -427,9 +429,9 @@ export default function Resume() {
 
               {/* Additional Training - Compact */}
               <div className="mt-3 bg-gray-50 rounded-lg p-3">
-                <p className="text-xs font-semibold text-gray-700 mb-2">Additional Training:</p>
+                <p className="text-xs font-semibold text-gray-700 mb-2">Additional Training & Licenses:</p>
                 <div className="flex flex-wrap gap-2">
-                  {['Wall Street Prep Financial Modeling', 'ETS GMAT (710)', 'Coursera Machine Learning', 'McGill Personal Finance'].map(cert => (
+                  {['Wall Street Prep Financial Modeling', 'ETS GMAT Score: 710', 'Coursera Machine Learning', 'McGill Personal Finance', 'IFIC Mutual Funds License'].map(cert => (
                     <span key={cert} className="text-xs bg-white px-2 py-1 rounded border border-gray-200">
                       {cert}
                     </span>
@@ -439,7 +441,7 @@ export default function Resume() {
             </section>
 
             {/* Community Leadership */}
-            <section className="mb-8">
+            <section className="mb-6">
               <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider mb-4">Community Leadership</h3>
               
               <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
@@ -474,16 +476,16 @@ export default function Resume() {
               {/* Additional Community - Compact */}
               <div className="mt-3 grid grid-cols-3 gap-2">
                 <div className="bg-gray-50 rounded-lg p-2 text-center">
-                  <p className="text-xs font-semibold text-gray-700">RBC Race for Kids</p>
-                  <p className="text-xs text-gray-500">Volunteer • 2021</p>
+                  <p className="text-xs font-semibold text-gray-700">RBC Race for the Kids</p>
+                  <p className="text-xs text-gray-500">Volunteer Coordinator • 2021</p>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2 text-center">
-                  <p className="text-xs font-semibold text-gray-700">Irving Volunteering</p>
+                  <p className="text-xs font-semibold text-gray-700">Irving Volunteer Program</p>
                   <p className="text-xs text-gray-500">Team Lead • 2018</p>
                 </div>
                 <div className="bg-gray-50 rounded-lg p-2 text-center">
-                  <p className="text-xs font-semibold text-gray-700">Community Outreach</p>
-                  <p className="text-xs text-gray-500">Various • Ongoing</p>
+                  <p className="text-xs font-semibold text-gray-700">BMO Community Banking</p>
+                  <p className="text-xs text-gray-500">Financial Literacy • 2022</p>
                 </div>
               </div>
             </section>
@@ -497,7 +499,7 @@ export default function Resume() {
                   <div>
                     <h4 className="text-xs font-bold text-gray-700 mb-2 uppercase">Technical Skills</h4>
                     <div className="space-y-1">
-                      {['Python/SQL/VBA', 'Financial Modeling', 'Data Analytics', 'Bloomberg Terminal', 'AI/Machine Learning', 'API Integration'].map(skill => (
+                      {['Python/SQL/VBA Programming', 'Advanced Excel & Financial Modeling', 'Data Analytics & Visualization', 'Bloomberg Terminal & Reuters', 'AI/Machine Learning Integration', 'API Development & Integration'].map(skill => (
                         <p key={skill} className="text-xs text-gray-600">• {skill}</p>
                       ))}
                     </div>
@@ -506,16 +508,16 @@ export default function Resume() {
                   <div>
                     <h4 className="text-xs font-bold text-gray-700 mb-2 uppercase">Finance Expertise</h4>
                     <div className="space-y-1">
-                      {['Portfolio Management', 'Equity Analysis', 'Risk Management', 'Wealth Management', 'Investment Banking', 'Capital Markets'].map(skill => (
+                      {['Portfolio Management & Asset Allocation', 'Equity Research & Valuation', 'Risk Assessment & Mitigation', 'High Net Worth Wealth Management', 'Investment Banking & M&A', 'Capital Markets & Trading'].map(skill => (
                         <p key={skill} className="text-xs text-gray-600">• {skill}</p>
                       ))}
                     </div>
                   </div>
                   
                   <div>
-                    <h4 className="text-xs font-bold text-gray-700 mb-2 uppercase">Soft Skills</h4>
+                    <h4 className="text-xs font-bold text-gray-700 mb-2 uppercase">Leadership & Soft Skills</h4>
                     <div className="space-y-1">
-                      {['Client Relations', 'Strategic Planning', 'Team Leadership', 'Problem Solving', 'Communication', 'Project Management'].map(skill => (
+                      {['Client Relationship Management', 'Strategic Planning & Execution', 'Team Leadership & Mentoring', 'Complex Problem Solving', 'Executive Communication', 'Agile Project Management'].map(skill => (
                         <p key={skill} className="text-xs text-gray-600">• {skill}</p>
                       ))}
                     </div>
@@ -542,8 +544,8 @@ export default function Resume() {
       <style>{`
         @media print {
           @page {
-            size: 8.5in 22in;
-            margin: 0.5in;
+            size: 21.59cm 55.88cm;
+            margin: 1.27cm;
           }
           
           body, html {
@@ -615,7 +617,7 @@ export default function Resume() {
           
           /* Section spacing */
           section {
-            margin-bottom: 0.5in !important;
+            margin-bottom: 0.4in !important;
             page-break-inside: avoid !important;
           }
           
