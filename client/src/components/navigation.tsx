@@ -665,19 +665,30 @@ export default function Navigation() {
               </div>
 
               {/* Mobile Menu Button */}
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2 rounded-lg hover:bg-gray-100/50 transition-colors"
-              >
-                {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-              </button>
+              {isResumePage ? (
+                <button
+                  onClick={() => {
+                    window.location.href = '/';
+                  }}
+                  className="lg:hidden p-2 rounded-lg hover:bg-gray-100/50 transition-colors"
+                >
+                  <X size={20} />
+                </button>
+              ) : (
+                <button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="lg:hidden p-2 rounded-lg hover:bg-gray-100/50 transition-colors"
+                >
+                  {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                </button>
+              )}
             </div>
           </div>
         </div>
       </nav>
 
       {/* Mobile Menu - Clean Glass Effect */}
-      {isMobileMenuOpen && (
+      {isMobileMenuOpen && !isResumePage && (
         <div className="fixed inset-0 z-[60] lg:hidden">
           <div 
             className="absolute inset-0 bg-black/20" 
