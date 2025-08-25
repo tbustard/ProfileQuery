@@ -292,12 +292,8 @@ export default function Navigation() {
 
                   {/* Download */}
                   <button
-                    onClick={isHomePage ? () => scrollToSection('#download') : undefined}
-                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
-                      currentSection === 'download' 
-                        ? 'text-primary font-semibold bg-primary/10' 
-                        : 'text-primary hover:text-primary/80 hover:bg-primary/5'
-                    }`}
+                    onClick={() => window.location.href = '/resume'}
+                    className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 text-primary hover:text-primary/80 hover:bg-primary/5"
                   >
                     Download
                   </button>
@@ -846,7 +842,7 @@ export default function Navigation() {
                     <h3 className="text-xl font-bold text-foreground">Download</h3>
                     <button 
                       onClick={() => {
-                        scrollToSection('#download');
+                        window.location.href = '/resume';
                         setIsMobileMenuOpen(false);
                       }}
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"

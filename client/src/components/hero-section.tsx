@@ -198,17 +198,6 @@ export default function HeroSection() {
                      videosQuery.data.find((video: any) => video.isActive) ? 'Watch Introduction Video' : 'Introduction'}
                   </Button>
                   
-                  <Button
-                    onClick={() => window.location.href = '/resume'}
-                    variant="outline"
-                    className="bg-white/90 backdrop-blur-md border-white/30 hover:bg-white text-foreground font-semibold px-6 sm:px-8 py-4 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-lg min-h-[56px]"
-                    data-testid="button-resume"
-                  >
-                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
-                      <Download size={16} />
-                    </div>
-                    View Resume
-                  </Button>
                 </div>
               </div>
             </div>
