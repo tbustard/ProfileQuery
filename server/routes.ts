@@ -7,7 +7,7 @@ import multer from "multer";
 import path from "path";
 import fs from "fs";
 import crypto from "crypto";
-import cloudinary from "./cloudinary.js";
+import cloudinary from "./cloudinary";
 
 if (!process.env.OPENAI_API_KEY && !process.env.OPENAI_API_KEY_ENV_VAR) {
   console.warn("Warning: No OpenAI API key found in environment variables");
