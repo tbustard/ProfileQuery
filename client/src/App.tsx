@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Switch, Route } from "wouter";
 import Home from "@/pages/home";
 import EmployerPage from "@/pages/employer";
+import { useGlobalAnimations } from "@/hooks/useGlobalAnimations";
 
 function Router() {
   return (
@@ -17,6 +18,9 @@ function Router() {
 }
 
 function App() {
+  // Initialize global animation system
+  useGlobalAnimations();
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>

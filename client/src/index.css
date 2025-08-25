@@ -319,12 +319,13 @@
     transform: translateY(0) scale(1);
   }
 
-  /* Scroll-triggered animations - More responsive */
+  /* Scroll-triggered animations - Enhanced with performance and timing */
   .scroll-fade-in {
     opacity: 0;
-    transform: translateY(35px) scale(0.96);
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(20px) scale(0.98);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, opacity;
+    backface-visibility: hidden;
   }
 
   .scroll-fade-in.visible {
@@ -334,9 +335,10 @@
 
   .scroll-slide-up {
     opacity: 0;
-    transform: translateY(45px);
-    transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(30px);
+    transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, opacity;
+    backface-visibility: hidden;
   }
 
   .scroll-slide-up.visible {
@@ -346,9 +348,10 @@
 
   .scroll-scale-in {
     opacity: 0;
-    transform: scale(0.92) translateY(15px);
-    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: scale(0.95) translateY(10px);
+    transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
     will-change: transform, opacity;
+    backface-visibility: hidden;
   }
 
   .scroll-scale-in.visible {
@@ -356,58 +359,98 @@
     transform: scale(1) translateY(0);
   }
 
-  /* Faster staggered delays for more responsiveness */
-  .scroll-stagger-1 { transition-delay: 0.05s; }
-  .scroll-stagger-2 { transition-delay: 0.1s; }
-  .scroll-stagger-3 { transition-delay: 0.15s; }
-  .scroll-stagger-4 { transition-delay: 0.2s; }
-  .scroll-stagger-5 { transition-delay: 0.25s; }
-  .scroll-stagger-6 { transition-delay: 0.3s; }
+  /* Enhanced staggered delays with adaptive timing */
+  .scroll-stagger-1 { transition-delay: 0s; }
+  .scroll-stagger-2 { transition-delay: 0.08s; }
+  .scroll-stagger-3 { transition-delay: 0.16s; }
+  .scroll-stagger-4 { transition-delay: 0.24s; }
+  .scroll-stagger-5 { transition-delay: 0.32s; }
+  .scroll-stagger-6 { transition-delay: 0.4s; }
+  .scroll-stagger-7 { transition-delay: 0.48s; }
+  .scroll-stagger-8 { transition-delay: 0.56s; }
 
-  /* Mobile visibility fallback - Force all elements to be visible on mobile */
+  /* Adaptive timing based on scroll velocity */
+  .scroll-fast .scroll-fade-in,
+  .scroll-fast .scroll-slide-up,
+  .scroll-fast .scroll-scale-in {
+    transition-duration: 0.5s !important;
+  }
+
+  .scroll-fast .scroll-stagger-1 { transition-delay: 0s !important; }
+  .scroll-fast .scroll-stagger-2 { transition-delay: 0.05s !important; }
+  .scroll-fast .scroll-stagger-3 { transition-delay: 0.1s !important; }
+  .scroll-fast .scroll-stagger-4 { transition-delay: 0.15s !important; }
+  .scroll-fast .scroll-stagger-5 { transition-delay: 0.2s !important; }
+  .scroll-fast .scroll-stagger-6 { transition-delay: 0.25s !important; }
+
+  .scroll-slow .scroll-fade-in,
+  .scroll-slow .scroll-slide-up,
+  .scroll-slow .scroll-scale-in {
+    transition-duration: 1s !important;
+  }
+
+  /* Enhanced page load animation */
+  .page-load-fade-in {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: all 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+    backface-visibility: hidden;
+  }
+
+  .page-load-fade-in.loaded {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Mobile optimizations with preserved animations */
   @media (max-width: 640px) {
-    .mobile-visible,
-    .mobile-visible.scroll-fade-in,
-    .mobile-visible.scroll-slide-up,
-    .mobile-visible.scroll-scale-in {
+    /* Faster animations on mobile for better responsiveness */
+    .scroll-fade-in,
+    .scroll-slide-up,
+    .scroll-scale-in {
+      transition-duration: 0.4s !important;
+    }
+    
+    .scroll-stagger-1 { transition-delay: 0s !important; }
+    .scroll-stagger-2 { transition-delay: 0.03s !important; }
+    .scroll-stagger-3 { transition-delay: 0.06s !important; }
+    .scroll-stagger-4 { transition-delay: 0.09s !important; }
+    .scroll-stagger-5 { transition-delay: 0.12s !important; }
+    .scroll-stagger-6 { transition-delay: 0.15s !important; }
+    
+    /* Only disable animations if user prefers reduced motion */
+    .mobile-visible.reduced-motion {
       opacity: 1 !important;
       transform: scale(1) translateY(0) !important;
       transition: none !important;
     }
     
-    .certifications-container .scroll-scale-in,
-    .certifications-container .scroll-scale-in.visible,
-    .certifications-container .scroll-scale-in:not(.visible) {
-      opacity: 1 !important;
-      transform: scale(1) translateY(0) !important;
-      transition: none !important;
+    /* Ensure critical sections are always visible */
+    #experience,
+    #certifications,
+    #about,
+    #skills {
+      min-height: auto;
     }
     
-    /* Force visibility for certification cards specifically */
-    #certifications .scroll-scale-in,
-    #certifications .mobile-visible {
-      opacity: 1 !important;
-      transform: scale(1) translateY(0) !important;
-      transition: none !important;
-      visibility: visible !important;
-      display: block !important;
+    /* Performance optimizations for mobile */
+    .scroll-fade-in,
+    .scroll-slide-up,
+    .scroll-scale-in {
+      transform: translateZ(0); /* Force GPU acceleration */
+      -webkit-font-smoothing: antialiased;
     }
-    
-    /* Force visibility for experience section on mobile */
-    #experience .scroll-fade-in,
-    #experience .scroll-slide-up,
-    #experience .scroll-scale-in,
-    #experience .scroll-fade-in.visible,
-    #experience .scroll-slide-up.visible,
-    #experience .scroll-scale-in.visible,
-    #experience .scroll-fade-in:not(.visible),
-    #experience .scroll-slide-up:not(.visible),
-    #experience .scroll-scale-in:not(.visible) {
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-fade-in,
+    .scroll-slide-up,
+    .scroll-scale-in,
+    .page-load-fade-in {
       opacity: 1 !important;
-      transform: scale(1) translateY(0) !important;
+      transform: none !important;
       transition: none !important;
-      visibility: visible !important;
-      display: block !important;
     }
   }
 

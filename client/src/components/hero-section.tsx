@@ -21,7 +21,7 @@ import etsLogo from "@assets/ETS_1755939510188.png";
 import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 
 export default function HeroSection() {
-  const isPageLoaded = useInitialPageAnimation(300);
+  const isPageLoaded = useInitialPageAnimation(400);
   
   // Fetch active video from backend
   const videosQuery = useQuery({
