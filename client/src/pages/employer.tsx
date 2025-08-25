@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Upload, LogOut, FileText, Eye, EyeOff, Video, Play } from "lucide-react";
+import { Upload, LogOut, FileText, Download, Eye, EyeOff, Video, Play } from "lucide-react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 
@@ -393,7 +393,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                         onClick={() => window.open(upload.fileUrl, '_blank')}
                         data-testid={`button-view-${upload.id}`}
                       >
-                        <Eye className="w-4 h-4" />
+                        <Download className="w-4 h-4" />
                       </Button>
                     </div>
                   ))}
