@@ -6,11 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Health check endpoints - registered immediately before async operations
-app.get('/', (req, res) => {
-  res.status(200).json({ status: 'ok', message: 'Server is running' });
-});
-
+// Health check endpoint - registered immediately before async operations
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'healthy', timestamp: new Date().toISOString() });
 });
