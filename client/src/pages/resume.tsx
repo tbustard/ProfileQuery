@@ -523,7 +523,8 @@ export default function Resume() {
             margin-bottom: 0.15rem !important;
             font-weight: 700 !important;
             color: #000 !important;
-            letter-spacing: -0.025em !important;
+            letter-spacing: -0.02em !important;
+            word-spacing: -0.05em !important;
           }
           
           /* Professional title - subtle accent */
