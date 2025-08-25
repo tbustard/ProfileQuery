@@ -441,7 +441,7 @@ export default function Resume() {
         @media print {
           /* Page setup for exactly 2 pages */
           @page {
-            margin: 0.6in 0.5in;
+            margin: 0.5in;
             size: letter;
           }
           
@@ -452,10 +452,10 @@ export default function Resume() {
             -webkit-print-color-adjust: exact;
             margin: 0 !important;
             padding: 0 !important;
-            font-size: 9.5px !important;
-            line-height: 1.5 !important;
+            font-size: 11pt !important;
+            line-height: 1.4 !important;
             font-family: -apple-system, 'SF Pro Text', BlinkMacSystemFont, system-ui, sans-serif !important;
-            letter-spacing: -0.01em !important;
+            letter-spacing: -0.008em !important;
             -webkit-font-smoothing: antialiased !important;
           }
           
@@ -500,38 +500,38 @@ export default function Resume() {
           .flex.items-start.gap-8 {
             display: flex !important;
             align-items: center !important;
-            gap: 1.25rem !important;
-            margin-bottom: 1.25rem !important;
-            padding-bottom: 0.75rem !important;
-            border-bottom: 0.5px solid #e5e7eb !important;
+            gap: 1.5rem !important;
+            margin-bottom: 1.5rem !important;
+            padding-bottom: 1rem !important;
+            border-bottom: 1px solid #e5e7eb !important;
           }
           
           /* Profile photo - circular Apple style */
           .w-40.h-40 {
-            width: 3rem !important;
-            height: 3rem !important;
+            width: 4rem !important;
+            height: 4rem !important;
             border-radius: 50% !important;
             object-fit: cover !important;
             flex-shrink: 0 !important;
-            border: 0.5px solid #f2f2f7 !important;
+            border: 1px solid #f2f2f7 !important;
           }
           
           /* Name - Apple's clean typography */
           .text-6xl {
-            font-size: 1.8rem !important;
+            font-size: 2.25rem !important;
             line-height: 1 !important;
-            margin-bottom: 0.15rem !important;
+            margin-bottom: 0.25rem !important;
             font-weight: 700 !important;
             color: #000 !important;
-            letter-spacing: -0.02em !important;
-            word-spacing: -0.05em !important;
+            letter-spacing: normal !important;
+            word-spacing: normal !important;
           }
           
           /* Professional title - subtle accent */
           h2.text-2xl {
-            font-size: 0.95rem !important;
+            font-size: 1.15rem !important;
             line-height: 1.2 !important;
-            margin-bottom: 0.4rem !important;
+            margin-bottom: 0.5rem !important;
             color: #007AFF !important;
             font-weight: 500 !important;
             letter-spacing: -0.01em !important;
@@ -539,7 +539,7 @@ export default function Resume() {
           
           /* Description - refined text with emphasis on key words */
           .text-base {
-            font-size: 0.7rem !important;
+            font-size: 0.85rem !important;
             line-height: 1.4 !important;
             color: #3C3C43 !important;
             font-weight: 400 !important;
@@ -549,14 +549,14 @@ export default function Resume() {
           .flex.justify-center.items-center.flex-wrap {
             justify-content: center !important;
             align-items: center !important;
-            gap: 0.4rem !important;
+            gap: 0.5rem !important;
             margin: 0 !important;
             padding: 0 !important;
             border: none !important;
           }
           
           .text-sm {
-            font-size: 0.6rem !important;
+            font-size: 0.75rem !important;
             line-height: 1 !important;
             color: #8E8E93 !important;
             font-weight: 400 !important;
@@ -569,24 +569,24 @@ export default function Resume() {
           
           /* Separator dots - ultra minimal */
           .mx-2 {
-            margin: 0 0.3rem !important;
+            margin: 0 0.4rem !important;
             color: #D1D1D6 !important;
-            font-weight: 200 !important;
-            font-size: 0.5rem !important;
+            font-weight: 300 !important;
+            font-size: 0.65rem !important;
           }
           
           /* Section headers - Apple's refined approach */
           h3.text-2xl.font-semibold,
           .text-2xl.font-semibold {
-            font-size: 0.75rem !important;
+            font-size: 0.95rem !important;
             font-weight: 700 !important;
-            margin: 1.25rem 0 0.625rem 0 !important;
+            margin: 1.5rem 0 0.75rem 0 !important;
             color: #1C1C1E !important;
             display: block !important;
             text-transform: uppercase !important;
             letter-spacing: 0.1em !important;
-            padding-bottom: 0.25rem !important;
-            border-bottom: 0.5px solid #F2F2F7 !important;
+            padding-bottom: 0.3rem !important;
+            border-bottom: 1px solid #F2F2F7 !important;
           }
           
           /* Remove divider lines in headers */
@@ -597,18 +597,18 @@ export default function Resume() {
           /* Experience entries - optimized spacing */
           .flex.gap-6 {
             display: flex !important;
-            gap: 0.625rem !important;
-            margin-bottom: 0.875rem !important;
+            gap: 0.75rem !important;
+            margin-bottom: 1.15rem !important;
             page-break-inside: avoid !important;
           }
           
           /* Company logo containers - minimal style */
           .w-12.h-12.bg-white.rounded-xl.shadow-md {
-            width: 1.4rem !important;
-            height: 1.4rem !important;
+            width: 1.75rem !important;
+            height: 1.75rem !important;
             background: #FAFAFA !important;
             border: none !important;
-            border-radius: 0.2rem !important;
+            border-radius: 0.25rem !important;
             box-shadow: none !important;
             display: flex !important;
             align-items: center !important;
@@ -618,18 +618,18 @@ export default function Resume() {
           
           /* Company logos */
           .w-8.h-8 {
-            width: 0.9rem !important;
-            height: 0.9rem !important;
+            width: 1.1rem !important;
+            height: 1.1rem !important;
             object-fit: contain !important;
             opacity: 0.75 !important;
           }
           
           /* Job titles - emphasis on role */
           .text-lg.font-semibold {
-            font-size: 0.75rem !important;
+            font-size: 0.95rem !important;
             font-weight: 600 !important;
             color: #000 !important;
-            margin-bottom: 0.05rem !important;
+            margin-bottom: 0.1rem !important;
             letter-spacing: -0.008em !important;
           }
           
@@ -637,21 +637,21 @@ export default function Resume() {
           .text-primary.font-medium {
             color: #007AFF !important;
             font-weight: 500 !important;
-            font-size: 0.65rem !important;
+            font-size: 0.8rem !important;
             margin-bottom: 0 !important;
           }
           
           /* Location text - de-emphasized */
           p.text-sm.text-muted-foreground {
-            font-size: 0.6rem !important;
+            font-size: 0.75rem !important;
             color: #AEAEB2 !important;
-            margin-bottom: 0.3rem !important;
+            margin-bottom: 0.4rem !important;
             font-weight: 400 !important;
           }
           
           /* Dates - subtle but clear */
           span.text-sm.text-muted-foreground {
-            font-size: 0.6rem !important;
+            font-size: 0.75rem !important;
             color: #8E8E93 !important;
             white-space: nowrap !important;
             font-weight: 400 !important;
@@ -661,17 +661,17 @@ export default function Resume() {
           /* Bullet points - emphasis on metrics */
           ul.space-y-1\\.5,
           ul.space-y-1 {
-            margin: 0.3rem 0 0.4rem 0 !important;
+            margin: 0.4rem 0 0.5rem 0 !important;
           }
           
           ul.space-y-1\\.5 li,
           ul.space-y-1 li {
-            margin: 0.1rem 0 !important;
-            font-size: 0.625rem !important;
+            margin: 0.15rem 0 !important;
+            font-size: 0.78rem !important;
             line-height: 1.4 !important;
             color: #1C1C1E !important;
             font-weight: 400 !important;
-            padding-left: 0.75rem !important;
+            padding-left: 1rem !important;
             position: relative !important;
           }
           
@@ -699,8 +699,8 @@ export default function Resume() {
           .flex.flex-wrap.gap-1\\.5 {
             display: flex !important;
             flex-wrap: wrap !important;
-            gap: 0.15rem !important;
-            margin-top: 0.3rem !important;
+            gap: 0.2rem !important;
+            margin-top: 0.4rem !important;
           }
           
           /* Individual badge - ultra-minimal */
@@ -710,10 +710,10 @@ export default function Resume() {
             align-items: center !important;
             background: transparent !important;
             color: #3C3C43 !important;
-            border: 0.5px solid #E5E5EA !important;
-            padding: 0.025rem 0.3rem !important;
-            border-radius: 0.5rem !important;
-            font-size: 0.475rem !important;
+            border: 1px solid #E5E5EA !important;
+            padding: 0.05rem 0.4rem !important;
+            border-radius: 0.6rem !important;
+            font-size: 0.6rem !important;
             font-weight: 500 !important;
             white-space: nowrap !important;
             letter-spacing: 0.015em !important;
@@ -721,15 +721,15 @@ export default function Resume() {
           
           /* Section spacing for perfect 2-page layout */
           .mb-8 {
-            margin-bottom: 0.875rem !important;
+            margin-bottom: 1.25rem !important;
           }
           
           .mb-6 {
-            margin-bottom: 0.5rem !important;
+            margin-bottom: 0.75rem !important;
           }
           
           .space-y-6 > * + * {
-            margin-top: 0.625rem !important;
+            margin-top: 0.85rem !important;
           }
           
           /* Strategic page break - after RBC Banking Advisor */
