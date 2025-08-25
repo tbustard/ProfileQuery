@@ -547,53 +547,6 @@ export default function Resume() {
               </div>
             </section>
 
-            {/* Core Competencies - ATS Keywords */}
-            <section>
-              <div className="flex items-center gap-2 mb-3">
-                <Target className="w-4 h-4 text-blue-600" />
-                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider">Core Competencies</h3>
-              </div>
-              
-              <div className="bg-gradient-to-r from-blue-50 to-gray-50 rounded-lg p-2 border border-blue-200 shadow-sm hover:shadow-md transition-shadow">
-                <div className="grid grid-cols-3 gap-2">
-                  <div className="bg-white rounded p-2 border border-gray-100">
-                    <h4 className="text-xs font-bold text-gray-800 mb-1 uppercase">Technical Skills</h4>
-                    <div className="space-y-0.5">
-                      {['Python/SQL/VBA Programming', 'Advanced Excel & Financial Modeling', 'Data Analytics & Visualization', 'Bloomberg Terminal & Refinitiv', 'AI/Machine Learning Integration', 'API Development & Integration'].map(skill => (
-                        <p key={skill} className="text-xs text-gray-700 flex items-start">
-                          <span className="text-blue-500 mr-2 mt-0.5">•</span>
-                          <span>{skill}</span>
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white rounded p-2 border border-gray-100">
-                    <h4 className="text-xs font-bold text-gray-800 mb-1 uppercase">Finance Expertise</h4>
-                    <div className="space-y-0.5">
-                      {['Portfolio Management & Asset Allocation', 'Equity Research & Valuation', 'Risk Assessment & Mitigation', 'High Net Worth Wealth Management', 'Investment Banking & M&A', 'Capital Markets & Trading'].map(skill => (
-                        <p key={skill} className="text-xs text-gray-700 flex items-start">
-                          <span className="text-blue-500 mr-2 mt-0.5">•</span>
-                          <span>{skill}</span>
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div className="bg-white rounded p-2 border border-gray-100">
-                    <h4 className="text-xs font-bold text-gray-800 mb-1 uppercase">Leadership & Soft Skills</h4>
-                    <div className="space-y-0.5">
-                      {['Client Relationship Management', 'Strategic Planning & Execution', 'Team Leadership & Mentoring', 'Complex Problem Solving', 'Executive Communication', 'Agile Project Management'].map(skill => (
-                        <p key={skill} className="text-xs text-gray-700 flex items-start">
-                          <span className="text-blue-500 mr-2 mt-0.5">•</span>
-                          <span>{skill}</span>
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
           </div>
         </div>
       </div>
