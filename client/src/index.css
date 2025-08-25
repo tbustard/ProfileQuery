@@ -307,23 +307,13 @@
     @apply transition-all duration-300 ease-out hover:scale-[1.02];
   }
 
-  /* Initial page load animations */
-  .page-load-fade-in {
-    opacity: 0;
-    transform: translateY(30px) scale(0.98);
-    transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
+  /* Initial page load animations - Removed duplicate */
 
-  .page-load-fade-in.loaded {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-
-  /* Scroll-triggered animations - Enhanced with performance and timing */
+  /* Scroll-triggered animations - Consistent and Smooth */
   .scroll-fade-in {
     opacity: 0;
     transform: translateY(20px) scale(0.98);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, opacity;
     backface-visibility: hidden;
   }
@@ -335,8 +325,8 @@
 
   .scroll-slide-up {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(35px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, opacity;
     backface-visibility: hidden;
   }
@@ -348,8 +338,8 @@
 
   .scroll-scale-in {
     opacity: 0;
-    transform: scale(0.95) translateY(10px);
-    transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: scale(0.96) translateY(15px);
+    transition: all 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
     will-change: transform, opacity;
     backface-visibility: hidden;
   }
@@ -393,12 +383,13 @@
     transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
-  /* Enhanced page load animation */
+  /* Enhanced page load animation - Consistent throughout */
   .page-load-fade-in {
     opacity: 0;
-    transform: translateY(40px) scale(0.95);
-    transition: all 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(25px) scale(0.97);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
     backface-visibility: hidden;
+    will-change: transform, opacity;
   }
 
   .page-load-fade-in.loaded {

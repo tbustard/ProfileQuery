@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { ChevronUp } from "lucide-react";
-import { LiquidGlass } from '@specy/liquid-glass-react';
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/hero-section";
 import EducationSection from "@/components/about-section";
@@ -62,48 +61,43 @@ export default function Home() {
       <CommunitySection />
       <ContactInfoSection />
       
-      {/* Scroll to Top Button with Liquid Glass Effect */}
-      <div 
-        className={`fixed left-1/2 transform -translate-x-1/2 z-40 transition-all duration-500 ease-out ${
+      {/* Clean Scroll to Top Button with Glass Effect */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed left-1/2 transform -translate-x-1/2 z-40 transition-all duration-500 ease-out rounded-full ${
           showScrollToTop 
             ? 'opacity-100 translate-y-0 pointer-events-auto' 
             : 'opacity-0 translate-y-4 pointer-events-none'
-        }`}
-        style={{ bottom: `${buttonBottomOffset}px` }}
+        } hover:scale-105 shadow-xl hover:shadow-2xl`}
+        style={{ 
+          bottom: `${buttonBottomOffset}px`,
+          background: 'rgba(255, 255, 255, 0.92)',
+          backdropFilter: 'blur(20px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+          border: '1px solid rgba(0, 0, 0, 0.08)'
+        }}
+        data-testid="scroll-to-top-button"
       >
-        <div className="shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 rounded-full overflow-hidden">
-          <LiquidGlass>
-            <div className="flex items-center px-6 py-3 bg-transparent">
-              <span className="text-sm font-medium mr-4 whitespace-nowrap text-foreground">
-                Back to top
-              </span>
-              <div className="rounded-full overflow-hidden">
-                <LiquidGlass>
-                  <div
-                    onClick={scrollToTop}
-                    className="w-10 h-10 bg-primary hover:bg-primary/90 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-lg cursor-pointer"
-                    data-testid="scroll-to-top-button"
-                  >
-                    <ChevronUp size={20} className="transition-transform duration-300 hover:scale-110" />
-                  </div>
-                </LiquidGlass>
-              </div>
-            </div>
-          </LiquidGlass>
+        <div className="flex items-center px-5 py-3">
+          <span className="text-sm font-medium mr-3 text-gray-700">
+            Back to top
+          </span>
+          <div className="w-8 h-8 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center transition-colors duration-200">
+            <ChevronUp size={18} />
+          </div>
         </div>
-      </div>
+      </button>
       
-      {/* Clean Footer */}
-      <footer className="relative bg-black/90 border-t border-gray-200 py-8">
-        <div className="absolute inset-0 bg-black/90" />
-        <div className="container mx-auto px-6 lg:px-8 relative">
+      {/* Clean Footer with Smooth Transition */}
+      <footer className="relative bg-gradient-to-b from-gray-900 to-black border-t border-gray-800 py-8 transition-all duration-500">
+        <div className="container mx-auto px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-white font-medium">
+            <p className="text-white/90 font-medium">
               © {new Date().getFullYear()} Tyler Bustard. All rights reserved.
             </p>
             <button
               onClick={() => window.location.href = '/employer'}
-              className="px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white transition-all duration-200"
+              className="px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white transition-all duration-200 hover:scale-105"
               data-testid="footer-employer-signin"
             >
               Sign In
