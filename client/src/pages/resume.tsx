@@ -154,11 +154,18 @@ export default function Resume() {
                       <h4 className="text-lg font-semibold text-foreground">Portfolio Assistant</h4>
                       <span className="text-sm text-muted-foreground">2022 - 2023</span>
                     </div>
-                    <p className="text-primary font-medium mb-3">BMO Private Wealth</p>
-                    <ul className="text-sm text-muted-foreground space-y-2">
+                    <p className="text-primary font-medium mb-1">BMO Private Wealth</p>
+                    <p className="text-sm text-muted-foreground mb-3">Toronto, Ontario</p>
+                    <ul className="text-sm text-muted-foreground space-y-2 mb-4">
                       <li>• Advised two Investment Counsellors managing portfolios over $100M and cut preparation time by 12%</li>
                       <li>• Bolstered client communications, boosting response rates by 9% heightening client satisfaction and retention</li>
                     </ul>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary" className="text-xs">Portfolio Management</Badge>
+                      <Badge variant="secondary" className="text-xs">Client Relations</Badge>
+                      <Badge variant="secondary" className="text-xs">Financial Analysis</Badge>
+                      <Badge variant="secondary" className="text-xs">Excel</Badge>
+                    </div>
                   </div>
                 </div>
 
