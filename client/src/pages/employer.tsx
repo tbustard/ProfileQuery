@@ -248,7 +248,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             }}>
               {videosQuery.data && Array.isArray(videosQuery.data) && videosQuery.data.length === 1 
                 ? '1 file uploaded' 
-                : `${videosQuery.data?.length || 0} files uploaded`
+                : `${(videosQuery.data && Array.isArray(videosQuery.data) ? videosQuery.data.length : 0)} files uploaded`
             }
             </p>
             <div>
