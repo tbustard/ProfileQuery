@@ -399,6 +399,24 @@
 
   /* Mobile optimizations with preserved animations */
   @media (max-width: 640px) {
+    /* Hero section mobile centering */
+    #hero {
+      padding-top: 5rem !important;
+      padding-bottom: 2rem !important;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    #hero > div {
+      margin-top: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 7rem);
+    }
     /* Force certifications to be immediately visible on mobile */
     #certifications,
     #certifications *,
