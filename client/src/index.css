@@ -412,18 +412,18 @@
     .scroll-fade-in,
     .scroll-slide-up,
     .scroll-scale-in {
-      transition-duration: 0.3s !important;
+      transition-duration: 0.4s !important;
       transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     }
     
     .scroll-stagger-1 { transition-delay: 0s !important; }
-    .scroll-stagger-2 { transition-delay: 0.02s !important; }
-    .scroll-stagger-3 { transition-delay: 0.04s !important; }
-    .scroll-stagger-4 { transition-delay: 0.06s !important; }
-    .scroll-stagger-5 { transition-delay: 0.08s !important; }
-    .scroll-stagger-6 { transition-delay: 0.1s !important; }
-    .scroll-stagger-7 { transition-delay: 0.12s !important; }
-    .scroll-stagger-8 { transition-delay: 0.14s !important; }
+    .scroll-stagger-2 { transition-delay: 0.03s !important; }
+    .scroll-stagger-3 { transition-delay: 0.06s !important; }
+    .scroll-stagger-4 { transition-delay: 0.09s !important; }
+    .scroll-stagger-5 { transition-delay: 0.12s !important; }
+    .scroll-stagger-6 { transition-delay: 0.15s !important; }
+    .scroll-stagger-7 { transition-delay: 0.18s !important; }
+    .scroll-stagger-8 { transition-delay: 0.21s !important; }
     
     /* Only disable animations if user prefers reduced motion */
     .mobile-visible.reduced-motion {
@@ -432,12 +432,27 @@
       transition: none !important;
     }
     
-    /* Ensure critical sections are always visible */
+    /* Ensure critical sections are always visible on mobile */
     #experience,
     #certifications,
     #about,
     #skills {
       min-height: auto;
+    }
+    
+    /* Fallback for mobile experience section */
+    #experience .scroll-scale-in {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+    
+    /* Force visibility if animation fails on mobile */
+    @media (max-height: 800px) {
+      .scroll-scale-in {
+        opacity: 1 !important;
+        transform: scale(1) translateY(0) !important;
+        transition-duration: 0.2s !important;
+      }
     }
     
     /* Performance optimizations for mobile */
@@ -474,12 +489,14 @@
     transform: translateY(0) scale(1) !important;
   }
   
-  /* Fallback for ultra-fast scrolling */
-  @media (max-height: 600px) {
+  /* Fallback for ultra-fast scrolling and mobile devices */
+  @media (max-height: 600px), (max-width: 480px) {
     .scroll-fade-in,
     .scroll-slide-up,
     .scroll-scale-in {
       transition-duration: 0.2s !important;
+      opacity: 1 !important;
+      transform: scale(1) translateY(0) !important;
     }
   }
 

@@ -21,7 +21,10 @@ interface Experience {
 export default function ExperienceSection() {
   const sectionAnimation = useScrollAnimation({ threshold: 0.15, triggerOnce: true });
   const headerAnimation = useScrollAnimation({ threshold: 0.25, triggerOnce: true, delay: 100 });
-  const { ref: experiencesRef, visibleItems } = useStaggeredScrollAnimation(6, { threshold: 0.15, triggerOnce: true, delay: 200 });
+  const { ref: experiencesRef, visibleItems } = useStaggeredScrollAnimation(6, { threshold: 0.1, triggerOnce: true, delay: 150 });
+  
+  // Mobile fallback - ensure content is visible on small screens
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
 
   const experiences: Experience[] = [
     {
@@ -143,8 +146,9 @@ export default function ExperienceSection() {
               <div 
                 key={index} 
                 id={`experience-${exp.company.toLowerCase().replace(/[^a-z0-9]/g, '-')}-${exp.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} 
-                className={`relative scroll-scale-in scroll-stagger-${index + 1} ${visibleItems.has(index) ? 'visible' : ''}`}
+                className={`relative scroll-scale-in scroll-stagger-${index + 1} ${visibleItems.has(index) || isMobile ? 'visible' : ''}`}
                 data-testid={`experience-${index}`}
+                style={isMobile ? { opacity: 1, transform: 'scale(1) translateY(0)' } : {}}
               >
                 {/* Beautiful Timeline Marker */}
                 <div className="absolute left-5 w-6 h-6 rounded-full bg-gradient-to-br from-white to-gray-50 border border-gray-200/60 shadow-[0_2px_8px_rgba(0,0,0,0.08),0_1px_2px_rgba(0,0,0,0.12)] hidden md:block backdrop-blur-sm">
