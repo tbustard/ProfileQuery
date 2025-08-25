@@ -181,11 +181,18 @@ export default function Resume() {
                       <h4 className="text-lg font-semibold text-foreground">Financial Advisor</h4>
                       <span className="text-sm text-muted-foreground">2021 - 2022</span>
                     </div>
-                    <p className="text-primary font-medium mb-3">TD Canada Trust</p>
-                    <ul className="text-sm text-muted-foreground space-y-2">
+                    <p className="text-primary font-medium mb-1">TD Canada Trust</p>
+                    <p className="text-sm text-muted-foreground mb-3">Kingston, Ontario</p>
+                    <ul className="text-sm text-muted-foreground space-y-2 mb-4">
                       <li>• Cultivated strong client relationships by assessing individual financial needs, resulting in an 11% increase in sales</li>
                       <li>• Exceeded sales targets, achieving a top 15% performance ranking within the district</li>
                     </ul>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary" className="text-xs">Financial Planning</Badge>
+                      <Badge variant="secondary" className="text-xs">Sales</Badge>
+                      <Badge variant="secondary" className="text-xs">Client Advisory</Badge>
+                      <Badge variant="secondary" className="text-xs">Product Knowledge</Badge>
+                    </div>
                   </div>
                 </div>
 
@@ -201,11 +208,18 @@ export default function Resume() {
                       <h4 className="text-lg font-semibold text-foreground">Banking Advisor</h4>
                       <span className="text-sm text-muted-foreground">2020 - 2021</span>
                     </div>
-                    <p className="text-primary font-medium mb-3">Royal Bank of Canada</p>
-                    <ul className="text-sm text-muted-foreground space-y-2">
+                    <p className="text-primary font-medium mb-1">Royal Bank of Canada</p>
+                    <p className="text-sm text-muted-foreground mb-3">Kingston, Ontario</p>
+                    <ul className="text-sm text-muted-foreground space-y-2 mb-4">
                       <li>• Strengthened client relationships by advising on personalized solutions, increased repeat transactions by 13%</li>
                       <li>• Excelled in needs-based advising, boosting adoption of core products like GICs, mutual funds, and TFSAs by 8%</li>
                     </ul>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary" className="text-xs">Banking Products</Badge>
+                      <Badge variant="secondary" className="text-xs">Financial Advisory</Badge>
+                      <Badge variant="secondary" className="text-xs">Client Relationship Management</Badge>
+                      <Badge variant="secondary" className="text-xs">Digital Banking</Badge>
+                    </div>
                   </div>
                 </div>
                 
@@ -221,11 +235,18 @@ export default function Resume() {
                       <h4 className="text-lg font-semibold text-foreground">Client Advisor Intern</h4>
                       <span className="text-sm text-muted-foreground">2019 - 2020</span>
                     </div>
-                    <p className="text-primary font-medium mb-3">Royal Bank of Canada</p>
-                    <ul className="text-sm text-muted-foreground space-y-2">
+                    <p className="text-primary font-medium mb-1">Royal Bank of Canada</p>
+                    <p className="text-sm text-muted-foreground mb-3">Fredericton, New Brunswick</p>
+                    <ul className="text-sm text-muted-foreground space-y-2 mb-4">
                       <li>• Resolved complex client issues, achieving a 15% boost in positive feedback scores for the branch</li>
                       <li>• Promoted RBC's digital banking tools, leading to a 10% increase in online and mobile banking adoption</li>
                     </ul>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary" className="text-xs">Client Service</Badge>
+                      <Badge variant="secondary" className="text-xs">Digital Banking</Badge>
+                      <Badge variant="secondary" className="text-xs">Problem Resolution</Badge>
+                      <Badge variant="secondary" className="text-xs">Customer Support</Badge>
+                    </div>
                   </div>
                 </div>
               </div>
