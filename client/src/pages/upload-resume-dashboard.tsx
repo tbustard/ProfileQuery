@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Upload, FileText, ArrowLeft, LogOut } from "lucide-react";
+import { Upload, FileText, ArrowLeft, LogOut, Printer } from "lucide-react";
 import Navigation from "@/components/navigation";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import type { ResumeUpload } from "@shared/schema";
@@ -196,18 +196,74 @@ export default function UploadResumeDashboard() {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Video
           </Button>
-          <Button 
-            variant="ghost" 
-            onClick={() => {
-              localStorage.removeItem('resumeUploadAuth');
-              window.location.href = '/';
-            }}
-            data-testid="button-logout"
-            className="text-gray-600 hover:text-gray-900 font-medium"
-            style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
-          >
-            Sign Out
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button 
+              variant="ghost" 
+              onClick={async () => {
+                try {
+                  // Fetch the latest resume PDF
+                  const response = await fetch('/api/latest-resume');
+                  if (response.ok) {
+                    // Create a blob from the PDF response
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    
+                    // Open in new window for printing
+                    const printWindow = window.open(url, '_blank');
+                    if (printWindow) {
+                      printWindow.addEventListener('load', () => {
+                        setTimeout(() => {
+                          printWindow.print();
+                        }, 500);
+                      });
+                    }
+                    
+                    // Clean up the blob URL after a delay
+                    setTimeout(() => {
+                      window.URL.revokeObjectURL(url);
+                    }, 60000);
+                  } else if (response.status === 404) {
+                    toast({
+                      title: "No Resume Found",
+                      description: "Please upload a resume first.",
+                      variant: "destructive"
+                    });
+                  } else {
+                    toast({
+                      title: "Failed to Load Resume",
+                      description: "Please try again.",
+                      variant: "destructive"
+                    });
+                  }
+                } catch (error) {
+                  console.error('Error loading resume:', error);
+                  toast({
+                    title: "Error",
+                    description: "Failed to load resume for printing.",
+                    variant: "destructive"
+                  });
+                }
+              }}
+              data-testid="button-print-pdf"
+              className="text-gray-600 hover:text-gray-900 font-medium"
+              style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+            >
+              <Printer className="w-4 h-4 mr-2" />
+              Print PDF
+            </Button>
+            <Button 
+              variant="ghost" 
+              onClick={() => {
+                localStorage.removeItem('resumeUploadAuth');
+                window.location.href = '/';
+              }}
+              data-testid="button-logout"
+              className="text-gray-600 hover:text-gray-900 font-medium"
+              style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+            >
+              Sign Out
+            </Button>
+          </div>
         </div>
         
         <div className="text-center mb-8">
