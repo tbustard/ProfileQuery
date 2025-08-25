@@ -89,22 +89,9 @@ export default function Resume() {
                 </div>
 
                 {/* Contact Information */}
-                <div className="flex flex-wrap gap-4">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Mail className="w-4 h-4" />
-                    <span>tbustard@unb.ca</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Phone className="w-4 h-4" />
-                    <span>+1 (506) 123-4567</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <MapPin className="w-4 h-4" />
-                    <span>New Brunswick, Canada</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Globe className="w-4 h-4" />
-                    <span>tylerbustard.ca</span>
+                <div className="text-center">
+                  <div className="text-sm text-muted-foreground">
+                    tbustard@unb.ca • +1 (613) 985-1223 • Toronto, Ontario, Canada • tylerbustard.ca
                   </div>
                 </div>
               </div>
