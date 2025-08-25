@@ -24,7 +24,7 @@ export default function SQLTranslator() {
 
   const translateMutation = useMutation({
     mutationFn: async (naturalLanguage: string): Promise<SQLTranslationResponse> => {
-      const response = await apiRequest("POST", "/api/translate-sql", { naturalLanguage });
+      const response = await apiRequest("/api/translate-sql", "POST", { naturalLanguage });
       return response.json();
     },
     onSuccess: (data) => {

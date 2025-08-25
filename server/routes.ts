@@ -197,10 +197,25 @@ Focus on investment analysis, portfolio management, and financial reporting quer
 
       const { userId = 'employer' } = req.body;
       
+      // Generate a unique filename for the resume since we're using memory storage
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      const ext = path.extname(req.file.originalname);
+      const generatedFilename = `resume-${uniqueSuffix}${ext}`;
+      const resumePath = path.join(process.cwd(), 'uploads/resumes', generatedFilename);
+      
+      // Ensure directory exists
+      const resumeDir = path.join(process.cwd(), 'uploads/resumes');
+      if (!fs.existsSync(resumeDir)) {
+        fs.mkdirSync(resumeDir, { recursive: true });
+      }
+      
+      // Write the buffer to disk
+      fs.writeFileSync(resumePath, req.file.buffer);
+      
       // Create resume record in storage with all required fields
       const resume = await storage.createResumeUpload({
         fileName: req.file.originalname,
-        fileUrl: `/uploads/resumes/${req.file.filename}`,
+        fileUrl: `/uploads/resumes/${generatedFilename}`,
         userId,
         mimeType: req.file.mimetype,
         fileSize: req.file.size.toString()

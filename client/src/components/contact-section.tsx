@@ -32,7 +32,7 @@ export default function ContactSection() {
 
   const contactMutation = useMutation({
     mutationFn: async (data: ContactForm) => {
-      const response = await apiRequest("POST", "/api/contact", data);
+      const response = await apiRequest("/api/contact", "POST", data);
       return response.json();
     },
     onSuccess: () => {

@@ -71,7 +71,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
     const file = event.target.files?.[0];
     if (file) {
       // Validate file type (MP4, MOV, AVI, etc.)
-      const allowedTypes = ['video/mp4', 'video/mov', 'video/avi', 'video/quicktime'];
+      const allowedTypes = ['video/mp4', 'video/quicktime', 'video/avi', 'video/webm'];
       if (!allowedTypes.includes(file.type)) {
         toast({
           title: "Invalid File Type",
