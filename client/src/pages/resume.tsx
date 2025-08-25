@@ -60,7 +60,7 @@ export default function Resume() {
           <div className={`bg-white/90 backdrop-blur-md border border-white/30 rounded-[2rem] p-8 sm:p-12 shadow-2xl mb-8 page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}>
             
             {/* Header Section */}
-            <div className="flex flex-col lg:flex-row items-start gap-8 mb-12">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
               {/* Left Column - Profile Image and Contact */}
               <div className="flex-shrink-0 space-y-4">
                 <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-[1.5rem] overflow-hidden shadow-xl ring-1 ring-black/5">
@@ -91,19 +91,17 @@ export default function Resume() {
               </div>
 
               {/* Header Info */}
-              <div className="flex-1 space-y-6">
-                <div>
-                  <h1 className="text-4xl sm:text-5xl font-bold apple-heading mb-2">
-                    <span className="bg-gradient-to-r from-gray-900 via-black to-gray-800 bg-clip-text text-transparent">Tyler Bustard</span>
-                  </h1>
-                  <h2 className="text-xl sm:text-2xl font-semibold text-primary mb-4">
-                    Finance & Technology Professional
-                  </h2>
-                  <p className="text-base text-muted-foreground leading-relaxed max-w-2xl">
-                    Driving innovation at the intersection of finance and technology. 
-                    Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
-                  </p>
-                </div>
+              <div className="flex-1 text-center md:text-left">
+                <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-2 tracking-tight">
+                  Tyler Bustard
+                </h1>
+                <h2 className="text-xl md:text-2xl text-primary font-medium mb-4">
+                  Finance & Technology Professional
+                </h2>
+                <p className="text-base text-muted-foreground leading-relaxed max-w-2xl">
+                  Driving innovation at the intersection of finance and technology. 
+                  Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
+                </p>
               </div>
             </div>
 
