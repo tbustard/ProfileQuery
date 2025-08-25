@@ -110,6 +110,36 @@ export default function Resume() {
               </div>
             </div>
 
+            {/* Education */}
+            <section className="mb-12">
+              <h3 className="text-2xl font-semibold mb-8 flex items-center gap-3">
+                Education
+                <div className="h-px bg-border flex-1"></div>
+              </h3>
+              
+              <div className="flex gap-6">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
+                    <img src={unbLogo} alt="UNB" className="w-8 h-8 object-contain" />
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                    <h4 className="text-lg font-semibold text-foreground">Bachelor of Business Administration</h4>
+                    <span className="text-sm text-muted-foreground">2020</span>
+                  </div>
+                  <p className="text-primary font-medium mb-3">University of New Brunswick • Saint John, New Brunswick</p>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>• Major: Finance</li>
+                    <li>• Case Competitions: 1st Place (CIBC), 3rd Place (TD), RBC and SLC participant</li>
+                    <li>• Analyst and Portfolio Manager – University of New Brunswick Student Investment Fund</li>
+                    <li>• UNB Finance Club, RBC Student Ambassador, Accredited Co-op Program</li>
+                    <li>• Recipient of 5 Scholarship and Alumni Awards for academic merit and leadership skills, Total $47,500</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
             {/* Professional Experience */}
             <section className="mb-12">
               <h3 className="text-2xl font-semibold mb-8 flex items-center gap-3">
@@ -199,36 +229,6 @@ export default function Resume() {
                 </div>
               </div>
             </section>
-
-            {/* Education */}
-            <section className="mb-12">
-              <h3 className="text-2xl font-semibold mb-8 flex items-center gap-3">
-                Education
-                <div className="h-px bg-border flex-1"></div>
-              </h3>
-              
-              <div className="flex gap-6">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
-                    <img src={unbLogo} alt="UNB" className="w-8 h-8 object-contain" />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                    <h4 className="text-lg font-semibold text-foreground">Bachelor of Business Administration</h4>
-                    <span className="text-sm text-muted-foreground">2020</span>
-                  </div>
-                  <p className="text-primary font-medium mb-3">University of New Brunswick • Saint John, New Brunswick</p>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Major: Finance</li>
-                    <li>• Case Competitions: 1st Place (CIBC), 3rd Place (TD), RBC and SLC participant</li>
-                    <li>• Analyst and Portfolio Manager – University of New Brunswick Student Investment Fund</li>
-                    <li>• UNB Finance Club, RBC Student Ambassador, Accredited Co-op Program</li>
-                    <li>• Recipient of 5 Scholarship and Alumni Awards for academic merit and leadership skills, Total $47,500</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
           </div>
 
           {/* Page 2 */}
@@ -276,113 +276,72 @@ export default function Resume() {
               </div>
             </section>
 
-            {/* Core Competencies */}
-            <section className="mb-12">
-              <h3 className="text-2xl font-semibold mb-8 flex items-center gap-3">
-                Core Competencies
-                <div className="h-px bg-border flex-1"></div>
-              </h3>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="text-lg font-medium text-foreground mb-4">Financial Expertise</h4>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary" className="text-xs">Portfolio Management</Badge>
-                    <Badge variant="secondary" className="text-xs">Financial Planning</Badge>
-                    <Badge variant="secondary" className="text-xs">Investment Analysis</Badge>
-                    <Badge variant="secondary" className="text-xs">Risk Assessment</Badge>
-                    <Badge variant="secondary" className="text-xs">Financial Modeling</Badge>
-                    <Badge variant="secondary" className="text-xs">Equity Research</Badge>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-medium text-foreground mb-4">Technical Skills</h4>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary" className="text-xs">Bloomberg Terminal</Badge>
-                    <Badge variant="secondary" className="text-xs">Excel (Advanced)</Badge>
-                    <Badge variant="secondary" className="text-xs">Power BI</Badge>
-                    <Badge variant="secondary" className="text-xs">SQL</Badge>
-                    <Badge variant="secondary" className="text-xs">Python</Badge>
-                    <Badge variant="secondary" className="text-xs">Salesforce</Badge>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-medium text-foreground mb-4">Client Management</h4>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary" className="text-xs">Relationship Building</Badge>
-                    <Badge variant="secondary" className="text-xs">Needs Assessment</Badge>
-                    <Badge variant="secondary" className="text-xs">Presentation Skills</Badge>
-                    <Badge variant="secondary" className="text-xs">Client Retention</Badge>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-medium text-foreground mb-4">Leadership</h4>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary" className="text-xs">Team Leadership</Badge>
-                    <Badge variant="secondary" className="text-xs">Project Management</Badge>
-                    <Badge variant="secondary" className="text-xs">Strategic Planning</Badge>
-                    <Badge variant="secondary" className="text-xs">Process Improvement</Badge>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Key Achievements */}
-            <section className="mb-12">
-              <h3 className="text-2xl font-semibold mb-8 flex items-center gap-3">
-                Key Achievements
-                <div className="h-px bg-border flex-1"></div>
-              </h3>
-              
-              <div className="grid md:grid-cols-2 gap-6">
-                <Card className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
-                  <h4 className="text-lg font-semibold text-blue-900 mb-2">$100M+</h4>
-                  <p className="text-sm text-blue-700">Portfolios Managed</p>
-                </Card>
-                
-                <Card className="p-6 bg-gradient-to-br from-green-50 to-green-100 border-green-200">
-                  <h4 className="text-lg font-semibold text-green-900 mb-2">$47,500</h4>
-                  <p className="text-sm text-green-700">Academic Scholarships</p>
-                </Card>
-                
-                <Card className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200">
-                  <h4 className="text-lg font-semibold text-purple-900 mb-2">1st Place</h4>
-                  <p className="text-sm text-purple-700">CIBC M&A Case Competition</p>
-                </Card>
-                
-                <Card className="p-6 bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200">
-                  <h4 className="text-lg font-semibold text-orange-900 mb-2">Top 15%</h4>
-                  <p className="text-sm text-orange-700">Performance Ranking</p>
-                </Card>
-              </div>
-            </section>
-
-            {/* Professional Associations */}
+            {/* Community Leadership & Volunteer Service */}
             <section>
               <h3 className="text-2xl font-semibold mb-8 flex items-center gap-3">
-                Professional Associations
+                Community
                 <div className="h-px bg-border flex-1"></div>
               </h3>
               
-              <div className="space-y-4 text-sm text-muted-foreground">
-                <div className="flex justify-between items-center">
-                  <span>• CFA Institute Member</span>
-                  <span>2022 - Present</span>
+              <div className="space-y-8">
+                {/* United Way */}
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
+                      <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white text-xs font-bold">UW</div>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                      <h4 className="text-lg font-semibold text-foreground">Next Gen Ambassador</h4>
+                      <span className="text-sm text-muted-foreground">2020 - 2023</span>
+                    </div>
+                    <p className="text-primary font-medium mb-3">United Way • Kingston, Ontario</p>
+                    <ul className="text-sm text-muted-foreground space-y-2">
+                      <li>• Led implementation of fundraising strategies achieving 20% increase in funds raised over three years</li>
+                      <li>• Spearheaded engagement initiatives resulting in 15% rise in participation and awareness within workplace community</li>
+                    </ul>
+                  </div>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span>• Canadian Securities Institute (CSI)</span>
-                  <span>2021 - Present</span>
+
+                {/* RBC Student Ambassador */}
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
+                      <img src={rbcLogo} alt="RBC" className="w-8 h-8 object-contain" />
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                      <h4 className="text-lg font-semibold text-foreground">Student Ambassador</h4>
+                      <span className="text-sm text-muted-foreground">2019 - 2020</span>
+                    </div>
+                    <p className="text-primary font-medium mb-3">Royal Bank of Canada • Fredericton, New Brunswick</p>
+                    <ul className="text-sm text-muted-foreground space-y-2">
+                      <li>• Organized and executed campus-wide events resulting in 25% increase in student engagement and awareness</li>
+                      <li>• Developed targeted outreach strategy achieving 30% increase in student participation in RBC-sponsored events</li>
+                    </ul>
+                  </div>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span>• Investment Industry Association of Canada (IIAC)</span>
-                  <span>2021 - Present</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span>• New Brunswick Young Professionals Association</span>
-                  <span>2020 - Present</span>
+
+                {/* Irving Oil Volunteer */}
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
+                      <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">IO</div>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                      <h4 className="text-lg font-semibold text-foreground">Volunteer Staff</h4>
+                      <span className="text-sm text-muted-foreground">2018</span>
+                    </div>
+                    <p className="text-primary font-medium mb-3">Irving Oil Limited • Saint John, New Brunswick</p>
+                    <ul className="text-sm text-muted-foreground space-y-2">
+                      <li>• Successfully organized and executed engaging activities for over 100 children ensuring safe and enjoyable experience</li>
+                      <li>• Demonstrated leadership through collaboration with fellow volunteers for well-coordinated event execution</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </section>
