@@ -385,36 +385,36 @@ export default function Resume() {
       {/* Print Styles */}
       <style>{`
         @media print {
-          /* Page setup optimized for 2 pages */
+          /* Page setup for exactly 2 pages */
           @page {
-            margin: 0.5in;
+            margin: 0.6in 0.5in;
             size: letter;
           }
           
-          /* Body and page background */
+          /* Global print settings */
           body, html {
-            background: white !important;
+            background: #f5f5f7 !important;
             print-color-adjust: exact;
             -webkit-print-color-adjust: exact;
             margin: 0 !important;
             padding: 0 !important;
-            font-size: 11px !important;
-            line-height: 1.35 !important;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+            font-size: 10.5px !important;
+            line-height: 1.3 !important;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif !important;
           }
           
-          /* Hide navigation and UI elements */
+          /* Hide navigation */
           nav, .print\\:hidden {
             display: none !important;
           }
           
-          /* Main container adjustments */
+          /* Page background to match UI */
           .min-h-screen {
-            background: white !important;
+            background: #f5f5f7 !important;
             padding: 0 !important;
           }
           
-          /* Content container adjustments */
+          /* Container resets */
           .px-4, .sm\\:px-6, .pb-16, .pt-24 {
             padding: 0 !important;
           }
@@ -424,240 +424,261 @@ export default function Resume() {
             margin: 0 !important;
           }
           
-          /* Resume content styling - preserve beautiful UI look */
+          /* Resume cards - maintain beautiful glassmorphism look */
           .bg-white\\/90 {
-            background: white !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-radius: 0 !important;
-            margin: 0 !important;
-            padding: 1.25rem !important;
-            backdrop-filter: none !important;
+            background: rgba(255, 255, 255, 0.95) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            border-radius: 1.5rem !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+            padding: 1.75rem !important;
+            margin-bottom: 1rem !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
           }
           
-          /* Header section - keep beautiful but compact */
+          /* First card - Page 1 */
+          .bg-white\\/90:first-child {
+            min-height: 9in !important;
+            page-break-after: always !important;
+          }
+          
+          /* Second card - Page 2 */
+          .bg-white\\/90:last-child {
+            min-height: 9in !important;
+          }
+          
+          /* Header section with photo */
           .flex.items-start.gap-8 {
             display: flex !important;
             align-items: flex-start !important;
-            gap: 1.5rem !important;
-            margin-bottom: 1rem !important;
+            gap: 1.25rem !important;
+            margin-bottom: 0.75rem !important;
           }
           
-          /* Profile photo - elegant size */
+          /* Profile photo - maintain UI size ratio */
           .w-40.h-40 {
-            width: 3.5rem !important;
-            height: 3.5rem !important;
-            border-radius: 0.75rem !important;
+            width: 4rem !important;
+            height: 4rem !important;
+            border-radius: 1rem !important;
+            object-fit: cover !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
             flex-shrink: 0 !important;
           }
           
-          /* Name styling - maintain impact */
+          /* Name - hero typography */
           .text-6xl {
-            font-size: 2.25rem !important;
+            font-size: 2rem !important;
             line-height: 1 !important;
             margin-bottom: 0.25rem !important;
             font-weight: 700 !important;
+            letter-spacing: -0.025em !important;
+            color: #111827 !important;
           }
           
-          /* Subtitle styling */
-          .text-2xl {
-            font-size: 1.125rem !important;
+          /* Professional title */
+          h2.text-2xl {
+            font-size: 1rem !important;
             line-height: 1.2 !important;
-            margin-bottom: 0.75rem !important;
-            color: #2563eb !important;
+            margin-bottom: 0.5rem !important;
+            color: #3b82f6 !important;
             font-weight: 500 !important;
           }
           
-          /* Description text */
+          /* Description paragraph */
           .text-base {
-            font-size: 0.8rem !important;
-            line-height: 1.3 !important;
+            font-size: 0.75rem !important;
+            line-height: 1.4 !important;
             color: #6b7280 !important;
           }
           
-          /* Contact info - beautiful centered layout */
+          /* Contact info bar */
           .flex.justify-center.items-center.flex-wrap {
             justify-content: center !important;
-            gap: 0.5rem !important;
-            margin: 1rem 0 !important;
+            align-items: center !important;
+            gap: 0.25rem !important;
+            margin: 0.75rem 0 !important;
+            padding: 0.5rem 0 !important;
+            border-top: 1px solid #e5e7eb !important;
+            border-bottom: 1px solid #e5e7eb !important;
           }
           
           .text-sm {
-            font-size: 0.7rem !important;
-            line-height: 1.2 !important;
+            font-size: 0.65rem !important;
+            line-height: 1 !important;
+            color: #4b5563 !important;
           }
           
-          /* Section headers - maintain beautiful styling */
+          /* Icons in contact info */
+          .w-4.h-4 {
+            width: 0.75rem !important;
+            height: 0.75rem !important;
+          }
+          
+          /* Section headers - beautiful with divider line */
+          h3.text-2xl.font-semibold,
           .text-2xl.font-semibold {
-            font-size: 1.1rem !important;
+            font-size: 1rem !important;
             font-weight: 600 !important;
-            margin: 1.25rem 0 0.75rem 0 !important;
+            margin: 1rem 0 0.5rem 0 !important;
             color: #111827 !important;
             display: flex !important;
             align-items: center !important;
-            gap: 0.75rem !important;
+            gap: 0.5rem !important;
           }
           
-          /* Beautiful underline effect */
+          /* Divider line in headers */
           .h-px.bg-border {
             height: 1px !important;
-            background: #e5e7eb !important;
+            background: linear-gradient(to right, #e5e7eb, transparent) !important;
             flex: 1 !important;
           }
           
-          /* Experience entries - preserve elegant layout */
+          /* Experience cards */
           .flex.gap-6 {
             display: flex !important;
-            gap: 1rem !important;
-            margin-bottom: 1rem !important;
+            gap: 0.75rem !important;
+            margin-bottom: 0.75rem !important;
             page-break-inside: avoid !important;
           }
           
-          /* Company logos - keep visual appeal */
+          /* Company logo containers - maintain UI beauty */
           .w-12.h-12.bg-white.rounded-xl.shadow-md {
-            width: 2.5rem !important;
-            height: 2.5rem !important;
+            width: 2rem !important;
+            height: 2rem !important;
             background: white !important;
+            border: 1px solid #e5e7eb !important;
             border-radius: 0.5rem !important;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             flex-shrink: 0 !important;
           }
           
+          /* Company logos */
           .w-8.h-8 {
-            width: 1.5rem !important;
-            height: 1.5rem !important;
+            width: 1.25rem !important;
+            height: 1.25rem !important;
+            object-fit: contain !important;
           }
           
-          /* Job titles and details */
+          /* Job titles */
           .text-lg.font-semibold {
-            font-size: 0.95rem !important;
+            font-size: 0.85rem !important;
             font-weight: 600 !important;
             color: #111827 !important;
             margin-bottom: 0.125rem !important;
           }
           
+          /* Company names */
           .text-primary.font-medium {
-            color: #2563eb !important;
+            color: #3b82f6 !important;
             font-weight: 500 !important;
-            font-size: 0.8rem !important;
-          }
-          
-          /* Bullet points - compact but readable */
-          ul.space-y-1\\.5 {
-            margin: 0.5rem 0 !important;
-          }
-          
-          ul.space-y-1\\.5 li {
-            margin: 0.25rem 0 !important;
             font-size: 0.7rem !important;
-            line-height: 1.3 !important;
-            color: #4b5563 !important;
+            margin-bottom: 0.05rem !important;
           }
           
+          /* Location text */
+          p.text-sm.text-muted-foreground {
+            font-size: 0.65rem !important;
+            color: #9ca3af !important;
+            margin-bottom: 0.25rem !important;
+          }
+          
+          /* Dates */
+          span.text-sm.text-muted-foreground {
+            font-size: 0.65rem !important;
+            color: #6b7280 !important;
+            white-space: nowrap !important;
+          }
+          
+          /* Bullet points */
+          ul.space-y-1\\.5,
+          ul.space-y-1 {
+            margin: 0.25rem 0 0.375rem 0 !important;
+          }
+          
+          ul.space-y-1\\.5 li,
           ul.space-y-1 li {
             margin: 0.125rem 0 !important;
-            font-size: 0.7rem !important;
+            font-size: 0.65rem !important;
             line-height: 1.3 !important;
             color: #4b5563 !important;
           }
           
-          /* Skills badges - beautiful and compact */
+          /* Skills badges - maintain rounded, colored design */
           .flex.flex-wrap.gap-1\\.5 {
             display: flex !important;
             flex-wrap: wrap !important;
             gap: 0.25rem !important;
-            margin-top: 0.5rem !important;
+            margin-top: 0.25rem !important;
           }
           
-          .inline-flex {
+          /* Individual badge styling */
+          .inline-flex.items-center.rounded-md.px-2\\.5.py-0\\.5,
+          [class*="badge"] {
             display: inline-flex !important;
-            background: #f3f4f6 !important;
-            color: #374151 !important;
-            padding: 0.125rem 0.5rem !important;
+            align-items: center !important;
+            background: #eff6ff !important;
+            color: #1e40af !important;
+            border: 1px solid #dbeafe !important;
+            padding: 0.1rem 0.4rem !important;
             border-radius: 0.375rem !important;
-            font-size: 0.625rem !important;
+            font-size: 0.55rem !important;
             font-weight: 500 !important;
+            white-space: nowrap !important;
           }
           
-          /* Dates styling */
-          .flex.flex-col.sm\\:flex-row.sm\\:items-center.sm\\:justify-between {
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: flex-start !important;
-            margin-bottom: 0.25rem !important;
-          }
-          
-          /* Page break control for 2-page layout */
-          .mb-8:nth-of-type(1) {
-            margin-bottom: 1.5rem !important;
-          }
-          
-          .mb-8:nth-of-type(2) {
-            margin-bottom: 1.25rem !important;
-            page-break-after: avoid !important;
-          }
-          
-          /* Force page break after first 3 experiences */
-          .space-y-6 > div:nth-child(3) {
-            page-break-after: always !important;
-          }
-          
-          /* Second page content adjustment */
-          .space-y-6 > div:nth-child(n+4) {
-            margin-top: 0.75rem !important;
-          }
-          
-          /* Section spacing optimization for 2 pages */
+          /* Section spacing for perfect 2-page layout */
           .mb-8 {
-            margin-bottom: 1rem !important;
-          }
-          
-          .mb-6 {
             margin-bottom: 0.75rem !important;
           }
           
-          .space-y-6 > * + * {
-            margin-top: 0.75rem !important;
+          .mb-6 {
+            margin-bottom: 0.5rem !important;
           }
           
-          /* Ensure text colors match UI beauty */
+          .space-y-6 > * + * {
+            margin-top: 0.5rem !important;
+          }
+          
+          /* Strategic page break - after RBC Banking Advisor */
+          .space-y-6 > div:nth-child(3) {
+            page-break-after: always !important;
+            margin-bottom: 0 !important;
+          }
+          
+          /* Ensure colors are preserved */
           .text-muted-foreground {
             color: #6b7280 !important;
           }
           
           .text-primary {
-            color: #2563eb !important;
+            color: #3b82f6 !important;
           }
           
           .text-foreground {
             color: #111827 !important;
           }
           
-          /* Remove excessive spacing and padding */
-          .p-6, .sm\\:p-10, .lg\\:p-16 {
-            padding: 1.25rem !important;
-          }
-          
-          /* Maintain visual hierarchy */
+          /* Maintain font weights */
           h1, h2, h3, h4, h5, h6 {
             font-weight: inherit !important;
           }
           
-          /* Clean backgrounds */
-          .print\\:shadow-none { box-shadow: none !important; }
-          .print\\:border-0 { border: none !important; }
-          .print\\:rounded-none { border-radius: 0 !important; }
-          .print\\:bg-white { background: white !important; }
-          .print\\:text-black { color: black !important; }
-          
-          /* Color accuracy */
+          /* Ensure proper color printing */
           * {
-            -webkit-print-color-adjust: exact;
-            color-adjust: exact;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            color-adjust: exact !important;
           }
+          
+          /* Override any conflicting styles */
+          .print\\:shadow-none { box-shadow: inherit !important; }
+          .print\\:border-0 { border: inherit !important; }
+          .print\\:rounded-none { border-radius: inherit !important; }
+          .print\\:bg-white { background: inherit !important; }
+          .print\\:text-black { color: inherit !important; }
         }
       `}</style>
     </div>
