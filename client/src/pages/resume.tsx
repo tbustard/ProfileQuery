@@ -304,57 +304,65 @@ export default function Resume() {
                 </div>
 
                 {/* Co-op Experience Section - Grouped */}
-                <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl border border-gray-200 p-5">
-                  <h4 className="text-sm font-bold text-gray-900 mb-3 flex items-center gap-2">
-                    <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded">CO-OP</span>
-                    Early Career Experience
+                <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl border border-gray-200 p-6">
+                  <h4 className="text-sm font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <span className="bg-blue-600 text-white text-xs px-2.5 py-1 rounded-md font-semibold">CO-OP</span>
+                    <span className="text-base">Early Career Experience</span>
                   </h4>
                   
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-4">
                     {/* RBC Banking */}
-                    <div className="bg-white rounded-lg p-3 border border-gray-100">
-                      <div className="flex items-start gap-2">
-                        <img src={rbcLogo} alt="RBC" className="w-6 h-6 object-contain mt-0.5" />
+                    <div className="bg-white rounded-lg p-4 border border-gray-200 hover:shadow-sm transition-shadow">
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0">
+                          <img src={rbcLogo} alt="RBC" className="w-8 h-8 object-contain" />
+                        </div>
                         <div className="flex-1 min-w-0">
-                          <h5 className="text-sm font-semibold text-gray-900 truncate">Banking Advisor</h5>
-                          <p className="text-xs text-gray-600">RBC • Kingston, ON • 2020-2021</p>
-                          <p className="text-xs text-gray-500 mt-1">Strengthened client relationships, +13% repeat business</p>
+                          <h5 className="text-sm font-bold text-gray-900">Banking Advisor</h5>
+                          <p className="text-xs text-gray-600 mt-0.5">RBC • Kingston, ON • 2020-2021</p>
+                          <p className="text-xs text-gray-700 mt-2 leading-relaxed">Strengthened client relationships, +13% repeat business</p>
                         </div>
                       </div>
                     </div>
 
                     {/* RBC Client Advisor */}
-                    <div className="bg-white rounded-lg p-3 border border-gray-100">
-                      <div className="flex items-start gap-2">
-                        <img src={rbcLogo} alt="RBC" className="w-6 h-6 object-contain mt-0.5" />
+                    <div className="bg-white rounded-lg p-4 border border-gray-200 hover:shadow-sm transition-shadow">
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0">
+                          <img src={rbcLogo} alt="RBC" className="w-8 h-8 object-contain" />
+                        </div>
                         <div className="flex-1 min-w-0">
-                          <h5 className="text-sm font-semibold text-gray-900 truncate">Client Advisor Intern</h5>
-                          <p className="text-xs text-gray-600">RBC • Fredericton, NB • 2019-2020</p>
-                          <p className="text-xs text-gray-500 mt-1">Resolved complex issues, +15% satisfaction scores</p>
+                          <h5 className="text-sm font-bold text-gray-900">Client Advisor Intern</h5>
+                          <p className="text-xs text-gray-600 mt-0.5">RBC • Fredericton, NB • 2019-2020</p>
+                          <p className="text-xs text-gray-700 mt-2 leading-relaxed">Resolved complex issues, +15% satisfaction scores</p>
                         </div>
                       </div>
                     </div>
 
                     {/* Irving Oil */}
-                    <div className="bg-white rounded-lg p-3 border border-gray-100">
-                      <div className="flex items-start gap-2">
-                        <img src={irvingLogo} alt="Irving" className="w-6 h-6 object-contain mt-0.5" />
+                    <div className="bg-white rounded-lg p-4 border border-gray-200 hover:shadow-sm transition-shadow">
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0">
+                          <img src={irvingLogo} alt="Irving" className="w-8 h-8 object-contain" />
+                        </div>
                         <div className="flex-1 min-w-0">
-                          <h5 className="text-sm font-semibold text-gray-900 truncate">Marketing Intern</h5>
-                          <p className="text-xs text-gray-600">Irving Oil • Saint John, NB • 2018</p>
-                          <p className="text-xs text-gray-500 mt-1">Conducted competitor analysis, +11% targeted reach</p>
+                          <h5 className="text-sm font-bold text-gray-900">Marketing Intern</h5>
+                          <p className="text-xs text-gray-600 mt-0.5">Irving Oil • Saint John, NB • 2018</p>
+                          <p className="text-xs text-gray-700 mt-2 leading-relaxed">Conducted competitor analysis, +11% targeted reach</p>
                         </div>
                       </div>
                     </div>
 
                     {/* Grant Thornton */}
-                    <div className="bg-white rounded-lg p-3 border border-gray-100">
-                      <div className="flex items-start gap-2">
-                        <img src={grantThorntonLogo} alt="Grant Thornton" className="w-6 h-6 object-contain mt-0.5" />
+                    <div className="bg-white rounded-lg p-4 border border-gray-200 hover:shadow-sm transition-shadow">
+                      <div className="flex items-start gap-3">
+                        <div className="flex-shrink-0">
+                          <img src={grantThorntonLogo} alt="Grant Thornton" className="w-8 h-8 object-contain" />
+                        </div>
                         <div className="flex-1 min-w-0">
-                          <h5 className="text-sm font-semibold text-gray-900 truncate">Tax Return Intern</h5>
-                          <p className="text-xs text-gray-600">Grant Thornton LLP • Saint John, NB • 2018</p>
-                          <p className="text-xs text-gray-500 mt-1">Processed 100+ returns, exceeded accuracy targets</p>
+                          <h5 className="text-sm font-bold text-gray-900">Tax Return Intern</h5>
+                          <p className="text-xs text-gray-600 mt-0.5">Grant Thornton LLP • Saint John, NB • 2018</p>
+                          <p className="text-xs text-gray-700 mt-2 leading-relaxed">Processed 100+ returns, exceeded accuracy targets</p>
                         </div>
                       </div>
                     </div>
