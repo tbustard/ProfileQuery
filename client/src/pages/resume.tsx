@@ -152,7 +152,7 @@ export default function Resume() {
                 <p className="text-sm leading-relaxed text-gray-700">
                   <span className="font-semibold">Strategic Finance Professional</span> with <span className="font-semibold">6+ years</span> driving 
                   <span className="font-medium">innovation</span> at the intersection of 
-                  <span className="font-medium">capital markets, wealth management, AI technology</span>, and 
+                  <span className="font-medium">capital markets, wealth management, AI technology,</span> and 
                   <span className="font-medium">data analytics</span>. 
                   Proven track record of <span className="font-medium">optimizing portfolio performance</span>, 
                   <span className="font-medium">enhancing client relationships</span>, and 
@@ -225,7 +225,7 @@ export default function Resume() {
                         </li>
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
-                          <span>Collaborate with product and engineering to implement <span className="font-semibold">AI-driven data features</span> boosting adoption by <span className="font-semibold">12%</span></span>
+                          <span>Collaborate with product and engineering to implement <span className="font-semibold">AI-driven data features</span>, boosting adoption by <span className="font-semibold">12%</span></span>
                         </li>
                       </ul>
                       <div className="flex flex-wrap gap-1">
@@ -262,11 +262,11 @@ export default function Resume() {
                         </li>
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
-                          <span>Bolstered client communications, boosting response rates by <span className="font-semibold">9%</span> heightening client satisfaction and retention</span>
+                          <span>Bolstered client communications, boosting response rates by <span className="font-semibold">9%</span>, heightening client satisfaction and retention</span>
                         </li>
                       </ul>
                       <div className="flex flex-wrap gap-1">
-                        {['Portfolio Management', 'Wealth Management', 'Client Relations', 'Financial Modeling', 'Excel/VBA'].map(skill => (
+                        {['Portfolio Management', 'Wealth Management', 'Client Relations', 'Financial Modeling', 'Advanced Excel'].map(skill => (
                           <span key={skill} className="inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
                             {skill}
                           </span>
@@ -299,7 +299,7 @@ export default function Resume() {
                         </li>
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
-                          <span>Exceeded targets achieving <span className="font-semibold">top 15%</span> performance ranking within district</span>
+                          <span>Exceeded targets, achieving <span className="font-semibold">top 15%</span> performance ranking within district</span>
                         </li>
                       </ul>
                       <div className="flex flex-wrap gap-1">
@@ -328,7 +328,7 @@ export default function Resume() {
                         <div className="flex-1 min-w-0">
                           <h5 className="text-sm font-semibold text-gray-900 truncate">Banking Advisor</h5>
                           <p className="text-xs text-gray-600">RBC • Kingston, ON • 2020-2021</p>
-                          <p className="text-xs text-gray-500 mt-1">Strengthened relationships, +13% repeat transactions</p>
+                          <p className="text-xs text-gray-500 mt-1">Strengthened client relationships, +13% repeat business</p>
                         </div>
                       </div>
                     </div>
@@ -340,7 +340,7 @@ export default function Resume() {
                         <div className="flex-1 min-w-0">
                           <h5 className="text-sm font-semibold text-gray-900 truncate">Client Advisor Intern</h5>
                           <p className="text-xs text-gray-600">RBC • Fredericton, NB • 2019-2020</p>
-                          <p className="text-xs text-gray-500 mt-1">Resolved complex issues, +15% feedback scores</p>
+                          <p className="text-xs text-gray-500 mt-1">Resolved complex issues, +15% satisfaction scores</p>
                         </div>
                       </div>
                     </div>
@@ -352,7 +352,7 @@ export default function Resume() {
                         <div className="flex-1 min-w-0">
                           <h5 className="text-sm font-semibold text-gray-900 truncate">Marketing Intern</h5>
                           <p className="text-xs text-gray-600">Irving Oil • Saint John, NB • 2018</p>
-                          <p className="text-xs text-gray-500 mt-1">Competitor analysis, +11% targeted marketing</p>
+                          <p className="text-xs text-gray-500 mt-1">Conducted competitor analysis, +11% targeted reach</p>
                         </div>
                       </div>
                     </div>
@@ -364,7 +364,7 @@ export default function Resume() {
                         <div className="flex-1 min-w-0">
                           <h5 className="text-sm font-semibold text-gray-900 truncate">Tax Return Intern</h5>
                           <p className="text-xs text-gray-600">Grant Thornton LLP • Saint John, NB • 2018</p>
-                          <p className="text-xs text-gray-500 mt-1">Processed 100+ tax returns, exceeded targets</p>
+                          <p className="text-xs text-gray-500 mt-1">Processed 100+ returns, exceeded accuracy targets</p>
                         </div>
                       </div>
                     </div>
@@ -395,7 +395,7 @@ export default function Resume() {
                   <div className="flex items-start gap-3">
                     <img src={trainingTheStreetLogo} alt="TTS" className="w-8 h-8 object-contain" />
                     <div className="flex-1">
-                      <h4 className="text-sm font-bold text-gray-900">DCF Analysis</h4>
+                      <h4 className="text-sm font-bold text-gray-900">Discounted Cash Flow Analysis</h4>
                       <p className="text-xs text-blue-600">Training the Street • 2024</p>
                       <p className="text-xs text-gray-500 mt-1">Advanced Financial Modeling</p>
                     </div>
@@ -407,8 +407,8 @@ export default function Resume() {
                   <div className="flex items-start gap-3">
                     <img src={csiLogo} alt="CSI" className="w-8 h-8 object-contain" />
                     <div className="flex-1">
-                      <h4 className="text-sm font-bold text-gray-900">Canadian Securities</h4>
-                      <p className="text-xs text-blue-600">CSI • 2021</p>
+                      <h4 className="text-sm font-bold text-gray-900">Canadian Securities Course</h4>
+                      <p className="text-xs text-blue-600">Canadian Securities Institute • 2021</p>
                       <p className="text-xs text-gray-500 mt-1">Securities & Regulations</p>
                     </div>
                   </div>
@@ -419,8 +419,8 @@ export default function Resume() {
                   <div className="flex items-start gap-3">
                     <img src={bloombergLogo} alt="Bloomberg" className="w-8 h-8 object-contain" />
                     <div className="flex-1">
-                      <h4 className="text-sm font-bold text-gray-900">Bloomberg Terminal</h4>
-                      <p className="text-xs text-blue-600">Bloomberg • 2020</p>
+                      <h4 className="text-sm font-bold text-gray-900">Bloomberg Market Concepts</h4>
+                      <p className="text-xs text-blue-600">Bloomberg LP • 2020</p>
                       <p className="text-xs text-gray-500 mt-1">Market Data & Analytics</p>
                     </div>
                   </div>
@@ -431,7 +431,7 @@ export default function Resume() {
               <div className="mt-3 bg-gray-50 rounded-lg p-3">
                 <p className="text-xs font-semibold text-gray-700 mb-2">Additional Training & Licenses:</p>
                 <div className="flex flex-wrap gap-2">
-                  {['Wall Street Prep Financial Modeling', 'ETS GMAT Score: 710', 'Coursera Machine Learning', 'McGill Personal Finance', 'IFIC Mutual Funds License'].map(cert => (
+                  {['Wall Street Prep Financial Modeling', 'GMAT Score: 710 (ETS)', 'Coursera Machine Learning Certificate', 'McGill Personal Finance Essentials', 'IFIC Mutual Funds License'].map(cert => (
                     <span key={cert} className="text-xs bg-white px-2 py-1 rounded border border-gray-200">
                       {cert}
                     </span>
@@ -462,11 +462,11 @@ export default function Resume() {
                     <ul className="space-y-1 mb-3">
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
-                        <span>Led fundraising strategies achieving <span className="font-semibold">20% increase</span> in funds raised over three years</span>
+                        <span>Led fundraising strategies, achieving <span className="font-semibold">20% increase</span> in funds raised over three years</span>
                       </li>
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
-                        <span>Spearheaded engagement initiatives resulting in <span className="font-semibold">15% rise</span> in workplace participation</span>
+                        <span>Spearheaded engagement initiatives, resulting in <span className="font-semibold">15% rise</span> in workplace participation</span>
                       </li>
                     </ul>
                   </div>
@@ -499,7 +499,7 @@ export default function Resume() {
                   <div>
                     <h4 className="text-xs font-bold text-gray-700 mb-2 uppercase">Technical Skills</h4>
                     <div className="space-y-1">
-                      {['Python/SQL/VBA Programming', 'Advanced Excel & Financial Modeling', 'Data Analytics & Visualization', 'Bloomberg Terminal & Reuters', 'AI/Machine Learning Integration', 'API Development & Integration'].map(skill => (
+                      {['Python/SQL/VBA Programming', 'Advanced Excel & Financial Modeling', 'Data Analytics & Visualization', 'Bloomberg Terminal & Refinitiv', 'AI/Machine Learning Integration', 'API Development & Integration'].map(skill => (
                         <p key={skill} className="text-xs text-gray-600">• {skill}</p>
                       ))}
                     </div>
