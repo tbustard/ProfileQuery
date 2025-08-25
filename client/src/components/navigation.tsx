@@ -672,6 +672,18 @@ export default function Navigation() {
             }}
           >
             <div className="p-6 pt-20">
+              {/* Close Button at top */}
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-xl font-bold text-gray-900">Menu</h2>
+                <button 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2 rounded-lg hover:bg-gray-100/50 transition-colors"
+                  aria-label="Close menu"
+                >
+                  <X size={24} className="text-gray-600" />
+                </button>
+              </div>
+              
               <div className="space-y-6">
                 {/* Mobile Navigation Links */}
                 {isHomePage && (

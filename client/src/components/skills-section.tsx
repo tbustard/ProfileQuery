@@ -39,6 +39,9 @@ export default function CertificationsSection() {
   const communityAnimation = useScrollAnimation({ threshold: 0.15, triggerOnce: true });
   const communityHeaderAnimation = useScrollAnimation({ threshold: 0.25, triggerOnce: true, delay: 100 });
   const { ref: communityRef, visibleItems: communityItems } = useStaggeredScrollAnimation(3, { threshold: 0.15, triggerOnce: true, delay: 200 });
+  
+  // Force visibility on mobile
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
 
   const certificationCategories: CertificationCategory[] = [
     {
@@ -136,7 +139,7 @@ export default function CertificationsSection() {
               <div 
                 key={categoryIndex} 
                 id={`certifications-${category.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} 
-                className={`relative overflow-hidden rounded-[20px] sm:rounded-[28px] bg-gradient-to-r from-gray-100/50 to-gray-200/50 backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 mobile-visible scroll-scale-in scroll-stagger-${categoryIndex + 1} ${visibleItems.has(categoryIndex) ? 'visible' : ''}`}
+                className={`relative overflow-hidden rounded-[20px] sm:rounded-[28px] bg-gradient-to-r from-gray-100/50 to-gray-200/50 backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 mobile-visible scroll-scale-in scroll-stagger-${categoryIndex + 1} ${visibleItems.has(categoryIndex) || isMobile ? 'visible' : ''}`}
               >
                 <div className="absolute inset-0 bg-white/85" />
                 <div className="relative p-6 sm:p-8 lg:p-10">
