@@ -4,6 +4,7 @@ import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
 import { useQuery } from "@tanstack/react-query";
 // VideoOverlay no longer needed - using YouTube directly
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
+import fiscalAiLogo from "@assets/fiscal_ai_logo_new.png";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
 import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
@@ -242,13 +243,13 @@ export default function HeroSection() {
                   {/* Three most recent experience logos stacked */}
                   <div className="flex relative">
                     <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-30">
-                      <img src={bmoLogo} alt="BMO" className="w-4 h-4 object-contain" />
+                      <img src={fiscalAiLogo} alt="Fiscal.ai" className="w-4 h-4 object-contain" />
                     </div>
                     <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-20 -ml-2">
-                      <img src={tdLogo} alt="TD" className="w-4 h-4 object-contain" />
+                      <img src={bmoLogo} alt="BMO" className="w-4 h-4 object-contain" />
                     </div>
                     <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-10 -ml-2">
-                      <img src={rbcLogo} alt="RBC" className="w-4 h-4 object-contain" />
+                      <img src={tdLogo} alt="TD" className="w-4 h-4 object-contain" />
                     </div>
                   </div>
                 </div>
