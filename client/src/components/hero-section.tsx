@@ -41,8 +41,8 @@ export default function HeroSection() {
   };
   
   return (
-    <section id="hero" className="relative overflow-hidden min-h-screen flex items-start justify-center pt-24 sm:pt-32" style={{ backgroundColor: '#f5f5f7' }}>
-      <div className="relative z-10 px-4 sm:px-6 mt-4 sm:mt-8">
+    <section id="hero" className="relative overflow-hidden min-h-screen flex items-center justify-center" style={{ backgroundColor: '#f5f5f7', paddingTop: '5rem' }}>
+      <div className="relative z-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           
           {/* Main Hero Card */}
