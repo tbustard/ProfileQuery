@@ -204,7 +204,7 @@ export default function HeroSection() {
           </div>
 
           {/* Stats/Highlights Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-6 sm:mt-8 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-6 sm:mt-8 mb-6">
             
             {/* Education Card */}
             <div 

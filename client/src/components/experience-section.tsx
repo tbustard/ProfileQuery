@@ -152,7 +152,7 @@ export default function ExperienceSection() {
           {/* Clean Timeline Line */}
           <div className="absolute left-8 top-0 bottom-0 w-px bg-gray-200 hidden md:block"></div>
           
-          <div className="space-y-6 sm:space-y-8 lg:space-y-10">
+          <div className="space-y-6 sm:space-y-8">
             {experiences.map((exp, index) => (
               <div 
                 key={index} 

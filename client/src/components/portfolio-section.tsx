@@ -59,7 +59,7 @@ export default function PortfolioSection() {
           </p>
         </div>
 
-        <div ref={projectsRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={projectsRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <Card 
               key={index} 

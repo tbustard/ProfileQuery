@@ -129,7 +129,7 @@ export default function CertificationsSection() {
           </div>
 
         {/* All Certifications */}
-        <div ref={certificationsRef} className="space-y-8 mb-12 sm:mb-16 lg:mb-20 certifications-container">
+        <div ref={certificationsRef} className="space-y-6 sm:space-y-8 mb-12 sm:mb-16 lg:mb-20 certifications-container">
             {certificationCategories.map((category, categoryIndex) => (
               <div 
                 key={categoryIndex} 
@@ -328,7 +328,7 @@ export function CommunitySection() {
           {/* Clean Timeline Line */}
           <div className="absolute left-8 top-0 bottom-0 w-px bg-gray-200 hidden md:block"></div>
           
-          <div className="space-y-8 sm:space-y-10">
+          <div className="space-y-6 sm:space-y-8">
             {communityActivities.map((activity, index) => (
               <div 
                 key={index} 
