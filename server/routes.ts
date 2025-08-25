@@ -565,8 +565,8 @@ Focus on investment analysis, portfolio management, and financial reporting quer
   // Get the most recent uploaded resume
   app.get("/api/latest-resume", async (req, res) => {
     try {
-      // Use a default user ID for now (can be replaced with actual auth later)
-      const userId = "default-user";
+      // Use tylerbustard as the user ID (matches the authenticated user)
+      const userId = "tylerbustard";
       const resumes = await storage.getResumeUploads(userId);
       
       if (!resumes || resumes.length === 0) {
@@ -578,7 +578,18 @@ Focus on investment analysis, portfolio management, and financial reporting quer
         new Date(b.uploadedAt!).getTime() - new Date(a.uploadedAt!).getTime()
       )[0];
       
-      res.json(latestResume);
+      // Return the PDF file directly instead of JSON
+      const resumePath = path.join(process.cwd(), latestResume.fileUrl.replace(/^\//, ''));
+      
+      if (!fs.existsSync(resumePath)) {
+        return res.status(404).json({ error: "Resume file not found" });
+      }
+
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `inline; filename="${latestResume.fileName}"`);
+      
+      const fileStream = fs.createReadStream(resumePath);
+      fileStream.pipe(res);
     } catch (error) {
       console.error("Error fetching latest resume:", error);
       res.status(500).json({ error: "Failed to fetch latest resume" });

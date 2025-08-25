@@ -188,13 +188,13 @@ export default function UploadResumeDashboard() {
         <div className="flex items-center justify-between mb-6">
           <Button 
             variant="ghost" 
-            onClick={() => window.location.href = '/'}
+            onClick={() => window.location.href = '/resume'}
             className="text-gray-600 hover:text-gray-900 font-medium"
             data-testid="button-back"
             style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Video
+            Back to Resume
           </Button>
           <div className="flex items-center gap-3">
             <Button 
