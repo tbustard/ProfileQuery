@@ -191,24 +191,24 @@ export default function Resume() {
                 <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider">Professional Experience</h3>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {/* Fiscal.ai - NEW */}
-                <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-gradient-to-br from-gray-900 to-gray-700 rounded-xl shadow-sm flex items-center justify-center">
-                        <img src={fiscalAiLogo} alt="Fiscal.ai" className="w-8 h-8 object-contain filter brightness-0 invert" />
+                      <div className="w-14 h-14 bg-gradient-to-br from-gray-900 to-gray-700 rounded-xl shadow-md flex items-center justify-center border border-gray-200">
+                        <img src={fiscalAiLogo} alt="Fiscal.ai" className="w-10 h-10 object-contain filter brightness-0 invert" />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <div className="flex justify-between items-start mb-2">
+                      <div className="flex justify-between items-start mb-3">
                         <div>
                           <h4 className="text-base font-bold text-gray-900">Equity Analyst</h4>
                           <p className="text-sm text-blue-600 font-semibold">Fiscal.ai • Toronto, ON</p>
                         </div>
                         <span className="text-sm font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded">2023-Present</span>
                       </div>
-                      <ul className="space-y-1 mb-3">
+                      <ul className="space-y-1.5 mb-4">
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
                           <span>Analyze and compile public company financial statements, cutting reporting turnaround by <span className="font-semibold">13%</span></span>
@@ -230,22 +230,22 @@ export default function Resume() {
                 </div>
 
                 {/* BMO Private Wealth */}
-                <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-500 rounded-xl shadow-sm flex items-center justify-center">
-                        <img src={bmoLogo} alt="BMO" className="w-8 h-8 object-contain filter brightness-0 invert" />
+                      <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-500 rounded-xl shadow-md flex items-center justify-center border border-blue-200">
+                        <img src={bmoLogo} alt="BMO" className="w-10 h-10 object-contain filter brightness-0 invert" />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <div className="flex justify-between items-start mb-2">
+                      <div className="flex justify-between items-start mb-3">
                         <div>
                           <h4 className="text-base font-bold text-gray-900">Portfolio Assistant</h4>
                           <p className="text-sm text-blue-600 font-semibold">BMO Private Wealth • Toronto, ON</p>
                         </div>
                         <span className="text-sm font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded">2022-2023</span>
                       </div>
-                      <ul className="space-y-1 mb-3">
+                      <ul className="space-y-1.5 mb-4">
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
                           <span>Advised Investment Counsellors managing <span className="font-semibold">$100M+ AUM</span>, reducing preparation time by <span className="font-semibold">12%</span></span>
@@ -267,22 +267,22 @@ export default function Resume() {
                 </div>
 
                 {/* TD Canada Trust */}
-                <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-green-500 rounded-xl shadow-sm flex items-center justify-center">
-                        <img src={tdLogo} alt="TD" className="w-8 h-8 object-contain filter brightness-0 invert" />
+                      <div className="w-14 h-14 bg-gradient-to-br from-green-600 to-green-500 rounded-xl shadow-md flex items-center justify-center border border-green-200">
+                        <img src={tdLogo} alt="TD" className="w-10 h-10 object-contain filter brightness-0 invert" />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <div className="flex justify-between items-start mb-2">
+                      <div className="flex justify-between items-start mb-3">
                         <div>
                           <h4 className="text-base font-bold text-gray-900">Financial Advisor</h4>
                           <p className="text-sm text-blue-600 font-semibold">TD Canada Trust • Kingston, ON</p>
                         </div>
                         <span className="text-sm font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded">2021-2022</span>
                       </div>
-                      <ul className="space-y-1 mb-3">
+                      <ul className="space-y-1.5 mb-4">
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
                           <span>Cultivated strong client relationships, achieving <span className="font-semibold">11% sales increase</span> through needs-based advisory</span>
