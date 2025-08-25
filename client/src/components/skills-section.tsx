@@ -138,7 +138,7 @@ export default function CertificationsSection() {
                 id={`certifications-${category.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} 
                 className={`relative overflow-hidden rounded-[20px] sm:rounded-[28px] bg-gradient-to-r from-gray-100/50 to-gray-200/50 backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 mobile-visible scroll-scale-in scroll-stagger-${categoryIndex + 1} ${visibleItems.has(categoryIndex) ? 'visible' : ''}`}
               >
-                <div className="absolute inset-0 bg-white/80 backdrop-blur-xl" />
+                <div className="absolute inset-0 bg-white/85" />
                 <div className="relative p-6 sm:p-8 lg:p-10">
                   <div className="flex flex-col lg:flex-row lg:items-center gap-8">
                     {/* Category Title */}

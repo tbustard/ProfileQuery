@@ -19,8 +19,32 @@ export const useGlobalAnimations = () => {
         -moz-osx-font-smoothing: grayscale;
       }
       
-      /* Prevent animation flickers */
-      * {
+      /* Optimize backdrop filters for performance */
+      @media (max-width: 768px) {
+        .backdrop-blur-xl, .backdrop-blur-lg {
+          backdrop-filter: blur(8px) !important;
+          -webkit-backdrop-filter: blur(8px) !important;
+        }
+        .backdrop-blur-md {
+          backdrop-filter: blur(6px) !important;
+          -webkit-backdrop-filter: blur(6px) !important;
+        }
+      }
+      
+      /* Reduce effects on low-power devices */
+      @media (prefers-reduced-motion: reduce) {
+        .backdrop-blur-xl, .backdrop-blur-lg, .backdrop-blur-md {
+          backdrop-filter: none !important;
+          -webkit-backdrop-filter: none !important;
+          background: rgba(255, 255, 255, 0.9) !important;
+        }
+      }
+      
+      /* Prevent animation flickers - only on animated elements */
+      .scroll-fade-in,
+      .scroll-slide-up,
+      .scroll-scale-in,
+      .page-load-fade-in {
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
       }

@@ -21,7 +21,7 @@ export default function ContactInfoSection() {
       {/* Background - inherits Apple grey from parent */}
       
       <div className="container-width">
-        <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-6 sm:p-8 lg:p-12 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
+        <div className="bg-white/90 backdrop-blur-sm rounded-[28px] p-6 sm:p-8 lg:p-12 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header */}
           <div 
             ref={headerAnimation.ref}

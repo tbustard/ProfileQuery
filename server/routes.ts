@@ -9,8 +9,12 @@ import fs from "fs";
 import crypto from "crypto";
 import cloudinary from "./cloudinary.js";
 
+if (!process.env.OPENAI_API_KEY && !process.env.OPENAI_API_KEY_ENV_VAR) {
+  console.warn("Warning: No OpenAI API key found in environment variables");
+}
+
 const openai = new OpenAI({ 
-  apiKey: process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY_ENV_VAR || "default_key" 
+  apiKey: process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY_ENV_VAR || "" 
 });
 
 // Configure multer for video uploads (memory storage for Cloudinary)
@@ -60,7 +64,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           .filter(r => r.fileName.toLowerCase().endsWith('.pdf'))
           .sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime())[0];
 
-        if (pdfResume) {
+        if (pdfResume && pdfResume.fileUrl) {
           const resumePath = path.join(process.cwd(), pdfResume.fileUrl.replace(/^\//, ''));
           
           if (fs.existsSync(resumePath)) {
@@ -178,11 +182,13 @@ Focus on investment analysis, portfolio management, and financial reporting quer
 
       const { userId = 'employer' } = req.body;
       
-      // Create resume record in storage
+      // Create resume record in storage with all required fields
       const resume = await storage.createResumeUpload({
         fileName: req.file.originalname,
         fileUrl: `/uploads/resumes/${req.file.filename}`,
-        userId
+        userId,
+        mimeType: req.file.mimetype,
+        fileSize: req.file.size.toString()
       });
 
       res.json({ 
@@ -223,6 +229,10 @@ Focus on investment analysis, portfolio management, and financial reporting quer
         new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
       )[0];
 
+      if (!latestResume.fileUrl) {
+        return res.status(404).json({ error: "Resume file path not found" });
+      }
+      
       const resumePath = path.join(process.cwd(), latestResume.fileUrl.replace(/^\//, ''));
       
       if (!fs.existsSync(resumePath)) {

@@ -46,10 +46,10 @@ export default function HeroSection() {
         <div className="max-w-7xl mx-auto">
           
           {/* Main Hero Card */}
-          <div className={`bg-white/70 backdrop-blur-[25px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-12 lg:p-16 shadow-2xl hover:shadow-3xl transition-all duration-500 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
+          <div className={`bg-white/80 backdrop-blur-md border border-white/30 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-12 lg:p-16 shadow-2xl hover:shadow-3xl transition-all duration-500 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
                style={{
-                 backdropFilter: 'blur(25px) saturate(200%) brightness(110%)',
-                 WebkitBackdropFilter: 'blur(25px) saturate(200%) brightness(110%)',
+                 backdropFilter: 'blur(12px)',
+                 WebkitBackdropFilter: 'blur(12px)',
                  boxShadow: '0 20px 80px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
                }}>
             
