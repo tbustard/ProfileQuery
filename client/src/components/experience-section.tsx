@@ -158,7 +158,7 @@ export default function ExperienceSection() {
               Experience
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Finance, wealth management & AI-driven fintech expertise
+              Professional experience in finance, technology and banking
             </p>
           </div>
 

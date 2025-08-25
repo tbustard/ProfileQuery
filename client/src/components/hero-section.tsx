@@ -256,7 +256,7 @@ export default function HeroSection() {
                 <h3 className="text-lg font-semibold text-foreground">Experience</h3>
               </div>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Finance, wealth management & AI-driven fintech expertise
+                Professional experience in finance, technology and banking
               </p>
             </div>
 
