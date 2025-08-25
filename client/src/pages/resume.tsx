@@ -83,9 +83,8 @@ export default function Resume() {
                     Finance & Technology Professional
                   </h2>
                   <p className="text-base text-muted-foreground leading-relaxed max-w-2xl">
-                    Results-driven finance and technology professional with expertise in financial analysis, 
-                    client relationship management, and strategic business solutions. Proven track record in 
-                    wealth management and financial services.
+                    Driving innovation at the intersection of finance and technology. 
+                    Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
                   </p>
                 </div>
 
@@ -104,8 +103,8 @@ export default function Resume() {
                     <span>New Brunswick, Canada</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Linkedin className="w-4 h-4" />
-                    <span>linkedin.com/in/tylerbustard</span>
+                    <Globe className="w-4 h-4" />
+                    <span>tylerbustard.ca</span>
                   </div>
                 </div>
               </div>
@@ -128,15 +127,13 @@ export default function Resume() {
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-foreground">Investment Advisor</h4>
-                      <span className="text-sm text-muted-foreground">2023 - Present</span>
+                      <h4 className="text-lg font-semibold text-foreground">Portfolio Assistant</h4>
+                      <span className="text-sm text-muted-foreground">2022 - 2023</span>
                     </div>
-                    <p className="text-primary font-medium mb-3">BMO Nesbitt Burns</p>
+                    <p className="text-primary font-medium mb-3">BMO Private Wealth</p>
                     <ul className="text-sm text-muted-foreground space-y-2">
-                      <li>• Managed high-net-worth client portfolios exceeding $50M in assets under management</li>
-                      <li>• Provided comprehensive financial planning and investment strategies</li>
-                      <li>• Achieved 15% year-over-year client acquisition growth</li>
-                      <li>• Specialized in equity research and market analysis</li>
+                      <li>• Advised two Investment Counsellors managing portfolios over $100M and cut preparation time by 12%</li>
+                      <li>• Bolstered client communications, boosting response rates by 9% heightening client satisfaction and retention</li>
                     </ul>
                   </div>
                 </div>
@@ -151,14 +148,12 @@ export default function Resume() {
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                       <h4 className="text-lg font-semibold text-foreground">Financial Advisor</h4>
-                      <span className="text-sm text-muted-foreground">2022 - 2023</span>
+                      <span className="text-sm text-muted-foreground">2021 - 2022</span>
                     </div>
-                    <p className="text-primary font-medium mb-3">TD Wealth Management</p>
+                    <p className="text-primary font-medium mb-3">TD Canada Trust</p>
                     <ul className="text-sm text-muted-foreground space-y-2">
-                      <li>• Delivered personalized financial advisory services to retail and commercial clients</li>
-                      <li>• Conducted comprehensive financial needs assessments</li>
-                      <li>• Exceeded quarterly sales targets by 20% consistently</li>
-                      <li>• Collaborated with cross-functional teams to optimize client outcomes</li>
+                      <li>• Cultivated strong client relationships by assessing individual financial needs, resulting in an 11% increase in sales</li>
+                      <li>• Exceeded sales targets, achieving a top 15% performance ranking within the district</li>
                     </ul>
                   </div>
                 </div>
@@ -172,15 +167,33 @@ export default function Resume() {
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-foreground">Client Associate</h4>
-                      <span className="text-sm text-muted-foreground">2021 - 2022</span>
+                      <h4 className="text-lg font-semibold text-foreground">Banking Advisor</h4>
+                      <span className="text-sm text-muted-foreground">2020 - 2021</span>
                     </div>
-                    <p className="text-primary font-medium mb-3">RBC Dominion Securities</p>
+                    <p className="text-primary font-medium mb-3">Royal Bank of Canada</p>
                     <ul className="text-sm text-muted-foreground space-y-2">
-                      <li>• Supported senior advisors in managing client relationships and portfolios</li>
-                      <li>• Prepared detailed financial reports and investment proposals</li>
-                      <li>• Maintained client database and ensured regulatory compliance</li>
-                      <li>• Assisted in new client onboarding and account management</li>
+                      <li>• Strengthened client relationships by advising on personalized solutions, increased repeat transactions by 13%</li>
+                      <li>• Excelled in needs-based advising, boosting adoption of core products like GICs, mutual funds, and TFSAs by 8%</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                {/* RBC Intern Experience - Additional */}
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
+                      <img src={rbcLogo} alt="RBC" className="w-8 h-8 object-contain" />
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                      <h4 className="text-lg font-semibold text-foreground">Client Advisor Intern</h4>
+                      <span className="text-sm text-muted-foreground">2019 - 2020</span>
+                    </div>
+                    <p className="text-primary font-medium mb-3">Royal Bank of Canada</p>
+                    <ul className="text-sm text-muted-foreground space-y-2">
+                      <li>• Resolved complex client issues, achieving a 15% boost in positive feedback scores for the branch</li>
+                      <li>• Promoted RBC's digital banking tools, leading to a 10% increase in online and mobile banking adoption</li>
                     </ul>
                   </div>
                 </div>
@@ -203,13 +216,15 @@ export default function Resume() {
                 <div className="flex-1">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                     <h4 className="text-lg font-semibold text-foreground">Bachelor of Business Administration</h4>
-                    <span className="text-sm text-muted-foreground">2017 - 2021</span>
+                    <span className="text-sm text-muted-foreground">2020</span>
                   </div>
-                  <p className="text-primary font-medium mb-3">University of New Brunswick</p>
+                  <p className="text-primary font-medium mb-3">University of New Brunswick • Saint John, New Brunswick</p>
                   <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Major: Finance, Minor: Economics</li>
-                    <li>• GPA: 3.8/4.0 - Dean's List (6 semesters)</li>
-                    <li>• Relevant Coursework: Corporate Finance, Investment Analysis, Financial Markets</li>
+                    <li>• Major: Finance</li>
+                    <li>• Case Competitions: 1st Place (CIBC), 3rd Place (TD), RBC and SLC participant</li>
+                    <li>• Analyst and Portfolio Manager – University of New Brunswick Student Investment Fund</li>
+                    <li>• UNB Finance Club, RBC Student Ambassador, Accredited Co-op Program</li>
+                    <li>• Recipient of 5 Scholarship and Alumni Awards for academic merit and leadership skills, Total $47,500</li>
                   </ul>
                 </div>
               </div>
@@ -235,11 +250,11 @@ export default function Resume() {
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-foreground">CFA Level II Candidate</h4>
-                      <span className="text-sm text-muted-foreground">In Progress</span>
+                      <h4 className="text-lg font-semibold text-foreground">CFA Level I Candidate</h4>
+                      <span className="text-sm text-muted-foreground">2025</span>
                     </div>
                     <p className="text-primary font-medium mb-2">CFA Institute</p>
-                    <p className="text-sm text-muted-foreground">Advanced financial analysis and portfolio management certification</p>
+                    <p className="text-sm text-muted-foreground">Comprehensive training in investment analysis, portfolio management, and ethical standards</p>
                   </div>
                 </div>
 
@@ -251,11 +266,11 @@ export default function Resume() {
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-foreground">Financial Modeling & Valuation</h4>
-                      <span className="text-sm text-muted-foreground">2023</span>
+                      <h4 className="text-lg font-semibold text-foreground">Discounted Cash Flow Analysis</h4>
+                      <span className="text-sm text-muted-foreground">2024</span>
                     </div>
                     <p className="text-primary font-medium mb-2">Training the Street</p>
-                    <p className="text-sm text-muted-foreground">Advanced Excel modeling and DCF valuation techniques</p>
+                    <p className="text-sm text-muted-foreground">Advanced financial modeling techniques for valuation using discounted cash flow methodology</p>
                   </div>
                 </div>
               </div>
@@ -324,23 +339,23 @@ export default function Resume() {
               
               <div className="grid md:grid-cols-2 gap-6">
                 <Card className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
-                  <h4 className="text-lg font-semibold text-blue-900 mb-2">$50M+</h4>
-                  <p className="text-sm text-blue-700">Assets Under Management</p>
+                  <h4 className="text-lg font-semibold text-blue-900 mb-2">$100M+</h4>
+                  <p className="text-sm text-blue-700">Portfolios Managed</p>
                 </Card>
                 
                 <Card className="p-6 bg-gradient-to-br from-green-50 to-green-100 border-green-200">
-                  <h4 className="text-lg font-semibold text-green-900 mb-2">15%</h4>
-                  <p className="text-sm text-green-700">Annual Client Growth</p>
+                  <h4 className="text-lg font-semibold text-green-900 mb-2">$47,500</h4>
+                  <p className="text-sm text-green-700">Academic Scholarships</p>
                 </Card>
                 
                 <Card className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200">
-                  <h4 className="text-lg font-semibold text-purple-900 mb-2">95%</h4>
-                  <p className="text-sm text-purple-700">Client Retention Rate</p>
+                  <h4 className="text-lg font-semibold text-purple-900 mb-2">1st Place</h4>
+                  <p className="text-sm text-purple-700">CIBC M&A Case Competition</p>
                 </Card>
                 
                 <Card className="p-6 bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200">
-                  <h4 className="text-lg font-semibold text-orange-900 mb-2">120%</h4>
-                  <p className="text-sm text-orange-700">Target Achievement</p>
+                  <h4 className="text-lg font-semibold text-orange-900 mb-2">Top 15%</h4>
+                  <p className="text-sm text-orange-700">Performance Ranking</p>
                 </Card>
               </div>
             </section>
