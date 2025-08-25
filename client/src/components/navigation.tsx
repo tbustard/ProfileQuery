@@ -8,6 +8,7 @@ import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 export default function Navigation() {
   const [location] = useLocation();
   const isHomePage = location === '/';
+  const isResumePage = location === '/resume';
   
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
@@ -290,12 +291,12 @@ export default function Navigation() {
                     </button>
                   </div>
 
-                  {/* Download */}
+                  {/* Download/Close */}
                   <button
-                    onClick={() => window.location.href = '/resume'}
+                    onClick={() => isResumePage ? window.history.back() : window.location.href = '/resume'}
                     className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 text-primary hover:text-primary/80 hover:bg-primary/5"
                   >
-                    Download
+                    {isResumePage ? 'Close' : 'Download'}
                   </button>
 
                 </div>
@@ -842,14 +843,14 @@ export default function Navigation() {
                     <h3 className="text-xl font-bold text-foreground">Download</h3>
                     <button 
                       onClick={() => {
-                        window.location.href = '/resume';
+                        isResumePage ? window.history.back() : window.location.href = '/resume';
                         setIsMobileMenuOpen(false);
                       }}
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
                     >
                       <div className="space-y-2">
-                        <div className="text-sm font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">Resume</div>
-                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">Download Tyler's Resume</div>
+                        <div className="text-sm font-bold text-white bg-black/60 backdrop-blur-sm rounded px-3 py-2 block w-fit">{isResumePage ? 'Close' : 'Resume'}</div>
+                        <div className="text-base text-gray-100 bg-black/50 backdrop-blur-sm rounded px-3 py-2 block w-fit">{isResumePage ? 'Go back to main page' : 'Download Tyler\'s Resume'}</div>
                       </div>
                     </button>
                   </div>

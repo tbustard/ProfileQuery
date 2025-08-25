@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Globe, Download, Printer, Linkedin } from "lucide-react";
+import Navigation from "@/components/navigation";
 
 // Import logos from assets
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
@@ -26,6 +27,7 @@ export default function Resume() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#f5f5f7' }}>
+      <Navigation />
       {/* Header Actions - Hide on print */}
       <div className="print:hidden sticky top-4 z-50 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto flex justify-end gap-3">
