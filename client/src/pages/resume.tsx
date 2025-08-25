@@ -387,20 +387,22 @@ export default function Resume() {
         @media print {
           /* Page setup for exactly 2 pages */
           @page {
-            margin: 0.5in;
+            margin: 0.75in 0.5in;
             size: letter;
           }
           
-          /* Global print settings - clean white background */
+          /* Global print settings - Apple-inspired clean design */
           body, html {
             background: white !important;
             print-color-adjust: exact;
             -webkit-print-color-adjust: exact;
             margin: 0 !important;
             padding: 0 !important;
-            font-size: 10px !important;
-            line-height: 1.35 !important;
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif !important;
+            font-size: 9.5px !important;
+            line-height: 1.5 !important;
+            font-family: -apple-system, 'SF Pro Text', BlinkMacSystemFont, system-ui, sans-serif !important;
+            letter-spacing: -0.01em !important;
+            -webkit-font-smoothing: antialiased !important;
           }
           
           /* Hide navigation */
@@ -408,7 +410,7 @@ export default function Resume() {
             display: none !important;
           }
           
-          /* White page background */
+          /* Clean white background */
           .min-h-screen {
             background: white !important;
             padding: 0 !important;
@@ -424,13 +426,13 @@ export default function Resume() {
             margin: 0 !important;
           }
           
-          /* Resume cards - clean white with subtle styling */
+          /* Resume cards - minimal Apple style */
           .bg-white\\/90 {
             background: white !important;
             border: none !important;
             border-radius: 0 !important;
             box-shadow: none !important;
-            padding: 1.5rem 0.75rem !important;
+            padding: 0 !important;
             margin-bottom: 0 !important;
             backdrop-filter: none !important;
           }
@@ -440,110 +442,115 @@ export default function Resume() {
             page-break-after: always !important;
           }
           
-          /* Header section with photo */
+          /* Header section - Apple-style layout */
           .flex.items-start.gap-8 {
             display: flex !important;
-            align-items: flex-start !important;
-            gap: 1rem !important;
-            margin-bottom: 1rem !important;
+            align-items: center !important;
+            gap: 1.25rem !important;
+            margin-bottom: 1.5rem !important;
+            padding-bottom: 1rem !important;
+            border-bottom: 0.5px solid #d1d5db !important;
           }
           
-          /* Profile photo - smaller for print */
+          /* Profile photo - circular Apple style */
           .w-40.h-40 {
-            width: 3rem !important;
-            height: 3rem !important;
-            border-radius: 0.5rem !important;
+            width: 3.25rem !important;
+            height: 3.25rem !important;
+            border-radius: 50% !important;
             object-fit: cover !important;
             flex-shrink: 0 !important;
+            border: 0.5px solid #e5e7eb !important;
           }
           
-          /* Name - prominent but space-efficient */
+          /* Name - Apple's clean typography */
           .text-6xl {
-            font-size: 1.75rem !important;
+            font-size: 1.9rem !important;
             line-height: 1 !important;
-            margin-bottom: 0.125rem !important;
-            font-weight: 700 !important;
+            margin-bottom: 0.15rem !important;
+            font-weight: 600 !important;
             color: #000 !important;
+            letter-spacing: -0.03em !important;
           }
           
-          /* Professional title */
+          /* Professional title - subtle accent */
           h2.text-2xl {
-            font-size: 0.95rem !important;
+            font-size: 1rem !important;
             line-height: 1.2 !important;
-            margin-bottom: 0.375rem !important;
-            color: #2563eb !important;
-            font-weight: 500 !important;
+            margin-bottom: 0.5rem !important;
+            color: #007AFF !important;
+            font-weight: 400 !important;
+            letter-spacing: -0.01em !important;
           }
           
-          /* Description paragraph */
+          /* Description - refined text */
           .text-base {
-            font-size: 0.7rem !important;
-            line-height: 1.35 !important;
-            color: #4b5563 !important;
+            font-size: 0.75rem !important;
+            line-height: 1.45 !important;
+            color: #48484A !important;
+            font-weight: 400 !important;
           }
           
-          /* Contact info - compact single line */
+          /* Contact info - Apple's minimal style */
           .flex.justify-center.items-center.flex-wrap {
             justify-content: center !important;
             align-items: center !important;
-            gap: 0.375rem !important;
-            margin: 0.75rem 0 !important;
+            gap: 0.5rem !important;
+            margin: 0 !important;
             padding: 0 !important;
             border: none !important;
           }
           
           .text-sm {
-            font-size: 0.6rem !important;
+            font-size: 0.65rem !important;
             line-height: 1 !important;
-            color: #4b5563 !important;
+            color: #8E8E93 !important;
+            font-weight: 400 !important;
           }
           
-          /* Icons in contact info */
+          /* Hide icons for cleaner look */
           .w-4.h-4 {
-            width: 0.6rem !important;
-            height: 0.6rem !important;
-            color: #6b7280 !important;
+            display: none !important;
           }
           
-          /* Dots between contact items */
+          /* Separator dots - thinner */
           .mx-2 {
-            margin: 0 0.25rem !important;
+            margin: 0 0.375rem !important;
+            color: #C7C7CC !important;
+            font-weight: 300 !important;
           }
           
-          /* Section headers - clean with line */
+          /* Section headers - Apple's minimal approach */
           h3.text-2xl.font-semibold,
           .text-2xl.font-semibold {
-            font-size: 0.95rem !important;
+            font-size: 0.85rem !important;
             font-weight: 600 !important;
-            margin: 1.25rem 0 0.625rem 0 !important;
+            margin: 1.5rem 0 0.75rem 0 !important;
             color: #000 !important;
-            display: flex !important;
-            align-items: center !important;
-            gap: 0.5rem !important;
+            display: block !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.08em !important;
           }
           
-          /* Divider line in headers */
+          /* Remove divider lines for cleaner look */
           .h-px.bg-border {
-            height: 1px !important;
-            background: #d1d5db !important;
-            flex: 1 !important;
+            display: none !important;
           }
           
-          /* Experience entries */
+          /* Experience entries - refined spacing */
           .flex.gap-6 {
             display: flex !important;
-            gap: 0.625rem !important;
-            margin-bottom: 0.875rem !important;
+            gap: 0.75rem !important;
+            margin-bottom: 1rem !important;
             page-break-inside: avoid !important;
           }
           
-          /* Company logo containers */
+          /* Company logo containers - Apple's subtle style */
           .w-12.h-12.bg-white.rounded-xl.shadow-md {
-            width: 1.75rem !important;
-            height: 1.75rem !important;
-            background: #f9fafb !important;
-            border: 1px solid #e5e7eb !important;
-            border-radius: 0.375rem !important;
+            width: 1.5rem !important;
+            height: 1.5rem !important;
+            background: #F2F2F7 !important;
+            border: none !important;
+            border-radius: 0.25rem !important;
             box-shadow: none !important;
             display: flex !important;
             align-items: center !important;
@@ -553,118 +560,135 @@ export default function Resume() {
           
           /* Company logos */
           .w-8.h-8 {
-            width: 1.125rem !important;
-            height: 1.125rem !important;
+            width: 1rem !important;
+            height: 1rem !important;
             object-fit: contain !important;
+            opacity: 0.8 !important;
           }
           
-          /* Job titles */
+          /* Job titles - strong but elegant */
           .text-lg.font-semibold {
             font-size: 0.8rem !important;
             font-weight: 600 !important;
             color: #000 !important;
             margin-bottom: 0.05rem !important;
+            letter-spacing: -0.01em !important;
           }
           
-          /* Company names */
+          /* Company names - Apple blue */
           .text-primary.font-medium {
-            color: #2563eb !important;
-            font-weight: 500 !important;
-            font-size: 0.65rem !important;
+            color: #007AFF !important;
+            font-weight: 400 !important;
+            font-size: 0.7rem !important;
             margin-bottom: 0 !important;
           }
           
-          /* Location text */
+          /* Location text - subtle gray */
           p.text-sm.text-muted-foreground {
-            font-size: 0.6rem !important;
-            color: #6b7280 !important;
-            margin-bottom: 0.25rem !important;
+            font-size: 0.65rem !important;
+            color: #8E8E93 !important;
+            margin-bottom: 0.375rem !important;
+            font-weight: 400 !important;
           }
           
-          /* Dates - right aligned */
+          /* Dates - minimal style */
           span.text-sm.text-muted-foreground {
-            font-size: 0.6rem !important;
-            color: #6b7280 !important;
+            font-size: 0.65rem !important;
+            color: #8E8E93 !important;
             white-space: nowrap !important;
+            font-weight: 400 !important;
           }
           
-          /* Bullet points - compact */
+          /* Bullet points - refined typography */
           ul.space-y-1\\.5,
           ul.space-y-1 {
-            margin: 0.25rem 0 0.375rem 0 !important;
+            margin: 0.375rem 0 0.5rem 0 !important;
           }
           
           ul.space-y-1\\.5 li,
           ul.space-y-1 li {
-            margin: 0.075rem 0 !important;
-            font-size: 0.6rem !important;
-            line-height: 1.35 !important;
-            color: #374151 !important;
+            margin: 0.125rem 0 !important;
+            font-size: 0.65rem !important;
+            line-height: 1.45 !important;
+            color: #1C1C1E !important;
+            font-weight: 400 !important;
           }
           
-          /* Skills badges - clean gray pills */
+          /* Remove bullet point dots for cleaner look */
+          ul li::before {
+            content: "" !important;
+          }
+          
+          ul li {
+            list-style: none !important;
+            padding-left: 0 !important;
+          }
+          
+          /* Skills badges - Apple's pill style */
           .flex.flex-wrap.gap-1\\.5 {
             display: flex !important;
             flex-wrap: wrap !important;
-            gap: 0.25rem !important;
-            margin-top: 0.25rem !important;
+            gap: 0.2rem !important;
+            margin-top: 0.375rem !important;
           }
           
-          /* Individual badge styling */
+          /* Individual badge - minimal Apple style */
           .inline-flex.items-center.rounded-md.px-2\\.5.py-0\\.5,
           [class*="badge"] {
             display: inline-flex !important;
             align-items: center !important;
-            background: #f3f4f6 !important;
-            color: #374151 !important;
+            background: #F2F2F7 !important;
+            color: #1C1C1E !important;
             border: none !important;
-            padding: 0.075rem 0.375rem !important;
-            border-radius: 0.75rem !important;
+            padding: 0.05rem 0.35rem !important;
+            border-radius: 0.625rem !important;
             font-size: 0.5rem !important;
             font-weight: 500 !important;
             white-space: nowrap !important;
+            letter-spacing: 0.01em !important;
           }
           
-          /* Section spacing for 2-page layout */
+          /* Section spacing for perfect 2-page layout */
           .mb-8 {
-            margin-bottom: 0.875rem !important;
+            margin-bottom: 1rem !important;
           }
           
           .mb-6 {
-            margin-bottom: 0.5rem !important;
+            margin-bottom: 0.625rem !important;
           }
           
           .space-y-6 > * + * {
-            margin-top: 0.625rem !important;
+            margin-top: 0.75rem !important;
           }
           
-          /* Strategic page break - after RBC Banking Advisor (3rd experience) */
+          /* Strategic page break - after RBC Banking Advisor */
           .space-y-6 > div:nth-child(3) {
             page-break-after: always !important;
             margin-bottom: 0 !important;
           }
           
-          /* Heading on page 2 */
-          h3:contains("Professional Experience (continued)") {
-            margin-top: 0 !important;
-          }
-          
-          /* Text colors - professional */
+          /* Apple-inspired color palette */
           .text-muted-foreground {
-            color: #6b7280 !important;
+            color: #8E8E93 !important;
           }
           
           .text-primary {
-            color: #2563eb !important;
+            color: #007AFF !important;
           }
           
           .text-foreground {
-            color: #111827 !important;
+            color: #000000 !important;
           }
           
           /* Maintain font weights */
           h1, h2, h3, h4, h5, h6 {
             font-weight: inherit !important;
+          }
+          
+          /* Add subtle separator between major sections */
+          section.mb-8:not(:last-child) {
+            padding-bottom: 0.5rem !important;
+            border-bottom: 0.5px solid #F2F2F7 !important;
           }
           
           /* Ensure proper color printing */
