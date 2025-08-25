@@ -138,7 +138,7 @@ export default function EducationSection() {
                 {/* Desktop Layout */}
                 <div className="hidden sm:block">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1 gap-0 sm:gap-0">
-                    <h3 className="text-xl sm:text-2xl lg:text-4xl font-bold text-foreground">
+                    <h3 className="text-xl sm:text-2xl font-bold text-foreground">
                       {education.institution}
                     </h3>
                     <span className="text-base sm:text-lg font-medium text-gray-500">2016-2020</span>

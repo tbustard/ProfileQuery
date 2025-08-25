@@ -82,8 +82,8 @@ export default function ContactSection() {
             ref={headerAnimation.ref}
             className={`text-center mb-8 sm:mb-12 lg:mb-16 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 tracking-tight">Contact</h2>
-            <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">Contact</h2>
+            <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Ready to discuss your next project or opportunity? I'd love to hear from you.
             </p>
           </div>
@@ -114,7 +114,7 @@ export default function ContactSection() {
                 {/* Form Info Section */}
                 <div className="space-y-8">
                   <div>
-                    <h3 className="text-2xl font-bold text-foreground mb-4">Send a Message</h3>
+                    <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4">Send a Message</h3>
                     <p className="text-sm text-muted-foreground">
                       Whether you're looking to discuss investment opportunities, portfolio management, or potential collaboration, I'm here to help.
                     </p>

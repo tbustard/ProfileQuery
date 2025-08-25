@@ -258,7 +258,7 @@ export default function ExperienceSection() {
         <div className="mt-16">
           <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
             <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-8 lg:p-12">
-              <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-12 text-center">
                 Career Highlights
               </h3>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
