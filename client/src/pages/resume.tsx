@@ -66,6 +66,9 @@ export default function Resume() {
               {/* Contact Information - Full Width */}
               <div className="text-center">
                 <div className="text-sm text-muted-foreground flex justify-center items-center flex-wrap gap-1">
+                  <Globe className="w-4 h-4" />
+                  <span>tylerbustard.ca</span>
+                  <span className="mx-2">•</span>
                   <Mail className="w-4 h-4" />
                   <span>tbustard@unb.ca</span>
                   <span className="mx-2">•</span>
@@ -74,9 +77,6 @@ export default function Resume() {
                   <span className="mx-2">•</span>
                   <MapPin className="w-4 h-4" />
                   <span>Toronto, Ontario, Canada</span>
-                  <span className="mx-2">•</span>
-                  <Globe className="w-4 h-4" />
-                  <span>tylerbustard.ca</span>
                 </div>
               </div>
             </div>
