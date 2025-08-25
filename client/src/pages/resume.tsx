@@ -249,6 +249,60 @@ export default function Resume() {
                     </div>
                   </div>
                 </div>
+
+                {/* Irving Oil Marketing Intern */}
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
+                      <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">IO</div>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                      <h4 className="text-lg font-semibold text-foreground">Marketing Intern</h4>
+                      <span className="text-sm text-muted-foreground">2018</span>
+                    </div>
+                    <p className="text-primary font-medium mb-1">Irving Oil Limited</p>
+                    <p className="text-sm text-muted-foreground mb-3">Saint John, New Brunswick</p>
+                    <ul className="text-sm text-muted-foreground space-y-2 mb-4">
+                      <li>• Conducted competitor analysis driving insights that improved targeted marketing by 11%</li>
+                      <li>• Developed a Customer Lifecycle model that increased targeted promotions, boosting customer engagement by 8%</li>
+                    </ul>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary" className="text-xs">Market Research</Badge>
+                      <Badge variant="secondary" className="text-xs">Customer Analytics</Badge>
+                      <Badge variant="secondary" className="text-xs">Competitive Analysis</Badge>
+                      <Badge variant="secondary" className="text-xs">Marketing Strategy</Badge>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Grant Thornton Tax Return Intern */}
+                <div className="flex gap-6">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
+                      <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold">GT</div>
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                      <h4 className="text-lg font-semibold text-foreground">Tax Return Intern</h4>
+                      <span className="text-sm text-muted-foreground">2018</span>
+                    </div>
+                    <p className="text-primary font-medium mb-1">Grant Thornton LLP</p>
+                    <p className="text-sm text-muted-foreground mb-3">Saint John, New Brunswick</p>
+                    <ul className="text-sm text-muted-foreground space-y-2 mb-4">
+                      <li>• Streamlined client financial data, boosting accuracy by 10% ensuring timely submission of 100+ tax returns</li>
+                      <li>• Improved tax return preparation processes, cutting filing errors by 15%</li>
+                    </ul>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary" className="text-xs">Tax Preparation</Badge>
+                      <Badge variant="secondary" className="text-xs">Financial Analysis</Badge>
+                      <Badge variant="secondary" className="text-xs">Data Management</Badge>
+                      <Badge variant="secondary" className="text-xs">Client Service</Badge>
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
           </div>
