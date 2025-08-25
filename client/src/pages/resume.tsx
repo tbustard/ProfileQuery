@@ -479,7 +479,7 @@ export default function Resume() {
                       </div>
                       <span className="text-sm font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded">2020-2023</span>
                     </div>
-                    <ul className="space-y-1.5 mb-4">
+                    <ul className="space-y-1.5 mb-3">
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
                         <span>Led fundraising strategies, achieving <span className="font-semibold">20% increase</span> in funds raised over three years</span>
@@ -489,23 +489,46 @@ export default function Resume() {
                         <span>Spearheaded engagement initiatives, resulting in <span className="font-semibold">15% rise</span> in workplace participation</span>
                       </li>
                     </ul>
+                    <div className="flex flex-wrap gap-1">
+                      {['Fundraising Strategy', 'Leadership', 'Event Planning', 'Community Engagement', 'Stakeholder Management'].map(skill => (
+                        <span key={skill} className="inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Additional Community - Compact */}
-              <div className="mt-4 grid grid-cols-3 gap-3">
-                <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-3 text-center border border-gray-200 hover:shadow-sm transition-shadow">
-                  <p className="text-xs font-bold text-gray-800">RBC Race for the Kids</p>
-                  <p className="text-xs text-gray-600 mt-1">Volunteer Coordinator • 2021</p>
+              {/* Additional Community - Two Cards */}
+              <div className="mt-4 grid grid-cols-2 gap-4">
+                <div className="bg-white rounded-xl p-5 border border-gray-200 hover:shadow-sm transition-shadow">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0">
+                      <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
+                        <img src={rbcLogo} alt="RBC" className="w-7 h-7 object-contain" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h5 className="text-sm font-bold text-gray-900">RBC Race for the Kids</h5>
+                      <p className="text-xs text-gray-600 mt-1">Volunteer Coordinator • 2021</p>
+                      <p className="text-xs text-gray-700 mt-2">Organized fundraising events, coordinated 50+ volunteers</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-3 text-center border border-gray-200 hover:shadow-sm transition-shadow">
-                  <p className="text-xs font-bold text-gray-800">Irving Volunteer Program</p>
-                  <p className="text-xs text-gray-600 mt-1">Team Lead • 2018</p>
-                </div>
-                <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-3 text-center border border-gray-200 hover:shadow-sm transition-shadow">
-                  <p className="text-xs font-bold text-gray-800">BMO Community Banking</p>
-                  <p className="text-xs text-gray-600 mt-1">Financial Literacy • 2022</p>
+                <div className="bg-white rounded-xl p-5 border border-gray-200 hover:shadow-sm transition-shadow">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0">
+                      <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
+                        <img src={bmoLogo} alt="BMO" className="w-7 h-7 object-contain" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h5 className="text-sm font-bold text-gray-900">BMO Community Banking</h5>
+                      <p className="text-xs text-gray-600 mt-1">Financial Literacy Instructor • 2022</p>
+                      <p className="text-xs text-gray-700 mt-2">Taught financial planning workshops to 100+ community members</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
