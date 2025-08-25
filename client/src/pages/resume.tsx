@@ -119,12 +119,12 @@ export default function Resume() {
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                    <h4 className="text-lg font-semibold text-foreground">Bachelor of Business Administration</h4>
+                    <h4 className="text-lg font-semibold text-foreground">Bachelor of Business Administration - Finance Major</h4>
                     <span className="text-sm text-muted-foreground">2020</span>
                   </div>
-                  <p className="text-primary font-medium mb-3">University of New Brunswick • Saint John, New Brunswick</p>
+                  <p className="text-primary font-medium mb-1">University of New Brunswick</p>
+                  <p className="text-sm text-muted-foreground mb-3">Saint John, New Brunswick</p>
                   <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Major: Finance</li>
                     <li>• Case Competitions: 1st Place (CIBC), 3rd Place (TD), RBC and SLC participant</li>
                     <li>• Analyst and Portfolio Manager – University of New Brunswick Student Investment Fund</li>
                     <li>• UNB Finance Club, RBC Student Ambassador, Accredited Co-op Program</li>
