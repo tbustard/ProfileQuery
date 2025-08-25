@@ -1,4 +1,4 @@
-import { Play } from "lucide-react";
+import { Play, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
 import { useQuery } from "@tanstack/react-query";
@@ -89,8 +89,8 @@ export default function HeroSection() {
                   Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
                 </p>
 
-                {/* Introduction Button */}
-                <div className="flex justify-center lg:justify-start pt-2 sm:pt-4">
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2 sm:pt-4">
                   <Button
                     onClick={() => {
                       console.log('Button clicked. Videos data:', videosQuery.data);
@@ -196,6 +196,18 @@ export default function HeroSection() {
                     {videosQuery.data && 
                      Array.isArray(videosQuery.data) &&
                      videosQuery.data.find((video: any) => video.isActive) ? 'Watch Introduction Video' : 'Introduction'}
+                  </Button>
+                  
+                  <Button
+                    onClick={() => window.location.href = '/resume'}
+                    variant="outline"
+                    className="bg-white/90 backdrop-blur-md border-white/30 hover:bg-white text-foreground font-semibold px-6 sm:px-8 py-4 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-lg min-h-[56px]"
+                    data-testid="button-resume"
+                  >
+                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Download size={16} />
+                    </div>
+                    View Resume
                   </Button>
                 </div>
               </div>
