@@ -514,7 +514,7 @@ export default function Resume() {
                   </div>
                   <div className="flex gap-1 mt-1">
                     <div className="w-5 h-5 bg-gray-50 rounded flex items-center justify-center">
-                      <img src={greLogo} alt="GRE" className="w-3 h-3 object-contain" />
+                      <img src={wallStreetPrepLogo} alt="WSP" className="w-3 h-3 object-contain" />
                     </div>
                     <span className="text-xs text-gray-500 ml-1">+4</span>
                   </div>
