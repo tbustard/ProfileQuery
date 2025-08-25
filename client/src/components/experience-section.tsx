@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useScrollAnimation, useStaggeredScrollAnimation } from "@/hooks/useScrollAnimation";
+import fiscalAiLogo from "@assets/fiscal_ai_logo.png";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
 import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
@@ -31,13 +32,27 @@ export default function ExperienceSection() {
     delay: isMobile ? 0 : 100 
   });
   
-  const { ref: experiencesRef, visibleItems } = useStaggeredScrollAnimation(6, { 
+  const { ref: experiencesRef, visibleItems } = useStaggeredScrollAnimation(7, { 
     threshold: 0.1, 
     triggerOnce: true, 
     delay: isMobile ? 0 : 150 
   });
 
   const experiences: Experience[] = [
+    {
+      title: "Equity Analyst",
+      company: "Fiscal.ai",
+      location: "Toronto, Ontario",
+      period: "2023-Present",
+      duration: "1 year",
+      achievements: [
+        "Analyze and compile public company financial statements, cutting reporting turnaround by 13%",
+        "Collaborate with product and engineering to implement AI-driven data features boosting adoption by 12%",
+      ],
+      technologies: ["Financial Analysis", "AI Integration", "Data Analytics", "Python"],
+      logoSrc: fiscalAiLogo,
+      color: "#1a1a1a"
+    },
     {
       title: "Portfolio Assistant",
       company: "BMO Private Wealth",
