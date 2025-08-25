@@ -154,9 +154,14 @@ export default function ExperienceSection() {
             ref={headerAnimation.ref}
             className={`text-center mb-8 sm:mb-12 lg:mb-16 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
           >
-            <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
-              Experience
-            </h2>
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <img src={fiscalAiLogo} alt="Fiscal.ai" className="w-12 h-12 object-contain rounded-lg shadow-sm" />
+              <img src={bmoLogo} alt="BMO" className="w-12 h-12 object-contain rounded-lg shadow-sm" />
+              <img src={tdLogo} alt="TD" className="w-12 h-12 object-contain rounded-lg shadow-sm" />
+              <h2 className="text-5xl lg:text-6xl font-bold text-foreground tracking-tight">
+                Experience
+              </h2>
+            </div>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Professional experience in financial services and wealth management
             </p>
