@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Upload, LogOut, Eye, EyeOff, Video, Play, ArrowLeft } from "lucide-react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
@@ -21,6 +22,8 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
   const { toast } = useToast();
   const [selectedVideo, setSelectedVideo] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [previewVideo, setPreviewVideo] = useState<VideoUpload | null>(null);
+  const [showPreviewDialog, setShowPreviewDialog] = useState(false);
   const queryClient = useQueryClient();
   
   // Fetch videos from API
@@ -122,6 +125,31 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
     },
   });
 
+  // Delete video mutation
+  const deleteVideoMutation = useMutation({
+    mutationFn: async (videoId: string) => {
+      return apiRequest(`/api/videos/${videoId}`, 'DELETE');
+    },
+    onSuccess: () => {
+      toast({
+        title: "Video Deleted",
+        description: "The video has been removed successfully.",
+      });
+      videosQuery.refetch();
+    },
+    onError: () => {
+      toast({
+        title: "Failed to Delete Video",
+        description: "Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handleViewVideo = (video: VideoUpload) => {
+    setPreviewVideo(video);
+    setShowPreviewDialog(true);
+  };
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#f5f5f7' }}>
@@ -301,14 +329,23 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                         <Button
                           size="sm"
                           variant="ghost"
+                          onClick={() => handleViewVideo(video)}
                           className="text-gray-400 hover:text-gray-600"
+                          data-testid={`button-view-${video.id}`}
                         >
                           View
                         </Button>
                         <Button
                           size="sm"
                           variant="ghost"
+                          onClick={() => {
+                            if (window.confirm('Are you sure you want to delete this video?')) {
+                              deleteVideoMutation.mutate(video.id);
+                            }
+                          }}
+                          disabled={deleteVideoMutation.isPending}
                           className="text-red-500 hover:text-red-600"
+                          data-testid={`button-delete-${video.id}`}
                         >
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -319,14 +356,49 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                   ))}
                 </div>
               ) : (
-                <p className="text-slate-500 text-center py-8">
-                  No videos uploaded yet. Upload one using the form above!
-                </p>
+                <div className="text-center py-8">
+                  <Video className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                  <p className="text-gray-600">No videos uploaded yet</p>
+                </div>
               )}
             </div>
           </CardContent>
         </Card>
       </div>
+
+      {/* Video Preview Dialog */}
+      <Dialog open={showPreviewDialog} onOpenChange={setShowPreviewDialog}>
+        <DialogContent className="max-w-4xl">
+          <DialogHeader>
+            <DialogTitle>{previewVideo?.fileName}</DialogTitle>
+          </DialogHeader>
+          {previewVideo && (
+            <div className="w-full">
+              <video
+                controls
+                className="w-full rounded-lg"
+                src={previewVideo.fileUrl}
+              >
+                Your browser does not support the video tag.
+              </video>
+              <div className="mt-4 text-sm text-gray-500">
+                <p>Uploaded: {new Date(previewVideo.uploadedAt).toLocaleDateString('en-US', { 
+                  month: 'long', 
+                  day: 'numeric', 
+                  year: 'numeric', 
+                  hour: '2-digit', 
+                  minute: '2-digit' 
+                })}</p>
+                {previewVideo.isActive && (
+                  <span className="inline-block mt-2 px-3 py-1 text-xs bg-green-100 text-green-700 rounded-full font-medium">
+                    Currently Active
+                  </span>
+                )}
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

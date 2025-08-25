@@ -34,6 +34,7 @@ export interface IStorage {
   getActiveVideo(): Promise<Video | undefined>;
   setActiveVideo(id: string): Promise<void>;
   deactivateOtherVideos(activeId: string): Promise<void>;
+  deleteVideo(id: string): Promise<boolean>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -135,6 +136,11 @@ export class DatabaseStorage implements IStorage {
 
   async updateVideoUrl(id: string, fileUrl: string): Promise<void> {
     await db.update(videos).set({ fileUrl }).where(eq(videos.id, id));
+  }
+
+  async deleteVideo(id: string): Promise<boolean> {
+    const result = await db.delete(videos).where(eq(videos.id, id));
+    return (result as any).rowCount > 0;
   }
 
 }

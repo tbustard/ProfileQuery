@@ -496,6 +496,23 @@ Focus on investment analysis, portfolio management, and financial reporting quer
     }
   });
 
+  // Delete a video
+  app.delete("/api/videos/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const success = await storage.deleteVideo(id);
+      
+      if (success) {
+        res.json({ success: true });
+      } else {
+        res.status(404).json({ error: "Video not found" });
+      }
+    } catch (error) {
+      console.error("Delete video error:", error);
+      res.status(500).json({ error: "Failed to delete video" });
+    }
+  });
+
   // Serve the active introduction video
   app.get("/api/introduction-video", async (req, res) => {
     try {
