@@ -39,9 +39,6 @@ export default function CertificationsSection() {
   const communityAnimation = useScrollAnimation({ threshold: 0.15, triggerOnce: true });
   const communityHeaderAnimation = useScrollAnimation({ threshold: 0.25, triggerOnce: true, delay: 100 });
   const { ref: communityRef, visibleItems: communityItems } = useStaggeredScrollAnimation(3, { threshold: 0.15, triggerOnce: true, delay: 200 });
-  
-  // Force visibility on mobile
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
 
   const certificationCategories: CertificationCategory[] = [
     {
@@ -114,17 +111,15 @@ export default function CertificationsSection() {
     <section 
       ref={sectionAnimation.ref}
       id="certifications" 
-      className={`py-16 sm:py-24 lg:py-32 relative overflow-hidden mobile-visible scroll-fade-in ${sectionAnimation.isVisible ? 'visible' : ''}`}
+      className="py-16 sm:py-24 lg:py-32 relative overflow-hidden"
+      style={{ opacity: 1, visibility: 'visible' }}
     >
       {/* Background - inherits Apple grey from parent */}
       
       <div className="container-width">
         <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-6 sm:p-8 lg:p-12 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header */}
-          <div 
-            ref={headerAnimation.ref}
-            className={`text-center mb-8 sm:mb-12 lg:mb-16 scroll-slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
-          >
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
               Certifications
             </h2>
@@ -139,7 +134,8 @@ export default function CertificationsSection() {
               <div 
                 key={categoryIndex} 
                 id={`certifications-${category.title.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} 
-                className={`relative overflow-hidden rounded-[20px] sm:rounded-[28px] bg-gradient-to-r from-gray-100/50 to-gray-200/50 backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 mobile-visible scroll-scale-in scroll-stagger-${categoryIndex + 1} ${visibleItems.has(categoryIndex) || isMobile ? 'visible' : ''}`}
+                className="relative overflow-hidden rounded-[20px] sm:rounded-[28px] bg-gradient-to-r from-gray-100/50 to-gray-200/50 backdrop-blur-sm border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500"
+                style={{ opacity: 1, visibility: 'visible' }}
               >
                 <div className="absolute inset-0 bg-white/85" />
                 <div className="relative p-6 sm:p-8 lg:p-10">
@@ -310,17 +306,15 @@ export function CommunitySection() {
     <section 
       ref={communityAnimation.ref}
       id="community" 
-      className={`py-16 sm:py-24 lg:py-32 relative overflow-hidden scroll-fade-in ${communityAnimation.isVisible ? 'visible' : ''}`}
+      className="py-16 sm:py-24 lg:py-32 relative overflow-hidden"
+      style={{ opacity: 1, visibility: 'visible' }}
     >
       {/* Background - inherits Apple grey from parent */}
       
       <div className="container-width">
         <div className="bg-white/90 backdrop-blur-xl rounded-[28px] p-6 sm:p-8 lg:p-12 border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500">
           {/* Header */}
-          <div 
-            ref={communityHeaderAnimation.ref}
-            className={`text-center mb-8 sm:mb-10 lg:mb-12 scroll-slide-up ${communityHeaderAnimation.isVisible ? 'visible' : ''}`}
-          >
+          <div className="text-center mb-8 sm:mb-10 lg:mb-12">
             <h2 className="text-5xl lg:text-6xl font-bold text-foreground mb-6 tracking-tight">
               Community
             </h2>
@@ -339,7 +333,8 @@ export function CommunitySection() {
               <div 
                 key={index} 
                 id={`community-${activity.organization.toLowerCase().replace(/[^a-z0-9]/g, '-')}`} 
-                className={`relative scroll-scale-in scroll-stagger-${index + 1} ${communityItems.has(index) ? 'visible' : ''}`}
+                className="relative"
+                style={{ opacity: 1, visibility: 'visible' }}
                 data-testid={`community-activity-${index}`}
               >
                 {/* Beautiful Timeline Marker */}

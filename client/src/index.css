@@ -400,10 +400,42 @@
   /* Mobile optimizations with preserved animations */
   @media (max-width: 640px) {
     /* Force certifications to be immediately visible on mobile */
-    #certifications * {
+    #certifications,
+    #certifications *,
+    .mobile-force-visible,
+    .mobile-force-visible * {
       opacity: 1 !important;
       transform: none !important;
       visibility: visible !important;
+    }
+    
+    /* Ensure proper layout for certification section */
+    #certifications .container-width {
+      display: block !important;
+      opacity: 1 !important;
+    }
+    
+    #certifications .certifications-container {
+      display: block !important;
+      opacity: 1 !important;
+    }
+    
+    /* Fix grid and flex displays */
+    #certifications .grid {
+      display: grid !important;
+    }
+    
+    #certifications .flex {
+      display: flex !important;
+    }
+    
+    /* Override all animation classes in certifications */
+    #certifications .scroll-fade-in,
+    #certifications .scroll-slide-up,
+    #certifications .scroll-scale-in {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
     }
     
     /* Faster animations on mobile for better responsiveness */
