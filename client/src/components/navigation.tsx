@@ -328,7 +328,19 @@ export default function Navigation() {
                 {/* Print button for resume page */}
                 {isResumePage && (
                   <button
-                    onClick={() => window.print()}
+                    onClick={() => {
+                      // Create a temporary title for the document
+                      const originalTitle = document.title;
+                      document.title = 'Tyler Bustard Resume';
+                      
+                      // Print the document
+                      window.print();
+                      
+                      // Restore the original title after a short delay
+                      setTimeout(() => {
+                        document.title = originalTitle;
+                      }, 100);
+                    }}
                     className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 text-gray-700 hover:text-gray-900 hover:bg-gray-100/10 flex items-center gap-2"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
