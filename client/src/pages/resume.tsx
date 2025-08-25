@@ -10,6 +10,7 @@ import unbLogo from "@assets/University_of_New_Brunswick_Logo.svg_1755912478863.
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
 import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
+import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 import irvingLogo from "@assets/Irving_Oil.svg_1755913265895.png";
 import grantThorntonLogo from "@assets/Grant_Thornton_logo_1755913265895.png";
 import cfaLogo from "@assets/CFA_Institute_Logo_1755923720192.png";
@@ -366,7 +367,7 @@ export default function Resume() {
                 <div className="flex gap-6">
                   <div className="flex-shrink-0">
                     <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
-                      <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white text-xs font-bold">UW</div>
+                      <img src={unitedWayLogo} alt="United Way" className="w-8 h-8 object-contain" />
                     </div>
                   </div>
                   <div className="flex-1">
