@@ -3,7 +3,7 @@ import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Globe, Download, Printer, Linkedin, ChevronUp, Briefcase, GraduationCap } from "lucide-react";
+import { Mail, Phone, MapPin, Globe, Download, Printer, Linkedin, ChevronUp, Briefcase, GraduationCap, Award } from "lucide-react";
 import Navigation from "@/components/navigation";
 
 // Import logos from assets
@@ -381,64 +381,75 @@ export default function Resume() {
 
             {/* Professional Certifications */}
             <section className="mb-6">
-              <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider mb-4">Professional Certifications</h3>
+              <div className="flex items-center gap-2 mb-4">
+                <Award className="w-5 h-5 text-blue-600" />
+                <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider">Professional Certifications</h3>
+              </div>
               
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-4">
                 {/* CFA */}
-                <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
-                  <div className="flex items-start gap-3">
-                    <img src={cfaLogo} alt="CFA" className="w-8 h-8 object-contain" />
+                <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
+                      <img src={cfaLogo} alt="CFA" className="w-7 h-7 object-contain" />
+                    </div>
                     <div className="flex-1">
-                      <h4 className="text-sm font-bold text-gray-900">CFA Level I Candidate</h4>
-                      <p className="text-xs text-blue-600">CFA Institute • 2025</p>
-                      <p className="text-xs text-gray-500 mt-1">Investment Analysis & Ethics</p>
+                      <h4 className="text-sm font-bold text-gray-900 mb-1">CFA Level I Candidate</h4>
+                      <p className="text-xs text-blue-600 mb-1">CFA Institute • 2025</p>
+                      <p className="text-xs text-gray-600">Investment Analysis & Ethics</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Training the Street */}
-                <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
-                  <div className="flex items-start gap-3">
-                    <img src={trainingTheStreetLogo} alt="TTS" className="w-8 h-8 object-contain" />
+                <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center">
+                      <img src={trainingTheStreetLogo} alt="TTS" className="w-7 h-7 object-contain" />
+                    </div>
                     <div className="flex-1">
-                      <h4 className="text-sm font-bold text-gray-900">Discounted Cash Flow Analysis</h4>
-                      <p className="text-xs text-blue-600">Training the Street • 2024</p>
-                      <p className="text-xs text-gray-500 mt-1">Advanced Financial Modeling</p>
+                      <h4 className="text-sm font-bold text-gray-900 mb-1">Discounted Cash Flow Analysis</h4>
+                      <p className="text-xs text-blue-600 mb-1">Training the Street • 2024</p>
+                      <p className="text-xs text-gray-600">Advanced Financial Modeling</p>
                     </div>
                   </div>
                 </div>
 
-                {/* CSI */}
-                <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
-                  <div className="flex items-start gap-3">
-                    <img src={csiLogo} alt="CSI" className="w-8 h-8 object-contain" />
+                {/* GRE */}
+                <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center">
+                      <img src={etsLogo} alt="ETS" className="w-7 h-7 object-contain" />
+                    </div>
                     <div className="flex-1">
-                      <h4 className="text-sm font-bold text-gray-900">Canadian Securities Course</h4>
-                      <p className="text-xs text-blue-600">Canadian Securities Institute • 2021</p>
-                      <p className="text-xs text-gray-500 mt-1">Securities & Regulations</p>
+                      <h4 className="text-sm font-bold text-gray-900 mb-1">GRE Exam</h4>
+                      <p className="text-xs text-blue-600 mb-1">Educational Testing Service • 2023</p>
+                      <p className="text-xs text-gray-600">Score: 325 (Q: 165, V: 160)</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Bloomberg */}
-                <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm">
-                  <div className="flex items-start gap-3">
-                    <img src={bloombergLogo} alt="Bloomberg" className="w-8 h-8 object-contain" />
+                <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center">
+                      <img src={bloombergLogo} alt="Bloomberg" className="w-7 h-7 object-contain" />
+                    </div>
                     <div className="flex-1">
-                      <h4 className="text-sm font-bold text-gray-900">Bloomberg Market Concepts</h4>
-                      <p className="text-xs text-blue-600">Bloomberg LP • 2020</p>
-                      <p className="text-xs text-gray-500 mt-1">Market Data & Analytics</p>
+                      <h4 className="text-sm font-bold text-gray-900 mb-1">Bloomberg Market Concepts</h4>
+                      <p className="text-xs text-blue-600 mb-1">Bloomberg LP • 2020</p>
+                      <p className="text-xs text-gray-600">Market Data & Analytics</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Additional Training - Compact */}
-              <div className="mt-3 bg-gray-50 rounded-lg p-3">
-                <p className="text-xs font-semibold text-gray-700 mb-2">Additional Training & Licenses:</p>
+              <div className="mt-4 bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-4 border border-gray-200">
+                <p className="text-sm font-semibold text-gray-700 mb-3">Additional Training & Licenses:</p>
                 <div className="flex flex-wrap gap-2">
-                  {['Wall Street Prep Financial Modeling', 'GMAT Score: 710 (ETS)', 'Coursera Machine Learning Certificate', 'McGill Personal Finance Essentials', 'IFIC Mutual Funds License'].map(cert => (
-                    <span key={cert} className="text-xs bg-white px-2 py-1 rounded border border-gray-200">
+                  {['Wall Street Prep Financial Modeling', 'GMAT Score: 710 (ETS)', 'Coursera Machine Learning (Stanford)', 'Google Data Analytics Certificate', 'IFIC Mutual Funds License', 'Canadian Securities Course (CSI)', 'Project Management Professional (PMP) Training', 'AWS Cloud Practitioner Essentials'].map(cert => (
+                    <span key={cert} className="text-xs bg-white px-2.5 py-1 rounded-md border border-gray-200 hover:bg-blue-50 transition-colors">
                       {cert}
                     </span>
                   ))}
