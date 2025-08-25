@@ -385,14 +385,62 @@ export default function Resume() {
       {/* Print Styles */}
       <style>{`
         @media print {
-          body { print-color-adjust: exact; }
+          @page {
+            margin: 0.5in;
+            size: letter;
+          }
+          
+          /* Hide everything except resume content */
+          body { 
+            print-color-adjust: exact; 
+            background: white !important;
+          }
+          
+          /* Hide navigation and non-printable elements */
+          nav { display: none !important; }
           .print\\:hidden { display: none !important; }
+          
+          /* Reset main container */
+          .min-h-screen {
+            min-height: auto !important;
+            background: white !important;
+          }
+          
+          /* Resume content styling */
           .print\\:shadow-none { box-shadow: none !important; }
           .print\\:border-0 { border: none !important; }
           .print\\:rounded-none { border-radius: 0 !important; }
           .print\\:bg-white { background: white !important; }
           .print\\:text-black { color: black !important; }
-          * { -webkit-print-color-adjust: exact; }
+          
+          /* Force page breaks between resume pages */
+          .max-w-4xl > div:first-child {
+            page-break-after: always;
+            margin-bottom: 0 !important;
+          }
+          
+          /* Ensure resume cards fill the page properly */
+          .max-w-4xl > div {
+            background: white !important;
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            margin: 0 !important;
+            padding: 1rem !important;
+          }
+          
+          /* Hide background and ensure white print area */
+          * { 
+            -webkit-print-color-adjust: exact; 
+            background-color: white !important;
+          }
+          
+          /* Specific overrides for resume content */
+          .bg-white\\/90,
+          .bg-white\\/80 {
+            background: white !important;
+            backdrop-filter: none !important;
+          }
         }
       `}</style>
     </div>
