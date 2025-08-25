@@ -32,7 +32,7 @@ export function getSession() {
     tableName: "sessions",
   });
   return session({
-    secret: process.env.SESSION_SECRET!,
+    secret: process.env.SESSION_SECRET || 'dev-secret-key-for-testing-' + Math.random().toString(36).substring(2, 15),
     store: sessionStore,
     resave: false,
     saveUninitialized: false,

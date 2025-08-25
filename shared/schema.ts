@@ -1,9 +1,19 @@
-import { pgTable, text, varchar, timestamp, jsonb, index, boolean } from "drizzle-orm/pg-core";
-import { sql } from "drizzle-orm";
+import { sql } from 'drizzle-orm';
+import {
+  index,
+  jsonb,
+  pgTable,
+  timestamp,
+  varchar,
+  text,
+  integer,
+  boolean,
+} from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-// Session storage table for Replit Auth
+// Session storage table.
+// (IMPORTANT) This table is mandatory for Replit Auth, don't drop it.
 export const sessions = pgTable(
   "sessions",
   {
@@ -14,7 +24,8 @@ export const sessions = pgTable(
   (table) => [index("IDX_session_expire").on(table.expire)],
 );
 
-// User storage table for Replit Auth
+// User storage table.
+// (IMPORTANT) This table is mandatory for Replit Auth, don't drop it.
 export const users = pgTable("users", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
   email: varchar("email").unique(),
@@ -25,107 +36,80 @@ export const users = pgTable("users", {
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 
-export const sqlQueries = pgTable("sql_queries", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  naturalLanguage: text("natural_language").notNull(),
-  sqlQuery: text("sql_query").notNull(),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-});
-
-export const contactMessages = pgTable("contact_messages", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  name: text("name").notNull(),
-  email: text("email").notNull(),
-  subject: text("subject").notNull(),
-  message: text("message").notNull(),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-});
-
-export const resumeUploads = pgTable("resume_uploads", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  userId: varchar("user_id").notNull(),
-  fileName: text("file_name").notNull(),
-  fileUrl: text("file_url"),
-  fileContent: text("file_content"), // Base64 encoded PDF content
-  mimeType: varchar("mime_type").notNull(),
-  fileSize: varchar("file_size").notNull(),
-  uploadedAt: timestamp("uploaded_at").defaultNow().notNull(),
-});
-
-export const insertUserSchema = createInsertSchema(users).pick({
-  email: true,
-  firstName: true,
-  lastName: true,
-  profileImageUrl: true,
-});
-
-export const insertResumeUploadSchema = createInsertSchema(resumeUploads).pick({
-  userId: true,
-  fileName: true,
-  fileUrl: true,
-  fileContent: true,
-  mimeType: true,
-  fileSize: true,
-});
-
-export const insertSqlQuerySchema = createInsertSchema(sqlQueries).pick({
-  naturalLanguage: true,
-  sqlQuery: true,
-});
-
-export const insertContactMessageSchema = createInsertSchema(contactMessages).pick({
-  name: true,
-  email: true,
-  subject: true,
-  message: true,
-});
-
 export type UpsertUser = typeof users.$inferInsert;
 export type User = typeof users.$inferSelect;
 
-// Video storage table for introduction videos
-export const videos = pgTable("videos", {
+// Resume uploads table
+export const resumeUploads = pgTable("resume_uploads", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  userId: varchar("user_id").notNull().references(() => users.id),
   fileName: varchar("file_name").notNull(),
   fileUrl: varchar("file_url").notNull(),
-  isActive: boolean("is_active").notNull().default(false),
-  uploadedBy: varchar("uploaded_by").notNull(),
-  createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").defaultNow(),
+  fileSize: integer("file_size").notNull(),
+  uploadedAt: timestamp("uploaded_at").defaultNow(),
+  description: text("description"),
 });
 
-export const insertVideoSchema = createInsertSchema(videos).pick({
-  fileName: true,
-  fileUrl: true,
-  isActive: true,
-  uploadedBy: true,
+export const insertResumeUploadSchema = createInsertSchema(resumeUploads).omit({
+  id: true,
+  uploadedAt: true,
 });
-
-export type InsertVideo = z.infer<typeof insertVideoSchema>;
-export type Video = typeof videos.$inferSelect;
-
-export type InsertSqlQuery = z.infer<typeof insertSqlQuerySchema>;
-export type SqlQuery = typeof sqlQueries.$inferSelect;
-
-export type InsertContactMessage = z.infer<typeof insertContactMessageSchema>;
-export type ContactMessage = typeof contactMessages.$inferSelect;
 
 export type InsertResumeUpload = z.infer<typeof insertResumeUploadSchema>;
 export type ResumeUpload = typeof resumeUploads.$inferSelect;
 
-// Site settings table for managing settings (keeping for database compatibility)
-export const siteSettings = pgTable("site_settings", {
+// SQL queries table (existing)
+export const sqlQueries = pgTable("sql_queries", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  youtubeUrl: varchar("youtube_url"),
-  updatedBy: varchar("updated_by"),
-  updatedAt: timestamp("updated_at").defaultNow(),
+  naturalQuery: text("natural_query").notNull(),
+  sqlQuery: text("sql_query").notNull(),
+  explanation: text("explanation").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
 });
 
-export const insertSiteSettingsSchema = createInsertSchema(siteSettings).pick({
-  youtubeUrl: true,
-  updatedBy: true,
+export const insertSqlQuerySchema = createInsertSchema(sqlQueries).omit({
+  id: true,
+  createdAt: true,
 });
 
-export type InsertSiteSettings = z.infer<typeof insertSiteSettingsSchema>;
-export type SiteSettings = typeof siteSettings.$inferSelect;
+export type InsertSqlQuery = z.infer<typeof insertSqlQuerySchema>;
+export type SqlQuery = typeof sqlQueries.$inferSelect;
 
+// Contact messages table (existing)
+export const contactMessages = pgTable("contact_messages", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  name: varchar("name").notNull(),
+  email: varchar("email").notNull(),
+  message: text("message").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+export const insertContactMessageSchema = createInsertSchema(contactMessages).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertContactMessage = z.infer<typeof insertContactMessageSchema>;
+export type ContactMessage = typeof contactMessages.$inferSelect;
+
+// Videos table
+export const videos = pgTable("videos", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  title: varchar("title").notNull(),
+  fileUrl: varchar("file_url").notNull(),
+  fileName: varchar("file_name").notNull(),
+  mimeType: varchar("mime_type").notNull(),
+  fileSize: integer("file_size").notNull(),
+  isActive: boolean("is_active").default(false),
+  uploadedAt: timestamp("uploaded_at").defaultNow(),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+export const insertVideoSchema = createInsertSchema(videos).omit({
+  id: true,
+  uploadedAt: true,
+  createdAt: true,
+});
+
+export type InsertVideo = z.infer<typeof insertVideoSchema>;
+export type Video = typeof videos.$inferSelect;

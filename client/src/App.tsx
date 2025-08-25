@@ -6,6 +6,7 @@ import { Switch, Route } from "wouter";
 import Home from "@/pages/home";
 import EmployerPage from "@/pages/employer";
 import Resume from "@/pages/resume";
+import UploadResume from "@/pages/upload-resume";
 import { useGlobalAnimations } from "@/hooks/useGlobalAnimations";
 
 function Router() {
@@ -14,6 +15,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/resume" component={Resume} />
       <Route path="/employer" component={EmployerPage} />
+      <Route path="/upload-resume" component={UploadResume} />
       <Route>404: Page not found</Route>
     </Switch>
   );

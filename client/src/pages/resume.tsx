@@ -2,7 +2,7 @@ import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Globe, Download, Printer, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Globe, Download, Printer, Linkedin, Upload } from "lucide-react";
 import Navigation from "@/components/navigation";
 
 // Import logos from assets
@@ -32,6 +32,26 @@ export default function Resume() {
       {/* Main Resume Content */}
       <div className="px-4 sm:px-6 lg:px-8 pb-16 pt-24">
         <div className="max-w-5xl mx-auto">
+          
+          {/* Action Buttons */}
+          <div className="flex justify-end gap-3 mb-6 print:hidden">
+            <Button
+              onClick={handlePrint}
+              className="bg-gray-900 hover:bg-gray-800 text-white rounded-xl px-5 py-2.5 flex items-center gap-2 transition-all duration-200 hover:scale-105 shadow-sm"
+              data-testid="button-print-pdf"
+            >
+              <Printer className="w-4 h-4" />
+              <span>Print PDF</span>
+            </Button>
+            <Button
+              onClick={() => window.location.href = '/upload-resume'}
+              className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-5 py-2.5 flex items-center gap-2 transition-all duration-200 hover:scale-105 shadow-sm"
+              data-testid="button-upload-resume"
+            >
+              <Upload className="w-4 h-4" />
+              <span>Upload Resume</span>
+            </Button>
+          </div>
           
           {/* Page 1 */}
           <div className={`bg-white/95 backdrop-blur-xl border border-white/40 rounded-[2rem] p-8 sm:p-12 lg:p-16 shadow-xl mb-6 page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}>

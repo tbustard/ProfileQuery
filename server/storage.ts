@@ -16,7 +16,7 @@ import {
   videos,
 } from "@shared/schema";
 import { db } from "./db";
-import { eq, ne } from "drizzle-orm";
+import { eq, ne, and } from "drizzle-orm";
 import { randomUUID } from "crypto";
 
 export interface IStorage {
@@ -28,6 +28,7 @@ export interface IStorage {
   getContactMessages(): Promise<ContactMessage[]>;
   createResumeUpload(upload: InsertResumeUpload): Promise<ResumeUpload>;
   getResumeUploads(userId: string): Promise<ResumeUpload[]>;
+  deleteResumeUpload(id: string, userId: string): Promise<boolean>;
   createVideo(video: InsertVideo): Promise<Video>;
   getVideos(): Promise<Video[]>;
   getActiveVideo(): Promise<Video | undefined>;
@@ -90,6 +91,18 @@ export class DatabaseStorage implements IStorage {
 
   async getResumeUploads(userId: string): Promise<ResumeUpload[]> {
     return await db.select().from(resumeUploads).where(eq(resumeUploads.userId, userId));
+  }
+
+  async deleteResumeUpload(id: string, userId: string): Promise<boolean> {
+    const result = await db
+      .delete(resumeUploads)
+      .where(
+        and(
+          eq(resumeUploads.id, id),
+          eq(resumeUploads.userId, userId)
+        )
+      );
+    return (result as any).rowCount > 0;
   }
 
   async createVideo(insertVideo: InsertVideo): Promise<Video> {

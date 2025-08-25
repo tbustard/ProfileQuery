@@ -1,7 +1,8 @@
 import express, { type Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertSqlQuerySchema, insertContactMessageSchema, insertVideoSchema, insertSiteSettingsSchema } from "@shared/schema";
+import { insertSqlQuerySchema, insertContactMessageSchema, insertVideoSchema, insertResumeUploadSchema } from "@shared/schema";
+import { setupAuth, isAuthenticated } from "./replitAuth";
 import OpenAI from "openai";
 import multer from "multer";
 import path from "path";
@@ -67,6 +68,93 @@ const resumeUpload = multer({
 // No longer need to create upload directories since we're using cloud storage
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Setup authentication
+  await setupAuth(app);
+
+  // Auth routes
+  app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const user = await storage.getUser(userId);
+      res.json(user);
+    } catch (error) {
+      console.error("Error fetching user:", error);
+      res.status(500).json({ message: "Failed to fetch user" });
+    }
+  });
+
+  // Resume upload routes (protected)
+  app.get('/api/resume-uploads', isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const uploads = await storage.getResumeUploads(userId);
+      res.json(uploads);
+    } catch (error) {
+      console.error("Error fetching resume uploads:", error);
+      res.status(500).json({ error: "Failed to fetch uploads" });
+    }
+  });
+
+  app.post('/api/resume-uploads', isAuthenticated, resumeUpload.single('file'), async (req: any, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: "No file uploaded" });
+      }
+
+      const userId = req.user.claims.sub;
+      const fileBuffer = req.file.buffer;
+      const fileName = req.file.originalname;
+      const fileSize = req.file.size;
+      const description = req.body.description || '';
+
+      // Save file to uploads directory
+      const uploadsDir = path.join(process.cwd(), 'uploads/resumes');
+      if (!fs.existsSync(uploadsDir)) {
+        fs.mkdirSync(uploadsDir, { recursive: true });
+      }
+
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      const fileExt = path.extname(fileName);
+      const savedFileName = `resume-${uniqueSuffix}${fileExt}`;
+      const filePath = path.join(uploadsDir, savedFileName);
+      const fileUrl = `/uploads/resumes/${savedFileName}`;
+
+      // Write file to disk
+      fs.writeFileSync(filePath, fileBuffer);
+
+      // Save to database
+      const resumeUpload = await storage.createResumeUpload({
+        userId,
+        fileName,
+        fileUrl,
+        fileSize,
+        description,
+      });
+
+      res.json(resumeUpload);
+    } catch (error) {
+      console.error("Error uploading resume:", error);
+      res.status(500).json({ error: "Failed to upload resume" });
+    }
+  });
+
+  app.delete('/api/resume-uploads/:id', isAuthenticated, async (req: any, res) => {
+    try {
+      const userId = req.user.claims.sub;
+      const { id } = req.params;
+      
+      const success = await storage.deleteResumeUpload(id, userId);
+      
+      if (success) {
+        res.json({ success: true });
+      } else {
+        res.status(404).json({ error: "Resume not found or unauthorized" });
+      }
+    } catch (error) {
+      console.error("Error deleting resume:", error);
+      res.status(500).json({ error: "Failed to delete resume" });
+    }
+  });
   // Serve Tyler Bustard Resume files (must be before API routes)
   app.get("/Tyler_Bustard_Resume.pdf", async (req, res) => {
     try {
@@ -77,7 +165,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
         // Get the most recent PDF resume from uploads
         const pdfResume = resumes
           .filter(r => r.fileName.toLowerCase().endsWith('.pdf'))
-          .sort((a, b) => new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime())[0];
+          .sort((a, b) => {
+            const dateA = a.uploadedAt ? new Date(a.uploadedAt).getTime() : 0;
+            const dateB = b.uploadedAt ? new Date(b.uploadedAt).getTime() : 0;
+            return dateB - dateA;
+          })[0];
 
         if (pdfResume && pdfResume.fileUrl) {
           const resumePath = path.join(process.cwd(), pdfResume.fileUrl.replace(/^\//, ''));
@@ -149,8 +241,9 @@ Focus on investment analysis, portfolio management, and financial reporting quer
 
       // Store the query
       await storage.createSqlQuery({
-        naturalLanguage,
-        sqlQuery: result.sql
+        naturalQuery: naturalLanguage,
+        sqlQuery: result.sql,
+        explanation: result.explanation || "SQL query generated successfully"
       });
 
       res.json({
@@ -255,9 +348,11 @@ Focus on investment analysis, portfolio management, and financial reporting quer
       }
 
       // Get the most recent resume
-      const latestResume = resumes.sort((a, b) => 
-        new Date(b.uploadedAt).getTime() - new Date(a.uploadedAt).getTime()
-      )[0];
+      const latestResume = resumes.sort((a, b) => {
+        const dateA = a.uploadedAt ? new Date(a.uploadedAt).getTime() : 0;
+        const dateB = b.uploadedAt ? new Date(b.uploadedAt).getTime() : 0;
+        return dateB - dateA;
+      })[0];
 
       if (!latestResume.fileUrl) {
         return res.status(404).json({ error: "Resume file path not found" });
@@ -307,14 +402,14 @@ Focus on investment analysis, portfolio management, and financial reporting quer
         return res.status(400).json({ error: "No video file provided" });
       }
 
-      const { uploadedBy = 'admin' } = req.body;
-      
       // Create video record in storage
       const video = await storage.createVideo({
+        title: req.body.title || req.file.originalname,
         fileName: req.file.originalname,
         fileUrl: `/uploads/videos/${req.file.filename}`,
-        isActive: true, // Set new video as active by default
-        uploadedBy
+        mimeType: req.file.mimetype,
+        fileSize: req.file.size,
+        isActive: true // Set new video as active by default
       });
 
       // Mark all other videos as inactive
