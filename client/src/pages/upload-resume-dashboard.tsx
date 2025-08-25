@@ -183,57 +183,63 @@ export default function UploadResumeDashboard() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#f5f5f7" }}>
-      <Navigation />
-      
-      <div className="px-4 sm:px-6 lg:px-8 pb-16 pt-24">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div className="mb-8 flex items-center justify-between">
-            <div>
-              <Button
-                onClick={() => window.location.href = "/resume"}
-                variant="ghost"
-                className="mb-4 rounded-xl px-3 py-2 flex items-center gap-2 hover:bg-gray-100"
-                data-testid="button-back-resume"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Resume
-              </Button>
-              <h1 className="text-4xl font-semibold text-gray-900 mb-2" style={{ 
-                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
-                letterSpacing: '-0.025em'
-              }}>
-                Resume Upload
-              </h1>
-              <p className="text-lg text-gray-600" style={{ 
-                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
-              }}>
-                Upload and manage PDF versions of your resume
-              </p>
-            </div>
-            <Button
-              onClick={() => {
-                localStorage.removeItem('resumeUploadAuth');
-                window.location.href = '/resume';
-              }}
-              variant="ghost"
-              className="text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-xl px-4 py-2 transition-all duration-200"
-              data-testid="button-logout"
-            >
-              <LogOut className="w-4 h-4 mr-2" />
-              Sign Out
-            </Button>
-          </div>
+      <div className="max-w-3xl mx-auto px-4 py-12">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-6">
+          <Button 
+            variant="ghost" 
+            onClick={() => window.location.href = '/'}
+            className="text-gray-600 hover:text-gray-900 font-medium"
+            data-testid="button-back"
+            style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Resume
+          </Button>
+          <Button 
+            variant="ghost" 
+            onClick={() => {
+              localStorage.removeItem('resumeUploadAuth');
+              window.location.href = '/';
+            }}
+            data-testid="button-logout"
+            className="text-gray-600 hover:text-gray-900 font-medium"
+            style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+          >
+            Sign Out
+          </Button>
+        </div>
+        
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-semibold text-gray-900 mb-2" style={{ 
+            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+            letterSpacing: '-0.025em'
+          }}>
+            Resume Upload
+          </h1>
+          <p className="text-gray-600" style={{ 
+            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+          }}>
+            Upload and manage PDF versions of your resume
+          </p>
+        </div>
 
-          {/* Upload Form */}
-          <Card className="bg-white/95 backdrop-blur-xl border border-white/40 shadow-xl mb-8">
-            <CardHeader>
-              <CardTitle>Upload New Resume</CardTitle>
-              <CardDescription>
-                Select a PDF file to upload (max 10MB)
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
+        {/* Upload Form */}
+        <Card className="bg-white shadow-sm border border-gray-200 mb-8">
+          <CardContent className="p-8">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2" style={{ 
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+              letterSpacing: '-0.025em'
+            }}>
+              Upload New Resume
+            </h2>
+            <p className="text-sm text-gray-600 mb-6" style={{ 
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+            }}>
+              Select a PDF file to upload (max: 10MB)
+            </p>
+            
+            <div className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="file">Resume File</Label>
                 <Input
@@ -283,18 +289,25 @@ export default function UploadResumeDashboard() {
                   </>
                 )}
               </Button>
-            </CardContent>
-          </Card>
+            </div>
+          </CardContent>
+        </Card>
 
-          {/* Uploaded Files List */}
-          <Card className="bg-white/95 backdrop-blur-xl border border-white/40 shadow-xl">
-            <CardHeader>
-              <CardTitle>Uploaded Resumes</CardTitle>
-              <CardDescription>
-                {uploads.length} file{uploads.length !== 1 ? "s" : ""} uploaded
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
+        {/* Uploaded Files List */}
+        <Card className="bg-white shadow-sm border border-gray-200">
+          <CardContent className="p-8">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2" style={{ 
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+              letterSpacing: '-0.025em'
+            }}>
+              Uploaded Resumes
+            </h2>
+            <p className="text-sm text-gray-600 mb-6" style={{ 
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+            }}>
+              {uploads.length} file{uploads.length !== 1 ? "s" : ""} uploaded
+            </p>
+            <div>
               {uploadsLoading ? (
                 <div className="text-center py-8">
                   <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 mx-auto mb-4"></div>
@@ -349,9 +362,9 @@ export default function UploadResumeDashboard() {
                   ))}
                 </div>
               )}
-            </CardContent>
-          </Card>
-        </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

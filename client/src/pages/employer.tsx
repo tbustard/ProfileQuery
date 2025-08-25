@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Upload, LogOut, Eye, EyeOff, Video, Play } from "lucide-react";
+import { Upload, LogOut, Eye, EyeOff, Video, Play, ArrowLeft } from "lucide-react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 
@@ -124,103 +124,134 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#f5f5f7' }}>
-      <div className="container mx-auto px-4 py-8">
+      <div className="max-w-3xl mx-auto px-4 py-12">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <div>
-            <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-50">
-              Employer Dashboard
-            </h1>
-            <p className="text-slate-600 dark:text-slate-400 mt-2">
-              Welcome back, {user.email}
-            </p>
-          </div>
+        <div className="flex items-center justify-between mb-6">
           <Button 
-            variant="outline" 
+            variant="ghost" 
+            onClick={() => window.location.href = '/'}
+            className="text-gray-600 hover:text-gray-900 font-medium"
+            data-testid="button-back"
+            style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Resume
+          </Button>
+          <Button 
+            variant="ghost" 
             onClick={() => {
               localStorage.removeItem('employerAuth');
               window.location.href = '/';
             }}
             data-testid="button-logout"
-            className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700"
+            className="text-gray-600 hover:text-gray-900 font-medium"
+            style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
           >
-            <LogOut className="w-4 h-4 mr-2" />
-            Logout
+            Sign Out
           </Button>
         </div>
+        
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-semibold text-gray-900 mb-2" style={{ 
+            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+            letterSpacing: '-0.025em'
+          }}>
+            Video Upload
+          </h1>
+          <p className="text-gray-600" style={{ 
+            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+          }}>
+            Upload and manage introduction videos for Tyler Bustard's portfolio
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-1 gap-8">
-          {/* Video Upload Section */}
-          <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Video className="w-5 h-5" />
-                Upload Introduction Video
-              </CardTitle>
-              <CardDescription>
-                Upload a video file for the introduction section
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
+        {/* Video Upload Section */}
+        <Card className="bg-white shadow-sm border border-gray-200 mb-8">
+          <CardContent className="p-8">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2" style={{ 
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+              letterSpacing: '-0.025em'
+            }}>
+              Upload New Video
+            </h2>
+            <p className="text-sm text-gray-600 mb-6" style={{ 
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+            }}>
+              Select a video file to upload (max: 100MB)
+            </p>
+            
+            <div className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="video-file">Select Video File</Label>
+                <Label htmlFor="video-file" className="text-gray-700 font-medium">Video File</Label>
                 <Input
                   id="video-file"
                   type="file"
                   accept="video/*"
                   onChange={handleVideoSelect}
                   data-testid="input-video-file"
-                  className="bg-white dark:bg-slate-900"
+                  className="bg-gray-50 border-gray-200 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
                 />
-                <p className="text-sm text-slate-500">
-                  Accepted formats: MP4, MOV, AVI, WebM (Max: 100MB)
-                </p>
               </div>
               
               {selectedVideo && (
-                <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                  <p className="text-sm font-medium">Selected: {selectedVideo.name}</p>
-                  <p className="text-sm text-slate-500">
+                <div className="p-3 bg-gray-50 rounded-lg">
+                  <p className="text-sm font-medium text-gray-900">Selected: {selectedVideo.name}</p>
+                  <p className="text-xs text-gray-500">
                     {(selectedVideo.size / (1024 * 1024)).toFixed(2)} MB
                   </p>
                 </div>
               )}
+              
+              <div className="space-y-2">
+                <Label htmlFor="description" className="text-gray-700 font-medium">Description (Optional)</Label>
+                <textarea
+                  id="description"
+                  className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none"
+                  rows={3}
+                  placeholder="Add a description for this version..."
+                  style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+                />
+              </div>
 
               <Button 
                 onClick={handleVideoUpload}
                 disabled={!selectedVideo || videoUploadMutation.isPending}
                 data-testid="button-upload-video"
-                className="w-full"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl py-2.5 transition-all duration-200 hover:scale-105"
+                style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
               >
                 {videoUploadMutation.isPending ? (
                   "Uploading..."
                 ) : (
                   <>
-                    <Video className="w-4 h-4 mr-2" />
+                    <Upload className="w-4 h-4 mr-2" />
                     Upload Video
                   </>
                 )}
               </Button>
-            </CardContent>
-          </Card>
+            </div>
+          </CardContent>
+        </Card>
 
-
-        </div>
-
-        <div className="grid md:grid-cols-1 gap-8 mt-8">
-
-          {/* Uploaded Videos */}
-          <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Video className="w-5 h-5" />
-                Uploaded Videos
-              </CardTitle>
-              <CardDescription>
-                Manage uploaded introduction videos for the website
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
+        {/* Uploaded Videos */}
+        <Card className="bg-white shadow-sm border border-gray-200">
+          <CardContent className="p-8">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2" style={{ 
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+              letterSpacing: '-0.025em'
+            }}>
+              Uploaded Videos
+            </h2>
+            <p className="text-sm text-gray-600 mb-6" style={{ 
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+            }}>
+              {videosQuery.data && Array.isArray(videosQuery.data) && videosQuery.data.length === 1 
+                ? '1 file uploaded' 
+                : `${videosQuery.data?.length || 0} files uploaded`
+            }
+            </p>
+            <div>
               {videosQuery.isLoading ? (
                 <div className="space-y-3">
                   <div className="h-12 bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />
@@ -228,31 +259,64 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
               ) : videosQuery.data && Array.isArray(videosQuery.data) && videosQuery.data.length > 0 ? (
                 <div className="space-y-3">
                   {videosQuery.data.map((video: VideoUpload) => (
-                    <div key={video.id} className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                      <div className="flex justify-between items-center">
+                    <div key={video.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 bg-white rounded-lg">
+                          <Video className="w-5 h-5 text-gray-600" />
+                        </div>
                         <div>
-                          <p className="text-sm font-medium">{video.fileName}</p>
-                          <p className="text-xs text-slate-500">
-                            Uploaded {new Date(video.uploadedAt).toLocaleDateString()}
+                          <p className="font-medium text-gray-900" style={{ 
+                            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+                          }}>
+                            {video.fileName}
                           </p>
-                          {video.isActive && (
-                            <span className="inline-block mt-1 px-2 py-1 text-xs bg-green-100 text-green-800 rounded">
-                              Active
-                            </span>
-                          )}
+                          <p className="text-sm text-gray-500" style={{ 
+                            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+                          }}>
+                            Roblox Intro Video
+                          </p>
+                          <p className="text-xs text-gray-400 mt-1" style={{ 
+                            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+                          }}>
+                            100 MB • {new Date(video.uploadedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                          </p>
                         </div>
-                        <div className="flex gap-2">
-                          {!video.isActive && (
-                            <Button
-                              size="sm"
-                              variant="outline"
-                              onClick={() => setActiveVideoMutation.mutate(video.id)}
-                              disabled={setActiveVideoMutation.isPending}
-                            >
-                              Set Active
-                            </Button>
-                          )}
-                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {video.isActive ? (
+                          <span className="px-3 py-1 text-xs bg-green-100 text-green-700 rounded-full font-medium" style={{ 
+                            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+                          }}>
+                            Active
+                          </span>
+                        ) : (
+                          <Button
+                            size="sm"
+                            variant="ghost"
+                            onClick={() => setActiveVideoMutation.mutate(video.id)}
+                            disabled={setActiveVideoMutation.isPending}
+                            className="text-blue-600 hover:text-blue-700 font-medium"
+                            style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+                          >
+                            Set Active
+                          </Button>
+                        )}
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="text-gray-400 hover:text-gray-600"
+                        >
+                          View
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="text-red-500 hover:text-red-600"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                          </svg>
+                        </Button>
                       </div>
                     </div>
                   ))}
@@ -262,9 +326,9 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                   No videos uploaded yet. Upload one using the form above!
                 </p>
               )}
-            </CardContent>
-          </Card>
-        </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
@@ -307,12 +371,12 @@ function EmployerLogin({ onLogin }: { onLogin: (user: { email: string }) => void
             fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
             letterSpacing: '-0.025em'
           }}>
-            Employer Access
+            Video Upload Access
           </CardTitle>
           <CardDescription className="text-gray-600" style={{ 
             fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
           }}>
-            Sign in to upload and manage resume files for Tyler Bustard's portfolio
+            Sign in to upload and manage video files
           </CardDescription>
         </CardHeader>
         <CardContent>
