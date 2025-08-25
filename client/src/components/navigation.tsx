@@ -176,46 +176,64 @@ export default function Navigation() {
             : 'bg-transparent'
         }`}
       >
-        {isScrolled ? (
-          <LiquidGlass
-            ref={navGlassRef}
-            glassStyle={navGlassStyle}
-            style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);"
-          >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between items-center h-16 sm:h-20">
-                
-                {/* Left side - Logo/Name */}
-                <div className="flex items-center">
-                  {isHomePage && (
-                    <button 
-                      onClick={() => {
-                        window.scrollTo({
-                          top: 0,
-                          behavior: 'smooth'
-                        });
-                      }}
-                      className="flex items-center space-x-4 transition-all duration-700 ease-out hover:scale-105 cursor-pointer"
-                    >
-                      <img 
-                        src={profileImage} 
-                        alt="Tyler Bustard" 
-                        className="w-9 h-9 rounded-xl object-cover ring-1 ring-white/20 shadow-sm"
-                      />
-                      <div className="relative">
-                        <span className="text-lg tracking-tight apple-heading-nav">
-                          <span className="font-bold bg-gradient-to-r from-gray-900 via-black to-gray-800 bg-clip-text text-transparent dark:from-white dark:via-gray-100 dark:to-gray-300">Tyler</span>{' '}
-                          <span className="font-normal bg-gradient-to-r from-gray-900 via-black to-gray-800 bg-clip-text text-transparent dark:from-white dark:via-gray-100 dark:to-gray-300">Bustard</span>
-                        </span>
-                      </div>
-                    </button>
-                  )}
-                </div>
+        <LiquidGlass
+          ref={navGlassRef}
+          glassStyle={navGlassStyle}
+          style={isScrolled ? "border-bottom: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);" : "background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.2);"}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center h-16 sm:h-20">
+              
+              {/* Left side - Logo/Name */}
+              <div className="flex items-center">
+                {isHomePage && (
+                  <button 
+                    onClick={() => {
+                      window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                      });
+                    }}
+                    className="flex items-center space-x-4 transition-all duration-700 ease-out hover:scale-105 cursor-pointer"
+                  >
+                    <img 
+                      src={profileImage} 
+                      alt="Tyler Bustard" 
+                      className="w-9 h-9 rounded-xl object-cover ring-1 ring-white/20 shadow-sm"
+                    />
+                    <div className="relative">
+                      <span className="text-lg tracking-tight apple-heading-nav">
+                        <span className="font-bold bg-gradient-to-r from-gray-900 via-black to-gray-800 bg-clip-text text-transparent dark:from-white dark:via-gray-100 dark:to-gray-300">Tyler</span>{' '}
+                        <span className="font-normal bg-gradient-to-r from-gray-900 via-black to-gray-800 bg-clip-text text-transparent dark:from-white dark:via-gray-100 dark:to-gray-300">Bustard</span>
+                      </span>
+                    </div>
+                  </button>
+                )}
+                {isResumePage && (
+                  <button 
+                    onClick={() => window.history.back()}
+                    className="flex items-center space-x-4 transition-all duration-700 ease-out hover:scale-105 cursor-pointer"
+                  >
+                    <img 
+                      src={profileImage} 
+                      alt="Tyler Bustard" 
+                      className="w-9 h-9 rounded-xl object-cover ring-1 ring-white/20 shadow-sm"
+                    />
+                    <div className="relative">
+                      <span className="text-lg tracking-tight apple-heading-nav">
+                        <span className="font-bold bg-gradient-to-r from-gray-900 via-black to-gray-800 bg-clip-text text-transparent dark:from-white dark:via-gray-100 dark:to-gray-300">Tyler</span>{' '}
+                        <span className="font-normal bg-gradient-to-r from-gray-900 via-black to-gray-800 bg-clip-text text-transparent dark:from-white dark:via-gray-100 dark:to-gray-300">Bustard</span>
+                      </span>
+                    </div>
+                  </button>
+                )}
+              </div>
 
-                {/* Center - Desktop Navigation */}
-                <div className="hidden lg:flex items-center space-x-1">
-                  
-                  {/* Education */}
+              {/* Center - Desktop Navigation */}
+              <div className="hidden lg:flex items-center space-x-1">
+                
+                {/* Education */}
+                {isHomePage && (
                   <div className="relative dropdown-container">
                     <button
                       onClick={() => setOpenDropdown(openDropdown === 'education' ? null : 'education')}
@@ -230,8 +248,10 @@ export default function Navigation() {
                     </button>
                     
                   </div>
+                )}
 
-                  {/* Experience */}
+                {/* Experience */}
+                {isHomePage && (
                   <div className="relative dropdown-container">
                     <button
                       onClick={() => setOpenDropdown(openDropdown === 'experience' ? null : 'experience')}
@@ -245,8 +265,10 @@ export default function Navigation() {
                       <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'experience' ? 'rotate-180' : ''}`} />
                     </button>
                   </div>
+                )}
 
-                  {/* Certifications */}
+                {/* Certifications */}
+                {isHomePage && (
                   <div className="relative dropdown-container">
                     <button
                       onClick={() => setOpenDropdown(openDropdown === 'certifications' ? null : 'certifications')}
@@ -260,8 +282,10 @@ export default function Navigation() {
                       <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'certifications' ? 'rotate-180' : ''}`} />
                     </button>
                   </div>
+                )}
 
-                  {/* Community */}
+                {/* Community */}
+                {isHomePage && (
                   <div className="relative dropdown-container">
                     <button
                       onClick={() => setOpenDropdown(openDropdown === 'community' ? null : 'community')}
@@ -275,8 +299,10 @@ export default function Navigation() {
                       <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'community' ? 'rotate-180' : ''}`} />
                     </button>
                   </div>
+                )}
 
-                  {/* Contact */}
+                {/* Contact */}
+                {isHomePage && (
                   <div className="relative dropdown-container">
                     <button
                       onClick={() => setOpenDropdown(openDropdown === 'contact' ? null : 'contact')}
@@ -290,39 +316,19 @@ export default function Navigation() {
                       <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'contact' ? 'rotate-180' : ''}`} />
                     </button>
                   </div>
+                )}
 
-                  {/* Download/Close */}
-                  <button
-                    onClick={() => isResumePage ? window.history.back() : window.location.href = '/resume'}
-                    className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 text-primary hover:text-primary/80 hover:bg-primary/5"
-                  >
-                    {isResumePage ? 'Close' : 'Download'}
-                  </button>
+                {/* Download/Close */}
+                <button
+                  onClick={() => isResumePage ? window.history.back() : window.location.href = '/resume'}
+                  className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 text-primary hover:text-primary/80 hover:bg-primary/5"
+                >
+                  {isResumePage ? 'Close' : 'Download'}
+                </button>
 
-                </div>
-
-                {/* Right side - Mobile menu toggle */}
-                <div className="lg:hidden">
-                  <Button
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    variant="ghost"
-                    size="sm"
-                    className="relative z-50 p-2 text-foreground hover:text-primary transition-colors"
-                    data-testid="mobile-menu-toggle"
-                  >
-                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                  </Button>
-                </div>
               </div>
-            </div>
-          </LiquidGlass>
-        ) : (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-16 sm:h-20">
-              
-              {/* Right side - Mobile menu toggle for non-scrolled state */}
-              <div></div>
-              <div></div>
+
+              {/* Right side - Mobile menu toggle */}
               <div className="lg:hidden">
                 <Button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -336,14 +342,13 @@ export default function Navigation() {
               </div>
             </div>
           </div>
-        )}
+        </LiquidGlass>
 
         {/* Mobile Menu - Detailed Navigation */}
         {isMobileMenuOpen && (
           <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40 bg-background/95 backdrop-blur-sm">
             <div className="h-full w-full p-6 overflow-y-auto">
-              {isHomePage && (
-                <div className="space-y-6">
+              <div className="space-y-6">
                   
                   {/* Education Section */}
                   <div className="space-y-3">
@@ -840,7 +845,7 @@ export default function Navigation() {
 
                   {/* Download Section */}
                   <div className="space-y-3">
-                    <h3 className="text-xl font-bold text-foreground">Download</h3>
+                    <h3 className="text-xl font-bold text-foreground">{isResumePage ? 'Navigation' : 'Download'}</h3>
                     <button 
                       onClick={() => {
                         isResumePage ? window.history.back() : window.location.href = '/resume';
@@ -855,8 +860,7 @@ export default function Navigation() {
                     </button>
                   </div>
 
-                </div>
-              )}
+              </div>
             </div>
           </div>
         )}
