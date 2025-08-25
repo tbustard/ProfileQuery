@@ -387,7 +387,7 @@ export default function Resume() {
         @media print {
           /* Page setup with minimal margins */
           @page {
-            margin: 0.3in;
+            margin: 0.4in 0.3in;
             size: letter;
           }
           
@@ -398,6 +398,8 @@ export default function Resume() {
             -webkit-print-color-adjust: exact;
             margin: 0 !important;
             padding: 0 !important;
+            font-size: 12px !important;
+            line-height: 1.4 !important;
           }
           
           /* Hide navigation and UI elements */
@@ -411,23 +413,6 @@ export default function Resume() {
             padding: 0 !important;
           }
           
-          /* Resume content styling */
-          .bg-white\\/90 {
-            background: white !important;
-            box-shadow: none !important;
-            border: none !important;
-            border-radius: 0 !important;
-            margin: 0 !important;
-            padding: 1rem !important;
-          }
-          
-          /* Remove all backgrounds and shadows */
-          .print\\:shadow-none { box-shadow: none !important; }
-          .print\\:border-0 { border: none !important; }
-          .print\\:rounded-none { border-radius: 0 !important; }
-          .print\\:bg-white { background: white !important; }
-          .print\\:text-black { color: black !important; }
-          
           /* Content container adjustments */
           .px-4, .sm\\:px-6, .pb-16, .pt-24 {
             padding: 0 !important;
@@ -438,29 +423,139 @@ export default function Resume() {
             margin: 0 !important;
           }
           
-          /* Ensure proper page breaks */
-          .mb-6 {
-            margin-bottom: 0 !important;
+          /* Resume content styling - remove card styling for seamless print */
+          .bg-white\\/90 {
+            background: white !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-radius: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            backdrop-filter: none !important;
+          }
+          
+          /* Section spacing optimization */
+          .mb-8, .mb-6 {
+            margin-bottom: 1rem !important;
             page-break-inside: avoid;
+          }
+          
+          .space-y-6 > * + *, .space-y-4 > * + * {
+            margin-top: 0.75rem !important;
+          }
+          
+          /* Header section adjustments */
+          .text-6xl {
+            font-size: 2.5rem !important;
+            line-height: 1.1 !important;
+            margin-bottom: 0.25rem !important;
+          }
+          
+          .text-2xl {
+            font-size: 1.25rem !important;
+            line-height: 1.2 !important;
+            margin-bottom: 0.5rem !important;
+          }
+          
+          .text-base {
+            font-size: 0.875rem !important;
+            line-height: 1.3 !important;
+          }
+          
+          .text-sm {
+            font-size: 0.75rem !important;
+            line-height: 1.2 !important;
+          }
+          
+          /* Contact info styling */
+          .flex.justify-center.items-center.flex-wrap {
+            justify-content: center !important;
+            gap: 0.25rem !important;
+            margin: 0.5rem 0 !important;
+          }
+          
+          /* Section headers */
+          .text-3xl {
+            font-size: 1.25rem !important;
+            font-weight: bold !important;
+            margin: 1rem 0 0.5rem 0 !important;
+            border-bottom: 1px solid #333 !important;
+            padding-bottom: 0.125rem !important;
+          }
+          
+          /* Experience entries */
+          .grid.grid-cols-1.lg\\:grid-cols-3 {
+            display: block !important;
+          }
+          
+          .flex.flex-col.lg\\:flex-row {
+            display: block !important;
+          }
+          
+          /* Badge styling for skills */
+          .inline-flex {
+            display: inline !important;
+            background: #f3f4f6 !important;
+            color: #374151 !important;
+            padding: 0.125rem 0.375rem !important;
+            border-radius: 0.25rem !important;
+            font-size: 0.75rem !important;
+            margin: 0.125rem !important;
           }
           
           /* Typography adjustments for print */
           h1, h2, h3, h4, h5, h6 {
             color: black !important;
+            font-weight: bold !important;
           }
           
           .text-muted-foreground {
-            color: #666 !important;
+            color: #4b5563 !important;
           }
           
           .text-primary {
-            color: #2563eb !important;
+            color: #1f2937 !important;
           }
           
-          /* Ensure all text is black for print */
+          /* Compact spacing for print */
+          .p-6, .sm\\:p-10, .lg\\:p-16 {
+            padding: 0 !important;
+          }
+          
+          .p-4, .p-3 {
+            padding: 0.25rem !important;
+          }
+          
+          /* Remove all backgrounds and shadows */
+          .print\\:shadow-none, * {
+            box-shadow: none !important;
+            background: transparent !important;
+          }
+          
+          .print\\:border-0 { border: none !important; }
+          .print\\:rounded-none { border-radius: 0 !important; }
+          .print\\:bg-white { background: white !important; }
+          .print\\:text-black { color: black !important; }
+          
+          /* Ensure proper page breaks */
+          .page-break-before {
+            page-break-before: always !important;
+          }
+          
+          .avoid-page-break {
+            page-break-inside: avoid !important;
+          }
+          
+          /* Ensure all text is readable */
           * {
             -webkit-print-color-adjust: exact;
             color-adjust: exact;
+          }
+          
+          /* Profile image sizing for print */
+          .w-40.h-40 {
+            width: 2.5rem !important;
+            height: 2.5rem !important;
           }
         }
       `}</style>
