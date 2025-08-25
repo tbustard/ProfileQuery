@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { Upload, LogOut, Eye, EyeOff, Video, Play, ArrowLeft } from "lucide-react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
@@ -182,35 +183,31 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             
             <div className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="video-file" className="text-gray-700 font-medium">Video File</Label>
+                <Label htmlFor="video-file">Video File</Label>
                 <Input
                   id="video-file"
                   type="file"
                   accept="video/*"
                   onChange={handleVideoSelect}
+                  disabled={videoUploadMutation.isPending}
+                  className="cursor-pointer"
                   data-testid="input-video-file"
-                  className="bg-gray-50 border-gray-200 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-                  style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
                 />
-              </div>
-              
-              {selectedVideo && (
-                <div className="p-3 bg-gray-50 rounded-lg">
-                  <p className="text-sm font-medium text-gray-900">Selected: {selectedVideo.name}</p>
-                  <p className="text-xs text-gray-500">
-                    {(selectedVideo.size / (1024 * 1024)).toFixed(2)} MB
+                {selectedVideo && (
+                  <p className="text-sm text-gray-600">
+                    Selected: {selectedVideo.name} ({(selectedVideo.size / (1024 * 1024)).toFixed(2)} MB)
                   </p>
-                </div>
-              )}
-              
+                )}
+              </div>
+
               <div className="space-y-2">
-                <Label htmlFor="description" className="text-gray-700 font-medium">Description (Optional)</Label>
-                <textarea
+                <Label htmlFor="description">Description (Optional)</Label>
+                <Textarea
                   id="description"
-                  className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none"
-                  rows={3}
                   placeholder="Add a description for this version..."
-                  style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+                  disabled={videoUploadMutation.isPending}
+                  rows={3}
+                  data-testid="input-description"
                 />
               </div>
 
