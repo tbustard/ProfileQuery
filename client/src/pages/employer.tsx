@@ -4,16 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Upload, LogOut, FileText, Download, Eye, EyeOff, Video, Play } from "lucide-react";
+import { Upload, LogOut, Eye, EyeOff, Video, Play } from "lucide-react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
-
-interface ResumeUpload {
-  id: string;
-  fileName: string;
-  fileUrl: string;
-  uploadedAt: string;
-}
 
 interface VideoUpload {
   id: string;
@@ -25,9 +18,7 @@ interface VideoUpload {
 
 function EmployerDashboard({ user }: { user: { email: string } }) {
   const { toast } = useToast();
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [selectedVideo, setSelectedVideo] = useState<File | null>(null);
-  const [uploads, setUploads] = useState<ResumeUpload[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const queryClient = useQueryClient();
   
@@ -37,52 +28,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
     staleTime: 30000, // 30 seconds
   });
 
-  // Fetch uploaded resumes
-  const resumesQuery = useQuery({
-    queryKey: ['/api/resumes/employer'],
-    staleTime: 30000,
-  });
 
-
-  // Upload mutation
-  const uploadMutation = useMutation({
-    mutationFn: async (file: File) => {
-      const formData = new FormData();
-      formData.append('resume', file);
-      formData.append('userId', 'employer');
-
-      const response = await fetch('/api/resumes/upload', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || 'Upload failed');
-      }
-
-      return response.json();
-    },
-    onSuccess: (data) => {
-      toast({
-        title: "Upload Successful",
-        description: "Your resume has been uploaded successfully!",
-      });
-      setSelectedFile(null);
-      // Reset file input
-      const fileInput = document.getElementById('resume-file') as HTMLInputElement;
-      if (fileInput) fileInput.value = '';
-      // Refresh the resume list by invalidating the query
-      queryClient.invalidateQueries({ queryKey: ['/api/resumes/employer'] });
-    },
-    onError: () => {
-      toast({
-        title: "Upload Failed",
-        description: "Failed to upload resume. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
 
   // Video upload mutation
   const videoUploadMutation = useMutation({
@@ -120,39 +66,6 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
     },
   });
 
-  const handleFileSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      // Validate file type (PDF, DOC, DOCX)
-      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-      if (!allowedTypes.includes(file.type)) {
-        toast({
-          title: "Invalid File Type",
-          description: "Please select a PDF, DOC, or DOCX file.",
-          variant: "destructive",
-        });
-        return;
-      }
-      
-      // Validate file size (10MB limit)
-      if (file.size > 10 * 1024 * 1024) {
-        toast({
-          title: "File Too Large",
-          description: "Please select a file smaller than 10MB.",
-          variant: "destructive",
-        });
-        return;
-      }
-      
-      setSelectedFile(file);
-    }
-  };
-
-  const handleUpload = () => {
-    if (selectedFile) {
-      uploadMutation.mutate(selectedFile);
-    }
-  };
 
   const handleVideoSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -291,116 +204,10 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             </CardContent>
           </Card>
 
-          {/* Resume Upload Section */}
-          <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Upload className="w-5 h-5" />
-                Upload Resume
-              </CardTitle>
-              <CardDescription>
-                Upload a new resume for Tyler Bustard's portfolio
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="resume-file">Select Resume File</Label>
-                <Input
-                  id="resume-file"
-                  type="file"
-                  accept=".pdf,.doc,.docx"
-                  onChange={handleFileSelect}
-                  data-testid="input-resume-file"
-                  className="bg-white dark:bg-slate-900"
-                />
-                <p className="text-sm text-slate-500">
-                  Accepted formats: PDF, DOC, DOCX (Max: 10MB)
-                </p>
-              </div>
-              
-              {selectedFile && (
-                <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                  <p className="text-sm font-medium">Selected: {selectedFile.name}</p>
-                  <p className="text-sm text-slate-500">
-                    {(selectedFile.size / (1024 * 1024)).toFixed(2)} MB
-                  </p>
-                </div>
-              )}
-
-              <Button 
-                onClick={handleUpload}
-                disabled={!selectedFile || uploadMutation.isPending}
-                data-testid="button-upload-resume"
-                className="w-full"
-              >
-                {uploadMutation.isPending ? (
-                  "Uploading..."
-                ) : (
-                  <>
-                    <Upload className="w-4 h-4 mr-2" />
-                    Upload Resume
-                  </>
-                )}
-              </Button>
-            </CardContent>
-          </Card>
 
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mt-8">
-          {/* Recent Resume Uploads */}
-          <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <FileText className="w-5 h-5" />
-                Recent Uploads
-              </CardTitle>
-              <CardDescription>
-                Previously uploaded resume files
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              {resumesQuery.isLoading ? (
-                <div className="space-y-3">
-                  {[...Array(3)].map((_, i) => (
-                    <div key={i} className="h-12 bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />
-                  ))}
-                </div>
-              ) : (!resumesQuery.data || !Array.isArray(resumesQuery.data) || resumesQuery.data.length === 0) ? (
-                <p className="text-slate-500 text-center py-8">
-                  No uploads yet. Upload your first resume above!
-                </p>
-              ) : (
-                <div className="space-y-3">
-                  {resumesQuery.data.map((upload: ResumeUpload) => (
-                    <div 
-                      key={upload.id}
-                      className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-900 rounded-lg"
-                      data-testid={`upload-item-${upload.id}`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <FileText className="w-4 h-4 text-slate-500" />
-                        <div>
-                          <p className="font-medium text-sm">{upload.fileName}</p>
-                          <p className="text-xs text-slate-500">
-                            {new Date(upload.uploadedAt).toLocaleDateString()}
-                          </p>
-                        </div>
-                      </div>
-                      <Button 
-                        size="sm" 
-                        variant="ghost"
-                        onClick={() => window.open(upload.fileUrl, '_blank')}
-                        data-testid={`button-view-${upload.id}`}
-                      >
-                        <Download className="w-4 h-4" />
-                      </Button>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </CardContent>
-          </Card>
+        <div className="grid md:grid-cols-1 gap-8 mt-8">
 
           {/* Uploaded Videos */}
           <Card className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border-slate-200 dark:border-slate-700">

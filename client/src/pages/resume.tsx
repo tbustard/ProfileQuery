@@ -23,10 +23,6 @@ export default function Resume() {
     window.print();
   };
 
-  const handleDownload = () => {
-    // This would trigger a PDF download in a real implementation
-    alert("PDF download functionality would be implemented here");
-  };
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#f5f5f7' }}>
@@ -42,15 +38,6 @@ export default function Resume() {
           >
             <Printer className="w-4 h-4" />
             Print
-          </Button>
-          <Button
-            onClick={handleDownload}
-            size="sm"
-            className="bg-primary hover:bg-primary/90"
-            data-testid="button-download"
-          >
-            <Download className="w-4 h-4" />
-            Download PDF
           </Button>
         </div>
       </div>

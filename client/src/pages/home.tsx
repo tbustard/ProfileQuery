@@ -6,7 +6,6 @@ import HeroSection from "@/components/hero-section";
 import EducationSection from "@/components/about-section";
 import ExperienceSection from "@/components/experience-section";
 import CertificationsSection, { CommunitySection } from "@/components/skills-section";
-import DownloadSection from "@/components/download-section";
 import ContactInfoSection from "@/components/contact-info-section";
 
 export default function Home() {
@@ -62,7 +61,6 @@ export default function Home() {
       <CertificationsSection />
       <CommunitySection />
       <ContactInfoSection />
-      <DownloadSection />
       
       {/* Scroll to Top Button with Liquid Glass Effect */}
       <div 
