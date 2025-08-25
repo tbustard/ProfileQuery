@@ -60,26 +60,26 @@ export default function Resume() {
           <div className={`bg-white/90 backdrop-blur-md border border-white/30 rounded-[2rem] p-8 sm:p-12 shadow-2xl mb-8 page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}>
             
             {/* Header Section */}
-            <div className="mb-16">
+            <div className="mb-12">
               {/* Photo and Text */}
-              <div className="flex items-start gap-12 mb-8">
+              <div className="flex items-start gap-8 mb-6">
                 {/* Profile Photo */}
                 <img 
                   src={profileImage} 
                   alt="Tyler Bustard" 
-                  className="w-48 h-48 rounded-[2rem] object-cover shadow-xl ring-1 ring-black/5"
+                  className="w-40 h-40 rounded-[2rem] object-cover shadow-lg"
                   data-testid="img-resume-profile"
                 />
 
                 {/* Name, Title, and Description */}
-                <div className="flex-1 pt-2">
-                  <h1 className="text-7xl font-bold text-foreground mb-4 tracking-tight leading-none">
+                <div className="flex-1">
+                  <h1 className="text-6xl font-bold text-foreground mb-2 tracking-tight">
                     Tyler Bustard
                   </h1>
-                  <h2 className="text-2xl text-primary font-medium mb-8 tracking-wide">
+                  <h2 className="text-2xl text-primary font-medium mb-6">
                     Finance & Technology Professional
                   </h2>
-                  <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+                  <p className="text-base text-muted-foreground leading-relaxed">
                     Driving innovation at the intersection of finance and technology. 
                     Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
                   </p>
@@ -87,27 +87,19 @@ export default function Resume() {
               </div>
               
               {/* Contact Information - Full Width */}
-              <div className="text-center border-t border-border/50 pt-6">
-                <div className="text-sm text-muted-foreground flex justify-center items-center flex-wrap gap-2">
-                  <div className="flex items-center gap-2">
-                    <Mail className="w-4 h-4" />
-                    <span>tbustard@unb.ca</span>
-                  </div>
-                  <span className="text-border/60">•</span>
-                  <div className="flex items-center gap-2">
-                    <Phone className="w-4 h-4" />
-                    <span>+1 (613) 985-1223</span>
-                  </div>
-                  <span className="text-border/60">•</span>
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4" />
-                    <span>Toronto, Ontario, Canada</span>
-                  </div>
-                  <span className="text-border/60">•</span>
-                  <div className="flex items-center gap-2">
-                    <Globe className="w-4 h-4" />
-                    <span>tylerbustard.ca</span>
-                  </div>
+              <div className="text-center">
+                <div className="text-sm text-muted-foreground flex justify-center items-center flex-wrap gap-1">
+                  <Mail className="w-4 h-4" />
+                  <span>tbustard@unb.ca</span>
+                  <span className="mx-2">•</span>
+                  <Phone className="w-4 h-4" />
+                  <span>+1 (613) 985-1223</span>
+                  <span className="mx-2">•</span>
+                  <MapPin className="w-4 h-4" />
+                  <span>Toronto, Ontario, Canada</span>
+                  <span className="mx-2">•</span>
+                  <Globe className="w-4 h-4" />
+                  <span>tylerbustard.ca</span>
                 </div>
               </div>
             </div>
