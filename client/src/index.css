@@ -449,6 +449,28 @@
       transition-delay: 0s !important;
     }
     
+    /* Fallback for mobile certifications section - immediate visibility */
+    #certifications .scroll-scale-in,
+    #certifications .scroll-fade-in,
+    #certifications .scroll-slide-up {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+      transition-duration: 0.2s !important;
+      transition-delay: 0s !important;
+    }
+    
+    /* Remove all stagger delays for certifications on mobile */
+    #certifications .scroll-stagger-1,
+    #certifications .scroll-stagger-2,
+    #certifications .scroll-stagger-3,
+    #certifications .scroll-stagger-4,
+    #certifications .scroll-stagger-5,
+    #certifications .scroll-stagger-6,
+    #certifications .scroll-stagger-7,
+    #certifications .scroll-stagger-8 {
+      transition-delay: 0s !important;
+    }
+    
     /* Force visibility if animation fails on mobile */
     @media (max-height: 800px) {
       .scroll-scale-in {

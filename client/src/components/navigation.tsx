@@ -24,10 +24,18 @@ export default function Navigation() {
         }
       }
     };
+    
+    const handleEscKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && openDropdown) {
+        setOpenDropdown(null);
+      }
+    };
 
     document.addEventListener('click', handleClickOutside);
+    document.addEventListener('keydown', handleEscKey);
     return () => {
       document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('keydown', handleEscKey);
     };
   }, [openDropdown]);
 
@@ -724,7 +732,7 @@ export default function Navigation() {
                   }}
                   className="block w-full px-4 py-3 text-lg font-medium bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
                 >
-                  {isResumePage ? 'Close Resume' : 'View Resume'}
+                  {isResumePage ? 'Close Resume' : 'Resume'}
                 </button>
               </div>
             </div>
