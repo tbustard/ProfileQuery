@@ -30,172 +30,205 @@ export default function Resume() {
       <Navigation />
 
       {/* Main Resume Content */}
-      <div className="px-4 sm:px-6 pb-16 pt-24">
-        <div className="max-w-4xl mx-auto">
+      <div className="px-4 sm:px-6 lg:px-8 pb-16 pt-24">
+        <div className="max-w-5xl mx-auto">
           
           {/* Page 1 */}
-          <div className={`bg-white/90 backdrop-blur-md border border-white/30 rounded-[2rem] p-6 sm:p-10 shadow-2xl mb-6 page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}>
+          <div className={`bg-white/95 backdrop-blur-xl border border-white/40 rounded-[2rem] p-8 sm:p-12 lg:p-16 shadow-xl mb-6 page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}>
             
             {/* Header Section */}
-            <div className="mb-8">
+            <div className="mb-10">
               {/* Photo and Text */}
-              <div className="flex items-start gap-8 mb-6">
+              <div className="flex items-center gap-10 mb-8">
                 {/* Profile Photo */}
                 <img 
                   src={profileImage} 
                   alt="Tyler Bustard" 
-                  className="w-40 h-40 rounded-[2rem] object-cover shadow-lg"
+                  className="w-44 h-44 rounded-full object-cover shadow-xl ring-4 ring-white/50"
                   data-testid="img-resume-profile"
                 />
 
                 {/* Name, Title, and Description */}
                 <div className="flex-1">
-                  <h1 className="text-6xl font-bold text-foreground mb-2 tracking-tight">
+                  <h1 className="text-7xl font-semibold text-gray-900 mb-3 tracking-tight" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif', letterSpacing: '-0.025em' }}>
                     Tyler Bustard
                   </h1>
-                  <h2 className="text-2xl text-primary font-medium mb-6">
+                  <h2 className="text-3xl text-blue-600 font-normal mb-6" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}>
                     Finance & Technology Professional
                   </h2>
-                  <p className="text-base text-muted-foreground leading-relaxed">
-                    Driving innovation at the intersection of finance and technology. 
-                    Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
+                  <p className="text-lg text-gray-600 leading-relaxed max-w-3xl" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}>
+                    Driving <span className="font-medium text-gray-800">innovation</span> at the intersection of finance and technology. 
+                    Delivering <span className="font-medium text-gray-800">exceptional results</span> through analytical expertise, strategic thinking, and client-focused solutions.
                   </p>
                 </div>
               </div>
               
-              {/* Contact Information - Full Width */}
-              <div className="text-center">
-                <div className="text-sm text-muted-foreground flex justify-center items-center flex-wrap gap-1">
-                  <Globe className="w-4 h-4" />
-                  <span>tylerbustard.ca</span>
-                  <span className="mx-2">•</span>
-                  <Mail className="w-4 h-4" />
-                  <span>tbustard@unb.ca</span>
-                  <span className="mx-2">•</span>
-                  <Phone className="w-4 h-4" />
-                  <span>+1 (613) 985-1223</span>
-                  <span className="mx-2">•</span>
-                  <MapPin className="w-4 h-4" />
-                  <span>Toronto, Ontario, Canada</span>
+              {/* Contact Information - Elegant Bar */}
+              <div className="bg-gray-50 rounded-2xl px-8 py-4">
+                <div className="text-sm text-gray-600 flex justify-center items-center flex-wrap gap-6" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}>
+                  <div className="flex items-center gap-1.5">
+                    <Globe className="w-4 h-4 text-blue-500" />
+                    <span className="font-medium">tylerbustard.ca</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Mail className="w-4 h-4 text-blue-500" />
+                    <span>tbustard@unb.ca</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <Phone className="w-4 h-4 text-blue-500" />
+                    <span>+1 (613) 985-1223</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <MapPin className="w-4 h-4 text-blue-500" />
+                    <span>Toronto, Ontario, Canada</span>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Education */}
-            <section className="mb-8">
-              <h3 className="text-2xl font-semibold mb-6 flex items-center gap-3">
+            <section className="mb-10">
+              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '0.95rem', letterSpacing: '0.08em' }}>
                 Education
-                <div className="h-px bg-border flex-1"></div>
               </h3>
               
-              <div className="flex gap-6">
+              <div className="flex gap-6 bg-gray-50/50 rounded-2xl p-6">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
-                    <img src={unbLogo} alt="UNB" className="w-8 h-8 object-contain" />
+                  <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center border border-gray-100">
+                    <img src={unbLogo} alt="UNB" className="w-9 h-9 object-contain" />
                   </div>
                 </div>
                 <div className="flex-1">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                    <h4 className="text-lg font-semibold text-foreground">Bachelor of Business Administration - Finance Major</h4>
-                    <span className="text-sm text-muted-foreground">2020</span>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
+                    <h4 className="text-xl font-semibold text-gray-900">Bachelor of Business Administration - Finance Major</h4>
+                    <span className="text-sm font-medium text-gray-500">2020</span>
                   </div>
-                  <p className="text-primary font-medium mb-1">University of New Brunswick</p>
-                  <p className="text-sm text-muted-foreground mb-3">Saint John, New Brunswick</p>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Case Competitions: 1st Place (CIBC), 3rd Place (TD), RBC and SLC participant</li>
-                    <li>• Analyst and Portfolio Manager – University of New Brunswick Student Investment Fund</li>
-                    <li>• UNB Finance Club, RBC Student Ambassador, Accredited Co-op Program</li>
-                    <li>• Recipient of 5 Scholarship and Alumni Awards for academic merit and leadership skills, Total $47,500</li>
-                  </ul>
+                  <p className="text-blue-600 font-medium mb-1">University of New Brunswick</p>
+                  <p className="text-sm text-gray-500 mb-4">Saint John, New Brunswick</p>
+                  <div className="space-y-2">
+                    <div className="flex items-start">
+                      <span className="text-blue-500 mr-2 text-sm">▸</span>
+                      <span className="text-sm text-gray-700">Case Competitions: <span className="font-semibold text-gray-900">1st Place (CIBC)</span>, <span className="font-medium">3rd Place (TD)</span>, RBC and SLC participant</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-500 mr-2 text-sm">▸</span>
+                      <span className="text-sm text-gray-700">Analyst and Portfolio Manager – University of New Brunswick Student Investment Fund</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-500 mr-2 text-sm">▸</span>
+                      <span className="text-sm text-gray-700">UNB Finance Club, RBC Student Ambassador, Accredited Co-op Program</span>
+                    </div>
+                    <div className="flex items-start">
+                      <span className="text-blue-500 mr-2 text-sm">▸</span>
+                      <span className="text-sm text-gray-700">Recipient of 5 Scholarship and Alumni Awards for academic merit and leadership skills, Total <span className="font-semibold text-gray-900">$47,500</span></span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
 
             {/* Professional Experience */}
-            <section className="mb-6">
-              <h3 className="text-2xl font-semibold mb-6 flex items-center gap-3">
+            <section className="mb-8">
+              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '0.95rem', letterSpacing: '0.08em' }}>
                 Professional Experience
-                <div className="h-px bg-border flex-1"></div>
               </h3>
               
-              <div className="space-y-6">
+              <div className="space-y-5">
                 {/* BMO Experience */}
-                <div className="flex gap-6">
+                <div className="flex gap-5 p-5 rounded-2xl hover:bg-gray-50/50 transition-colors">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
+                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
                       <img src={bmoLogo} alt="BMO" className="w-8 h-8 object-contain" />
                     </div>
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-foreground">Portfolio Assistant</h4>
-                      <span className="text-sm text-muted-foreground">2022 - 2023</span>
+                      <h4 className="text-lg font-semibold text-gray-900">Portfolio Assistant</h4>
+                      <span className="text-sm font-medium text-gray-500 tabular-nums">2022 - 2023</span>
                     </div>
-                    <p className="text-primary font-medium mb-1">BMO Private Wealth</p>
-                    <p className="text-sm text-muted-foreground mb-3">Toronto, Ontario</p>
-                    <ul className="text-sm text-muted-foreground space-y-1.5 mb-3">
-                      <li>• Advised two Investment Counsellors managing portfolios over $100M and cut preparation time by 12%</li>
-                      <li>• Bolstered client communications, boosting response rates by 9% heightening client satisfaction and retention</li>
-                    </ul>
+                    <p className="text-blue-600 font-medium mb-1">BMO Private Wealth</p>
+                    <p className="text-sm text-gray-500 mb-3">Toronto, Ontario</p>
+                    <div className="space-y-1.5 mb-3">
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 text-sm">—</span>
+                        <span className="text-sm text-gray-700">Advised two Investment Counsellors managing portfolios over <span className="font-semibold text-gray-900">$100M</span> and cut preparation time by <span className="font-semibold text-gray-900">12%</span></span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 text-sm">—</span>
+                        <span className="text-sm text-gray-700">Bolstered client communications, boosting response rates by <span className="font-semibold text-gray-900">9%</span> heightening client satisfaction and retention</span>
+                      </div>
+                    </div>
                     <div className="flex flex-wrap gap-1.5">
-                      <Badge variant="secondary" className="text-xs">Portfolio Management</Badge>
-                      <Badge variant="secondary" className="text-xs">Client Relations</Badge>
-                      <Badge variant="secondary" className="text-xs">Financial Analysis</Badge>
-                      <Badge variant="secondary" className="text-xs">Excel</Badge>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Portfolio Management</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Relations</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Financial Analysis</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Excel</span>
                     </div>
                   </div>
                 </div>
 
                 {/* TD Experience */}
-                <div className="flex gap-6">
+                <div className="flex gap-5 p-5 rounded-2xl hover:bg-gray-50/50 transition-colors">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
+                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
                       <img src={tdLogo} alt="TD" className="w-8 h-8 object-contain" />
                     </div>
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-foreground">Financial Advisor</h4>
-                      <span className="text-sm text-muted-foreground">2021 - 2022</span>
+                      <h4 className="text-lg font-semibold text-gray-900">Financial Advisor</h4>
+                      <span className="text-sm font-medium text-gray-500 tabular-nums">2021 - 2022</span>
                     </div>
-                    <p className="text-primary font-medium mb-1">TD Canada Trust</p>
-                    <p className="text-sm text-muted-foreground mb-3">Kingston, Ontario</p>
-                    <ul className="text-sm text-muted-foreground space-y-1.5 mb-3">
-                      <li>• Cultivated strong client relationships by assessing individual financial needs, resulting in an 11% increase in sales</li>
-                      <li>• Exceeded sales targets, achieving a top 15% performance ranking within the district</li>
-                    </ul>
+                    <p className="text-blue-600 font-medium mb-1">TD Canada Trust</p>
+                    <p className="text-sm text-gray-500 mb-3">Kingston, Ontario</p>
+                    <div className="space-y-1.5 mb-3">
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 text-sm">—</span>
+                        <span className="text-sm text-gray-700">Cultivated strong client relationships by assessing individual financial needs, resulting in an <span className="font-semibold text-gray-900">11% increase</span> in sales</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 text-sm">—</span>
+                        <span className="text-sm text-gray-700">Exceeded sales targets, achieving a <span className="font-semibold text-gray-900">top 15%</span> performance ranking within the district</span>
+                      </div>
+                    </div>
                     <div className="flex flex-wrap gap-1.5">
-                      <Badge variant="secondary" className="text-xs">Financial Planning</Badge>
-                      <Badge variant="secondary" className="text-xs">Sales</Badge>
-                      <Badge variant="secondary" className="text-xs">Client Advisory</Badge>
-                      <Badge variant="secondary" className="text-xs">Product Knowledge</Badge>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Financial Planning</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Sales</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Advisory</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Product Knowledge</span>
                     </div>
                   </div>
                 </div>
 
                 {/* RBC Experience */}
-                <div className="flex gap-6">
+                <div className="flex gap-5 p-5 rounded-2xl hover:bg-gray-50/50 transition-colors">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
+                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
                       <img src={rbcLogo} alt="RBC" className="w-8 h-8 object-contain" />
                     </div>
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-foreground">Banking Advisor</h4>
-                      <span className="text-sm text-muted-foreground">2020 - 2021</span>
+                      <h4 className="text-lg font-semibold text-gray-900">Banking Advisor</h4>
+                      <span className="text-sm font-medium text-gray-500 tabular-nums">2020 - 2021</span>
                     </div>
-                    <p className="text-primary font-medium mb-1">Royal Bank of Canada</p>
-                    <p className="text-sm text-muted-foreground mb-3">Kingston, Ontario</p>
-                    <ul className="text-sm text-muted-foreground space-y-1.5 mb-3">
-                      <li>• Strengthened client relationships by advising on personalized solutions, increased repeat transactions by 13%</li>
-                      <li>• Excelled in needs-based advising, boosting adoption of core products like GICs, mutual funds, and TFSAs by 8%</li>
-                    </ul>
+                    <p className="text-blue-600 font-medium mb-1">Royal Bank of Canada</p>
+                    <p className="text-sm text-gray-500 mb-3">Kingston, Ontario</p>
+                    <div className="space-y-1.5 mb-3">
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 text-sm">—</span>
+                        <span className="text-sm text-gray-700">Strengthened client relationships by advising on personalized solutions, increased repeat transactions by <span className="font-semibold text-gray-900">13%</span></span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 text-sm">—</span>
+                        <span className="text-sm text-gray-700">Excelled in needs-based advising, boosting adoption of core products like GICs, mutual funds, and TFSAs by <span className="font-semibold text-gray-900">8%</span></span>
+                      </div>
+                    </div>
                     <div className="flex flex-wrap gap-1.5">
-                      <Badge variant="secondary" className="text-xs">Banking Products</Badge>
-                      <Badge variant="secondary" className="text-xs">Financial Advisory</Badge>
-                      <Badge variant="secondary" className="text-xs">Client Relationship Management</Badge>
-                      <Badge variant="secondary" className="text-xs">Digital Banking</Badge>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Banking Products</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Financial Advisory</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Relationship Management</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Digital Banking</span>
                     </div>
                   </div>
                 </div>
@@ -204,93 +237,110 @@ export default function Resume() {
           </div>
 
           {/* Page 2 */}
-          <div className={`bg-white/90 backdrop-blur-md border border-white/30 rounded-[2rem] p-8 sm:p-12 shadow-2xl page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}>
+          <div className={`bg-white/95 backdrop-blur-xl border border-white/40 rounded-[2rem] p-8 sm:p-12 lg:p-16 shadow-xl page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}>
             
             {/* Professional Experience Continued */}
-            <section className="mb-12">
-              <h3 className="text-2xl font-semibold mb-8 flex items-center gap-3">
+            <section className="mb-10">
+              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '0.95rem', letterSpacing: '0.08em' }}>
                 Professional Experience (continued)
-                <div className="h-px bg-border flex-1"></div>
               </h3>
               
-              <div className="space-y-8">
+              <div className="space-y-5">
                 {/* RBC Intern Experience */}
-                <div className="flex gap-6">
+                <div className="flex gap-5 p-5 rounded-2xl hover:bg-gray-50/50 transition-colors">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
+                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
                       <img src={rbcLogo} alt="RBC" className="w-8 h-8 object-contain" />
                     </div>
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-foreground">Client Advisor Intern</h4>
-                      <span className="text-sm text-muted-foreground">2019 - 2020</span>
+                      <h4 className="text-lg font-semibold text-gray-900">Client Advisor Intern</h4>
+                      <span className="text-sm font-medium text-gray-500 tabular-nums">2019 - 2020</span>
                     </div>
-                    <p className="text-primary font-medium mb-1">Royal Bank of Canada</p>
-                    <p className="text-sm text-muted-foreground mb-3">Fredericton, New Brunswick</p>
-                    <ul className="text-sm text-muted-foreground space-y-1.5 mb-3">
-                      <li>• Resolved complex client issues, achieving a 15% boost in positive feedback scores for the branch</li>
-                      <li>• Promoted RBC's digital banking tools, leading to a 10% increase in online and mobile banking adoption</li>
-                    </ul>
+                    <p className="text-blue-600 font-medium mb-1">Royal Bank of Canada</p>
+                    <p className="text-sm text-gray-500 mb-3">Fredericton, New Brunswick</p>
+                    <div className="space-y-1.5 mb-3">
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 text-sm">—</span>
+                        <span className="text-sm text-gray-700">Resolved complex client issues, achieving a <span className="font-semibold text-gray-900">15% boost</span> in positive feedback scores for the branch</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 text-sm">—</span>
+                        <span className="text-sm text-gray-700">Promoted RBC's digital banking tools, leading to a <span className="font-semibold text-gray-900">10% increase</span> in online and mobile banking adoption</span>
+                      </div>
+                    </div>
                     <div className="flex flex-wrap gap-1.5">
-                      <Badge variant="secondary" className="text-xs">Client Service</Badge>
-                      <Badge variant="secondary" className="text-xs">Digital Banking</Badge>
-                      <Badge variant="secondary" className="text-xs">Problem Resolution</Badge>
-                      <Badge variant="secondary" className="text-xs">Customer Support</Badge>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Service</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Digital Banking</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Problem Resolution</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Customer Support</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Irving Oil Marketing Intern */}
-                <div className="flex gap-6">
+                <div className="flex gap-5 p-5 rounded-2xl hover:bg-gray-50/50 transition-colors">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
+                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
                       <img src={irvingLogo} alt="Irving Oil" className="w-8 h-8 object-contain" />
                     </div>
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-foreground">Marketing Intern</h4>
-                      <span className="text-sm text-muted-foreground">2018</span>
+                      <h4 className="text-lg font-semibold text-gray-900">Marketing Intern</h4>
+                      <span className="text-sm font-medium text-gray-500 tabular-nums">2018</span>
                     </div>
-                    <p className="text-primary font-medium mb-1">Irving Oil Limited</p>
-                    <p className="text-sm text-muted-foreground mb-3">Saint John, New Brunswick</p>
-                    <ul className="text-sm text-muted-foreground space-y-1.5 mb-3">
-                      <li>• Conducted competitor analysis driving insights that improved targeted marketing by 11%</li>
-                      <li>• Developed a Customer Lifecycle model that increased targeted promotions, boosting customer engagement by 8%</li>
-                    </ul>
+                    <p className="text-blue-600 font-medium mb-1">Irving Oil Limited</p>
+                    <p className="text-sm text-gray-500 mb-3">Saint John, New Brunswick</p>
+                    <div className="space-y-1.5 mb-3">
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 text-sm">—</span>
+                        <span className="text-sm text-gray-700">Conducted competitor analysis driving insights that improved targeted marketing by <span className="font-semibold text-gray-900">11%</span></span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 text-sm">—</span>
+                        <span className="text-sm text-gray-700">Developed a Customer Lifecycle model that increased targeted promotions, boosting customer engagement by <span className="font-semibold text-gray-900">8%</span></span>
+                      </div>
+                    </div>
                     <div className="flex flex-wrap gap-1.5">
-                      <Badge variant="secondary" className="text-xs">Market Research</Badge>
-                      <Badge variant="secondary" className="text-xs">Customer Analytics</Badge>
-                      <Badge variant="secondary" className="text-xs">Competitive Analysis</Badge>
-                      <Badge variant="secondary" className="text-xs">Marketing Strategy</Badge>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Market Research</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Customer Analytics</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Competitive Analysis</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Marketing Strategy</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Grant Thornton Tax Return Intern */}
-                <div className="flex gap-6">
+                <div className="flex gap-5 p-5 rounded-2xl hover:bg-gray-50/50 transition-colors">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
+                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
                       <img src={grantThorntonLogo} alt="Grant Thornton" className="w-8 h-8 object-contain" />
                     </div>
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-foreground">Tax Return Intern</h4>
-                      <span className="text-sm text-muted-foreground">2018</span>
+                      <h4 className="text-lg font-semibold text-gray-900">Tax Return Intern</h4>
+                      <span className="text-sm font-medium text-gray-500 tabular-nums">2018</span>
                     </div>
-                    <p className="text-primary font-medium mb-1">Grant Thornton LLP</p>
-                    <p className="text-sm text-muted-foreground mb-3">Saint John, New Brunswick</p>
-                    <ul className="text-sm text-muted-foreground space-y-1.5 mb-3">
-                      <li>• Streamlined client financial data, boosting accuracy by 10% ensuring timely submission of 100+ tax returns</li>
-                      <li>• Improved tax return preparation processes, cutting filing errors by 15%</li>
-                    </ul>
+                    <p className="text-blue-600 font-medium mb-1">Grant Thornton LLP</p>
+                    <p className="text-sm text-gray-500 mb-3">Saint John, New Brunswick</p>
+                    <div className="space-y-1.5 mb-3">
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 text-sm">—</span>
+                        <span className="text-sm text-gray-700">Streamlined client financial data, boosting accuracy by <span className="font-semibold text-gray-900">10%</span> ensuring timely submission of 100+ tax returns</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 text-sm">—</span>
+                        <span className="text-sm text-gray-700">Improved tax return preparation processes, cutting filing errors by <span className="font-semibold text-gray-900">15%</span></span>
+                      </div>
+                    </div>
                     <div className="flex flex-wrap gap-1.5">
-                      <Badge variant="secondary" className="text-xs">Tax Preparation</Badge>
-                      <Badge variant="secondary" className="text-xs">Financial Analysis</Badge>
-                      <Badge variant="secondary" className="text-xs">Data Management</Badge>
-                      <Badge variant="secondary" className="text-xs">Client Service</Badge>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Tax Preparation</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Financial Analysis</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Data Management</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Service</span>
                     </div>
                   </div>
                 </div>
@@ -298,42 +348,41 @@ export default function Resume() {
             </section>
 
             {/* Professional Certifications */}
-            <section className="mb-12">
-              <h3 className="text-2xl font-semibold mb-8 flex items-center gap-3">
+            <section className="mb-10">
+              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '0.95rem', letterSpacing: '0.08em' }}>
                 Professional Certifications
-                <div className="h-px bg-border flex-1"></div>
               </h3>
               
-              <div className="space-y-6">
-                <div className="flex gap-6">
+              <div className="space-y-4">
+                <div className="flex gap-5 p-5 rounded-2xl bg-gray-50/50">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
+                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
                       <img src={cfaLogo} alt="CFA" className="w-8 h-8 object-contain" />
                     </div>
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-foreground">CFA Level I Candidate</h4>
-                      <span className="text-sm text-muted-foreground">2025</span>
+                      <h4 className="text-lg font-semibold text-gray-900">CFA Level I Candidate</h4>
+                      <span className="text-sm font-medium text-gray-500 tabular-nums">2025</span>
                     </div>
-                    <p className="text-primary font-medium mb-2">CFA Institute</p>
-                    <p className="text-sm text-muted-foreground">Comprehensive training in investment analysis, portfolio management, and ethical standards</p>
+                    <p className="text-blue-600 font-medium mb-2">CFA Institute</p>
+                    <p className="text-sm text-gray-600">Comprehensive training in investment analysis, portfolio management, and ethical standards</p>
                   </div>
                 </div>
 
-                <div className="flex gap-6">
+                <div className="flex gap-5 p-5 rounded-2xl bg-gray-50/50">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
+                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
                       <img src={trainingTheStreetLogo} alt="Training the Street" className="w-8 h-8 object-contain" />
                     </div>
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-foreground">Discounted Cash Flow Analysis</h4>
-                      <span className="text-sm text-muted-foreground">2024</span>
+                      <h4 className="text-lg font-semibold text-gray-900">Discounted Cash Flow Analysis</h4>
+                      <span className="text-sm font-medium text-gray-500 tabular-nums">2024</span>
                     </div>
-                    <p className="text-primary font-medium mb-1.5">Training the Street</p>
-                    <p className="text-sm text-muted-foreground">Advanced financial modeling techniques for valuation using discounted cash flow methodology</p>
+                    <p className="text-blue-600 font-medium mb-1.5">Training the Street</p>
+                    <p className="text-sm text-gray-600">Advanced financial modeling techniques for valuation using discounted cash flow methodology</p>
                   </div>
                 </div>
               </div>
@@ -341,36 +390,41 @@ export default function Resume() {
 
             {/* Community Leadership & Volunteer Service */}
             <section>
-              <h3 className="text-2xl font-semibold mb-6 flex items-center gap-3">
+              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '0.95rem', letterSpacing: '0.08em' }}>
                 Community
-                <div className="h-px bg-border flex-1"></div>
               </h3>
               
-              <div className="space-y-6">
+              <div className="space-y-4">
                 {/* United Way */}
-                <div className="flex gap-6">
+                <div className="flex gap-5 p-5 rounded-2xl bg-gray-50/50">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
+                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
                       <img src={unitedWayLogo} alt="United Way" className="w-8 h-8 object-contain" />
                     </div>
                   </div>
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-foreground">Next Gen Ambassador</h4>
-                      <span className="text-sm text-muted-foreground">2020 - 2023</span>
+                      <h4 className="text-lg font-semibold text-gray-900">Next Gen Ambassador</h4>
+                      <span className="text-sm font-medium text-gray-500 tabular-nums">2020 - 2023</span>
                     </div>
-                    <p className="text-primary font-medium mb-1">United Way</p>
-                    <p className="text-sm text-muted-foreground mb-3">Kingston, Ontario</p>
-                    <ul className="text-sm text-muted-foreground space-y-1.5 mb-3">
-                      <li>• Led implementation of fundraising strategies achieving 20% increase in funds raised over three years</li>
-                      <li>• Spearheaded engagement initiatives resulting in 15% rise in participation and awareness within workplace community</li>
-                    </ul>
+                    <p className="text-blue-600 font-medium mb-1">United Way</p>
+                    <p className="text-sm text-gray-500 mb-3">Kingston, Ontario</p>
+                    <div className="space-y-1.5 mb-3">
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 text-sm">—</span>
+                        <span className="text-sm text-gray-700">Led implementation of fundraising strategies achieving <span className="font-semibold text-gray-900">20% increase</span> in funds raised over three years</span>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="text-gray-400 mr-2 text-sm">—</span>
+                        <span className="text-sm text-gray-700">Spearheaded engagement initiatives resulting in <span className="font-semibold text-gray-900">15% rise</span> in participation and awareness within workplace community</span>
+                      </div>
+                    </div>
                     <div className="flex flex-wrap gap-1.5">
-                      <Badge variant="secondary" className="text-xs">Fundraising Strategy</Badge>
-                      <Badge variant="secondary" className="text-xs">Leadership</Badge>
-                      <Badge variant="secondary" className="text-xs">Event Planning</Badge>
-                      <Badge variant="secondary" className="text-xs">Community Engagement</Badge>
-                      <Badge variant="secondary" className="text-xs">Stakeholder Management</Badge>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Fundraising Strategy</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Leadership</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Event Planning</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Community Engagement</span>
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">Stakeholder Management</span>
                     </div>
                   </div>
                 </div>
