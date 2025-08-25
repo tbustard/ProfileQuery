@@ -196,8 +196,8 @@ export default function Resume() {
                 <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-14 h-14 bg-gradient-to-br from-gray-900 to-gray-700 rounded-xl shadow-md flex items-center justify-center border border-gray-200">
-                        <img src={fiscalAiLogo} alt="Fiscal.ai" className="w-10 h-10 object-contain filter brightness-0 invert" />
+                      <div className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center border border-gray-200">
+                        <img src={fiscalAiLogo} alt="Fiscal.ai" className="w-10 h-10 object-contain" />
                       </div>
                     </div>
                     <div className="flex-1">
@@ -233,8 +233,8 @@ export default function Resume() {
                 <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-500 rounded-xl shadow-md flex items-center justify-center border border-blue-200">
-                        <img src={bmoLogo} alt="BMO" className="w-10 h-10 object-contain filter brightness-0 invert" />
+                      <div className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center border border-blue-200">
+                        <img src={bmoLogo} alt="BMO" className="w-10 h-10 object-contain" />
                       </div>
                     </div>
                     <div className="flex-1">
@@ -270,8 +270,8 @@ export default function Resume() {
                 <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-14 h-14 bg-gradient-to-br from-green-600 to-green-500 rounded-xl shadow-md flex items-center justify-center border border-green-200">
-                        <img src={tdLogo} alt="TD" className="w-10 h-10 object-contain filter brightness-0 invert" />
+                      <div className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center border border-green-200">
+                        <img src={tdLogo} alt="TD" className="w-10 h-10 object-contain" />
                       </div>
                     </div>
                     <div className="flex-1">
