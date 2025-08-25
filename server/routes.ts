@@ -409,8 +409,7 @@ Focus on investment analysis, portfolio management, and financial reporting quer
         fileUrl: `/uploads/videos/${req.file.filename}`,
         mimeType: req.file.mimetype,
         fileSize: req.file.size,
-        isActive: true, // Set new video as active by default
-        uploaded_by: "admin" // Set as admin since this is an admin upload
+        isActive: true // Set new video as active by default
       });
 
       // Mark all other videos as inactive
