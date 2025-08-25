@@ -17,7 +17,7 @@ export const useGlobalAnimations = () => {
         transform: translateZ(0);
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        will-change: transform, opacity;
+        /* Removed will-change to reduce performance overhead */
       }
       
       /* Smooth entry animations for all sections */
@@ -65,9 +65,9 @@ export const useGlobalAnimations = () => {
         transform-style: preserve-3d;
       }
       
-      /* Smooth scrolling for all navigation with custom easing */
+      /* Smooth scrolling handled by JavaScript */
       html {
-        scroll-behavior: smooth;
+        /* Removed scroll-behavior: smooth to prevent conflicts */
         scroll-padding-top: 100px;
       }
       

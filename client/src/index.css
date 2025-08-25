@@ -90,7 +90,7 @@
   }
   
   html {
-    scroll-behavior: smooth;
+    /* Removed scroll-behavior: smooth to prevent conflicts with JS scrolling */
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -314,7 +314,7 @@
     opacity: 0;
     transform: translateY(20px) scale(0.98);
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform, opacity;
+    /* Removed will-change to reduce performance overhead */
     backface-visibility: hidden;
   }
 
@@ -327,7 +327,7 @@
     opacity: 0;
     transform: translateY(35px);
     transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform, opacity;
+    /* Removed will-change to reduce performance overhead */
     backface-visibility: hidden;
   }
 
@@ -340,7 +340,7 @@
     opacity: 0;
     transform: scale(0.96) translateY(15px);
     transition: all 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
-    will-change: transform, opacity;
+    /* Removed will-change to reduce performance overhead */
     backface-visibility: hidden;
   }
 
@@ -389,7 +389,7 @@
     transform: translateY(25px) scale(0.97);
     transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
     backface-visibility: hidden;
-    will-change: transform, opacity;
+    /* Removed will-change to reduce performance overhead */
   }
 
   .page-load-fade-in.loaded {
@@ -399,7 +399,7 @@
 
   /* Prevent scroll jumping */
   html {
-    scroll-behavior: smooth;
+    /* Removed scroll-behavior: smooth to prevent conflicts with JS scrolling */
     overflow-x: hidden;
   }
   
@@ -409,7 +409,7 @@
   
   /* Fix navigation bar layout shifts */
   nav {
-    will-change: background-color, backdrop-filter;
+    /* Removed will-change to reduce performance overhead */
     -webkit-font-smoothing: antialiased;
   }
   
@@ -600,7 +600,7 @@
 
   /* Enhanced performance for fast scrolling */
   .scroll-fast * {
-    will-change: transform, opacity;
+    /* Removed will-change to reduce performance overhead */
   }
   
   /* Ensure visibility during fast scrolling */

@@ -40,22 +40,28 @@ export default function Navigation() {
   }, [openDropdown]);
 
   useEffect(() => {
-    let ticking = false;
+    let timeoutId: NodeJS.Timeout | null = null;
+    let lastScrollY = 0;
     
     const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY;
+      if (timeoutId) clearTimeout(timeoutId);
+      
+      timeoutId = setTimeout(() => {
+        const currentScrollY = window.scrollY;
+        // Only update if there's a significant change
+        if (Math.abs(currentScrollY - lastScrollY) > 5) {
           setScrollY(currentScrollY);
           setIsScrolled(currentScrollY > 150);
-          ticking = false;
-        });
-        ticking = true;
-      }
+          lastScrollY = currentScrollY;
+        }
+      }, 10);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
 
@@ -70,7 +76,7 @@ export default function Navigation() {
     const observerOptions = {
       root: null,
       rootMargin: '-20% 0px -70% 0px',
-      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+      threshold: [0.1, 0.5, 0.9]
     };
 
     let visibleSections = new Map();
@@ -115,10 +121,13 @@ export default function Navigation() {
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navHeight;
       
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      // Use a slight delay to prevent conflict with other animations
+      setTimeout(() => {
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }, 50);
     }
     setIsMobileMenuOpen(false);
   };
@@ -127,7 +136,7 @@ export default function Navigation() {
     <>
       {/* Navigation Bar with Clean Glass Effect */}
       <nav 
-        className="fixed top-0 left-0 right-0 w-full z-50 transition-colors duration-300"
+        className="fixed top-0 left-0 right-0 w-full z-50 transition-all duration-200 ease-out"
         style={{
           background: isScrolled 
             ? 'rgba(255, 255, 255, 0.88)' 
@@ -150,12 +159,15 @@ export default function Navigation() {
               {isHomePage && (
                 <button 
                   onClick={() => {
-                    window.scrollTo({
-                      top: 0,
-                      behavior: 'smooth'
-                    });
+                    // Use a slight delay to prevent conflict with other animations
+                    setTimeout(() => {
+                      window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                      });
+                    }, 50);
                   }}
-                  className="flex items-center space-x-4 transition-all duration-300 hover:scale-105 cursor-pointer"
+                  className="flex items-center space-x-4 transition-transform duration-200 hover:scale-105 cursor-pointer"
                 >
                   <img 
                     src={profileImage} 

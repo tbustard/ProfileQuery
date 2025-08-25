@@ -11,21 +11,30 @@ export default function Home() {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
 
   useEffect(() => {
-    let ticking = false;
+    let timeoutId: NodeJS.Timeout | null = null;
+    let lastKnownScrollY = 0;
     
     const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
+      if (timeoutId) clearTimeout(timeoutId);
+      
+      timeoutId = setTimeout(() => {
+        const scrollY = window.scrollY;
+        // Only update if there's a significant change
+        if (Math.abs(scrollY - lastKnownScrollY) > 50) {
           setShowScrollToTop(scrollY > 300);
-          ticking = false;
-        });
-        ticking = true;
-      }
+          lastKnownScrollY = scrollY;
+        }
+      }, 100);
     };
 
+    // Initial check
+    setShowScrollToTop(window.scrollY > 300);
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -48,17 +57,16 @@ export default function Home() {
       {/* Clean Scroll to Top Button with Glass Effect */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40 transition-opacity duration-300 rounded-full ${
+        className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40 transition-all duration-300 ease-in-out rounded-full ${
           showScrollToTop 
-            ? 'opacity-100 pointer-events-auto' 
-            : 'opacity-0 pointer-events-none'
+            ? 'opacity-100 pointer-events-auto translate-y-0' 
+            : 'opacity-0 pointer-events-none translate-y-4'
         } hover:scale-105 shadow-xl hover:shadow-2xl`}
         style={{ 
           background: 'rgba(255, 255, 255, 0.92)',
           backdropFilter: 'blur(20px) saturate(180%)',
           WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-          border: '1px solid rgba(0, 0, 0, 0.08)',
-          willChange: 'opacity'
+          border: '1px solid rgba(0, 0, 0, 0.08)'
         }}
         data-testid="scroll-to-top-button"
       >
