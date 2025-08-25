@@ -171,13 +171,13 @@ export default function Resume() {
                         <h4 className="text-base font-bold text-gray-900">Bachelor of Business Administration</h4>
                         <p className="text-sm text-blue-600 font-semibold">Finance Major • University of New Brunswick</p>
                       </div>
-                      <span className="text-sm font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded">2020</span>
+                      <span className="text-sm font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded">2016-2020</span>
                     </div>
                     <div className="grid grid-cols-2 gap-x-8 gap-y-1 text-xs text-gray-600 mt-3">
-                      <div>• <span className="font-semibold">1st Place</span> CIBC Case Competition</div>
+                      <div>• <span className="font-semibold">1st Place</span> CIBC Capital Markets Case Competition</div>
                       <div>• UNB Student Investment Fund <span className="font-semibold">Portfolio Manager</span></div>
                       <div>• <span className="font-semibold">$47,500</span> in Scholarship Awards</div>
-                      <div>• <span className="font-semibold">3rd Place</span> TD Case Competition</div>
+                      <div>• <span className="font-semibold">3rd Place</span> TD Securities Case Competition</div>
                     </div>
                   </div>
                 </div>
