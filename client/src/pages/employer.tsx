@@ -164,7 +164,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Resume
+            Back to Homepage
           </Button>
           <Button 
             variant="ghost" 
