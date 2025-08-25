@@ -28,24 +28,9 @@ export default function Resume() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#f5f5f7' }}>
       <Navigation />
-      {/* Header Actions - Hide on print */}
-      <div className="print:hidden sticky top-20 z-40 px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto flex justify-end gap-3">
-          <Button
-            onClick={handlePrint}
-            variant="outline"
-            size="sm"
-            className="bg-white/90 backdrop-blur-md border-white/30 hover:bg-white/95"
-            data-testid="button-print"
-          >
-            <Printer className="w-4 h-4" />
-            Print
-          </Button>
-        </div>
-      </div>
 
       {/* Main Resume Content */}
-      <div className="px-4 sm:px-6 pb-16">
+      <div className="px-4 sm:px-6 pb-16 pt-24">
         <div className="max-w-4xl mx-auto">
           
           {/* Page 1 */}
