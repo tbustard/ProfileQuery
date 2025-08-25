@@ -3,7 +3,7 @@ import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Globe, Download, Printer, Linkedin, ChevronUp, Briefcase, GraduationCap, Award } from "lucide-react";
+import { Mail, Phone, MapPin, Globe, Download, Printer, Linkedin, ChevronUp, Briefcase, GraduationCap, Award, Heart } from "lucide-react";
 import Navigation from "@/components/navigation";
 
 // Import logos from assets
@@ -459,24 +459,27 @@ export default function Resume() {
 
             {/* Community Leadership */}
             <section className="mb-6">
-              <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider mb-4">Community Leadership</h3>
+              <div className="flex items-center gap-2 mb-4">
+                <Heart className="w-5 h-5 text-blue-600" />
+                <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider">Community Leadership</h3>
+              </div>
               
-              <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm">
+              <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl shadow-sm flex items-center justify-center">
-                      <img src={unitedWayLogo} alt="United Way" className="w-8 h-8 object-contain filter brightness-0 invert" />
+                    <div className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center border border-red-200">
+                      <img src={unitedWayLogo} alt="United Way" className="w-10 h-10 object-contain" />
                     </div>
                   </div>
                   <div className="flex-1">
-                    <div className="flex justify-between items-start mb-2">
+                    <div className="flex justify-between items-start mb-3">
                       <div>
                         <h4 className="text-base font-bold text-gray-900">Next Gen Ambassador</h4>
                         <p className="text-sm text-blue-600 font-semibold">United Way • Kingston, ON</p>
                       </div>
                       <span className="text-sm font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded">2020-2023</span>
                     </div>
-                    <ul className="space-y-1 mb-3">
+                    <ul className="space-y-1.5 mb-4">
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
                         <span>Led fundraising strategies, achieving <span className="font-semibold">20% increase</span> in funds raised over three years</span>
@@ -491,18 +494,18 @@ export default function Resume() {
               </div>
 
               {/* Additional Community - Compact */}
-              <div className="mt-3 grid grid-cols-3 gap-2">
-                <div className="bg-gray-50 rounded-lg p-2 text-center">
-                  <p className="text-xs font-semibold text-gray-700">RBC Race for the Kids</p>
-                  <p className="text-xs text-gray-500">Volunteer Coordinator • 2021</p>
+              <div className="mt-4 grid grid-cols-3 gap-3">
+                <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-3 text-center border border-gray-200 hover:shadow-sm transition-shadow">
+                  <p className="text-xs font-bold text-gray-800">RBC Race for the Kids</p>
+                  <p className="text-xs text-gray-600 mt-1">Volunteer Coordinator • 2021</p>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-2 text-center">
-                  <p className="text-xs font-semibold text-gray-700">Irving Volunteer Program</p>
-                  <p className="text-xs text-gray-500">Team Lead • 2018</p>
+                <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-3 text-center border border-gray-200 hover:shadow-sm transition-shadow">
+                  <p className="text-xs font-bold text-gray-800">Irving Volunteer Program</p>
+                  <p className="text-xs text-gray-600 mt-1">Team Lead • 2018</p>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-2 text-center">
-                  <p className="text-xs font-semibold text-gray-700">BMO Community Banking</p>
-                  <p className="text-xs text-gray-500">Financial Literacy • 2022</p>
+                <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-3 text-center border border-gray-200 hover:shadow-sm transition-shadow">
+                  <p className="text-xs font-bold text-gray-800">BMO Community Banking</p>
+                  <p className="text-xs text-gray-600 mt-1">Financial Literacy • 2022</p>
                 </div>
               </div>
             </section>
