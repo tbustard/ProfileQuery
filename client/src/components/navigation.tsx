@@ -650,33 +650,35 @@ export default function Navigation() {
                   <button
                     onClick={async () => {
                       try {
-                        // Fetch the latest uploaded resume
+                        // Fetch the latest resume PDF
                         const response = await fetch('/api/latest-resume');
                         if (response.ok) {
-                          const resume = await response.json();
-                          if (resume && resume.fileUrl) {
-                            // Open the PDF in a new tab for printing
-                            const printWindow = window.open(resume.fileUrl, '_blank');
-                            if (printWindow) {
-                              // Wait for the PDF to load then trigger print
-                              printWindow.onload = () => {
-                                setTimeout(() => {
-                                  printWindow.print();
-                                }, 500);
-                              };
-                            }
-                          } else {
-                            // If no uploaded resume, print the current page
-                            window.print();
+                          // Create a blob from the PDF response
+                          const blob = await response.blob();
+                          const url = window.URL.createObjectURL(blob);
+                          
+                          // Open in new window for printing
+                          const printWindow = window.open(url, '_blank');
+                          if (printWindow) {
+                            printWindow.addEventListener('load', () => {
+                              setTimeout(() => {
+                                printWindow.print();
+                              }, 500);
+                            });
                           }
+                          
+                          // Clean up the blob URL after a delay
+                          setTimeout(() => {
+                            window.URL.revokeObjectURL(url);
+                          }, 60000);
+                        } else if (response.status === 404) {
+                          alert('No resume PDF found. Please upload a resume first through the sign-in page.');
                         } else {
-                          // If no uploaded resume found, print the current page
-                          window.print();
+                          alert('Failed to load resume PDF. Please try again.');
                         }
                       } catch (error) {
-                        console.error('Error fetching resume:', error);
-                        // Fallback to printing current page
-                        window.print();
+                        console.error('Error loading resume:', error);
+                        alert('Failed to load resume for printing.');
                       }
                     }}
                     className="px-4 py-2 text-sm font-medium rounded-lg bg-white/70 text-gray-700 border border-gray-200 hover:bg-gray-50 transition-all duration-200 hover:scale-105 shadow-sm flex items-center gap-2"
