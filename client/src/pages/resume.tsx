@@ -61,8 +61,8 @@ export default function Resume() {
             
             {/* Header Section */}
             <div className="flex flex-col lg:flex-row items-start gap-8 mb-12">
-              {/* Profile Image */}
-              <div className="flex-shrink-0">
+              {/* Left Column - Profile Image and Contact */}
+              <div className="flex-shrink-0 space-y-4">
                 <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-[1.5rem] overflow-hidden shadow-xl ring-1 ring-black/5">
                   <img 
                     src={profileImage} 
@@ -70,6 +70,28 @@ export default function Resume() {
                     className="w-full h-full object-cover object-center"
                     data-testid="img-resume-profile"
                   />
+                </div>
+                
+                {/* Contact Information */}
+                <div className="text-left">
+                  <div className="text-sm text-muted-foreground space-y-1">
+                    <div className="flex items-center gap-2">
+                      <Mail className="w-4 h-4" />
+                      <span>tbustard@unb.ca</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Phone className="w-4 h-4" />
+                      <span>+1 (613) 985-1223</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-4 h-4" />
+                      <span>Toronto, Ontario, Canada</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Globe className="w-4 h-4" />
+                      <span>tylerbustard.ca</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -86,23 +108,6 @@ export default function Resume() {
                     Driving innovation at the intersection of finance and technology. 
                     Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
                   </p>
-                </div>
-
-                {/* Contact Information */}
-                <div className="text-center">
-                  <div className="text-sm text-muted-foreground flex items-center justify-center gap-1">
-                    <Mail className="w-4 h-4" />
-                    <span>tbustard@unb.ca</span>
-                    <span className="mx-2">•</span>
-                    <Phone className="w-4 h-4" />
-                    <span>+1 (613) 985-1223</span>
-                    <span className="mx-2">•</span>
-                    <MapPin className="w-4 h-4" />
-                    <span>Toronto, Ontario, Canada</span>
-                    <span className="mx-2">•</span>
-                    <Globe className="w-4 h-4" />
-                    <span>tylerbustard.ca</span>
-                  </div>
                 </div>
               </div>
             </div>
