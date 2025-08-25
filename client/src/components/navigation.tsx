@@ -287,6 +287,21 @@ export default function Navigation() {
                         }}
                       >
                         <div className="space-y-2 max-h-96 overflow-y-auto">
+                          {/* Fiscal.ai */}
+                          <button 
+                            onClick={() => {
+                              scrollToSection('#experience-fiscal-ai-equity-analyst');
+                              setOpenDropdown(null);
+                            }}
+                            className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
+                          >
+                            <div className="space-y-1">
+                              <div className="text-sm font-bold text-gray-900">Equity Analyst</div>
+                              <div className="text-xs text-gray-600">Fiscal.ai</div>
+                              <div className="text-xs text-gray-500">Toronto, ON • 2023-Present</div>
+                            </div>
+                          </button>
+                          
                           {/* BMO Private Wealth */}
                           <button 
                             onClick={() => {
