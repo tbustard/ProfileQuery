@@ -54,12 +54,15 @@ export default function Home() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#f5f5f7' }}>
       <Navigation />
-      <HeroSection />
+      {/* Add padding top to account for fixed navigation */}
+      <div className="pt-16 sm:pt-20">
+        <HeroSection />
       <EducationSection />
       <ExperienceSection />
       <CertificationsSection />
       <CommunitySection />
       <ContactInfoSection />
+      </div>
       
       {/* Clean Scroll to Top Button with Glass Effect */}
       <button
