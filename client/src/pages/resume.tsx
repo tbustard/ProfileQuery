@@ -386,181 +386,79 @@ export default function Resume() {
       <style>{`
         @media print {
           @page {
-            margin: 0.75in 0.5in;
+            margin: 0.75in;
             size: letter;
           }
           
-          /* Hide everything except resume content */
-          body { 
-            print-color-adjust: exact; 
-            background: white !important;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+          * {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
           }
           
-          /* Hide navigation and non-printable elements */
+          body { 
+            background: white !important;
+            font-family: Arial, sans-serif !important;
+          }
+          
+          /* Hide navigation and web-only elements */
           nav { display: none !important; }
           .print\\:hidden { display: none !important; }
           
           /* Reset main container */
           .min-h-screen {
-            min-height: auto !important;
             background: white !important;
             padding: 0 !important;
           }
           
-          /* Resume content container */
           .px-4.sm\\:px-6.pb-16.pt-24 {
             padding: 0 !important;
           }
           
           .max-w-4xl {
-            max-width: 100% !important;
+            max-width: none !important;
             margin: 0 !important;
           }
           
-          /* Resume content styling */
+          /* Remove glassmorphism effects */
+          .bg-white\\/90,
+          .bg-white\\/80,
+          .backdrop-blur-md {
+            background: white !important;
+            backdrop-filter: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+          }
+          
           .print\\:shadow-none { box-shadow: none !important; }
           .print\\:border-0 { border: none !important; }
           .print\\:rounded-none { border-radius: 0 !important; }
           .print\\:bg-white { background: white !important; }
           .print\\:text-black { color: black !important; }
           
-          /* Force page breaks between resume pages */
+          /* Page breaks */
           .max-w-4xl > div:first-child {
             page-break-after: always;
-            margin-bottom: 0 !important;
-            height: auto !important;
-            min-height: 9.5in !important;
           }
           
           .max-w-4xl > div:last-child {
             page-break-before: always;
-            margin-top: 0 !important;
           }
           
-          /* Ensure resume cards fill the page properly */
-          .max-w-4xl > div {
-            background: white !important;
-            border: none !important;
-            border-radius: 0 !important;
-            box-shadow: none !important;
-            margin: 0 !important;
-            padding: 0.5in !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
-          }
+          /* Clean up spacing */
+          .mb-6 { margin-bottom: 1rem !important; }
+          .mb-8 { margin-bottom: 1.5rem !important; }
+          .space-y-6 > * + * { margin-top: 1rem !important; }
           
-          /* Typography improvements */
-          h1 { 
-            font-size: 28pt !important; 
-            margin: 0 0 8pt 0 !important; 
-            line-height: 1.2 !important;
-            font-weight: bold !important;
-          }
+          /* Typography cleanup */
+          h1 { font-size: 24pt !important; line-height: 1.2 !important; }
+          h2 { font-size: 16pt !important; color: #2563eb !important; }
+          h3 { font-size: 14pt !important; font-weight: 600 !important; }
+          h4 { font-size: 12pt !important; font-weight: 600 !important; }
           
-          h2 { 
-            font-size: 14pt !important; 
-            margin: 0 0 12pt 0 !important; 
-            color: #2563eb !important;
-            font-weight: 600 !important;
-          }
-          
-          h3 { 
-            font-size: 16pt !important; 
-            margin: 20pt 0 10pt 0 !important; 
-            font-weight: 600 !important;
-          }
-          
-          h4 { 
-            font-size: 12pt !important; 
-            margin: 8pt 0 4pt 0 !important; 
-            font-weight: 600 !important;
-          }
-          
-          p, span, div {
-            font-size: 10pt !important;
-            line-height: 1.3 !important;
-            margin: 0 !important;
-          }
-          
-          /* Contact info styling */
-          .text-sm.text-muted-foreground {
-            text-align: center !important;
-            margin: 12pt 0 20pt 0 !important;
-            font-size: 10pt !important;
-          }
-          
-          /* Experience sections */
-          .space-y-6 > div {
-            margin-bottom: 12pt !important;
-            page-break-inside: avoid !important;
-          }
-          
-          /* Badges/Tags */
-          .text-xs {
-            font-size: 8pt !important;
-            padding: 2pt 6pt !important;
-            background: #f3f4f6 !important;
-            border: 1px solid #d1d5db !important;
-            border-radius: 3pt !important;
-            margin: 1pt !important;
-          }
-          
-          /* Lists */
-          ul {
-            margin: 6pt 0 !important;
-            padding-left: 12pt !important;
-          }
-          
-          li {
-            font-size: 10pt !important;
-            line-height: 1.3 !important;
-            margin: 2pt 0 !important;
-          }
-          
-          /* Hide background and ensure white print area */
-          * { 
-            -webkit-print-color-adjust: exact !important;
-          }
-          
-          /* Specific overrides for resume content */
-          .bg-white\\/90,
-          .bg-white\\/80,
-          .backdrop-blur-md {
-            background: white !important;
-            backdrop-filter: none !important;
-          }
-          
-          /* Section dividers */
-          .h-px {
-            height: 1pt !important;
-            background: #000 !important;
-            margin: 6pt 0 !important;
-          }
-          
-          /* Image containers */
-          .w-12.h-12 {
-            width: 32pt !important;
-            height: 32pt !important;
-          }
-          
-          .w-40.h-40 {
-            width: 120pt !important;
-            height: 120pt !important;
-          }
-          
-          /* Flex layouts for print */
-          .flex {
-            display: flex !important;
-          }
-          
-          .gap-6 {
-            gap: 12pt !important;
-          }
-          
-          .gap-8 {
-            gap: 16pt !important;
-          }
+          /* Keep images reasonable */
+          .w-40.h-40 { width: 100pt !important; height: 100pt !important; }
+          .w-12.h-12 { width: 24pt !important; height: 24pt !important; }
         }
       `}</style>
     </div>
