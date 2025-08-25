@@ -60,45 +60,41 @@ export default function Resume() {
           <div className={`bg-white/90 backdrop-blur-md border border-white/30 rounded-[2rem] p-8 sm:p-12 shadow-2xl mb-8 page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}>
             
             {/* Header Section */}
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 mb-12">
-              {/* Left Column - Profile Image and Contact */}
-              <div className="flex-shrink-0 space-y-4">
-                <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-[1.5rem] overflow-hidden shadow-xl ring-1 ring-black/5">
-                  <img 
-                    src={profileImage} 
-                    alt="Tyler Bustard" 
-                    className="w-full h-full object-cover object-center"
-                    data-testid="img-resume-profile"
-                  />
-                </div>
+            <div className="flex items-start gap-8 mb-12">
+              {/* Profile Photo and Contact */}
+              <div className="flex flex-col items-center space-y-4">
+                <img 
+                  src={profileImage} 
+                  alt="Tyler Bustard" 
+                  className="w-40 h-40 rounded-[2rem] object-cover shadow-lg"
+                  data-testid="img-resume-profile"
+                />
                 
                 {/* Contact Information */}
-                <div className="text-left">
-                  <div className="text-sm text-muted-foreground flex flex-wrap items-center gap-1">
-                    <Mail className="w-4 h-4" />
-                    <span>tbustard@unb.ca</span>
-                    <span className="mx-2">•</span>
-                    <Phone className="w-4 h-4" />
-                    <span>+1 (613) 985-1223</span>
-                    <span className="mx-2">•</span>
-                    <MapPin className="w-4 h-4" />
-                    <span>Toronto, Ontario, Canada</span>
-                    <span className="mx-2">•</span>
-                    <Globe className="w-4 h-4" />
-                    <span>tylerbustard.ca</span>
-                  </div>
+                <div className="text-sm text-muted-foreground flex flex-wrap items-center gap-1">
+                  <Mail className="w-4 h-4" />
+                  <span>tbustard@unb.ca</span>
+                  <span className="mx-2">•</span>
+                  <Phone className="w-4 h-4" />
+                  <span>+1 (613) 985-1223</span>
+                  <span className="mx-2">•</span>
+                  <MapPin className="w-4 h-4" />
+                  <span>Toronto, Ontario, Canada</span>
+                  <span className="mx-2">•</span>
+                  <Globe className="w-4 h-4" />
+                  <span>tylerbustard.ca</span>
                 </div>
               </div>
 
-              {/* Header Info */}
-              <div className="flex-1 text-center md:text-left">
-                <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-2 tracking-tight">
+              {/* Name, Title, and Description */}
+              <div className="flex-1">
+                <h1 className="text-6xl font-bold text-foreground mb-2 tracking-tight">
                   Tyler Bustard
                 </h1>
-                <h2 className="text-xl md:text-2xl text-primary font-medium mb-4">
+                <h2 className="text-2xl text-primary font-medium mb-6">
                   Finance & Technology Professional
                 </h2>
-                <p className="text-base text-muted-foreground leading-relaxed max-w-2xl">
+                <p className="text-base text-muted-foreground leading-relaxed">
                   Driving innovation at the intersection of finance and technology. 
                   Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
                 </p>
