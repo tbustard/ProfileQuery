@@ -392,6 +392,23 @@
       visibility: visible !important;
       display: block !important;
     }
+    
+    /* Force visibility for experience section on mobile */
+    #experience .scroll-fade-in,
+    #experience .scroll-slide-up,
+    #experience .scroll-scale-in,
+    #experience .scroll-fade-in.visible,
+    #experience .scroll-slide-up.visible,
+    #experience .scroll-scale-in.visible,
+    #experience .scroll-fade-in:not(.visible),
+    #experience .scroll-slide-up:not(.visible),
+    #experience .scroll-scale-in:not(.visible) {
+      opacity: 1 !important;
+      transform: scale(1) translateY(0) !important;
+      transition: none !important;
+      visibility: visible !important;
+      display: block !important;
+    }
   }
 
   /* Scroll direction responsive animations */
