@@ -148,7 +148,7 @@ export default function Resume() {
               {/* Professional Summary - ATS Optimized */}
               <div className="bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-4 border border-blue-100/50">
                 <p className="text-sm leading-relaxed text-gray-700">
-                  <span className="font-semibold">Strategic Finance Professional</span> with <span className="font-semibold">6+ years</span> driving <span className="font-medium">innovation</span> at the intersection of <span className="font-medium">capital markets, wealth management, AI technology,</span> and <span className="font-medium">data analytics</span>. Proven track record of <span className="font-medium">optimizing portfolio performance</span>, <span className="font-medium">enhancing client relationships</span>, and <span className="font-medium">implementing AI-driven solutions</span> that boost operational efficiency by up to <span className="font-semibold">15%</span>.
+                  <span className="font-semibold">Strategic Finance Professional</span> with <span className="font-semibold">6+ years</span> driving <span className="font-medium">innovation</span> at the intersection of <span className="font-medium">capital markets, wealth management, AI technology,</span> and <span className="font-medium">data analytics</span>. Proven track record of <span className="font-medium">optimizing portfolio performance</span>, <span className="font-medium">enhancing client relationships</span>, and <span className="font-medium">implementing AI-driven solutions</span> that boost operational efficiency <span className="font-semibold">15%</span>.
                 </p>
               </div>
             </div>
