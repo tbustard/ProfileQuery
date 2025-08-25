@@ -387,7 +387,7 @@ export default function Resume() {
         @media print {
           /* Page setup for exactly 2 pages */
           @page {
-            margin: 0.75in 0.5in;
+            margin: 0.6in 0.5in;
             size: letter;
           }
           
@@ -447,46 +447,46 @@ export default function Resume() {
             display: flex !important;
             align-items: center !important;
             gap: 1.25rem !important;
-            margin-bottom: 1.5rem !important;
-            padding-bottom: 1rem !important;
-            border-bottom: 0.5px solid #d1d5db !important;
+            margin-bottom: 1.25rem !important;
+            padding-bottom: 0.75rem !important;
+            border-bottom: 0.5px solid #e5e7eb !important;
           }
           
           /* Profile photo - circular Apple style */
           .w-40.h-40 {
-            width: 3.25rem !important;
-            height: 3.25rem !important;
+            width: 3rem !important;
+            height: 3rem !important;
             border-radius: 50% !important;
             object-fit: cover !important;
             flex-shrink: 0 !important;
-            border: 0.5px solid #e5e7eb !important;
+            border: 0.5px solid #f2f2f7 !important;
           }
           
           /* Name - Apple's clean typography */
           .text-6xl {
-            font-size: 1.9rem !important;
+            font-size: 1.8rem !important;
             line-height: 1 !important;
             margin-bottom: 0.15rem !important;
-            font-weight: 600 !important;
+            font-weight: 700 !important;
             color: #000 !important;
-            letter-spacing: -0.03em !important;
+            letter-spacing: -0.025em !important;
           }
           
           /* Professional title - subtle accent */
           h2.text-2xl {
-            font-size: 1rem !important;
+            font-size: 0.95rem !important;
             line-height: 1.2 !important;
-            margin-bottom: 0.5rem !important;
+            margin-bottom: 0.4rem !important;
             color: #007AFF !important;
-            font-weight: 400 !important;
+            font-weight: 500 !important;
             letter-spacing: -0.01em !important;
           }
           
-          /* Description - refined text */
+          /* Description - refined text with emphasis on key words */
           .text-base {
-            font-size: 0.75rem !important;
-            line-height: 1.45 !important;
-            color: #48484A !important;
+            font-size: 0.7rem !important;
+            line-height: 1.4 !important;
+            color: #3C3C43 !important;
             font-weight: 400 !important;
           }
           
@@ -494,14 +494,14 @@ export default function Resume() {
           .flex.justify-center.items-center.flex-wrap {
             justify-content: center !important;
             align-items: center !important;
-            gap: 0.5rem !important;
+            gap: 0.4rem !important;
             margin: 0 !important;
             padding: 0 !important;
             border: none !important;
           }
           
           .text-sm {
-            font-size: 0.65rem !important;
+            font-size: 0.6rem !important;
             line-height: 1 !important;
             color: #8E8E93 !important;
             font-weight: 400 !important;
@@ -512,45 +512,48 @@ export default function Resume() {
             display: none !important;
           }
           
-          /* Separator dots - thinner */
+          /* Separator dots - ultra minimal */
           .mx-2 {
-            margin: 0 0.375rem !important;
-            color: #C7C7CC !important;
-            font-weight: 300 !important;
+            margin: 0 0.3rem !important;
+            color: #D1D1D6 !important;
+            font-weight: 200 !important;
+            font-size: 0.5rem !important;
           }
           
-          /* Section headers - Apple's minimal approach */
+          /* Section headers - Apple's refined approach */
           h3.text-2xl.font-semibold,
           .text-2xl.font-semibold {
-            font-size: 0.85rem !important;
-            font-weight: 600 !important;
-            margin: 1.5rem 0 0.75rem 0 !important;
-            color: #000 !important;
+            font-size: 0.75rem !important;
+            font-weight: 700 !important;
+            margin: 1.25rem 0 0.625rem 0 !important;
+            color: #1C1C1E !important;
             display: block !important;
             text-transform: uppercase !important;
-            letter-spacing: 0.08em !important;
+            letter-spacing: 0.1em !important;
+            padding-bottom: 0.25rem !important;
+            border-bottom: 0.5px solid #F2F2F7 !important;
           }
           
-          /* Remove divider lines for cleaner look */
+          /* Remove divider lines in headers */
           .h-px.bg-border {
             display: none !important;
           }
           
-          /* Experience entries - refined spacing */
+          /* Experience entries - optimized spacing */
           .flex.gap-6 {
             display: flex !important;
-            gap: 0.75rem !important;
-            margin-bottom: 1rem !important;
+            gap: 0.625rem !important;
+            margin-bottom: 0.875rem !important;
             page-break-inside: avoid !important;
           }
           
-          /* Company logo containers - Apple's subtle style */
+          /* Company logo containers - minimal style */
           .w-12.h-12.bg-white.rounded-xl.shadow-md {
-            width: 1.5rem !important;
-            height: 1.5rem !important;
-            background: #F2F2F7 !important;
+            width: 1.4rem !important;
+            height: 1.4rem !important;
+            background: #FAFAFA !important;
             border: none !important;
-            border-radius: 0.25rem !important;
+            border-radius: 0.2rem !important;
             box-shadow: none !important;
             display: flex !important;
             align-items: center !important;
@@ -560,105 +563,118 @@ export default function Resume() {
           
           /* Company logos */
           .w-8.h-8 {
-            width: 1rem !important;
-            height: 1rem !important;
+            width: 0.9rem !important;
+            height: 0.9rem !important;
             object-fit: contain !important;
-            opacity: 0.8 !important;
+            opacity: 0.75 !important;
           }
           
-          /* Job titles - strong but elegant */
+          /* Job titles - emphasis on role */
           .text-lg.font-semibold {
-            font-size: 0.8rem !important;
+            font-size: 0.75rem !important;
             font-weight: 600 !important;
             color: #000 !important;
             margin-bottom: 0.05rem !important;
-            letter-spacing: -0.01em !important;
+            letter-spacing: -0.008em !important;
           }
           
-          /* Company names - Apple blue */
+          /* Company names - subtle but recognizable */
           .text-primary.font-medium {
             color: #007AFF !important;
-            font-weight: 400 !important;
-            font-size: 0.7rem !important;
+            font-weight: 500 !important;
+            font-size: 0.65rem !important;
             margin-bottom: 0 !important;
           }
           
-          /* Location text - subtle gray */
+          /* Location text - de-emphasized */
           p.text-sm.text-muted-foreground {
-            font-size: 0.65rem !important;
-            color: #8E8E93 !important;
-            margin-bottom: 0.375rem !important;
+            font-size: 0.6rem !important;
+            color: #AEAEB2 !important;
+            margin-bottom: 0.3rem !important;
             font-weight: 400 !important;
           }
           
-          /* Dates - minimal style */
+          /* Dates - subtle but clear */
           span.text-sm.text-muted-foreground {
-            font-size: 0.65rem !important;
+            font-size: 0.6rem !important;
             color: #8E8E93 !important;
             white-space: nowrap !important;
             font-weight: 400 !important;
+            font-variant-numeric: tabular-nums !important;
           }
           
-          /* Bullet points - refined typography */
+          /* Bullet points - emphasis on metrics */
           ul.space-y-1\\.5,
           ul.space-y-1 {
-            margin: 0.375rem 0 0.5rem 0 !important;
+            margin: 0.3rem 0 0.4rem 0 !important;
           }
           
           ul.space-y-1\\.5 li,
           ul.space-y-1 li {
-            margin: 0.125rem 0 !important;
-            font-size: 0.65rem !important;
-            line-height: 1.45 !important;
+            margin: 0.1rem 0 !important;
+            font-size: 0.625rem !important;
+            line-height: 1.4 !important;
             color: #1C1C1E !important;
             font-weight: 400 !important;
+            padding-left: 0.75rem !important;
+            position: relative !important;
           }
           
-          /* Remove bullet point dots for cleaner look */
+          /* Minimalist bullet points with emphasis on numbers */
           ul li::before {
-            content: "" !important;
+            content: "–" !important;
+            position: absolute !important;
+            left: 0 !important;
+            color: #C7C7CC !important;
+            font-weight: 300 !important;
           }
           
+          /* Highlight percentages and metrics */
           ul li {
             list-style: none !important;
-            padding-left: 0 !important;
           }
           
-          /* Skills badges - Apple's pill style */
+          /* Make numbers stand out */
+          ul li:contains("%"),
+          ul li:contains("$") {
+            font-weight: 500 !important;
+          }
+          
+          /* Skills badges - refined Apple pills */
           .flex.flex-wrap.gap-1\\.5 {
             display: flex !important;
             flex-wrap: wrap !important;
-            gap: 0.2rem !important;
-            margin-top: 0.375rem !important;
+            gap: 0.15rem !important;
+            margin-top: 0.3rem !important;
           }
           
-          /* Individual badge - minimal Apple style */
+          /* Individual badge - ultra-minimal */
           .inline-flex.items-center.rounded-md.px-2\\.5.py-0\\.5,
           [class*="badge"] {
             display: inline-flex !important;
             align-items: center !important;
-            background: #F2F2F7 !important;
-            color: #1C1C1E !important;
-            border: none !important;
-            padding: 0.05rem 0.35rem !important;
-            border-radius: 0.625rem !important;
-            font-size: 0.5rem !important;
+            background: transparent !important;
+            color: #3C3C43 !important;
+            border: 0.5px solid #E5E5EA !important;
+            padding: 0.025rem 0.3rem !important;
+            border-radius: 0.5rem !important;
+            font-size: 0.475rem !important;
             font-weight: 500 !important;
             white-space: nowrap !important;
-            letter-spacing: 0.01em !important;
+            letter-spacing: 0.015em !important;
           }
           
           /* Section spacing for perfect 2-page layout */
           .mb-8 {
-            margin-bottom: 1rem !important;
+            margin-bottom: 0.875rem !important;
           }
           
           .mb-6 {
-            margin-bottom: 0.625rem !important;
+            margin-bottom: 0.5rem !important;
           }
           
           .space-y-6 > * + * {
-            margin-top: 0.75rem !important;
+            margin-top: 0.625rem !important;
           }
           
           /* Strategic page break - after RBC Banking Advisor */
@@ -685,10 +701,25 @@ export default function Resume() {
             font-weight: inherit !important;
           }
           
-          /* Add subtle separator between major sections */
-          section.mb-8:not(:last-child) {
-            padding-bottom: 0.5rem !important;
-            border-bottom: 0.5px solid #F2F2F7 !important;
+          /* Emphasis on key achievements */
+          /* Education highlights */
+          ul li:contains("1st Place"),
+          ul li:contains("$47,500") {
+            color: #000 !important;
+            font-weight: 500 !important;
+          }
+          
+          /* Experience metrics emphasis */
+          ul li:contains("100M"),
+          ul li:contains("12%"),
+          ul li:contains("9%"),
+          ul li:contains("11%"),
+          ul li:contains("15%"),
+          ul li:contains("13%"),
+          ul li:contains("8%"),
+          ul li:contains("10%"),
+          ul li:contains("20%") {
+            color: #000 !important;
           }
           
           /* Ensure proper color printing */
