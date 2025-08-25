@@ -60,18 +60,35 @@ export default function Resume() {
           <div className={`bg-white/90 backdrop-blur-md border border-white/30 rounded-[2rem] p-8 sm:p-12 shadow-2xl mb-8 page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}>
             
             {/* Header Section */}
-            <div className="flex items-start gap-8 mb-12">
-              {/* Profile Photo and Contact */}
-              <div className="flex flex-col items-center space-y-4">
+            <div className="mb-12">
+              {/* Photo and Text */}
+              <div className="flex items-start gap-8 mb-6">
+                {/* Profile Photo */}
                 <img 
                   src={profileImage} 
                   alt="Tyler Bustard" 
                   className="w-40 h-40 rounded-[2rem] object-cover shadow-lg"
                   data-testid="img-resume-profile"
                 />
-                
-                {/* Contact Information */}
-                <div className="text-sm text-muted-foreground flex flex-wrap items-center gap-1">
+
+                {/* Name, Title, and Description */}
+                <div className="flex-1">
+                  <h1 className="text-6xl font-bold text-foreground mb-2 tracking-tight">
+                    Tyler Bustard
+                  </h1>
+                  <h2 className="text-2xl text-primary font-medium mb-6">
+                    Finance & Technology Professional
+                  </h2>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Driving innovation at the intersection of finance and technology. 
+                    Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
+                  </p>
+                </div>
+              </div>
+              
+              {/* Contact Information - Full Width */}
+              <div className="text-center">
+                <div className="text-sm text-muted-foreground flex justify-center items-center flex-wrap gap-1">
                   <Mail className="w-4 h-4" />
                   <span>tbustard@unb.ca</span>
                   <span className="mx-2">•</span>
@@ -84,20 +101,6 @@ export default function Resume() {
                   <Globe className="w-4 h-4" />
                   <span>tylerbustard.ca</span>
                 </div>
-              </div>
-
-              {/* Name, Title, and Description */}
-              <div className="flex-1">
-                <h1 className="text-6xl font-bold text-foreground mb-2 tracking-tight">
-                  Tyler Bustard
-                </h1>
-                <h2 className="text-2xl text-primary font-medium mb-6">
-                  Finance & Technology Professional
-                </h2>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  Driving innovation at the intersection of finance and technology. 
-                  Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
-                </p>
               </div>
             </div>
 
