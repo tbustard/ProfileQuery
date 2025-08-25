@@ -391,61 +391,6 @@ export default function Resume() {
                   </div>
                 </div>
 
-                {/* RBC Student Ambassador */}
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
-                      <img src={rbcLogo} alt="RBC" className="w-8 h-8 object-contain" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-foreground">Student Ambassador</h4>
-                      <span className="text-sm text-muted-foreground">2019 - 2020</span>
-                    </div>
-                    <p className="text-primary font-medium mb-1">Royal Bank of Canada</p>
-                    <p className="text-sm text-muted-foreground mb-3">Fredericton, New Brunswick</p>
-                    <ul className="text-sm text-muted-foreground space-y-2 mb-4">
-                      <li>• Organized and executed campus-wide events resulting in 25% increase in student engagement and awareness</li>
-                      <li>• Developed targeted outreach strategy achieving 30% increase in student participation in RBC-sponsored events</li>
-                    </ul>
-                    <div className="flex flex-wrap gap-2">
-                      <Badge variant="secondary" className="text-xs">Event Management</Badge>
-                      <Badge variant="secondary" className="text-xs">Strategic Outreach</Badge>
-                      <Badge variant="secondary" className="text-xs">Campus Relations</Badge>
-                      <Badge variant="secondary" className="text-xs">Brand Promotion</Badge>
-                      <Badge variant="secondary" className="text-xs">Student Engagement</Badge>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Irving Oil Volunteer */}
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-md flex items-center justify-center">
-                      <img src={irvingLogo} alt="Irving Oil" className="w-8 h-8 object-contain" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-foreground">Volunteer Staff</h4>
-                      <span className="text-sm text-muted-foreground">2018</span>
-                    </div>
-                    <p className="text-primary font-medium mb-1">Irving Oil Limited</p>
-                    <p className="text-sm text-muted-foreground mb-3">Saint John, New Brunswick</p>
-                    <ul className="text-sm text-muted-foreground space-y-2 mb-4">
-                      <li>• Successfully organized and executed engaging activities for over 100 children ensuring safe and enjoyable experience</li>
-                      <li>• Demonstrated leadership through collaboration with fellow volunteers for well-coordinated event execution</li>
-                    </ul>
-                    <div className="flex flex-wrap gap-2">
-                      <Badge variant="secondary" className="text-xs">Youth Engagement</Badge>
-                      <Badge variant="secondary" className="text-xs">Event Coordination</Badge>
-                      <Badge variant="secondary" className="text-xs">Team Collaboration</Badge>
-                      <Badge variant="secondary" className="text-xs">Community Relations</Badge>
-                      <Badge variant="secondary" className="text-xs">Safety Management</Badge>
-                    </div>
-                  </div>
-                </div>
               </div>
             </section>
 
