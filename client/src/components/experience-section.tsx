@@ -158,7 +158,7 @@ export default function ExperienceSection() {
               Experience
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Professional experience in financial services and wealth management
+              Professional experience in financial services, wealth management, and AI-driven fintech
             </p>
           </div>
 
