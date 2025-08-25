@@ -17,9 +17,24 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY_ENV_VAR || "" 
 });
 
-// Configure multer for video uploads (memory storage for Cloudinary)
+// Ensure uploads directory exists
+const uploadsDir = path.join(process.cwd(), 'uploads/videos');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
+
+// Configure multer for video uploads (disk storage)
 const videoUpload = multer({
-  storage: multer.memoryStorage(),
+  storage: multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, uploadsDir);
+    },
+    filename: (req, file, cb) => {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      const ext = path.extname(file.originalname);
+      cb(null, `video-${uniqueSuffix}${ext}`);
+    }
+  }),
   limits: {
     fileSize: 100 * 1024 * 1024, // 100MB limit
   },
