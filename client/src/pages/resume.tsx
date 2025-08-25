@@ -89,20 +89,17 @@ export default function Resume() {
                 </div>
 
                 {/* Contact Information */}
-                <div className="flex flex-wrap gap-6 items-center">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="text-center">
+                  <div className="text-sm text-muted-foreground flex items-center justify-center gap-1">
                     <Mail className="w-4 h-4" />
                     <span>tbustard@unb.ca</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <span className="mx-2">•</span>
                     <Phone className="w-4 h-4" />
                     <span>+1 (613) 985-1223</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <span className="mx-2">•</span>
                     <MapPin className="w-4 h-4" />
                     <span>Toronto, Ontario, Canada</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <span className="mx-2">•</span>
                     <Globe className="w-4 h-4" />
                     <span>tylerbustard.ca</span>
                   </div>
