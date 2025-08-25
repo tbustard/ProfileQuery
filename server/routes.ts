@@ -310,8 +310,8 @@ Focus on investment analysis, portfolio management, and financial reporting quer
         fileName: req.file.originalname,
         fileUrl: `/uploads/resumes/${generatedFilename}`,
         userId,
-        mimeType: req.file.mimetype,
-        fileSize: req.file.size.toString()
+        fileSize: req.file.size,
+        description: req.body.description || null
       });
 
       res.json({ 
@@ -493,6 +493,77 @@ Focus on investment analysis, portfolio management, and financial reporting quer
     } catch (error) {
       console.error("Get videos error:", error);
       res.status(500).json({ error: "Failed to fetch videos" });
+    }
+  });
+
+  // Serve the active introduction video
+  app.get("/api/introduction-video", async (req, res) => {
+    try {
+      const activeVideo = await storage.getActiveVideo();
+      if (!activeVideo) {
+        return res.status(404).json({ error: "No active video found" });
+      }
+      
+      // Check if the video URL is a full URL or a relative path
+      if (activeVideo.fileUrl.startsWith('http')) {
+        // Redirect to the external URL
+        return res.redirect(activeVideo.fileUrl);
+      } else {
+        // Serve the local file
+        const videoPath = path.join(process.cwd(), activeVideo.fileUrl);
+        const stat = fs.statSync(videoPath);
+        const fileSize = stat.size;
+        const range = req.headers.range;
+
+        if (range) {
+          const parts = range.replace(/bytes=/, "").split("-");
+          const start = parseInt(parts[0], 10);
+          const end = parts[1] ? parseInt(parts[1], 10) : fileSize - 1;
+          const chunksize = (end - start) + 1;
+          const file = fs.createReadStream(videoPath, { start, end });
+          const head = {
+            'Content-Range': `bytes ${start}-${end}/${fileSize}`,
+            'Accept-Ranges': 'bytes',
+            'Content-Length': chunksize,
+            'Content-Type': activeVideo.mimeType || 'video/mp4',
+          };
+          res.writeHead(206, head);
+          file.pipe(res);
+        } else {
+          const head = {
+            'Content-Length': fileSize,
+            'Content-Type': activeVideo.mimeType || 'video/mp4',
+          };
+          res.writeHead(200, head);
+          fs.createReadStream(videoPath).pipe(res);
+        }
+      }
+    } catch (error) {
+      console.error("Error serving introduction video:", error);
+      res.status(500).json({ error: "Failed to serve introduction video" });
+    }
+  });
+
+  // Get the most recent uploaded resume
+  app.get("/api/latest-resume", async (req, res) => {
+    try {
+      // Use a default user ID for now (can be replaced with actual auth later)
+      const userId = "default-user";
+      const resumes = await storage.getResumeUploads(userId);
+      
+      if (!resumes || resumes.length === 0) {
+        return res.status(404).json({ error: "No resumes found" });
+      }
+      
+      // Sort by uploadedAt to get the most recent
+      const latestResume = resumes.sort((a, b) => 
+        new Date(b.uploadedAt!).getTime() - new Date(a.uploadedAt!).getTime()
+      )[0];
+      
+      res.json(latestResume);
+    } catch (error) {
+      console.error("Error fetching latest resume:", error);
+      res.status(500).json({ error: "Failed to fetch latest resume" });
     }
   });
 

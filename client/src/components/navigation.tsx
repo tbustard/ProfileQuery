@@ -648,7 +648,37 @@ export default function Navigation() {
               {isResumePage && (
                 <div className="hidden lg:block">
                   <button
-                    onClick={() => window.print()}
+                    onClick={async () => {
+                      try {
+                        // Fetch the latest uploaded resume
+                        const response = await fetch('/api/latest-resume');
+                        if (response.ok) {
+                          const resume = await response.json();
+                          if (resume && resume.fileUrl) {
+                            // Open the PDF in a new tab for printing
+                            const printWindow = window.open(resume.fileUrl, '_blank');
+                            if (printWindow) {
+                              // Wait for the PDF to load then trigger print
+                              printWindow.onload = () => {
+                                setTimeout(() => {
+                                  printWindow.print();
+                                }, 500);
+                              };
+                            }
+                          } else {
+                            // If no uploaded resume, print the current page
+                            window.print();
+                          }
+                        } else {
+                          // If no uploaded resume found, print the current page
+                          window.print();
+                        }
+                      } catch (error) {
+                        console.error('Error fetching resume:', error);
+                        // Fallback to printing current page
+                        window.print();
+                      }
+                    }}
                     className="px-4 py-2 text-sm font-medium rounded-lg bg-white/70 text-gray-700 border border-gray-200 hover:bg-gray-50 transition-all duration-200 hover:scale-105 shadow-sm flex items-center gap-2"
                     data-testid="button-print-pdf"
                   >
