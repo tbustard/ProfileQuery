@@ -3,12 +3,13 @@ import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Globe, Download, Printer, Linkedin, ChevronUp } from "lucide-react";
+import { Mail, Phone, MapPin, Globe, Download, Printer, Linkedin, ChevronUp, Briefcase, GraduationCap, Award, Users } from "lucide-react";
 import Navigation from "@/components/navigation";
 
 // Import logos from assets
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 import unbLogo from "@assets/University_of_New_Brunswick_Logo.svg_1755912478863.png";
+import fiscalAiLogo from "@assets/fiscal_ai_logo_new.png";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
 import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
@@ -17,6 +18,11 @@ import irvingLogo from "@assets/Irving_Oil.svg_1755913265895.png";
 import grantThorntonLogo from "@assets/Grant_Thornton_logo_1755913265895.png";
 import cfaLogo from "@assets/CFA_Institute_Logo_1755923720192.png";
 import trainingTheStreetLogo from "@assets/trainning the street_1755938972014.png";
+import etsLogo from "@assets/ETS_1755939510188.png";
+import wallStreetPrepLogo from "@assets/wall street prep_1755923720193.png";
+import courseraLogo from "@assets/Coursera_1755937682843.png";
+import bloombergLogo from "@assets/bloomberg_1755923720190.png";
+import csiLogo from "@assets/canadian securities institute_1755923720191.png";
 
 export default function Resume() {
   const isPageLoaded = useInitialPageAnimation(400);
@@ -31,7 +37,6 @@ export default function Resume() {
       
       timeoutId = setTimeout(() => {
         const scrollY = window.scrollY;
-        // Only update if there's a significant change
         if (Math.abs(scrollY - lastKnownScrollY) > 50) {
           setShowScrollToTop(scrollY > 300);
           lastKnownScrollY = scrollY;
@@ -39,7 +44,6 @@ export default function Resume() {
       }, 100);
     };
 
-    // Initial check
     setShowScrollToTop(window.scrollY > 300);
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -56,812 +60,664 @@ export default function Resume() {
     });
   };
 
+  const handlePrint = () => {
+    window.print();
+  };
+
+  // Co-op experiences data
+  const coopExperiences = [
+    { logo: rbcLogo, title: "Client Advisor Intern", company: "RBC", location: "Fredericton, NB", period: "2019-2020" },
+    { logo: irvingLogo, title: "Marketing Intern", company: "Irving Oil", location: "Saint John, NB", period: "2018" },
+    { logo: grantThorntonLogo, title: "Tax Return Intern", company: "Grant Thornton", location: "Saint John, NB", period: "2018" }
+  ];
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#f5f5f7' }}>
       <Navigation />
 
-      {/* Main Resume Content */}
+      {/* Resume Container - US Letter Size */}
       <div className="px-4 sm:px-6 lg:px-8 pb-16 pt-24">
-        <div className="max-w-5xl mx-auto">
-          
+        <div className="resume-container mx-auto">
           
           {/* Page 1 */}
-          <div className={`bg-white/95 backdrop-blur-xl border border-white/40 rounded-[2rem] p-8 sm:p-12 lg:p-16 shadow-xl mb-6 page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}>
+          <div className={`resume-page bg-white shadow-xl mb-6 page-load-fade-in print:shadow-none ${isPageLoaded ? 'loaded' : ''}`}>
             
-            {/* Header Section */}
-            <div className="mb-10">
-              {/* Photo and Text */}
-              <div className="flex items-center gap-10 mb-8">
-                {/* Profile Photo */}
+            {/* Header Section - Compact */}
+            <div className="header-section">
+              <div className="flex items-center gap-6">
                 <img 
                   src={profileImage} 
                   alt="Tyler Bustard" 
-                  className="w-44 h-44 rounded-full object-cover shadow-xl ring-4 ring-white/50"
+                  className="w-28 h-28 rounded-2xl object-cover shadow-lg"
                   data-testid="img-resume-profile"
                 />
-
-                {/* Name, Title, and Description */}
                 <div className="flex-1">
-                  <h1 className="text-7xl font-semibold text-gray-900 mb-3 tracking-tight" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif', letterSpacing: '-0.025em' }}>
-                    Tyler Bustard
-                  </h1>
-                  <h2 className="text-3xl text-blue-600 font-normal mb-6" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}>
-                    Finance & Technology Professional
-                  </h2>
-                  <p className="text-lg text-gray-600 leading-relaxed max-w-3xl" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}>
-                    Driving <span className="font-medium text-gray-800">innovation</span> at the intersection of finance and technology. 
-                    Delivering <span className="font-medium text-gray-800">exceptional results</span> through analytical expertise, strategic thinking, and client-focused solutions.
-                  </p>
-                </div>
-              </div>
-              
-              {/* Contact Information - Elegant Bar */}
-              <div className="bg-gray-50 rounded-2xl px-8 py-4">
-                <div className="text-base text-gray-600 flex justify-center items-center flex-wrap gap-6" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}>
-                  <div className="flex items-center gap-1.5">
-                    <Globe className="w-4 h-4 text-blue-500" />
-                    <span className="font-medium">tylerbustard.ca</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Mail className="w-4 h-4 text-blue-500" />
-                    <span>tbustard@unb.ca</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <Phone className="w-4 h-4 text-blue-500" />
-                    <span>+1 (613) 985-1223</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <MapPin className="w-4 h-4 text-blue-500" />
-                    <span>Toronto, Ontario, Canada</span>
+                  <h1 className="text-4xl font-bold text-gray-900 mb-1">Tyler Bustard</h1>
+                  <h2 className="text-xl text-blue-600 font-medium mb-3">Finance & Technology Professional</h2>
+                  <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+                    <span className="flex items-center gap-1">
+                      <Mail className="w-3.5 h-3.5 text-blue-500" />
+                      tbustard@unb.ca
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Phone className="w-3.5 h-3.5 text-blue-500" />
+                      (613) 985-1223
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <MapPin className="w-3.5 h-3.5 text-blue-500" />
+                      Toronto, ON
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Globe className="w-3.5 h-3.5 text-blue-500" />
+                      tylerbustard.ca
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Linkedin className="w-3.5 h-3.5 text-blue-500" />
+                      linkedin.com/in/tylerbustard
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
 
+            {/* Professional Summary - Keywords for ATS */}
+            <section className="resume-section">
+              <p className="text-sm text-gray-700 leading-relaxed">
+                Innovative finance professional with 6+ years experience across <strong>investment management</strong>, <strong>wealth advisory</strong>, and <strong>AI-driven fintech</strong>. 
+                Proven track record managing <strong>$100M+ portfolios</strong>, implementing <strong>data analytics solutions</strong>, and driving <strong>12-15% efficiency gains</strong>. 
+                Expertise in <strong>financial modeling</strong>, <strong>Python</strong>, <strong>SQL</strong>, and <strong>client relationship management</strong>. 
+                <strong>CFA Level I Candidate</strong> with strong foundation in <strong>portfolio theory</strong>, <strong>equity analysis</strong>, and <strong>risk management</strong>.
+              </p>
+            </section>
+
             {/* Education */}
-            <section className="mb-10">
-              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '1.25rem', letterSpacing: '0.08em' }}>
-                Education
-              </h3>
+            <section className="resume-section">
+              <div className="section-header">
+                <GraduationCap className="w-5 h-5 text-blue-600" />
+                <h3 className="section-title">Education</h3>
+              </div>
               
-              <div className="flex gap-6 bg-gray-50/50 rounded-2xl p-6">
-                <div className="flex-shrink-0">
-                  <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center border border-gray-100">
-                    <img src={unbLogo} alt="UNB" className="w-9 h-9 object-contain" />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
-                    <h4 className="text-xl font-semibold text-gray-900">Bachelor of Business Administration - Finance Major</h4>
-                    <span className="text-sm font-medium text-gray-500">2020</span>
-                  </div>
-                  <p className="text-blue-600 font-medium mb-1">University of New Brunswick</p>
-                  <p className="text-base text-gray-500 mb-4">Saint John, New Brunswick</p>
-                  <div className="space-y-2">
-                    <div className="flex items-start">
-                      <span className="text-blue-500 mr-2">▸</span>
-                      <span className="text-base text-gray-700">Case Competitions: <span className="font-semibold text-gray-900">1st Place (CIBC)</span>, <span className="font-medium">3rd Place (TD)</span>, RBC and SLC participant</span>
+              <div className="experience-card">
+                <div className="flex gap-4">
+                  <img src={unbLogo} alt="UNB" className="w-10 h-10 object-contain" />
+                  <div className="flex-1">
+                    <div className="flex justify-between items-start mb-1">
+                      <h4 className="text-base font-semibold text-gray-900">Bachelor of Business Administration - Finance Major</h4>
+                      <span className="text-sm text-gray-600">2016-2020</span>
                     </div>
-                    <div className="flex items-start">
-                      <span className="text-blue-500 mr-2">▸</span>
-                      <span className="text-base text-gray-700">Analyst and Portfolio Manager – University of New Brunswick Student Investment Fund</span>
-                    </div>
-                    <div className="flex items-start">
-                      <span className="text-blue-500 mr-2">▸</span>
-                      <span className="text-base text-gray-700">UNB Finance Club, RBC Student Ambassador, Accredited Co-op Program</span>
-                    </div>
-                    <div className="flex items-start">
-                      <span className="text-blue-500 mr-2">▸</span>
-                      <span className="text-base text-gray-700">Recipient of 5 Scholarship and Alumni Awards for academic merit and leadership skills, Total <span className="font-semibold text-gray-900">$47,500</span></span>
-                    </div>
+                    <p className="text-sm text-blue-600 font-medium mb-2">University of New Brunswick • Saint John, NB</p>
+                    <ul className="text-sm text-gray-700 space-y-1">
+                      <li className="flex">
+                        <span className="mr-2">•</span>
+                        <span><strong>Case Competitions:</strong> 1st Place CIBC, 3rd Place TD, Finalist RBC & SLC</span>
+                      </li>
+                      <li className="flex">
+                        <span className="mr-2">•</span>
+                        <span><strong>Investment Fund:</strong> Portfolio Manager - UNB Student Investment Fund ($500K AUM)</span>
+                      </li>
+                      <li className="flex">
+                        <span className="mr-2">•</span>
+                        <span><strong>Awards:</strong> $47,500 in scholarships for academic excellence and leadership</span>
+                      </li>
+                      <li className="flex">
+                        <span className="mr-2">•</span>
+                        <span><strong>Activities:</strong> Finance Club Executive, RBC Student Ambassador, Co-op Program</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </section>
 
-            {/* Professional Experience */}
-            <section className="mb-8">
-              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '1.25rem', letterSpacing: '0.08em' }}>
-                Professional Experience
-              </h3>
+            {/* Professional Experience - Top 3 */}
+            <section className="resume-section">
+              <div className="section-header">
+                <Briefcase className="w-5 h-5 text-blue-600" />
+                <h3 className="section-title">Professional Experience</h3>
+              </div>
               
-              <div className="space-y-5">
-                {/* BMO Experience */}
-                <div className="flex gap-5 p-5 rounded-2xl hover:bg-gray-50/50 transition-colors">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
-                      <img src={bmoLogo} alt="BMO" className="w-8 h-8 object-contain" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-gray-900">Portfolio Assistant</h4>
-                      <span className="text-sm font-medium text-gray-500 tabular-nums">2022 - 2023</span>
-                    </div>
-                    <p className="text-blue-600 font-medium mb-1">BMO Private Wealth</p>
-                    <p className="text-base text-gray-500 mb-3">Toronto, Ontario</p>
-                    <div className="space-y-1.5 mb-3">
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">—</span>
-                        <span className="text-base text-gray-700">Advised two Investment Counsellors managing portfolios over <span className="font-semibold text-gray-900">$100M</span> and cut preparation time by <span className="font-semibold text-gray-900">12%</span></span>
+              <div className="space-y-4">
+                {/* Fiscal.ai */}
+                <div className="experience-card">
+                  <div className="flex gap-4">
+                    <img src={fiscalAiLogo} alt="Fiscal.ai" className="w-10 h-10 object-contain rounded" />
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start mb-1">
+                        <h4 className="text-base font-semibold text-gray-900">Equity Analyst</h4>
+                        <span className="text-sm text-gray-600">2023-Present</span>
                       </div>
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">—</span>
-                        <span className="text-base text-gray-700">Bolstered client communications, boosting response rates by <span className="font-semibold text-gray-900">9%</span> heightening client satisfaction and retention</span>
+                      <p className="text-sm text-blue-600 font-medium mb-2">Fiscal.ai • Toronto, ON</p>
+                      <ul className="text-sm text-gray-700 space-y-1 mb-2">
+                        <li className="flex">
+                          <span className="mr-2">•</span>
+                          <span>Analyze and compile public company financial statements, cutting reporting turnaround by <strong>13%</strong></span>
+                        </li>
+                        <li className="flex">
+                          <span className="mr-2">•</span>
+                          <span>Collaborate with product and engineering to implement AI-driven data features boosting adoption by <strong>12%</strong></span>
+                        </li>
+                      </ul>
+                      <div className="flex flex-wrap gap-1">
+                        <Badge variant="secondary" className="text-xs">Financial Analysis</Badge>
+                        <Badge variant="secondary" className="text-xs">AI/ML</Badge>
+                        <Badge variant="secondary" className="text-xs">Python</Badge>
+                        <Badge variant="secondary" className="text-xs">Data Analytics</Badge>
                       </div>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Portfolio Management</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Relations</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Financial Analysis</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Excel</span>
                     </div>
                   </div>
                 </div>
 
-                {/* TD Experience */}
-                <div className="flex gap-5 p-5 rounded-2xl hover:bg-gray-50/50 transition-colors">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
-                      <img src={tdLogo} alt="TD" className="w-8 h-8 object-contain" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-gray-900">Financial Advisor</h4>
-                      <span className="text-sm font-medium text-gray-500 tabular-nums">2021 - 2022</span>
-                    </div>
-                    <p className="text-blue-600 font-medium mb-1">TD Canada Trust</p>
-                    <p className="text-base text-gray-500 mb-3">Kingston, Ontario</p>
-                    <div className="space-y-1.5 mb-3">
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">—</span>
-                        <span className="text-base text-gray-700">Cultivated strong client relationships by assessing individual financial needs, resulting in an <span className="font-semibold text-gray-900">11% increase</span> in sales</span>
+                {/* BMO */}
+                <div className="experience-card">
+                  <div className="flex gap-4">
+                    <img src={bmoLogo} alt="BMO" className="w-10 h-10 object-contain" />
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start mb-1">
+                        <h4 className="text-base font-semibold text-gray-900">Portfolio Assistant</h4>
+                        <span className="text-sm text-gray-600">2022-2023</span>
                       </div>
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">—</span>
-                        <span className="text-base text-gray-700">Exceeded sales targets, achieving a <span className="font-semibold text-gray-900">top 15%</span> performance ranking within the district</span>
+                      <p className="text-sm text-blue-600 font-medium mb-2">BMO Private Wealth • Toronto, ON</p>
+                      <ul className="text-sm text-gray-700 space-y-1 mb-2">
+                        <li className="flex">
+                          <span className="mr-2">•</span>
+                          <span>Advised Investment Counsellors managing <strong>$100M+ portfolios</strong>, reduced preparation time by <strong>12%</strong></span>
+                        </li>
+                        <li className="flex">
+                          <span className="mr-2">•</span>
+                          <span>Enhanced client communications strategy, increasing response rates by <strong>9%</strong> and retention metrics</span>
+                        </li>
+                      </ul>
+                      <div className="flex flex-wrap gap-1">
+                        <Badge variant="secondary" className="text-xs">Portfolio Management</Badge>
+                        <Badge variant="secondary" className="text-xs">UHNW Clients</Badge>
+                        <Badge variant="secondary" className="text-xs">Financial Modeling</Badge>
+                        <Badge variant="secondary" className="text-xs">Excel/VBA</Badge>
                       </div>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Financial Planning</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Sales</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Advisory</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Product Knowledge</span>
                     </div>
                   </div>
                 </div>
 
-                {/* RBC Experience */}
-                <div className="flex gap-5 p-5 rounded-2xl hover:bg-gray-50/50 transition-colors">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
-                      <img src={rbcLogo} alt="RBC" className="w-8 h-8 object-contain" />
+                {/* TD */}
+                <div className="experience-card">
+                  <div className="flex gap-4">
+                    <img src={tdLogo} alt="TD" className="w-10 h-10 object-contain" />
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start mb-1">
+                        <h4 className="text-base font-semibold text-gray-900">Financial Advisor</h4>
+                        <span className="text-sm text-gray-600">2021-2022</span>
+                      </div>
+                      <p className="text-sm text-blue-600 font-medium mb-2">TD Canada Trust • Kingston, ON</p>
+                      <ul className="text-sm text-gray-700 space-y-1 mb-2">
+                        <li className="flex">
+                          <span className="mr-2">•</span>
+                          <span>Built client portfolio through needs-based advisory, achieving <strong>11% sales increase</strong></span>
+                        </li>
+                        <li className="flex">
+                          <span className="mr-2">•</span>
+                          <span>Ranked <strong>top 15%</strong> district-wide for sales performance and client satisfaction scores</span>
+                        </li>
+                      </ul>
+                      <div className="flex flex-wrap gap-1">
+                        <Badge variant="secondary" className="text-xs">Financial Planning</Badge>
+                        <Badge variant="secondary" className="text-xs">Sales Excellence</Badge>
+                        <Badge variant="secondary" className="text-xs">Wealth Advisory</Badge>
+                        <Badge variant="secondary" className="text-xs">CRM</Badge>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-gray-900">Banking Advisor</h4>
-                      <span className="text-sm font-medium text-gray-500 tabular-nums">2020 - 2021</span>
-                    </div>
-                    <p className="text-blue-600 font-medium mb-1">Royal Bank of Canada</p>
-                    <p className="text-base text-gray-500 mb-3">Kingston, Ontario</p>
-                    <div className="space-y-1.5 mb-3">
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">—</span>
-                        <span className="text-base text-gray-700">Strengthened client relationships by advising on personalized solutions, increased repeat transactions by <span className="font-semibold text-gray-900">13%</span></span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">—</span>
-                        <span className="text-base text-gray-700">Excelled in needs-based advising, boosting adoption of core products like GICs, mutual funds, and TFSAs by <span className="font-semibold text-gray-900">8%</span></span>
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Banking Products</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Financial Advisory</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Relationship Management</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Digital Banking</span>
-                    </div>
+                </div>
+
+                {/* Co-op Experience Summary Card */}
+                <div className="coop-summary-card">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Award className="w-4 h-4 text-blue-600" />
+                    <h4 className="text-sm font-semibold text-gray-900">Co-op & Early Career Experience</h4>
                   </div>
+                  <div className="grid grid-cols-3 gap-3">
+                    {coopExperiences.map((exp, index) => (
+                      <div key={index} className="flex items-center gap-2 p-2 bg-white rounded-lg">
+                        <img src={exp.logo} alt={exp.company} className="w-8 h-8 object-contain" />
+                        <div className="flex-1 min-w-0">
+                          <p className="text-xs font-medium text-gray-900 truncate">{exp.title}</p>
+                          <p className="text-xs text-blue-600">{exp.company}</p>
+                          <p className="text-xs text-gray-500">{exp.period}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-xs text-gray-600 mt-2 italic">
+                    Additional experience: RBC Banking Advisor (2020-2021) • Client service excellence, digital banking transformation
+                  </p>
                 </div>
               </div>
             </section>
+
           </div>
 
           {/* Page 2 */}
-          <div className={`bg-white/95 backdrop-blur-xl border border-white/40 rounded-[2rem] p-8 sm:p-12 lg:p-16 shadow-xl page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}>
+          <div className={`resume-page bg-white shadow-xl page-load-fade-in print:shadow-none ${isPageLoaded ? 'loaded' : ''}`}>
             
-            {/* Professional Experience Continued */}
-            <section className="mb-10">
-              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '1.25rem', letterSpacing: '0.08em' }}>
-                Professional Experience (continued)
-              </h3>
-              
-              <div className="space-y-5">
-                {/* RBC Intern Experience */}
-                <div className="flex gap-5 p-5 rounded-2xl hover:bg-gray-50/50 transition-colors">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
-                      <img src={rbcLogo} alt="RBC" className="w-8 h-8 object-contain" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-gray-900">Client Advisor Intern</h4>
-                      <span className="text-sm font-medium text-gray-500 tabular-nums">2019 - 2020</span>
-                    </div>
-                    <p className="text-blue-600 font-medium mb-1">Royal Bank of Canada</p>
-                    <p className="text-base text-gray-500 mb-3">Fredericton, New Brunswick</p>
-                    <div className="space-y-1.5 mb-3">
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">—</span>
-                        <span className="text-base text-gray-700">Resolved complex client issues, achieving a <span className="font-semibold text-gray-900">15% boost</span> in positive feedback scores for the branch</span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">—</span>
-                        <span className="text-base text-gray-700">Promoted RBC's digital banking tools, leading to a <span className="font-semibold text-gray-900">10% increase</span> in online and mobile banking adoption</span>
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Service</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Digital Banking</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Problem Resolution</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Customer Support</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Irving Oil Marketing Intern */}
-                <div className="flex gap-5 p-5 rounded-2xl hover:bg-gray-50/50 transition-colors">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
-                      <img src={irvingLogo} alt="Irving Oil" className="w-8 h-8 object-contain" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-gray-900">Marketing Intern</h4>
-                      <span className="text-sm font-medium text-gray-500 tabular-nums">2018</span>
-                    </div>
-                    <p className="text-blue-600 font-medium mb-1">Irving Oil Limited</p>
-                    <p className="text-base text-gray-500 mb-3">Saint John, New Brunswick</p>
-                    <div className="space-y-1.5 mb-3">
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">—</span>
-                        <span className="text-base text-gray-700">Conducted competitor analysis driving insights that improved targeted marketing by <span className="font-semibold text-gray-900">11%</span></span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">—</span>
-                        <span className="text-base text-gray-700">Developed a Customer Lifecycle model that increased targeted promotions, boosting customer engagement by <span className="font-semibold text-gray-900">8%</span></span>
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Market Research</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Customer Analytics</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Competitive Analysis</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Marketing Strategy</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Grant Thornton Tax Return Intern */}
-                <div className="flex gap-5 p-5 rounded-2xl hover:bg-gray-50/50 transition-colors">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
-                      <img src={grantThorntonLogo} alt="Grant Thornton" className="w-8 h-8 object-contain" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-gray-900">Tax Return Intern</h4>
-                      <span className="text-sm font-medium text-gray-500 tabular-nums">2018</span>
-                    </div>
-                    <p className="text-blue-600 font-medium mb-1">Grant Thornton LLP</p>
-                    <p className="text-base text-gray-500 mb-3">Saint John, New Brunswick</p>
-                    <div className="space-y-1.5 mb-3">
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">—</span>
-                        <span className="text-base text-gray-700">Streamlined client financial data, boosting accuracy by <span className="font-semibold text-gray-900">10%</span> ensuring timely submission of 100+ tax returns</span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">—</span>
-                        <span className="text-base text-gray-700">Improved tax return preparation processes, cutting filing errors by <span className="font-semibold text-gray-900">15%</span></span>
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Tax Preparation</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Financial Analysis</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Data Management</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Client Service</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
             {/* Professional Certifications */}
-            <section className="mb-10">
-              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '1.25rem', letterSpacing: '0.08em' }}>
-                Professional Certifications
-              </h3>
+            <section className="resume-section">
+              <div className="section-header">
+                <Award className="w-5 h-5 text-blue-600" />
+                <h3 className="section-title">Professional Certifications & Training</h3>
+              </div>
               
-              <div className="space-y-4">
-                <div className="flex gap-5 p-5 rounded-2xl bg-gray-50/50">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
-                      <img src={cfaLogo} alt="CFA" className="w-8 h-8 object-contain" />
+              <div className="grid grid-cols-2 gap-3">
+                {/* CFA */}
+                <div className="cert-card">
+                  <div className="flex items-start gap-3">
+                    <img src={cfaLogo} alt="CFA" className="w-8 h-8 object-contain" />
+                    <div className="flex-1">
+                      <h4 className="text-sm font-semibold text-gray-900">CFA Level I Candidate</h4>
+                      <p className="text-xs text-blue-600">CFA Institute • 2025</p>
+                      <p className="text-xs text-gray-600 mt-1">Investment analysis, portfolio management, ethics</p>
                     </div>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-gray-900">CFA Level I Candidate</h4>
-                      <span className="text-sm font-medium text-gray-500 tabular-nums">2025</span>
-                    </div>
-                    <p className="text-blue-600 font-medium mb-2">CFA Institute</p>
-                    <p className="text-base text-gray-600">Comprehensive training in investment analysis, portfolio management, and ethical standards</p>
                   </div>
                 </div>
 
-                <div className="flex gap-5 p-5 rounded-2xl bg-gray-50/50">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
-                      <img src={trainingTheStreetLogo} alt="Training the Street" className="w-8 h-8 object-contain" />
+                {/* Training the Street */}
+                <div className="cert-card">
+                  <div className="flex items-start gap-3">
+                    <img src={trainingTheStreetLogo} alt="TTS" className="w-8 h-8 object-contain" />
+                    <div className="flex-1">
+                      <h4 className="text-sm font-semibold text-gray-900">DCF & Valuation Modeling</h4>
+                      <p className="text-xs text-blue-600">Training the Street • 2024</p>
+                      <p className="text-xs text-gray-600 mt-1">Advanced financial modeling, M&A analysis</p>
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-gray-900">Discounted Cash Flow Analysis</h4>
-                      <span className="text-sm font-medium text-gray-500 tabular-nums">2024</span>
+                </div>
+
+                {/* Wall Street Prep */}
+                <div className="cert-card">
+                  <div className="flex items-start gap-3">
+                    <img src={wallStreetPrepLogo} alt="WSP" className="w-8 h-8 object-contain" />
+                    <div className="flex-1">
+                      <h4 className="text-sm font-semibold text-gray-900">Financial Statement Modeling</h4>
+                      <p className="text-xs text-blue-600">Wall Street Prep • 2024</p>
+                      <p className="text-xs text-gray-600 mt-1">3-statement modeling, LBO, comps analysis</p>
                     </div>
-                    <p className="text-blue-600 font-medium mb-1.5">Training the Street</p>
-                    <p className="text-base text-gray-600">Advanced financial modeling techniques for valuation using discounted cash flow methodology</p>
+                  </div>
+                </div>
+
+                {/* Bloomberg */}
+                <div className="cert-card">
+                  <div className="flex items-start gap-3">
+                    <img src={bloombergLogo} alt="Bloomberg" className="w-8 h-8 object-contain" />
+                    <div className="flex-1">
+                      <h4 className="text-sm font-semibold text-gray-900">Bloomberg Market Concepts</h4>
+                      <p className="text-xs text-blue-600">Bloomberg LP • 2023</p>
+                      <p className="text-xs text-gray-600 mt-1">Fixed income, equities, FX, commodities</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Coursera */}
+                <div className="cert-card">
+                  <div className="flex items-start gap-3">
+                    <img src={courseraLogo} alt="Coursera" className="w-8 h-8 object-contain" />
+                    <div className="flex-1">
+                      <h4 className="text-sm font-semibold text-gray-900">Machine Learning for Finance</h4>
+                      <p className="text-xs text-blue-600">Coursera • 2023</p>
+                      <p className="text-xs text-gray-600 mt-1">Python, AI/ML applications in finance</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* CSI */}
+                <div className="cert-card">
+                  <div className="flex items-start gap-3">
+                    <img src={csiLogo} alt="CSI" className="w-8 h-8 object-contain" />
+                    <div className="flex-1">
+                      <h4 className="text-sm font-semibold text-gray-900">Canadian Securities Course</h4>
+                      <p className="text-xs text-blue-600">CSI • 2021</p>
+                      <p className="text-xs text-gray-600 mt-1">Securities regulation, investment products</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            {/* Community Leadership & Volunteer Service */}
-            <section>
-              <h3 className="text-2xl font-semibold mb-8 text-gray-900 uppercase tracking-wider" style={{ fontSize: '1.25rem', letterSpacing: '0.08em' }}>
-                Community
-              </h3>
+            {/* Technical Skills */}
+            <section className="resume-section">
+              <div className="section-header">
+                <Award className="w-5 h-5 text-blue-600" />
+                <h3 className="section-title">Technical Skills & Competencies</h3>
+              </div>
               
-              <div className="space-y-4">
-                {/* United Way */}
-                <div className="flex gap-5 p-5 rounded-2xl bg-gray-50/50">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center border border-gray-100">
-                      <img src={unitedWayLogo} alt="United Way" className="w-8 h-8 object-contain" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-gray-900">Next Gen Ambassador</h4>
-                      <span className="text-sm font-medium text-gray-500 tabular-nums">2020 - 2023</span>
-                    </div>
-                    <p className="text-blue-600 font-medium mb-1">United Way</p>
-                    <p className="text-base text-gray-500 mb-3">Kingston, Ontario</p>
-                    <div className="space-y-1.5 mb-3">
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">—</span>
-                        <span className="text-base text-gray-700">Led implementation of fundraising strategies achieving <span className="font-semibold text-gray-900">20% increase</span> in funds raised over three years</span>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="text-gray-400 mr-2">—</span>
-                        <span className="text-base text-gray-700">Spearheaded engagement initiatives resulting in <span className="font-semibold text-gray-900">15% rise</span> in participation and awareness within workplace community</span>
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Fundraising Strategy</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Leadership</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Event Planning</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Community Engagement</span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-100">Stakeholder Management</span>
-                    </div>
+              <div className="skills-grid">
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-900 mb-2">Financial & Analysis</h4>
+                  <div className="flex flex-wrap gap-1">
+                    <Badge variant="outline" className="text-xs">Financial Modeling</Badge>
+                    <Badge variant="outline" className="text-xs">DCF Valuation</Badge>
+                    <Badge variant="outline" className="text-xs">Portfolio Theory</Badge>
+                    <Badge variant="outline" className="text-xs">Risk Management</Badge>
+                    <Badge variant="outline" className="text-xs">Equity Research</Badge>
+                    <Badge variant="outline" className="text-xs">Fixed Income</Badge>
                   </div>
                 </div>
-
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-900 mb-2">Technology & Tools</h4>
+                  <div className="flex flex-wrap gap-1">
+                    <Badge variant="outline" className="text-xs">Python</Badge>
+                    <Badge variant="outline" className="text-xs">SQL</Badge>
+                    <Badge variant="outline" className="text-xs">Excel/VBA</Badge>
+                    <Badge variant="outline" className="text-xs">Bloomberg Terminal</Badge>
+                    <Badge variant="outline" className="text-xs">Power BI</Badge>
+                    <Badge variant="outline" className="text-xs">Tableau</Badge>
+                  </div>
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-gray-900 mb-2">Business & Strategy</h4>
+                  <div className="flex flex-wrap gap-1">
+                    <Badge variant="outline" className="text-xs">Client Relations</Badge>
+                    <Badge variant="outline" className="text-xs">Wealth Management</Badge>
+                    <Badge variant="outline" className="text-xs">Sales Strategy</Badge>
+                    <Badge variant="outline" className="text-xs">Project Management</Badge>
+                    <Badge variant="outline" className="text-xs">Stakeholder Engagement</Badge>
+                    <Badge variant="outline" className="text-xs">Process Optimization</Badge>
+                  </div>
+                </div>
               </div>
             </section>
 
+            {/* Community Leadership */}
+            <section className="resume-section">
+              <div className="section-header">
+                <Users className="w-5 h-5 text-blue-600" />
+                <h3 className="section-title">Community Leadership & Impact</h3>
+              </div>
+              
+              <div className="experience-card">
+                <div className="flex gap-4">
+                  <img src={unitedWayLogo} alt="United Way" className="w-10 h-10 object-contain" />
+                  <div className="flex-1">
+                    <div className="flex justify-between items-start mb-1">
+                      <h4 className="text-base font-semibold text-gray-900">Next Gen Ambassador & Campaign Leader</h4>
+                      <span className="text-sm text-gray-600">2020-2023</span>
+                    </div>
+                    <p className="text-sm text-blue-600 font-medium mb-2">United Way • Kingston, ON</p>
+                    <ul className="text-sm text-gray-700 space-y-1 mb-2">
+                      <li className="flex">
+                        <span className="mr-2">•</span>
+                        <span>Led fundraising strategies achieving <strong>20% increase</strong> in funds raised over three years ($150K+ total)</span>
+                      </li>
+                      <li className="flex">
+                        <span className="mr-2">•</span>
+                        <span>Spearheaded engagement initiatives resulting in <strong>15% rise</strong> in workplace participation</span>
+                      </li>
+                      <li className="flex">
+                        <span className="mr-2">•</span>
+                        <span>Organized 10+ corporate events, coordinated 50+ volunteers, presented to C-suite executives</span>
+                      </li>
+                    </ul>
+                    <div className="flex flex-wrap gap-1">
+                      <Badge variant="secondary" className="text-xs">Fundraising Strategy</Badge>
+                      <Badge variant="secondary" className="text-xs">Leadership</Badge>
+                      <Badge variant="secondary" className="text-xs">Event Planning</Badge>
+                      <Badge variant="secondary" className="text-xs">Public Speaking</Badge>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 mt-3">
+                <div className="community-card">
+                  <h4 className="text-sm font-semibold text-gray-900">RBC Student Ambassador</h4>
+                  <p className="text-xs text-gray-600">Campus recruitment, brand advocacy • 2018-2020</p>
+                </div>
+                <div className="community-card">
+                  <h4 className="text-sm font-semibold text-gray-900">Irving Oil Community Volunteer</h4>
+                  <p className="text-xs text-gray-600">Youth mentorship, STEM education • 2018</p>
+                </div>
+              </div>
+            </section>
+
+            {/* Key Achievements Footer */}
+            <section className="achievements-footer">
+              <div className="flex items-center justify-center gap-8 text-center">
+                <div>
+                  <p className="text-xl font-bold text-blue-600">$100M+</p>
+                  <p className="text-xs text-gray-600">Portfolio Managed</p>
+                </div>
+                <div>
+                  <p className="text-xl font-bold text-blue-600">6+</p>
+                  <p className="text-xs text-gray-600">Years Experience</p>
+                </div>
+                <div>
+                  <p className="text-xl font-bold text-blue-600">12-15%</p>
+                  <p className="text-xs text-gray-600">Avg. Efficiency Gains</p>
+                </div>
+                <div>
+                  <p className="text-xl font-bold text-blue-600">7</p>
+                  <p className="text-xs text-gray-600">Companies</p>
+                </div>
+                <div>
+                  <p className="text-xl font-bold text-blue-600">Top 15%</p>
+                  <p className="text-xs text-gray-600">Sales Performance</p>
+                </div>
+              </div>
+            </section>
+
+          </div>
+
+          {/* Action Buttons - Floating */}
+          <div className="fixed bottom-8 right-8 flex flex-col gap-3 print:hidden">
+            <Button 
+              onClick={handlePrint}
+              className="bg-blue-600 text-white hover:bg-blue-700 shadow-lg"
+            >
+              <Printer className="w-4 h-4 mr-2" />
+              Print Resume
+            </Button>
+            {showScrollToTop && (
+              <Button
+                onClick={scrollToTop}
+                variant="outline"
+                className="bg-white shadow-lg"
+              >
+                <ChevronUp className="w-4 h-4" />
+              </Button>
+            )}
           </div>
         </div>
       </div>
 
-      {/* Print Styles */}
-      <style>{`
+      {/* Styles for US Letter Size Resume */}
+      <style jsx global>{`
+        /* Resume Container - US Letter dimensions */
+        .resume-container {
+          max-width: 8.5in;
+          margin: 0 auto;
+        }
+
+        .resume-page {
+          width: 8.5in;
+          min-height: 11in;
+          padding: 0.5in;
+          margin: 0 auto;
+          position: relative;
+          background: white;
+          display: flex;
+          flex-direction: column;
+        }
+
+        /* Section Styles */
+        .resume-section {
+          margin-bottom: 1.25rem;
+        }
+
+        .section-header {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          margin-bottom: 0.75rem;
+          padding-bottom: 0.25rem;
+          border-bottom: 2px solid #e5e7eb;
+        }
+
+        .section-title {
+          font-size: 1rem;
+          font-weight: 700;
+          color: #111827;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+
+        .header-section {
+          padding-bottom: 1rem;
+          margin-bottom: 1rem;
+          border-bottom: 2px solid #e5e7eb;
+        }
+
+        /* Experience Cards */
+        .experience-card {
+          background: #f9fafb;
+          padding: 0.75rem;
+          border-radius: 0.5rem;
+          margin-bottom: 0.75rem;
+          border: 1px solid #e5e7eb;
+        }
+
+        /* Co-op Summary Card */
+        .coop-summary-card {
+          background: linear-gradient(135deg, #eff6ff 0%, #f3f4f6 100%);
+          padding: 0.75rem;
+          border-radius: 0.5rem;
+          border: 1px solid #dbeafe;
+        }
+
+        /* Certification Cards */
+        .cert-card {
+          background: #f9fafb;
+          padding: 0.625rem;
+          border-radius: 0.5rem;
+          border: 1px solid #e5e7eb;
+        }
+
+        /* Community Cards */
+        .community-card {
+          background: #f9fafb;
+          padding: 0.625rem;
+          border-radius: 0.5rem;
+          border: 1px solid #e5e7eb;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1rem;
+        }
+
+        /* Achievements Footer */
+        .achievements-footer {
+          margin-top: auto;
+          padding-top: 1rem;
+          border-top: 2px solid #e5e7eb;
+        }
+
+        /* Print Styles */
         @media print {
-          /* Page setup for exactly 2 pages */
           @page {
-            margin: 0.5in;
             size: letter;
+            margin: 0;
           }
-          
-          /* Global print settings - Apple-inspired clean design */
-          body, html {
-            background: white !important;
+
+          body {
             print-color-adjust: exact;
             -webkit-print-color-adjust: exact;
-            margin: 0 !important;
-            padding: 0 !important;
-            font-size: 12pt !important;
-            line-height: 1.4 !important;
-            font-family: -apple-system, 'SF Pro Text', BlinkMacSystemFont, system-ui, sans-serif !important;
-            letter-spacing: -0.008em !important;
-            -webkit-font-smoothing: antialiased !important;
           }
-          
-          /* Hide navigation */
-          nav, .print\\:hidden {
-            display: none !important;
-          }
-          
-          /* Clean white background */
+
           .min-h-screen {
             background: white !important;
-            padding: 0 !important;
           }
-          
-          /* Container resets */
-          .px-4, .sm\\:px-6, .pb-16, .pt-24 {
-            padding: 0 !important;
+
+          nav, .fixed, .print\\:hidden {
+            display: none !important;
           }
-          
-          .max-w-4xl {
-            max-width: none !important;
-            margin: 0 !important;
+
+          .resume-container {
+            margin: 0;
+            padding: 0;
           }
-          
-          /* Resume cards - minimal Apple style */
-          .bg-white\\/90 {
-            background: white !important;
-            border: none !important;
-            border-radius: 0 !important;
+
+          .resume-page {
+            margin: 0;
             box-shadow: none !important;
-            padding: 0 !important;
-            margin-bottom: 0 !important;
-            backdrop-filter: none !important;
+            page-break-after: always;
+            page-break-inside: avoid;
           }
-          
-          /* Page break control */
-          .bg-white\\/90:first-child {
-            page-break-after: always !important;
+
+          .resume-page:last-child {
+            page-break-after: auto;
           }
-          
-          /* Header section - Apple-style layout */
-          .flex.items-start.gap-8 {
-            display: flex !important;
-            align-items: center !important;
-            gap: 1.5rem !important;
-            margin-bottom: 1.5rem !important;
-            padding-bottom: 1rem !important;
-            border-bottom: 1px solid #e5e7eb !important;
+
+          /* Ensure badges print with colors */
+          .bg-blue-50 {
+            background-color: #eff6ff !important;
+            print-color-adjust: exact;
           }
-          
-          /* Profile photo - circular Apple style */
-          .w-40.h-40 {
-            width: 4rem !important;
-            height: 4rem !important;
-            border-radius: 50% !important;
-            object-fit: cover !important;
-            flex-shrink: 0 !important;
-            border: 1px solid #f2f2f7 !important;
+
+          .text-blue-600 {
+            color: #2563eb !important;
+            print-color-adjust: exact;
           }
-          
-          /* Name - Apple's clean typography */
-          .text-6xl {
-            font-size: 2.25rem !important;
-            line-height: 1 !important;
-            margin-bottom: 0.25rem !important;
-            font-weight: 700 !important;
-            color: #000 !important;
-            letter-spacing: 0 !important;
-            word-spacing: 0 !important;
-            white-space: nowrap !important;
+
+          .text-blue-700 {
+            color: #1d4ed8 !important;
+            print-color-adjust: exact;
           }
-          
-          /* Professional title - subtle accent */
-          h2.text-2xl {
-            font-size: 1.15rem !important;
-            line-height: 1.2 !important;
-            margin-bottom: 0.5rem !important;
-            color: #007AFF !important;
-            font-weight: 500 !important;
-            letter-spacing: -0.01em !important;
+
+          /* Ensure proper text sizing for print */
+          body {
+            font-size: 10pt !important;
           }
-          
-          /* Description - refined text with emphasis on key words */
-          .text-base {
-            font-size: 1rem !important;
-            line-height: 1.4 !important;
-            color: #3C3C43 !important;
-            font-weight: 400 !important;
+
+          h1 {
+            font-size: 24pt !important;
           }
-          
-          /* Contact info - Apple's minimal style */
-          .flex.justify-center.items-center.flex-wrap {
-            justify-content: center !important;
-            align-items: center !important;
-            gap: 0.5rem !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            border: none !important;
+
+          h2 {
+            font-size: 14pt !important;
           }
-          
+
+          h3 {
+            font-size: 11pt !important;
+          }
+
+          h4 {
+            font-size: 10pt !important;
+          }
+
+          .text-xs {
+            font-size: 8pt !important;
+          }
+
           .text-sm {
-            font-size: 0.9rem !important;
-            line-height: 1 !important;
-            color: #8E8E93 !important;
-            font-weight: 400 !important;
+            font-size: 9pt !important;
           }
-          
-          /* Hide icons for cleaner look */
-          .w-4.h-4 {
-            display: none !important;
+
+          .text-base {
+            font-size: 10pt !important;
           }
-          
-          /* Separator dots - ultra minimal */
-          .mx-2 {
-            margin: 0 0.4rem !important;
-            color: #D1D1D6 !important;
-            font-weight: 300 !important;
-            font-size: 0.85rem !important;
+        }
+
+        /* Screen-only responsive adjustments */
+        @media screen and (max-width: 8.5in) {
+          .resume-page {
+            width: 100%;
+            min-height: auto;
+            border-radius: 1rem;
           }
-          
-          /* Section headers - Apple's refined approach */
-          h3.text-2xl.font-semibold,
-          .text-2xl.font-semibold {
-            font-size: 1.15rem !important;
-            font-weight: 700 !important;
-            margin: 1.5rem 0 0.75rem 0 !important;
-            color: #1C1C1E !important;
-            display: block !important;
-            text-transform: uppercase !important;
-            letter-spacing: 0.1em !important;
-            padding-bottom: 0.3rem !important;
-            border-bottom: 1px solid #F2F2F7 !important;
-          }
-          
-          /* Remove divider lines in headers */
-          .h-px.bg-border {
-            display: none !important;
-          }
-          
-          /* Experience entries - optimized spacing */
-          .flex.gap-6 {
-            display: flex !important;
-            gap: 0.75rem !important;
-            margin-bottom: 1.15rem !important;
-            page-break-inside: avoid !important;
-          }
-          
-          /* Company logo containers - minimal style */
-          .w-12.h-12.bg-white.rounded-xl.shadow-md {
-            width: 1.75rem !important;
-            height: 1.75rem !important;
-            background: #FAFAFA !important;
-            border: none !important;
-            border-radius: 0.25rem !important;
-            box-shadow: none !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            flex-shrink: 0 !important;
-          }
-          
-          /* Company logos */
-          .w-8.h-8 {
-            width: 1.1rem !important;
-            height: 1.1rem !important;
-            object-fit: contain !important;
-            opacity: 0.75 !important;
-          }
-          
-          /* Job titles - emphasis on role */
-          .text-lg.font-semibold {
-            font-size: 1.1rem !important;
-            font-weight: 600 !important;
-            color: #000 !important;
-            margin-bottom: 0.1rem !important;
-            letter-spacing: -0.008em !important;
-          }
-          
-          /* Company names - subtle but recognizable */
-          .text-primary.font-medium {
-            color: #007AFF !important;
-            font-weight: 500 !important;
-            font-size: 0.95rem !important;
-            margin-bottom: 0 !important;
-          }
-          
-          /* Location text - de-emphasized */
-          p.text-sm.text-muted-foreground {
-            font-size: 0.9rem !important;
-            color: #AEAEB2 !important;
-            margin-bottom: 0.4rem !important;
-            font-weight: 400 !important;
-          }
-          
-          /* Dates - subtle but clear */
-          span.text-sm.text-muted-foreground {
-            font-size: 0.9rem !important;
-            color: #8E8E93 !important;
-            white-space: nowrap !important;
-            font-weight: 400 !important;
-            font-variant-numeric: tabular-nums !important;
-          }
-          
-          /* Bullet points - emphasis on metrics */
-          ul.space-y-1\\.5,
-          ul.space-y-1 {
-            margin: 0.4rem 0 0.5rem 0 !important;
-          }
-          
-          ul.space-y-1\\.5 li,
-          ul.space-y-1 li {
-            margin: 0.15rem 0 !important;
-            font-size: 0.95rem !important;
-            line-height: 1.4 !important;
-            color: #1C1C1E !important;
-            font-weight: 400 !important;
-            padding-left: 1rem !important;
-            position: relative !important;
-          }
-          
-          /* Minimalist bullet points with emphasis on numbers */
-          ul li::before {
-            content: "–" !important;
-            position: absolute !important;
-            left: 0 !important;
-            color: #C7C7CC !important;
-            font-weight: 300 !important;
-          }
-          
-          /* Highlight percentages and metrics */
-          ul li {
-            list-style: none !important;
-          }
-          
-          /* Make numbers stand out */
-          ul li:contains("%"),
-          ul li:contains("$") {
-            font-weight: 500 !important;
-          }
-          
-          /* Skills badges - refined Apple pills */
-          .flex.flex-wrap.gap-1\\.5 {
-            display: flex !important;
-            flex-wrap: wrap !important;
-            gap: 0.2rem !important;
-            margin-top: 0.4rem !important;
-          }
-          
-          /* Individual badge - ultra-minimal */
-          .inline-flex.items-center.rounded-md.px-2\\.5.py-0\\.5,
-          [class*="badge"] {
-            display: inline-flex !important;
-            align-items: center !important;
-            background: transparent !important;
-            color: #3C3C43 !important;
-            border: 1px solid #E5E5EA !important;
-            padding: 0.05rem 0.4rem !important;
-            border-radius: 0.6rem !important;
-            font-size: 0.8rem !important;
-            font-weight: 500 !important;
-            white-space: nowrap !important;
-            letter-spacing: 0.015em !important;
-          }
-          
-          /* Section spacing for perfect 2-page layout */
-          .mb-8 {
-            margin-bottom: 1.25rem !important;
-          }
-          
-          .mb-6 {
-            margin-bottom: 0.75rem !important;
-          }
-          
-          .space-y-6 > * + * {
-            margin-top: 0.85rem !important;
-          }
-          
-          /* Strategic page break - after RBC Banking Advisor */
-          .space-y-6 > div:nth-child(3) {
-            page-break-after: always !important;
-            margin-bottom: 0 !important;
-          }
-          
-          /* Apple-inspired color palette */
-          .text-muted-foreground {
-            color: #8E8E93 !important;
-          }
-          
-          .text-primary {
-            color: #007AFF !important;
-          }
-          
-          .text-foreground {
-            color: #000000 !important;
-          }
-          
-          /* Maintain font weights */
-          h1, h2, h3, h4, h5, h6 {
-            font-weight: inherit !important;
-          }
-          
-          /* Emphasis on key achievements */
-          /* Education highlights */
-          ul li:contains("1st Place"),
-          ul li:contains("$47,500") {
-            color: #000 !important;
-            font-weight: 500 !important;
-          }
-          
-          /* Experience metrics emphasis */
-          ul li:contains("100M"),
-          ul li:contains("12%"),
-          ul li:contains("9%"),
-          ul li:contains("11%"),
-          ul li:contains("15%"),
-          ul li:contains("13%"),
-          ul li:contains("8%"),
-          ul li:contains("10%"),
-          ul li:contains("20%") {
-            color: #000 !important;
-          }
-          
-          /* Ensure proper color printing */
-          * {
-            -webkit-print-color-adjust: exact !important;
-            print-color-adjust: exact !important;
-            color-adjust: exact !important;
+
+          .skills-grid {
+            grid-template-columns: 1fr;
           }
         }
       `}</style>
-      
-      {/* Back to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40 transition-all duration-300 ease-in-out rounded-full print:hidden ${
-          showScrollToTop 
-            ? 'opacity-100 pointer-events-auto translate-y-0' 
-            : 'opacity-0 pointer-events-none translate-y-4'
-        } hover:scale-105 shadow-xl hover:shadow-2xl`}
-        style={{ 
-          background: 'rgba(255, 255, 255, 0.92)',
-          backdropFilter: 'blur(20px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-          border: '1px solid rgba(0, 0, 0, 0.08)'
-        }}
-        data-testid="scroll-to-top-button"
-      >
-        <div className="flex items-center px-5 py-3">
-          <span className="text-sm font-medium mr-3 text-gray-700">
-            Back to top
-          </span>
-          <div className="w-8 h-8 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center transition-colors duration-200">
-            <ChevronUp size={18} />
-          </div>
-        </div>
-      </button>
-      
-      {/* Footer with Sign In */}
-      <footer className="relative bg-gradient-to-b from-gray-900 to-black border-t border-gray-800 py-8 transition-all duration-500 print:hidden">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-white/90 font-medium">
-              © {new Date().getFullYear()} Tyler Bustard. All rights reserved.
-            </p>
-            <button
-              onClick={() => window.location.href = '/resume-upload-signin'}
-              className="px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white transition-all duration-200 hover:scale-105"
-              data-testid="footer-resume-signin"
-            >
-              Sign In
-            </button>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
