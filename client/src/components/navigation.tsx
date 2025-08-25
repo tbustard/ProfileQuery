@@ -407,12 +407,12 @@ export default function Navigation() {
                 scrollToSection('#education');
                 setOpenDropdown(null);
               }}
-              className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200"
+              className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
             >
               <div className="space-y-1">
-                <div className="text-lg font-bold text-gray-900">University of New Brunswick</div>
-                <div className="text-base text-gray-600">Bachelor of Business Administration</div>
-                <div className="text-sm text-gray-500">Fredericton, NB • 2016-2020</div>
+                <div className="text-sm font-bold text-gray-900">University of New Brunswick</div>
+                <div className="text-xs text-gray-600">Bachelor of Business Administration</div>
+                <div className="text-xs text-gray-500">Fredericton, NB • 2016-2020</div>
               </div>
             </button>
           </div>
@@ -432,18 +432,18 @@ export default function Navigation() {
               boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
             }}
           >
-            <div className="space-y-3 max-h-80 overflow-y-auto">
+            <div className="space-y-2 max-h-96 overflow-y-auto">
               {/* BMO Private Wealth */}
               <button 
                 onClick={() => {
                   scrollToSection('#experience-bmo-private-wealth-portfolio-assistant');
                   setOpenDropdown(null);
                 }}
-                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200"
+                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
               >
                 <div className="space-y-1">
-                  <div className="text-base font-bold text-gray-900">Portfolio Assistant</div>
-                  <div className="text-sm text-gray-600">BMO Private Wealth</div>
+                  <div className="text-sm font-bold text-gray-900">Portfolio Assistant</div>
+                  <div className="text-xs text-gray-600">BMO Private Wealth</div>
                   <div className="text-xs text-gray-500">Toronto, ON • 2022-2023</div>
                 </div>
               </button>
@@ -454,11 +454,11 @@ export default function Navigation() {
                   scrollToSection('#experience-td-canada-trust-financial-advisor');
                   setOpenDropdown(null);
                 }}
-                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200"
+                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
               >
                 <div className="space-y-1">
-                  <div className="text-base font-bold text-gray-900">Financial Advisor</div>
-                  <div className="text-sm text-gray-600">TD Canada Trust</div>
+                  <div className="text-sm font-bold text-gray-900">Financial Advisor</div>
+                  <div className="text-xs text-gray-600">TD Canada Trust</div>
                   <div className="text-xs text-gray-500">Kingston, ON • 2021-2022</div>
                 </div>
               </button>
@@ -469,11 +469,11 @@ export default function Navigation() {
                   scrollToSection('#experience-royal-bank-of-canada-banking-advisor');
                   setOpenDropdown(null);
                 }}
-                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200"
+                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
               >
                 <div className="space-y-1">
-                  <div className="text-base font-bold text-gray-900">Banking Advisor</div>
-                  <div className="text-sm text-gray-600">Royal Bank of Canada</div>
+                  <div className="text-sm font-bold text-gray-900">Banking Advisor</div>
+                  <div className="text-xs text-gray-600">Royal Bank of Canada</div>
                   <div className="text-xs text-gray-500">Kingston, ON • 2020-2021</div>
                 </div>
               </button>
@@ -484,11 +484,11 @@ export default function Navigation() {
                   scrollToSection('#experience-royal-bank-of-canada-client-advisor-intern');
                   setOpenDropdown(null);
                 }}
-                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200"
+                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
               >
                 <div className="space-y-1">
-                  <div className="text-base font-bold text-gray-900">Client Advisor Intern</div>
-                  <div className="text-sm text-gray-600">Royal Bank of Canada</div>
+                  <div className="text-sm font-bold text-gray-900">Client Advisor Intern</div>
+                  <div className="text-xs text-gray-600">Royal Bank of Canada</div>
                   <div className="text-xs text-gray-500">Fredericton, NB • 2019-2020</div>
                 </div>
               </button>
@@ -499,11 +499,11 @@ export default function Navigation() {
                   scrollToSection('#experience-irving-oil-limited-marketing-intern');
                   setOpenDropdown(null);
                 }}
-                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200"
+                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
               >
                 <div className="space-y-1">
-                  <div className="text-base font-bold text-gray-900">Marketing Intern</div>
-                  <div className="text-sm text-gray-600">Irving Oil Limited</div>
+                  <div className="text-sm font-bold text-gray-900">Marketing Intern</div>
+                  <div className="text-xs text-gray-600">Irving Oil Limited</div>
                   <div className="text-xs text-gray-500">Saint John, NB • 2018</div>
                 </div>
               </button>
@@ -514,11 +514,11 @@ export default function Navigation() {
                   scrollToSection('#experience-grant-thornton-llp-tax-return-intern');
                   setOpenDropdown(null);
                 }}
-                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200"
+                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
               >
                 <div className="space-y-1">
-                  <div className="text-base font-bold text-gray-900">Tax Return Intern</div>
-                  <div className="text-sm text-gray-600">Grant Thornton LLP</div>
+                  <div className="text-sm font-bold text-gray-900">Tax Return Intern</div>
+                  <div className="text-xs text-gray-600">Grant Thornton LLP</div>
                   <div className="text-xs text-gray-500">Saint John, NB • 2018</div>
                 </div>
               </button>
@@ -527,9 +527,9 @@ export default function Navigation() {
         </div>
       )}
 
-      {/* Certifications Dropdown - Complete and Accurate */}
+      {/* Certifications Dropdown */}
       {openDropdown === 'certifications' && (
-        <div className="fixed top-20 left-1/2 transform translate-x-8 w-[420px] mt-2 z-[55] dropdown-container hidden lg:block">
+        <div className="fixed top-20 left-1/2 transform translate-x-8 w-96 mt-2 z-[55] dropdown-container hidden lg:block">
           <div 
             className="rounded-xl p-4 shadow-xl transition-all duration-200"
             style={{
@@ -540,137 +540,71 @@ export default function Navigation() {
               boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
             }}
           >
-            <div className="mb-3">
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">22 Professional Certifications</h3>
-            </div>
-            <div className="space-y-3 max-h-96 overflow-y-auto">
+            <div className="space-y-2 max-h-96 overflow-y-auto">
               
-              {/* Financial Excellence - 10 certifications */}
-              <div className="border-b border-gray-100 pb-3">
-                <div className="text-xs font-semibold text-blue-600 mb-2 uppercase">Financial Excellence</div>
-                
-                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200 mb-1">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <div className="text-sm font-bold text-gray-900">CFA Level I Candidate</div>
-                      <div className="text-xs text-gray-600">CFA Institute</div>
-                    </div>
-                    <span className="text-xs text-gray-500">2025</span>
-                  </div>
-                </button>
-                
-                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200 mb-1">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <div className="text-sm font-bold text-gray-900">Discounted Cash Flow Analysis</div>
-                      <div className="text-xs text-gray-600">Training the Street</div>
-                    </div>
-                    <span className="text-xs text-gray-500">2024</span>
-                  </div>
-                </button>
-                
-                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200 mb-1">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <div className="text-sm font-bold text-gray-900">Canadian Securities Course</div>
-                      <div className="text-xs text-gray-600">CSI</div>
-                    </div>
-                    <span className="text-xs text-gray-500">2021</span>
-                  </div>
-                </button>
-                
-                <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <div className="text-sm font-bold text-gray-900">Investment Funds in Canada</div>
-                      <div className="text-xs text-gray-600">CSI</div>
-                    </div>
-                    <span className="text-xs text-gray-500">2020</span>
-                  </div>
-                </button>
-              </div>
+              {/* Key Certifications */}
+              <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200">
+                <div className="space-y-1">
+                  <div className="text-sm font-bold text-gray-900">CFA Level I Candidate</div>
+                  <div className="text-xs text-gray-600">CFA Institute</div>
+                  <div className="text-xs text-gray-500">Financial Excellence • 2025</div>
+                </div>
+              </button>
               
-              {/* Data & Technology - 6 certifications */}
-              <div className="border-b border-gray-100 pb-3">
-                <div className="text-xs font-semibold text-emerald-600 mb-2 uppercase">Data & Technology</div>
-                
-                <button onClick={() => { scrollToSection('#certifications-data-technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200 mb-1">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <div className="text-sm font-bold text-gray-900">Data Analytics Professional</div>
-                      <div className="text-xs text-gray-600">Google</div>
-                    </div>
-                    <span className="text-xs text-gray-500">2023</span>
-                  </div>
-                </button>
-                
-                <button onClick={() => { scrollToSection('#certifications-data-technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200 mb-1">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <div className="text-sm font-bold text-gray-900">Python for Everybody</div>
-                      <div className="text-xs text-gray-600">University of Michigan</div>
-                    </div>
-                    <span className="text-xs text-gray-500">2023</span>
-                  </div>
-                </button>
-                
-                <button onClick={() => { scrollToSection('#certifications-data-technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <div className="text-sm font-bold text-gray-900">SQL for Data Science</div>
-                      <div className="text-xs text-gray-600">UC Davis</div>
-                    </div>
-                    <span className="text-xs text-gray-500">2020</span>
-                  </div>
-                </button>
-              </div>
+              <button onClick={() => { scrollToSection('#certifications-data-technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200">
+                <div className="space-y-1">
+                  <div className="text-sm font-bold text-gray-900">Data Analytics Professional</div>
+                  <div className="text-xs text-gray-600">Google</div>
+                  <div className="text-xs text-gray-500">Data & Technology • 2023</div>
+                </div>
+              </button>
               
-              {/* Advanced Analytics - 5 certifications */}
-              <div className="border-b border-gray-100 pb-3">
-                <div className="text-xs font-semibold text-purple-600 mb-2 uppercase">Advanced Analytics</div>
-                
-                <button onClick={() => { scrollToSection('#certifications-advanced-analytics'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200 mb-1">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <div className="text-sm font-bold text-gray-900">Econometrics: Methods & Applications</div>
-                      <div className="text-xs text-gray-600">Erasmus University</div>
-                    </div>
-                    <span className="text-xs text-gray-500">2024</span>
-                  </div>
-                </button>
-                
-                <button onClick={() => { scrollToSection('#certifications-advanced-analytics'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <div className="text-sm font-bold text-gray-900">Excel Skills for Business</div>
-                      <div className="text-xs text-gray-600">Macquarie University</div>
-                    </div>
-                    <span className="text-xs text-gray-500">2020</span>
-                  </div>
-                </button>
-              </div>
+              <button onClick={() => { scrollToSection('#certifications-financial-excellence'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200">
+                <div className="space-y-1">
+                  <div className="text-sm font-bold text-gray-900">Canadian Securities Course</div>
+                  <div className="text-xs text-gray-600">Canadian Securities Institute</div>
+                  <div className="text-xs text-gray-500">Financial Excellence • 2021</div>
+                </div>
+              </button>
               
-              {/* Standardized Exam */}
-              <div>
-                <div className="text-xs font-semibold text-amber-600 mb-2 uppercase">Standardized Exam</div>
-                
-                <button onClick={() => { scrollToSection('#certifications-standardized-exam'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <div className="text-sm font-bold text-gray-900">GRE General Test</div>
-                      <div className="text-xs text-gray-600">ETS</div>
-                    </div>
-                    <span className="text-xs text-gray-500">2024</span>
-                  </div>
-                </button>
-              </div>
+              <button onClick={() => { scrollToSection('#certifications-advanced-analytics'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200">
+                <div className="space-y-1">
+                  <div className="text-sm font-bold text-gray-900">Econometrics: Methods & Applications</div>
+                  <div className="text-xs text-gray-600">Erasmus University</div>
+                  <div className="text-xs text-gray-500">Advanced Analytics • 2024</div>
+                </div>
+              </button>
+              
+              <button onClick={() => { scrollToSection('#certifications-data-technology'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200">
+                <div className="space-y-1">
+                  <div className="text-sm font-bold text-gray-900">Python for Everybody</div>
+                  <div className="text-xs text-gray-600">University of Michigan</div>
+                  <div className="text-xs text-gray-500">Data & Technology • 2023</div>
+                </div>
+              </button>
+              
+              <button onClick={() => { scrollToSection('#certifications-standardized-exam'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200">
+                <div className="space-y-1">
+                  <div className="text-sm font-bold text-gray-900">GRE General Test</div>
+                  <div className="text-xs text-gray-600">ETS</div>
+                  <div className="text-xs text-gray-500">Standardized Exam • 2024</div>
+                </div>
+              </button>
+              
+              <button onClick={() => { scrollToSection('#certifications'); setOpenDropdown(null); }} className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200">
+                <div className="space-y-1">
+                  <div className="text-sm font-bold text-gray-900">View All Certifications</div>
+                  <div className="text-xs text-gray-600">22 Professional Certifications</div>
+                  <div className="text-xs text-gray-500">4 Categories</div>
+                </div>
+              </button>
               
             </div>
           </div>
         </div>
       )}
 
-      {/* Community Dropdown - Accurate and Complete */}
+      {/* Community Dropdown */}
       {openDropdown === 'community' && (
         <div className="fixed top-20 left-1/2 transform translate-x-48 w-80 mt-2 z-[55] dropdown-container hidden lg:block">
           <div 
@@ -683,10 +617,7 @@ export default function Navigation() {
               boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
             }}
           >
-            <div className="mb-3">
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Community Service</h3>
-            </div>
-            <div className="space-y-3">
+            <div className="space-y-2 max-h-96 overflow-y-auto">
               
               {/* United Way */}
               <button 
@@ -697,10 +628,9 @@ export default function Navigation() {
                 className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
               >
                 <div className="space-y-1">
-                  <div className="text-base font-bold text-gray-900">Next Gen Ambassador</div>
-                  <div className="text-sm text-gray-600">United Way</div>
+                  <div className="text-sm font-bold text-gray-900">Next Gen Ambassador</div>
+                  <div className="text-xs text-gray-600">United Way</div>
                   <div className="text-xs text-gray-500">Kingston, ON • 2020-2023</div>
-                  <div className="text-xs text-blue-600 mt-1">3 years of service</div>
                 </div>
               </button>
               
@@ -713,10 +643,9 @@ export default function Navigation() {
                 className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
               >
                 <div className="space-y-1">
-                  <div className="text-base font-bold text-gray-900">Student Ambassador</div>
-                  <div className="text-sm text-gray-600">Royal Bank of Canada</div>
+                  <div className="text-sm font-bold text-gray-900">Student Ambassador</div>
+                  <div className="text-xs text-gray-600">Royal Bank of Canada</div>
                   <div className="text-xs text-gray-500">Fredericton, NB • 2019-2020</div>
-                  <div className="text-xs text-blue-600 mt-1">1 year of service</div>
                 </div>
               </button>
               
@@ -729,30 +658,12 @@ export default function Navigation() {
                 className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
               >
                 <div className="space-y-1">
-                  <div className="text-base font-bold text-gray-900">Volunteer Staff</div>
-                  <div className="text-sm text-gray-600">Irving Oil Limited</div>
+                  <div className="text-sm font-bold text-gray-900">Volunteer Staff</div>
+                  <div className="text-xs text-gray-600">Irving Oil Limited</div>
                   <div className="text-xs text-gray-500">Saint John, NB • 2018</div>
-                  <div className="text-xs text-blue-600 mt-1">Youth engagement</div>
                 </div>
               </button>
               
-            </div>
-            
-            <div className="mt-4 pt-3 border-t border-gray-100">
-              <div className="grid grid-cols-3 gap-2 text-center">
-                <div>
-                  <div className="text-sm font-bold text-gray-900">4+</div>
-                  <div className="text-xs text-gray-500">Years</div>
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-gray-900">500+</div>
-                  <div className="text-xs text-gray-500">People</div>
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-gray-900">3</div>
-                  <div className="text-xs text-gray-500">Orgs</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -771,7 +682,7 @@ export default function Navigation() {
               boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
             }}
           >
-            <div className="space-y-3">
+            <div className="space-y-2">
               
               {/* Email */}
               <button 
@@ -779,11 +690,12 @@ export default function Navigation() {
                   scrollToSection('#contact');
                   setOpenDropdown(null);
                 }}
-                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200"
+                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
               >
                 <div className="space-y-1">
-                  <div className="text-base font-bold text-gray-900">Email</div>
-                  <div className="text-sm text-gray-600">tbustard@unb.ca</div>
+                  <div className="text-sm font-bold text-gray-900">Email</div>
+                  <div className="text-xs text-gray-600">tbustard@unb.ca</div>
+                  <div className="text-xs text-gray-500">Professional Inquiries</div>
                 </div>
               </button>
 
@@ -793,11 +705,12 @@ export default function Navigation() {
                   scrollToSection('#contact');
                   setOpenDropdown(null);
                 }}
-                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200"
+                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
               >
                 <div className="space-y-1">
-                  <div className="text-base font-bold text-gray-900">Phone</div>
-                  <div className="text-sm text-gray-600">(613) 985-1223</div>
+                  <div className="text-sm font-bold text-gray-900">Phone</div>
+                  <div className="text-xs text-gray-600">(613) 985-1223</div>
+                  <div className="text-xs text-gray-500">Available 9AM-5PM EST</div>
                 </div>
               </button>
 
@@ -807,11 +720,12 @@ export default function Navigation() {
                   scrollToSection('#contact');
                   setOpenDropdown(null);
                 }}
-                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-2 transition-all duration-200"
+                className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
               >
                 <div className="space-y-1">
-                  <div className="text-base font-bold text-gray-900">Location</div>
-                  <div className="text-sm text-gray-600">Toronto, Ontario, Canada</div>
+                  <div className="text-sm font-bold text-gray-900">Location</div>
+                  <div className="text-xs text-gray-600">Toronto, Ontario</div>
+                  <div className="text-xs text-gray-500">Canada</div>
                 </div>
               </button>
 
