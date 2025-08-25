@@ -510,23 +510,23 @@ export default function Resume() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h5 className="text-sm font-bold text-gray-900">RBC Race for the Kids</h5>
-                      <p className="text-xs text-gray-600 mt-1">Volunteer Coordinator • 2021</p>
-                      <p className="text-xs text-gray-700 mt-2">Organized fundraising events, coordinated 50+ volunteers</p>
+                      <h5 className="text-sm font-bold text-gray-900">Student Ambassador</h5>
+                      <p className="text-xs text-gray-600 mt-1">Royal Bank of Canada • 2019-2020</p>
+                      <p className="text-xs text-gray-700 mt-2">Increased student engagement by 25% through campus events</p>
                     </div>
                   </div>
                 </div>
                 <div className="bg-white rounded-xl p-5 border border-gray-200 hover:shadow-sm transition-shadow">
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0">
-                      <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                        <img src={bmoLogo} alt="BMO" className="w-7 h-7 object-contain" />
+                      <div className="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center">
+                        <img src={irvingLogo} alt="Irving" className="w-7 h-7 object-contain" />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h5 className="text-sm font-bold text-gray-900">BMO Community Banking</h5>
-                      <p className="text-xs text-gray-600 mt-1">Financial Literacy Instructor • 2022</p>
-                      <p className="text-xs text-gray-700 mt-2">Taught financial planning workshops to 100+ community members</p>
+                      <h5 className="text-sm font-bold text-gray-900">Volunteer Staff</h5>
+                      <p className="text-xs text-gray-600 mt-1">Irving Oil Limited • 2018</p>
+                      <p className="text-xs text-gray-700 mt-2">Organized engaging activities for 100+ children at community events</p>
                     </div>
                   </div>
                 </div>
