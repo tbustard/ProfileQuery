@@ -431,10 +431,22 @@
       min-height: auto;
     }
     
-    /* Fallback for mobile experience section */
+    /* Fallback for mobile experience section - immediate visibility */
     #experience .scroll-scale-in {
       opacity: 1;
       transform: scale(1) translateY(0);
+      transition-duration: 0.2s !important;
+      transition-delay: 0s !important;
+    }
+    
+    /* Remove all stagger delays for experience on mobile */
+    #experience .scroll-stagger-1,
+    #experience .scroll-stagger-2,
+    #experience .scroll-stagger-3,
+    #experience .scroll-stagger-4,
+    #experience .scroll-stagger-5,
+    #experience .scroll-stagger-6 {
+      transition-delay: 0s !important;
     }
     
     /* Force visibility if animation fails on mobile */
