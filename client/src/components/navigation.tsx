@@ -211,7 +211,13 @@ export default function Navigation() {
                 )}
                 {isResumePage && (
                   <button 
-                    onClick={() => window.history.back()}
+                    onClick={() => {
+                      if (window.history.length > 1) {
+                        window.history.back();
+                      } else {
+                        window.location.href = '/';
+                      }
+                    }}
                     className="flex items-center space-x-4 transition-all duration-700 ease-out hover:scale-105 cursor-pointer"
                   >
                     <img 
@@ -320,7 +326,7 @@ export default function Navigation() {
 
                 {/* Download/Close */}
                 <button
-                  onClick={() => isResumePage ? window.history.back() : window.location.href = '/resume'}
+                  onClick={() => isResumePage ? (window.history.length > 1 ? window.history.back() : window.location.href = '/') : window.location.href = '/resume'}
                   className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 text-primary hover:text-primary/80 hover:bg-primary/5"
                 >
                   {isResumePage ? 'Close' : 'Download'}
@@ -848,7 +854,7 @@ export default function Navigation() {
                     <h3 className="text-xl font-bold text-foreground">{isResumePage ? 'Navigation' : 'Download'}</h3>
                     <button 
                       onClick={() => {
-                        isResumePage ? window.history.back() : window.location.href = '/resume';
+                        isResumePage ? (window.history.length > 1 ? window.history.back() : window.location.href = '/') : window.location.href = '/resume';
                         setIsMobileMenuOpen(false);
                       }}
                       className="w-full text-left bg-white/10 rounded-lg p-4 transition-all duration-200"
