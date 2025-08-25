@@ -17,6 +17,7 @@ export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
   const lastScrollY = useRef(0);
   const lastScrollTime = useRef(Date.now());
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const hasTriggered = useRef(false);
 
   useEffect(() => {
     const element = ref.current;
@@ -53,8 +54,11 @@ export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          const delay = options.delay || 0;
+        if (entry.isIntersecting && (!options.triggerOnce || !hasTriggered.current)) {
+          const baseDelay = options.delay || 0;
+          // Get current scroll velocity for adaptive timing
+          const currentVelocity = document.body.classList.contains('scroll-fast') ? 'fast' : 'slow';
+          const adaptiveDelay = currentVelocity === 'fast' ? Math.max(baseDelay * 0.4, 100) : baseDelay;
           
           // Clear any existing timeout
           if (timeoutRef.current) {
@@ -63,22 +67,24 @@ export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
           
           timeoutRef.current = setTimeout(() => {
             setIsVisible(true);
-          }, delay);
+            hasTriggered.current = true;
+          }, adaptiveDelay);
           
           if (options.triggerOnce) {
             observer.unobserve(element);
           }
-        } else if (!options.triggerOnce) {
+        } else if (!options.triggerOnce && !entry.isIntersecting) {
           // Clear timeout if element goes out of view
           if (timeoutRef.current) {
             clearTimeout(timeoutRef.current);
           }
           setIsVisible(false);
+          hasTriggered.current = false;
         }
       },
       {
         threshold: options.threshold || 0.15,
-        rootMargin: options.rootMargin || '0px 0px -10% 0px',
+        rootMargin: options.rootMargin || '0px 0px -8% 0px',
       }
     );
 
@@ -108,6 +114,7 @@ export function useStaggeredScrollAnimation(
   const lastScrollY = useRef(0);
   const lastScrollTime = useRef(Date.now());
   const timeoutsRef = useRef<NodeJS.Timeout[]>([]);
+  const hasTriggered = useRef(false);
 
   useEffect(() => {
     const element = ref.current;
@@ -140,30 +147,36 @@ export function useStaggeredScrollAnimation(
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && (!options.triggerOnce || !hasTriggered.current)) {
           const baseDelay = options.delay || 0;
-          const staggerDelay = scrollVelocity === 'fast' ? 60 : 80; // Adaptive timing
+          // Get current scroll velocity from body classes
+          const currentVelocity = document.body.classList.contains('scroll-fast') ? 'fast' : 'slow';
+          const staggerDelay = currentVelocity === 'fast' ? 40 : 80;
+          const adaptiveBaseDelay = currentVelocity === 'fast' ? Math.max(baseDelay * 0.4, 100) : baseDelay;
           
           // Clear any existing timeouts
           timeoutsRef.current.forEach(timeout => clearTimeout(timeout));
           timeoutsRef.current = [];
           
-          // Trigger staggered animation with proper cleanup
+          // Trigger staggered animation
           for (let i = 0; i < itemCount; i++) {
             const timeout = setTimeout(() => {
               setVisibleItems(prev => new Set([...Array.from(prev), i]));
-            }, baseDelay + (i * staggerDelay));
+            }, adaptiveBaseDelay + (i * staggerDelay));
             timeoutsRef.current.push(timeout);
           }
+          
+          hasTriggered.current = true;
           
           if (options.triggerOnce) {
             observer.unobserve(element);
           }
-        } else if (!options.triggerOnce) {
+        } else if (!options.triggerOnce && !entry.isIntersecting) {
           // Clear timeouts when element goes out of view
           timeoutsRef.current.forEach(timeout => clearTimeout(timeout));
           timeoutsRef.current = [];
           setVisibleItems(new Set());
+          hasTriggered.current = false;
         }
       },
       {
@@ -181,7 +194,7 @@ export function useStaggeredScrollAnimation(
       // Clear all timeouts on cleanup
       timeoutsRef.current.forEach(timeout => clearTimeout(timeout));
     };
-  }, [itemCount, options.threshold, options.rootMargin, options.triggerOnce, options.delay, options.reducedMotion, scrollVelocity]);
+  }, [itemCount, options.threshold, options.rootMargin, options.triggerOnce, options.delay, options.reducedMotion]);
 
   return { ref, visibleItems, scrollDirection, scrollVelocity };
 }
