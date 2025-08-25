@@ -385,14 +385,83 @@ export default function Resume() {
       {/* Print Styles */}
       <style>{`
         @media print {
-          body { print-color-adjust: exact; }
-          .print\\:hidden { display: none !important; }
+          /* Page setup with minimal margins */
+          @page {
+            margin: 0.3in;
+            size: letter;
+          }
+          
+          /* Body and page background */
+          body, html {
+            background: white !important;
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+            margin: 0 !important;
+            padding: 0 !important;
+          }
+          
+          /* Hide navigation and UI elements */
+          nav, .print\\:hidden {
+            display: none !important;
+          }
+          
+          /* Main container adjustments */
+          .min-h-screen {
+            background: white !important;
+            padding: 0 !important;
+          }
+          
+          /* Resume content styling */
+          .bg-white\\/90 {
+            background: white !important;
+            box-shadow: none !important;
+            border: none !important;
+            border-radius: 0 !important;
+            margin: 0 !important;
+            padding: 1rem !important;
+          }
+          
+          /* Remove all backgrounds and shadows */
           .print\\:shadow-none { box-shadow: none !important; }
           .print\\:border-0 { border: none !important; }
           .print\\:rounded-none { border-radius: 0 !important; }
           .print\\:bg-white { background: white !important; }
           .print\\:text-black { color: black !important; }
-          * { -webkit-print-color-adjust: exact; }
+          
+          /* Content container adjustments */
+          .px-4, .sm\\:px-6, .pb-16, .pt-24 {
+            padding: 0 !important;
+          }
+          
+          .max-w-4xl {
+            max-width: none !important;
+            margin: 0 !important;
+          }
+          
+          /* Ensure proper page breaks */
+          .mb-6 {
+            margin-bottom: 0 !important;
+            page-break-inside: avoid;
+          }
+          
+          /* Typography adjustments for print */
+          h1, h2, h3, h4, h5, h6 {
+            color: black !important;
+          }
+          
+          .text-muted-foreground {
+            color: #666 !important;
+          }
+          
+          .text-primary {
+            color: #2563eb !important;
+          }
+          
+          /* Ensure all text is black for print */
+          * {
+            -webkit-print-color-adjust: exact;
+            color-adjust: exact;
+          }
         }
       `}</style>
     </div>
