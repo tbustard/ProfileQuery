@@ -40,10 +40,18 @@ export default function Navigation() {
   }, [openDropdown]);
 
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrollY(currentScrollY);
-      setIsScrolled(currentScrollY > 150);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          setScrollY(currentScrollY);
+          setIsScrolled(currentScrollY > 150);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -103,7 +111,7 @@ export default function Navigation() {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      const navHeight = 120;
+      const navHeight = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navHeight;
       
@@ -119,7 +127,7 @@ export default function Navigation() {
     <>
       {/* Navigation Bar with Clean Glass Effect */}
       <nav 
-        className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-500 ease-out`}
+        className="fixed top-0 left-0 right-0 w-full z-50 transition-colors duration-300"
         style={{
           background: isScrolled 
             ? 'rgba(255, 255, 255, 0.88)' 

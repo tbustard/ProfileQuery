@@ -397,6 +397,22 @@
     transform: translateY(0) scale(1);
   }
 
+  /* Prevent scroll jumping */
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Fix navigation bar layout shifts */
+  nav {
+    will-change: background-color, backdrop-filter;
+    -webkit-font-smoothing: antialiased;
+  }
+  
   /* Mobile optimizations with preserved animations */
   @media (max-width: 640px) {
     /* Hero section mobile centering */
@@ -416,6 +432,19 @@
       align-items: center;
       justify-content: center;
       min-height: calc(100vh - 7rem);
+    }
+    
+    /* Fix mobile scroll jumping */
+    body {
+      -webkit-overflow-scrolling: touch;
+      overflow-x: hidden;
+    }
+    
+    /* Stabilize back to top button on mobile */
+    button[data-testid="scroll-to-top-button"] {
+      position: fixed !important;
+      bottom: 2rem !important;
+      transform: translateX(-50%) !important;
     }
     /* Force certifications to be immediately visible on mobile */
     #certifications,

@@ -9,34 +9,18 @@ import ContactInfoSection from "@/components/contact-info-section";
 
 export default function Home() {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
-  const [isOverDarkSection, setIsOverDarkSection] = useState(false);
-  const [buttonBottomOffset, setButtonBottomOffset] = useState(32); // 32px = bottom-8
 
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      
-      setShowScrollToTop(scrollY > 300);
-      
-      // Check if we're actually over the black footer section
-      // Footer is much smaller, only about 80px high, so be more precise
-      const footerThreshold = documentHeight - windowHeight - 80;
-      setIsOverDarkSection(scrollY > footerThreshold);
-      
-      // Adjust button position to avoid overlapping with footer
-      // Footer height is approximately 120px including padding and content
-      const footerHeight = 120;
-      const buttonAdjustmentThreshold = documentHeight - windowHeight - footerHeight;
-      
-      if (scrollY > buttonAdjustmentThreshold) {
-        // Position button above footer when near bottom
-        const adjustedBottom = footerHeight + 16; // 16px gap above footer
-        setButtonBottomOffset(adjustedBottom);
-      } else {
-        // Normal position when not near footer
-        setButtonBottomOffset(32); // 32px = bottom-8
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          setShowScrollToTop(scrollY > 300);
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
@@ -64,17 +48,17 @@ export default function Home() {
       {/* Clean Scroll to Top Button with Glass Effect */}
       <button
         onClick={scrollToTop}
-        className={`fixed left-1/2 transform -translate-x-1/2 z-40 transition-all duration-500 ease-out rounded-full ${
+        className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40 transition-opacity duration-300 rounded-full ${
           showScrollToTop 
-            ? 'opacity-100 translate-y-0 pointer-events-auto' 
-            : 'opacity-0 translate-y-4 pointer-events-none'
+            ? 'opacity-100 pointer-events-auto' 
+            : 'opacity-0 pointer-events-none'
         } hover:scale-105 shadow-xl hover:shadow-2xl`}
         style={{ 
-          bottom: `${buttonBottomOffset}px`,
           background: 'rgba(255, 255, 255, 0.92)',
           backdropFilter: 'blur(20px) saturate(180%)',
           WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-          border: '1px solid rgba(0, 0, 0, 0.08)'
+          border: '1px solid rgba(0, 0, 0, 0.08)',
+          willChange: 'opacity'
         }}
         data-testid="scroll-to-top-button"
       >
