@@ -458,15 +458,82 @@ export default function Resume() {
                 </div>
               </div>
 
-              {/* Additional Training - Compact */}
+              {/* Additional Training - Categorized */}
               <div className="mt-2 bg-gradient-to-r from-gray-50 to-blue-50 rounded-lg p-3 border border-gray-200">
-                <p className="text-xs font-semibold text-gray-700 mb-2">Additional Training & Licenses:</p>
-                <div className="flex flex-wrap gap-2">
-                  {['Wall Street Prep Financial Modeling', 'GMAT Score: 710 (ETS)', 'Coursera Machine Learning (Stanford)', 'Google Data Analytics Certificate', 'IFIC Mutual Funds License', 'Canadian Securities Course (CSI)', 'Project Management Professional (PMP) Training', 'AWS Cloud Practitioner Essentials'].map(cert => (
-                    <span key={cert} className="text-xs bg-white px-2.5 py-1 rounded-md border border-gray-200 hover:bg-blue-50 transition-colors">
-                      {cert}
-                    </span>
-                  ))}
+                <p className="text-xs font-semibold text-gray-700 mb-2">Additional Certifications & Training:</p>
+                <div className="grid grid-cols-2 gap-2">
+                  {/* Finance & Investment */}
+                  <div className="bg-white rounded p-2 border border-gray-100">
+                    <div className="flex items-center justify-between mb-1">
+                      <h5 className="text-xs font-semibold text-gray-800">Finance & Investment</h5>
+                      <span className="text-xs font-bold text-blue-600">5</span>
+                    </div>
+                    <div className="flex gap-1">
+                      <div className="w-6 h-6 bg-blue-50 rounded flex items-center justify-center">
+                        <img src={cfaLogo} alt="CFA" className="w-4 h-4 object-contain" />
+                      </div>
+                      <div className="w-6 h-6 bg-green-50 rounded flex items-center justify-center">
+                        <img src={trainingTheStreetLogo} alt="TTS" className="w-4 h-4 object-contain" />
+                      </div>
+                      <div className="w-6 h-6 bg-red-50 rounded flex items-center justify-center">
+                        <img src={csiLogo} alt="CSI" className="w-4 h-4 object-contain" />
+                      </div>
+                      <div className="w-6 h-6 bg-gray-50 rounded flex items-center justify-center">
+                        <span className="text-xs font-bold text-gray-600">+2</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Technology & Data */}
+                  <div className="bg-white rounded p-2 border border-gray-100">
+                    <div className="flex items-center justify-between mb-1">
+                      <h5 className="text-xs font-semibold text-gray-800">Technology & Data</h5>
+                      <span className="text-xs font-bold text-blue-600">4</span>
+                    </div>
+                    <div className="flex gap-1">
+                      <div className="w-6 h-6 bg-orange-50 rounded flex items-center justify-center">
+                        <img src={bloombergLogo} alt="Bloomberg" className="w-4 h-4 object-contain" />
+                      </div>
+                      <div className="w-6 h-6 bg-blue-50 rounded flex items-center justify-center">
+                        <span className="text-xs font-bold text-blue-600">G</span>
+                      </div>
+                      <div className="w-6 h-6 bg-yellow-50 rounded flex items-center justify-center">
+                        <span className="text-xs font-bold text-yellow-600">AWS</span>
+                      </div>
+                      <div className="w-6 h-6 bg-gray-50 rounded flex items-center justify-center">
+                        <span className="text-xs font-bold text-gray-600">+1</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Testing & Education */}
+                  <div className="bg-white rounded p-2 border border-gray-100">
+                    <div className="flex items-center justify-between mb-1">
+                      <h5 className="text-xs font-semibold text-gray-800">Testing & Education</h5>
+                      <span className="text-xs font-bold text-blue-600">2</span>
+                    </div>
+                    <div className="flex gap-1">
+                      <div className="w-6 h-6 bg-purple-50 rounded flex items-center justify-center">
+                        <img src={etsLogo} alt="ETS" className="w-4 h-4 object-contain" />
+                      </div>
+                      <div className="w-6 h-6 bg-gray-50 rounded flex items-center justify-center">
+                        <span className="text-xs font-bold text-gray-600">GMAT</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Business Management */}
+                  <div className="bg-white rounded p-2 border border-gray-100">
+                    <div className="flex items-center justify-between mb-1">
+                      <h5 className="text-xs font-semibold text-gray-800">Business Management</h5>
+                      <span className="text-xs font-bold text-blue-600">1</span>
+                    </div>
+                    <div className="flex gap-1">
+                      <div className="w-6 h-6 bg-green-50 rounded flex items-center justify-center">
+                        <span className="text-xs font-bold text-green-600">PMP</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
