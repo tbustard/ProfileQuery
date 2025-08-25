@@ -2,6 +2,8 @@ import { Play, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
 import { useQuery } from "@tanstack/react-query";
+import { LiquidGlass } from '@specy/liquid-glass-react';
+import { useMemo } from "react";
 // VideoOverlay no longer needed - using YouTube directly
 import profileImage from "@assets/Untitled design (1)_1755896187722.png";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
@@ -22,6 +24,30 @@ import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 
 export default function HeroSection() {
   const isPageLoaded = useInitialPageAnimation(400);
+  
+  // Memoized glass style for hero section
+  const heroGlassStyle = useMemo(() => ({
+    depth: 15,
+    segments: 50,
+    radius: 15,
+    tint: null,
+    reflectivity: 0.85,
+    thickness: 40,
+    dispersion: 6,
+    roughness: 0.25
+  }), []);
+  
+  // Memoized glass style for stat cards
+  const cardGlassStyle = useMemo(() => ({
+    depth: 10,
+    segments: 40,
+    radius: 12,
+    tint: null,
+    reflectivity: 0.9,
+    thickness: 35,
+    dispersion: 4,
+    roughness: 0.2
+  }), []);
   
   // Fetch active video from backend
   const videosQuery = useQuery({
@@ -46,12 +72,12 @@ export default function HeroSection() {
         <div className="max-w-7xl mx-auto">
           
           {/* Main Hero Card */}
-          <div className={`bg-white/80 backdrop-blur-md border border-white/30 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-12 lg:p-16 shadow-2xl hover:shadow-3xl transition-all duration-500 page-load-fade-in ${isPageLoaded ? 'loaded' : ''}`}
-               style={{
-                 backdropFilter: 'blur(12px)',
-                 WebkitBackdropFilter: 'blur(12px)',
-                 boxShadow: '0 20px 80px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
-               }}>
+          <div className={`transition-all duration-500 page-load-fade-in hover:scale-[1.01] ${isPageLoaded ? 'loaded' : ''}`}>
+            <LiquidGlass
+              glassStyle={heroGlassStyle}
+              style="border-radius: 2rem; box-shadow: 0 20px 80px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(20px);"
+            >
+              <div className="p-6 sm:p-12 lg:p-16 rounded-[2rem] sm:rounded-[2.5rem]">
             
             <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-12 lg:gap-16">
               {/* Profile Image */}
@@ -201,6 +227,8 @@ export default function HeroSection() {
                 </div>
               </div>
             </div>
+              </div>
+            </LiquidGlass>
           </div>
 
           {/* Stats/Highlights Cards */}
@@ -209,118 +237,138 @@ export default function HeroSection() {
             {/* Education Card */}
             <div 
               onClick={() => scrollToSection('education')}
-              className={`bg-white/90 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer min-h-[200px] sm:min-h-[220px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
+              className={`transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
-                   backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
-                   WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    animationDelay: '0.5s'
                  }}
                  data-testid="card-education">
-              <div className="flex items-center gap-3 mb-1">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative">
-                  <img src={unbLogo} alt="Education" className="w-6 h-6 object-contain" />
+              <LiquidGlass
+                glassStyle={cardGlassStyle}
+                style="border-radius: 1rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px);"
+              >
+                <div className="p-6 sm:p-8 rounded-2xl min-h-[200px] sm:min-h-[220px] flex flex-col justify-between">
+                  <div className="flex items-center gap-3 mb-1">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative">
+                      <img src={unbLogo} alt="Education" className="w-6 h-6 object-contain" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground">Education</h3>
+                  </div>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Strategic business foundation with finance expertise
+                  </p>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">Education</h3>
-              </div>
-              <p className="text-base text-muted-foreground leading-relaxed">
-                Strategic business foundation with finance expertise
-              </p>
+              </LiquidGlass>
             </div>
 
             {/* Experience Card */}
             <div 
               onClick={() => scrollToSection('experience')}
-              className={`bg-white/90 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer min-h-[200px] sm:min-h-[220px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
+              className={`transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
-                   backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
-                   WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    animationDelay: '0.6s'
                  }}
                  data-testid="card-experience">
-              <div className="flex items-center gap-3 mb-1">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
-                  {/* Three most recent experience logos stacked */}
-                  <div className="flex relative">
-                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-30">
-                      <img src={bmoLogo} alt="BMO" className="w-4 h-4 object-contain" />
+              <LiquidGlass
+                glassStyle={cardGlassStyle}
+                style="border-radius: 1rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px);"
+              >
+                <div className="p-6 sm:p-8 rounded-2xl min-h-[200px] sm:min-h-[220px] flex flex-col justify-between">
+                  <div className="flex items-center gap-3 mb-1">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
+                      {/* Three most recent experience logos stacked */}
+                      <div className="flex relative">
+                        <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-30">
+                          <img src={bmoLogo} alt="BMO" className="w-4 h-4 object-contain" />
+                        </div>
+                        <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-20 -ml-2">
+                          <img src={tdLogo} alt="TD" className="w-4 h-4 object-contain" />
+                        </div>
+                        <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-10 -ml-2">
+                          <img src={rbcLogo} alt="RBC" className="w-4 h-4 object-contain" />
+                        </div>
+                      </div>
                     </div>
-                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-20 -ml-2">
-                      <img src={tdLogo} alt="TD" className="w-4 h-4 object-contain" />
-                    </div>
-                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-10 -ml-2">
-                      <img src={rbcLogo} alt="RBC" className="w-4 h-4 object-contain" />
-                    </div>
+                    <h3 className="text-lg font-semibold text-foreground">Experience</h3>
                   </div>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Professional experience in financial services and wealth management
+                  </p>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">Experience</h3>
-              </div>
-              <p className="text-base text-muted-foreground leading-relaxed">
-                Professional experience in financial services and wealth management
-              </p>
+              </LiquidGlass>
             </div>
 
             {/* Certifications Card */}
             <div 
               onClick={() => scrollToSection('skills')}
-              className={`bg-white/90 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer min-h-[200px] sm:min-h-[220px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
+              className={`transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
-                   backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
-                   WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    animationDelay: '0.7s'
                  }}
                  data-testid="card-certifications">
-              <div className="flex items-center gap-3 mb-1">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
-                  {/* Three most recent certification logos stacked */}
-                  <div className="flex relative">
-                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-30">
-                      <img src={cfaLogo} alt="CFA" className="w-4 h-4 object-contain" />
+              <LiquidGlass
+                glassStyle={cardGlassStyle}
+                style="border-radius: 1rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px);"
+              >
+                <div className="p-6 sm:p-8 rounded-2xl min-h-[200px] sm:min-h-[220px] flex flex-col justify-between">
+                  <div className="flex items-center gap-3 mb-1">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
+                      {/* Three most recent certification logos stacked */}
+                      <div className="flex relative">
+                        <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-30">
+                          <img src={cfaLogo} alt="CFA" className="w-4 h-4 object-contain" />
+                        </div>
+                        <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-20 -ml-2">
+                          <img src={trainingTheStreetLogo} alt="Training the Street" className="w-4 h-4 object-contain" />
+                        </div>
+                        <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-10 -ml-2">
+                          <img src={etsLogo} alt="ETS" className="w-4 h-4 object-contain" />
+                        </div>
+                      </div>
                     </div>
-                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-20 -ml-2">
-                      <img src={trainingTheStreetLogo} alt="Training the Street" className="w-4 h-4 object-contain" />
-                    </div>
-                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-10 -ml-2">
-                      <img src={etsLogo} alt="ETS" className="w-4 h-4 object-contain" />
-                    </div>
+                    <h3 className="text-lg font-semibold text-foreground">Certifications</h3>
                   </div>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Advanced certifications in finance, technology, and professional development
+                  </p>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">Certifications</h3>
-              </div>
-              <p className="text-base text-muted-foreground leading-relaxed">
-                Advanced certifications in finance, technology, and professional development
-              </p>
+              </LiquidGlass>
             </div>
 
             {/* Community Card */}
             <div 
               onClick={() => scrollToSection('community')}
-              className={`bg-white/90 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer min-h-[200px] sm:min-h-[220px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
+              className={`transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
-                   backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
-                   WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
                    animationDelay: '0.8s'
                  }}
                  data-testid="card-community">
-              <div className="flex items-center gap-3 mb-1">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
-                  {/* Three most recent community logos stacked */}
-                  <div className="flex relative">
-                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-30">
-                      <img src={unitedWayLogo} alt="United Way" className="w-4 h-4 object-contain" />
+              <LiquidGlass
+                glassStyle={cardGlassStyle}
+                style="border-radius: 1rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px);"
+              >
+                <div className="p-6 sm:p-8 rounded-2xl min-h-[200px] sm:min-h-[220px] flex flex-col justify-between">
+                  <div className="flex items-center gap-3 mb-1">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative overflow-visible">
+                      {/* Three most recent community logos stacked */}
+                      <div className="flex relative">
+                        <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-30">
+                          <img src={unitedWayLogo} alt="United Way" className="w-4 h-4 object-contain" />
+                        </div>
+                        <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-20 -ml-2">
+                          <img src={rbcLogo} alt="RBC" className="w-4 h-4 object-contain" />
+                        </div>
+                        <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-10 -ml-2">
+                          <img src={irvingLogo} alt="Irving Oil" className="w-4 h-4 object-contain" />
+                        </div>
+                      </div>
                     </div>
-                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-20 -ml-2">
-                      <img src={rbcLogo} alt="RBC" className="w-4 h-4 object-contain" />
-                    </div>
-                    <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-10 -ml-2">
-                      <img src={irvingLogo} alt="Irving Oil" className="w-4 h-4 object-contain" />
-                    </div>
+                    <h3 className="text-lg font-semibold text-foreground">Community</h3>
                   </div>
+                  <p className="text-base text-muted-foreground leading-relaxed">
+                    Community leadership and volunteer service initiatives
+                  </p>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">Community</h3>
-              </div>
-              <p className="text-base text-muted-foreground leading-relaxed">
-                Community leadership and volunteer service initiatives
-              </p>
+              </LiquidGlass>
             </div>
 
           </div>
