@@ -89,22 +89,26 @@ export default function Resume() {
                 </div>
 
                 {/* Contact Information */}
-                <div className="flex justify-center items-center gap-8 flex-wrap">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Mail className="w-4 h-4" />
-                    <span>tbustard@unb.ca</span>
+                <div className="text-center space-y-3">
+                  <div className="flex justify-center items-center gap-8 flex-wrap">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Mail className="w-4 h-4" />
+                      <span>tbustard@unb.ca</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Phone className="w-4 h-4" />
+                      <span>+1 (613) 985-1223</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <MapPin className="w-4 h-4" />
+                      <span>Toronto, Ontario, Canada</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Phone className="w-4 h-4" />
-                    <span>+1 (613) 985-1223</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <MapPin className="w-4 h-4" />
-                    <span>Toronto, Ontario, Canada</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Globe className="w-4 h-4" />
-                    <span>tylerbustard.ca</span>
+                  <div className="flex justify-center">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Globe className="w-4 h-4" />
+                      <span>tylerbustard.ca</span>
+                    </div>
                   </div>
                 </div>
               </div>
