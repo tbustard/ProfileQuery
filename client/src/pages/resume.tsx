@@ -385,80 +385,14 @@ export default function Resume() {
       {/* Print Styles */}
       <style>{`
         @media print {
-          @page {
-            margin: 0.75in;
-            size: letter;
-          }
-          
-          * {
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-          }
-          
-          body { 
-            background: white !important;
-            font-family: Arial, sans-serif !important;
-          }
-          
-          /* Hide navigation and web-only elements */
-          nav { display: none !important; }
+          body { print-color-adjust: exact; }
           .print\\:hidden { display: none !important; }
-          
-          /* Reset main container */
-          .min-h-screen {
-            background: white !important;
-            padding: 0 !important;
-          }
-          
-          .px-4.sm\\:px-6.pb-16.pt-24 {
-            padding: 0 !important;
-          }
-          
-          .max-w-4xl {
-            max-width: none !important;
-            margin: 0 !important;
-          }
-          
-          /* Remove glassmorphism effects */
-          .bg-white\\/90,
-          .bg-white\\/80,
-          .backdrop-blur-md {
-            background: white !important;
-            backdrop-filter: none !important;
-            border: none !important;
-            box-shadow: none !important;
-            border-radius: 0 !important;
-          }
-          
           .print\\:shadow-none { box-shadow: none !important; }
           .print\\:border-0 { border: none !important; }
           .print\\:rounded-none { border-radius: 0 !important; }
           .print\\:bg-white { background: white !important; }
           .print\\:text-black { color: black !important; }
-          
-          /* Page breaks */
-          .max-w-4xl > div:first-child {
-            page-break-after: always;
-          }
-          
-          .max-w-4xl > div:last-child {
-            page-break-before: always;
-          }
-          
-          /* Clean up spacing */
-          .mb-6 { margin-bottom: 1rem !important; }
-          .mb-8 { margin-bottom: 1.5rem !important; }
-          .space-y-6 > * + * { margin-top: 1rem !important; }
-          
-          /* Typography cleanup */
-          h1 { font-size: 24pt !important; line-height: 1.2 !important; }
-          h2 { font-size: 16pt !important; color: #2563eb !important; }
-          h3 { font-size: 14pt !important; font-weight: 600 !important; }
-          h4 { font-size: 12pt !important; font-weight: 600 !important; }
-          
-          /* Keep images reasonable */
-          .w-40.h-40 { width: 100pt !important; height: 100pt !important; }
-          .w-12.h-12 { width: 24pt !important; height: 24pt !important; }
+          * { -webkit-print-color-adjust: exact; }
         }
       `}</style>
     </div>
