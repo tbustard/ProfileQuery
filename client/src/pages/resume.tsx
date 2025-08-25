@@ -91,33 +91,35 @@ export default function Resume() {
             </Button>
           </div>
           
-          {/* Resume Container - Designed for 8.5" x 22" */}
+          {/* Resume Container - Exact dimensions: 21.59cm x 55.88cm */}
           <div className={`resume-page bg-white/95 backdrop-blur-xl border border-white/40 rounded-[2rem] shadow-xl mb-6 page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}
                style={{ 
-                 padding: '48px',
-                 minHeight: '2100px', // Optimized for 22 inches at standard DPI
-                 maxWidth: '816px', // 8.5 inches at 96 DPI
-                 margin: '0 auto'
+                 width: '21.59cm',
+                 height: '55.88cm',
+                 padding: '2.54cm 1.27cm', // Top/Bottom: 2.54cm, Left/Right: 1.27cm
+                 margin: '0 auto',
+                 boxSizing: 'border-box',
+                 overflow: 'hidden'
                }}>
             
             {/* Header Section - Compact and Professional */}
-            <div className="mb-6">
-              <div className="flex items-start gap-6 mb-5">
+            <div className="mb-4">
+              <div className="flex items-start gap-4 mb-3">
                 {/* Profile Photo */}
                 <img 
                   src={profileImage} 
                   alt="Tyler Bustard" 
-                  className="w-32 h-32 rounded-2xl object-cover shadow-lg ring-2 ring-white/50"
+                  className="w-24 h-24 rounded-2xl object-cover shadow-lg ring-2 ring-white/50"
                   data-testid="img-resume-profile"
                 />
 
                 {/* Name and Contact Info */}
                 <div className="flex-1">
-                  <h1 className="text-5xl font-bold text-gray-900 mb-2 tracking-tight" 
+                  <h1 className="text-3xl font-bold text-gray-900 mb-1 tracking-tight" 
                       style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif' }}>
                     Tyler Bustard
                   </h1>
-                  <h2 className="text-2xl text-blue-600 font-medium mb-3">
+                  <h2 className="text-lg text-blue-600 font-medium mb-2">
                     Finance & Technology Professional
                   </h2>
                   
@@ -152,28 +154,28 @@ export default function Resume() {
             </div>
 
             {/* Education Section */}
-            <section className="mb-6">
+            <section className="mb-4">
               <div className="flex items-center gap-2 mb-4">
                 <GraduationCap className="w-5 h-5 text-blue-600" />
-                <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider">Education</h3>
+                <h3 className="text-base font-bold text-gray-900 uppercase tracking-wider">Education</h3>
               </div>
               
-              <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div className="flex gap-4">
+              <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex gap-3">
                   <div className="flex-shrink-0">
-                    <div className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center border border-blue-200">
-                      <img src={unbLogo} alt="UNB" className="w-10 h-10 object-contain" />
+                    <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center border border-blue-200">
+                      <img src={unbLogo} alt="UNB" className="w-7 h-7 object-contain" />
                     </div>
                   </div>
                   <div className="flex-1">
-                    <div className="flex justify-between items-start mb-3">
+                    <div className="flex justify-between items-start mb-2">
                       <div>
-                        <h4 className="text-base font-bold text-gray-900">Bachelor of Business Administration</h4>
-                        <p className="text-sm text-blue-600 font-semibold">Finance Major • University of New Brunswick</p>
+                        <h4 className="text-sm font-bold text-gray-900">Bachelor of Business Administration</h4>
+                        <p className="text-xs text-blue-600 font-semibold">Finance Major • University of New Brunswick</p>
                       </div>
-                      <span className="text-sm font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded">2016-2020</span>
+                      <span className="text-xs font-medium text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded">2016-2020</span>
                     </div>
-                    <ul className="space-y-1.5">
+                    <ul className="space-y-0.5">
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
                         <span><span className="font-semibold">1st Place</span> CIBC Capital Markets Case Competition</span>
@@ -197,30 +199,30 @@ export default function Resume() {
             </section>
 
             {/* Professional Experience Section */}
-            <section className="mb-6">
+            <section className="mb-4">
               <div className="flex items-center gap-2 mb-4">
                 <Briefcase className="w-5 h-5 text-blue-600" />
-                <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider">Professional Experience</h3>
+                <h3 className="text-base font-bold text-gray-900 uppercase tracking-wider">Professional Experience</h3>
               </div>
               
-              <div className="space-y-5">
+              <div className="space-y-3">
                 {/* Fiscal.ai - NEW */}
-                <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="flex gap-4">
+                <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex gap-3">
                     <div className="flex-shrink-0">
-                      <div className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center border border-gray-200">
-                        <img src={fiscalAiLogo} alt="Fiscal.ai" className="w-10 h-10 object-contain" />
+                      <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center border border-gray-200">
+                        <img src={fiscalAiLogo} alt="Fiscal.ai" className="w-7 h-7 object-contain" />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <div className="flex justify-between items-start mb-3">
+                      <div className="flex justify-between items-start mb-2">
                         <div>
-                          <h4 className="text-base font-bold text-gray-900">Equity Analyst</h4>
-                          <p className="text-sm text-blue-600 font-semibold">Fiscal.ai • Toronto, ON</p>
+                          <h4 className="text-sm font-bold text-gray-900">Equity Analyst</h4>
+                          <p className="text-xs text-blue-600 font-semibold">Fiscal.ai • Toronto, ON</p>
                         </div>
-                        <span className="text-sm font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded">2023-Present</span>
+                        <span className="text-xs font-medium text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded">2023-Present</span>
                       </div>
-                      <ul className="space-y-1.5 mb-4">
+                      <ul className="space-y-0.5 mb-2">
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
                           <span>Analyze and compile public company financial statements, cutting reporting turnaround by <span className="font-semibold">13%</span></span>
@@ -242,22 +244,22 @@ export default function Resume() {
                 </div>
 
                 {/* BMO Private Wealth */}
-                <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="flex gap-4">
+                <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex gap-3">
                     <div className="flex-shrink-0">
-                      <div className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center border border-blue-200">
-                        <img src={bmoLogo} alt="BMO" className="w-10 h-10 object-contain" />
+                      <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center border border-blue-200">
+                        <img src={bmoLogo} alt="BMO" className="w-7 h-7 object-contain" />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <div className="flex justify-between items-start mb-3">
+                      <div className="flex justify-between items-start mb-2">
                         <div>
-                          <h4 className="text-base font-bold text-gray-900">Portfolio Assistant</h4>
-                          <p className="text-sm text-blue-600 font-semibold">BMO Private Wealth • Toronto, ON</p>
+                          <h4 className="text-sm font-bold text-gray-900">Portfolio Assistant</h4>
+                          <p className="text-xs text-blue-600 font-semibold">BMO Private Wealth • Toronto, ON</p>
                         </div>
-                        <span className="text-sm font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded">2022-2023</span>
+                        <span className="text-xs font-medium text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded">2022-2023</span>
                       </div>
-                      <ul className="space-y-1.5 mb-4">
+                      <ul className="space-y-0.5 mb-2">
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
                           <span>Advised Investment Counsellors managing <span className="font-semibold">$100M+ AUM</span>, reducing preparation time by <span className="font-semibold">12%</span></span>
@@ -279,22 +281,22 @@ export default function Resume() {
                 </div>
 
                 {/* TD Canada Trust */}
-                <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="flex gap-4">
+                <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex gap-3">
                     <div className="flex-shrink-0">
-                      <div className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center border border-green-200">
-                        <img src={tdLogo} alt="TD" className="w-10 h-10 object-contain" />
+                      <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center border border-green-200">
+                        <img src={tdLogo} alt="TD" className="w-7 h-7 object-contain" />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <div className="flex justify-between items-start mb-3">
+                      <div className="flex justify-between items-start mb-2">
                         <div>
-                          <h4 className="text-base font-bold text-gray-900">Financial Advisor</h4>
-                          <p className="text-sm text-blue-600 font-semibold">TD Canada Trust • Kingston, ON</p>
+                          <h4 className="text-sm font-bold text-gray-900">Financial Advisor</h4>
+                          <p className="text-xs text-blue-600 font-semibold">TD Canada Trust • Kingston, ON</p>
                         </div>
-                        <span className="text-sm font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded">2021-2022</span>
+                        <span className="text-xs font-medium text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded">2021-2022</span>
                       </div>
-                      <ul className="space-y-1.5 mb-4">
+                      <ul className="space-y-0.5 mb-2">
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
                           <span>Cultivated strong client relationships, achieving <span className="font-semibold">11% sales increase</span> through needs-based advisory</span>
@@ -316,73 +318,73 @@ export default function Resume() {
                 </div>
 
                 {/* Co-op Experience Section - Grouped */}
-                <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl border border-gray-200 p-7">
-                  <h4 className="text-sm font-bold text-gray-900 mb-5 flex items-center gap-3">
-                    <span className="bg-blue-600 text-white text-xs px-3 py-1.5 rounded-lg font-semibold tracking-wide">CO-OP</span>
-                    <span className="text-base">Early Career Experience</span>
+                <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl border border-gray-200 p-4">
+                  <h4 className="text-xs font-bold text-gray-900 mb-2 flex items-center gap-2">
+                    <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded font-semibold">CO-OP</span>
+                    <span className="text-xs">Early Career Experience</span>
                   </h4>
                   
-                  <div className="grid grid-cols-2 gap-x-5 gap-y-5">
+                  <div className="grid grid-cols-2 gap-2">
                     {/* RBC Banking */}
-                    <div className="bg-white rounded-xl p-5 border border-gray-200 hover:shadow-md transition-all duration-200">
-                      <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 mt-0.5">
-                          <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                            <img src={rbcLogo} alt="RBC" className="w-7 h-7 object-contain" />
+                    <div className="bg-white rounded-lg p-2 border border-gray-200 hover:shadow-sm transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <div className="flex-shrink-0">
+                          <div className="w-7 h-7 bg-blue-50 rounded flex items-center justify-center">
+                            <img src={rbcLogo} alt="RBC" className="w-5 h-5 object-contain" />
                           </div>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h5 className="text-sm font-bold text-gray-900 mb-1">Banking Advisor</h5>
-                          <p className="text-xs text-gray-600 mb-2.5">RBC • Kingston, ON • 2020-2021</p>
-                          <p className="text-xs text-gray-700 leading-relaxed">Strengthened client relationships, +13% repeat business</p>
+                          <h5 className="text-xs font-bold text-gray-900">Banking Advisor</h5>
+                          <p className="text-xs text-gray-600">RBC • Kingston, ON • 2020-2021</p>
+                          <p className="text-xs text-gray-700 mt-1">Strengthened client relationships, +13% repeat business</p>
                         </div>
                       </div>
                     </div>
 
                     {/* RBC Client Advisor */}
-                    <div className="bg-white rounded-xl p-5 border border-gray-200 hover:shadow-md transition-all duration-200">
-                      <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 mt-0.5">
-                          <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                            <img src={rbcLogo} alt="RBC" className="w-7 h-7 object-contain" />
+                    <div className="bg-white rounded-lg p-2 border border-gray-200 hover:shadow-sm transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <div className="flex-shrink-0">
+                          <div className="w-7 h-7 bg-blue-50 rounded flex items-center justify-center">
+                            <img src={rbcLogo} alt="RBC" className="w-5 h-5 object-contain" />
                           </div>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h5 className="text-sm font-bold text-gray-900 mb-1">Client Advisor Intern</h5>
-                          <p className="text-xs text-gray-600 mb-2.5">RBC • Fredericton, NB • 2019-2020</p>
-                          <p className="text-xs text-gray-700 leading-relaxed">Resolved complex issues, +15% satisfaction scores</p>
+                          <h5 className="text-xs font-bold text-gray-900">Client Advisor Intern</h5>
+                          <p className="text-xs text-gray-600">RBC • Fredericton, NB • 2019-2020</p>
+                          <p className="text-xs text-gray-700 mt-1">Resolved complex issues, +15% satisfaction scores</p>
                         </div>
                       </div>
                     </div>
 
                     {/* Irving Oil */}
-                    <div className="bg-white rounded-xl p-5 border border-gray-200 hover:shadow-md transition-all duration-200">
-                      <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 mt-0.5">
-                          <div className="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center">
-                            <img src={irvingLogo} alt="Irving" className="w-7 h-7 object-contain" />
+                    <div className="bg-white rounded-lg p-2 border border-gray-200 hover:shadow-sm transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <div className="flex-shrink-0">
+                          <div className="w-7 h-7 bg-red-50 rounded flex items-center justify-center">
+                            <img src={irvingLogo} alt="Irving" className="w-5 h-5 object-contain" />
                           </div>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h5 className="text-sm font-bold text-gray-900 mb-1">Marketing Intern</h5>
-                          <p className="text-xs text-gray-600 mb-2.5">Irving Oil • Saint John, NB • 2018</p>
-                          <p className="text-xs text-gray-700 leading-relaxed">Conducted competitor analysis, +11% targeted reach</p>
+                          <h5 className="text-xs font-bold text-gray-900">Marketing Intern</h5>
+                          <p className="text-xs text-gray-600">Irving Oil • Saint John, NB • 2018</p>
+                          <p className="text-xs text-gray-700 mt-1">Conducted competitor analysis, +11% targeted reach</p>
                         </div>
                       </div>
                     </div>
 
                     {/* Grant Thornton */}
-                    <div className="bg-white rounded-xl p-5 border border-gray-200 hover:shadow-md transition-all duration-200">
-                      <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 mt-0.5">
-                          <div className="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center">
-                            <img src={grantThorntonLogo} alt="Grant Thornton" className="w-7 h-7 object-contain" />
+                    <div className="bg-white rounded-lg p-2 border border-gray-200 hover:shadow-sm transition-all duration-200">
+                      <div className="flex items-start gap-2">
+                        <div className="flex-shrink-0">
+                          <div className="w-7 h-7 bg-purple-50 rounded flex items-center justify-center">
+                            <img src={grantThorntonLogo} alt="Grant Thornton" className="w-5 h-5 object-contain" />
                           </div>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h5 className="text-sm font-bold text-gray-900 mb-1">Tax Return Intern</h5>
-                          <p className="text-xs text-gray-600 mb-2.5">Grant Thornton LLP • Saint John, NB • 2018</p>
-                          <p className="text-xs text-gray-700 leading-relaxed">Processed 100+ returns, exceeded accuracy targets</p>
+                          <h5 className="text-xs font-bold text-gray-900">Tax Return Intern</h5>
+                          <p className="text-xs text-gray-600">Grant Thornton LLP • Saint John, NB • 2018</p>
+                          <p className="text-xs text-gray-700 mt-1">Processed 100+ returns, exceeded accuracy targets</p>
                         </div>
                       </div>
                     </div>
@@ -392,73 +394,73 @@ export default function Resume() {
             </section>
 
             {/* Professional Certifications */}
-            <section className="mb-6">
-              <div className="flex items-center gap-2 mb-4">
-                <Award className="w-5 h-5 text-blue-600" />
-                <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider">Professional Certifications</h3>
+            <section className="mb-3">
+              <div className="flex items-center gap-2 mb-3">
+                <Award className="w-4 h-4 text-blue-600" />
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider">Professional Certifications</h3>
               </div>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-2">
                 {/* CFA */}
-                <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                      <img src={cfaLogo} alt="CFA" className="w-7 h-7 object-contain" />
+                <div className="bg-white rounded-lg border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-start gap-2">
+                    <div className="w-8 h-8 bg-blue-50 rounded flex items-center justify-center">
+                      <img src={cfaLogo} alt="CFA" className="w-5 h-5 object-contain" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-sm font-bold text-gray-900 mb-1">CFA Level I Candidate</h4>
-                      <p className="text-xs text-blue-600 mb-1">CFA Institute • 2025</p>
-                      <p className="text-xs text-gray-600">Investment Analysis & Ethics</p>
+                      <h4 className="text-xs font-bold text-gray-900">CFA Level I Candidate</h4>
+                      <p className="text-xs text-blue-600">CFA Institute • 2025</p>
+                      <p className="text-xs text-gray-600 mt-0.5">Investment Analysis & Ethics</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Training the Street */}
-                <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center">
-                      <img src={trainingTheStreetLogo} alt="TTS" className="w-7 h-7 object-contain" />
+                <div className="bg-white rounded-lg border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-start gap-2">
+                    <div className="w-8 h-8 bg-green-50 rounded flex items-center justify-center">
+                      <img src={trainingTheStreetLogo} alt="TTS" className="w-5 h-5 object-contain" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-sm font-bold text-gray-900 mb-1">Discounted Cash Flow Analysis</h4>
-                      <p className="text-xs text-blue-600 mb-1">Training the Street • 2024</p>
-                      <p className="text-xs text-gray-600">Advanced Financial Modeling</p>
+                      <h4 className="text-xs font-bold text-gray-900">Discounted Cash Flow Analysis</h4>
+                      <p className="text-xs text-blue-600">Training the Street • 2024</p>
+                      <p className="text-xs text-gray-600 mt-0.5">Advanced Financial Modeling</p>
                     </div>
                   </div>
                 </div>
 
                 {/* GRE */}
-                <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center">
-                      <img src={etsLogo} alt="ETS" className="w-7 h-7 object-contain" />
+                <div className="bg-white rounded-lg border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-start gap-2">
+                    <div className="w-8 h-8 bg-purple-50 rounded flex items-center justify-center">
+                      <img src={etsLogo} alt="ETS" className="w-5 h-5 object-contain" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-sm font-bold text-gray-900 mb-1">GRE Exam</h4>
-                      <p className="text-xs text-blue-600 mb-1">Educational Testing Service • 2023</p>
-                      <p className="text-xs text-gray-600">Score: 325 (Q: 165, V: 160)</p>
+                      <h4 className="text-xs font-bold text-gray-900">GRE Exam</h4>
+                      <p className="text-xs text-blue-600">Educational Testing Service • 2023</p>
+                      <p className="text-xs text-gray-600 mt-0.5">Score: 325 (Q: 165, V: 160)</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Bloomberg */}
-                <div className="bg-white rounded-xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center">
-                      <img src={bloombergLogo} alt="Bloomberg" className="w-7 h-7 object-contain" />
+                <div className="bg-white rounded-lg border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="flex items-start gap-2">
+                    <div className="w-8 h-8 bg-orange-50 rounded flex items-center justify-center">
+                      <img src={bloombergLogo} alt="Bloomberg" className="w-5 h-5 object-contain" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-sm font-bold text-gray-900 mb-1">Bloomberg Market Concepts</h4>
-                      <p className="text-xs text-blue-600 mb-1">Bloomberg LP • 2020</p>
-                      <p className="text-xs text-gray-600">Market Data & Analytics</p>
+                      <h4 className="text-xs font-bold text-gray-900">Bloomberg Market Concepts</h4>
+                      <p className="text-xs text-blue-600">Bloomberg LP • 2020</p>
+                      <p className="text-xs text-gray-600 mt-0.5">Market Data & Analytics</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Additional Training - Compact */}
-              <div className="mt-4 bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-4 border border-gray-200">
-                <p className="text-sm font-semibold text-gray-700 mb-3">Additional Training & Licenses:</p>
+              <div className="mt-2 bg-gradient-to-r from-gray-50 to-blue-50 rounded-lg p-3 border border-gray-200">
+                <p className="text-xs font-semibold text-gray-700 mb-2">Additional Training & Licenses:</p>
                 <div className="flex flex-wrap gap-2">
                   {['Wall Street Prep Financial Modeling', 'GMAT Score: 710 (ETS)', 'Coursera Machine Learning (Stanford)', 'Google Data Analytics Certificate', 'IFIC Mutual Funds License', 'Canadian Securities Course (CSI)', 'Project Management Professional (PMP) Training', 'AWS Cloud Practitioner Essentials'].map(cert => (
                     <span key={cert} className="text-xs bg-white px-2.5 py-1 rounded-md border border-gray-200 hover:bg-blue-50 transition-colors">
@@ -470,28 +472,28 @@ export default function Resume() {
             </section>
 
             {/* Community Leadership */}
-            <section className="mb-6">
-              <div className="flex items-center gap-2 mb-4">
-                <Heart className="w-5 h-5 text-blue-600" />
-                <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider">Community Leadership</h3>
+            <section className="mb-3">
+              <div className="flex items-center gap-2 mb-3">
+                <Heart className="w-4 h-4 text-blue-600" />
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider">Community Leadership</h3>
               </div>
               
-              <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div className="flex gap-4">
+              <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex gap-3">
                   <div className="flex-shrink-0">
-                    <div className="w-14 h-14 bg-white rounded-xl shadow-md flex items-center justify-center border border-red-200">
-                      <img src={unitedWayLogo} alt="United Way" className="w-10 h-10 object-contain" />
+                    <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center border border-red-200">
+                      <img src={unitedWayLogo} alt="United Way" className="w-7 h-7 object-contain" />
                     </div>
                   </div>
                   <div className="flex-1">
-                    <div className="flex justify-between items-start mb-3">
+                    <div className="flex justify-between items-start mb-2">
                       <div>
-                        <h4 className="text-base font-bold text-gray-900">Next Gen Ambassador</h4>
-                        <p className="text-sm text-blue-600 font-semibold">United Way • Kingston, ON</p>
+                        <h4 className="text-sm font-bold text-gray-900">Next Gen Ambassador</h4>
+                        <p className="text-xs text-blue-600 font-semibold">United Way • Kingston, ON</p>
                       </div>
-                      <span className="text-sm font-medium text-gray-500 bg-gray-50 px-2 py-0.5 rounded">2020-2023</span>
+                      <span className="text-xs font-medium text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded">2020-2023</span>
                     </div>
-                    <ul className="space-y-1.5 mb-3">
+                    <ul className="space-y-0.5 mb-2">
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
                         <span>Led fundraising strategies, achieving <span className="font-semibold">20% increase</span> in funds raised over three years</span>
@@ -513,32 +515,32 @@ export default function Resume() {
               </div>
 
               {/* Additional Community - Two Cards */}
-              <div className="mt-4 grid grid-cols-2 gap-4">
-                <div className="bg-white rounded-xl p-5 border border-gray-200 hover:shadow-sm transition-shadow">
-                  <div className="flex items-start gap-3">
+              <div className="mt-2 grid grid-cols-2 gap-2">
+                <div className="bg-white rounded-lg p-2 border border-gray-200 hover:shadow-sm transition-shadow">
+                  <div className="flex items-start gap-2">
                     <div className="flex-shrink-0">
-                      <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
-                        <img src={rbcLogo} alt="RBC" className="w-7 h-7 object-contain" />
+                      <div className="w-7 h-7 bg-blue-50 rounded flex items-center justify-center">
+                        <img src={rbcLogo} alt="RBC" className="w-5 h-5 object-contain" />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h5 className="text-sm font-bold text-gray-900">Student Ambassador</h5>
-                      <p className="text-xs text-gray-600 mt-1">Royal Bank of Canada • 2019-2020</p>
-                      <p className="text-xs text-gray-700 mt-2">Increased student engagement by 25% through campus events</p>
+                      <h5 className="text-xs font-bold text-gray-900">Student Ambassador</h5>
+                      <p className="text-xs text-gray-600">Royal Bank of Canada • 2019-2020</p>
+                      <p className="text-xs text-gray-700 mt-1">Increased student engagement by 25% through campus events</p>
                     </div>
                   </div>
                 </div>
-                <div className="bg-white rounded-xl p-5 border border-gray-200 hover:shadow-sm transition-shadow">
-                  <div className="flex items-start gap-3">
+                <div className="bg-white rounded-lg p-2 border border-gray-200 hover:shadow-sm transition-shadow">
+                  <div className="flex items-start gap-2">
                     <div className="flex-shrink-0">
-                      <div className="w-10 h-10 bg-red-50 rounded-lg flex items-center justify-center">
-                        <img src={irvingLogo} alt="Irving" className="w-7 h-7 object-contain" />
+                      <div className="w-7 h-7 bg-red-50 rounded flex items-center justify-center">
+                        <img src={irvingLogo} alt="Irving" className="w-5 h-5 object-contain" />
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h5 className="text-sm font-bold text-gray-900">Volunteer Staff</h5>
-                      <p className="text-xs text-gray-600 mt-1">Irving Oil Limited • 2018</p>
-                      <p className="text-xs text-gray-700 mt-2">Organized engaging activities for 100+ children at community events</p>
+                      <h5 className="text-xs font-bold text-gray-900">Volunteer Staff</h5>
+                      <p className="text-xs text-gray-600">Irving Oil Limited • 2018</p>
+                      <p className="text-xs text-gray-700 mt-1">Organized engaging activities for 100+ children at community events</p>
                     </div>
                   </div>
                 </div>
@@ -547,16 +549,16 @@ export default function Resume() {
 
             {/* Core Competencies - ATS Keywords */}
             <section>
-              <div className="flex items-center gap-2 mb-5">
-                <Target className="w-5 h-5 text-blue-600" />
-                <h3 className="text-lg font-bold text-gray-900 uppercase tracking-wider">Core Competencies</h3>
+              <div className="flex items-center gap-2 mb-3">
+                <Target className="w-4 h-4 text-blue-600" />
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider">Core Competencies</h3>
               </div>
               
-              <div className="bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-6 border border-blue-200 shadow-sm hover:shadow-md transition-shadow">
-                <div className="grid grid-cols-3 gap-6">
-                  <div className="bg-white rounded-lg p-4 border border-gray-100">
-                    <h4 className="text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide">Technical Skills</h4>
-                    <div className="space-y-2">
+              <div className="bg-gradient-to-r from-blue-50 to-gray-50 rounded-lg p-2 border border-blue-200 shadow-sm hover:shadow-md transition-shadow">
+                <div className="grid grid-cols-3 gap-2">
+                  <div className="bg-white rounded p-2 border border-gray-100">
+                    <h4 className="text-xs font-bold text-gray-800 mb-1 uppercase">Technical Skills</h4>
+                    <div className="space-y-0.5">
                       {['Python/SQL/VBA Programming', 'Advanced Excel & Financial Modeling', 'Data Analytics & Visualization', 'Bloomberg Terminal & Refinitiv', 'AI/Machine Learning Integration', 'API Development & Integration'].map(skill => (
                         <p key={skill} className="text-xs text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2 mt-0.5">•</span>
@@ -566,9 +568,9 @@ export default function Resume() {
                     </div>
                   </div>
                   
-                  <div className="bg-white rounded-lg p-4 border border-gray-100">
-                    <h4 className="text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide">Finance Expertise</h4>
-                    <div className="space-y-2">
+                  <div className="bg-white rounded p-2 border border-gray-100">
+                    <h4 className="text-xs font-bold text-gray-800 mb-1 uppercase">Finance Expertise</h4>
+                    <div className="space-y-0.5">
                       {['Portfolio Management & Asset Allocation', 'Equity Research & Valuation', 'Risk Assessment & Mitigation', 'High Net Worth Wealth Management', 'Investment Banking & M&A', 'Capital Markets & Trading'].map(skill => (
                         <p key={skill} className="text-xs text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2 mt-0.5">•</span>
@@ -578,9 +580,9 @@ export default function Resume() {
                     </div>
                   </div>
                   
-                  <div className="bg-white rounded-lg p-4 border border-gray-100">
-                    <h4 className="text-sm font-bold text-gray-800 mb-3 uppercase tracking-wide">Leadership & Soft Skills</h4>
-                    <div className="space-y-2">
+                  <div className="bg-white rounded p-2 border border-gray-100">
+                    <h4 className="text-xs font-bold text-gray-800 mb-1 uppercase">Leadership & Soft Skills</h4>
+                    <div className="space-y-0.5">
                       {['Client Relationship Management', 'Strategic Planning & Execution', 'Team Leadership & Mentoring', 'Complex Problem Solving', 'Executive Communication', 'Agile Project Management'].map(skill => (
                         <p key={skill} className="text-xs text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2 mt-0.5">•</span>
