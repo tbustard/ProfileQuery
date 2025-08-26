@@ -149,7 +149,7 @@ export default function Resume() {
                         <h4 className="text-sm font-semibold text-gray-900">Bachelor of Business Administration</h4>
                         <p className="text-sm text-blue-600 font-medium">Finance Major • University of New Brunswick</p>
                       </div>
-                      <span className="text-sm font-medium text-gray-600 bg-gray-100 px-2 py-1 rounded">2016-2020</span>
+                      <span className="text-xs text-gray-600 px-1.5 py-0.5 rounded">2016-2020</span>
                     </div>
                     <ul className="space-y-0.5">
                       <li className="text-sm text-gray-700 flex items-start">
@@ -193,7 +193,7 @@ export default function Resume() {
                           <h4 className="text-sm font-bold text-gray-900">Equity Analyst</h4>
                           <p className="text-sm text-blue-600 font-semibold">Fiscal.ai • Toronto, ON</p>
                         </div>
-                        <span className="text-sm font-medium text-gray-600 bg-gray-100 px-2 py-1 rounded">2023-Present</span>
+                        <span className="text-xs text-gray-600 px-1.5 py-0.5 rounded">2023-Present</span>
                       </div>
                       <ul className="space-y-0.5 mb-2">
                         <li className="text-sm text-gray-700 flex items-start">
@@ -230,7 +230,7 @@ export default function Resume() {
                           <h4 className="text-sm font-bold text-gray-900">Portfolio Assistant</h4>
                           <p className="text-sm text-blue-600 font-semibold">BMO Private Wealth • Toronto, ON</p>
                         </div>
-                        <span className="text-sm font-medium text-gray-600 bg-gray-100 px-2 py-1 rounded">2022-2023</span>
+                        <span className="text-xs text-gray-600 px-1.5 py-0.5 rounded">2022-2023</span>
                       </div>
                       <ul className="space-y-0.5 mb-2">
                         <li className="text-sm text-gray-700 flex items-start">
@@ -267,7 +267,7 @@ export default function Resume() {
                           <h4 className="text-sm font-bold text-gray-900">Financial Advisor</h4>
                           <p className="text-sm text-blue-600 font-semibold">TD Canada Trust • Kingston, ON</p>
                         </div>
-                        <span className="text-sm font-medium text-gray-600 bg-gray-100 px-2 py-1 rounded">2021-2022</span>
+                        <span className="text-xs text-gray-600 px-1.5 py-0.5 rounded">2021-2022</span>
                       </div>
                       <ul className="space-y-0.5 mb-2">
                         <li className="text-sm text-gray-700 flex items-start">
@@ -291,10 +291,10 @@ export default function Resume() {
                 </div>
 
                 {/* Co-op Experience Section - Grouped */}
-                <div className="bg-gray-50 rounded-lg p-3 border border-gray-100">
-                  <h4 className="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                    <span className="bg-gradient-to-r from-blue-600 to-blue-700 text-white text-sm px-3 py-1 rounded-lg font-medium shadow-sm">CO-OP</span>
-                    <span className="text-sm text-gray-600">Early Career Experience</span>
+                <div className="bg-gray-50 rounded-lg p-2 border border-gray-100">
+                  <h4 className="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
+                    <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded font-medium">CO-OP</span>
+                    <span className="text-xs text-gray-600">Early Career Experience</span>
                   </h4>
                   
                   <div className="grid grid-cols-2 gap-2">
@@ -446,7 +446,7 @@ export default function Resume() {
                         <h4 className="text-sm font-bold text-gray-900">Next Gen Ambassador</h4>
                         <p className="text-sm text-blue-600 font-semibold">United Way • Kingston, ON</p>
                       </div>
-                      <span className="text-sm font-medium text-gray-600 bg-gray-100 px-2 py-1 rounded">2020-2023</span>
+                      <span className="text-xs text-gray-600 px-1.5 py-0.5 rounded">2020-2023</span>
                     </div>
                     <ul className="space-y-0.5">
                       <li className="text-sm text-gray-700 flex items-start">
