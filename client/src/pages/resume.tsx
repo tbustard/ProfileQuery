@@ -232,7 +232,7 @@ export default function Resume() {
                       </ul>
                       <div className="flex flex-wrap gap-1">
                         {['Financial Analysis', 'AI Integration', 'Data Analytics', 'Python', 'SQL'].map(skill => (
-                          <span key={skill} className="inline-block px-2.5 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-200">
+                          <span key={skill} className="inline-block px-1.5 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
                             {skill}
                           </span>
                         ))}
@@ -269,7 +269,7 @@ export default function Resume() {
                       </ul>
                       <div className="flex flex-wrap gap-1">
                         {['Portfolio Management', 'Wealth Management', 'Client Relations', 'Financial Modeling', 'Advanced Excel'].map(skill => (
-                          <span key={skill} className="inline-block px-2.5 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-200">
+                          <span key={skill} className="inline-block px-1.5 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
                             {skill}
                           </span>
                         ))}
@@ -306,7 +306,7 @@ export default function Resume() {
                       </ul>
                       <div className="flex flex-wrap gap-1">
                         {['Financial Planning', 'Sales', 'Investment Advisory', 'Compliance', 'CRM'].map(skill => (
-                          <span key={skill} className="inline-block px-2.5 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-200">
+                          <span key={skill} className="inline-block px-1.5 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
                             {skill}
                           </span>
                         ))}
