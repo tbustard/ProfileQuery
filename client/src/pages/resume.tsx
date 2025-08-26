@@ -616,13 +616,41 @@ export default function Resume() {
             <p className="text-white/90 font-medium">
               © {new Date().getFullYear()} Tyler Bustard. All rights reserved.
             </p>
-            <button
-              onClick={() => window.location.href = '/employer'}
-              className="px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white transition-all duration-200 hover:scale-105"
-              data-testid="footer-employer-signin"
-            >
-              Sign In
-            </button>
+            <div className="flex items-center gap-3">
+              {/* Print PDF Button */}
+              <button
+                onClick={() => {
+                  window.print();
+                }}
+                className="px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white transition-all duration-200 hover:scale-105 flex items-center gap-2"
+                data-testid="button-print-pdf"
+              >
+                <Printer className="w-4 h-4" />
+                <span>Print PDF</span>
+              </button>
+              
+              {/* Download PDF Button */}
+              <button
+                onClick={() => {
+                  // Trigger the browser's print dialog with save as PDF option
+                  window.print();
+                }}
+                className="px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white transition-all duration-200 hover:scale-105 flex items-center gap-2"
+                data-testid="button-download-pdf"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download PDF</span>
+              </button>
+              
+              {/* Sign In Button */}
+              <button
+                onClick={() => window.location.href = '/employer'}
+                className="px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white transition-all duration-200 hover:scale-105"
+                data-testid="footer-employer-signin"
+              >
+                Sign In
+              </button>
+            </div>
           </div>
         </div>
       </footer>
