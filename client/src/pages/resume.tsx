@@ -81,7 +81,7 @@ export default function Resume() {
                }}>
             
             {/* Header Section - Apple-Inspired Professional Design */}
-            <div className="mb-6">
+            <div className="mb-3">
               <div className="flex items-start gap-4">
                 {/* Profile Photo */}
                 <img 
@@ -125,7 +125,7 @@ export default function Resume() {
               </div>
 
               {/* Professional Summary - Premium Card Design */}
-              <div className="mt-4 bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-4 border border-blue-100">
+              <div className="mt-3 bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-3 border border-blue-100">
                 <p className="text-sm leading-relaxed text-gray-700">
                   Driving innovation at the intersection of finance and technology. Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
                 </p>
@@ -133,10 +133,10 @@ export default function Resume() {
             </div>
 
             {/* Education Section */}
-            <section className="mb-3">
-              <h3 className="text-base font-bold text-gray-900 mb-3 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Education</h3>
+            <section className="mb-2">
+              <h3 className="text-base font-bold text-gray-900 mb-2 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Education</h3>
               
-              <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:shadow-md transition-shadow">
+              <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex gap-3">
                   <div className="flex-shrink-0">
                     <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center border border-blue-200">
@@ -175,12 +175,12 @@ export default function Resume() {
             </section>
 
             {/* Professional Experience Section */}
-            <section className="mb-3">
-              <h3 className="text-base font-bold text-gray-900 mb-3 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Professional Experience</h3>
+            <section className="mb-2">
+              <h3 className="text-base font-bold text-gray-900 mb-2 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Professional Experience</h3>
               
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {/* Fiscal.ai - NEW */}
-                <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex gap-3">
                     <div className="flex-shrink-0">
                       <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center border border-gray-200">
@@ -195,7 +195,7 @@ export default function Resume() {
                         </div>
                         <span className="text-xs text-gray-600 px-1.5 py-0.5 rounded">2023-Present</span>
                       </div>
-                      <ul className="space-y-0.5 mb-2">
+                      <ul className="space-y-0.5 mb-1">
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
                           <span>Analyze and compile public company financial statements, cutting reporting turnaround by 13%</span>
@@ -217,7 +217,7 @@ export default function Resume() {
                 </div>
 
                 {/* BMO Private Wealth */}
-                <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex gap-3">
                     <div className="flex-shrink-0">
                       <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center border border-blue-200">
@@ -232,7 +232,7 @@ export default function Resume() {
                         </div>
                         <span className="text-xs text-gray-600 px-1.5 py-0.5 rounded">2022-2023</span>
                       </div>
-                      <ul className="space-y-0.5 mb-2">
+                      <ul className="space-y-0.5 mb-1">
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
                           <span>Advised Investment Counsellors managing $100M+ AUM, reducing preparation time by 12%</span>
@@ -254,7 +254,7 @@ export default function Resume() {
                 </div>
 
                 {/* TD Canada Trust */}
-                <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex gap-3">
                     <div className="flex-shrink-0">
                       <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center border border-green-200">
@@ -269,7 +269,7 @@ export default function Resume() {
                         </div>
                         <span className="text-xs text-gray-600 px-1.5 py-0.5 rounded">2021-2022</span>
                       </div>
-                      <ul className="space-y-0.5 mb-2">
+                      <ul className="space-y-0.5 mb-1">
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
                           <span>Cultivated strong client relationships, achieving 11% sales increase through needs-based advisory</span>
@@ -291,15 +291,15 @@ export default function Resume() {
                 </div>
 
                 {/* Co-op Experience Section - Grouped */}
-                <div className="bg-gray-50 rounded-lg p-2 border border-gray-100">
-                  <h4 className="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-1.5">
+                <div className="bg-gray-50 rounded-lg p-1.5 border border-gray-100">
+                  <h4 className="text-xs font-semibold text-gray-700 mb-1.5 flex items-center gap-1.5">
                     <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded font-medium">CO-OP</span>
                     <span className="text-xs text-gray-600">Early Career Experience</span>
                   </h4>
                   
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-2 gap-1.5">
                     {/* RBC Banking */}
-                    <div className="bg-white rounded p-2 border border-gray-100">
+                    <div className="bg-white rounded p-1.5 border border-gray-100">
                       <div className="flex items-start gap-2">
                         <div className="flex-shrink-0">
                           <div className="w-7 h-7 bg-white rounded flex items-center justify-center border border-gray-200">
@@ -315,7 +315,7 @@ export default function Resume() {
                     </div>
 
                     {/* RBC Client Advisor */}
-                    <div className="bg-white rounded p-2 border border-gray-100">
+                    <div className="bg-white rounded p-1.5 border border-gray-100">
                       <div className="flex items-start gap-2">
                         <div className="flex-shrink-0">
                           <div className="w-7 h-7 bg-white rounded flex items-center justify-center border border-gray-200">
@@ -331,7 +331,7 @@ export default function Resume() {
                     </div>
 
                     {/* Irving Oil */}
-                    <div className="bg-white rounded p-2 border border-gray-100">
+                    <div className="bg-white rounded p-1.5 border border-gray-100">
                       <div className="flex items-start gap-2">
                         <div className="flex-shrink-0">
                           <div className="w-7 h-7 bg-white rounded flex items-center justify-center border border-gray-200">
@@ -347,7 +347,7 @@ export default function Resume() {
                     </div>
 
                     {/* Grant Thornton */}
-                    <div className="bg-white rounded p-2 border border-gray-100">
+                    <div className="bg-white rounded p-1.5 border border-gray-100">
                       <div className="flex items-start gap-2">
                         <div className="flex-shrink-0">
                           <div className="w-7 h-7 bg-white rounded flex items-center justify-center border border-gray-200">
@@ -367,12 +367,12 @@ export default function Resume() {
             </section>
 
             {/* Professional Certifications */}
-            <section className="mb-3">
-              <h3 className="text-base font-bold text-gray-900 mb-3 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Professional Certifications</h3>
+            <section className="mb-2">
+              <h3 className="text-base font-bold text-gray-900 mb-2 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Professional Certifications</h3>
               
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-1.5">
                 {/* CFA */}
-                <div className="bg-white rounded border border-gray-100 p-2">
+                <div className="bg-white rounded border border-gray-100 p-1.5">
                   <div className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-white rounded flex items-center justify-center border border-gray-200">
                       <img src={cfaLogo} alt="CFA" className="w-4 h-4 object-contain" />
@@ -386,7 +386,7 @@ export default function Resume() {
                 </div>
 
                 {/* Training the Street */}
-                <div className="bg-white rounded border border-gray-100 p-2">
+                <div className="bg-white rounded border border-gray-100 p-1.5">
                   <div className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-white rounded flex items-center justify-center border border-gray-200">
                       <img src={trainingTheStreetLogo} alt="TTS" className="w-4 h-4 object-contain" />
@@ -400,7 +400,7 @@ export default function Resume() {
                 </div>
 
                 {/* GRE */}
-                <div className="bg-white rounded border border-gray-100 p-2">
+                <div className="bg-white rounded border border-gray-100 p-1.5">
                   <div className="flex items-start gap-2">
                     <div className="w-8 h-8 bg-white rounded flex items-center justify-center border border-gray-200">
                       <img src={etsLogo} alt="ETS" className="w-5 h-5 object-contain" />
@@ -414,7 +414,7 @@ export default function Resume() {
                 </div>
 
                 {/* Bloomberg */}
-                <div className="bg-white rounded border border-gray-100 p-2">
+                <div className="bg-white rounded border border-gray-100 p-1.5">
                   <div className="flex items-start gap-2">
                     <div className="w-8 h-8 bg-white rounded flex items-center justify-center border border-gray-200">
                       <img src={bloombergLogo} alt="Bloomberg" className="w-5 h-5 object-contain" />
@@ -430,8 +430,8 @@ export default function Resume() {
             </section>
 
             {/* Community Leadership */}
-            <section className="mb-3">
-              <h3 className="text-base font-bold text-gray-900 mb-3 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Community Leadership</h3>
+            <section className="mb-2">
+              <h3 className="text-base font-bold text-gray-900 mb-2 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Community Leadership</h3>
               
               <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex gap-3">
@@ -463,8 +463,8 @@ export default function Resume() {
               </div>
 
               {/* Additional Community - Two Cards */}
-              <div className="mt-2 grid grid-cols-2 gap-2">
-                <div className="bg-white rounded-lg p-2 border border-gray-200 hover:shadow-sm transition-shadow">
+              <div className="mt-1.5 grid grid-cols-2 gap-1.5">
+                <div className="bg-white rounded-lg p-1.5 border border-gray-200 hover:shadow-sm transition-shadow">
                   <div className="flex items-start gap-2">
                     <div className="flex-shrink-0">
                       <div className="w-7 h-7 bg-white rounded flex items-center justify-center border border-gray-200">
@@ -478,7 +478,7 @@ export default function Resume() {
                     </div>
                   </div>
                 </div>
-                <div className="bg-white rounded-lg p-2 border border-gray-200 hover:shadow-sm transition-shadow">
+                <div className="bg-white rounded-lg p-1.5 border border-gray-200 hover:shadow-sm transition-shadow">
                   <div className="flex items-start gap-2">
                     <div className="flex-shrink-0">
                       <div className="w-7 h-7 bg-white rounded flex items-center justify-center border border-gray-200">
