@@ -413,7 +413,7 @@ export default function Resume() {
                 {/* Training the Street */}
                 <div className="bg-white rounded border border-gray-100 p-2">
                   <div className="flex items-start gap-2">
-                    <div className="w-6 h-6 bg-green-50 rounded flex items-center justify-center">
+                    <div className="w-6 h-6 bg-white rounded flex items-center justify-center border border-gray-200">
                       <img src={trainingTheStreetLogo} alt="TTS" className="w-4 h-4 object-contain" />
                     </div>
                     <div className="flex-1">
