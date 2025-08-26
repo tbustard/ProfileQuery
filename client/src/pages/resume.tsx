@@ -166,7 +166,7 @@ export default function Resume() {
                       </li>
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
-                        <span>Case Recipient of 5 Scholarship and Alumni Awards for academic merit and leadership skills, Total $47,500</span>
+                        <span>Recipient of 5 Scholarship for academic merit and leadership skills, Total $47,500</span>
                       </li>
                     </ul>
                   </div>
