@@ -158,7 +158,7 @@ export default function Resume() {
                       </li>
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
-                        <span>Analyst and Portfolio Manager - Energy sector - University of New Brunswick Student Investment Fund</span>
+                        <span>Analyst and Portfolio Manager - University of New Brunswick Student Investment Fund</span>
                       </li>
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
