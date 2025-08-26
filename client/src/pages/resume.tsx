@@ -127,7 +127,7 @@ export default function Resume() {
               {/* Professional Summary - Premium Card Design */}
               <div className="mt-4 bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-4 border border-blue-100">
                 <p className="text-sm leading-relaxed text-gray-700">
-                  Strategic Finance Professional with 6+ years driving innovation at the intersection of capital markets, wealth management, AI technology, and data analytics. Proven track record of optimizing portfolio performance, enhancing client relationships, and implementing AI-driven solutions that boost operational efficiency by up to 15%.
+                  Driving innovation at the intersection of finance and technology. Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
                 </p>
               </div>
             </div>
