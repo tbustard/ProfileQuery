@@ -65,8 +65,8 @@ export default function Resume() {
       <Navigation />
 
       {/* Main Resume Content */}
-      <div className="px-4 sm:px-6 lg:px-8 pb-16 pt-24">
-        <div className="max-w-5xl mx-auto">
+      <div className="px-3 sm:px-4 lg:px-6 pb-12 pt-20">
+        <div className="max-w-6xl mx-auto">
           
           {/* Resume Container - Exact dimensions: 21.59cm x 55.88cm */}
           <div className={`resume-page bg-white rounded-2xl shadow-lg mb-6 page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}
