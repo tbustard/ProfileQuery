@@ -617,10 +617,19 @@ export default function Resume() {
               © {new Date().getFullYear()} Tyler Bustard. All rights reserved.
             </p>
             <div className="flex items-center gap-3">
-              {/* Print PDF Button */}
+              {/* Print PDF Button - Opens uploaded PDF in new window for printing */}
               <button
                 onClick={() => {
-                  window.print();
+                  // Open the uploaded PDF in a new window
+                  const pdfWindow = window.open('/Tyler_Bustard_Resume.pdf', '_blank');
+                  if (pdfWindow) {
+                    // Add print event after the PDF loads
+                    pdfWindow.addEventListener('load', () => {
+                      setTimeout(() => {
+                        pdfWindow.print();
+                      }, 500);
+                    });
+                  }
                 }}
                 className="px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white transition-all duration-200 hover:scale-105 flex items-center gap-2"
                 data-testid="button-print-pdf"
@@ -629,11 +638,14 @@ export default function Resume() {
                 <span>Print PDF</span>
               </button>
               
-              {/* Download PDF Button */}
+              {/* Download PDF Button - Downloads the uploaded PDF */}
               <button
                 onClick={() => {
-                  // Trigger the browser's print dialog with save as PDF option
-                  window.print();
+                  // Create a link to download the uploaded PDF
+                  const link = document.createElement('a');
+                  link.href = '/Tyler_Bustard_Resume.pdf';
+                  link.download = 'Tyler_Bustard_Resume.pdf';
+                  link.click();
                 }}
                 className="px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white transition-all duration-200 hover:scale-105 flex items-center gap-2"
                 data-testid="button-download-pdf"
