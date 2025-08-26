@@ -616,53 +616,13 @@ export default function Resume() {
             <p className="text-white/90 font-medium">
               © {new Date().getFullYear()} Tyler Bustard. All rights reserved.
             </p>
-            <div className="flex items-center gap-3">
-              {/* Print PDF Button - Opens uploaded PDF in new window for printing */}
-              <button
-                onClick={() => {
-                  // Open the uploaded PDF in a new window
-                  const pdfWindow = window.open('/Tyler_Bustard_Resume.pdf', '_blank');
-                  if (pdfWindow) {
-                    // Add print event after the PDF loads
-                    pdfWindow.addEventListener('load', () => {
-                      setTimeout(() => {
-                        pdfWindow.print();
-                      }, 500);
-                    });
-                  }
-                }}
-                className="px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white transition-all duration-200 hover:scale-105 flex items-center gap-2"
-                data-testid="button-print-pdf"
-              >
-                <Printer className="w-4 h-4" />
-                <span>Print PDF</span>
-              </button>
-              
-              {/* Download PDF Button - Downloads the uploaded PDF */}
-              <button
-                onClick={() => {
-                  // Create a link to download the uploaded PDF
-                  const link = document.createElement('a');
-                  link.href = '/Tyler_Bustard_Resume.pdf';
-                  link.download = 'Tyler_Bustard_Resume.pdf';
-                  link.click();
-                }}
-                className="px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white transition-all duration-200 hover:scale-105 flex items-center gap-2"
-                data-testid="button-download-pdf"
-              >
-                <Download className="w-4 h-4" />
-                <span>Download PDF</span>
-              </button>
-              
-              {/* Sign In Button */}
-              <button
-                onClick={() => window.location.href = '/employer'}
-                className="px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white transition-all duration-200 hover:scale-105"
-                data-testid="footer-employer-signin"
-              >
-                Sign In
-              </button>
-            </div>
+            <button
+              onClick={() => window.location.href = '/employer'}
+              className="px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white transition-all duration-200 hover:scale-105"
+              data-testid="footer-employer-signin"
+            >
+              Sign In
+            </button>
           </div>
         </div>
       </footer>

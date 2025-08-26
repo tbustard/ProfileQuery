@@ -659,51 +659,6 @@ export default function Navigation() {
 
             {/* Right side */}
             <div className="flex items-center space-x-3">
-              {/* Print PDF Button - Only on Resume Page */}
-              {isResumePage && (
-                <div className="hidden lg:block">
-                  <button
-                    onClick={async () => {
-                      try {
-                        // Fetch the latest resume PDF
-                        const response = await fetch('/api/latest-resume');
-                        if (response.ok) {
-                          // Create a blob from the PDF response
-                          const blob = await response.blob();
-                          const url = window.URL.createObjectURL(blob);
-                          
-                          // Open in new window for printing
-                          const printWindow = window.open(url, '_blank');
-                          if (printWindow) {
-                            printWindow.addEventListener('load', () => {
-                              setTimeout(() => {
-                                printWindow.print();
-                              }, 500);
-                            });
-                          }
-                          
-                          // Clean up the blob URL after a delay
-                          setTimeout(() => {
-                            window.URL.revokeObjectURL(url);
-                          }, 60000);
-                        } else if (response.status === 404) {
-                          alert('No resume PDF found. Please upload a resume first through the sign-in page.');
-                        } else {
-                          alert('Failed to load resume PDF. Please try again.');
-                        }
-                      } catch (error) {
-                        console.error('Error loading resume:', error);
-                        alert('Failed to load resume for printing.');
-                      }
-                    }}
-                    className="px-4 py-2 text-sm font-medium rounded-lg bg-white/70 text-gray-700 border border-gray-200 hover:bg-gray-50 transition-all duration-200 hover:scale-105 shadow-sm flex items-center gap-2"
-                    data-testid="button-print-pdf"
-                  >
-                    <Printer className="w-4 h-4" />
-                    <span>Print PDF</span>
-                  </button>
-                </div>
-              )}
               
               {/* Desktop Resume Button */}
               <div className="hidden lg:block">
