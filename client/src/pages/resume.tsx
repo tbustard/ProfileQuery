@@ -92,27 +92,24 @@ export default function Resume() {
           </div>
           
           {/* Resume Container - Exact dimensions: 21.59cm x 55.88cm */}
-          <div className={`resume-page bg-white relative border-2 border-gray-100 shadow-2xl mb-6 page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}
+          <div className={`resume-page bg-white/95 backdrop-blur-xl border border-white/40 rounded-[2rem] shadow-xl mb-6 page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}
                style={{ 
                  width: '21.59cm',
                  height: '55.88cm',
                  padding: '2.54cm 1.27cm', // Top/Bottom: 2.54cm, Left/Right: 1.27cm
                  margin: '0 auto',
                  boxSizing: 'border-box',
-                 overflow: 'hidden',
-                 background: 'linear-gradient(to bottom, #ffffff 0%, #fafbfc 100%)'
+                 overflow: 'hidden'
                }}>
-            {/* Professional Header Line */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800"></div>
             
             {/* Header Section - Compact and Professional */}
-            <div className="mb-4 pb-3 border-b-2 border-blue-200">
+            <div className="mb-4">
               <div className="flex items-start gap-4 mb-3">
                 {/* Profile Photo */}
                 <img 
                   src={profileImage} 
                   alt="Tyler Bustard" 
-                  className="w-24 h-24 rounded-full object-cover shadow-xl ring-4 ring-blue-100 ring-offset-2"
+                  className="w-24 h-24 rounded-2xl object-cover shadow-lg ring-2 ring-white/50"
                   data-testid="img-resume-profile"
                 />
 
@@ -122,36 +119,36 @@ export default function Resume() {
                       style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif' }}>
                     Tyler Bustard
                   </h1>
-                  <h2 className="text-lg text-blue-700 font-bold mb-2 uppercase tracking-wide">
-                    Finance Professional • CFA Level I Candidate
+                  <h2 className="text-lg text-blue-600 font-medium mb-2">
+                    Finance & Technology Professional
                   </h2>
                   
                   {/* Contact Bar - Compact */}
-                  <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
+                  <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-gray-600">
                     <div className="flex items-center gap-1.5">
-                      <Mail className="w-3.5 h-3.5 text-blue-700" />
-                      <span className="text-gray-700 font-medium">tbustard@unb.ca</span>
+                      <Mail className="w-3.5 h-3.5 text-blue-500" />
+                      <span>tbustard@unb.ca</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <Phone className="w-3.5 h-3.5 text-blue-700" />
-                      <span className="text-gray-700 font-medium">+1 (613) 985-1223</span>
+                      <Phone className="w-3.5 h-3.5 text-blue-500" />
+                      <span>+1 (613) 985-1223</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <Globe className="w-3.5 h-3.5 text-blue-700" />
-                      <span className="text-gray-700 font-medium">tylerbustard.ca</span>
+                      <Globe className="w-3.5 h-3.5 text-blue-500" />
+                      <span>tylerbustard.ca</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-blue-700" />
-                      <span className="text-gray-700 font-medium">Toronto, Ontario</span>
+                      <MapPin className="w-3.5 h-3.5 text-blue-500" />
+                      <span>Toronto, Ontario</span>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Professional Summary - ATS Optimized */}
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 border-l-4 border-blue-700 shadow-sm">
-                <p className="text-sm leading-relaxed text-gray-800">
-                  <span className="font-bold text-blue-700">Strategic Finance Professional</span> with <span className="font-bold text-blue-700">6+ years</span> driving <span className="font-semibold">innovation</span> at the intersection of <span className="font-semibold">capital markets, wealth management, AI technology,</span> and <span className="font-semibold">data analytics</span>. Proven track record of <span className="font-semibold">optimizing portfolio performance</span>, <span className="font-semibold">enhancing client relationships</span>, and <span className="font-semibold">implementing AI-driven solutions</span> that boost operational efficiency by up to <span className="font-bold text-blue-700">15%</span>.
+              <div className="bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-4 border border-blue-100/50">
+                <p className="text-sm leading-relaxed text-gray-700">
+                  <span className="font-semibold">Strategic Finance Professional</span> with <span className="font-semibold">6+ years</span> driving <span className="font-medium">innovation</span> at the intersection of <span className="font-medium">capital markets, wealth management, AI technology,</span> and <span className="font-medium">data analytics</span>. Proven track record of <span className="font-medium">optimizing portfolio performance</span>, <span className="font-medium">enhancing client relationships</span>, and <span className="font-medium">implementing AI-driven solutions</span> that boost operational efficiency by up to <span className="font-semibold">15%</span>.
                 </p>
               </div>
             </div>
