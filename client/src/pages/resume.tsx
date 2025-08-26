@@ -154,19 +154,19 @@ export default function Resume() {
                     <ul className="space-y-2">
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
-                        <span>1st Place CIBC Capital Markets Case Competition</span>
+                        <span>Case Competitions: 1st Place (CIBC), 3rd Place (TD), RBC participant</span>
                       </li>
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
-                        <span>UNB Student Investment Fund Portfolio Manager</span>
+                        <span>Analyst and Portfolio Manager - Energy sector - University of New Brunswick Student Investment Fund</span>
                       </li>
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
-                        <span>$47,500 in Scholarship Awards</span>
+                        <span>Member of UNB Finance Club, RBC Student Ambassador, Accredited Co-op Program</span>
                       </li>
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
-                        <span>3rd Place TD Securities Case Competition</span>
+                        <span>Case Recipient of 5 Scholarship and Alumni Awards for academic merit and leadership skills, Total $47,500</span>
                       </li>
                     </ul>
                   </div>
