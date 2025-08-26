@@ -103,7 +103,7 @@ export default function Resume() {
                   </h2>
                   
                   {/* Contact Bar - Clean Design */}
-                  <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-600 mt-4">
+                  <div id="contact" className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-600 mt-4 scroll-mt-24">
                     <div className="flex items-center gap-1.5">
                       <Mail className="w-3.5 h-3.5 text-blue-500" />
                       <span>tbustard@unb.ca</span>
@@ -133,7 +133,7 @@ export default function Resume() {
             </div>
 
             {/* Education Section */}
-            <section className="mb-5">
+            <section id="education" className="mb-5 scroll-mt-24">
               <h3 className="text-base font-bold text-gray-900 mb-4 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Education</h3>
               
               <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:shadow-md transition-shadow">
@@ -175,7 +175,7 @@ export default function Resume() {
             </section>
 
             {/* Professional Experience Section */}
-            <section className="mb-5">
+            <section id="experience" className="mb-5 scroll-mt-24">
               <h3 className="text-base font-bold text-gray-900 mb-4 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Professional Experience</h3>
               
               <div className="space-y-4">
@@ -367,7 +367,7 @@ export default function Resume() {
             </section>
 
             {/* Professional Certifications */}
-            <section className="mb-5">
+            <section id="certifications" className="mb-5 scroll-mt-24">
               <h3 className="text-base font-bold text-gray-900 mb-4 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Professional Certifications</h3>
               
               <div className="grid grid-cols-2 gap-3">
@@ -430,7 +430,7 @@ export default function Resume() {
             </section>
 
             {/* Community Leadership */}
-            <section className="mb-5">
+            <section id="community" className="mb-5 scroll-mt-24">
               <h3 className="text-base font-bold text-gray-900 mb-4 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Community Leadership</h3>
               
               <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:shadow-md transition-shadow">

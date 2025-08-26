@@ -211,6 +211,229 @@ export default function Navigation() {
             {/* Center - Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-1">
               
+              {/* Resume Page Navigation */}
+              {isResumePage && (
+                <>
+                  {/* Education */}
+                  <div 
+                    className="relative dropdown-container"
+                    onMouseEnter={() => setOpenDropdown('education')}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <button
+                      onClick={() => {
+                        const element = document.getElementById('education');
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }}
+                      className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 text-gray-700 hover:text-blue-600 hover:bg-blue-50/30"
+                    >
+                      Education
+                      <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'education' ? 'rotate-180' : ''}`} />
+                    </button>
+                    
+                    {/* Education Dropdown */}
+                    {openDropdown === 'education' && (
+                      <div className="absolute top-full left-0 mt-2 w-80 z-[55]">
+                        <div 
+                          className="rounded-xl p-4 shadow-xl transition-all duration-200"
+                          style={{
+                            background: 'rgba(255, 255, 255, 0.92)',
+                            backdropFilter: 'blur(20px) saturate(180%)',
+                            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                            border: '1px solid rgba(0, 0, 0, 0.08)',
+                            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
+                          }}
+                        >
+                          <div className="space-y-1">
+                            <div className="text-sm font-bold text-gray-900">Bachelor of Business Administration</div>
+                            <div className="text-xs text-gray-600">Finance Major • University of New Brunswick</div>
+                            <div className="text-xs text-gray-500">2016-2020</div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Experience */}
+                  <div 
+                    className="relative dropdown-container"
+                    onMouseEnter={() => setOpenDropdown('experience')}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <button
+                      onClick={() => {
+                        const element = document.getElementById('experience');
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }}
+                      className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 text-gray-700 hover:text-blue-600 hover:bg-blue-50/30"
+                    >
+                      Experience
+                      <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'experience' ? 'rotate-180' : ''}`} />
+                    </button>
+                    
+                    {/* Experience Dropdown */}
+                    {openDropdown === 'experience' && (
+                      <div className="absolute top-full left-0 mt-2 w-80 z-[55]">
+                        <div 
+                          className="rounded-xl p-4 shadow-xl transition-all duration-200"
+                          style={{
+                            background: 'rgba(255, 255, 255, 0.92)',
+                            backdropFilter: 'blur(20px) saturate(180%)',
+                            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                            border: '1px solid rgba(0, 0, 0, 0.08)',
+                            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
+                          }}
+                        >
+                          <div className="space-y-2">
+                            <div>
+                              <div className="text-sm font-bold text-gray-900">Equity Analyst</div>
+                              <div className="text-xs text-gray-600">Fiscal.ai • Toronto, ON</div>
+                              <div className="text-xs text-gray-500">2023-Present</div>
+                            </div>
+                            <div>
+                              <div className="text-sm font-bold text-gray-900">Portfolio Assistant</div>
+                              <div className="text-xs text-gray-600">BMO Private Wealth • Toronto, ON</div>
+                              <div className="text-xs text-gray-500">2022-2023</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Certifications */}
+                  <div 
+                    className="relative dropdown-container"
+                    onMouseEnter={() => setOpenDropdown('certifications')}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <button
+                      onClick={() => {
+                        const element = document.getElementById('certifications');
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }}
+                      className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 text-gray-700 hover:text-blue-600 hover:bg-blue-50/30"
+                    >
+                      Certifications
+                      <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'certifications' ? 'rotate-180' : ''}`} />
+                    </button>
+                    
+                    {/* Certifications Dropdown */}
+                    {openDropdown === 'certifications' && (
+                      <div className="absolute top-full left-0 mt-2 w-80 z-[55]">
+                        <div 
+                          className="rounded-xl p-4 shadow-xl transition-all duration-200"
+                          style={{
+                            background: 'rgba(255, 255, 255, 0.92)',
+                            backdropFilter: 'blur(20px) saturate(180%)',
+                            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                            border: '1px solid rgba(0, 0, 0, 0.08)',
+                            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
+                          }}
+                        >
+                          <div className="space-y-2">
+                            <div className="text-sm font-bold text-gray-900">Professional Certifications</div>
+                            <div className="text-xs text-gray-600">CFA Level III Passed • CSI</div>
+                            <div className="text-xs text-gray-500">Financial Modeling & Analysis</div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Community */}
+                  <div 
+                    className="relative dropdown-container"
+                    onMouseEnter={() => setOpenDropdown('community')}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <button
+                      onClick={() => {
+                        const element = document.getElementById('community');
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }}
+                      className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 text-gray-700 hover:text-blue-600 hover:bg-blue-50/30"
+                    >
+                      Community
+                      <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'community' ? 'rotate-180' : ''}`} />
+                    </button>
+                    
+                    {/* Community Dropdown */}
+                    {openDropdown === 'community' && (
+                      <div className="absolute top-full left-0 mt-2 w-80 z-[55]">
+                        <div 
+                          className="rounded-xl p-4 shadow-xl transition-all duration-200"
+                          style={{
+                            background: 'rgba(255, 255, 255, 0.92)',
+                            backdropFilter: 'blur(20px) saturate(180%)',
+                            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                            border: '1px solid rgba(0, 0, 0, 0.08)',
+                            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
+                          }}
+                        >
+                          <div className="space-y-2">
+                            <div className="text-sm font-bold text-gray-900">Volunteer & Leadership</div>
+                            <div className="text-xs text-gray-600">United Way • Grant Thornton</div>
+                            <div className="text-xs text-gray-500">Community engagement & support</div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Contact */}
+                  <div 
+                    className="relative dropdown-container"
+                    onMouseEnter={() => setOpenDropdown('contact')}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <button
+                      onClick={() => {
+                        const element = document.getElementById('contact');
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                      }}
+                      className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 text-gray-700 hover:text-blue-600 hover:bg-blue-50/30"
+                    >
+                      Contact
+                      <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'contact' ? 'rotate-180' : ''}`} />
+                    </button>
+                    
+                    {/* Contact Dropdown */}
+                    {openDropdown === 'contact' && (
+                      <div className="absolute top-full left-0 mt-2 w-80 z-[55]">
+                        <div 
+                          className="rounded-xl p-4 shadow-xl transition-all duration-200"
+                          style={{
+                            background: 'rgba(255, 255, 255, 0.92)',
+                            backdropFilter: 'blur(20px) saturate(180%)',
+                            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                            border: '1px solid rgba(0, 0, 0, 0.08)',
+                            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
+                          }}
+                        >
+                          <div className="space-y-2">
+                            <div className="text-sm font-bold text-gray-900">Get in Touch</div>
+                            <div className="text-xs text-gray-600">tbustard@unb.ca</div>
+                            <div className="text-xs text-gray-600">+1 (613) 985-1223</div>
+                            <div className="text-xs text-gray-500">Toronto, Ontario</div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </>
+              )}
+              
               {/* Education */}
               {isHomePage && (
                 <div className="relative dropdown-container">
