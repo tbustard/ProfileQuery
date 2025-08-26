@@ -152,7 +152,7 @@ export default function Resume() {
               {/* Professional Summary - Premium Card Design */}
               <div className="mt-4 bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-4 border border-blue-100">
                 <p className="text-sm leading-relaxed text-gray-700">
-                  <span className="font-semibold text-gray-900">Strategic Finance Professional</span> with <span className="font-semibold text-blue-600">6+ years</span> driving innovation at the intersection of capital markets, wealth management, AI technology, and data analytics. Proven track record of optimizing portfolio performance, enhancing client relationships, and implementing AI-driven solutions that boost operational efficiency by up to <span className="font-semibold text-blue-600">15%</span>.
+                  Strategic Finance Professional with 6+ years driving innovation at the intersection of capital markets, wealth management, AI technology, and data analytics. Proven track record of optimizing portfolio performance, enhancing client relationships, and implementing AI-driven solutions that boost operational efficiency by up to 15%.
                 </p>
               </div>
             </div>
@@ -179,19 +179,19 @@ export default function Resume() {
                     <ul className="space-y-0.5">
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
-                        <span><span className="font-semibold">1st Place</span> CIBC Capital Markets Case Competition</span>
+                        <span>1st Place CIBC Capital Markets Case Competition</span>
                       </li>
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
-                        <span>UNB Student Investment Fund <span className="font-semibold">Portfolio Manager</span></span>
+                        <span>UNB Student Investment Fund Portfolio Manager</span>
                       </li>
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
-                        <span><span className="font-semibold">$47,500</span> in Scholarship Awards</span>
+                        <span>$47,500 in Scholarship Awards</span>
                       </li>
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
-                        <span><span className="font-semibold">3rd Place</span> TD Securities Case Competition</span>
+                        <span>3rd Place TD Securities Case Competition</span>
                       </li>
                     </ul>
                   </div>
@@ -223,11 +223,11 @@ export default function Resume() {
                       <ul className="space-y-0.5 mb-2">
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
-                          <span>Analyze and compile public company financial statements, cutting reporting turnaround by <span className="font-semibold">13%</span></span>
+                          <span>Analyze and compile public company financial statements, cutting reporting turnaround by 13%</span>
                         </li>
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
-                          <span>Collaborate with product and engineering to implement <span className="font-semibold">AI-driven data features</span>, boosting adoption by <span className="font-semibold">12%</span></span>
+                          <span>Collaborate with product and engineering to implement AI-driven data features, boosting adoption by 12%</span>
                         </li>
                       </ul>
                       <div className="flex flex-wrap gap-1">
@@ -260,11 +260,11 @@ export default function Resume() {
                       <ul className="space-y-0.5 mb-2">
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
-                          <span>Advised Investment Counsellors managing <span className="font-semibold">$100M+ AUM</span>, reducing preparation time by <span className="font-semibold">12%</span></span>
+                          <span>Advised Investment Counsellors managing $100M+ AUM, reducing preparation time by 12%</span>
                         </li>
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
-                          <span>Bolstered client communications, boosting response rates by <span className="font-semibold">9%</span>, heightening client satisfaction and retention</span>
+                          <span>Bolstered client communications, boosting response rates by 9%, heightening client satisfaction and retention</span>
                         </li>
                       </ul>
                       <div className="flex flex-wrap gap-1">
@@ -297,11 +297,11 @@ export default function Resume() {
                       <ul className="space-y-0.5 mb-2">
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
-                          <span>Cultivated strong client relationships, achieving <span className="font-semibold">11% sales increase</span> through needs-based advisory</span>
+                          <span>Cultivated strong client relationships, achieving 11% sales increase through needs-based advisory</span>
                         </li>
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
-                          <span>Exceeded targets, achieving <span className="font-semibold">top 15%</span> performance ranking within district</span>
+                          <span>Exceeded targets, achieving top 15% performance ranking within district</span>
                         </li>
                       </ul>
                       <div className="flex flex-wrap gap-1">
@@ -476,11 +476,11 @@ export default function Resume() {
                     <ul className="space-y-0.5">
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
-                        <span>Led fundraising strategies, achieving <span className="font-semibold">20% increase</span> in funds raised over three years</span>
+                        <span>Led fundraising strategies, achieving 20% increase in funds raised over three years</span>
                       </li>
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
-                        <span>Spearheaded engagement initiatives, resulting in <span className="font-semibold">15% rise</span> in workplace participation</span>
+                        <span>Spearheaded engagement initiatives, resulting in 15% rise in workplace participation</span>
                       </li>
                     </ul>
                   </div>
