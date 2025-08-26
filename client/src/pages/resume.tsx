@@ -452,67 +452,13 @@ export default function Resume() {
                   </div>
                 </div>
               </div>
-
-              {/* Additional Training & Certifications - Clean Professional Design */}
-              <div className="mt-2">
-                <p className="text-sm font-semibold text-gray-900 mb-2">Additional Training & Certifications:</p>
-                <div className="flex justify-between gap-3">
-                  {/* Finance Category */}
-                  <div className="flex-1 bg-white rounded-xl border border-gray-200 p-3 flex items-center gap-3">
-                    <div className="flex gap-1">
-                      <div className="w-9 h-9 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                        <img src={courseraLogo} alt="Coursera" className="w-6 h-6 object-contain" />
-                      </div>
-                      <div className="w-9 h-9 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                        <img src={mcgillLogo} alt="McGill" className="w-6 h-6 object-contain" />
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="text-sm font-medium text-gray-700">Finance</span>
-                      <span className="text-sm font-bold text-blue-600 ml-1">(10)</span>
-                    </div>
-                  </div>
-                  
-                  {/* Data & Technology Category */}
-                  <div className="flex-1 bg-white rounded-xl border border-gray-200 p-3 flex items-center gap-3">
-                    <div className="flex gap-1">
-                      <div className="w-9 h-9 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                        <img src={wallStreetPrepLogo} alt="Wall Street Prep" className="w-6 h-6 object-contain" />
-                      </div>
-                      <div className="w-9 h-9 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                        <img src={unbLogo} alt="UNB" className="w-6 h-6 object-contain" />
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="text-sm font-medium text-gray-700">Data & Tech</span>
-                      <span className="text-sm font-bold text-blue-600 ml-1">(6)</span>
-                    </div>
-                  </div>
-                  
-                  {/* Analytics Category */}
-                  <div className="flex-1 bg-white rounded-xl border border-gray-200 p-3 flex items-center gap-3">
-                    <div className="flex gap-1">
-                      <div className="w-9 h-9 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                        <img src={csiLogo} alt="CSI" className="w-6 h-6 object-contain" />
-                      </div>
-                      <div className="w-9 h-9 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
-                        <Award className="w-5 h-5 text-blue-600" />
-                      </div>
-                    </div>
-                    <div className="flex items-center">
-                      <span className="text-sm font-medium text-gray-700">Analytics</span>
-                      <span className="text-sm font-bold text-blue-600 ml-1">(5)</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </section>
 
             {/* Community Leadership */}
             <section className="mb-3">
               <h3 className="text-base font-bold text-gray-900 mb-3 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Community Leadership</h3>
               
-              <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:shadow-md transition-shadow">
+              <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex gap-3">
                   <div className="flex-shrink-0">
                     <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center border border-red-200">
@@ -527,7 +473,7 @@ export default function Resume() {
                       </div>
                       <span className="text-sm font-medium text-gray-600 bg-gray-100 px-2 py-1 rounded">2020-2023</span>
                     </div>
-                    <ul className="space-y-0.5 mb-2">
+                    <ul className="space-y-0.5">
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
                         <span>Led fundraising strategies, achieving <span className="font-semibold">20% increase</span> in funds raised over three years</span>
@@ -537,13 +483,6 @@ export default function Resume() {
                         <span>Spearheaded engagement initiatives, resulting in <span className="font-semibold">15% rise</span> in workplace participation</span>
                       </li>
                     </ul>
-                    <div className="flex flex-wrap gap-1">
-                      {['Fundraising Strategy', 'Leadership', 'Event Planning', 'Community Engagement', 'Stakeholder Management'].map(skill => (
-                        <span key={skill} className="inline-block px-2.5 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700 border border-blue-200">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
                   </div>
                 </div>
               </div>
