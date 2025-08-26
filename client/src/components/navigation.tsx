@@ -436,9 +436,13 @@ export default function Navigation() {
               
               {/* Education */}
               {isHomePage && (
-                <div className="relative dropdown-container">
+                <div 
+                  className="relative dropdown-container"
+                  onMouseEnter={() => setOpenDropdown('education')}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
                   <button
-                    onClick={() => setOpenDropdown(openDropdown === 'education' ? null : 'education')}
+                    onClick={() => scrollToSection('#education')}
                     className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                       currentSection === 'education' 
                         ? 'text-blue-600 font-semibold bg-blue-50/50' 
@@ -483,9 +487,13 @@ export default function Navigation() {
 
               {/* Experience */}
               {isHomePage && (
-                <div className="relative dropdown-container">
+                <div 
+                  className="relative dropdown-container"
+                  onMouseEnter={() => setOpenDropdown('experience')}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
                   <button
-                    onClick={() => setOpenDropdown(openDropdown === 'experience' ? null : 'experience')}
+                    onClick={() => scrollToSection('#experience')}
                     className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                       currentSection === 'experience' 
                         ? 'text-blue-600 font-semibold bg-blue-50/50' 
@@ -623,9 +631,13 @@ export default function Navigation() {
 
               {/* Certifications */}
               {isHomePage && (
-                <div className="relative dropdown-container">
+                <div 
+                  className="relative dropdown-container"
+                  onMouseEnter={() => setOpenDropdown('certifications')}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
                   <button
-                    onClick={() => setOpenDropdown(openDropdown === 'certifications' ? null : 'certifications')}
+                    onClick={() => scrollToSection('#certifications')}
                     className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                       currentSection === 'certifications' || currentSection === 'skills' 
                         ? 'text-blue-600 font-semibold bg-blue-50/50' 
@@ -717,9 +729,13 @@ export default function Navigation() {
 
               {/* Community */}
               {isHomePage && (
-                <div className="relative dropdown-container">
+                <div 
+                  className="relative dropdown-container"
+                  onMouseEnter={() => setOpenDropdown('community')}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
                   <button
-                    onClick={() => setOpenDropdown(openDropdown === 'community' ? null : 'community')}
+                    onClick={() => scrollToSection('#community')}
                     className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                       currentSection === 'community' 
                         ? 'text-blue-600 font-semibold bg-blue-50/50' 
@@ -799,9 +815,13 @@ export default function Navigation() {
 
               {/* Contact */}
               {isHomePage && (
-                <div className="relative dropdown-container">
+                <div 
+                  className="relative dropdown-container"
+                  onMouseEnter={() => setOpenDropdown('contact')}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
                   <button
-                    onClick={() => setOpenDropdown(openDropdown === 'contact' ? null : 'contact')}
+                    onClick={() => scrollToSection('#contact')}
                     className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 ${
                       currentSection === 'contact' 
                         ? 'text-blue-600 font-semibold bg-blue-50/50' 
