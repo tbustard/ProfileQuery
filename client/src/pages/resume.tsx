@@ -145,10 +145,10 @@ export default function Resume() {
                 </div>
               </div>
 
-              {/* Professional Summary - Clean Design */}
-              <div className="mt-3 bg-gray-50 rounded-lg p-3">
-                <p className="text-xs leading-relaxed text-gray-700">
-                  <span className="font-semibold">Strategic Finance Professional</span> with <span className="font-semibold">6+ years</span> driving innovation at the intersection of capital markets, wealth management, AI technology, and data analytics. Proven track record of optimizing portfolio performance, enhancing client relationships, and implementing AI-driven solutions that boost operational efficiency by up to <span className="font-semibold">15%</span>.
+              {/* Professional Summary - Enhanced Design */}
+              <div className="mt-3 bg-gradient-to-r from-blue-50/50 to-gray-50/50 rounded-lg p-3 border border-blue-100/30">
+                <p className="text-xs leading-5 text-gray-700">
+                  <span className="font-semibold text-gray-900">Strategic Finance Professional</span> with <span className="font-semibold text-blue-600">6+ years</span> driving innovation at the intersection of capital markets, wealth management, AI technology, and data analytics. Proven track record of optimizing portfolio performance, enhancing client relationships, and implementing AI-driven solutions that boost operational efficiency by up to <span className="font-semibold text-blue-600">15%</span>.
                 </p>
               </div>
             </div>
@@ -169,26 +169,26 @@ export default function Resume() {
                   <div className="flex-1">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <h4 className="text-sm font-bold text-gray-900">Bachelor of Business Administration</h4>
-                        <p className="text-xs text-blue-600 font-semibold">Finance Major • University of New Brunswick</p>
+                        <h4 className="text-sm font-semibold text-gray-900">Bachelor of Business Administration</h4>
+                        <p className="text-xs text-blue-600 font-medium">Finance Major • University of New Brunswick</p>
                       </div>
-                      <span className="text-xs font-medium text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded">2016-2020</span>
+                      <span className="text-xs font-medium text-gray-500 bg-blue-50/50 px-2 py-0.5 rounded-md">2016-2020</span>
                     </div>
                     <ul className="space-y-0.5">
                       <li className="text-sm text-gray-700 flex items-start">
-                        <span className="text-blue-500 mr-2">•</span>
+                        <span className="text-blue-400 mr-2 text-xs">▸</span>
                         <span><span className="font-semibold">1st Place</span> CIBC Capital Markets Case Competition</span>
                       </li>
                       <li className="text-sm text-gray-700 flex items-start">
-                        <span className="text-blue-500 mr-2">•</span>
+                        <span className="text-blue-400 mr-2 text-xs">▸</span>
                         <span>UNB Student Investment Fund <span className="font-semibold">Portfolio Manager</span></span>
                       </li>
                       <li className="text-sm text-gray-700 flex items-start">
-                        <span className="text-blue-500 mr-2">•</span>
+                        <span className="text-blue-400 mr-2 text-xs">▸</span>
                         <span><span className="font-semibold">$47,500</span> in Scholarship Awards</span>
                       </li>
                       <li className="text-sm text-gray-700 flex items-start">
-                        <span className="text-blue-500 mr-2">•</span>
+                        <span className="text-blue-400 mr-2 text-xs">▸</span>
                         <span><span className="font-semibold">3rd Place</span> TD Securities Case Competition</span>
                       </li>
                     </ul>
@@ -218,21 +218,21 @@ export default function Resume() {
                           <h4 className="text-sm font-bold text-gray-900">Equity Analyst</h4>
                           <p className="text-xs text-blue-600 font-semibold">Fiscal.ai • Toronto, ON</p>
                         </div>
-                        <span className="text-xs font-medium text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded">2023-Present</span>
+                        <span className="text-xs font-medium text-gray-500 bg-blue-50/50 px-2 py-0.5 rounded-md">2023-Present</span>
                       </div>
                       <ul className="space-y-0.5 mb-2">
                         <li className="text-sm text-gray-700 flex items-start">
-                          <span className="text-blue-500 mr-2">•</span>
+                          <span className="text-blue-400 mr-2 text-xs">▸</span>
                           <span>Analyze and compile public company financial statements, cutting reporting turnaround by <span className="font-semibold">13%</span></span>
                         </li>
                         <li className="text-sm text-gray-700 flex items-start">
-                          <span className="text-blue-500 mr-2">•</span>
+                          <span className="text-blue-400 mr-2 text-xs">▸</span>
                           <span>Collaborate with product and engineering to implement <span className="font-semibold">AI-driven data features</span>, boosting adoption by <span className="font-semibold">12%</span></span>
                         </li>
                       </ul>
                       <div className="flex flex-wrap gap-1">
                         {['Financial Analysis', 'AI Integration', 'Data Analytics', 'Python', 'SQL'].map(skill => (
-                          <span key={skill} className="inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
+                          <span key={skill} className="inline-block px-2 py-0.5 rounded-md text-xs font-medium bg-blue-50/70 text-blue-700 hover:bg-blue-100 transition-colors">
                             {skill}
                           </span>
                         ))}
@@ -255,21 +255,21 @@ export default function Resume() {
                           <h4 className="text-sm font-bold text-gray-900">Portfolio Assistant</h4>
                           <p className="text-xs text-blue-600 font-semibold">BMO Private Wealth • Toronto, ON</p>
                         </div>
-                        <span className="text-xs font-medium text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded">2022-2023</span>
+                        <span className="text-xs font-medium text-gray-500 bg-blue-50/50 px-2 py-0.5 rounded-md">2022-2023</span>
                       </div>
                       <ul className="space-y-0.5 mb-2">
                         <li className="text-sm text-gray-700 flex items-start">
-                          <span className="text-blue-500 mr-2">•</span>
+                          <span className="text-blue-400 mr-2 text-xs">▸</span>
                           <span>Advised Investment Counsellors managing <span className="font-semibold">$100M+ AUM</span>, reducing preparation time by <span className="font-semibold">12%</span></span>
                         </li>
                         <li className="text-sm text-gray-700 flex items-start">
-                          <span className="text-blue-500 mr-2">•</span>
+                          <span className="text-blue-400 mr-2 text-xs">▸</span>
                           <span>Bolstered client communications, boosting response rates by <span className="font-semibold">9%</span>, heightening client satisfaction and retention</span>
                         </li>
                       </ul>
                       <div className="flex flex-wrap gap-1">
                         {['Portfolio Management', 'Wealth Management', 'Client Relations', 'Financial Modeling', 'Advanced Excel'].map(skill => (
-                          <span key={skill} className="inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
+                          <span key={skill} className="inline-block px-2 py-0.5 rounded-md text-xs font-medium bg-blue-50/70 text-blue-700 hover:bg-blue-100 transition-colors">
                             {skill}
                           </span>
                         ))}
@@ -292,21 +292,21 @@ export default function Resume() {
                           <h4 className="text-sm font-bold text-gray-900">Financial Advisor</h4>
                           <p className="text-xs text-blue-600 font-semibold">TD Canada Trust • Kingston, ON</p>
                         </div>
-                        <span className="text-xs font-medium text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded">2021-2022</span>
+                        <span className="text-xs font-medium text-gray-500 bg-blue-50/50 px-2 py-0.5 rounded-md">2021-2022</span>
                       </div>
                       <ul className="space-y-0.5 mb-2">
                         <li className="text-sm text-gray-700 flex items-start">
-                          <span className="text-blue-500 mr-2">•</span>
+                          <span className="text-blue-400 mr-2 text-xs">▸</span>
                           <span>Cultivated strong client relationships, achieving <span className="font-semibold">11% sales increase</span> through needs-based advisory</span>
                         </li>
                         <li className="text-sm text-gray-700 flex items-start">
-                          <span className="text-blue-500 mr-2">•</span>
+                          <span className="text-blue-400 mr-2 text-xs">▸</span>
                           <span>Exceeded targets, achieving <span className="font-semibold">top 15%</span> performance ranking within district</span>
                         </li>
                       </ul>
                       <div className="flex flex-wrap gap-1">
                         {['Financial Planning', 'Sales', 'Investment Advisory', 'Compliance', 'CRM'].map(skill => (
-                          <span key={skill} className="inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
+                          <span key={skill} className="inline-block px-2 py-0.5 rounded-md text-xs font-medium bg-blue-50/70 text-blue-700 hover:bg-blue-100 transition-colors">
                             {skill}
                           </span>
                         ))}
@@ -317,9 +317,9 @@ export default function Resume() {
 
                 {/* Co-op Experience Section - Grouped */}
                 <div className="bg-gray-50 rounded-lg p-3 border border-gray-100">
-                  <h4 className="text-xs font-bold text-gray-900 mb-2 flex items-center gap-2">
-                    <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded font-semibold">CO-OP</span>
-                    <span className="text-xs">Early Career Experience</span>
+                  <h4 className="text-xs font-semibold text-gray-700 mb-2 flex items-center gap-2">
+                    <span className="bg-gradient-to-r from-blue-600 to-blue-700 text-white text-xs px-2.5 py-0.5 rounded-md font-medium shadow-sm">CO-OP</span>
+                    <span className="text-xs text-gray-600">Early Career Experience</span>
                   </h4>
                   
                   <div className="grid grid-cols-2 gap-2">
@@ -332,7 +332,7 @@ export default function Resume() {
                           </div>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h5 className="text-xs font-bold text-gray-900">Banking Advisor</h5>
+                          <h5 className="text-xs font-semibold text-gray-900">Banking Advisor</h5>
                           <p className="text-xs text-gray-600">RBC • Kingston, ON • 2020-2021</p>
                           <p className="text-xs text-gray-700 mt-1">Strengthened client relationships, +13% repeat business</p>
                         </div>
@@ -348,7 +348,7 @@ export default function Resume() {
                           </div>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h5 className="text-xs font-bold text-gray-900">Client Advisor Intern</h5>
+                          <h5 className="text-xs font-semibold text-gray-900">Client Advisor Intern</h5>
                           <p className="text-xs text-gray-600">RBC • Fredericton, NB • 2019-2020</p>
                           <p className="text-xs text-gray-700 mt-1">Resolved complex issues, +15% satisfaction scores</p>
                         </div>
@@ -364,7 +364,7 @@ export default function Resume() {
                           </div>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h5 className="text-xs font-bold text-gray-900">Marketing Intern</h5>
+                          <h5 className="text-xs font-semibold text-gray-900">Marketing Intern</h5>
                           <p className="text-xs text-gray-600">Irving Oil • Saint John, NB • 2018</p>
                           <p className="text-xs text-gray-700 mt-1">Conducted competitor analysis, +11% targeted reach</p>
                         </div>
@@ -380,7 +380,7 @@ export default function Resume() {
                           </div>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h5 className="text-xs font-bold text-gray-900">Tax Return Intern</h5>
+                          <h5 className="text-xs font-semibold text-gray-900">Tax Return Intern</h5>
                           <p className="text-xs text-gray-600">Grant Thornton LLP • Saint John, NB • 2018</p>
                           <p className="text-xs text-gray-700 mt-1">Processed 100+ returns, exceeded accuracy targets</p>
                         </div>
@@ -529,15 +529,15 @@ export default function Resume() {
                         <h4 className="text-sm font-bold text-gray-900">Next Gen Ambassador</h4>
                         <p className="text-xs text-blue-600 font-semibold">United Way • Kingston, ON</p>
                       </div>
-                      <span className="text-xs font-medium text-gray-500 bg-gray-50 px-1.5 py-0.5 rounded">2020-2023</span>
+                      <span className="text-xs font-medium text-gray-500 bg-blue-50/50 px-2 py-0.5 rounded-md">2020-2023</span>
                     </div>
                     <ul className="space-y-0.5 mb-2">
                       <li className="text-sm text-gray-700 flex items-start">
-                        <span className="text-blue-500 mr-2">•</span>
+                        <span className="text-blue-400 mr-2 text-xs">▸</span>
                         <span>Led fundraising strategies, achieving <span className="font-semibold">20% increase</span> in funds raised over three years</span>
                       </li>
                       <li className="text-sm text-gray-700 flex items-start">
-                        <span className="text-blue-500 mr-2">•</span>
+                        <span className="text-blue-400 mr-2 text-xs">▸</span>
                         <span>Spearheaded engagement initiatives, resulting in <span className="font-semibold">15% rise</span> in workplace participation</span>
                       </li>
                     </ul>
