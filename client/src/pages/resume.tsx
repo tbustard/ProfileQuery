@@ -327,7 +327,7 @@ export default function Resume() {
                     <div className="bg-white rounded p-2 border border-gray-100">
                       <div className="flex items-start gap-2">
                         <div className="flex-shrink-0">
-                          <div className="w-7 h-7 bg-blue-50 rounded flex items-center justify-center">
+                          <div className="w-7 h-7 rounded flex items-center justify-center">
                             <img src={rbcLogo} alt="RBC" className="w-5 h-5 object-contain" />
                           </div>
                         </div>
@@ -343,7 +343,7 @@ export default function Resume() {
                     <div className="bg-white rounded p-2 border border-gray-100">
                       <div className="flex items-start gap-2">
                         <div className="flex-shrink-0">
-                          <div className="w-7 h-7 bg-blue-50 rounded flex items-center justify-center">
+                          <div className="w-7 h-7 rounded flex items-center justify-center">
                             <img src={rbcLogo} alt="RBC" className="w-5 h-5 object-contain" />
                           </div>
                         </div>
@@ -359,7 +359,7 @@ export default function Resume() {
                     <div className="bg-white rounded p-2 border border-gray-100">
                       <div className="flex items-start gap-2">
                         <div className="flex-shrink-0">
-                          <div className="w-7 h-7 bg-red-50 rounded flex items-center justify-center">
+                          <div className="w-7 h-7 rounded flex items-center justify-center">
                             <img src={irvingLogo} alt="Irving" className="w-5 h-5 object-contain" />
                           </div>
                         </div>
@@ -375,7 +375,7 @@ export default function Resume() {
                     <div className="bg-white rounded p-2 border border-gray-100">
                       <div className="flex items-start gap-2">
                         <div className="flex-shrink-0">
-                          <div className="w-7 h-7 bg-purple-50 rounded flex items-center justify-center">
+                          <div className="w-7 h-7 rounded flex items-center justify-center">
                             <img src={grantThorntonLogo} alt="Grant Thornton" className="w-5 h-5 object-contain" />
                           </div>
                         </div>
@@ -399,7 +399,7 @@ export default function Resume() {
                 {/* CFA */}
                 <div className="bg-white rounded border border-gray-100 p-2">
                   <div className="flex items-start gap-2">
-                    <div className="w-6 h-6 bg-blue-50 rounded flex items-center justify-center">
+                    <div className="w-6 h-6 rounded flex items-center justify-center">
                       <img src={cfaLogo} alt="CFA" className="w-4 h-4 object-contain" />
                     </div>
                     <div className="flex-1">
@@ -413,7 +413,7 @@ export default function Resume() {
                 {/* Training the Street */}
                 <div className="bg-white rounded border border-gray-100 p-2">
                   <div className="flex items-start gap-2">
-                    <div className="w-6 h-6 bg-green-50 rounded flex items-center justify-center">
+                    <div className="w-6 h-6 rounded flex items-center justify-center">
                       <img src={trainingTheStreetLogo} alt="TTS" className="w-4 h-4 object-contain" />
                     </div>
                     <div className="flex-1">
@@ -427,7 +427,7 @@ export default function Resume() {
                 {/* GRE */}
                 <div className="bg-white rounded border border-gray-100 p-2">
                   <div className="flex items-start gap-2">
-                    <div className="w-8 h-8 bg-purple-50 rounded flex items-center justify-center">
+                    <div className="w-8 h-8 rounded flex items-center justify-center">
                       <img src={etsLogo} alt="ETS" className="w-5 h-5 object-contain" />
                     </div>
                     <div className="flex-1">
@@ -441,7 +441,7 @@ export default function Resume() {
                 {/* Bloomberg */}
                 <div className="bg-white rounded border border-gray-100 p-2">
                   <div className="flex items-start gap-2">
-                    <div className="w-8 h-8 bg-orange-50 rounded flex items-center justify-center">
+                    <div className="w-8 h-8 rounded flex items-center justify-center">
                       <img src={bloombergLogo} alt="Bloomberg" className="w-5 h-5 object-contain" />
                     </div>
                     <div className="flex-1">
