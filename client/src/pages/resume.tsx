@@ -65,7 +65,7 @@ export default function Resume() {
       <Navigation />
 
       {/* Main Resume Content */}
-      <div className="px-6 sm:px-8 lg:px-10 pb-12 pt-16">
+      <div className="px-6 sm:px-8 lg:px-10 pb-12 pt-24">
         <div className="max-w-6xl mx-auto">
           
           {/* Resume Container - Exact dimensions: 21.59cm x 55.88cm */}
