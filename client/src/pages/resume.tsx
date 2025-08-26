@@ -127,7 +127,7 @@ export default function Resume() {
               {/* Professional Summary - Premium Card Design */}
               <div className="mt-5 bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-4 border border-blue-100">
                 <p className="text-sm leading-loose text-gray-700">
-                  Driving innovation at the intersection of finance and technology. Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
+                  Driving innovation at the intersection of finance and technology while delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
                 </p>
               </div>
             </div>
