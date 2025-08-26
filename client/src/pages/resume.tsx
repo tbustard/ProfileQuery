@@ -492,7 +492,7 @@ export default function Resume() {
                 <div className="bg-white rounded-lg p-2 border border-gray-200 hover:shadow-sm transition-shadow">
                   <div className="flex items-start gap-2">
                     <div className="flex-shrink-0">
-                      <div className="w-7 h-7 bg-blue-50 rounded flex items-center justify-center">
+                      <div className="w-7 h-7 bg-white rounded flex items-center justify-center border border-gray-200">
                         <img src={rbcLogo} alt="RBC" className="w-5 h-5 object-contain" />
                       </div>
                     </div>
@@ -506,7 +506,7 @@ export default function Resume() {
                 <div className="bg-white rounded-lg p-2 border border-gray-200 hover:shadow-sm transition-shadow">
                   <div className="flex items-start gap-2">
                     <div className="flex-shrink-0">
-                      <div className="w-7 h-7 bg-red-50 rounded flex items-center justify-center">
+                      <div className="w-7 h-7 bg-white rounded flex items-center justify-center border border-gray-200">
                         <img src={irvingLogo} alt="Irving" className="w-5 h-5 object-contain" />
                       </div>
                     </div>
