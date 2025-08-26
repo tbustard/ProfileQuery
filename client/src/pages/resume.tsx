@@ -68,31 +68,6 @@ export default function Resume() {
       <div className="px-4 sm:px-6 lg:px-8 pb-16 pt-24">
         <div className="max-w-5xl mx-auto">
           
-          {/* Action Buttons */}
-          <div className="flex justify-end gap-3 mb-6 print:hidden">
-            <Button
-              onClick={() => window.print()}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2"
-              data-testid="button-print-pdf"
-            >
-              <Printer className="w-4 h-4" />
-              Print PDF
-            </Button>
-            <Button
-              onClick={() => {
-                const link = document.createElement('a');
-                link.href = '/Tyler_Bustard_Resume.pdf';
-                link.download = 'Tyler_Bustard_Resume.pdf';
-                link.click();
-              }}
-              className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg flex items-center gap-2"
-              data-testid="button-download"
-            >
-              <Download className="w-4 h-4" />
-              Download
-            </Button>
-          </div>
-          
           {/* Resume Container - Exact dimensions: 21.59cm x 55.88cm */}
           <div className={`resume-page bg-white rounded-2xl shadow-lg mb-6 page-load-fade-in print:shadow-none print:border-0 print:rounded-none ${isPageLoaded ? 'loaded' : ''}`}
                style={{ 
