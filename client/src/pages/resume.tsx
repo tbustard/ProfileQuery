@@ -65,7 +65,7 @@ export default function Resume() {
       <Navigation />
 
       {/* Main Resume Content */}
-      <div className="px-3 sm:px-4 lg:px-6 pb-12 pt-20">
+      <div className="px-6 sm:px-8 lg:px-10 pb-12 pt-16">
         <div className="max-w-6xl mx-auto">
           
           {/* Resume Container - Exact dimensions: 21.59cm x 55.88cm */}
@@ -73,7 +73,7 @@ export default function Resume() {
                style={{ 
                  width: '21.59cm',
                  height: '55.88cm',
-                 padding: '2.54cm 1.27cm', // Top/Bottom: 2.54cm, Left/Right: 1.27cm
+                 padding: '1.5cm 1.27cm 2.54cm 1.27cm', // Top: 1.5cm (reduced), Left/Right: 1.27cm, Bottom: 2.54cm
                  margin: '0 auto',
                  boxSizing: 'border-box',
                  overflow: 'hidden',
