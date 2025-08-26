@@ -81,13 +81,13 @@ export default function Resume() {
                }}>
             
             {/* Header Section - Apple-Inspired Professional Design */}
-            <div className="mb-3">
+            <div className="mb-6">
               <div className="flex items-start gap-4">
                 {/* Profile Photo */}
                 <img 
                   src={profileImage} 
                   alt="Tyler Bustard" 
-                  className="w-24 h-24 rounded-2xl object-cover shadow-md"
+                  className="w-28 h-28 rounded-2xl object-cover shadow-md"
                   data-testid="img-resume-profile"
                   style={{ border: '2px solid white', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
                 />
@@ -98,12 +98,12 @@ export default function Resume() {
                       style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif', letterSpacing: '-0.02em' }}>
                     Tyler Bustard
                   </h1>
-                  <h2 className="text-base text-blue-600 font-semibold mt-1">
+                  <h2 className="text-lg text-blue-600 font-semibold mt-2">
                     Finance & Technology Professional
                   </h2>
                   
                   {/* Contact Bar - Clean Design */}
-                  <div className="flex flex-wrap gap-x-5 gap-y-1 text-sm text-gray-600 mt-3">
+                  <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-600 mt-4">
                     <div className="flex items-center gap-1.5">
                       <Mail className="w-3.5 h-3.5 text-blue-500" />
                       <span>tbustard@unb.ca</span>
@@ -125,33 +125,33 @@ export default function Resume() {
               </div>
 
               {/* Professional Summary - Premium Card Design */}
-              <div className="mt-3 bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-3 border border-blue-100">
-                <p className="text-sm leading-relaxed text-gray-700">
+              <div className="mt-5 bg-gradient-to-r from-blue-50 to-gray-50 rounded-xl p-4 border border-blue-100">
+                <p className="text-sm leading-loose text-gray-700">
                   Driving innovation at the intersection of finance and technology. Delivering exceptional results through analytical expertise, strategic thinking, and client-focused solutions.
                 </p>
               </div>
             </div>
 
             {/* Education Section */}
-            <section className="mb-2">
-              <h3 className="text-base font-bold text-gray-900 mb-2 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Education</h3>
+            <section className="mb-5">
+              <h3 className="text-base font-bold text-gray-900 mb-4 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Education</h3>
               
-              <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
+              <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex gap-3">
                   <div className="flex-shrink-0">
-                    <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center border border-blue-200">
+                    <div className="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center border border-blue-200">
                       <img src={unbLogo} alt="UNB" className="w-7 h-7 object-contain" />
                     </div>
                   </div>
                   <div className="flex-1">
-                    <div className="flex justify-between items-start mb-2">
+                    <div className="flex justify-between items-start mb-3">
                       <div>
                         <h4 className="text-sm font-semibold text-gray-900">Bachelor of Business Administration</h4>
                         <p className="text-sm text-blue-600 font-medium">Finance Major • University of New Brunswick</p>
                       </div>
                       <span className="text-xs text-gray-600 px-1.5 py-0.5 rounded">2016-2020</span>
                     </div>
-                    <ul className="space-y-0.5">
+                    <ul className="space-y-2">
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
                         <span>1st Place CIBC Capital Markets Case Competition</span>
@@ -175,12 +175,12 @@ export default function Resume() {
             </section>
 
             {/* Professional Experience Section */}
-            <section className="mb-2">
-              <h3 className="text-base font-bold text-gray-900 mb-2 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Professional Experience</h3>
+            <section className="mb-5">
+              <h3 className="text-base font-bold text-gray-900 mb-4 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Professional Experience</h3>
               
-              <div className="space-y-2">
+              <div className="space-y-4">
                 {/* Fiscal.ai - NEW */}
-                <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex gap-3">
                     <div className="flex-shrink-0">
                       <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center border border-gray-200">
@@ -188,14 +188,14 @@ export default function Resume() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <div className="flex justify-between items-start mb-2">
+                      <div className="flex justify-between items-start mb-3">
                         <div>
                           <h4 className="text-sm font-bold text-gray-900">Equity Analyst</h4>
                           <p className="text-sm text-blue-600 font-semibold">Fiscal.ai • Toronto, ON</p>
                         </div>
                         <span className="text-xs text-gray-600 px-1.5 py-0.5 rounded">2023-Present</span>
                       </div>
-                      <ul className="space-y-0.5 mb-1">
+                      <ul className="space-y-1 mb-3">
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
                           <span>Analyze and compile public company financial statements, cutting reporting turnaround by 13%</span>
@@ -205,7 +205,7 @@ export default function Resume() {
                           <span>Collaborate with product and engineering to implement AI-driven data features, boosting adoption by 12%</span>
                         </li>
                       </ul>
-                      <div className="flex flex-wrap gap-1">
+                      <div className="flex flex-wrap gap-2">
                         {['Financial Analysis', 'AI Integration', 'Data Analytics', 'Python', 'SQL'].map(skill => (
                           <span key={skill} className="inline-block px-1.5 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
                             {skill}
@@ -217,7 +217,7 @@ export default function Resume() {
                 </div>
 
                 {/* BMO Private Wealth */}
-                <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex gap-3">
                     <div className="flex-shrink-0">
                       <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center border border-blue-200">
@@ -225,14 +225,14 @@ export default function Resume() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <div className="flex justify-between items-start mb-2">
+                      <div className="flex justify-between items-start mb-3">
                         <div>
                           <h4 className="text-sm font-bold text-gray-900">Portfolio Assistant</h4>
                           <p className="text-sm text-blue-600 font-semibold">BMO Private Wealth • Toronto, ON</p>
                         </div>
                         <span className="text-xs text-gray-600 px-1.5 py-0.5 rounded">2022-2023</span>
                       </div>
-                      <ul className="space-y-0.5 mb-1">
+                      <ul className="space-y-1 mb-3">
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
                           <span>Advised Investment Counsellors managing $100M+ AUM, reducing preparation time by 12%</span>
@@ -242,7 +242,7 @@ export default function Resume() {
                           <span>Bolstered client communications, boosting response rates by 9%, heightening client satisfaction and retention</span>
                         </li>
                       </ul>
-                      <div className="flex flex-wrap gap-1">
+                      <div className="flex flex-wrap gap-2">
                         {['Portfolio Management', 'Wealth Management', 'Client Relations', 'Financial Modeling', 'Advanced Excel'].map(skill => (
                           <span key={skill} className="inline-block px-1.5 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
                             {skill}
@@ -254,7 +254,7 @@ export default function Resume() {
                 </div>
 
                 {/* TD Canada Trust */}
-                <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex gap-3">
                     <div className="flex-shrink-0">
                       <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center border border-green-200">
@@ -262,14 +262,14 @@ export default function Resume() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <div className="flex justify-between items-start mb-2">
+                      <div className="flex justify-between items-start mb-3">
                         <div>
                           <h4 className="text-sm font-bold text-gray-900">Financial Advisor</h4>
                           <p className="text-sm text-blue-600 font-semibold">TD Canada Trust • Kingston, ON</p>
                         </div>
                         <span className="text-xs text-gray-600 px-1.5 py-0.5 rounded">2021-2022</span>
                       </div>
-                      <ul className="space-y-0.5 mb-1">
+                      <ul className="space-y-1 mb-3">
                         <li className="text-sm text-gray-700 flex items-start">
                           <span className="text-blue-500 mr-2">•</span>
                           <span>Cultivated strong client relationships, achieving 11% sales increase through needs-based advisory</span>
@@ -279,7 +279,7 @@ export default function Resume() {
                           <span>Exceeded targets, achieving top 15% performance ranking within district</span>
                         </li>
                       </ul>
-                      <div className="flex flex-wrap gap-1">
+                      <div className="flex flex-wrap gap-2">
                         {['Financial Planning', 'Sales', 'Investment Advisory', 'Compliance', 'CRM'].map(skill => (
                           <span key={skill} className="inline-block px-1.5 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700 border border-blue-200">
                             {skill}
@@ -291,15 +291,15 @@ export default function Resume() {
                 </div>
 
                 {/* Co-op Experience Section - Grouped */}
-                <div className="bg-gray-50 rounded-lg p-1.5 border border-gray-100">
-                  <h4 className="text-xs font-semibold text-gray-700 mb-1.5 flex items-center gap-1.5">
-                    <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded font-medium">CO-OP</span>
-                    <span className="text-xs text-gray-600">Early Career Experience</span>
+                <div className="bg-gray-50 rounded-lg p-3 border border-gray-100">
+                  <h4 className="text-xs font-semibold text-gray-700 mb-3 flex items-center gap-2">
+                    <span className="bg-blue-600 text-white text-sm px-3 py-1 rounded font-medium">CO-OP</span>
+                    <span className="text-sm text-gray-600">Early Career Experience</span>
                   </h4>
                   
-                  <div className="grid grid-cols-2 gap-1.5">
+                  <div className="grid grid-cols-2 gap-3">
                     {/* RBC Banking */}
-                    <div className="bg-white rounded p-1.5 border border-gray-100">
+                    <div className="bg-white rounded p-2.5 border border-gray-100">
                       <div className="flex items-start gap-2">
                         <div className="flex-shrink-0">
                           <div className="w-7 h-7 bg-white rounded flex items-center justify-center border border-gray-200">
@@ -315,7 +315,7 @@ export default function Resume() {
                     </div>
 
                     {/* RBC Client Advisor */}
-                    <div className="bg-white rounded p-1.5 border border-gray-100">
+                    <div className="bg-white rounded p-2.5 border border-gray-100">
                       <div className="flex items-start gap-2">
                         <div className="flex-shrink-0">
                           <div className="w-7 h-7 bg-white rounded flex items-center justify-center border border-gray-200">
@@ -331,7 +331,7 @@ export default function Resume() {
                     </div>
 
                     {/* Irving Oil */}
-                    <div className="bg-white rounded p-1.5 border border-gray-100">
+                    <div className="bg-white rounded p-2.5 border border-gray-100">
                       <div className="flex items-start gap-2">
                         <div className="flex-shrink-0">
                           <div className="w-7 h-7 bg-white rounded flex items-center justify-center border border-gray-200">
@@ -347,7 +347,7 @@ export default function Resume() {
                     </div>
 
                     {/* Grant Thornton */}
-                    <div className="bg-white rounded p-1.5 border border-gray-100">
+                    <div className="bg-white rounded p-2.5 border border-gray-100">
                       <div className="flex items-start gap-2">
                         <div className="flex-shrink-0">
                           <div className="w-7 h-7 bg-white rounded flex items-center justify-center border border-gray-200">
@@ -367,12 +367,12 @@ export default function Resume() {
             </section>
 
             {/* Professional Certifications */}
-            <section className="mb-2">
-              <h3 className="text-base font-bold text-gray-900 mb-2 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Professional Certifications</h3>
+            <section className="mb-5">
+              <h3 className="text-base font-bold text-gray-900 mb-4 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Professional Certifications</h3>
               
-              <div className="grid grid-cols-2 gap-1.5">
+              <div className="grid grid-cols-2 gap-3">
                 {/* CFA */}
-                <div className="bg-white rounded border border-gray-100 p-1.5">
+                <div className="bg-white rounded border border-gray-100 p-3">
                   <div className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-white rounded flex items-center justify-center border border-gray-200">
                       <img src={cfaLogo} alt="CFA" className="w-4 h-4 object-contain" />
@@ -386,7 +386,7 @@ export default function Resume() {
                 </div>
 
                 {/* Training the Street */}
-                <div className="bg-white rounded border border-gray-100 p-1.5">
+                <div className="bg-white rounded border border-gray-100 p-3">
                   <div className="flex items-start gap-2">
                     <div className="w-6 h-6 bg-white rounded flex items-center justify-center border border-gray-200">
                       <img src={trainingTheStreetLogo} alt="TTS" className="w-4 h-4 object-contain" />
@@ -400,7 +400,7 @@ export default function Resume() {
                 </div>
 
                 {/* GRE */}
-                <div className="bg-white rounded border border-gray-100 p-1.5">
+                <div className="bg-white rounded border border-gray-100 p-3">
                   <div className="flex items-start gap-2">
                     <div className="w-8 h-8 bg-white rounded flex items-center justify-center border border-gray-200">
                       <img src={etsLogo} alt="ETS" className="w-5 h-5 object-contain" />
@@ -414,7 +414,7 @@ export default function Resume() {
                 </div>
 
                 {/* Bloomberg */}
-                <div className="bg-white rounded border border-gray-100 p-1.5">
+                <div className="bg-white rounded border border-gray-100 p-3">
                   <div className="flex items-start gap-2">
                     <div className="w-8 h-8 bg-white rounded flex items-center justify-center border border-gray-200">
                       <img src={bloombergLogo} alt="Bloomberg" className="w-5 h-5 object-contain" />
@@ -430,25 +430,25 @@ export default function Resume() {
             </section>
 
             {/* Community Leadership */}
-            <section className="mb-2">
-              <h3 className="text-base font-bold text-gray-900 mb-2 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Community Leadership</h3>
+            <section className="mb-5">
+              <h3 className="text-base font-bold text-gray-900 mb-4 uppercase tracking-wide" style={{ letterSpacing: '0.05em' }}>Community Leadership</h3>
               
-              <div className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow">
+              <div className="bg-white rounded-xl border border-gray-200 p-4 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex gap-3">
                   <div className="flex-shrink-0">
-                    <div className="w-10 h-10 bg-white rounded-lg shadow-sm flex items-center justify-center border border-red-200">
+                    <div className="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center border border-red-200">
                       <img src={unitedWayLogo} alt="United Way" className="w-7 h-7 object-contain" />
                     </div>
                   </div>
                   <div className="flex-1">
-                    <div className="flex justify-between items-start mb-2">
+                    <div className="flex justify-between items-start mb-3">
                       <div>
                         <h4 className="text-sm font-bold text-gray-900">Next Gen Ambassador</h4>
                         <p className="text-sm text-blue-600 font-semibold">United Way • Kingston, ON</p>
                       </div>
                       <span className="text-xs text-gray-600 px-1.5 py-0.5 rounded">2020-2023</span>
                     </div>
-                    <ul className="space-y-0.5">
+                    <ul className="space-y-2">
                       <li className="text-sm text-gray-700 flex items-start">
                         <span className="text-blue-500 mr-2">•</span>
                         <span>Led fundraising strategies, achieving 20% increase in funds raised over three years</span>
@@ -463,8 +463,8 @@ export default function Resume() {
               </div>
 
               {/* Additional Community - Two Cards */}
-              <div className="mt-1.5 grid grid-cols-2 gap-1.5">
-                <div className="bg-white rounded-lg p-1.5 border border-gray-200 hover:shadow-sm transition-shadow">
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                <div className="bg-white rounded-lg p-3 border border-gray-200 hover:shadow-sm transition-shadow">
                   <div className="flex items-start gap-2">
                     <div className="flex-shrink-0">
                       <div className="w-7 h-7 bg-white rounded flex items-center justify-center border border-gray-200">
@@ -478,7 +478,7 @@ export default function Resume() {
                     </div>
                   </div>
                 </div>
-                <div className="bg-white rounded-lg p-1.5 border border-gray-200 hover:shadow-sm transition-shadow">
+                <div className="bg-white rounded-lg p-3 border border-gray-200 hover:shadow-sm transition-shadow">
                   <div className="flex items-start gap-2">
                     <div className="flex-shrink-0">
                       <div className="w-7 h-7 bg-white rounded flex items-center justify-center border border-gray-200">
