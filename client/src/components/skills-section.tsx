@@ -124,7 +124,7 @@ export default function CertificationsSection() {
               Certifications
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Advanced certifications in finance, technology, and professional development
+              Certifications in finance, technology, and banking
             </p>
           </div>
 

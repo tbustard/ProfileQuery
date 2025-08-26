@@ -288,7 +288,7 @@ export default function HeroSection() {
                 <h3 className="text-lg font-semibold text-foreground">Certifications</h3>
               </div>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Advanced certifications in finance, technology, and professional development
+                Certifications in finance, technology, and banking
               </p>
             </div>
 
