@@ -22,6 +22,8 @@ import csiLogo from "@assets/canadian securities institute_1755923720191.png";
 import etsLogo from "@assets/ETS_1755939510188.png";
 import bloombergLogo from "@assets/bloomberg_1755923720190.png";
 import wallStreetPrepLogo from "@assets/wall street prep_1755923720193.png";
+import courseraLogo from "@assets/Coursera_1755937682843.png";
+import mcgillLogo from "@assets/mcgill_1755937693386.png";
 
 export default function Resume() {
   const isPageLoaded = useInitialPageAnimation(400);
