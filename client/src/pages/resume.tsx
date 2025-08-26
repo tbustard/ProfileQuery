@@ -451,54 +451,54 @@ export default function Resume() {
                 </div>
               </div>
 
-              {/* Additional Training - Compact Categories */}
-              <div className="mt-1 bg-gradient-to-r from-gray-50 to-blue-50 rounded p-2 border border-gray-200">
-                <p className="text-sm font-semibold text-gray-700 mb-2">Additional Training & Certifications:</p>
-                <div className="grid grid-cols-3 gap-3">
-                  {/* Finance */}
-                  <div className="flex items-center gap-1">
-                    <div className="flex gap-0.5">
-                      <div className="w-5 h-5 bg-blue-50 rounded flex items-center justify-center">
-                        <Award className="w-3 h-3 text-blue-600" />
+              {/* Additional Training & Certifications - Clean Professional Design */}
+              <div className="mt-2">
+                <p className="text-sm font-semibold text-gray-900 mb-2">Additional Training & Certifications:</p>
+                <div className="flex justify-between gap-3">
+                  {/* Finance Category */}
+                  <div className="flex-1 bg-white rounded-xl border border-gray-200 p-3 flex items-center gap-3">
+                    <div className="flex gap-1">
+                      <div className="w-9 h-9 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
+                        <img src={courseraLogo} alt="Coursera" className="w-6 h-6 object-contain" />
                       </div>
-                      <div className="w-5 h-5 bg-gray-50 rounded flex items-center justify-center">
-                        <img src={etsLogo} alt="ETS" className="w-3.5 h-3.5 object-contain" />
+                      <div className="w-9 h-9 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
+                        <img src={mcgillLogo} alt="McGill" className="w-6 h-6 object-contain" />
                       </div>
                     </div>
-                    <div>
-                      <span className="text-sm text-gray-700">Finance</span>
+                    <div className="flex items-center">
+                      <span className="text-sm font-medium text-gray-700">Finance</span>
                       <span className="text-sm font-bold text-blue-600 ml-1">(10)</span>
                     </div>
                   </div>
                   
-                  {/* Data & Technology */}
-                  <div className="flex items-center gap-1">
-                    <div className="flex gap-0.5">
-                      <div className="w-5 h-5 bg-orange-50 rounded flex items-center justify-center">
-                        <img src={bloombergLogo} alt="Bloomberg" className="w-3.5 h-3.5 object-contain" />
+                  {/* Data & Technology Category */}
+                  <div className="flex-1 bg-white rounded-xl border border-gray-200 p-3 flex items-center gap-3">
+                    <div className="flex gap-1">
+                      <div className="w-9 h-9 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
+                        <img src={wallStreetPrepLogo} alt="Wall Street Prep" className="w-6 h-6 object-contain" />
                       </div>
-                      <div className="w-5 h-5 bg-blue-50 rounded flex items-center justify-center">
-                        <img src={wallStreetPrepLogo} alt="WSP" className="w-3.5 h-3.5 object-contain" />
+                      <div className="w-9 h-9 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
+                        <img src={unbLogo} alt="UNB" className="w-6 h-6 object-contain" />
                       </div>
                     </div>
-                    <div>
-                      <span className="text-sm text-gray-700">Data & Tech</span>
+                    <div className="flex items-center">
+                      <span className="text-sm font-medium text-gray-700">Data & Tech</span>
                       <span className="text-sm font-bold text-blue-600 ml-1">(6)</span>
                     </div>
                   </div>
                   
-                  {/* Advanced Analytics */}
-                  <div className="flex items-center gap-1">
-                    <div className="flex gap-0.5">
-                      <div className="w-5 h-5 bg-red-50 rounded flex items-center justify-center">
-                        <img src={csiLogo} alt="CSI" className="w-3.5 h-3.5 object-contain" />
+                  {/* Analytics Category */}
+                  <div className="flex-1 bg-white rounded-xl border border-gray-200 p-3 flex items-center gap-3">
+                    <div className="flex gap-1">
+                      <div className="w-9 h-9 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
+                        <img src={csiLogo} alt="CSI" className="w-6 h-6 object-contain" />
                       </div>
-                      <div className="w-5 h-5 bg-purple-50 rounded flex items-center justify-center">
-                        <img src={etsLogo} alt="ETS" className="w-3.5 h-3.5 object-contain" />
+                      <div className="w-9 h-9 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center">
+                        <Award className="w-5 h-5 text-blue-600" />
                       </div>
                     </div>
-                    <div>
-                      <span className="text-sm text-gray-700">Analytics</span>
+                    <div className="flex items-center">
+                      <span className="text-sm font-medium text-gray-700">Analytics</span>
                       <span className="text-sm font-bold text-blue-600 ml-1">(5)</span>
                     </div>
                   </div>
