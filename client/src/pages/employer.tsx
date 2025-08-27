@@ -37,8 +37,6 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
   const [isLoading, setIsLoading] = useState(false);
   const [previewVideo, setPreviewVideo] = useState<VideoUpload | null>(null);
   const [showPreviewDialog, setShowPreviewDialog] = useState(false);
-  const [showPdfViewer, setShowPdfViewer] = useState(false);
-  const [previewPdf, setPreviewPdf] = useState<ResumeUpload | null>(null);
   const queryClient = useQueryClient();
   
   // Fetch videos from API
@@ -284,11 +282,6 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
   const handleViewVideo = (video: VideoUpload) => {
     setPreviewVideo(video);
     setShowPreviewDialog(true);
-  };
-
-  const handleViewPdf = (resume: ResumeUpload) => {
-    setPreviewPdf(resume);
-    setShowPdfViewer(true);
   };
 
   return (
@@ -732,8 +725,10 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                             <Button
                               size="sm"
                               variant="ghost"
-                              onClick={() => handleViewPdf(resume)}
-                              className="text-gray-400 hover:text-gray-600 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all duration-200 hover:scale-105"
+                              onClick={() => {
+                                window.open(resume.fileUrl, '_blank');
+                              }}
+                              className="text-gray-400 hover:text-gray-600"
                               data-testid={`button-view-${resume.id}`}
                             >
                               View
@@ -802,64 +797,6 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                     Currently Active
                   </span>
                 )}
-              </div>
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
-
-      {/* PDF Viewer Dialog - Mobile Optimized */}
-      <Dialog open={showPdfViewer} onOpenChange={setShowPdfViewer}>
-        <DialogContent className="max-w-full max-h-full w-full h-full p-0 gap-0" 
-                       style={{
-                         height: '100vh',
-                         width: '100vw',
-                         maxWidth: '100vw',
-                         maxHeight: '100vh',
-                         margin: 0,
-                         borderRadius: 0,
-                         border: 'none'
-                       }}>
-          <DialogHeader className="px-6 py-4 border-b bg-white/95 backdrop-blur-sm">
-            <DialogTitle className="text-lg font-semibold" style={{ 
-              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif' 
-            }}>
-              {previewPdf?.fileName}
-            </DialogTitle>
-          </DialogHeader>
-          {previewPdf && (
-            <div className="flex-1 relative">
-              <iframe
-                src={`${previewPdf.fileUrl}#toolbar=1&navpanes=1&scrollbar=1&zoom=fit`}
-                className="w-full h-full border-none"
-                style={{
-                  height: 'calc(100vh - 80px)', // Account for header
-                  width: '100%',
-                  minHeight: '500px'
-                }}
-                title={`Resume: ${previewPdf.fileName}`}
-                allow="fullscreen"
-              />
-              
-              {/* Mobile-specific controls overlay */}
-              <div className="absolute top-4 right-4 md:hidden">
-                <div className="flex flex-col gap-2">
-                  <Button
-                    size="sm"
-                    onClick={() => {
-                      const link = document.createElement('a');
-                      link.href = previewPdf.fileUrl;
-                      link.download = previewPdf.fileName;
-                      document.body.appendChild(link);
-                      link.click();
-                      document.body.removeChild(link);
-                    }}
-                    className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-3 py-2 text-xs font-medium shadow-lg"
-                    style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
-                  >
-                    Download
-                  </Button>
-                </div>
               </div>
             </div>
           )}
