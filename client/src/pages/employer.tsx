@@ -321,13 +321,14 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                  WebkitBackdropFilter: 'blur(20px) saturate(180%)',
                  boxShadow: '0 20px 80px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
                }}>
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4" style={{ 
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight" style={{ 
               fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
               letterSpacing: '-0.03em',
               background: 'linear-gradient(135deg, #1f2937 0%, #3b82f6 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
+              backgroundClip: 'text',
+              paddingBottom: '0.1em'
             }}>
               Media Management
             </h1>
@@ -373,15 +374,18 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                 <div className="space-y-8">
                   <div className="space-y-3">
                     <Label htmlFor="video-file" className="text-sm font-medium text-gray-700">Video File</Label>
-                    <Input
-                      id="video-file"
-                      type="file"
-                      accept="video/*"
-                      onChange={handleVideoSelect}
-                      disabled={videoUploadMutation.isPending}
-                      className="cursor-pointer border-gray-200 rounded-2xl h-14 text-sm bg-white/60 backdrop-blur-sm hover:bg-white/80 transition-all duration-200 file:mr-4 file:py-3 file:px-6 file:rounded-xl file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-                      data-testid="input-video-file"
-                    />
+                    <div className="relative">
+                      <Input
+                        id="video-file"
+                        type="file"
+                        accept="video/*"
+                        onChange={handleVideoSelect}
+                        disabled={videoUploadMutation.isPending}
+                        className="cursor-pointer border-gray-200 rounded-2xl h-14 text-sm bg-white/60 backdrop-blur-sm hover:bg-white/80 transition-all duration-200 file:mr-4 file:py-3 file:px-6 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-gradient-to-r file:from-blue-50 file:to-blue-100 file:text-blue-700 hover:file:from-blue-100 hover:file:to-blue-200 file:shadow-md hover:file:shadow-lg file:transition-all file:duration-200"
+                        data-testid="input-video-file"
+                        style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+                      />
+                    </div>
                     {selectedVideo && (
                       <div className="flex items-center gap-2 p-3 bg-blue-50 rounded-lg">
                         <Video className="w-4 h-4 text-blue-600" />
@@ -585,15 +589,18 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                 <div className="space-y-8">
                   <div className="space-y-3">
                     <Label htmlFor="pdf-file" className="text-sm font-medium text-gray-700">Resume PDF File</Label>
-                    <Input
-                      id="pdf-file"
-                      type="file"
-                      accept=".pdf"
-                      onChange={handlePdfSelect}
-                      disabled={pdfUploadMutation.isPending}
-                      className="cursor-pointer border-gray-200 rounded-2xl h-14 text-sm bg-white/60 backdrop-blur-sm hover:bg-white/80 transition-all duration-200 file:mr-4 file:py-3 file:px-6 file:rounded-xl file:border-0 file:text-sm file:font-medium file:bg-green-50 file:text-green-700 hover:file:bg-green-100"
-                      data-testid="input-pdf-file"
-                    />
+                    <div className="relative">
+                      <Input
+                        id="pdf-file"
+                        type="file"
+                        accept=".pdf"
+                        onChange={handlePdfSelect}
+                        disabled={pdfUploadMutation.isPending}
+                        className="cursor-pointer border-gray-200 rounded-2xl h-14 text-sm bg-white/60 backdrop-blur-sm hover:bg-white/80 transition-all duration-200 file:mr-4 file:py-3 file:px-6 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-gradient-to-r file:from-green-50 file:to-green-100 file:text-green-700 hover:file:from-green-100 hover:file:to-green-200 file:shadow-md hover:file:shadow-lg file:transition-all file:duration-200"
+                        data-testid="input-pdf-file"
+                        style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+                      />
+                    </div>
                     {selectedPdf && (
                       <div className="flex items-center gap-2 p-3 bg-green-50 rounded-lg">
                         <FileText className="w-4 h-4 text-green-600" />
