@@ -1,10 +1,22 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { FaTrophy, FaStar, FaGraduationCap } from "react-icons/fa";
 import { useScrollAnimation, useStaggeredScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useCounterAnimation } from "@/hooks/use-counter-animation";
 import universityLogo from "@assets/University_of_New_Brunswick_Logo.svg_1755912478863.png";
 import cibcLogo from "@assets/cibc_1755931822053.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
 import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
+
+// Counter component for scholarship amount
+function ScholarshipCounter() {
+  const { count, elementRef } = useCounterAnimation({ end: 47500, delay: 0, duration: 2500 });
+  
+  return (
+    <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-2 sm:mb-3" ref={elementRef}>
+      ${count.toLocaleString()}
+    </div>
+  );
+}
 
 export default function EducationSection() {
   const sectionAnimation = useScrollAnimation({ threshold: 0.15, triggerOnce: true });
@@ -209,7 +221,7 @@ export default function EducationSection() {
                   <div className="text-sm sm:text-base text-muted-foreground font-medium">CIBC Capital Markets M&A Case Competition Winner</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-2 sm:mb-3">$47,500</div>
+                  <ScholarshipCounter />
                   <div className="text-sm sm:text-base text-muted-foreground font-medium">Total Scholarships & Awards</div>
                 </div>
                 <div className="text-center">

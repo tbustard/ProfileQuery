@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useScrollAnimation, useStaggeredScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useCounterAnimation } from "@/hooks/use-counter-animation";
 import fiscalAiLogo from "@assets/fiscal_ai_logo_new.png";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
@@ -17,6 +18,28 @@ interface Experience {
   technologies: string[];
   logoSrc: string;
   color: string;
+}
+
+interface CounterStatProps {
+  end: number;
+  suffix?: string;
+  prefix?: string;
+  label: string;
+  className?: string;
+  delay?: number;
+}
+
+function CounterStat({ end, suffix = '', prefix = '', label, className = '', delay = 0 }: CounterStatProps) {
+  const { count, elementRef } = useCounterAnimation({ end, delay });
+  
+  return (
+    <div className="text-center" ref={elementRef}>
+      <div className={`text-4xl lg:text-5xl font-bold mb-3 ${className}`}>
+        {prefix}{count}{suffix}
+      </div>
+      <div className="text-muted-foreground font-medium">{label}</div>
+    </div>
+  );
 }
 
 export default function ExperienceSection() {
@@ -277,18 +300,25 @@ export default function ExperienceSection() {
                 Career Highlights
               </h3>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-foreground mb-3">6+</div>
-                  <div className="text-muted-foreground font-medium">Years Experience</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-green-600 mb-3">7</div>
-                  <div className="text-muted-foreground font-medium">Companies</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-primary mb-3">3</div>
-                  <div className="text-muted-foreground font-medium">Industries</div>
-                </div>
+                <CounterStat 
+                  end={6} 
+                  suffix="+" 
+                  label="Years Experience" 
+                  className="text-foreground"
+                  delay={0}
+                />
+                <CounterStat 
+                  end={7} 
+                  label="Companies" 
+                  className="text-green-600"
+                  delay={200}
+                />
+                <CounterStat 
+                  end={3} 
+                  label="Industries" 
+                  className="text-primary"
+                  delay={400}
+                />
               </div>
             </div>
           </div>
