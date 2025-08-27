@@ -201,18 +201,6 @@ export default function HeroSection() {
                        videosQuery.data.find((video: any) => video.isActive) ? 'Watch Introduction Video' : 'Introduction'}
                     </Button>
                   )}
-                  
-                  <Button
-                    onClick={() => scrollToSection('contact')}
-                    variant="outline"
-                    className="bg-white/10 backdrop-blur-sm border-white/20 text-foreground hover:bg-white/20 font-semibold px-6 sm:px-8 py-4 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-lg min-h-[56px]"
-                    data-testid="button-contact"
-                  >
-                    <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
-                      <Download size={16} />
-                    </div>
-                    Get In Touch
-                  </Button>
                 </div>
               </div>
             </div>
