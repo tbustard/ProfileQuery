@@ -556,18 +556,36 @@ function EmployerLogin({ onLogin }: { onLogin: (user: { email: string }) => void
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: '#f5f5f7' }}>
+      {/* Back Button */}
+      <Button 
+        variant="ghost" 
+        onClick={() => {
+          if (window.history.length > 1) {
+            window.history.back();
+          } else {
+            window.location.href = '/';
+          }
+        }}
+        className="fixed top-6 left-6 text-gray-600 hover:text-gray-900 font-medium z-10"
+        data-testid="button-back"
+        style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+      >
+        <ArrowLeft className="w-4 h-4 mr-2" />
+        Back
+      </Button>
+      
       <Card className="w-full max-w-md bg-white/95 backdrop-blur-xl border border-white/40 shadow-xl">
         <CardHeader className="text-center space-y-2">
           <CardTitle className="text-2xl font-semibold text-gray-900" style={{ 
             fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
             letterSpacing: '-0.025em'
           }}>
-            Video Upload Access
+            Media Upload Access
           </CardTitle>
           <CardDescription className="text-gray-600" style={{ 
             fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
           }}>
-            Sign in to upload and manage video files
+            Sign in to upload and manage videos and resume PDFs
           </CardDescription>
         </CardHeader>
         <CardContent>
