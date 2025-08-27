@@ -31,6 +31,8 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
   const { toast } = useToast();
   const [selectedVideo, setSelectedVideo] = useState<File | null>(null);
   const [selectedPdf, setSelectedPdf] = useState<File | null>(null);
+  const [videoTitle, setVideoTitle] = useState<string>('');
+  const [resumeTitle, setResumeTitle] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
   const [previewVideo, setPreviewVideo] = useState<VideoUpload | null>(null);
   const [showPreviewDialog, setShowPreviewDialog] = useState(false);
@@ -52,9 +54,10 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
 
   // Video upload mutation
   const videoUploadMutation = useMutation({
-    mutationFn: async (file: File) => {
+    mutationFn: async ({ file, title }: { file: File, title: string }) => {
       const formData = new FormData();
       formData.append('video', file);
+      formData.append('title', title);
       formData.append('uploadedBy', user.email);
       
       const response = await fetch('/api/videos/upload', {
@@ -74,6 +77,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
         description: "Your introduction video has been uploaded and is now active!",
       });
       setSelectedVideo(null);
+      setVideoTitle('');
       // Refresh videos list
       videosQuery.refetch();
     },
@@ -116,8 +120,8 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
   };
 
   const handleVideoUpload = () => {
-    if (selectedVideo) {
-      videoUploadMutation.mutate(selectedVideo);
+    if (selectedVideo && videoTitle.trim()) {
+      videoUploadMutation.mutate({ file: selectedVideo, title: videoTitle.trim() });
     }
   };
 
@@ -150,9 +154,10 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
 
   // PDF upload mutation
   const pdfUploadMutation = useMutation({
-    mutationFn: async (file: File) => {
+    mutationFn: async ({ file, title }: { file: File, title: string }) => {
       const formData = new FormData();
       formData.append('resume', file);
+      formData.append('title', title);
       formData.append('userId', 'employer');
       
       const response = await fetch('/api/resumes/upload', {
@@ -172,6 +177,8 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
         description: "Your resume PDF has been uploaded successfully!",
       });
       setSelectedPdf(null);
+      setResumeTitle('');
+      resumesQuery.refetch();
     },
     onError: () => {
       toast({
@@ -183,8 +190,8 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
   });
 
   const handlePdfUpload = () => {
-    if (selectedPdf) {
-      pdfUploadMutation.mutate(selectedPdf);
+    if (selectedPdf && resumeTitle.trim()) {
+      pdfUploadMutation.mutate({ file: selectedPdf, title: resumeTitle.trim() });
     }
   };
 
@@ -333,19 +340,20 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="description">Description (Optional)</Label>
-                <Textarea
-                  id="description"
-                  placeholder="Add a description for this version..."
+                <Label htmlFor="video-title">Video Title</Label>
+                <Input
+                  id="video-title"
+                  placeholder="Enter a title for this video..."
+                  value={videoTitle}
+                  onChange={(e) => setVideoTitle(e.target.value)}
                   disabled={videoUploadMutation.isPending}
-                  rows={3}
-                  data-testid="input-description"
+                  data-testid="input-video-title"
                 />
               </div>
 
               <Button 
                 onClick={handleVideoUpload}
-                disabled={!selectedVideo || videoUploadMutation.isPending}
+                disabled={!selectedVideo || !videoTitle.trim() || videoUploadMutation.isPending}
                 data-testid="button-upload-video"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl py-2.5 transition-all duration-200 hover:scale-105"
                 style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
@@ -397,9 +405,21 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                 )}
               </div>
 
+              <div className="space-y-2">
+                <Label htmlFor="resume-title">Resume Title</Label>
+                <Input
+                  id="resume-title"
+                  placeholder="Enter a title for this resume..."
+                  value={resumeTitle}
+                  onChange={(e) => setResumeTitle(e.target.value)}
+                  disabled={pdfUploadMutation.isPending}
+                  data-testid="input-resume-title"
+                />
+              </div>
+
               <Button 
                 onClick={handlePdfUpload}
-                disabled={!selectedPdf || pdfUploadMutation.isPending}
+                disabled={!selectedPdf || !resumeTitle.trim() || pdfUploadMutation.isPending}
                 data-testid="button-upload-pdf"
                 className="w-full bg-green-600 hover:bg-green-700 text-white font-medium rounded-xl py-2.5 transition-all duration-200 hover:scale-105"
                 style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
@@ -456,7 +476,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                           <p className="text-sm text-gray-500" style={{ 
                             fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
                           }}>
-                            Roblox Intro Video
+                            Video
                           </p>
                           <p className="text-xs text-gray-400 mt-1" style={{ 
                             fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 

@@ -288,7 +288,7 @@ Focus on investment analysis, portfolio management, and financial reporting quer
         return res.status(400).json({ error: "No resume file provided" });
       }
 
-      const { userId = 'employer' } = req.body;
+      const { userId = 'employer', title } = req.body;
       
       // Generate a unique filename for the resume since we're using memory storage
       const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -307,7 +307,7 @@ Focus on investment analysis, portfolio management, and financial reporting quer
       
       // Create resume record in storage with all required fields
       const resume = await storage.createResumeUpload({
-        fileName: req.file.originalname,
+        fileName: title || req.file.originalname, // Use custom title if provided
         fileUrl: `/uploads/resumes/${generatedFilename}`,
         userId,
         fileSize: req.file.size,
@@ -436,7 +436,7 @@ Focus on investment analysis, portfolio management, and financial reporting quer
       // Create video record in storage
       const video = await storage.createVideo({
         title: req.body.title || req.file.originalname,
-        fileName: req.file.originalname,
+        fileName: req.body.title || req.file.originalname, // Use custom title if provided
         fileUrl: `/uploads/videos/${req.file.filename}`,
         mimeType: req.file.mimetype,
         fileSize: req.file.size,
