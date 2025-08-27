@@ -269,9 +269,9 @@ export default function Navigation() {
                           onMouseLeave={handleDropdownLeave}
                         >
                           <div className="space-y-1">
-                            <div className="text-sm font-bold text-gray-900">Bachelor of Business Administration</div>
-                            <div className="text-xs text-gray-600">Finance Major • University of New Brunswick</div>
-                            <div className="text-xs text-gray-500">2016-2020</div>
+                            <div className="text-sm font-bold text-gray-900">University of New Brunswick</div>
+                            <div className="text-xs text-gray-600">Bachelor of Business Administration</div>
+                            <div className="text-xs text-gray-500">Fredericton, NB • 2016-2020</div>
                           </div>
                         </div>
                       </div>
@@ -312,16 +312,54 @@ export default function Navigation() {
                           onMouseEnter={() => handleDropdownEnter('experience')}
                           onMouseLeave={handleDropdownLeave}
                         >
-                          <div className="space-y-2">
-                            <div>
+                          <div className="space-y-2 max-h-96 overflow-y-auto">
+                            {/* Fiscal.ai */}
+                            <div className="space-y-1">
                               <div className="text-sm font-bold text-gray-900">Equity Analyst</div>
-                              <div className="text-xs text-gray-600">Fiscal.ai • Toronto, ON</div>
-                              <div className="text-xs text-gray-500">2023-Present</div>
+                              <div className="text-xs text-gray-600">Fiscal.ai</div>
+                              <div className="text-xs text-gray-500">Toronto, ON • 2023-Present</div>
                             </div>
-                            <div>
+                            
+                            {/* BMO Private Wealth */}
+                            <div className="space-y-1">
                               <div className="text-sm font-bold text-gray-900">Portfolio Assistant</div>
-                              <div className="text-xs text-gray-600">BMO Private Wealth • Toronto, ON</div>
-                              <div className="text-xs text-gray-500">2022-2023</div>
+                              <div className="text-xs text-gray-600">BMO Private Wealth</div>
+                              <div className="text-xs text-gray-500">Toronto, ON • 2022-2023</div>
+                            </div>
+                            
+                            {/* TD Canada Trust */}
+                            <div className="space-y-1">
+                              <div className="text-sm font-bold text-gray-900">Financial Advisor</div>
+                              <div className="text-xs text-gray-600">TD Canada Trust</div>
+                              <div className="text-xs text-gray-500">Kingston, ON • 2021-2022</div>
+                            </div>
+                            
+                            {/* RBC Banking Advisor */}
+                            <div className="space-y-1">
+                              <div className="text-sm font-bold text-gray-900">Banking Advisor</div>
+                              <div className="text-xs text-gray-600">Royal Bank of Canada</div>
+                              <div className="text-xs text-gray-500">Kingston, ON • 2020-2021</div>
+                            </div>
+                            
+                            {/* RBC Client Advisor Intern */}
+                            <div className="space-y-1">
+                              <div className="text-sm font-bold text-gray-900">Client Advisor Intern</div>
+                              <div className="text-xs text-gray-600">Royal Bank of Canada</div>
+                              <div className="text-xs text-gray-500">Fredericton, NB • 2019-2020</div>
+                            </div>
+                            
+                            {/* Irving Oil */}
+                            <div className="space-y-1">
+                              <div className="text-sm font-bold text-gray-900">Marketing Intern</div>
+                              <div className="text-xs text-gray-600">Irving Oil Limited</div>
+                              <div className="text-xs text-gray-500">Saint John, NB • 2018</div>
+                            </div>
+                            
+                            {/* Grant Thornton */}
+                            <div className="space-y-1">
+                              <div className="text-sm font-bold text-gray-900">Tax Return Intern</div>
+                              <div className="text-xs text-gray-600">Grant Thornton LLP</div>
+                              <div className="text-xs text-gray-500">Saint John, NB • 2018</div>
                             </div>
                           </div>
                         </div>
@@ -350,7 +388,7 @@ export default function Navigation() {
                     
                     {/* Certifications Dropdown */}
                     {openDropdown === 'certifications' && (
-                      <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
+                      <div className="absolute top-full left-0 mt-1 w-96 z-[55]">
                         <div 
                           className="rounded-xl p-4 shadow-xl transition-all duration-200"
                           style={{
@@ -363,11 +401,52 @@ export default function Navigation() {
                           onMouseEnter={() => handleDropdownEnter('certifications')}
                           onMouseLeave={handleDropdownLeave}
                         >
-                          <div className="space-y-2">
-                            <div className="text-sm font-bold text-gray-900">Professional Certifications</div>
-                            <div className="text-xs text-gray-600">CFA Level III Passed • CSI</div>
-                            <div className="text-xs text-gray-500">Financial Modeling & Analysis</div>
+                        <div className="space-y-2 max-h-96 overflow-y-auto">
+                          
+                          {/* Key Certifications */}
+                          <div className="space-y-1">
+                            <div className="text-sm font-bold text-gray-900">CFA Level I Candidate</div>
+                            <div className="text-xs text-gray-600">CFA Institute</div>
+                            <div className="text-xs text-gray-500">Financial Excellence • 2025</div>
                           </div>
+                          
+                          <div className="space-y-1">
+                            <div className="text-sm font-bold text-gray-900">Data Analytics Professional</div>
+                            <div className="text-xs text-gray-600">Google</div>
+                            <div className="text-xs text-gray-500">Data & Technology • 2023</div>
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <div className="text-sm font-bold text-gray-900">Canadian Securities Course</div>
+                            <div className="text-xs text-gray-600">Canadian Securities Institute</div>
+                            <div className="text-xs text-gray-500">Financial Excellence • 2021</div>
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <div className="text-sm font-bold text-gray-900">Econometrics: Methods & Applications</div>
+                            <div className="text-xs text-gray-600">Erasmus University</div>
+                            <div className="text-xs text-gray-500">Advanced Analytics • 2024</div>
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <div className="text-sm font-bold text-gray-900">Python for Everybody</div>
+                            <div className="text-xs text-gray-600">University of Michigan</div>
+                            <div className="text-xs text-gray-500">Data & Technology • 2023</div>
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <div className="text-sm font-bold text-gray-900">GRE General Test</div>
+                            <div className="text-xs text-gray-600">ETS</div>
+                            <div className="text-xs text-gray-500">Standardized Exam • 2024</div>
+                          </div>
+                          
+                          <div className="space-y-1">
+                            <div className="text-sm font-bold text-gray-900">View All Certifications</div>
+                            <div className="text-xs text-gray-600">22 Professional Certifications</div>
+                            <div className="text-xs text-gray-500">4 Categories</div>
+                          </div>
+                          
+                        </div>
                         </div>
                       </div>
                     )}
@@ -407,11 +486,30 @@ export default function Navigation() {
                           onMouseEnter={() => handleDropdownEnter('community')}
                           onMouseLeave={handleDropdownLeave}
                         >
-                          <div className="space-y-2">
-                            <div className="text-sm font-bold text-gray-900">Volunteer & Leadership</div>
-                            <div className="text-xs text-gray-600">United Way • Grant Thornton</div>
-                            <div className="text-xs text-gray-500">Community engagement & support</div>
+                        <div className="space-y-2 max-h-96 overflow-y-auto">
+                          
+                          {/* United Way */}
+                          <div className="space-y-1">
+                            <div className="text-sm font-bold text-gray-900">Next Gen Ambassador</div>
+                            <div className="text-xs text-gray-600">United Way</div>
+                            <div className="text-xs text-gray-500">Kingston, ON • 2020-2023</div>
                           </div>
+                          
+                          {/* RBC Student Ambassador */}
+                          <div className="space-y-1">
+                            <div className="text-sm font-bold text-gray-900">Student Ambassador</div>
+                            <div className="text-xs text-gray-600">Royal Bank of Canada</div>
+                            <div className="text-xs text-gray-500">Fredericton, NB • 2019-2020</div>
+                          </div>
+                          
+                          {/* Irving Oil */}
+                          <div className="space-y-1">
+                            <div className="text-sm font-bold text-gray-900">Volunteer Staff</div>
+                            <div className="text-xs text-gray-600">Irving Oil Limited</div>
+                            <div className="text-xs text-gray-500">Saint John, NB • 2018</div>
+                          </div>
+                          
+                        </div>
                         </div>
                       </div>
                     )}
