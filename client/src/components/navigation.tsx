@@ -14,6 +14,23 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentSection, setCurrentSection] = useState(isHomePage ? 'hero' : '');
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+
+  // Helper functions for dropdown hover behavior
+  const handleDropdownEnter = (dropdownName: string) => {
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+      setHoverTimeout(null);
+    }
+    setOpenDropdown(dropdownName);
+  };
+
+  const handleDropdownLeave = () => {
+    const timeout = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 150); // 150ms delay before closing
+    setHoverTimeout(timeout);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -36,8 +53,11 @@ export default function Navigation() {
     return () => {
       document.removeEventListener('click', handleClickOutside);
       document.removeEventListener('keydown', handleEscKey);
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+      }
     };
-  }, [openDropdown]);
+  }, [openDropdown, hoverTimeout]);
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout | null = null;
@@ -217,8 +237,8 @@ export default function Navigation() {
                   {/* Education */}
                   <div 
                     className="relative dropdown-container"
-                    onMouseEnter={() => setOpenDropdown('education')}
-                    onMouseLeave={() => setOpenDropdown(null)}
+                    onMouseEnter={() => handleDropdownEnter('education')}
+                    onMouseLeave={handleDropdownLeave}
                   >
                     <button
                       onClick={() => {
@@ -235,7 +255,7 @@ export default function Navigation() {
                     
                     {/* Education Dropdown */}
                     {openDropdown === 'education' && (
-                      <div className="absolute top-full left-0 mt-2 w-80 z-[55]">
+                      <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
                         <div 
                           className="rounded-xl p-4 shadow-xl transition-all duration-200"
                           style={{
@@ -245,6 +265,8 @@ export default function Navigation() {
                             border: '1px solid rgba(0, 0, 0, 0.08)',
                             boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                           }}
+                          onMouseEnter={() => handleDropdownEnter('education')}
+                          onMouseLeave={handleDropdownLeave}
                         >
                           <div className="space-y-1">
                             <div className="text-sm font-bold text-gray-900">Bachelor of Business Administration</div>
@@ -259,8 +281,8 @@ export default function Navigation() {
                   {/* Experience */}
                   <div 
                     className="relative dropdown-container"
-                    onMouseEnter={() => setOpenDropdown('experience')}
-                    onMouseLeave={() => setOpenDropdown(null)}
+                    onMouseEnter={() => handleDropdownEnter('experience')}
+                    onMouseLeave={handleDropdownLeave}
                   >
                     <button
                       onClick={() => {
@@ -277,7 +299,7 @@ export default function Navigation() {
                     
                     {/* Experience Dropdown */}
                     {openDropdown === 'experience' && (
-                      <div className="absolute top-full left-0 mt-2 w-80 z-[55]">
+                      <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
                         <div 
                           className="rounded-xl p-4 shadow-xl transition-all duration-200"
                           style={{
@@ -287,6 +309,8 @@ export default function Navigation() {
                             border: '1px solid rgba(0, 0, 0, 0.08)',
                             boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                           }}
+                          onMouseEnter={() => handleDropdownEnter('experience')}
+                          onMouseLeave={handleDropdownLeave}
                         >
                           <div className="space-y-2">
                             <div>
@@ -308,8 +332,8 @@ export default function Navigation() {
                   {/* Certifications */}
                   <div 
                     className="relative dropdown-container"
-                    onMouseEnter={() => setOpenDropdown('certifications')}
-                    onMouseLeave={() => setOpenDropdown(null)}
+                    onMouseEnter={() => handleDropdownEnter('certifications')}
+                    onMouseLeave={handleDropdownLeave}
                   >
                     <button
                       onClick={() => {
@@ -326,7 +350,7 @@ export default function Navigation() {
                     
                     {/* Certifications Dropdown */}
                     {openDropdown === 'certifications' && (
-                      <div className="absolute top-full left-0 mt-2 w-80 z-[55]">
+                      <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
                         <div 
                           className="rounded-xl p-4 shadow-xl transition-all duration-200"
                           style={{
@@ -336,6 +360,8 @@ export default function Navigation() {
                             border: '1px solid rgba(0, 0, 0, 0.08)',
                             boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                           }}
+                          onMouseEnter={() => handleDropdownEnter('certifications')}
+                          onMouseLeave={handleDropdownLeave}
                         >
                           <div className="space-y-2">
                             <div className="text-sm font-bold text-gray-900">Professional Certifications</div>
@@ -350,8 +376,8 @@ export default function Navigation() {
                   {/* Community */}
                   <div 
                     className="relative dropdown-container"
-                    onMouseEnter={() => setOpenDropdown('community')}
-                    onMouseLeave={() => setOpenDropdown(null)}
+                    onMouseEnter={() => handleDropdownEnter('community')}
+                    onMouseLeave={handleDropdownLeave}
                   >
                     <button
                       onClick={() => {
@@ -368,7 +394,7 @@ export default function Navigation() {
                     
                     {/* Community Dropdown */}
                     {openDropdown === 'community' && (
-                      <div className="absolute top-full left-0 mt-2 w-80 z-[55]">
+                      <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
                         <div 
                           className="rounded-xl p-4 shadow-xl transition-all duration-200"
                           style={{
@@ -378,6 +404,8 @@ export default function Navigation() {
                             border: '1px solid rgba(0, 0, 0, 0.08)',
                             boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                           }}
+                          onMouseEnter={() => handleDropdownEnter('community')}
+                          onMouseLeave={handleDropdownLeave}
                         >
                           <div className="space-y-2">
                             <div className="text-sm font-bold text-gray-900">Volunteer & Leadership</div>
@@ -392,8 +420,8 @@ export default function Navigation() {
                   {/* Contact */}
                   <div 
                     className="relative dropdown-container"
-                    onMouseEnter={() => setOpenDropdown('contact')}
-                    onMouseLeave={() => setOpenDropdown(null)}
+                    onMouseEnter={() => handleDropdownEnter('contact')}
+                    onMouseLeave={handleDropdownLeave}
                   >
                     <button
                       onClick={() => {
@@ -410,7 +438,7 @@ export default function Navigation() {
                     
                     {/* Contact Dropdown */}
                     {openDropdown === 'contact' && (
-                      <div className="absolute top-full left-0 mt-2 w-80 z-[55]">
+                      <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
                         <div 
                           className="rounded-xl p-4 shadow-xl transition-all duration-200"
                           style={{
@@ -420,6 +448,8 @@ export default function Navigation() {
                             border: '1px solid rgba(0, 0, 0, 0.08)',
                             boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                           }}
+                          onMouseEnter={() => handleDropdownEnter('contact')}
+                          onMouseLeave={handleDropdownLeave}
                         >
                           <div className="space-y-2">
                             <div className="text-sm font-bold text-gray-900">Get in Touch</div>
@@ -439,8 +469,8 @@ export default function Navigation() {
               {isHomePage && (
                 <div 
                   className="relative dropdown-container"
-                  onMouseEnter={() => setOpenDropdown('education')}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => handleDropdownEnter('education')}
+                  onMouseLeave={handleDropdownLeave}
                 >
                   <button
                     onClick={() => scrollToSection('#education')}
@@ -456,7 +486,7 @@ export default function Navigation() {
                   
                   {/* Education Dropdown */}
                   {openDropdown === 'education' && (
-                    <div className="absolute top-full left-0 mt-2 w-80 z-[55]">
+                    <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
                       <div 
                         className="rounded-xl p-4 shadow-xl transition-all duration-200"
                         style={{
@@ -466,6 +496,8 @@ export default function Navigation() {
                           border: '1px solid rgba(0, 0, 0, 0.08)',
                           boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                         }}
+                        onMouseEnter={() => handleDropdownEnter('education')}
+                        onMouseLeave={handleDropdownLeave}
                       >
                         <button 
                           onClick={() => {
@@ -490,8 +522,8 @@ export default function Navigation() {
               {isHomePage && (
                 <div 
                   className="relative dropdown-container"
-                  onMouseEnter={() => setOpenDropdown('experience')}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => handleDropdownEnter('experience')}
+                  onMouseLeave={handleDropdownLeave}
                 >
                   <button
                     onClick={() => scrollToSection('#experience')}
@@ -507,7 +539,7 @@ export default function Navigation() {
                   
                   {/* Experience Dropdown */}
                   {openDropdown === 'experience' && (
-                    <div className="absolute top-full left-0 mt-2 w-80 z-[55]">
+                    <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
                       <div 
                         className="rounded-xl p-4 shadow-xl transition-all duration-200"
                         style={{
@@ -517,6 +549,8 @@ export default function Navigation() {
                           border: '1px solid rgba(0, 0, 0, 0.08)',
                           boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                         }}
+                        onMouseEnter={() => handleDropdownEnter('experience')}
+                        onMouseLeave={handleDropdownLeave}
                       >
                         <div className="space-y-2 max-h-96 overflow-y-auto">
                           {/* Fiscal.ai */}
@@ -634,8 +668,8 @@ export default function Navigation() {
               {isHomePage && (
                 <div 
                   className="relative dropdown-container"
-                  onMouseEnter={() => setOpenDropdown('certifications')}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => handleDropdownEnter('certifications')}
+                  onMouseLeave={handleDropdownLeave}
                 >
                   <button
                     onClick={() => scrollToSection('#certifications')}
@@ -732,8 +766,8 @@ export default function Navigation() {
               {isHomePage && (
                 <div 
                   className="relative dropdown-container"
-                  onMouseEnter={() => setOpenDropdown('community')}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => handleDropdownEnter('community')}
+                  onMouseLeave={handleDropdownLeave}
                 >
                   <button
                     onClick={() => scrollToSection('#community')}
@@ -749,7 +783,7 @@ export default function Navigation() {
                   
                   {/* Community Dropdown */}
                   {openDropdown === 'community' && (
-                    <div className="absolute top-full left-0 mt-2 w-80 z-[55]">
+                    <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
                       <div 
                         className="rounded-xl p-4 shadow-xl transition-all duration-200"
                         style={{
@@ -759,6 +793,8 @@ export default function Navigation() {
                           border: '1px solid rgba(0, 0, 0, 0.08)',
                           boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                         }}
+                        onMouseEnter={() => handleDropdownEnter('community')}
+                        onMouseLeave={handleDropdownLeave}
                       >
                         <div className="space-y-2 max-h-96 overflow-y-auto">
                           
@@ -818,8 +854,8 @@ export default function Navigation() {
               {isHomePage && (
                 <div 
                   className="relative dropdown-container"
-                  onMouseEnter={() => setOpenDropdown('contact')}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => handleDropdownEnter('contact')}
+                  onMouseLeave={handleDropdownLeave}
                 >
                   <button
                     onClick={() => scrollToSection('#contact')}
