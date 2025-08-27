@@ -64,8 +64,44 @@ export default function Resume() {
     <div className="min-h-screen" style={{ backgroundColor: '#f5f5f7' }}>
       <Navigation />
 
+      {/* Print PDF Button - Centered above resume */}
+      <div className="pt-24 pb-4">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
+          <div className="flex justify-center">
+            <Button
+              onClick={async () => {
+                try {
+                  const response = await fetch('/api/resumes/latest/employer');
+                  if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.target = '_blank';
+                    link.click();
+                    window.URL.revokeObjectURL(url);
+                  } else {
+                    // Handle error - no PDF found
+                    alert('No resume PDF found. Please upload one via the employer dashboard.');
+                  }
+                } catch (error) {
+                  console.error('Error loading PDF:', error);
+                  alert('Error loading resume PDF. Please try again.');
+                }
+              }}
+              className="px-6 py-3 text-sm font-medium rounded-xl transition-all duration-200 flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 hover:scale-105 shadow-lg"
+              data-testid="button-print-pdf"
+              style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+            >
+              <Printer size={16} />
+              Print Resume PDF
+            </Button>
+          </div>
+        </div>
+      </div>
+
       {/* Main Resume Content */}
-      <div className="px-6 sm:px-8 lg:px-10 pb-12 pt-24">
+      <div className="px-6 sm:px-8 lg:px-10 pb-12">
         <div className="max-w-6xl mx-auto">
           
           {/* Resume Container - Exact dimensions: 21.59cm x 55.88cm */}
