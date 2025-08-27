@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Upload, LogOut, Eye, EyeOff, Video, Play, ArrowLeft } from "lucide-react";
+import { Upload, LogOut, Eye, EyeOff, Video, Play, ArrowLeft, FileText } from "lucide-react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 
@@ -21,6 +21,7 @@ interface VideoUpload {
 function EmployerDashboard({ user }: { user: { email: string } }) {
   const { toast } = useToast();
   const [selectedVideo, setSelectedVideo] = useState<File | null>(null);
+  const [selectedPdf, setSelectedPdf] = useState<File | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [previewVideo, setPreviewVideo] = useState<VideoUpload | null>(null);
   const [showPreviewDialog, setShowPreviewDialog] = useState(false);
@@ -105,6 +106,73 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
     }
   };
 
+  const handlePdfSelect = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      // Validate file type (PDF only)
+      if (file.type !== 'application/pdf') {
+        toast({
+          title: "Invalid File Type",
+          description: "Please select a PDF file.",
+          variant: "destructive",
+        });
+        return;
+      }
+      
+      // Validate file size (10MB limit)
+      if (file.size > 10 * 1024 * 1024) {
+        toast({
+          title: "File Too Large",
+          description: "Please select a PDF file smaller than 10MB.",
+          variant: "destructive",
+        });
+        return;
+      }
+      
+      setSelectedPdf(file);
+    }
+  };
+
+  // PDF upload mutation
+  const pdfUploadMutation = useMutation({
+    mutationFn: async (file: File) => {
+      const formData = new FormData();
+      formData.append('resume', file);
+      formData.append('userId', 'employer');
+      
+      const response = await fetch('/api/resumes/upload', {
+        method: 'POST',
+        body: formData,
+      });
+      
+      if (!response.ok) {
+        throw new Error('Upload failed');
+      }
+      
+      return response.json();
+    },
+    onSuccess: (data) => {
+      toast({
+        title: "PDF Upload Successful",
+        description: "Your resume PDF has been uploaded successfully!",
+      });
+      setSelectedPdf(null);
+    },
+    onError: () => {
+      toast({
+        title: "PDF Upload Failed", 
+        description: "Failed to upload PDF. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
+  const handlePdfUpload = () => {
+    if (selectedPdf) {
+      pdfUploadMutation.mutate(selectedPdf);
+    }
+  };
+
   const setActiveVideoMutation = useMutation({
     mutationFn: async (videoId: string) => {
       return apiRequest(`/api/videos/${videoId}/activate`, 'POST');
@@ -185,12 +253,12 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
             letterSpacing: '-0.025em'
           }}>
-            Video Upload
+            Media Upload
           </h1>
           <p className="text-gray-600" style={{ 
             fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
           }}>
-            Upload and manage introduction videos for Tyler Bustard's portfolio
+            Upload and manage videos and resume PDFs for Tyler Bustard's portfolio
           </p>
         </div>
 
@@ -252,6 +320,60 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                   <>
                     <Upload className="w-4 h-4 mr-2" />
                     Upload Video
+                  </>
+                )}
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* PDF Upload Section */}
+        <Card className="bg-white shadow-sm border border-gray-200 mb-8">
+          <CardContent className="p-8">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2" style={{ 
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+              letterSpacing: '-0.025em'
+            }}>
+              Upload Resume PDF
+            </h2>
+            <p className="text-sm text-gray-600 mb-6" style={{ 
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+            }}>
+              Upload a PDF resume for printing from the resume page (max: 10MB)
+            </p>
+            
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="pdf-file">Resume PDF File</Label>
+                <Input
+                  id="pdf-file"
+                  type="file"
+                  accept=".pdf"
+                  onChange={handlePdfSelect}
+                  disabled={pdfUploadMutation.isPending}
+                  className="cursor-pointer"
+                  data-testid="input-pdf-file"
+                />
+                {selectedPdf && (
+                  <p className="text-sm text-gray-600">
+                    Selected: {selectedPdf.name} ({(selectedPdf.size / (1024 * 1024)).toFixed(2)} MB)
+                  </p>
+                )}
+              </div>
+
+              <Button 
+                onClick={handlePdfUpload}
+                disabled={!selectedPdf || pdfUploadMutation.isPending}
+                data-testid="button-upload-pdf"
+                className="w-full bg-green-600 hover:bg-green-700 text-white font-medium rounded-xl py-2.5 transition-all duration-200 hover:scale-105"
+                style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+              >
+                {pdfUploadMutation.isPending ? (
+                  "Uploading..."
+                ) : (
+                  <>
+                    <FileText className="w-4 h-4 mr-2" />
+                    Upload Resume PDF
                   </>
                 )}
               </Button>

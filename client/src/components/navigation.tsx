@@ -431,6 +431,35 @@ export default function Navigation() {
                       </div>
                     )}
                   </div>
+
+                  {/* Print PDF Button */}
+                  <Button
+                    onClick={async () => {
+                      try {
+                        const response = await fetch('/api/resumes/latest/employer');
+                        if (response.ok) {
+                          const blob = await response.blob();
+                          const url = window.URL.createObjectURL(blob);
+                          const link = document.createElement('a');
+                          link.href = url;
+                          link.target = '_blank';
+                          link.click();
+                          window.URL.revokeObjectURL(url);
+                        } else {
+                          // Handle error - no PDF found
+                          alert('No resume PDF found. Please upload one via the employer dashboard.');
+                        }
+                      } catch (error) {
+                        console.error('Error loading PDF:', error);
+                        alert('Error loading resume PDF. Please try again.');
+                      }
+                    }}
+                    className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 text-white bg-blue-600 hover:bg-blue-700"
+                    data-testid="button-print-pdf"
+                  >
+                    <Printer size={14} />
+                    Print PDF
+                  </Button>
                 </>
               )}
               
