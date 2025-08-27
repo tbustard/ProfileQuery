@@ -65,10 +65,9 @@ export default function Resume() {
       <Navigation />
 
       {/* Print PDF Button - Centered above resume */}
-      <div className="pt-24 pb-4">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="flex justify-center">
-            <Button
+      <div className="pt-24 pb-6">
+        <div className="flex justify-center">
+          <Button
               onClick={async () => {
                 try {
                   const response = await fetch('/api/resumes/latest/employer');
@@ -94,9 +93,8 @@ export default function Resume() {
               style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
             >
               <Printer size={16} />
-              Print Resume PDF
+              Print PDF
             </Button>
-          </div>
         </div>
       </div>
 
