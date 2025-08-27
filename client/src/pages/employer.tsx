@@ -332,9 +332,9 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
           {/* LEFT COLUMN - Video Section */}
           <div className="space-y-8">
             {/* Video Upload Section */}
-            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl overflow-hidden">
-              <CardContent className="p-8">
-                <div className="flex items-center gap-3 mb-6">
+            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl overflow-hidden min-h-[420px]">
+              <CardContent className="p-10">
+                <div className="flex items-center gap-3 mb-8">
                   <div className="p-2 bg-blue-50 rounded-xl">
                     <Video className="w-6 h-6 text-blue-600" />
                   </div>
@@ -353,7 +353,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                   </div>
                 </div>
                 
-                <div className="space-y-6">
+                <div className="space-y-8">
                   <div className="space-y-3">
                     <Label htmlFor="video-file" className="text-sm font-medium text-gray-700">Video File</Label>
                     <Input
@@ -412,9 +412,9 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             </Card>
 
             {/* Uploaded Videos */}
-            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl overflow-hidden">
-              <CardContent className="p-8">
-                <div className="flex items-center justify-between mb-6">
+            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl overflow-hidden min-h-[500px]">
+              <CardContent className="p-10">
+                <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-blue-50 rounded-xl">
                       <Video className="w-6 h-6 text-blue-600" />
@@ -533,9 +533,9 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
           {/* RIGHT COLUMN - PDF Section */}
           <div className="space-y-8">
             {/* PDF Upload Section */}
-            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl overflow-hidden">
-              <CardContent className="p-8">
-                <div className="flex items-center gap-3 mb-6">
+            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl overflow-hidden min-h-[420px]">
+              <CardContent className="p-10">
+                <div className="flex items-center gap-3 mb-8">
                   <div className="p-2 bg-green-50 rounded-xl">
                     <FileText className="w-6 h-6 text-green-600" />
                   </div>
@@ -554,7 +554,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                   </div>
                 </div>
                 
-                <div className="space-y-6">
+                <div className="space-y-8">
                   <div className="space-y-3">
                     <Label htmlFor="pdf-file" className="text-sm font-medium text-gray-700">Resume PDF File</Label>
                     <Input
@@ -613,9 +613,9 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             </Card>
 
             {/* Uploaded Resumes */}
-            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl overflow-hidden">
-              <CardContent className="p-8">
-                <div className="flex items-center justify-between mb-6">
+            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl overflow-hidden min-h-[500px]">
+              <CardContent className="p-10">
+                <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-green-50 rounded-xl">
                       <FileText className="w-6 h-6 text-green-600" />
