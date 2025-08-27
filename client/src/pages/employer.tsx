@@ -286,7 +286,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#f5f5f7' }}>
-      <div className="max-w-3xl mx-auto px-4 py-12">
+      <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <Button 
@@ -328,7 +328,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
         </div>
 
         {/* Main Content Grid - Videos Left, PDFs Right */}
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* LEFT COLUMN - Video Section */}
           <div className="space-y-8">
             {/* Video Upload Section */}
