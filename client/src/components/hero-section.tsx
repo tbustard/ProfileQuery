@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
 import { useQuery } from "@tanstack/react-query";
 // VideoOverlay no longer needed - using YouTube directly
-import profileImage from "@assets/Untitled design (1)_1755896187722.png";
+import profileImage from "@assets/89BBD451-CD8B-47EB-AA2E-C39D4637B01D_1_105_c_1755896148330.jpeg";
 import fiscalAiLogo from "@assets/fiscal_ai_logo_new.png";
 import bmoLogo from "@assets/BMO_Logo.svg_1755913265896.png";
 import tdLogo from "@assets/Toronto-Dominion_Bank_logo.svg_1755913265896.png";
