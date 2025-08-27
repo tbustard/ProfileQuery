@@ -643,6 +643,32 @@ export default function Resume() {
         }
       `}</style>
 
+      {/* Clean Scroll to Top Button with Glass Effect */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40 transition-all duration-300 ease-in-out rounded-full ${
+          showScrollToTop 
+            ? 'opacity-100 pointer-events-auto translate-y-0' 
+            : 'opacity-0 pointer-events-none translate-y-4'
+        } hover:scale-105 shadow-xl hover:shadow-2xl`}
+        style={{ 
+          background: 'rgba(255, 255, 255, 0.92)',
+          backdropFilter: 'blur(20px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+          border: '1px solid rgba(0, 0, 0, 0.08)'
+        }}
+        data-testid="scroll-to-top-button"
+      >
+        <div className="flex items-center px-5 py-3">
+          <span className="text-sm font-medium mr-3 text-gray-700">
+            Back to top
+          </span>
+          <div className="w-8 h-8 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center transition-colors duration-200">
+            <ChevronUp size={18} />
+          </div>
+        </div>
+      </button>
+
       {/* Footer */}
       <footer className="relative bg-gradient-to-b from-gray-900 to-black border-t border-gray-800 py-8 transition-all duration-500 print:hidden">
         <div className="container mx-auto px-6 lg:px-8">
