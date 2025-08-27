@@ -327,169 +327,128 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
           </p>
         </div>
 
-        {/* Video Upload Section */}
-        <Card className="bg-white shadow-sm border border-gray-200 mb-8">
-          <CardContent className="p-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-2" style={{ 
-              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
-              letterSpacing: '-0.025em'
-            }}>
-              Upload New Video
-            </h2>
-            <p className="text-sm text-gray-600 mb-6" style={{ 
-              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
-            }}>
-              Select a video file to upload (max: 100MB)
-            </p>
-            
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="video-file">Video File</Label>
-                <Input
-                  id="video-file"
-                  type="file"
-                  accept="video/*"
-                  onChange={handleVideoSelect}
-                  disabled={videoUploadMutation.isPending}
-                  className="cursor-pointer"
-                  data-testid="input-video-file"
-                />
-                {selectedVideo && (
-                  <p className="text-sm text-gray-600">
-                    Selected: {selectedVideo.name} ({(selectedVideo.size / (1024 * 1024)).toFixed(2)} MB)
-                  </p>
-                )}
-              </div>
+        {/* Main Content Grid - Videos Left, PDFs Right */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+          {/* LEFT COLUMN - Video Section */}
+          <div className="space-y-8">
+            {/* Video Upload Section */}
+            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl overflow-hidden">
+              <CardContent className="p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 bg-blue-50 rounded-xl">
+                    <Video className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900" style={{ 
+                      fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+                      letterSpacing: '-0.025em'
+                    }}>
+                      Upload New Video
+                    </h2>
+                    <p className="text-sm text-gray-500" style={{ 
+                      fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+                    }}>
+                      Upload introduction videos (max: 100MB)
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="space-y-3">
+                    <Label htmlFor="video-file" className="text-sm font-medium text-gray-700">Video File</Label>
+                    <Input
+                      id="video-file"
+                      type="file"
+                      accept="video/*"
+                      onChange={handleVideoSelect}
+                      disabled={videoUploadMutation.isPending}
+                      className="cursor-pointer border-gray-200 rounded-xl h-12 text-sm"
+                      data-testid="input-video-file"
+                    />
+                    {selectedVideo && (
+                      <div className="flex items-center gap-2 p-3 bg-blue-50 rounded-lg">
+                        <Video className="w-4 h-4 text-blue-600" />
+                        <p className="text-sm text-blue-700 font-medium">
+                          {selectedVideo.name} ({(selectedVideo.size / (1024 * 1024)).toFixed(2)} MB)
+                        </p>
+                      </div>
+                    )}
+                  </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="video-title">Video Title</Label>
-                <Input
-                  id="video-title"
-                  placeholder="Enter a title for this video..."
-                  value={videoTitle}
-                  onChange={(e) => setVideoTitle(e.target.value)}
-                  disabled={videoUploadMutation.isPending}
-                  data-testid="input-video-title"
-                />
-              </div>
+                  <div className="space-y-3">
+                    <Label htmlFor="video-title" className="text-sm font-medium text-gray-700">Video Title</Label>
+                    <Input
+                      id="video-title"
+                      placeholder="Enter a descriptive title..."
+                      value={videoTitle}
+                      onChange={(e) => setVideoTitle(e.target.value)}
+                      disabled={videoUploadMutation.isPending}
+                      className="border-gray-200 rounded-xl h-12"
+                      data-testid="input-video-title"
+                    />
+                  </div>
 
-              <Button 
-                onClick={handleVideoUpload}
-                disabled={!selectedVideo || !videoTitle.trim() || videoUploadMutation.isPending}
-                data-testid="button-upload-video"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl py-2.5 transition-all duration-200 hover:scale-105"
-                style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
-              >
-                {videoUploadMutation.isPending ? (
-                  "Uploading..."
-                ) : (
-                  <>
-                    <Upload className="w-4 h-4 mr-2" />
-                    Upload Video
-                  </>
-                )}
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
+                  <Button 
+                    onClick={handleVideoUpload}
+                    disabled={!selectedVideo || !videoTitle.trim() || videoUploadMutation.isPending}
+                    data-testid="button-upload-video"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl py-3 transition-all duration-200 hover:shadow-lg"
+                    style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+                  >
+                    {videoUploadMutation.isPending ? (
+                      <div className="flex items-center gap-2">
+                        <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+                        Uploading...
+                      </div>
+                    ) : (
+                      <>
+                        <Upload className="w-4 h-4 mr-2" />
+                        Upload Video
+                      </>
+                    )}
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
 
-        {/* PDF Upload Section */}
-        <Card className="bg-white shadow-sm border border-gray-200 mb-8">
-          <CardContent className="p-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-2" style={{ 
-              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
-              letterSpacing: '-0.025em'
-            }}>
-              Upload Resume PDF
-            </h2>
-            <p className="text-sm text-gray-600 mb-6" style={{ 
-              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
-            }}>
-              Upload a PDF resume for printing from the resume page (max: 10MB)
-            </p>
-            
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="pdf-file">Resume PDF File</Label>
-                <Input
-                  id="pdf-file"
-                  type="file"
-                  accept=".pdf"
-                  onChange={handlePdfSelect}
-                  disabled={pdfUploadMutation.isPending}
-                  className="cursor-pointer"
-                  data-testid="input-pdf-file"
-                />
-                {selectedPdf && (
-                  <p className="text-sm text-gray-600">
-                    Selected: {selectedPdf.name} ({(selectedPdf.size / (1024 * 1024)).toFixed(2)} MB)
-                  </p>
-                )}
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="resume-title">Resume Title</Label>
-                <Input
-                  id="resume-title"
-                  placeholder="Enter a title for this resume..."
-                  value={resumeTitle}
-                  onChange={(e) => setResumeTitle(e.target.value)}
-                  disabled={pdfUploadMutation.isPending}
-                  data-testid="input-resume-title"
-                />
-              </div>
-
-              <Button 
-                onClick={handlePdfUpload}
-                disabled={!selectedPdf || !resumeTitle.trim() || pdfUploadMutation.isPending}
-                data-testid="button-upload-pdf"
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-medium rounded-xl py-2.5 transition-all duration-200 hover:scale-105"
-                style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
-              >
-                {pdfUploadMutation.isPending ? (
-                  "Uploading..."
-                ) : (
-                  <>
-                    <FileText className="w-4 h-4 mr-2" />
-                    Upload Resume PDF
-                  </>
-                )}
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Side by Side Layout for Videos and Resumes */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Uploaded Videos */}
-          <Card className="bg-white shadow-sm border border-gray-200">
-            <CardContent className="p-8">
-              <h2 className="text-xl font-semibold text-gray-900 mb-2" style={{ 
-                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
-                letterSpacing: '-0.025em'
-              }}>
-                Uploaded Videos
-              </h2>
-              <p className="text-sm text-gray-600 mb-6" style={{ 
-                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
-              }}>
-                {videosQuery.data && Array.isArray(videosQuery.data) && videosQuery.data.length === 1 
-                  ? '1 file uploaded' 
-                  : `${(videosQuery.data && Array.isArray(videosQuery.data) ? videosQuery.data.length : 0)} files uploaded`
-                }
-              </p>
+            {/* Uploaded Videos */}
+            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl overflow-hidden">
+              <CardContent className="p-8">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-blue-50 rounded-xl">
+                      <Video className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <h2 className="text-xl font-semibold text-gray-900" style={{ 
+                        fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+                        letterSpacing: '-0.025em'
+                      }}>
+                        Uploaded Videos
+                      </h2>
+                      <p className="text-sm text-gray-500" style={{ 
+                        fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+                      }}>
+                        {videosQuery.data && Array.isArray(videosQuery.data) && videosQuery.data.length === 1 
+                          ? '1 video uploaded' 
+                          : `${(videosQuery.data && Array.isArray(videosQuery.data) ? videosQuery.data.length : 0)} videos uploaded`
+                        }
+                      </p>
+                    </div>
+                  </div>
+                </div>
             <div>
               {videosQuery.isLoading ? (
                 <div className="space-y-3">
                   <div className="h-12 bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />
                 </div>
               ) : videosQuery.data && Array.isArray(videosQuery.data) && videosQuery.data.length > 0 ? (
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {videosQuery.data.map((video: VideoUpload) => (
-                    <div key={video.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200">
+                    <div key={video.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100 hover:shadow-md transition-all duration-200">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 bg-white rounded-lg">
-                          <Video className="w-5 h-5 text-gray-600" />
+                        <div className="p-2 bg-white rounded-xl shadow-sm">
+                          <Video className="w-5 h-5 text-blue-600" />
                         </div>
                         <div>
                           <p className="font-medium text-gray-900" style={{ 
@@ -558,122 +517,221 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                   ))}
                 </div>
               ) : (
-                <div className="text-center py-8">
-                  <Video className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                  <p className="text-gray-600">No videos uploaded yet</p>
+                <div className="text-center py-12">
+                  <div className="p-4 bg-blue-50 rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                    <Video className="w-8 h-8 text-blue-400" />
+                  </div>
+                  <h3 className="text-lg font-medium text-gray-900 mb-2">No videos uploaded</h3>
+                  <p className="text-gray-500 text-sm">Upload your first video to get started</p>
                 </div>
               )}
             </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </div>
 
-          {/* Uploaded Resumes */}
-          <Card className="bg-white shadow-sm border border-gray-200">
-            <CardContent className="p-8">
-              <h2 className="text-xl font-semibold text-gray-900 mb-2" style={{ 
-                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
-                letterSpacing: '-0.025em'
-              }}>
-                Uploaded Resumes
-              </h2>
-              <p className="text-sm text-gray-600 mb-6" style={{ 
-                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
-              }}>
-                {resumesQuery.data && Array.isArray(resumesQuery.data) && resumesQuery.data.length === 1 
-                  ? '1 file uploaded' 
-                  : `${(resumesQuery.data && Array.isArray(resumesQuery.data) ? resumesQuery.data.length : 0)} files uploaded`
-                }
-              </p>
-            <div>
-              {resumesQuery.isLoading ? (
-                <div className="space-y-3">
-                  <div className="h-12 bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />
+          {/* RIGHT COLUMN - PDF Section */}
+          <div className="space-y-8">
+            {/* PDF Upload Section */}
+            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl overflow-hidden">
+              <CardContent className="p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 bg-green-50 rounded-xl">
+                    <FileText className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900" style={{ 
+                      fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+                      letterSpacing: '-0.025em'
+                    }}>
+                      Upload Resume PDF
+                    </h2>
+                    <p className="text-sm text-gray-500" style={{ 
+                      fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+                    }}>
+                      Upload resume PDFs for printing (max: 10MB)
+                    </p>
+                  </div>
                 </div>
-              ) : resumesQuery.data && Array.isArray(resumesQuery.data) && resumesQuery.data.length > 0 ? (
-                <div className="space-y-3">
-                  {resumesQuery.data.map((resume: ResumeUpload) => (
-                    <div key={resume.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200">
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 bg-white rounded-lg">
-                          <FileText className="w-5 h-5 text-gray-600" />
-                        </div>
-                        <div>
-                          <p className="font-medium text-gray-900" style={{ 
-                            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
-                          }}>
-                            {resume.fileName}
-                          </p>
-                          <p className="text-sm text-gray-500" style={{ 
-                            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
-                          }}>
-                            Resume PDF
-                          </p>
-                          <p className="text-xs text-gray-400 mt-1" style={{ 
-                            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
-                          }}>
-                            {(resume.fileSize / (1024 * 1024)).toFixed(2)} MB • {new Date(resume.uploadedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
-                          </p>
-                        </div>
+                
+                <div className="space-y-6">
+                  <div className="space-y-3">
+                    <Label htmlFor="pdf-file" className="text-sm font-medium text-gray-700">Resume PDF File</Label>
+                    <Input
+                      id="pdf-file"
+                      type="file"
+                      accept=".pdf"
+                      onChange={handlePdfSelect}
+                      disabled={pdfUploadMutation.isPending}
+                      className="cursor-pointer border-gray-200 rounded-xl h-12 text-sm"
+                      data-testid="input-pdf-file"
+                    />
+                    {selectedPdf && (
+                      <div className="flex items-center gap-2 p-3 bg-green-50 rounded-lg">
+                        <FileText className="w-4 h-4 text-green-600" />
+                        <p className="text-sm text-green-700 font-medium">
+                          {selectedPdf.name} ({(selectedPdf.size / (1024 * 1024)).toFixed(2)} MB)
+                        </p>
                       </div>
+                    )}
+                  </div>
+
+                  <div className="space-y-3">
+                    <Label htmlFor="resume-title" className="text-sm font-medium text-gray-700">Resume Title</Label>
+                    <Input
+                      id="resume-title"
+                      placeholder="Enter a descriptive title..."
+                      value={resumeTitle}
+                      onChange={(e) => setResumeTitle(e.target.value)}
+                      disabled={pdfUploadMutation.isPending}
+                      className="border-gray-200 rounded-xl h-12"
+                      data-testid="input-resume-title"
+                    />
+                  </div>
+
+                  <Button 
+                    onClick={handlePdfUpload}
+                    disabled={!selectedPdf || !resumeTitle.trim() || pdfUploadMutation.isPending}
+                    data-testid="button-upload-pdf"
+                    className="w-full bg-green-600 hover:bg-green-700 text-white font-medium rounded-xl py-3 transition-all duration-200 hover:shadow-lg"
+                    style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+                  >
+                    {pdfUploadMutation.isPending ? (
                       <div className="flex items-center gap-2">
-                        {resume.isActive ? (
-                          <span className="px-3 py-1 text-xs bg-green-100 text-green-700 rounded-full font-medium" style={{ 
-                            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
-                          }}>
-                            Active
-                          </span>
-                        ) : (
-                          <Button
-                            size="sm"
-                            variant="ghost"
-                            onClick={() => setActiveResumeMutation.mutate(resume.id)}
-                            disabled={setActiveResumeMutation.isPending}
-                            className="text-blue-600 hover:text-blue-700 font-medium"
-                            style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
-                          >
-                            Set Active
-                          </Button>
-                        )}
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          onClick={() => {
-                            window.open(resume.fileUrl, '_blank');
-                          }}
-                          className="text-gray-400 hover:text-gray-600"
-                          data-testid={`button-view-${resume.id}`}
-                        >
-                          View
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          onClick={() => {
-                            if (window.confirm('Are you sure you want to delete this resume?')) {
-                              deleteResumeMutation.mutate(resume.id);
-                            }
-                          }}
-                          disabled={deleteResumeMutation.isPending}
-                          className="text-red-500 hover:text-red-600"
-                          data-testid={`button-delete-${resume.id}`}
-                        >
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                          </svg>
-                        </Button>
+                        <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent"></div>
+                        Uploading...
                       </div>
+                    ) : (
+                      <>
+                        <FileText className="w-4 h-4 mr-2" />
+                        Upload Resume PDF
+                      </>
+                    )}
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Uploaded Resumes */}
+            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl overflow-hidden">
+              <CardContent className="p-8">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 bg-green-50 rounded-xl">
+                      <FileText className="w-6 h-6 text-green-600" />
                     </div>
-                  ))}
+                    <div>
+                      <h2 className="text-xl font-semibold text-gray-900" style={{ 
+                        fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+                        letterSpacing: '-0.025em'
+                      }}>
+                        Uploaded Resumes
+                      </h2>
+                      <p className="text-sm text-gray-500" style={{ 
+                        fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+                      }}>
+                        {resumesQuery.data && Array.isArray(resumesQuery.data) && resumesQuery.data.length === 1 
+                          ? '1 resume uploaded' 
+                          : `${(resumesQuery.data && Array.isArray(resumesQuery.data) ? resumesQuery.data.length : 0)} resumes uploaded`
+                        }
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              ) : (
-                <div className="text-center py-8">
-                  <FileText className="w-12 h-12 text-gray-400 mx-auto mb-3" />
-                  <p className="text-gray-600">No resumes uploaded yet</p>
+                <div>
+                  {resumesQuery.isLoading ? (
+                    <div className="space-y-3">
+                      <div className="h-12 bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />
+                    </div>
+                  ) : resumesQuery.data && Array.isArray(resumesQuery.data) && resumesQuery.data.length > 0 ? (
+                    <div className="space-y-4">
+                      {resumesQuery.data.map((resume: ResumeUpload) => (
+                        <div key={resume.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100 hover:shadow-md transition-all duration-200">
+                          <div className="flex items-center gap-3">
+                            <div className="p-2 bg-white rounded-xl shadow-sm">
+                              <FileText className="w-5 h-5 text-green-600" />
+                            </div>
+                            <div>
+                              <p className="font-medium text-gray-900" style={{ 
+                                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+                              }}>
+                                {resume.fileName}
+                              </p>
+                              <p className="text-sm text-gray-500" style={{ 
+                                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+                              }}>
+                                Resume PDF
+                              </p>
+                              <p className="text-xs text-gray-400 mt-1" style={{ 
+                                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+                              }}>
+                                {(resume.fileSize / (1024 * 1024)).toFixed(2)} MB • {new Date(resume.uploadedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            {resume.isActive ? (
+                              <span className="px-3 py-1 text-xs bg-green-100 text-green-700 rounded-full font-medium" style={{ 
+                                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+                              }}>
+                                Active
+                              </span>
+                            ) : (
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                onClick={() => setActiveResumeMutation.mutate(resume.id)}
+                                disabled={setActiveResumeMutation.isPending}
+                                className="text-blue-600 hover:text-blue-700 font-medium"
+                                style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+                              >
+                                Set Active
+                              </Button>
+                            )}
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              onClick={() => {
+                                window.open(resume.fileUrl, '_blank');
+                              }}
+                              className="text-gray-400 hover:text-gray-600"
+                              data-testid={`button-view-${resume.id}`}
+                            >
+                              View
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              onClick={() => {
+                                if (window.confirm('Are you sure you want to delete this resume?')) {
+                                  deleteResumeMutation.mutate(resume.id);
+                                }
+                              }}
+                              disabled={deleteResumeMutation.isPending}
+                              className="text-red-500 hover:text-red-600"
+                              data-testid={`button-delete-${resume.id}`}
+                            >
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                              </svg>
+                            </Button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="text-center py-12">
+                      <div className="p-4 bg-green-50 rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                        <FileText className="w-8 h-8 text-green-400" />
+                      </div>
+                      <h3 className="text-lg font-medium text-gray-900 mb-2">No resumes uploaded</h3>
+                      <p className="text-gray-500 text-sm">Upload your first resume to get started</p>
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
 
