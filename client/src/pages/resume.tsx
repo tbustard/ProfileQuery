@@ -3,7 +3,8 @@ import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Globe, Download, Printer, Linkedin, ChevronUp, Briefcase, GraduationCap, Award, Heart, Target } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Mail, Phone, MapPin, Globe, Download, Printer, Linkedin, ChevronUp, Briefcase, GraduationCap, Award, Heart, Target, Eye } from "lucide-react";
 import Navigation from "@/components/navigation";
 
 // Import logos from assets
@@ -28,6 +29,8 @@ import mcgillLogo from "@assets/mcgill_1755937693386.png";
 export default function Resume() {
   const isPageLoaded = useInitialPageAnimation(400);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
+  const [showPdfViewer, setShowPdfViewer] = useState(false);
+  const [currentPdfUrl, setCurrentPdfUrl] = useState<string | null>(null);
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout | null = null;
@@ -64,9 +67,33 @@ export default function Resume() {
     <div className="min-h-screen" style={{ backgroundColor: '#f5f5f7' }}>
       <Navigation />
 
-      {/* Print PDF Button - Centered above resume */}
+      {/* PDF Actions - Centered above resume */}
       <div className="pt-24 pb-6">
-        <div className="flex justify-center">
+        <div className="flex justify-center gap-4">
+          <Button
+            onClick={async () => {
+              try {
+                const response = await fetch('/api/resumes/latest/employer');
+                if (response.ok) {
+                  const blob = await response.blob();
+                  const url = window.URL.createObjectURL(blob);
+                  setCurrentPdfUrl(url);
+                  setShowPdfViewer(true);
+                } else {
+                  alert('No resume PDF found. Please upload one via the employer dashboard.');
+                }
+              } catch (error) {
+                console.error('Error loading PDF:', error);
+                alert('Error loading resume PDF. Please try again.');
+              }
+            }}
+            className="px-6 py-3 text-sm font-medium rounded-xl transition-all duration-200 flex items-center gap-2 text-gray-700 bg-white hover:bg-gray-50 hover:scale-105 shadow-lg border border-gray-200"
+            data-testid="button-view-pdf"
+            style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+          >
+            <Eye size={16} />
+            View Resume
+          </Button>
           <Button
               onClick={async () => {
                 try {
@@ -695,6 +722,96 @@ export default function Resume() {
           </div>
         </div>
       </footer>
+
+      {/* PDF Viewer Dialog - Mobile Optimized */}
+      <Dialog open={showPdfViewer} onOpenChange={(open) => {
+        setShowPdfViewer(open);
+        if (!open && currentPdfUrl) {
+          window.URL.revokeObjectURL(currentPdfUrl);
+          setCurrentPdfUrl(null);
+        }
+      }}>
+        <DialogContent className="max-w-full max-h-full w-full h-full p-0 gap-0" 
+                       style={{
+                         height: '100vh',
+                         width: '100vw',
+                         maxWidth: '100vw',
+                         maxHeight: '100vh',
+                         margin: 0,
+                         borderRadius: 0,
+                         border: 'none'
+                       }}>
+          <DialogHeader className="px-6 py-4 border-b bg-white/95 backdrop-blur-sm">
+            <DialogTitle className="text-lg font-semibold" style={{ 
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif' 
+            }}>
+              Tyler Bustard - Resume
+            </DialogTitle>
+          </DialogHeader>
+          {currentPdfUrl && (
+            <div className="flex-1 relative">
+              <iframe
+                src={`${currentPdfUrl}#toolbar=1&navpanes=1&scrollbar=1&zoom=fit`}
+                className="w-full h-full border-none"
+                style={{
+                  height: 'calc(100vh - 80px)', // Account for header
+                  width: '100%',
+                  minHeight: '500px'
+                }}
+                title="Tyler Bustard Resume"
+                allow="fullscreen"
+              />
+              
+              {/* Mobile-specific controls overlay */}
+              <div className="absolute top-4 right-4 md:hidden">
+                <div className="flex flex-col gap-2">
+                  <Button
+                    size="sm"
+                    onClick={async () => {
+                      try {
+                        // Get resume metadata for filename
+                        const metadataResponse = await fetch('/api/resumes/employer');
+                        const resumes = await metadataResponse.json();
+                        
+                        let customFilename = 'Tyler_Bustard_Resume.pdf';
+                        
+                        if (resumes && resumes.length > 0) {
+                          const activeResume = resumes.find(r => r.isActive) || resumes[0];
+                          if (activeResume && activeResume.fileName) {
+                            customFilename = activeResume.fileName.endsWith('.pdf') 
+                              ? activeResume.fileName 
+                              : `${activeResume.fileName}.pdf`;
+                          }
+                        }
+                        
+                        // Download with custom filename
+                        const response = await fetch('/api/resumes/latest/employer');
+                        if (response.ok) {
+                          const blob = await response.blob();
+                          const url = window.URL.createObjectURL(blob);
+                          const link = document.createElement('a');
+                          link.href = url;
+                          link.download = customFilename;
+                          document.body.appendChild(link);
+                          link.click();
+                          document.body.removeChild(link);
+                          window.URL.revokeObjectURL(url);
+                        }
+                      } catch (error) {
+                        console.error('Error downloading PDF:', error);
+                      }
+                    }}
+                    className="bg-blue-600 hover:bg-blue-700 text-white rounded-xl px-3 py-2 text-xs font-medium shadow-lg"
+                    style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+                  >
+                    Download
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
