@@ -393,8 +393,14 @@ Focus on investment analysis, portfolio management, and financial reporting quer
           break;
       }
 
+      // Use the custom title as filename, ensure it has .pdf extension
+      let downloadFilename = targetResume.fileName;
+      if (!downloadFilename.toLowerCase().endsWith('.pdf')) {
+        downloadFilename = `${downloadFilename}.pdf`;
+      }
+
       res.setHeader('Content-Type', contentType);
-      res.setHeader('Content-Disposition', `attachment; filename="${targetResume.fileName}"`);
+      res.setHeader('Content-Disposition', `attachment; filename="${downloadFilename}"`);
       
       const fileStream = fs.createReadStream(resumePath);
       fileStream.pipe(res);
