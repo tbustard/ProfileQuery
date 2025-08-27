@@ -29,6 +29,9 @@ export interface IStorage {
   createResumeUpload(upload: InsertResumeUpload): Promise<ResumeUpload>;
   getResumeUploads(userId: string): Promise<ResumeUpload[]>;
   deleteResumeUpload(id: string, userId: string): Promise<boolean>;
+  setActiveResume(id: string, userId: string): Promise<void>;
+  deactivateOtherResumes(activeId: string, userId: string): Promise<void>;
+  getActiveResume(userId: string): Promise<ResumeUpload | undefined>;
   createVideo(video: InsertVideo): Promise<Video>;
   getVideos(): Promise<Video[]>;
   getActiveVideo(): Promise<Video | undefined>;
@@ -104,6 +107,43 @@ export class DatabaseStorage implements IStorage {
         )
       );
     return (result as any).rowCount > 0;
+  }
+
+  async setActiveResume(id: string, userId: string): Promise<void> {
+    await db
+      .update(resumeUploads)
+      .set({ isActive: true })
+      .where(
+        and(
+          eq(resumeUploads.id, id),
+          eq(resumeUploads.userId, userId)
+        )
+      );
+  }
+
+  async deactivateOtherResumes(activeId: string, userId: string): Promise<void> {
+    await db
+      .update(resumeUploads)
+      .set({ isActive: false })
+      .where(
+        and(
+          ne(resumeUploads.id, activeId),
+          eq(resumeUploads.userId, userId)
+        )
+      );
+  }
+
+  async getActiveResume(userId: string): Promise<ResumeUpload | undefined> {
+    const [resume] = await db
+      .select()
+      .from(resumeUploads)
+      .where(
+        and(
+          eq(resumeUploads.isActive, true),
+          eq(resumeUploads.userId, userId)
+        )
+      );
+    return resume;
   }
 
   async createVideo(insertVideo: InsertVideo): Promise<Video> {

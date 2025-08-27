@@ -46,6 +46,7 @@ export const resumeUploads = pgTable("resume_uploads", {
   fileName: varchar("file_name").notNull(),
   fileUrl: varchar("file_url").notNull(),
   fileSize: integer("file_size").notNull(),
+  isActive: boolean("is_active").default(false),
   uploadedAt: timestamp("uploaded_at").defaultNow(),
   description: text("description"),
 });

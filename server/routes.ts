@@ -311,8 +311,12 @@ Focus on investment analysis, portfolio management, and financial reporting quer
         fileUrl: `/uploads/resumes/${generatedFilename}`,
         userId,
         fileSize: req.file.size,
+        isActive: true, // Set new resume as active by default
         description: req.body.description || null
       });
+
+      // Deactivate other resumes
+      await storage.deactivateOtherResumes(resume.id, userId);
 
       res.json({ 
         success: true, 
@@ -341,31 +345,37 @@ Focus on investment analysis, portfolio management, and financial reporting quer
   app.get("/api/resumes/latest/:userId", async (req, res) => {
     try {
       const { userId } = req.params;
-      const resumes = await storage.getResumeUploads(userId);
       
-      if (resumes.length === 0) {
-        return res.status(404).json({ error: "No resume found" });
+      // First try to get the active resume
+      let targetResume = await storage.getActiveResume(userId);
+      
+      // If no active resume, fall back to the most recent one
+      if (!targetResume) {
+        const resumes = await storage.getResumeUploads(userId);
+        
+        if (resumes.length === 0) {
+          return res.status(404).json({ error: "No resume found" });
+        }
+
+        targetResume = resumes.sort((a, b) => {
+          const dateA = a.uploadedAt ? new Date(a.uploadedAt).getTime() : 0;
+          const dateB = b.uploadedAt ? new Date(b.uploadedAt).getTime() : 0;
+          return dateB - dateA;
+        })[0];
       }
 
-      // Get the most recent resume
-      const latestResume = resumes.sort((a, b) => {
-        const dateA = a.uploadedAt ? new Date(a.uploadedAt).getTime() : 0;
-        const dateB = b.uploadedAt ? new Date(b.uploadedAt).getTime() : 0;
-        return dateB - dateA;
-      })[0];
-
-      if (!latestResume.fileUrl) {
+      if (!targetResume.fileUrl) {
         return res.status(404).json({ error: "Resume file path not found" });
       }
       
-      const resumePath = path.join(process.cwd(), latestResume.fileUrl.replace(/^\//, ''));
+      const resumePath = path.join(process.cwd(), targetResume.fileUrl.replace(/^\//, ''));
       
       if (!fs.existsSync(resumePath)) {
         return res.status(404).json({ error: "Resume file not found" });
       }
 
       // Set appropriate headers based on file type
-      const ext = path.extname(latestResume.fileName).toLowerCase();
+      const ext = path.extname(targetResume.fileName).toLowerCase();
       let contentType = 'application/octet-stream';
       
       switch (ext) {
@@ -384,7 +394,7 @@ Focus on investment analysis, portfolio management, and financial reporting quer
       }
 
       res.setHeader('Content-Type', contentType);
-      res.setHeader('Content-Disposition', `attachment; filename="${latestResume.fileName}"`);
+      res.setHeader('Content-Disposition', `attachment; filename="${targetResume.fileName}"`);
       
       const fileStream = fs.createReadStream(resumePath);
       fileStream.pipe(res);
@@ -422,6 +432,25 @@ Focus on investment analysis, portfolio management, and financial reporting quer
     } catch (error) {
       console.error("Delete resume error:", error);
       res.status(500).json({ error: "Failed to delete resume" });
+    }
+  });
+
+  // Set active resume endpoint
+  app.post("/api/resumes/:resumeId/activate", async (req, res) => {
+    try {
+      const { resumeId } = req.params;
+      const userId = 'employer';
+      
+      // Deactivate all other resumes first
+      await storage.deactivateOtherResumes(resumeId, userId);
+      
+      // Set this resume as active
+      await storage.setActiveResume(resumeId, userId);
+      
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Set active resume error:", error);
+      res.status(500).json({ error: "Failed to set active resume" });
     }
   });
 

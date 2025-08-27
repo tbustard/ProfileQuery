@@ -24,6 +24,7 @@ interface ResumeUpload {
   fileUrl: string;
   uploadedAt: string;
   fileSize: number;
+  isActive?: boolean;
   description?: string;
 }
 
@@ -257,6 +258,27 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
     },
   });
 
+  // Set active resume mutation
+  const setActiveResumeMutation = useMutation({
+    mutationFn: async (resumeId: string) => {
+      return apiRequest(`/api/resumes/${resumeId}/activate`, 'POST');
+    },
+    onSuccess: () => {
+      toast({
+        title: "Active Resume Updated",
+        description: "The selected resume is now active for printing.",
+      });
+      resumesQuery.refetch();
+    },
+    onError: () => {
+      toast({
+        title: "Failed to Activate Resume",
+        description: "Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
   const handleViewVideo = (video: VideoUpload) => {
     setPreviewVideo(video);
     setShowPreviewDialog(true);
@@ -437,23 +459,25 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
           </CardContent>
         </Card>
 
-        {/* Uploaded Videos */}
-        <Card className="bg-white shadow-sm border border-gray-200 mb-8">
-          <CardContent className="p-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-2" style={{ 
-              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
-              letterSpacing: '-0.025em'
-            }}>
-              Uploaded Videos
-            </h2>
-            <p className="text-sm text-gray-600 mb-6" style={{ 
-              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
-            }}>
-              {videosQuery.data && Array.isArray(videosQuery.data) && videosQuery.data.length === 1 
-                ? '1 file uploaded' 
-                : `${(videosQuery.data && Array.isArray(videosQuery.data) ? videosQuery.data.length : 0)} files uploaded`
-            }
-            </p>
+        {/* Side by Side Layout for Videos and Resumes */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Uploaded Videos */}
+          <Card className="bg-white shadow-sm border border-gray-200">
+            <CardContent className="p-8">
+              <h2 className="text-xl font-semibold text-gray-900 mb-2" style={{ 
+                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+                letterSpacing: '-0.025em'
+              }}>
+                Uploaded Videos
+              </h2>
+              <p className="text-sm text-gray-600 mb-6" style={{ 
+                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+              }}>
+                {videosQuery.data && Array.isArray(videosQuery.data) && videosQuery.data.length === 1 
+                  ? '1 file uploaded' 
+                  : `${(videosQuery.data && Array.isArray(videosQuery.data) ? videosQuery.data.length : 0)} files uploaded`
+                }
+              </p>
             <div>
               {videosQuery.isLoading ? (
                 <div className="space-y-3">
@@ -540,26 +564,26 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                 </div>
               )}
             </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
 
-        {/* Uploaded Resumes */}
-        <Card className="bg-white shadow-sm border border-gray-200">
-          <CardContent className="p-8">
-            <h2 className="text-xl font-semibold text-gray-900 mb-2" style={{ 
-              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
-              letterSpacing: '-0.025em'
-            }}>
-              Uploaded Resumes
-            </h2>
-            <p className="text-sm text-gray-600 mb-6" style={{ 
-              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
-            }}>
-              {resumesQuery.data && Array.isArray(resumesQuery.data) && resumesQuery.data.length === 1 
-                ? '1 file uploaded' 
-                : `${(resumesQuery.data && Array.isArray(resumesQuery.data) ? resumesQuery.data.length : 0)} files uploaded`
-              }
-            </p>
+          {/* Uploaded Resumes */}
+          <Card className="bg-white shadow-sm border border-gray-200">
+            <CardContent className="p-8">
+              <h2 className="text-xl font-semibold text-gray-900 mb-2" style={{ 
+                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+                letterSpacing: '-0.025em'
+              }}>
+                Uploaded Resumes
+              </h2>
+              <p className="text-sm text-gray-600 mb-6" style={{ 
+                fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+              }}>
+                {resumesQuery.data && Array.isArray(resumesQuery.data) && resumesQuery.data.length === 1 
+                  ? '1 file uploaded' 
+                  : `${(resumesQuery.data && Array.isArray(resumesQuery.data) ? resumesQuery.data.length : 0)} files uploaded`
+                }
+              </p>
             <div>
               {resumesQuery.isLoading ? (
                 <div className="space-y-3">
@@ -592,6 +616,24 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
+                        {resume.isActive ? (
+                          <span className="px-3 py-1 text-xs bg-green-100 text-green-700 rounded-full font-medium" style={{ 
+                            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+                          }}>
+                            Active
+                          </span>
+                        ) : (
+                          <Button
+                            size="sm"
+                            variant="ghost"
+                            onClick={() => setActiveResumeMutation.mutate(resume.id)}
+                            disabled={setActiveResumeMutation.isPending}
+                            className="text-blue-600 hover:text-blue-700 font-medium"
+                            style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+                          >
+                            Set Active
+                          </Button>
+                        )}
                         <Button
                           size="sm"
                           variant="ghost"
@@ -630,8 +672,9 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                 </div>
               )}
             </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </div>
       </div>
 
       {/* Video Preview Dialog */}
