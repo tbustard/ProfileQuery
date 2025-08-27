@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useInitialPageAnimation } from "@/hooks/useScrollAnimation";
+import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -28,6 +29,12 @@ import mcgillLogo from "@assets/mcgill_1755937693386.png";
 export default function Resume() {
   const isPageLoaded = useInitialPageAnimation(400);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
+  
+  // Fetch resumes to check if any exist
+  const resumesQuery = useQuery({
+    queryKey: ['/api/resumes/employer'],
+    staleTime: 60000, // 1 minute
+  });
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout | null = null;
@@ -64,61 +71,63 @@ export default function Resume() {
     <div className="min-h-screen" style={{ backgroundColor: '#f5f5f7' }}>
       <Navigation />
 
-      {/* Print PDF Button - Centered above resume */}
-      <div className="pt-24 pb-6">
-        <div className="flex justify-center">
-          <Button
-              onClick={async () => {
-                try {
-                  // First get the resume metadata to get the custom filename
-                  const metadataResponse = await fetch('/api/resumes/employer');
-                  const resumes = await metadataResponse.json();
-                  
-                  let customFilename = 'Tyler_Bustard_Resume.pdf'; // fallback
-                  
-                  if (resumes && resumes.length > 0) {
-                    // Find the active resume or the most recent one
-                    const activeResume = resumes.find(r => r.isActive) || resumes[0];
-                    if (activeResume && activeResume.fileName) {
-                      customFilename = activeResume.fileName.endsWith('.pdf') 
-                        ? activeResume.fileName 
-                        : `${activeResume.fileName}.pdf`;
+      {/* Print PDF Button - Only show if PDFs exist */}
+      {resumesQuery.data && Array.isArray(resumesQuery.data) && resumesQuery.data.length > 0 && (
+        <div className="pt-24 pb-6">
+          <div className="flex justify-center">
+            <Button
+                onClick={async () => {
+                  try {
+                    // First get the resume metadata to get the custom filename
+                    const metadataResponse = await fetch('/api/resumes/employer');
+                    const resumes = await metadataResponse.json();
+                    
+                    let customFilename = 'Tyler_Bustard_Resume.pdf'; // fallback
+                    
+                    if (resumes && resumes.length > 0) {
+                      // Find the active resume or the most recent one
+                      const activeResume = resumes.find(r => r.isActive) || resumes[0];
+                      if (activeResume && activeResume.fileName) {
+                        customFilename = activeResume.fileName.endsWith('.pdf') 
+                          ? activeResume.fileName 
+                          : `${activeResume.fileName}.pdf`;
+                      }
                     }
+                    
+                    // Now download the PDF with the custom filename
+                    const response = await fetch('/api/resumes/latest/employer');
+                    if (response.ok) {
+                      const blob = await response.blob();
+                      const url = window.URL.createObjectURL(blob);
+                      const link = document.createElement('a');
+                      link.href = url;
+                      link.download = customFilename; // Use custom filename for download
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                      window.URL.revokeObjectURL(url);
+                    } else {
+                      // Handle error - no PDF found
+                      alert('No resume PDF found. Please upload one via the employer dashboard.');
+                    }
+                  } catch (error) {
+                    console.error('Error loading PDF:', error);
+                    alert('Error loading resume PDF. Please try again.');
                   }
-                  
-                  // Now download the PDF with the custom filename
-                  const response = await fetch('/api/resumes/latest/employer');
-                  if (response.ok) {
-                    const blob = await response.blob();
-                    const url = window.URL.createObjectURL(blob);
-                    const link = document.createElement('a');
-                    link.href = url;
-                    link.download = customFilename; // Use custom filename for download
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                    window.URL.revokeObjectURL(url);
-                  } else {
-                    // Handle error - no PDF found
-                    alert('No resume PDF found. Please upload one via the employer dashboard.');
-                  }
-                } catch (error) {
-                  console.error('Error loading PDF:', error);
-                  alert('Error loading resume PDF. Please try again.');
-                }
-              }}
-              className="px-6 py-3 text-sm font-medium rounded-xl transition-all duration-200 flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 hover:scale-105 shadow-lg"
-              data-testid="button-download-pdf"
-              style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
-            >
-              <Printer size={16} />
-              Download PDF
-            </Button>
+                }}
+                className="px-6 py-3 text-sm font-medium rounded-xl transition-all duration-200 flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 hover:scale-105 shadow-lg"
+                data-testid="button-download-pdf"
+                style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+              >
+                <Printer size={16} />
+                Download PDF
+              </Button>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Main Resume Content */}
-      <div className="px-6 sm:px-8 lg:px-10 pb-12">
+      <div className={`px-6 sm:px-8 lg:px-10 pb-12 ${resumesQuery.data && Array.isArray(resumesQuery.data) && resumesQuery.data.length > 0 ? '' : 'pt-24'}`}>
         <div className="max-w-6xl mx-auto">
           
           {/* Resume Container - Exact dimensions: 21.59cm x 55.88cm */}
