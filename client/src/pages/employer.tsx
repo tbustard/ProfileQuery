@@ -313,18 +313,30 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
           </Button>
         </div>
         
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-semibold text-gray-900 mb-2" style={{ 
-            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
-            letterSpacing: '-0.025em'
-          }}>
-            Media Upload
-          </h1>
-          <p className="text-gray-600" style={{ 
-            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
-          }}>
-            Upload and manage videos and resume PDFs for Tyler Bustard's portfolio
-          </p>
+        {/* Hero Header Section with Glass Effect */}
+        <div className="text-center mb-12">
+          <div className="bg-white/90 backdrop-blur-xl rounded-[2rem] border border-white/30 p-10 shadow-2xl hover:shadow-3xl transition-all duration-500"
+               style={{
+                 backdropFilter: 'blur(20px) saturate(180%)',
+                 WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                 boxShadow: '0 20px 80px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
+               }}>
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4" style={{ 
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+              letterSpacing: '-0.03em',
+              background: 'linear-gradient(135deg, #1f2937 0%, #3b82f6 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text'
+            }}>
+              Media Management
+            </h1>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed" style={{ 
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+            }}>
+              Upload and manage videos and resume PDFs for Tyler Bustard's portfolio with professional-grade tools
+            </p>
+          </div>
         </div>
 
         {/* Main Content Grid - Videos Left, PDFs Right */}
@@ -332,11 +344,16 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
           {/* LEFT COLUMN - Video Section */}
           <div className="space-y-8">
             {/* Video Upload Section */}
-            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl overflow-hidden min-h-[420px]">
-              <CardContent className="p-10">
+            <Card className="bg-white/90 backdrop-blur-xl border border-white/30 rounded-[2rem] overflow-hidden min-h-[420px] shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]"
+                  style={{
+                    backdropFilter: 'blur(20px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                    boxShadow: '0 25px 50px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                  }}>
+              <CardContent className="p-12">
                 <div className="flex items-center gap-3 mb-8">
-                  <div className="p-2 bg-blue-50 rounded-xl">
-                    <Video className="w-6 h-6 text-blue-600" />
+                  <div className="p-3 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl shadow-lg">
+                    <Video className="w-7 h-7 text-blue-600" />
                   </div>
                   <div>
                     <h2 className="text-xl font-semibold text-gray-900" style={{ 
@@ -362,7 +379,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                       accept="video/*"
                       onChange={handleVideoSelect}
                       disabled={videoUploadMutation.isPending}
-                      className="cursor-pointer border-gray-200 rounded-xl h-12 text-sm"
+                      className="cursor-pointer border-gray-200 rounded-2xl h-14 text-sm bg-white/60 backdrop-blur-sm hover:bg-white/80 transition-all duration-200 file:mr-4 file:py-3 file:px-6 file:rounded-xl file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                       data-testid="input-video-file"
                     />
                     {selectedVideo && (
@@ -383,8 +400,9 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                       value={videoTitle}
                       onChange={(e) => setVideoTitle(e.target.value)}
                       disabled={videoUploadMutation.isPending}
-                      className="border-gray-200 rounded-xl h-12"
+                      className="border-gray-200 rounded-2xl h-14 bg-white/60 backdrop-blur-sm hover:bg-white/80 focus:bg-white/90 transition-all duration-200 text-base px-4"
                       data-testid="input-video-title"
+                      style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
                     />
                   </div>
 
@@ -392,7 +410,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                     onClick={handleVideoUpload}
                     disabled={!selectedVideo || !videoTitle.trim() || videoUploadMutation.isPending}
                     data-testid="button-upload-video"
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl py-3 transition-all duration-200 hover:shadow-lg"
+                    className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-2xl py-4 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                     style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
                   >
                     {videoUploadMutation.isPending ? (
@@ -412,8 +430,13 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             </Card>
 
             {/* Uploaded Videos */}
-            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl overflow-hidden min-h-[500px]">
-              <CardContent className="p-10">
+            <Card className="bg-white/90 backdrop-blur-xl border border-white/30 rounded-[2rem] overflow-hidden min-h-[500px] shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]"
+                  style={{
+                    backdropFilter: 'blur(20px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                    boxShadow: '0 25px 50px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                  }}>
+              <CardContent className="p-12">
                 <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-blue-50 rounded-xl">
@@ -445,10 +468,10 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
               ) : videosQuery.data && Array.isArray(videosQuery.data) && videosQuery.data.length > 0 ? (
                 <div className="space-y-4">
                   {videosQuery.data.map((video: VideoUpload) => (
-                    <div key={video.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100 hover:shadow-md transition-all duration-200">
+                    <div key={video.id} className="flex items-center justify-between p-5 bg-white/70 backdrop-blur-sm rounded-2xl border border-white/40 hover:bg-white/90 hover:shadow-lg transition-all duration-300 hover:scale-[1.01]">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 bg-white rounded-xl shadow-sm">
-                          <Video className="w-5 h-5 text-blue-600" />
+                        <div className="p-3 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg">
+                          <Video className="w-6 h-6 text-blue-600" />
                         </div>
                         <div>
                           <p className="font-medium text-gray-900" style={{ 
@@ -470,7 +493,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                       </div>
                       <div className="flex items-center gap-2">
                         {video.isActive ? (
-                          <span className="px-3 py-1 text-xs bg-green-100 text-green-700 rounded-full font-medium" style={{ 
+                          <span className="px-4 py-2 text-sm bg-gradient-to-r from-green-100 to-green-200 text-green-700 rounded-full font-semibold shadow-md" style={{ 
                             fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
                           }}>
                             Active
@@ -481,7 +504,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                             variant="ghost"
                             onClick={() => setActiveVideoMutation.mutate(video.id)}
                             disabled={setActiveVideoMutation.isPending}
-                            className="text-blue-600 hover:text-blue-700 font-medium"
+                            className="text-blue-600 hover:text-blue-700 font-semibold bg-blue-50 hover:bg-blue-100 rounded-xl transition-all duration-200 hover:scale-105"
                             style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
                           >
                             Set Active
@@ -533,11 +556,16 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
           {/* RIGHT COLUMN - PDF Section */}
           <div className="space-y-8">
             {/* PDF Upload Section */}
-            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl overflow-hidden min-h-[420px]">
-              <CardContent className="p-10">
+            <Card className="bg-white/90 backdrop-blur-xl border border-white/30 rounded-[2rem] overflow-hidden min-h-[420px] shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]"
+                  style={{
+                    backdropFilter: 'blur(20px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                    boxShadow: '0 25px 50px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                  }}>
+              <CardContent className="p-12">
                 <div className="flex items-center gap-3 mb-8">
-                  <div className="p-2 bg-green-50 rounded-xl">
-                    <FileText className="w-6 h-6 text-green-600" />
+                  <div className="p-3 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl shadow-lg">
+                    <FileText className="w-7 h-7 text-green-600" />
                   </div>
                   <div>
                     <h2 className="text-xl font-semibold text-gray-900" style={{ 
@@ -563,7 +591,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                       accept=".pdf"
                       onChange={handlePdfSelect}
                       disabled={pdfUploadMutation.isPending}
-                      className="cursor-pointer border-gray-200 rounded-xl h-12 text-sm"
+                      className="cursor-pointer border-gray-200 rounded-2xl h-14 text-sm bg-white/60 backdrop-blur-sm hover:bg-white/80 transition-all duration-200 file:mr-4 file:py-3 file:px-6 file:rounded-xl file:border-0 file:text-sm file:font-medium file:bg-green-50 file:text-green-700 hover:file:bg-green-100"
                       data-testid="input-pdf-file"
                     />
                     {selectedPdf && (
@@ -584,8 +612,9 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                       value={resumeTitle}
                       onChange={(e) => setResumeTitle(e.target.value)}
                       disabled={pdfUploadMutation.isPending}
-                      className="border-gray-200 rounded-xl h-12"
+                      className="border-gray-200 rounded-2xl h-14 bg-white/60 backdrop-blur-sm hover:bg-white/80 focus:bg-white/90 transition-all duration-200 text-base px-4"
                       data-testid="input-resume-title"
+                      style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
                     />
                   </div>
 
@@ -593,7 +622,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                     onClick={handlePdfUpload}
                     disabled={!selectedPdf || !resumeTitle.trim() || pdfUploadMutation.isPending}
                     data-testid="button-upload-pdf"
-                    className="w-full bg-green-600 hover:bg-green-700 text-white font-medium rounded-xl py-3 transition-all duration-200 hover:shadow-lg"
+                    className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold rounded-2xl py-4 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                     style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
                   >
                     {pdfUploadMutation.isPending ? (
@@ -613,8 +642,13 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             </Card>
 
             {/* Uploaded Resumes */}
-            <Card className="bg-white shadow-lg border border-gray-100 rounded-2xl overflow-hidden min-h-[500px]">
-              <CardContent className="p-10">
+            <Card className="bg-white/90 backdrop-blur-xl border border-white/30 rounded-[2rem] overflow-hidden min-h-[500px] shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]"
+                  style={{
+                    backdropFilter: 'blur(20px) saturate(180%)',
+                    WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                    boxShadow: '0 25px 50px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
+                  }}>
+              <CardContent className="p-12">
                 <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-green-50 rounded-xl">
@@ -646,10 +680,10 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                   ) : resumesQuery.data && Array.isArray(resumesQuery.data) && resumesQuery.data.length > 0 ? (
                     <div className="space-y-4">
                       {resumesQuery.data.map((resume: ResumeUpload) => (
-                        <div key={resume.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100 hover:shadow-md transition-all duration-200">
+                        <div key={resume.id} className="flex items-center justify-between p-5 bg-white/70 backdrop-blur-sm rounded-2xl border border-white/40 hover:bg-white/90 hover:shadow-lg transition-all duration-300 hover:scale-[1.01]">
                           <div className="flex items-center gap-3">
-                            <div className="p-2 bg-white rounded-xl shadow-sm">
-                              <FileText className="w-5 h-5 text-green-600" />
+                            <div className="p-3 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg">
+                              <FileText className="w-6 h-6 text-green-600" />
                             </div>
                             <div>
                               <p className="font-medium text-gray-900" style={{ 
@@ -671,7 +705,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                           </div>
                           <div className="flex items-center gap-2">
                             {resume.isActive ? (
-                              <span className="px-3 py-1 text-xs bg-green-100 text-green-700 rounded-full font-medium" style={{ 
+                              <span className="px-4 py-2 text-sm bg-gradient-to-r from-green-100 to-green-200 text-green-700 rounded-full font-semibold shadow-md" style={{ 
                                 fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
                               }}>
                                 Active
@@ -682,7 +716,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                                 variant="ghost"
                                 onClick={() => setActiveResumeMutation.mutate(resume.id)}
                                 disabled={setActiveResumeMutation.isPending}
-                                className="text-blue-600 hover:text-blue-700 font-medium"
+                                className="text-green-600 hover:text-green-700 font-semibold bg-green-50 hover:bg-green-100 rounded-xl transition-all duration-200 hover:scale-105"
                                 style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
                               >
                                 Set Active
