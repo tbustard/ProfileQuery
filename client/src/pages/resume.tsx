@@ -89,11 +89,11 @@ export default function Resume() {
                 }
               }}
               className="px-6 py-3 text-sm font-medium rounded-xl transition-all duration-200 flex items-center gap-2 text-white bg-blue-600 hover:bg-blue-700 hover:scale-105 shadow-lg"
-              data-testid="button-print-pdf"
+              data-testid="button-download-pdf"
               style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
             >
               <Printer size={16} />
-              Print PDF
+              Download PDF
             </Button>
         </div>
       </div>
