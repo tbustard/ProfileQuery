@@ -92,113 +92,127 @@ export default function HeroSection() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 pt-2 sm:pt-4">
-                  <Button
-                    onClick={() => {
-                      console.log('Button clicked. Videos data:', videosQuery.data);
-                      const activeVideo = videosQuery.data && 
-                        Array.isArray(videosQuery.data) &&
-                        videosQuery.data.find((video: any) => video.isActive);
-                      
-                      console.log('Active video found:', activeVideo);
-                      
-                      if (activeVideo) {
-                        console.log('Creating video overlay for:', activeVideo.fileUrl);
+                  {/* Only show video button if videos exist */}
+                  {videosQuery.data && Array.isArray(videosQuery.data) && videosQuery.data.length > 0 && (
+                    <Button
+                      onClick={() => {
+                        console.log('Button clicked. Videos data:', videosQuery.data);
+                        const activeVideo = videosQuery.data && 
+                          Array.isArray(videosQuery.data) &&
+                          videosQuery.data.find((video: any) => video.isActive);
                         
-                        // Create simple video overlay
-                        const overlay = document.createElement('div');
-                        overlay.id = 'video-overlay';
-                        overlay.style.cssText = `
-                          position: fixed;
-                          top: 0;
-                          left: 0;
-                          width: 100vw;
-                          height: 100vh;
-                          background: rgba(0,0,0,0.9);
-                          z-index: 999999;
-                          display: flex;
-                          align-items: center;
-                          justify-content: center;
-                          padding: 20px;
-                        `;
+                        console.log('Active video found:', activeVideo);
                         
-                        // Create close button
-                        const closeBtn = document.createElement('button');
-                        closeBtn.innerHTML = '✕ Close';
-                        closeBtn.style.cssText = `
-                          position: absolute;
-                          top: 20px;
-                          right: 20px;
-                          background: white;
-                          border: none;
-                          padding: 10px 15px;
-                          border-radius: 5px;
-                          cursor: pointer;
-                          font-size: 16px;
-                          z-index: 1000000;
-                        `;
-                        closeBtn.onclick = () => overlay.remove();
-                        
-                        // Create video element
-                        const video = document.createElement('video');
-                        video.controls = true;
-                        video.autoplay = true;
-                        video.muted = true;
-                        video.style.cssText = `
-                          max-width: 90%;
-                          max-height: 90%;
-                          width: auto;
-                          height: auto;
-                          background: black;
-                        `;
-                        video.src = '/api/introduction-video';
-                        
-                        // Add event listeners for debugging
-                        video.addEventListener('loadstart', () => console.log('✅ Video loading started'));
-                        video.addEventListener('loadeddata', () => {
-                          console.log('✅ Video data loaded');
-                          console.log('Video dimensions:', video.videoWidth, 'x', video.videoHeight);
-                          console.log('Video element size:', video.offsetWidth, 'x', video.offsetHeight);
-                        });
-                        video.addEventListener('error', (e) => console.error('❌ Video error:', e));
-                        video.addEventListener('canplay', () => console.log('✅ Video can play'));
-                        
-                        overlay.appendChild(video);
-                        overlay.appendChild(closeBtn);
-                        document.body.appendChild(overlay);
-                        console.log('✅ Simple video overlay created');
-                        
-                        // Close on escape key
-                        const handleEscape = (e: KeyboardEvent) => {
-                          if (e.key === 'Escape') {
-                            overlay.remove();
-                            document.removeEventListener('keydown', handleEscape);
-                          }
-                        };
-                        document.addEventListener('keydown', handleEscape);
-                        
-                        // Close on background click
-                        overlay.addEventListener('click', (e) => {
-                          if (e.target === overlay) {
-                            overlay.remove();
-                            document.removeEventListener('keydown', handleEscape);
-                          }
-                        });
-                      } else {
-                        console.log('No active video found, scrolling to introduction');
-                        scrollToSection('introduction');
-                      }
-                    }}
-                    className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 sm:px-8 py-4 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-lg min-h-[56px]"
-                    data-testid="button-introduction"
-                  >
-                    <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                      <Play size={16} className="ml-0.5" />
-                    </div>
-                    {videosQuery.data && 
-                     Array.isArray(videosQuery.data) &&
-                     videosQuery.data.find((video: any) => video.isActive) ? 'Watch Introduction Video' : 'Introduction'}
-                  </Button>
+                        if (activeVideo) {
+                          console.log('Creating video overlay for:', activeVideo.fileUrl);
+                          
+                          // Create simple video overlay
+                          const overlay = document.createElement('div');
+                          overlay.id = 'video-overlay';
+                          overlay.style.cssText = `
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100vw;
+                            height: 100vh;
+                            background: rgba(0,0,0,0.9);
+                            z-index: 999999;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 20px;
+                          `;
+                          
+                          // Create close button
+                          const closeBtn = document.createElement('button');
+                          closeBtn.innerHTML = '✕ Close';
+                          closeBtn.style.cssText = `
+                            position: absolute;
+                            top: 20px;
+                            right: 20px;
+                            background: white;
+                            border: none;
+                            padding: 10px 15px;
+                            border-radius: 5px;
+                            cursor: pointer;
+                            font-size: 16px;
+                            z-index: 1000000;
+                          `;
+                          closeBtn.onclick = () => overlay.remove();
+                          
+                          // Create video element
+                          const video = document.createElement('video');
+                          video.controls = true;
+                          video.autoplay = true;
+                          video.muted = true;
+                          video.style.cssText = `
+                            max-width: 90%;
+                            max-height: 90%;
+                            width: auto;
+                            height: auto;
+                            background: black;
+                          `;
+                          video.src = '/api/introduction-video';
+                          
+                          // Add event listeners for debugging
+                          video.addEventListener('loadstart', () => console.log('✅ Video loading started'));
+                          video.addEventListener('loadeddata', () => {
+                            console.log('✅ Video data loaded');
+                            console.log('Video dimensions:', video.videoWidth, 'x', video.videoHeight);
+                            console.log('Video element size:', video.offsetWidth, 'x', video.offsetHeight);
+                          });
+                          video.addEventListener('error', (e) => console.error('❌ Video error:', e));
+                          video.addEventListener('canplay', () => console.log('✅ Video can play'));
+                          
+                          overlay.appendChild(video);
+                          overlay.appendChild(closeBtn);
+                          document.body.appendChild(overlay);
+                          console.log('✅ Simple video overlay created');
+                          
+                          // Close on escape key
+                          const handleEscape = (e: KeyboardEvent) => {
+                            if (e.key === 'Escape') {
+                              overlay.remove();
+                              document.removeEventListener('keydown', handleEscape);
+                            }
+                          };
+                          document.addEventListener('keydown', handleEscape);
+                          
+                          // Close on background click
+                          overlay.addEventListener('click', (e) => {
+                            if (e.target === overlay) {
+                              overlay.remove();
+                              document.removeEventListener('keydown', handleEscape);
+                            }
+                          });
+                        } else {
+                          console.log('No active video found, scrolling to introduction');
+                          scrollToSection('introduction');
+                        }
+                      }}
+                      className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 sm:px-8 py-4 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-lg min-h-[56px]"
+                      data-testid="button-introduction"
+                    >
+                      <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                        <Play size={16} className="ml-0.5" />
+                      </div>
+                      {videosQuery.data && 
+                       Array.isArray(videosQuery.data) &&
+                       videosQuery.data.find((video: any) => video.isActive) ? 'Watch Introduction Video' : 'Introduction'}
+                    </Button>
+                  )}
                   
+                  <Button
+                    onClick={() => scrollToSection('contact')}
+                    variant="outline"
+                    className="bg-white/10 backdrop-blur-sm border-white/20 text-foreground hover:bg-white/20 font-semibold px-6 sm:px-8 py-4 sm:py-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-lg min-h-[56px]"
+                    data-testid="button-contact"
+                  >
+                    <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                      <Download size={16} />
+                    </div>
+                    Get In Touch
+                  </Button>
                 </div>
               </div>
             </div>
