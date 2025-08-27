@@ -18,6 +18,15 @@ interface VideoUpload {
   isActive: boolean;
 }
 
+interface ResumeUpload {
+  id: string;
+  fileName: string;
+  fileUrl: string;
+  uploadedAt: string;
+  fileSize: number;
+  description?: string;
+}
+
 function EmployerDashboard({ user }: { user: { email: string } }) {
   const { toast } = useToast();
   const [selectedVideo, setSelectedVideo] = useState<File | null>(null);
@@ -30,6 +39,12 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
   // Fetch videos from API
   const videosQuery = useQuery({
     queryKey: ['/api/videos'],
+    staleTime: 30000, // 30 seconds
+  });
+
+  // Fetch resumes from API
+  const resumesQuery = useQuery({
+    queryKey: ['/api/resumes/employer'],
     staleTime: 30000, // 30 seconds
   });
 
@@ -214,6 +229,27 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
     },
   });
 
+  // Delete resume mutation
+  const deleteResumeMutation = useMutation({
+    mutationFn: async (resumeId: string) => {
+      return apiRequest(`/api/resumes/${resumeId}`, 'DELETE');
+    },
+    onSuccess: () => {
+      toast({
+        title: "Resume Deleted",
+        description: "The resume has been removed successfully.",
+      });
+      resumesQuery.refetch();
+    },
+    onError: () => {
+      toast({
+        title: "Failed to Delete Resume",
+        description: "Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
   const handleViewVideo = (video: VideoUpload) => {
     setPreviewVideo(video);
     setShowPreviewDialog(true);
@@ -382,7 +418,7 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
         </Card>
 
         {/* Uploaded Videos */}
-        <Card className="bg-white shadow-sm border border-gray-200">
+        <Card className="bg-white shadow-sm border border-gray-200 mb-8">
           <CardContent className="p-8">
             <h2 className="text-xl font-semibold text-gray-900 mb-2" style={{ 
               fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
@@ -481,6 +517,96 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
                 <div className="text-center py-8">
                   <Video className="w-12 h-12 text-gray-400 mx-auto mb-3" />
                   <p className="text-gray-600">No videos uploaded yet</p>
+                </div>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Uploaded Resumes */}
+        <Card className="bg-white shadow-sm border border-gray-200">
+          <CardContent className="p-8">
+            <h2 className="text-xl font-semibold text-gray-900 mb-2" style={{ 
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif',
+              letterSpacing: '-0.025em'
+            }}>
+              Uploaded Resumes
+            </h2>
+            <p className="text-sm text-gray-600 mb-6" style={{ 
+              fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+            }}>
+              {resumesQuery.data && Array.isArray(resumesQuery.data) && resumesQuery.data.length === 1 
+                ? '1 file uploaded' 
+                : `${(resumesQuery.data && Array.isArray(resumesQuery.data) ? resumesQuery.data.length : 0)} files uploaded`
+              }
+            </p>
+            <div>
+              {resumesQuery.isLoading ? (
+                <div className="space-y-3">
+                  <div className="h-12 bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />
+                </div>
+              ) : resumesQuery.data && Array.isArray(resumesQuery.data) && resumesQuery.data.length > 0 ? (
+                <div className="space-y-3">
+                  {resumesQuery.data.map((resume: ResumeUpload) => (
+                    <div key={resume.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 bg-white rounded-lg">
+                          <FileText className="w-5 h-5 text-gray-600" />
+                        </div>
+                        <div>
+                          <p className="font-medium text-gray-900" style={{ 
+                            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+                          }}>
+                            {resume.fileName}
+                          </p>
+                          <p className="text-sm text-gray-500" style={{ 
+                            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+                          }}>
+                            Resume PDF
+                          </p>
+                          <p className="text-xs text-gray-400 mt-1" style={{ 
+                            fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' 
+                          }}>
+                            {(resume.fileSize / (1024 * 1024)).toFixed(2)} MB • {new Date(resume.uploadedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          onClick={() => {
+                            window.open(resume.fileUrl, '_blank');
+                          }}
+                          className="text-gray-400 hover:text-gray-600"
+                          data-testid={`button-view-${resume.id}`}
+                        >
+                          View
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          onClick={() => {
+                            if (window.confirm('Are you sure you want to delete this resume?')) {
+                              deleteResumeMutation.mutate(resume.id);
+                            }
+                          }}
+                          disabled={deleteResumeMutation.isPending}
+                          className="text-red-500 hover:text-red-600"
+                          data-testid={`button-delete-${resume.id}`}
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                          </svg>
+                        </Button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-8">
+                  <FileText className="w-12 h-12 text-gray-400 mx-auto mb-3" />
+                  <p className="text-gray-600">No resumes uploaded yet</p>
                 </div>
               )}
             </div>

@@ -394,6 +394,37 @@ Focus on investment analysis, portfolio management, and financial reporting quer
     }
   });
 
+  // Delete resume endpoint
+  app.delete("/api/resumes/:resumeId", async (req, res) => {
+    try {
+      const { resumeId } = req.params;
+      
+      // Get the resume first to get the file path
+      const resumes = await storage.getResumeUploads('employer');
+      const resumeToDelete = resumes.find(r => r.id === resumeId);
+      
+      if (!resumeToDelete) {
+        return res.status(404).json({ error: "Resume not found" });
+      }
+
+      // Delete the file from filesystem
+      if (resumeToDelete.fileUrl) {
+        const resumePath = path.join(process.cwd(), resumeToDelete.fileUrl.replace(/^\//, ''));
+        if (fs.existsSync(resumePath)) {
+          fs.unlinkSync(resumePath);
+        }
+      }
+
+      // Delete from storage
+      await storage.deleteResumeUpload(resumeId, 'employer');
+      
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Delete resume error:", error);
+      res.status(500).json({ error: "Failed to delete resume" });
+    }
+  });
+
 
   // Video upload endpoint
   app.post("/api/videos/upload", videoUpload.single('video'), async (req, res) => {
