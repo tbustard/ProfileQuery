@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SiGoogle } from "react-icons/si";
 import { useScrollAnimation, useStaggeredScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useCounterAnimation } from "@/hooks/use-counter-animation";
 import { FaCertificate, FaGraduationCap, FaTrophy, FaStar, FaChartLine, FaCalculator, FaHeart, FaRunning, FaUsers, FaHandshake } from "react-icons/fa";
 import unitedWayLogo from "@assets/United-Way-Logo_1755913265895.png";
 import rbcLogo from "@assets/RBC-Logo_1755913716813.png";
@@ -30,6 +31,29 @@ interface CertificationCategory {
   icon: React.ComponentType<{ className?: string }>;
   color: string;
   certifications: Certification[];
+}
+
+// Counter components for certifications section
+interface CounterStatProps {
+  end: number;
+  suffix?: string;
+  prefix?: string;
+  label: string;
+  className?: string;
+  delay?: number;
+}
+
+function CertificationCounter({ end, suffix = '', prefix = '', label, className = '', delay = 0 }: CounterStatProps) {
+  const { count, elementRef } = useCounterAnimation({ end, delay });
+  
+  return (
+    <div className="text-center" ref={elementRef}>
+      <div className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 ${className}`}>
+        {prefix}{count}{suffix}
+      </div>
+      <div className="text-base text-muted-foreground font-medium">{label}</div>
+    </div>
+  );
 }
 
 export default function CertificationsSection() {
@@ -212,18 +236,24 @@ export default function CertificationsSection() {
               Professional Development Highlights
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-2 sm:mb-3">22</div>
-                <div className="text-base text-muted-foreground font-medium">Total Certifications</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-600 mb-2 sm:mb-3">4</div>
-                <div className="text-base text-muted-foreground font-medium">Expertise Areas</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2 sm:mb-3">17</div>
-                <div className="text-base text-muted-foreground font-medium">Different Organizations</div>
-              </div>
+              <CertificationCounter 
+                end={22} 
+                label="Total Certifications" 
+                className="text-foreground"
+                delay={0}
+              />
+              <CertificationCounter 
+                end={4} 
+                label="Expertise Areas" 
+                className="text-green-600"
+                delay={200}
+              />
+              <CertificationCounter 
+                end={17} 
+                label="Different Organizations" 
+                className="text-primary"
+                delay={400}
+              />
             </div>
           </div>
         </div>
@@ -247,6 +277,20 @@ interface CommunityActivity {
   icon?: React.ComponentType<{ className?: string }>;
   logoSrc?: string;
   color: string;
+}
+
+// Counter components for community section
+function CommunityCounter({ end, suffix = '', prefix = '', label, className = '', delay = 0 }: CounterStatProps) {
+  const { count, elementRef } = useCounterAnimation({ end, delay });
+  
+  return (
+    <div className="text-center" ref={elementRef}>
+      <div className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 sm:mb-3 ${className}`}>
+        {prefix}{count}{suffix}
+      </div>
+      <div className="text-base text-muted-foreground font-medium">{label}</div>
+    </div>
+  );
 }
 
 export function CommunitySection() {
@@ -438,18 +482,26 @@ export function CommunitySection() {
                 Community Highlights
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
-                <div className="text-center">
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-2 sm:mb-3">4+</div>
-                  <div className="text-base text-muted-foreground font-medium">Years of Service</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2 sm:mb-3">500+</div>
-                  <div className="text-base text-muted-foreground font-medium">People Helped</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-green-600 mb-2 sm:mb-3">3</div>
-                  <div className="text-base text-muted-foreground font-medium">Organizations Served</div>
-                </div>
+                <CommunityCounter 
+                  end={4} 
+                  suffix="+" 
+                  label="Years of Service" 
+                  className="text-foreground"
+                  delay={0}
+                />
+                <CommunityCounter 
+                  end={500} 
+                  suffix="+" 
+                  label="People Helped" 
+                  className="text-primary"
+                  delay={200}
+                />
+                <CommunityCounter 
+                  end={3} 
+                  label="Organizations Served" 
+                  className="text-green-600"
+                  delay={400}
+                />
               </div>
             </div>
           </div>
