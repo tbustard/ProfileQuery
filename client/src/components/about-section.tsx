@@ -181,7 +181,7 @@ export default function EducationSection() {
                     <h4 className="text-xl sm:text-2xl font-bold text-foreground mb-2 sm:mb-2">
                       {category.category}
                     </h4>
-                    <div className="w-20 sm:w-12 h-1.5 sm:h-1 bg-gradient-to-r from-primary to-blue-500 rounded-full mx-auto sm:mx-0 mb-4 sm:mb-0" />
+                    <div className="w-24 sm:w-12 h-1.5 sm:h-1 bg-gradient-to-r from-primary to-blue-500 rounded-full mx-auto sm:mx-0 mb-4 sm:mb-0" />
                   </div>
 
                   {/* Achievement Items */}
