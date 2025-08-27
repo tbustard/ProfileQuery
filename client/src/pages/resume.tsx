@@ -533,16 +533,6 @@ export default function Resume() {
         </div>
       </div>
 
-      {/* Scroll to Top Button */}
-      {showScrollToTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 p-3 bg-white/90 backdrop-blur-xl rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200 print:hidden group"
-          aria-label="Scroll to top"
-        >
-          <ChevronUp className="w-5 h-5 text-gray-700 group-hover:text-blue-600 transition-colors" />
-        </button>
-      )}
 
       {/* Print Styles - Optimized for 8.5" x 22" */}
       <style>{`
