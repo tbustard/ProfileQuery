@@ -301,8 +301,8 @@ export default function Navigation() {
                             className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
                           >
                             <div className="space-y-1">
-                              <div className="text-sm font-bold text-gray-900">Bachelor of Business Administration</div>
-                              <div className="text-xs text-gray-600">University of New Brunswick</div>
+                              <div className="text-sm font-bold text-gray-900">University of New Brunswick</div>
+                              <div className="text-xs text-gray-600">Bachelor of Business Administration</div>
                               <div className="text-xs text-gray-500">Fredericton, NB • 2016-2020</div>
                             </div>
                           </button>
@@ -672,10 +672,52 @@ export default function Navigation() {
                           onMouseLeave={handleDropdownLeave}
                         >
                           <div className="space-y-2">
-                            <div className="text-sm font-bold text-gray-900">Get in Touch</div>
-                            <div className="text-xs text-gray-600">tbustard@unb.ca</div>
-                            <div className="text-xs text-gray-600">+1 (613) 985-1223</div>
-                            <div className="text-xs text-gray-500">Toronto, Ontario</div>
+                            
+                            {/* Email */}
+                            <button 
+                              onClick={() => {
+                                scrollToSection('#contact');
+                                setOpenDropdown(null);
+                              }}
+                              className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
+                            >
+                              <div className="space-y-1">
+                                <div className="text-sm font-bold text-gray-900">Email</div>
+                                <div className="text-xs text-gray-600">tbustard@unb.ca</div>
+                                <div className="text-xs text-gray-500">Professional Inquiries</div>
+                              </div>
+                            </button>
+
+                            {/* Phone */}
+                            <button 
+                              onClick={() => {
+                                scrollToSection('#contact');
+                                setOpenDropdown(null);
+                              }}
+                              className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
+                            >
+                              <div className="space-y-1">
+                                <div className="text-sm font-bold text-gray-900">Phone</div>
+                                <div className="text-xs text-gray-600">(613) 985-1223</div>
+                                <div className="text-xs text-gray-500">Available 9AM-5PM EST</div>
+                              </div>
+                            </button>
+
+                            {/* Location */}
+                            <button 
+                              onClick={() => {
+                                scrollToSection('#contact');
+                                setOpenDropdown(null);
+                              }}
+                              className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
+                            >
+                              <div className="space-y-1">
+                                <div className="text-sm font-bold text-gray-900">Location</div>
+                                <div className="text-xs text-gray-600">Toronto, Ontario</div>
+                                <div className="text-xs text-gray-500">Canada</div>
+                              </div>
+                            </button>
+
                           </div>
                         </div>
                       </div>
