@@ -86,12 +86,13 @@ export default function Navigation() {
 
 
   useEffect(() => {
-    if (!isHomePage) {
+    if (!isHomePage && !isResumePage) {
       setCurrentSection('');
       return;
     }
 
-    setCurrentSection('hero');
+    // Set initial section based on page
+    setCurrentSection(isHomePage ? 'hero' : 'education');
 
     const observerOptions = {
       root: null,
@@ -112,7 +113,7 @@ export default function Navigation() {
 
       // Find the section with the highest intersection ratio
       let maxRatio = 0;
-      let activeSection = 'hero';
+      let activeSection = isHomePage ? 'hero' : 'education';
       
       Array.from(visibleSections.entries()).forEach(([sectionId, ratio]) => {
         if (ratio > maxRatio) {
@@ -132,7 +133,7 @@ export default function Navigation() {
       sections.forEach((section) => observer.unobserve(section));
       visibleSections.clear();
     };
-  }, [isHomePage]);
+  }, [isHomePage, isResumePage]);
 
   const scrollToSection = (href: string) => {
     // If on resume page, scroll to resume sections
