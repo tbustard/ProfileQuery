@@ -135,6 +135,12 @@ export default function Navigation() {
   }, [isHomePage]);
 
   const scrollToSection = (href: string) => {
+    // If not on home page, navigate to home page first
+    if (!isHomePage) {
+      window.location.href = `/${href}`;
+      return;
+    }
+    
     const element = document.querySelector(href);
     if (element) {
       const navHeight = 80;
@@ -796,7 +802,7 @@ export default function Navigation() {
               )}
 
               {/* Community */}
-              {isHomePage && (
+              {(isHomePage || isResumePage) && (
                 <div 
                   className="relative dropdown-container"
                   onMouseEnter={() => handleDropdownEnter('community')}
