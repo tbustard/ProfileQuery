@@ -31,11 +31,13 @@ The backend is built with Express.js using TypeScript and follows a RESTful API 
 The server implements middleware for logging, error handling, and development-specific features like Vite integration for hot module replacement.
 
 ## Data Storage Solutions
-The application uses a dual storage approach:
+The application uses a comprehensive storage approach:
 
 - **Production Database**: PostgreSQL via Neon Database with Drizzle ORM for schema management
 - **Development Storage**: In-memory storage implementation for rapid development and testing
 - **Database Schema**: Includes tables for SQL queries, contact messages, and user data with proper relationships and constraints
+- **Object Storage**: Replit Object Storage (Google Cloud Storage backend) for persistent file uploads (PDFs, videos) in production deployments
+- **File Uploads**: Hybrid approach - uses Object Storage in production for persistence, falls back to filesystem in development
 
 ## Authentication and Authorization
 Currently, the application doesn't implement user authentication as it's designed as a portfolio showcase. The storage interface includes user-related methods for future authentication implementation.

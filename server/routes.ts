@@ -9,6 +9,7 @@ import path from "path";
 import fs from "fs";
 import crypto from "crypto";
 import cloudinary from "./cloudinary";
+import { uploadToObjectStorage, getFromObjectStorage, deleteFromObjectStorage, isObjectStorageConfigured, getPresignedUrl } from "./objectStorage";
 
 if (!process.env.OPENAI_API_KEY && !process.env.OPENAI_API_KEY_ENV_VAR) {
   console.warn("Warning: No OpenAI API key found in environment variables");
@@ -300,53 +301,64 @@ Focus on investment analysis, portfolio management, and financial reporting quer
 
       const { userId = 'employer', title } = req.body;
       
-      // Generate a unique filename for the resume since we're using memory storage
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-      const ext = path.extname(req.file.originalname);
-      const generatedFilename = `resume-${uniqueSuffix}${ext}`;
+      let fileUrl: string;
+      let storageKey: string | null = null;
       
-      // Use absolute path resolution to ensure it works in all environments
-      const baseDir = process.cwd();
-      const resumeDir = path.resolve(baseDir, 'uploads', 'resumes');
-      const resumePath = path.resolve(resumeDir, generatedFilename);
-      
-      console.log(`Creating resume directory: ${resumeDir}`);
-      console.log(`Saving resume to: ${resumePath}`);
-      
-      // Ensure directory exists with proper error handling
-      try {
-        if (!fs.existsSync(resumeDir)) {
-          fs.mkdirSync(resumeDir, { recursive: true });
-          console.log(`Directory created successfully: ${resumeDir}`);
+      // Check if object storage is configured (for production)
+      if (isObjectStorageConfigured()) {
+        console.log('Using object storage for resume upload');
+        try {
+          // Upload to object storage
+          const uploaded = await uploadToObjectStorage(
+            req.file.buffer,
+            req.file.originalname,
+            req.file.mimetype
+          );
+          
+          fileUrl = uploaded.url;
+          storageKey = uploaded.key;
+          console.log(`Resume uploaded to object storage: ${storageKey}`);
+        } catch (storageError: any) {
+          console.error('Object storage upload failed:', storageError);
+          return res.status(500).json({ 
+            error: "Failed to upload file to cloud storage", 
+            details: storageError.message 
+          });
         }
+      } else {
+        // Fallback to local filesystem (development only)
+        console.log('Using local filesystem for resume upload (dev mode)');
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        const ext = path.extname(req.file.originalname);
+        const generatedFilename = `resume-${uniqueSuffix}${ext}`;
         
-        // Verify directory is writable
-        fs.accessSync(resumeDir, fs.constants.W_OK);
+        const baseDir = process.cwd();
+        const resumeDir = path.resolve(baseDir, 'uploads', 'resumes');
+        const resumePath = path.resolve(resumeDir, generatedFilename);
         
-        // Write the buffer to disk with error handling
-        fs.writeFileSync(resumePath, req.file.buffer);
-        console.log(`File written successfully: ${resumePath}`);
-        
-        // Verify file was written
-        if (!fs.existsSync(resumePath)) {
-          throw new Error('File was not written to disk');
+        try {
+          if (!fs.existsSync(resumeDir)) {
+            fs.mkdirSync(resumeDir, { recursive: true });
+          }
+          
+          fs.writeFileSync(resumePath, req.file.buffer);
+          fileUrl = `/uploads/resumes/${generatedFilename}`;
+        } catch (fsError: any) {
+          console.error('File system error:', fsError);
+          return res.status(500).json({ 
+            error: "Failed to save file", 
+            details: fsError.message 
+          });
         }
-        
-      } catch (fsError: any) {
-        console.error('File system error:', fsError);
-        return res.status(500).json({ 
-          error: "Failed to save file to server", 
-          details: fsError.message 
-        });
       }
       
       // Create resume record in storage with all required fields
       const resume = await storage.createResumeUpload({
-        fileName: title || req.file.originalname, // Use custom title if provided
-        fileUrl: `/uploads/resumes/${generatedFilename}`,
+        fileName: title || req.file.originalname,
+        fileUrl: storageKey || fileUrl, // Store the key for object storage, URL for filesystem
         userId,
         fileSize: req.file.size,
-        isActive: true, // Set new resume as active by default
+        isActive: true,
         description: req.body.description || null
       });
 
@@ -356,7 +368,10 @@ Focus on investment analysis, portfolio management, and financial reporting quer
       console.log(`Resume upload successful: ${resume.id}`);
       res.json({ 
         success: true, 
-        resume,
+        resume: {
+          ...resume,
+          fileUrl: storageKey ? await getPresignedUrl(storageKey, 3600 * 24 * 30) : fileUrl // Return presigned URL for object storage
+        },
         message: "Resume uploaded successfully"
       });
     } catch (error: any) {
@@ -373,7 +388,26 @@ Focus on investment analysis, portfolio management, and financial reporting quer
     try {
       const { userId } = req.params;
       const resumes = await storage.getResumeUploads(userId);
-      res.json(resumes);
+      
+      // If using object storage, generate presigned URLs for each resume
+      if (isObjectStorageConfigured()) {
+        const resumesWithUrls = await Promise.all(resumes.map(async (resume) => {
+          // Check if fileUrl is actually an object storage key
+          if (resume.fileUrl && resume.fileUrl.includes('.private/resumes/')) {
+            try {
+              const presignedUrl = await getPresignedUrl(resume.fileUrl, 3600 * 24); // 24 hours
+              return { ...resume, fileUrl: presignedUrl };
+            } catch (error) {
+              console.error(`Failed to generate URL for ${resume.fileUrl}:`, error);
+              return resume;
+            }
+          }
+          return resume;
+        }));
+        res.json(resumesWithUrls);
+      } else {
+        res.json(resumes);
+      }
     } catch (error) {
       console.error("Get resumes error:", error);
       res.status(500).json({ error: "Failed to fetch resumes" });
@@ -407,42 +441,65 @@ Focus on investment analysis, portfolio management, and financial reporting quer
         return res.status(404).json({ error: "Resume file path not found" });
       }
       
-      const resumePath = path.join(process.cwd(), targetResume.fileUrl.replace(/^\//, ''));
-      
-      if (!fs.existsSync(resumePath)) {
-        return res.status(404).json({ error: "Resume file not found" });
-      }
+      // Check if it's an object storage file
+      if (isObjectStorageConfigured() && targetResume.fileUrl.includes('.private/resumes/')) {
+        try {
+          // Get file from object storage
+          const { stream, contentType } = await getFromObjectStorage(targetResume.fileUrl);
+          
+          // Use the custom title as filename, ensure it has .pdf extension
+          let downloadFilename = targetResume.fileName;
+          if (!downloadFilename.toLowerCase().endsWith('.pdf')) {
+            downloadFilename = `${downloadFilename}.pdf`;
+          }
+          
+          res.setHeader('Content-Type', contentType || 'application/pdf');
+          res.setHeader('Content-Disposition', `attachment; filename="${downloadFilename}"`);
+          
+          stream.pipe(res);
+        } catch (error) {
+          console.error('Error getting file from object storage:', error);
+          res.status(404).json({ error: "Resume file not found" });
+        }
+      } else {
+        // Serve from local filesystem (dev mode)
+        const resumePath = path.join(process.cwd(), targetResume.fileUrl.replace(/^\//, ''));
+        
+        if (!fs.existsSync(resumePath)) {
+          return res.status(404).json({ error: "Resume file not found" });
+        }
 
-      // Set appropriate headers based on file type
-      const ext = path.extname(targetResume.fileName).toLowerCase();
-      let contentType = 'application/octet-stream';
-      
-      switch (ext) {
-        case '.pdf':
-          contentType = 'application/pdf';
-          break;
-        case '.html':
-          contentType = 'text/html';
-          break;
-        case '.doc':
-          contentType = 'application/msword';
-          break;
-        case '.docx':
-          contentType = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
-          break;
-      }
+        // Set appropriate headers based on file type
+        const ext = path.extname(targetResume.fileName).toLowerCase();
+        let contentType = 'application/octet-stream';
+        
+        switch (ext) {
+          case '.pdf':
+            contentType = 'application/pdf';
+            break;
+          case '.html':
+            contentType = 'text/html';
+            break;
+          case '.doc':
+            contentType = 'application/msword';
+            break;
+          case '.docx':
+            contentType = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+            break;
+        }
 
-      // Use the custom title as filename, ensure it has .pdf extension
-      let downloadFilename = targetResume.fileName;
-      if (!downloadFilename.toLowerCase().endsWith('.pdf')) {
-        downloadFilename = `${downloadFilename}.pdf`;
-      }
+        // Use the custom title as filename, ensure it has .pdf extension
+        let downloadFilename = targetResume.fileName;
+        if (!downloadFilename.toLowerCase().endsWith('.pdf')) {
+          downloadFilename = `${downloadFilename}.pdf`;
+        }
 
-      res.setHeader('Content-Type', contentType);
-      res.setHeader('Content-Disposition', `attachment; filename="${downloadFilename}"`);
-      
-      const fileStream = fs.createReadStream(resumePath);
-      fileStream.pipe(res);
+        res.setHeader('Content-Type', contentType);
+        res.setHeader('Content-Disposition', `attachment; filename="${downloadFilename}"`);
+        
+        const fileStream = fs.createReadStream(resumePath);
+        fileStream.pipe(res);
+      }
     } catch (error) {
       console.error("Error serving resume:", error);
       res.status(500).json({ error: "Failed to serve resume" });
@@ -462,15 +519,27 @@ Focus on investment analysis, portfolio management, and financial reporting quer
         return res.status(404).json({ error: "Resume not found" });
       }
 
-      // Delete the file from filesystem
+      // Delete the file from storage
       if (resumeToDelete.fileUrl) {
-        const resumePath = path.join(process.cwd(), resumeToDelete.fileUrl.replace(/^\//, ''));
-        if (fs.existsSync(resumePath)) {
-          fs.unlinkSync(resumePath);
+        // Check if it's an object storage key
+        if (isObjectStorageConfigured() && resumeToDelete.fileUrl.includes('.private/resumes/')) {
+          try {
+            await deleteFromObjectStorage(resumeToDelete.fileUrl);
+            console.log(`Deleted from object storage: ${resumeToDelete.fileUrl}`);
+          } catch (error) {
+            console.error('Failed to delete from object storage:', error);
+          }
+        } else {
+          // Delete from local filesystem (dev mode)
+          const resumePath = path.join(process.cwd(), resumeToDelete.fileUrl.replace(/^\//, ''));
+          if (fs.existsSync(resumePath)) {
+            fs.unlinkSync(resumePath);
+            console.log(`Deleted file: ${resumePath}`);
+          }
         }
       }
 
-      // Delete from storage
+      // Delete from database
       await storage.deleteResumeUpload(resumeId, 'employer');
       
       res.json({ success: true });
