@@ -330,8 +330,8 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
         <div className="text-center mb-12">
           <div className="bg-white/90 backdrop-blur-xl rounded-[2rem] border border-white/30 p-10 shadow-2xl hover:shadow-3xl transition-all duration-500"
                style={{
-                 backdropFilter: 'blur(20px) saturate(180%)',
-                 WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                 backdropFilter: 'blur(20px)',
+                 WebkitBackdropFilter: 'blur(20px)',
                  boxShadow: '0 20px 80px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
                }}>
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight" style={{ 
@@ -360,8 +360,8 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             {/* Video Upload Section */}
             <Card className="bg-white/90 backdrop-blur-xl border border-white/30 rounded-[2rem] overflow-hidden min-h-[420px] shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]"
                   style={{
-                    backdropFilter: 'blur(20px) saturate(180%)',
-                    WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
                     boxShadow: '0 25px 50px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
                   }}>
               <CardContent className="p-12">
@@ -449,8 +449,8 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             {/* Uploaded Videos */}
             <Card className="bg-white/90 backdrop-blur-xl border border-white/30 rounded-[2rem] overflow-hidden min-h-[500px] shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]"
                   style={{
-                    backdropFilter: 'blur(20px) saturate(180%)',
-                    WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
                     boxShadow: '0 25px 50px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
                   }}>
               <CardContent className="p-12">
@@ -575,8 +575,8 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             {/* PDF Upload Section */}
             <Card className="bg-white/90 backdrop-blur-xl border border-white/30 rounded-[2rem] overflow-hidden min-h-[420px] shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]"
                   style={{
-                    backdropFilter: 'blur(20px) saturate(180%)',
-                    WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
                     boxShadow: '0 25px 50px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
                   }}>
               <CardContent className="p-12">
@@ -664,8 +664,8 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             {/* Uploaded Resumes */}
             <Card className="bg-white/90 backdrop-blur-xl border border-white/30 rounded-[2rem] overflow-hidden min-h-[500px] shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02]"
                   style={{
-                    backdropFilter: 'blur(20px) saturate(180%)',
-                    WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
                     boxShadow: '0 25px 50px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.1)'
                   }}>
               <CardContent className="p-12">

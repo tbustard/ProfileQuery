@@ -671,8 +671,8 @@ export default function Resume() {
         } hover:scale-105 shadow-xl hover:shadow-2xl`}
         style={{ 
           background: 'rgba(255, 255, 255, 0.92)',
-          backdropFilter: 'blur(20px) saturate(180%)',
-          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
           border: '1px solid rgba(0, 0, 0, 0.08)'
         }}
         data-testid="scroll-to-top-button"

@@ -212,10 +212,10 @@ export default function HeroSection() {
             {/* Education Card */}
             <div 
               onClick={() => scrollToSection('education')}
-              className={`bg-white/90 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer min-h-[200px] sm:min-h-[220px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
+              className={`bg-white/90 backdrop-blur-[20px] border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer min-h-[200px] sm:min-h-[220px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
-                   backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
-                   WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
+                   backdropFilter: 'blur(20px)',
+                   WebkitBackdropFilter: 'blur(20px)',
                    animationDelay: '0.5s'
                  }}
                  data-testid="card-education">
@@ -233,10 +233,10 @@ export default function HeroSection() {
             {/* Experience Card */}
             <div 
               onClick={() => scrollToSection('experience')}
-              className={`bg-white/90 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer min-h-[200px] sm:min-h-[220px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
+              className={`bg-white/90 backdrop-blur-[20px] border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer min-h-[200px] sm:min-h-[220px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
-                   backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
-                   WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
+                   backdropFilter: 'blur(20px)',
+                   WebkitBackdropFilter: 'blur(20px)',
                    animationDelay: '0.6s'
                  }}
                  data-testid="card-experience">
@@ -265,10 +265,10 @@ export default function HeroSection() {
             {/* Certifications Card */}
             <div 
               onClick={() => scrollToSection('certifications')}
-              className={`bg-white/90 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer min-h-[200px] sm:min-h-[220px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
+              className={`bg-white/90 backdrop-blur-[20px] border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer min-h-[200px] sm:min-h-[220px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
-                   backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
-                   WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
+                   backdropFilter: 'blur(20px)',
+                   WebkitBackdropFilter: 'blur(20px)',
                    animationDelay: '0.7s'
                  }}
                  data-testid="card-certifications">
@@ -297,10 +297,10 @@ export default function HeroSection() {
             {/* Community Card */}
             <div 
               onClick={() => scrollToSection('community')}
-              className={`bg-white/90 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer min-h-[200px] sm:min-h-[220px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
+              className={`bg-white/90 backdrop-blur-[20px] border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer min-h-[200px] sm:min-h-[220px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
-                   backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
-                   WebkitBackdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
+                   backdropFilter: 'blur(20px)',
+                   WebkitBackdropFilter: 'blur(20px)',
                    animationDelay: '0.8s'
                  }}
                  data-testid="card-community">
