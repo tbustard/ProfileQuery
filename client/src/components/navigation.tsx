@@ -599,11 +599,11 @@ export default function Navigation() {
                               <div className="space-y-1">
                                 <div className="text-sm font-bold text-gray-900">Next Gen Ambassador</div>
                                 <div className="text-xs text-gray-600">United Way</div>
-                                <div className="text-xs text-gray-500">Saint John, NB • 2019-2020</div>
+                                <div className="text-xs text-gray-500">Kingston, ON • 2020-2023</div>
                               </div>
                             </button>
 
-                            {/* Irving Oil Competition */}
+                            {/* RBC Student Ambassador */}
                             <button 
                               onClick={() => {
                                 scrollToSection('#community');
@@ -612,7 +612,22 @@ export default function Navigation() {
                               className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
                             >
                               <div className="space-y-1">
-                                <div className="text-sm font-bold text-gray-900">Big Dream Competition</div>
+                                <div className="text-sm font-bold text-gray-900">Student Ambassador</div>
+                                <div className="text-xs text-gray-600">Royal Bank of Canada</div>
+                                <div className="text-xs text-gray-500">Fredericton, NB • 2019-2020</div>
+                              </div>
+                            </button>
+
+                            {/* Irving Oil Volunteer */}
+                            <button 
+                              onClick={() => {
+                                scrollToSection('#community');
+                                setOpenDropdown(null);
+                              }}
+                              className="w-full text-left hover:bg-gray-100/50 rounded-lg p-3 transition-all duration-200"
+                            >
+                              <div className="space-y-1">
+                                <div className="text-sm font-bold text-gray-900">Volunteer Staff</div>
                                 <div className="text-xs text-gray-600">Irving Oil Limited</div>
                                 <div className="text-xs text-gray-500">Saint John, NB • 2018</div>
                               </div>
