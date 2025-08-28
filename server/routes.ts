@@ -9,7 +9,6 @@ import path from "path";
 import fs from "fs";
 import crypto from "crypto";
 import cloudinary from "./cloudinary";
-import { uploadToObjectStorage, getFromObjectStorage, deleteFromObjectStorage, isObjectStorageConfigured, getPresignedUrl } from "./objectStorage";
 
 if (!process.env.OPENAI_API_KEY && !process.env.OPENAI_API_KEY_ENV_VAR) {
   console.warn("Warning: No OpenAI API key found in environment variables");
@@ -60,9 +59,23 @@ const videoUpload = multer({
   },
 });
 
-// Configure multer for resume uploads (memory storage for database)
+// Configure multer for resume uploads (disk storage like videos)  
 const resumeUpload = multer({
-  storage: multer.memoryStorage(),
+  storage: multer.diskStorage({
+    destination: (req, file, cb) => {
+      const resumeDir = path.join(process.cwd(), 'uploads', 'resumes');
+      // Ensure directory exists
+      if (!fs.existsSync(resumeDir)) {
+        fs.mkdirSync(resumeDir, { recursive: true });
+      }
+      cb(null, resumeDir);
+    },
+    filename: (req, file, cb) => {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      const ext = path.extname(file.originalname);
+      cb(null, `resume-${uniqueSuffix}${ext}`);
+    }
+  }),
   limits: {
     fileSize: 10 * 1024 * 1024, // 10MB limit
   },
@@ -292,7 +305,7 @@ Focus on investment analysis, portfolio management, and financial reporting quer
     }
   });
 
-  // Resume upload endpoint
+  // Resume upload endpoint (works exactly like video upload)
   app.post("/api/resumes/upload", resumeUpload.single('resume'), async (req, res) => {
     try {
       if (!req.file) {
@@ -301,64 +314,13 @@ Focus on investment analysis, portfolio management, and financial reporting quer
 
       const { userId = 'employer', title } = req.body;
       
-      let fileUrl: string;
-      let storageKey: string | null = null;
-      
-      // Check if object storage is configured (for production)
-      if (isObjectStorageConfigured()) {
-        console.log('Using object storage for resume upload');
-        try {
-          // Upload to object storage
-          const uploaded = await uploadToObjectStorage(
-            req.file.buffer,
-            req.file.originalname,
-            req.file.mimetype
-          );
-          
-          fileUrl = uploaded.url;
-          storageKey = uploaded.key;
-          console.log(`Resume uploaded to object storage: ${storageKey}`);
-        } catch (storageError: any) {
-          console.error('Object storage upload failed:', storageError);
-          return res.status(500).json({ 
-            error: "Failed to upload file to cloud storage", 
-            details: storageError.message 
-          });
-        }
-      } else {
-        // Fallback to local filesystem (development only)
-        console.log('Using local filesystem for resume upload (dev mode)');
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        const ext = path.extname(req.file.originalname);
-        const generatedFilename = `resume-${uniqueSuffix}${ext}`;
-        
-        const baseDir = process.cwd();
-        const resumeDir = path.resolve(baseDir, 'uploads', 'resumes');
-        const resumePath = path.resolve(resumeDir, generatedFilename);
-        
-        try {
-          if (!fs.existsSync(resumeDir)) {
-            fs.mkdirSync(resumeDir, { recursive: true });
-          }
-          
-          fs.writeFileSync(resumePath, req.file.buffer);
-          fileUrl = `/uploads/resumes/${generatedFilename}`;
-        } catch (fsError: any) {
-          console.error('File system error:', fsError);
-          return res.status(500).json({ 
-            error: "Failed to save file", 
-            details: fsError.message 
-          });
-        }
-      }
-      
-      // Create resume record in storage with all required fields
+      // Create resume record in storage - just like videos
       const resume = await storage.createResumeUpload({
-        fileName: title || req.file.originalname,
-        fileUrl: storageKey || fileUrl, // Store the key for object storage, URL for filesystem
+        fileName: title || req.file.originalname, // Use custom title if provided
+        fileUrl: `/uploads/resumes/${req.file.filename}`, // Use the disk storage path
         userId,
         fileSize: req.file.size,
-        isActive: true,
+        isActive: true, // Set new resume as active by default
         description: req.body.description || null
       });
 
@@ -368,10 +330,7 @@ Focus on investment analysis, portfolio management, and financial reporting quer
       console.log(`Resume upload successful: ${resume.id}`);
       res.json({ 
         success: true, 
-        resume: {
-          ...resume,
-          fileUrl: storageKey ? await getPresignedUrl(storageKey, 3600 * 24 * 30) : fileUrl // Return presigned URL for object storage
-        },
+        resume,
         message: "Resume uploaded successfully"
       });
     } catch (error: any) {
@@ -383,38 +342,19 @@ Focus on investment analysis, portfolio management, and financial reporting quer
     }
   });
 
-  // Get resumes for a user
+  // Get resumes for a user (works like videos)
   app.get("/api/resumes/:userId", async (req, res) => {
     try {
       const { userId } = req.params;
       const resumes = await storage.getResumeUploads(userId);
-      
-      // If using object storage, generate presigned URLs for each resume
-      if (isObjectStorageConfigured()) {
-        const resumesWithUrls = await Promise.all(resumes.map(async (resume) => {
-          // Check if fileUrl is actually an object storage key
-          if (resume.fileUrl && resume.fileUrl.includes('.private/resumes/')) {
-            try {
-              const presignedUrl = await getPresignedUrl(resume.fileUrl, 3600 * 24); // 24 hours
-              return { ...resume, fileUrl: presignedUrl };
-            } catch (error) {
-              console.error(`Failed to generate URL for ${resume.fileUrl}:`, error);
-              return resume;
-            }
-          }
-          return resume;
-        }));
-        res.json(resumesWithUrls);
-      } else {
-        res.json(resumes);
-      }
+      res.json(resumes);
     } catch (error) {
       console.error("Get resumes error:", error);
       res.status(500).json({ error: "Failed to fetch resumes" });
     }
   });
 
-  // Get latest resume for download
+  // Get latest resume for download (works like videos)
   app.get("/api/resumes/latest/:userId", async (req, res) => {
     try {
       const { userId } = req.params;
@@ -441,72 +381,50 @@ Focus on investment analysis, portfolio management, and financial reporting quer
         return res.status(404).json({ error: "Resume file path not found" });
       }
       
-      // Check if it's an object storage file
-      if (isObjectStorageConfigured() && targetResume.fileUrl.includes('.private/resumes/')) {
-        try {
-          // Get file from object storage
-          const { stream, contentType } = await getFromObjectStorage(targetResume.fileUrl);
-          
-          // Use the custom title as filename, ensure it has .pdf extension
-          let downloadFilename = targetResume.fileName;
-          if (!downloadFilename.toLowerCase().endsWith('.pdf')) {
-            downloadFilename = `${downloadFilename}.pdf`;
-          }
-          
-          res.setHeader('Content-Type', contentType || 'application/pdf');
-          res.setHeader('Content-Disposition', `attachment; filename="${downloadFilename}"`);
-          
-          stream.pipe(res);
-        } catch (error) {
-          console.error('Error getting file from object storage:', error);
-          res.status(404).json({ error: "Resume file not found" });
-        }
-      } else {
-        // Serve from local filesystem (dev mode)
-        const resumePath = path.join(process.cwd(), targetResume.fileUrl.replace(/^\//, ''));
-        
-        if (!fs.existsSync(resumePath)) {
-          return res.status(404).json({ error: "Resume file not found" });
-        }
-
-        // Set appropriate headers based on file type
-        const ext = path.extname(targetResume.fileName).toLowerCase();
-        let contentType = 'application/octet-stream';
-        
-        switch (ext) {
-          case '.pdf':
-            contentType = 'application/pdf';
-            break;
-          case '.html':
-            contentType = 'text/html';
-            break;
-          case '.doc':
-            contentType = 'application/msword';
-            break;
-          case '.docx':
-            contentType = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
-            break;
-        }
-
-        // Use the custom title as filename, ensure it has .pdf extension
-        let downloadFilename = targetResume.fileName;
-        if (!downloadFilename.toLowerCase().endsWith('.pdf')) {
-          downloadFilename = `${downloadFilename}.pdf`;
-        }
-
-        res.setHeader('Content-Type', contentType);
-        res.setHeader('Content-Disposition', `attachment; filename="${downloadFilename}"`);
-        
-        const fileStream = fs.createReadStream(resumePath);
-        fileStream.pipe(res);
+      // Serve from local filesystem (just like videos)
+      const resumePath = path.join(process.cwd(), targetResume.fileUrl.replace(/^\//, ''));
+      
+      if (!fs.existsSync(resumePath)) {
+        return res.status(404).json({ error: "Resume file not found" });
       }
+
+      // Set appropriate headers based on file type
+      const ext = path.extname(targetResume.fileName).toLowerCase();
+      let contentType = 'application/octet-stream';
+      
+      switch (ext) {
+        case '.pdf':
+          contentType = 'application/pdf';
+          break;
+        case '.html':
+          contentType = 'text/html';
+          break;
+        case '.doc':
+          contentType = 'application/msword';
+          break;
+        case '.docx':
+          contentType = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+          break;
+      }
+
+      // Use the custom title as filename, ensure it has .pdf extension
+      let downloadFilename = targetResume.fileName;
+      if (!downloadFilename.toLowerCase().endsWith('.pdf')) {
+        downloadFilename = `${downloadFilename}.pdf`;
+      }
+
+      res.setHeader('Content-Type', contentType);
+      res.setHeader('Content-Disposition', `attachment; filename="${downloadFilename}"`);
+      
+      const fileStream = fs.createReadStream(resumePath);
+      fileStream.pipe(res);
     } catch (error) {
       console.error("Error serving resume:", error);
       res.status(500).json({ error: "Failed to serve resume" });
     }
   });
 
-  // Delete resume endpoint
+  // Delete resume endpoint (works like videos)
   app.delete("/api/resumes/:resumeId", async (req, res) => {
     try {
       const { resumeId } = req.params;
@@ -519,23 +437,12 @@ Focus on investment analysis, portfolio management, and financial reporting quer
         return res.status(404).json({ error: "Resume not found" });
       }
 
-      // Delete the file from storage
+      // Delete the file from filesystem
       if (resumeToDelete.fileUrl) {
-        // Check if it's an object storage key
-        if (isObjectStorageConfigured() && resumeToDelete.fileUrl.includes('.private/resumes/')) {
-          try {
-            await deleteFromObjectStorage(resumeToDelete.fileUrl);
-            console.log(`Deleted from object storage: ${resumeToDelete.fileUrl}`);
-          } catch (error) {
-            console.error('Failed to delete from object storage:', error);
-          }
-        } else {
-          // Delete from local filesystem (dev mode)
-          const resumePath = path.join(process.cwd(), resumeToDelete.fileUrl.replace(/^\//, ''));
-          if (fs.existsSync(resumePath)) {
-            fs.unlinkSync(resumePath);
-            console.log(`Deleted file: ${resumePath}`);
-          }
+        const resumePath = path.join(process.cwd(), resumeToDelete.fileUrl.replace(/^\//, ''));
+        if (fs.existsSync(resumePath)) {
+          fs.unlinkSync(resumePath);
+          console.log(`Deleted file: ${resumePath}`);
         }
       }
 
