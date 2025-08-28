@@ -284,6 +284,14 @@ export default function Navigation() {
                     Certifications
                   </button>
 
+                  {/* Community */}
+                  <button
+                    onClick={() => scrollToSection('#community')}
+                    className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 text-gray-700 hover:text-blue-600 hover:bg-blue-50/30"
+                  >
+                    Community
+                  </button>
+
                   {/* Contact */}
                   <button
                     onClick={() => scrollToSection('#contact')}
@@ -641,7 +649,7 @@ export default function Navigation() {
               )}
 
               {/* Community */}
-              {(isHomePage || isResumePage) && (
+              {isHomePage && (
                 <div 
                   className="relative dropdown-container"
                   onMouseEnter={() => handleDropdownEnter('community')}
