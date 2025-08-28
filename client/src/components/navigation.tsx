@@ -303,53 +303,6 @@ export default function Navigation() {
               )}
 
               {/* Home Page Navigation - With Dropdowns */}
-              {isHomePage && (
-                <>
-                  {/* Contact */}
-                  <div 
-                    className="relative dropdown-container"
-                    onMouseEnter={() => handleDropdownEnter('contact')}
-                    onMouseLeave={handleDropdownLeave}
-                  >
-                    <button
-                      onClick={() => {
-                        const element = document.getElementById('contact');
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                      }}
-                      className="px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 flex items-center gap-1 text-gray-700 hover:text-blue-600 hover:bg-blue-50/30"
-                    >
-                      Contact
-                      <ChevronDown size={14} className={`transition-transform duration-200 ${openDropdown === 'contact' ? 'rotate-180' : ''}`} />
-                    </button>
-                    
-                    {openDropdown === 'contact' && (
-                      <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
-                        <div 
-                          className="rounded-xl p-4 shadow-xl transition-all duration-200"
-                          style={{
-                            background: 'rgba(255, 255, 255, 0.92)',
-                            backdropFilter: 'blur(20px) saturate(180%)',
-                            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                            border: '1px solid rgba(0, 0, 0, 0.08)',
-                            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
-                          }}
-                          onMouseEnter={() => handleDropdownEnter('contact')}
-                          onMouseLeave={handleDropdownLeave}
-                        >
-                          <div className="space-y-2">
-                            <div className="text-sm font-bold text-gray-900">Get in Touch</div>
-                            <div className="text-xs text-gray-600">tbustard@unb.ca</div>
-                            <div className="text-xs text-gray-600">+1 (613) 985-1223</div>
-                            <div className="text-xs text-gray-500">Toronto, Ontario</div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </>
-              )}
               
               {/* Education */}
               {isHomePage && (
