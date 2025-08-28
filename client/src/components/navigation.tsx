@@ -113,8 +113,8 @@ export default function Navigation() {
 
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -70% 0px',
-      threshold: [0.1, 0.5, 0.9]
+      rootMargin: '-10% 0px -60% 0px',
+      threshold: [0, 0.1, 0.25, 0.5, 0.75, 1]
     };
 
     let visibleSections = new Map();
@@ -143,10 +143,20 @@ export default function Navigation() {
     };
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
-    const sections = document.querySelectorAll('section[id]');
-    sections.forEach((section) => observer.observe(section));
+    
+    // Add a small delay to ensure sections are rendered before observing
+    const setupObserver = () => {
+      const sections = document.querySelectorAll('section[id]');
+      sections.forEach((section) => observer.observe(section));
+    };
+    
+    // Setup immediately and also after a short delay to catch any late-rendered sections
+    setupObserver();
+    const delayTimer = setTimeout(setupObserver, 100);
 
     return () => {
+      clearTimeout(delayTimer);
+      const sections = document.querySelectorAll('section[id]');
       sections.forEach((section) => observer.unobserve(section));
       visibleSections.clear();
     };
