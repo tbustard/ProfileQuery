@@ -18,11 +18,21 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || process.env.OPENAI_API_KEY_ENV_VAR || "" 
 });
 
-// Ensure uploads directory exists
+// Ensure uploads directories exist on server startup
 const uploadsDir = path.join(process.cwd(), 'uploads/videos');
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
-}
+const resumesDir = path.join(process.cwd(), 'uploads/resumes');
+
+// Create both directories if they don't exist
+[uploadsDir, resumesDir].forEach(dir => {
+  if (!fs.existsSync(dir)) {
+    try {
+      fs.mkdirSync(dir, { recursive: true });
+      console.log(`Created uploads directory: ${dir}`);
+    } catch (error) {
+      console.error(`Failed to create directory ${dir}:`, error);
+    }
+  }
+});
 
 // Configure multer for video uploads (disk storage)
 const videoUpload = multer({
@@ -294,16 +304,41 @@ Focus on investment analysis, portfolio management, and financial reporting quer
       const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
       const ext = path.extname(req.file.originalname);
       const generatedFilename = `resume-${uniqueSuffix}${ext}`;
-      const resumePath = path.join(process.cwd(), 'uploads/resumes', generatedFilename);
       
-      // Ensure directory exists
-      const resumeDir = path.join(process.cwd(), 'uploads/resumes');
-      if (!fs.existsSync(resumeDir)) {
-        fs.mkdirSync(resumeDir, { recursive: true });
+      // Use absolute path resolution to ensure it works in all environments
+      const baseDir = process.cwd();
+      const resumeDir = path.resolve(baseDir, 'uploads', 'resumes');
+      const resumePath = path.resolve(resumeDir, generatedFilename);
+      
+      console.log(`Creating resume directory: ${resumeDir}`);
+      console.log(`Saving resume to: ${resumePath}`);
+      
+      // Ensure directory exists with proper error handling
+      try {
+        if (!fs.existsSync(resumeDir)) {
+          fs.mkdirSync(resumeDir, { recursive: true });
+          console.log(`Directory created successfully: ${resumeDir}`);
+        }
+        
+        // Verify directory is writable
+        fs.accessSync(resumeDir, fs.constants.W_OK);
+        
+        // Write the buffer to disk with error handling
+        fs.writeFileSync(resumePath, req.file.buffer);
+        console.log(`File written successfully: ${resumePath}`);
+        
+        // Verify file was written
+        if (!fs.existsSync(resumePath)) {
+          throw new Error('File was not written to disk');
+        }
+        
+      } catch (fsError: any) {
+        console.error('File system error:', fsError);
+        return res.status(500).json({ 
+          error: "Failed to save file to server", 
+          details: fsError.message 
+        });
       }
-      
-      // Write the buffer to disk
-      fs.writeFileSync(resumePath, req.file.buffer);
       
       // Create resume record in storage with all required fields
       const resume = await storage.createResumeUpload({
@@ -318,6 +353,7 @@ Focus on investment analysis, portfolio management, and financial reporting quer
       // Deactivate other resumes
       await storage.deactivateOtherResumes(resume.id, userId);
 
+      console.log(`Resume upload successful: ${resume.id}`);
       res.json({ 
         success: true, 
         resume,
@@ -325,7 +361,10 @@ Focus on investment analysis, portfolio management, and financial reporting quer
       });
     } catch (error: any) {
       console.error("Resume upload error:", error);
-      res.status(500).json({ error: "Failed to upload resume" });
+      res.status(500).json({ 
+        error: "Failed to upload resume", 
+        details: error.message 
+      });
     }
   });
 
