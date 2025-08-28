@@ -92,8 +92,22 @@ app.use((req, res, next) => {
       port,
       host: "0.0.0.0",
       reusePort: true,
-    }, () => {
+    }, async () => {
       log(`serving on port ${port}`);
+      
+      // Ensure employer user exists for PDF uploads (foreign key requirement)
+      try {
+        const { storage } = await import('./storage');
+        await storage.upsertUser({
+          id: 'employer',
+          email: 'employer@tylerbustard.ca',
+          firstName: 'Admin',
+          lastName: 'User',
+        });
+        log('Employer user ready for PDF uploads');
+      } catch (error) {
+        log('Note: Employer user initialization - ' + error, 'error');
+      }
     });
   
   } catch (error) {
