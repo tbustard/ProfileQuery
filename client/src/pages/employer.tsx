@@ -299,18 +299,30 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Homepage
           </Button>
-          <Button 
-            variant="ghost" 
-            onClick={() => {
-              localStorage.removeItem('employerAuth');
-              window.location.href = '/';
-            }}
-            data-testid="button-logout"
-            className="text-gray-600 hover:text-gray-900 font-medium"
-            style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
-          >
-            Sign Out
-          </Button>
+          
+          <div className="flex items-center gap-4">
+            <Button 
+              variant="ghost" 
+              onClick={() => window.location.href = '#community'}
+              className="text-gray-600 hover:text-gray-900 font-medium"
+              data-testid="button-community"
+              style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+            >
+              Community
+            </Button>
+            <Button 
+              variant="ghost" 
+              onClick={() => {
+                localStorage.removeItem('employerAuth');
+                window.location.href = '/';
+              }}
+              data-testid="button-logout"
+              className="text-gray-600 hover:text-gray-900 font-medium"
+              style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif' }}
+            >
+              Sign Out
+            </Button>
+          </div>
         </div>
         
         {/* Hero Header Section with Glass Effect */}
