@@ -221,7 +221,7 @@ export default function HeroSection() {
                  data-testid="card-education">
               <div className="flex items-center gap-3 mb-1">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center relative">
-                  <img src={unbLogo} alt="Education" className="w-6 h-6 object-contain" />
+                  <img src={unbLogo} alt="University of New Brunswick Education" className="w-6 h-6 object-contain" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground">Education</h3>
               </div>
@@ -245,13 +245,13 @@ export default function HeroSection() {
                   {/* Three most recent experience logos stacked */}
                   <div className="flex relative">
                     <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-30">
-                      <img src={fiscalAiLogo} alt="Fiscal.ai" className="w-4 h-4 object-contain" />
+                      <img src={fiscalAiLogo} alt="Fiscal.ai Financial Technology Company" className="w-4 h-4 object-contain" />
                     </div>
                     <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-20 -ml-2">
-                      <img src={bmoLogo} alt="BMO" className="w-4 h-4 object-contain" />
+                      <img src={bmoLogo} alt="BMO Bank of Montreal Financial Services" className="w-4 h-4 object-contain" />
                     </div>
                     <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-10 -ml-2">
-                      <img src={tdLogo} alt="TD" className="w-4 h-4 object-contain" />
+                      <img src={tdLogo} alt="TD Bank Financial Services" className="w-4 h-4 object-contain" />
                     </div>
                   </div>
                 </div>
@@ -277,13 +277,13 @@ export default function HeroSection() {
                   {/* Three most recent certification logos stacked */}
                   <div className="flex relative">
                     <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-30">
-                      <img src={cfaLogo} alt="CFA" className="w-4 h-4 object-contain" />
+                      <img src={cfaLogo} alt="CFA Chartered Financial Analyst Institute" className="w-4 h-4 object-contain" />
                     </div>
                     <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-20 -ml-2">
-                      <img src={trainingTheStreetLogo} alt="Training the Street" className="w-4 h-4 object-contain" />
+                      <img src={trainingTheStreetLogo} alt="Training the Street Financial Modeling Certification" className="w-4 h-4 object-contain" />
                     </div>
                     <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-10 -ml-2">
-                      <img src={etsLogo} alt="ETS" className="w-4 h-4 object-contain" />
+                      <img src={etsLogo} alt="ETS Educational Testing Service Certification" className="w-4 h-4 object-contain" />
                     </div>
                   </div>
                 </div>
@@ -309,13 +309,13 @@ export default function HeroSection() {
                   {/* Three most recent community logos stacked */}
                   <div className="flex relative">
                     <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-30">
-                      <img src={unitedWayLogo} alt="United Way" className="w-4 h-4 object-contain" />
+                      <img src={unitedWayLogo} alt="United Way Community Volunteer Organization" className="w-4 h-4 object-contain" />
                     </div>
                     <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-20 -ml-2">
-                      <img src={rbcLogo} alt="RBC" className="w-4 h-4 object-contain" />
+                      <img src={rbcLogo} alt="RBC Royal Bank of Canada" className="w-4 h-4 object-contain" />
                     </div>
                     <div className="w-6 h-6 bg-white rounded-full border-2 border-white shadow-md flex items-center justify-center relative z-10 -ml-2">
-                      <img src={irvingLogo} alt="Irving Oil" className="w-4 h-4 object-contain" />
+                      <img src={irvingLogo} alt="Irving Oil Energy Company" className="w-4 h-4 object-contain" />
                     </div>
                   </div>
                 </div>

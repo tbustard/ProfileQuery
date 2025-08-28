@@ -1,0 +1,33 @@
+# Robots.txt for tylerbustard.ca
+# Allow all crawlers
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /employer
+Disallow: /upload-resume
+Disallow: /resume-upload-signin
+Disallow: /upload-resume-dashboard
+
+# Sitemap location
+Sitemap: https://tylerbustard.ca/sitemap.xml
+
+# Crawl-delay for responsible crawling
+Crawl-delay: 1
+
+# Major search engine crawlers
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 0
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 0
