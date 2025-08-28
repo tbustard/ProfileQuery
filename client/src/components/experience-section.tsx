@@ -292,63 +292,31 @@ export default function ExperienceSection() {
           </div>
         </div>
 
-        {/* Professional Development Highlights */}
+        {/* Career Summary */}
         <div className="mt-16">
           <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
             <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-8 lg:p-12">
               <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-12 text-center">
-                Professional Development Highlights
+                Career Highlights
               </h3>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <CounterStat 
-                  end={22} 
-                  label="Total Certifications" 
+                  end={6} 
+                  suffix="+" 
+                  label="Years Experience" 
                   className="text-foreground"
                   delay={0}
                 />
                 <CounterStat 
-                  end={4} 
-                  label="Expertise Areas" 
+                  end={7} 
+                  label="Companies" 
                   className="text-green-600"
-                  delay={200}
-                />
-                <CounterStat 
-                  end={17} 
-                  label="Different Organizations" 
-                  className="text-primary"
-                  delay={400}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Community Highlights */}
-        <div className="mt-8">
-          <div className="bg-white/90 backdrop-blur-xl rounded-[28px] border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden">
-            <div className="bg-gradient-to-r from-gray-100/50 to-gray-200/50 p-8 lg:p-12">
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-12 text-center">
-                Community Highlights
-              </h3>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <CounterStat 
-                  end={4} 
-                  suffix="+"
-                  label="Years of Service" 
-                  className="text-foreground"
-                  delay={0}
-                />
-                <CounterStat 
-                  end={500} 
-                  suffix="+"
-                  label="People Helped" 
-                  className="text-primary"
                   delay={200}
                 />
                 <CounterStat 
                   end={3} 
-                  label="Organizations Served" 
-                  className="text-green-600"
+                  label="Industries" 
+                  className="text-primary"
                   delay={400}
                 />
               </div>
