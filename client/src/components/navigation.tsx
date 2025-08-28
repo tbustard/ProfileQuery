@@ -771,9 +771,9 @@ export default function Navigation() {
                       <div 
                         className="rounded-xl p-4 shadow-xl transition-all duration-200 mt-1"
                         style={{
-                          background: 'rgba(255, 255, 255, 0.92)',
-                          backdropFilter: 'blur(20px) saturate(180%)',
-                          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                          background: 'rgba(255, 255, 255, 0.95)',
+                          backdropFilter: 'blur(20px)',
+                          WebkitBackdropFilter: 'blur(20px)',
                           border: '1px solid rgba(0, 0, 0, 0.08)',
                           boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                         }}
@@ -824,9 +824,9 @@ export default function Navigation() {
                       <div 
                         className="rounded-xl p-4 shadow-xl transition-all duration-200 mt-1"
                         style={{
-                          background: 'rgba(255, 255, 255, 0.92)',
-                          backdropFilter: 'blur(20px) saturate(180%)',
-                          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                          background: 'rgba(255, 255, 255, 0.95)',
+                          backdropFilter: 'blur(20px)',
+                          WebkitBackdropFilter: 'blur(20px)',
                           border: '1px solid rgba(0, 0, 0, 0.08)',
                           boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                         }}
@@ -970,9 +970,9 @@ export default function Navigation() {
                       <div 
                         className="rounded-xl p-4 shadow-xl transition-all duration-200 mt-1"
                         style={{
-                          background: 'rgba(255, 255, 255, 0.92)',
-                          backdropFilter: 'blur(20px) saturate(180%)',
-                          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                          background: 'rgba(255, 255, 255, 0.95)',
+                          backdropFilter: 'blur(20px)',
+                          WebkitBackdropFilter: 'blur(20px)',
                           border: '1px solid rgba(0, 0, 0, 0.08)',
                           boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                         }}
@@ -1068,9 +1068,9 @@ export default function Navigation() {
                       <div 
                         className="rounded-xl p-4 shadow-xl transition-all duration-200 mt-1"
                         style={{
-                          background: 'rgba(255, 255, 255, 0.92)',
-                          backdropFilter: 'blur(20px) saturate(180%)',
-                          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                          background: 'rgba(255, 255, 255, 0.95)',
+                          backdropFilter: 'blur(20px)',
+                          WebkitBackdropFilter: 'blur(20px)',
                           border: '1px solid rgba(0, 0, 0, 0.08)',
                           boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                         }}
@@ -1156,9 +1156,9 @@ export default function Navigation() {
                       <div 
                         className="rounded-xl p-4 shadow-xl transition-all duration-200 mt-1"
                         style={{
-                          background: 'rgba(255, 255, 255, 0.92)',
-                          backdropFilter: 'blur(20px) saturate(180%)',
-                          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+                          background: 'rgba(255, 255, 255, 0.95)',
+                          backdropFilter: 'blur(20px)',
+                          WebkitBackdropFilter: 'blur(20px)',
                           border: '1px solid rgba(0, 0, 0, 0.08)',
                           boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                         }}
