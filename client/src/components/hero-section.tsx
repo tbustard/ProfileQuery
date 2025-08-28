@@ -264,7 +264,7 @@ export default function HeroSection() {
 
             {/* Certifications Card */}
             <div 
-              onClick={() => scrollToSection('skills')}
+              onClick={() => scrollToSection('certifications')}
               className={`bg-white/90 backdrop-blur-[20px] backdrop-saturate-[200%] backdrop-brightness-[110%] border border-white/20 rounded-2xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.02] page-load-fade-in cursor-pointer min-h-[200px] sm:min-h-[220px] flex flex-col justify-between ${isPageLoaded ? 'loaded' : ''}`}
                  style={{
                    backdropFilter: 'blur(20px) saturate(200%) brightness(110%)',
