@@ -668,8 +668,8 @@
   
   .liquid-glass-button:hover {
     background: rgba(255, 255, 255, 0.04) !important;
-    backdrop-filter: blur(25px) saturate(200%) !important;
-    -webkit-backdrop-filter: blur(25px) saturate(200%) !important;
+    backdrop-filter: blur(25px) !important;
+    -webkit-backdrop-filter: blur(25px) !important;
   }
 
   /* Clean Navigation Glass Effects */
