@@ -28,7 +28,24 @@ export default function Navigation() {
   const handleDropdownLeave = () => {
     const timeout = setTimeout(() => {
       setOpenDropdown(null);
-    }, 150); // 150ms delay before closing
+    }, 300); // Increased to 300ms delay for better UX
+    setHoverTimeout(timeout);
+  };
+
+  // Enhanced function to handle dropdown content hover
+  const handleDropdownContentEnter = (dropdownName: string) => {
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+      setHoverTimeout(null);
+    }
+    setOpenDropdown(dropdownName);
+  };
+
+  // Enhanced function to handle dropdown content leave
+  const handleDropdownContentLeave = () => {
+    const timeout = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 200); // Slightly shorter delay when leaving content
     setHoverTimeout(timeout);
   };
 
@@ -281,9 +298,9 @@ export default function Navigation() {
                     
                     {/* Education Dropdown */}
                     {openDropdown === 'education' && (
-                      <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
+                      <div className="absolute top-full left-0 -mt-1 w-80 z-[55] pt-1">
                         <div 
-                          className="rounded-xl p-4 shadow-xl transition-all duration-200"
+                          className="rounded-xl p-4 shadow-xl transition-all duration-200 mt-1"
                           style={{
                             background: 'rgba(255, 255, 255, 0.95)',
                             backdropFilter: 'blur(20px)',
@@ -291,8 +308,8 @@ export default function Navigation() {
                             border: '1px solid rgba(0, 0, 0, 0.08)',
                             boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                           }}
-                          onMouseEnter={() => handleDropdownEnter('education')}
-                          onMouseLeave={handleDropdownLeave}
+                          onMouseEnter={() => handleDropdownContentEnter('education')}
+                          onMouseLeave={handleDropdownContentLeave}
                         >
                           <button 
                             onClick={() => {
@@ -332,9 +349,9 @@ export default function Navigation() {
                     
                     {/* Experience Dropdown */}
                     {openDropdown === 'experience' && (
-                      <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
+                      <div className="absolute top-full left-0 -mt-1 w-80 z-[55] pt-1">
                         <div 
-                          className="rounded-xl p-4 shadow-xl transition-all duration-200"
+                          className="rounded-xl p-4 shadow-xl transition-all duration-200 mt-1"
                           style={{
                             background: 'rgba(255, 255, 255, 0.95)',
                             backdropFilter: 'blur(20px)',
@@ -342,8 +359,8 @@ export default function Navigation() {
                             border: '1px solid rgba(0, 0, 0, 0.08)',
                             boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                           }}
-                          onMouseEnter={() => handleDropdownEnter('experience')}
-                          onMouseLeave={handleDropdownLeave}
+                          onMouseEnter={() => handleDropdownContentEnter('experience')}
+                          onMouseLeave={handleDropdownContentLeave}
                         >
                           <div className="space-y-2 max-h-96 overflow-y-auto">
                             {/* Fiscal.ai */}
@@ -476,9 +493,9 @@ export default function Navigation() {
                     
                     {/* Certifications Dropdown */}
                     {openDropdown === 'certifications' && (
-                      <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
+                      <div className="absolute top-full left-0 -mt-1 w-80 z-[55] pt-1">
                         <div 
-                          className="rounded-xl p-4 shadow-xl transition-all duration-200"
+                          className="rounded-xl p-4 shadow-xl transition-all duration-200 mt-1"
                           style={{
                             background: 'rgba(255, 255, 255, 0.95)',
                             backdropFilter: 'blur(20px)',
@@ -486,8 +503,8 @@ export default function Navigation() {
                             border: '1px solid rgba(0, 0, 0, 0.08)',
                             boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                           }}
-                          onMouseEnter={() => handleDropdownEnter('certifications')}
-                          onMouseLeave={handleDropdownLeave}
+                          onMouseEnter={() => handleDropdownContentEnter('certifications')}
+                          onMouseLeave={handleDropdownContentLeave}
                         >
                           <div className="space-y-2 max-h-96 overflow-y-auto">
                             {/* CFA Level I */}
@@ -575,9 +592,9 @@ export default function Navigation() {
                     
                     {/* Community Dropdown */}
                     {openDropdown === 'community' && (
-                      <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
+                      <div className="absolute top-full left-0 -mt-1 w-80 z-[55] pt-1">
                         <div 
-                          className="rounded-xl p-4 shadow-xl transition-all duration-200"
+                          className="rounded-xl p-4 shadow-xl transition-all duration-200 mt-1"
                           style={{
                             background: 'rgba(255, 255, 255, 0.95)',
                             backdropFilter: 'blur(20px)',
@@ -659,9 +676,9 @@ export default function Navigation() {
                     
                     {/* Contact Dropdown */}
                     {openDropdown === 'contact' && (
-                      <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
+                      <div className="absolute top-full left-0 -mt-1 w-80 z-[55] pt-1">
                         <div 
-                          className="rounded-xl p-4 shadow-xl transition-all duration-200"
+                          className="rounded-xl p-4 shadow-xl transition-all duration-200 mt-1"
                           style={{
                             background: 'rgba(255, 255, 255, 0.95)',
                             backdropFilter: 'blur(20px)',
@@ -750,9 +767,9 @@ export default function Navigation() {
                   
                   {/* Education Dropdown */}
                   {openDropdown === 'education' && (
-                    <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
+                    <div className="absolute top-full left-0 -mt-1 w-80 z-[55] pt-1">
                       <div 
-                        className="rounded-xl p-4 shadow-xl transition-all duration-200"
+                        className="rounded-xl p-4 shadow-xl transition-all duration-200 mt-1"
                         style={{
                           background: 'rgba(255, 255, 255, 0.92)',
                           backdropFilter: 'blur(20px) saturate(180%)',
@@ -803,9 +820,9 @@ export default function Navigation() {
                   
                   {/* Experience Dropdown */}
                   {openDropdown === 'experience' && (
-                    <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
+                    <div className="absolute top-full left-0 -mt-1 w-80 z-[55] pt-1">
                       <div 
-                        className="rounded-xl p-4 shadow-xl transition-all duration-200"
+                        className="rounded-xl p-4 shadow-xl transition-all duration-200 mt-1"
                         style={{
                           background: 'rgba(255, 255, 255, 0.92)',
                           backdropFilter: 'blur(20px) saturate(180%)',
@@ -951,7 +968,7 @@ export default function Navigation() {
                   {openDropdown === 'certifications' && (
                     <div className="absolute top-full left-0 mt-2 w-96 z-[55]">
                       <div 
-                        className="rounded-xl p-4 shadow-xl transition-all duration-200"
+                        className="rounded-xl p-4 shadow-xl transition-all duration-200 mt-1"
                         style={{
                           background: 'rgba(255, 255, 255, 0.92)',
                           backdropFilter: 'blur(20px) saturate(180%)',
@@ -1047,9 +1064,9 @@ export default function Navigation() {
                   
                   {/* Community Dropdown */}
                   {openDropdown === 'community' && (
-                    <div className="absolute top-full left-0 mt-1 w-80 z-[55]">
+                    <div className="absolute top-full left-0 -mt-1 w-80 z-[55] pt-1">
                       <div 
-                        className="rounded-xl p-4 shadow-xl transition-all duration-200"
+                        className="rounded-xl p-4 shadow-xl transition-all duration-200 mt-1"
                         style={{
                           background: 'rgba(255, 255, 255, 0.92)',
                           backdropFilter: 'blur(20px) saturate(180%)',
@@ -1057,8 +1074,8 @@ export default function Navigation() {
                           border: '1px solid rgba(0, 0, 0, 0.08)',
                           boxShadow: '0 10px 40px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)'
                         }}
-                        onMouseEnter={() => handleDropdownEnter('community')}
-                        onMouseLeave={handleDropdownLeave}
+                        onMouseEnter={() => handleDropdownContentEnter('community')}
+                        onMouseLeave={handleDropdownContentLeave}
                       >
                         <div className="space-y-2 max-h-96 overflow-y-auto">
                           
@@ -1135,9 +1152,9 @@ export default function Navigation() {
                   
                   {/* Contact Dropdown */}
                   {openDropdown === 'contact' && (
-                    <div className="absolute top-full left-0 mt-2 w-72 z-[55]">
+                    <div className="absolute top-full left-0 -mt-1 w-72 z-[55] pt-1">
                       <div 
-                        className="rounded-xl p-4 shadow-xl transition-all duration-200"
+                        className="rounded-xl p-4 shadow-xl transition-all duration-200 mt-1"
                         style={{
                           background: 'rgba(255, 255, 255, 0.92)',
                           backdropFilter: 'blur(20px) saturate(180%)',
