@@ -153,38 +153,51 @@ function EmployerDashboard({ user }: { user: { email: string } }) {
     }
   };
 
-  // PDF upload mutation
+  // PDF upload mutation - Exactly matching video upload pattern
   const pdfUploadMutation = useMutation({
     mutationFn: async ({ file, title }: { file: File, title: string }) => {
+      console.log('Starting PDF upload:', { fileName: file.name, fileSize: file.size, title });
+      
       const formData = new FormData();
       formData.append('resume', file);
       formData.append('title', title);
       formData.append('userId', 'employer');
+      formData.append('description', `Uploaded via employer dashboard`);
       
       const response = await fetch('/api/resumes/upload', {
         method: 'POST',
         body: formData,
       });
       
+      console.log('PDF upload response status:', response.status);
+      
       if (!response.ok) {
-        throw new Error('Upload failed');
+        const errorText = await response.text();
+        console.error('PDF upload failed:', errorText);
+        throw new Error(`Upload failed: ${response.status} ${errorText}`);
       }
       
-      return response.json();
+      const result = await response.json();
+      console.log('PDF upload successful:', result);
+      return result;
     },
     onSuccess: (data) => {
+      console.log('PDF upload mutation success:', data);
       toast({
         title: "PDF Upload Successful",
-        description: "Your resume PDF has been uploaded successfully!",
+        description: `Your resume "${data.resume?.fileName || 'PDF'}" has been uploaded and set as active!`,
       });
       setSelectedPdf(null);
       setResumeTitle('');
+      // Invalidate and refetch both queries
+      queryClient.invalidateQueries({ queryKey: ['/api/resumes/employer'] });
       resumesQuery.refetch();
     },
-    onError: () => {
+    onError: (error: any) => {
+      console.error('PDF upload mutation error:', error);
       toast({
         title: "PDF Upload Failed", 
-        description: "Failed to upload PDF. Please try again.",
+        description: error.message || "Failed to upload PDF. Please try again.",
         variant: "destructive",
       });
     },
