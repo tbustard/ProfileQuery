@@ -299,7 +299,7 @@ export default function ExperienceSection() {
               <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-12 text-center">
                 Career Highlights
               </h3>
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
                 <CounterStat 
                   end={6} 
                   suffix="+" 
