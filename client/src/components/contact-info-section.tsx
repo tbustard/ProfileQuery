@@ -31,7 +31,7 @@ export default function ContactInfoSection() {
               Contact
             </h2>
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Interested in collaborating on innovative software solutions? Let's connect and explore how we can work together.
+              Ready to discuss your next project or opportunity? I'd love to hear from you.
             </p>
           </div>
 
